@@ -4,6 +4,7 @@
 
 # Xcode User settings
 xcuserdata/
+build/
 CashFlow.xcodeproj/project.xcworkspace/xcuserdata/
 
 # Swift Package Manager
