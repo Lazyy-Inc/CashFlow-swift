@@ -1,4 +1,0 @@
-module NotificationKit {
-header "NotificationKit-Swift.h"
-export *
-}

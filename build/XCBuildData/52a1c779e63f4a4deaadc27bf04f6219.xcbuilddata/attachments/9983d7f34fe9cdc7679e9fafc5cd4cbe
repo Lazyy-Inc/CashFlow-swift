@@ -1,4 +1,0 @@
-module AppAuthCore {
-umbrella "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/AppAuth-iOS/Sources/AppAuthCore"
-export *
-}

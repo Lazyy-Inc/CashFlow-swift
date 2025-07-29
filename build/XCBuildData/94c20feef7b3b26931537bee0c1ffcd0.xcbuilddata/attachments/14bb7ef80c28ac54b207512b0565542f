@@ -1,4 +1,0 @@
-module TheoKit {
-header "TheoKit-Swift.h"
-export *
-}

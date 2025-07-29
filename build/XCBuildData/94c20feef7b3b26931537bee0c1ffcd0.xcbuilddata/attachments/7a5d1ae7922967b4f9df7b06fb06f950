@@ -1,4 +1,0 @@
-module GoogleUtilities_AppDelegateSwizzler {
-umbrella "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/GoogleUtilities/GoogleUtilities/AppDelegateSwizzler/Public"
-export *
-}

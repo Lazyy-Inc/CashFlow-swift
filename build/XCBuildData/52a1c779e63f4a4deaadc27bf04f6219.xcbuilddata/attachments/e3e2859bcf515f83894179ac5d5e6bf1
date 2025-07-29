@@ -1,4 +1,0 @@
-module NavigationKit {
-header "NavigationKit-Swift.h"
-export *
-}

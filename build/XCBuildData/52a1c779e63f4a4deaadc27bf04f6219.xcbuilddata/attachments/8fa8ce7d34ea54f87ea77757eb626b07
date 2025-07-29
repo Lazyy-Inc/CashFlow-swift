@@ -1,4 +1,0 @@
-module GoogleUtilities_SwizzlerTestHelpers {
-umbrella "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/GoogleUtilities/GoogleUtilities/SwizzlerTestHelpers/Public"
-export *
-}
