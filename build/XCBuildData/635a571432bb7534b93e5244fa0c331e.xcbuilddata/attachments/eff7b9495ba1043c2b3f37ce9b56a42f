@@ -1,0 +1,4 @@
+module UserModule {
+header "UserModule-Swift.h"
+export *
+}

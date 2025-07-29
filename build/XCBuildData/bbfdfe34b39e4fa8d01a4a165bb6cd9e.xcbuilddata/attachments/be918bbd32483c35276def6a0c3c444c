@@ -1,0 +1,4 @@
+module GoogleUtilities_Logger {
+umbrella "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/GoogleUtilities/GoogleUtilities/Logger/Public"
+export *
+}

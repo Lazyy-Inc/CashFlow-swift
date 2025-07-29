@@ -1,0 +1,4 @@
+module OnboardingModule {
+header "OnboardingModule-Swift.h"
+export *
+}

@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests-master.dia",
+    "emit-module-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests-master-emit-module.dia",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests-master.swiftdeps"
+  },
+  "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/Tests/OnboardingModuleTests/OnboardingModuleTests.swift" : {
+    "const-values" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests.d",
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests.dia",
+    "index-unit-output-path" : "/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests.o",
+    "llvm-bc" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests.bc",
+    "object" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests.o",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/OnboardingModule/build/OnboardingModule.build/Debug-iphonesimulator/OnboardingModuleTests.build/Objects-normal/arm64/OnboardingModuleTests~partial.swiftmodule"
+  }
+}

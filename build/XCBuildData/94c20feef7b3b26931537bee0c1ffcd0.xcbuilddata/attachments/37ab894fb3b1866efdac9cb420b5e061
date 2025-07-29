@@ -1,0 +1,4 @@
+module third_party_IsAppEncrypted {
+umbrella "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/GoogleUtilities/third_party/IsAppEncrypted/Public"
+export *
+}

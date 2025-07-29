@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests-master.dia",
+    "emit-module-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests-master-emit-module.dia",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests-master.swiftdeps"
+  },
+  "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/Tests/DesignSystemModuleTests/DesignSystemModuleTests.swift" : {
+    "const-values" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests.d",
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests.dia",
+    "index-unit-output-path" : "/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests.o",
+    "llvm-bc" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests.bc",
+    "object" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests.o",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/DesignSystemModule/build/DesignSystemModule.build/Debug-iphonesimulator/DesignSystemModuleTests.build/Objects-normal/arm64/DesignSystemModuleTests~partial.swiftmodule"
+  }
+}

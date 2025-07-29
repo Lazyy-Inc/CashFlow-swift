@@ -37,7 +37,8 @@ let package = Package(
             name: "DesignSystemModule",
             dependencies: [
                 "CoreModule"
-            ]
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(
             name: "DesignSystemModuleTests",

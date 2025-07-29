@@ -1,0 +1,68 @@
+{
+  "" : {
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModule-master.dia",
+    "emit-module-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModule-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModule-master-emit-module.dia",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModule-master.swiftdeps"
+  },
+  "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/Sources/Models/AuthBody.swift" : {
+    "const-values" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthBody.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthBody.d",
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthBody.dia",
+    "index-unit-output-path" : "/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthBody.o",
+    "llvm-bc" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthBody.bc",
+    "object" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthBody.o",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthBody.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthBody~partial.swiftmodule"
+  },
+  "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/Sources/Models/UserModel.swift" : {
+    "const-values" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModel.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModel.d",
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModel.dia",
+    "index-unit-output-path" : "/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModel.o",
+    "llvm-bc" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModel.bc",
+    "object" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModel.o",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModel.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserModel~partial.swiftmodule"
+  },
+  "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/Sources/Network/AuthAPIRequester.swift" : {
+    "const-values" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthAPIRequester.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthAPIRequester.d",
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthAPIRequester.dia",
+    "index-unit-output-path" : "/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthAPIRequester.o",
+    "llvm-bc" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthAPIRequester.bc",
+    "object" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthAPIRequester.o",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthAPIRequester.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/AuthAPIRequester~partial.swiftmodule"
+  },
+  "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/Sources/Network/UserAPIRequester.swift" : {
+    "const-values" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserAPIRequester.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserAPIRequester.d",
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserAPIRequester.dia",
+    "index-unit-output-path" : "/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserAPIRequester.o",
+    "llvm-bc" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserAPIRequester.bc",
+    "object" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserAPIRequester.o",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserAPIRequester.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserAPIRequester~partial.swiftmodule"
+  },
+  "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/Sources/Network/UserService.swift" : {
+    "const-values" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserService.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserService.d",
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserService.dia",
+    "index-unit-output-path" : "/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserService.o",
+    "llvm-bc" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserService.bc",
+    "object" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserService.o",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserService.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserService~partial.swiftmodule"
+  },
+  "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/Sources/UserStore.swift" : {
+    "const-values" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserStore.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserStore.d",
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserStore.dia",
+    "index-unit-output-path" : "/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserStore.o",
+    "llvm-bc" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserStore.bc",
+    "object" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserStore.o",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserStore.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/UserModule/build/UserModule.build/Debug-iphonesimulator/UserModule.build/Objects-normal/arm64/UserStore~partial.swiftmodule"
+  }
+}

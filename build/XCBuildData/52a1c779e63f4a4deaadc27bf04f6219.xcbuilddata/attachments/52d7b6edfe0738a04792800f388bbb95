@@ -1,0 +1,4 @@
+module StatsKit {
+header "StatsKit-Swift.h"
+export *
+}

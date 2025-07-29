@@ -1,0 +1,4 @@
+module NetworkKit {
+header "NetworkKit-Swift.h"
+export *
+}

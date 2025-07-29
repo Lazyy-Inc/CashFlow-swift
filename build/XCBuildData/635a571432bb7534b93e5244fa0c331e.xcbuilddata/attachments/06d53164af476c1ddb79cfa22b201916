@@ -1,0 +1,88 @@
+{
+  "" : {
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/StatsKit-master.dia",
+    "emit-module-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/StatsKit-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/StatsKit-master-emit-module.dia",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/StatsKit-master.swiftdeps"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/Sources/Domain/Enums/EventType.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventType.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventType.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventType.dia",
+    "index-unit-output-path" : "/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventType.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventType.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventType.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventType.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventType~partial.swiftmodule"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/Sources/Domain/Models/EventModel.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventModel.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventModel.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventModel.dia",
+    "index-unit-output-path" : "/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventModel.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventModel.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventModel.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventModel.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventModel~partial.swiftmodule"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/Sources/Domain/Models/TrenchModel.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/TrenchModel.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/TrenchModel.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/TrenchModel.dia",
+    "index-unit-output-path" : "/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/TrenchModel.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/TrenchModel.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/TrenchModel.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/TrenchModel.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/TrenchModel~partial.swiftmodule"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/Sources/Domain/Protocols/AppEvent.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/AppEvent.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/AppEvent.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/AppEvent.dia",
+    "index-unit-output-path" : "/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/AppEvent.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/AppEvent.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/AppEvent.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/AppEvent.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/AppEvent~partial.swiftmodule"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/Sources/Network/APIRequesters/EventAPIRequester.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventAPIRequester.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventAPIRequester.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventAPIRequester.dia",
+    "index-unit-output-path" : "/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventAPIRequester.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventAPIRequester.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventAPIRequester.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventAPIRequester.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventAPIRequester~partial.swiftmodule"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/Sources/Network/Generic/BaseAPIRequester.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/BaseAPIRequester.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/BaseAPIRequester.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/BaseAPIRequester.dia",
+    "index-unit-output-path" : "/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/BaseAPIRequester.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/BaseAPIRequester.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/BaseAPIRequester.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/BaseAPIRequester.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/BaseAPIRequester~partial.swiftmodule"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/Sources/Network/Generic/NetworkPath.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/NetworkPath.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/NetworkPath.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/NetworkPath.dia",
+    "index-unit-output-path" : "/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/NetworkPath.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/NetworkPath.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/NetworkPath.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/NetworkPath.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/NetworkPath~partial.swiftmodule"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/Sources/Network/Services/EventService.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventService.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventService.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventService.dia",
+    "index-unit-output-path" : "/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventService.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventService.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventService.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventService.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/StatsKit/build/StatsKit.build/Debug-iphonesimulator/StatsKit.build/Objects-normal/arm64/EventService~partial.swiftmodule"
+  }
+}

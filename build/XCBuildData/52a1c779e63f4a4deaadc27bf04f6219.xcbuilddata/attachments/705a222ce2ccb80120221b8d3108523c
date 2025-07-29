@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests-master.dia",
+    "emit-module-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests-master-emit-module.dia",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests-master.swiftdeps"
+  },
+  "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/Tests/CoreModuleTests/CoreModuleTests.swift" : {
+    "const-values" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests.d",
+    "diagnostics" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests.dia",
+    "index-unit-output-path" : "/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests.o",
+    "llvm-bc" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests.bc",
+    "object" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests.o",
+    "swift-dependencies" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Code/Swift/Projects/iOS/CashFlow-swift/CoreModule/build/CoreModule.build/Debug-iphonesimulator/CoreModuleTests.build/Objects-normal/arm64/CoreModuleTests~partial.swiftmodule"
+  }
+}

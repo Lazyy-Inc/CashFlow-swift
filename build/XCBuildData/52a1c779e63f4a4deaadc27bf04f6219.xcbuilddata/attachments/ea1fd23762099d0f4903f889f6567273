@@ -1,0 +1,48 @@
+{
+  "" : {
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkKit-master.dia",
+    "emit-module-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkKit-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkKit-master-emit-module.dia",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkKit-master.swiftdeps"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/Sources/NetworkKit/APIRequestBuilder.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/APIRequestBuilder.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/APIRequestBuilder.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/APIRequestBuilder.dia",
+    "index-unit-output-path" : "/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/APIRequestBuilder.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/APIRequestBuilder.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/APIRequestBuilder.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/APIRequestBuilder.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/APIRequestBuilder~partial.swiftmodule"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/Sources/NetworkKit/HTTPMethod.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/HTTPMethod.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/HTTPMethod.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/HTTPMethod.dia",
+    "index-unit-output-path" : "/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/HTTPMethod.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/HTTPMethod.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/HTTPMethod.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/HTTPMethod.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/HTTPMethod~partial.swiftmodule"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/Sources/NetworkKit/NetworkError.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkError.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkError.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkError.dia",
+    "index-unit-output-path" : "/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkError.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkError.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkError.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkError.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkError~partial.swiftmodule"
+  },
+  "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/Sources/NetworkKit/NetworkService.swift" : {
+    "const-values" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkService.swiftconstvalues",
+    "dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkService.d",
+    "diagnostics" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkService.dia",
+    "index-unit-output-path" : "/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkService.o",
+    "llvm-bc" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkService.bc",
+    "object" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkService.o",
+    "swift-dependencies" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkService.swiftdeps",
+    "swiftmodule" : "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/NetworkKit/build/NetworkKit.build/Debug-iphonesimulator/NetworkKit.build/Objects-normal/arm64/NetworkService~partial.swiftmodule"
+  }
+}

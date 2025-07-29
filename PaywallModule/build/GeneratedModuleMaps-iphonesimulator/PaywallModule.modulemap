@@ -1,0 +1,4 @@
+module PaywallModule {
+header "PaywallModule-Swift.h"
+export *
+}

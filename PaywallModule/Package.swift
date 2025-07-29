@@ -25,7 +25,8 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule"
-            ]
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(
             name: "PaywallModuleTests",

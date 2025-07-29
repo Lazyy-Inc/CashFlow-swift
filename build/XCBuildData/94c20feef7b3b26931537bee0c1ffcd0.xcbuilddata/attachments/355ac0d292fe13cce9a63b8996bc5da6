@@ -1,0 +1,4 @@
+module CoreModule {
+header "CoreModule-Swift.h"
+export *
+}

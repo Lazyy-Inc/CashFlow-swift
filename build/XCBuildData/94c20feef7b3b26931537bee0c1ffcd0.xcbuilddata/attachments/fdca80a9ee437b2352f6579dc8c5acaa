@@ -1,0 +1,4 @@
+module AppAuth {
+umbrella "/Users/tsementa/Library/Developer/Xcode/DerivedData/CashFlow-axzczcmwourtbefzmerlyzjmcfbi/SourcePackages/checkouts/AppAuth-iOS/Sources/AppAuth"
+export *
+}

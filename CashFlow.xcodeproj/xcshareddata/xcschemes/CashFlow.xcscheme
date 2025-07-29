@@ -49,12 +49,6 @@
             ReferencedContainer = "container:CashFlow.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-com.apple.CoreData.CloudKitDebug"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <StoreKitConfigurationFileReference
          identifier = "../../TurboBudget/Core/InAppConfiguration/MainStoreKitConfiguration.storekit">
       </StoreKitConfigurationFileReference>
