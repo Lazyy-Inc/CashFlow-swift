@@ -1,4 +1,0 @@
-module DesignSystemModule {
-header "DesignSystemModule-Swift.h"
-export *
-}
