@@ -8,27 +8,10 @@
 import SwiftUICore
 import NavigationKit
 
-enum SavingsAccountDestination: AppDestinationProtocol {
+enum SavingsAccountDestination: DestinationItem {
     case create
     case update(savingsAccount: AccountModel)
     case list
     case detail(savingsAccount: AccountModel)
     case createTransaction(savingsAccount: AccountModel, transaction: TransactionModel? = nil)
-    
-    var id: Self { self }
-    
-    func body(route: Route) -> some View {
-        switch self {
-        case .create:
-            AccountAddScreen(type: .savings)
-        case .update(let account):
-            AccountAddScreen(type: .savings, account: account)
-        case .list:
-            SavingsAccountsListView()
-        case .detail(let savingsAccount):
-            SavingsAccountDetailScreen(savingsAccount: savingsAccount)
-        case .createTransaction(let savingsAccount, let transaction):
-            CreateTransactionForSavingsAccountScreen(savingsAccount: savingsAccount, transaction: transaction)
-        }
-    }
 }

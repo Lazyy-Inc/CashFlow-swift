@@ -8,15 +8,6 @@
 import SwiftUICore
 import NavigationKit
 
-enum TransferDestination: AppDestinationProtocol {
+enum TransferDestination: DestinationItem {
     case create(receiverAccount: AccountModel? = nil)
-    
-    var id: Self { self }
-    
-    func body(route: Route) -> some View {
-        switch self {
-        case .create(let receiverAccount):
-            TransferAddScreen(receiverAccount: receiverAccount)
-        }
-    }
 }

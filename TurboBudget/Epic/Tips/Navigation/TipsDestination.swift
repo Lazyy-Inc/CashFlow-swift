@@ -8,15 +8,6 @@
 import SwiftUICore
 import NavigationKit
 
-enum TipsDestination: AppDestinationProtocol {
+enum TipsDestination: DestinationItem {
     case applePayShortcut
-    
-    var id: Self { self }
-    
-    func body(route: Route) -> some View {
-        switch self {
-        case .applePayShortcut:
-            TipApplePayShortcutScreen()
-        }
-    }
 }

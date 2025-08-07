@@ -8,21 +8,8 @@
 import SwiftUICore
 import NavigationKit
 
-enum BudgetsDestination: AppDestinationProtocol {
+enum BudgetsDestination: DestinationItem {
     case list
     case create
     case transactions(subcategory: SubcategoryModel)
-    
-    var id: Self { self }
-    
-    func body(route: Route) -> some View {
-        switch self {
-        case .list:
-            BudgetsListScreen()
-        case .create:
-            BudgetAddScreen()
-        case .transactions(let subcategory):
-            BudgetsTransactionsListScreen(subcategory: subcategory)
-        }
-    }
 }

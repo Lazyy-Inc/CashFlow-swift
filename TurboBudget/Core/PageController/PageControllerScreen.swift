@@ -43,6 +43,11 @@ struct PageControllerScreen: View {
                 ZStack(alignment: .bottom) {
                     if accountStore.selectedAccount != nil {
                         TabView(selection: $appManager.selectedTab) {
+                            NavigationStackView(
+                                router: homeRouter,
+                                destinationContent: { AppDestination.content },
+                                initialContent: <#T##() -> View#>
+                            )
                             RoutedNavigationStack(router: homeRouter) {
                                 AppDestination.shared(.home).body(route: .push)
                             }

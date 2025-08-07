@@ -8,15 +8,6 @@
 import SwiftUICore
 import NavigationKit
 
-enum CreditCardDestination: AppDestinationProtocol {
+enum CreditCardDestination: DestinationItem {
     case create
-    
-    var id: Self { self }
-    
-    func body(route: Route) -> some View {
-        switch self {
-        case .create:
-            CreditCardAddScreen()
-        }
-    }
 }

@@ -8,25 +8,9 @@
 import SwiftUICore
 import NavigationKit
 
-enum SubscriptionDestination: AppDestinationProtocol {
+enum SubscriptionDestination: DestinationItem {
     case list
     case create
     case update(subscription: SubscriptionModel)
-    case detail(subscriptionId: Int)
-    
-    var id: Self { self }
-    
-    func body(route: Route) -> some View {
-        switch self {
-        case .list:
-            SubscriptionsListScreen()
-        case .create:
-            SubscriptionAddScreen()
-        case .update(let subscription):
-            SubscriptionAddScreen(subscription: subscription)
-        case .detail(let subscriptionId):
-            SubscriptionDetailsScreen(subscriptionId: subscriptionId)
-        }
-    }
-    
+    case detail(subscriptionId: Int)    
 }

@@ -8,7 +8,7 @@
 import SwiftUICore
 import NavigationKit
 
-enum SettingsDestination: AppDestinationProtocol {
+enum SettingsDestination: DestinationItem {
     case home
     case debug
     case general
@@ -19,31 +19,4 @@ enum SettingsDestination: AppDestinationProtocol {
     case subscription
     case credits
     case applePay
-    
-    var id: Self { self }
-    
-    func body(route: Route) -> some View {
-        switch self {
-        case .home:
-            SettingsScreen()
-        case .debug:
-            SettingsDebugView()
-        case .general:
-            SettingsGeneralView()
-        case .security:
-            SettingsSecurityView()
-        case .appearance:
-            SettingsAppearenceView()
-        case .display:
-            SettingsDisplayView()
-        case .account:
-            SettingsAccountScreen()
-        case .subscription:
-            SettingsSubscriptionScreen()
-        case .credits:
-            SettingsCreditsView()
-        case .applePay:
-            SettingsApplePayView()
-        }
-    }
 }
