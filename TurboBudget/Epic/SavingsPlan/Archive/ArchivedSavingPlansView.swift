@@ -41,7 +41,7 @@
 //                    VStack {
 ////                        LazyVGrid(columns: layout, alignment: .center) {
 ////                            ForEach(searchResults) { savingPlan in
-////                                NavigationButton(push: router.pushSavingPlansDetail(savingPlan: savingPlan)) {
+////                                NavigationButtonView(push: router.pushSavingPlansDetail(savingPlan: savingPlan)) {
 ////                                    SavingsPlanRowView(savingPlan: savingPlan)
 ////                                }
 ////                                .padding(.bottom)

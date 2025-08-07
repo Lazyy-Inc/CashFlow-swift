@@ -47,7 +47,7 @@ struct SavingsPlanListScreen: View {
         } content: { _ in
             LazyVGrid(columns: layout, alignment: .center) {
                 ForEach(searchResults) { savingsPlan in
-                    NavigationButton(
+                    NavigationButtonView(
                         route: .push,
                         destination: AppDestination.savingsPlan(.detail(savingsPlan: savingsPlan)),
                         onNavigate: {

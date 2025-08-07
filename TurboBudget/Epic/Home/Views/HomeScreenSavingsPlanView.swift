@@ -34,7 +34,7 @@ struct HomeScreenSavingsPlanView: View {
             if !savingsPlanStore.savingsPlans.isEmpty {
                 LazyVGrid(columns: layout, alignment: .center) {
                     ForEach(savingsPlanStore.savingsPlans.prefix(preferencesDisplayHome.savingsPlan_value)) { savingsPlan in
-                        NavigationButton(
+                        NavigationButtonView(
                             route: .push,
                             destination: AppDestination.savingsPlan(.detail(savingsPlan: savingsPlan)),
                             onNavigate: {

@@ -39,7 +39,7 @@ struct BudgetsTransactionsListScreen: View {
             if subcategory.transactions.isNotEmpty {
                 List(transactionStore.getExpenses(for: subcategory, in: .now)) { transaction in
                     Section {
-                        NavigationButton(route: .push, destination: AppDestination.transaction(.detail(transaction: transaction))) {
+                        NavigationButtonView(route: .push, destination: AppDestination.transaction(.detail(transaction: transaction))) {
                             TransactionRowView(transaction: transaction)
                         }
                         .listRowSeparator(.hidden)

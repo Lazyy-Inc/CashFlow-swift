@@ -43,26 +43,38 @@ struct PageControllerScreen: View {
                 ZStack(alignment: .bottom) {
                     if accountStore.selectedAccount != nil {
                         TabView(selection: $appManager.selectedTab) {
-                            RoutedNavigationStack(router: homeRouter) {
-                                AppDestination.shared(.home).body(route: .push)
+                            NavigationStackView(
+                                router: homeRouter,
+                                destinationContent: { AppDestination.content(for: $0) }
+                            ) {
+                                HomeScreen()
                             }
                             .tag(0)
                             .toolbar(.hidden, for: .tabBar)
                             
-                            RoutedNavigationStack(router: analyticsRouter) {
-                                AppDestination.shared(.analytics).body(route: .push)
+                            NavigationStackView(
+                                router: analyticsRouter,
+                                destinationContent: { AppDestination.content(for: $0) }
+                            ) {
+                                AnalyticsScreen()
                             }
                             .tag(1)
                             .toolbar(.hidden, for: .tabBar)
                             
-                            RoutedNavigationStack(router: dashboardRouter) {
-                                AppDestination.account(.dashboard).body(route: .push)
+                            NavigationStackView(
+                                router: dashboardRouter,
+                                destinationContent: { AppDestination.content(for: $0) }
+                            ) {
+                                AccountDashboardScreen()
                             }
                             .tag(2)
                             .toolbar(.hidden, for: .tabBar)
 
-                            RoutedNavigationStack(router: categoryRouter) {
-                                AppDestination.category(.list).body(route: .push)
+                            NavigationStackView(
+                                router: categoryRouter,
+                                destinationContent: { AppDestination.content(for: $0) }
+                            ) {
+                                CategoriesListScreen()
                             }
                             .tag(3)
                             .toolbar(.hidden, for: .tabBar)
@@ -78,7 +90,10 @@ struct PageControllerScreen: View {
                             }
                         }
                     } else {
-                        RoutedNavigationStack(router: homeRouter) {
+                        NavigationStackView(
+                            router: homeRouter,
+                            destinationContent: { AppDestination.content(for: $0) }
+                        ) {
                             CustomEmptyView(
                                 type: .empty(.account),
                                 isDisplayed: true

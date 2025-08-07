@@ -8,15 +8,6 @@
 import SwiftUICore
 import NavigationKit
 
-enum ContributionDestination: AppDestinationProtocol {
+enum ContributionDestination: DestinationItem {
     case create(savingsPlan: SavingsPlanModel)
-    
-    var id: Self { self }
-    
-    func body(route: Route) -> some View {
-        switch self {
-        case .create(let savingsPlan):
-            ContributionAddScreen(savingsPlan: savingsPlan)
-        }
-    }
 }

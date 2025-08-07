@@ -24,7 +24,7 @@ struct TransactionsListScreen: View {
         List(transactionStore.transactionsByMonth.sorted(by: { $0.key > $1.key }), id: \.key) { month, transactions in
             Section {
                 ForEach(transactions) { transaction in
-                    NavigationButton(
+                    NavigationButtonView(
                         route: .push,
                         destination: AppDestination.transaction(.detail(transaction: transaction))
                     ) {

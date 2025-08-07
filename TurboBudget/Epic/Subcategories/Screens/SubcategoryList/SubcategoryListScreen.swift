@@ -47,7 +47,7 @@ struct SubcategoryListScreen: View {
             NavigationBar(title: "word_subcategories".localized)
         } content: {
             ForEach(searchResults) { subcategory in
-                NavigationButton(
+                NavigationButtonView(
                     route: .push,
                     destination: AppDestination.subcategory(
                         .transactions(

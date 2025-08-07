@@ -76,7 +76,7 @@ struct SavingsAccountsListView: View {
                     
                     LazyVGrid(columns: columns, spacing: 16, content: {
                         ForEach(savingsAccountsFiltered) { account in
-                            NavigationButton(
+                            NavigationButtonView(
                                 route: .push,
                                 destination: AppDestination.savingsAccount(.detail(savingsAccount: account))
                             ) {

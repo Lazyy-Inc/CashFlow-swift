@@ -7,9 +7,8 @@
 
 import SwiftUICore
 import NavigationKit
-import PaywallModule
 
-enum SharedDestination: AppDestinationProtocol {
+enum SharedDestination: DestinationItem {
     case paywall
     case whatsNew
     case qrCodeScanner
@@ -17,23 +16,4 @@ enum SharedDestination: AppDestinationProtocol {
     
     case home
     case analytics
-    
-    var id: Self { self }
-    
-    func body(route: Route) -> some View {
-        switch self {
-        case .paywall:
-            PaywallScreen()
-        case .whatsNew:
-            WhatsNewScreen()
-        case .qrCodeScanner:
-            QRCodeScannerScreen()
-        case .home:
-            HomeScreen()
-        case .analytics:
-            AnalyticsScreen()
-        case .releaseNoteDetail(let releaseNote):
-            ReleaseNoteDetailView(releaseNote: releaseNote)
-        }
-    }
 }

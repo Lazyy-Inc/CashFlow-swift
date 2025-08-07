@@ -29,7 +29,7 @@ struct HomeScreenSubscriptionView: View {
             if !subscriptionStore.subscriptions.isEmpty {
                 VStack(spacing: Spacing.medium) {
                     ForEach(subscriptionStore.subscriptions.prefix(preferencesDisplayHome.subscription_value)) { subscription in
-                        NavigationButton(
+                        NavigationButtonView(
                             route: .push,
                             destination: AppDestination.subscription(.detail(subscriptionId: subscription.id))
                         ) {

@@ -29,7 +29,7 @@ struct HomeScreenRecentTransactionsView: View {
                     VStack(spacing: Spacing.medium) {
                         let transactions = transactionStore.transactions.prefix(preferencesDisplayHome.transaction_value)
                         ForEach(transactions) { transaction in
-                            NavigationButton(route: .push, destination: AppDestination.transaction(.detail(transaction: transaction))) {
+                            NavigationButtonView(route: .push, destination: AppDestination.transaction(.detail(transaction: transaction))) {
                                 TransactionRowView(transaction: transaction)
                             }
                         }

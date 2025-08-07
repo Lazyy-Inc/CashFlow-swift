@@ -39,19 +39,19 @@ struct SavingsAccountDetailScreen: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationBarWithMenu(title: savingsAccountStore.currentAccount.name) {
-//                NavigationButton( // TODO: Reactivate
+//                NavigationButtonView( // TODO: Reactivate
 //                    route: .push,
 //                    destination: AppDestination.savingsAccount(.createTransaction(savingsAccount: savingsAccountStore.currentAccount))
 //                ) {
 //                    Label(Word.Classic.add, systemImage: "plus")
 //                }
-                NavigationButton(
+                NavigationButtonView(
                     route: .push,
                     destination: AppDestination.transfer(.create(receiverAccount: savingsAccountStore.currentAccount))
                 ) {
                     Label(Word.Main.transfer, systemImage: "arrow.left.arrow.right")
                 }
-                NavigationButton(
+                NavigationButtonView(
                     route: .sheet,
                     destination: AppDestination.savingsAccount(.update(savingsAccount: savingsAccountStore.currentAccount))
                 ) {
@@ -72,7 +72,7 @@ struct SavingsAccountDetailScreen: View {
                     Section {
                         ForEach(transferStore.transfers) { transfer in
                             if Calendar.current.isDate(transfer.date, equalTo: month, toGranularity: .month) {
-                                NavigationButton(
+                                NavigationButtonView(
                                     route: .push,
                                     destination: AppDestination.transaction(.detail(transaction: transfer))
                                 ) {

@@ -43,7 +43,7 @@ struct CategoriesListScreen: View {
                 if viewModel.categoriesFiltered.isNotEmpty {
                     ForEach(viewModel.categoriesFiltered) { category in
                         let subcategories = category.subcategories
-                        NavigationButton(
+                        NavigationButtonView(
                             route: .push,
                             destination: (
                                 subcategories?.isEmpty == false
