@@ -7,7 +7,6 @@
 
 import SwiftUICore
 import NavigationKit
-import PaywallModule
 
 enum SharedDestination: DestinationItem {
     case paywall

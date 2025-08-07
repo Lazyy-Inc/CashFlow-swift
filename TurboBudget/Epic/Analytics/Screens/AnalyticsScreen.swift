@@ -66,7 +66,7 @@ struct AnalyticsScreen: View {
                             amount = accountStore.cashFlowAmount(for: selectedDate)
                         }
                         
-                        NavigationButton(
+                        NavigationButtonView(
                             route: .push,
                             destination: AppDestination.transaction(.specificList(month: selectedDate, type: .income))) {
                                 GenericLineChart(
@@ -79,7 +79,7 @@ struct AnalyticsScreen: View {
                                 )
                             }
                         
-                        NavigationButton(
+                        NavigationButtonView(
                             route: .push,
                             destination: AppDestination.transaction(.specificList(month: selectedDate, type: .expense))) {
                                 GenericLineChart(

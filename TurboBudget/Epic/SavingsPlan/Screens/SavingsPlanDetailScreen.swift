@@ -160,7 +160,7 @@ struct SavingsPlanDetailScreen: View {
                             .font(.semiBoldCustom(size: 22))
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        NavigationButton(
+                        NavigationButtonView(
                             route: .sheet,
                             destination: AppDestination.contribution(.create(savingsPlan: currentSavingsPlan))
                         ) {
@@ -211,14 +211,14 @@ struct SavingsPlanDetailScreen: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
-                    NavigationButton(
+                    NavigationButtonView(
                         route: .push,
                         destination: AppDestination.savingsPlan(.update(savingsPlan: currentSavingsPlan))
                     ) {
                         Label(Word.Classic.edit.localized, systemImage: "pencil")
                     }
                     
-                    NavigationButton(
+                    NavigationButtonView(
                         route: .sheet,
                         destination: AppDestination.contribution(.create(savingsPlan: currentSavingsPlan))
                     ) {

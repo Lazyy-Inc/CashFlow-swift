@@ -72,7 +72,7 @@ struct AccountDashboardScreen: View {
                     PremiumButton()
                 }
                 
-                NavigationButton(route: .push, destination: AppDestination.settings(.home)) {
+                NavigationButtonView(route: .push, destination: AppDestination.settings(.home)) {
                     Image(.iconGear)
                         .renderingMode(.template)
                         .foregroundStyle(Color.text)
@@ -128,7 +128,7 @@ struct AccountDashboardScreen: View {
                     }
                     
                     VStack(spacing: 16) {LazyVGrid(columns: viewModel.columns, spacing: 16, content: {
-                            NavigationButton(route: .push, destination: AppDestination.account(.statistics)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.account(.statistics)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconLineChart,
@@ -143,7 +143,7 @@ struct AccountDashboardScreen: View {
                                 }
                             }
                             
-                            NavigationButton(route: .push, destination: AppDestination.savingsAccount(.list)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.savingsAccount(.list)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconLandmark,
@@ -152,7 +152,7 @@ struct AccountDashboardScreen: View {
                                 )
                             }
                             
-                            NavigationButton(route: .push, destination: AppDestination.transaction(.list)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.transaction(.list)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconWallet,
@@ -161,7 +161,7 @@ struct AccountDashboardScreen: View {
                                 )
                             }
                             
-                            NavigationButton(route: .push, destination: AppDestination.subscription(.list)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.subscription(.list)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconClockRepeat,
@@ -170,7 +170,7 @@ struct AccountDashboardScreen: View {
                                 )
                             }
                             
-                            NavigationButton(route: .push, destination: AppDestination.savingsPlan(.list)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.savingsPlan(.list)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconPiggyBank,
@@ -179,7 +179,7 @@ struct AccountDashboardScreen: View {
                                 )
                             }
                             
-                            NavigationButton(route: .push, destination: AppDestination.budget(.list)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.budget(.list)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconPieChart,

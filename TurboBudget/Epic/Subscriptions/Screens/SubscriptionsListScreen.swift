@@ -40,7 +40,7 @@ struct SubscriptionsListScreen: View {
                 ForEach(subscriptionStore.subscriptionsByMonth.sorted(by: { $0.key < $1.key }), id: \.key) { month, subscriptions in
                     Section {
                         ForEach(subscriptions, id: \.self) { subscription in
-                            NavigationButton(
+                            NavigationButtonView(
                                 route: .push,
                                 destination: AppDestination.subscription(.detail(subscriptionId: subscription.id))
                             ) {

@@ -209,7 +209,7 @@ extension AppDestination {
         }
     }
     
-    private func destinationShared(_ shared: SharedDestination) -> some View {
+    static private func destinationShared(_ shared: SharedDestination) -> some View {
         switch shared {
         case .paywall:
             AnyView(PaywallScreen())
@@ -226,7 +226,7 @@ extension AppDestination {
         }
     }
     
-    private func destinationTips(_ tips: TipsDestination) -> some View {
+    static private func destinationTips(_ tips: TipsDestination) -> some View {
         switch tips {
         case .applePayShortcut:
             AnyView(TipApplePayShortcutScreen())

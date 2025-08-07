@@ -37,7 +37,7 @@ struct HomeHeaderView: View {
                 PremiumButton()
             }
             
-            NavigationButton(route: .push, destination: AppDestination.settings(.home)) {
+            NavigationButtonView(route: .push, destination: AppDestination.settings(.home)) {
                 Image(.iconGear)
                     .renderingMode(.template)
                     .foregroundStyle(Color.text)

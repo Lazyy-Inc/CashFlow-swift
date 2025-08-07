@@ -24,7 +24,7 @@ struct SelectCategoryButton: View {
                 .padding(.leading, 8)
                 .font(.system(size: 12, weight: .regular))
             
-            NavigationButton(
+            NavigationButtonView(
                 route: .sheet,
                 destination: AppDestination.category(
                     .select(

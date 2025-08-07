@@ -40,7 +40,7 @@ struct SubcategoryTransactionsScreen: View {
                 List {
                     Section {
                         ForEach(transactionsFiltered) { transaction in
-                            NavigationButton(
+                            NavigationButtonView(
                                 route: .push,
                                 destination: AppDestination.transaction(.detail(transaction: transaction))
                             ) {

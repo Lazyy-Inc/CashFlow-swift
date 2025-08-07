@@ -35,7 +35,7 @@ struct SubscriptionDetailsScreen: View {
         if let subscription {
             VStack(spacing: Spacing.extraLarge) {
                 NavigationBarWithMenu {
-                    NavigationButton(
+                    NavigationButtonView(
                         route: .push,
                         destination: AppDestination.subscription(.update(subscription: subscription))
                     ) {
@@ -122,7 +122,7 @@ struct SubscriptionDetailsScreen: View {
                                 
                                 VStack(spacing: 0) {
                                     ForEach(transactions.sorted(by: { $0.date > $1.date })) { transaction in
-                                        NavigationButton(
+                                        NavigationButtonView(
                                             route: .push,
                                             destination: AppDestination.transaction(.detail(transaction: transaction))
                                         ) {

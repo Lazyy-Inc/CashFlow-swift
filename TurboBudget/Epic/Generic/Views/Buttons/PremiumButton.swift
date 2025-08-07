@@ -14,7 +14,7 @@ struct PremiumButton: View {
     
     // MARK: -
     var body: some View {
-        NavigationButton(
+        NavigationButtonView(
             route: .fullScreenCover,
             destination: AppDestination.shared(.paywall)
         ) {

@@ -35,7 +35,7 @@ struct TransactionDetailsScreen: View {
     var body: some View {
         VStack(spacing: Spacing.extraLarge) {
             NavigationBarWithMenu {
-                NavigationButton(
+                NavigationButtonView(
                     route: .push,
                     destination: AppDestination.transaction(.update(transaction: currentTransaction))
                 ) {
