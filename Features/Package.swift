@@ -1,0 +1,98 @@
+// swift-tools-version: 6.1
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+    name: "Features",
+    platforms: [.iOS(.v16)],
+    products: [
+        .library(
+            name: "OnboardingModule",
+            targets: ["OnboardingModule"]
+        ),
+        .library(
+            name: "PreferencesModule",
+            targets: ["PreferencesModule"]
+        ),
+        .library(
+            name: "UserModule",
+            targets: ["UserModule"]
+        ),
+        .library(
+            name: "PaywallModule",
+            targets: ["PaywallModule"]
+        )
+    ],
+    dependencies: [
+        .package(path: "./DesignSystemModule"),
+        .package(path: "./CoreModule"),
+        
+        .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.6"),
+        .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
+        .package(url: "https://github.com/theosementa/NavigationKit", branch: "2.0.2"),
+        .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.1"),
+        .package(url: "https://github.com/theosementa/NotificationKit", branch: "1.0.5"),
+        .package(url: "https://github.com/theosementa/TheoKit", branch: "1.0.7"),
+
+        .package(url: "https://github.com/google/GoogleSignIn-iOS", exact: "9.0.0"),
+        .package(url: "https://github.com/simibac/ConfettiSwiftUI", branch: "1.0.0"),
+        .package(url: "https://github.com/izyumkin/MCEmojiPicker", branch: "1.2.3"),
+        .package(url: "https://github.com/aheze/SwipeActions", branch: "1.1.0")
+    ],
+    targets: [
+        .target(
+            name: "OnboardingModule",
+            dependencies: [
+                "DesignSystemModule",
+                "CoreModule",
+                "UserModule",
+                .product(name: "GoogleSignIn", package: "GoogleSignIn-iOS")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(
+            name: "OnboardingModuleTests",
+            dependencies: ["OnboardingModule"]
+        ),
+        
+        .target(
+            name: "PreferencesModule",
+            dependencies: [
+                "CoreModule",
+                .product(name: "StatsKit", package: "StatsKit")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(
+            name: "PreferencesModuleTests",
+            dependencies: ["PreferencesModule"]
+        ),
+        
+        .target(
+            name: "UserModule",
+            dependencies: [
+                "CoreModule",
+                .product(name: "NetworkKit", package: "NetworkKit")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(
+            name: "UserModuleTests",
+            dependencies: ["UserModule"]
+        ),
+        
+            .target(
+                name: "PaywallModule",
+                dependencies: [
+                    "DesignSystemModule",
+                    "CoreModule"
+                ],
+                swiftSettings: [.swiftLanguageMode(.v5)]
+            ),
+            .testTarget(
+                name: "PaywallModuleTests",
+                dependencies: ["PaywallModule"]
+            )
+    ]
+)

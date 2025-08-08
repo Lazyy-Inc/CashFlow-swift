@@ -1,5 +1,5 @@
 {
-  "originHash" : "926b6f822d5e2ffc00017bd1709aca1965fd5cb359015147a7f48e870ea22cda",
+  "originHash" : "418da221a8bb3ac717393812ee21f7c09f9d76980b88439d2450edfb07cfb666",
   "pins" : [
     {
       "identity" : "alertkit",
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/simibac/ConfettiSwiftUI",
       "state" : {
-        "revision" : "f45961f97bbae6fff6e2e64546fea0189425ad92",
-        "version" : "1.1.0"
+        "branch" : "1.0.0",
+        "revision" : "7b86d9f838a32ecfad8e69c7dbf900fea7500c76"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleUtilities.git",
       "state" : {
-        "revision" : "53156c7ec267db846e6b64c9f4c4e31ba4cf75eb",
-        "version" : "8.0.2"
+        "revision" : "60da361632d0de02786f709bdc0c4df340f7613e",
+        "version" : "8.1.0"
       }
     },
     {
@@ -78,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/izyumkin/MCEmojiPicker",
       "state" : {
-        "revision" : "e0b4903b75ae1cc418d276d84d1cb946b8a1d73c",
-        "version" : "1.2.3"
+        "branch" : "1.2.3",
+        "revision" : "e0b4903b75ae1cc418d276d84d1cb946b8a1d73c"
       }
     },
     {
@@ -87,8 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/NavigationKit",
       "state" : {
-        "revision" : "0ecf2988ce5aa03d21dfe1efd4e17a434ebde808",
-        "version" : "2.0.2"
+        "branch" : "2.0.2",
+        "revision" : "0ecf2988ce5aa03d21dfe1efd4e17a434ebde808"
       }
     },
     {
@@ -96,8 +96,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/NetworkKit",
       "state" : {
-        "revision" : "7f7e8523b564b7bcc5d7b16fcb56fca692b92b6a",
-        "version" : "1.0.1"
+        "branch" : "1.0.1",
+        "revision" : "7f7e8523b564b7bcc5d7b16fcb56fca692b92b6a"
       }
     },
     {
@@ -105,8 +105,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/NotificationKit",
       "state" : {
-        "revision" : "f94bed80a6eabdabf763fda927e45b14e14262d7",
-        "version" : "1.0.5"
+        "branch" : "1.0.5",
+        "revision" : "f94bed80a6eabdabf763fda927e45b14e14262d7"
       }
     },
     {
@@ -132,8 +132,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/aheze/SwipeActions",
       "state" : {
-        "revision" : "41e6f6dce02d8cfa164f8c5461a41340850ca3ab",
-        "version" : "1.1.0"
+        "branch" : "1.1.0",
+        "revision" : "41e6f6dce02d8cfa164f8c5461a41340850ca3ab"
       }
     },
     {
@@ -141,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/TheoKit",
       "state" : {
-        "revision" : "3bfc75ced60c83e270ff9314d406d2cf67972a52",
-        "version" : "1.0.7"
+        "branch" : "1.0.7",
+        "revision" : "3bfc75ced60c83e270ff9314d406d2cf67972a52"
       }
     }
   ],
