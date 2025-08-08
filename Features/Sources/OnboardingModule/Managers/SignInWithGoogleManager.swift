@@ -12,7 +12,7 @@ import GoogleSignIn
 import NetworkKit
 import StatsKit
 import CoreModule
-import UserModule
+@preconcurrency import UserModule
 import PreferencesModule
 
 class SignInWithGoogleManager: ObservableObject {
