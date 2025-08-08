@@ -7,22 +7,10 @@ let package = Package(
     name: "Features",
     platforms: [.iOS(.v16)],
     products: [
-        .library(
-            name: "OnboardingModule",
-            targets: ["OnboardingModule"]
-        ),
-        .library(
-            name: "PreferencesModule",
-            targets: ["PreferencesModule"]
-        ),
-        .library(
-            name: "UserModule",
-            targets: ["UserModule"]
-        ),
-        .library(
-            name: "PaywallModule",
-            targets: ["PaywallModule"]
-        )
+        .library(name: "OnboardingModule", targets: ["OnboardingModule"]),
+        .library(name: "PreferencesModule", targets: ["PreferencesModule"]),
+        .library(name: "UserModule", targets: ["UserModule"]),
+        .library(name: "PaywallModule", targets: ["PaywallModule"])
     ],
     dependencies: [
         .package(path: "./DesignSystemModule"),
@@ -51,10 +39,7 @@ let package = Package(
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(
-            name: "OnboardingModuleTests",
-            dependencies: ["OnboardingModule"]
-        ),
+        .testTarget(name: "OnboardingModuleTests", dependencies: ["OnboardingModule"]),
         
         .target(
             name: "PreferencesModule",
@@ -64,10 +49,7 @@ let package = Package(
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(
-            name: "PreferencesModuleTests",
-            dependencies: ["PreferencesModule"]
-        ),
+        .testTarget(name: "PreferencesModuleTests", dependencies: ["PreferencesModule"]),
         
         .target(
             name: "UserModule",
@@ -77,22 +59,16 @@ let package = Package(
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(
-            name: "UserModuleTests",
-            dependencies: ["UserModule"]
-        ),
+        .testTarget(name: "UserModuleTests", dependencies: ["UserModule"]),
         
-            .target(
-                name: "PaywallModule",
-                dependencies: [
-                    "DesignSystemModule",
-                    "CoreModule"
-                ],
-                swiftSettings: [.swiftLanguageMode(.v5)]
-            ),
-            .testTarget(
-                name: "PaywallModuleTests",
-                dependencies: ["PaywallModule"]
-            )
+        .target(
+            name: "PaywallModule",
+            dependencies: [
+                "DesignSystemModule",
+                "CoreModule"
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "PaywallModuleTests", dependencies: ["PaywallModule"])
     ]
 )
