@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreModule
+import DesignSystemModule
 
 struct AccountStatisticsScreen: View {
     
@@ -25,7 +26,7 @@ struct AccountStatisticsScreen: View {
                     .padding()
                     .background {
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(Color.background100)
+                            .fill(Color.Background.bg100)
                     }
                     
                     if let week = stats.week, let year = stats.year {
@@ -141,5 +142,5 @@ struct AccountStatisticsScreen: View {
 // MARK: - Preview
 #Preview {
     AccountStatisticsScreen()
-        .environmentObject(AccountStore())
+        .environmentObject(AccountStore.shared)
 }

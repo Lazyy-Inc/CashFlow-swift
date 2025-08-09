@@ -116,20 +116,20 @@ public extension Date {
 
 public extension Date {
     
-    var startOfMonth: Date {
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone.autoupdatingCurrent
-        let components = calendar.dateComponents([.year, .month], from: self)
-        return  calendar.date(from: components)!
-    }
-    
-    var endOfMonth: Date {
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone.autoupdatingCurrent
-        calendar.locale = Locale.current
-        let lastDayOfCurrentMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth)!
-        return lastDayOfCurrentMonth
-    }
+//    var startOfMonth: Date {
+//        var calendar = Calendar.current
+//        calendar.timeZone = TimeZone.autoupdatingCurrent
+//        let components = calendar.dateComponents([.year, .month], from: self)
+//        return  calendar.date(from: components)!
+//    }
+//    
+//    var endOfMonth: Date {
+//        var calendar = Calendar.current
+//        calendar.timeZone = TimeZone.autoupdatingCurrent
+//        calendar.locale = Locale.current
+//        let lastDayOfCurrentMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth)!
+//        return lastDayOfCurrentMonth
+//    }
     
     var oneMonthAgo: Date {
         return Calendar.current.date(byAdding: .month, value: -1, to: self)!
@@ -154,8 +154,8 @@ public extension Date {
     
     var allDateOfMonth: [Date] {
         var dates = [Date]()
-        var start = self.startOfMonth
-        let end = self.endOfMonth
+        var start = self.startOfMonth ?? .now
+        let end = self.endOfMonth ?? .now
 
         while start <= end {
             dates.append(start)

@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import CoreModule
+import DesignSystemModule
 
 struct PieChart: View {
     
@@ -36,7 +38,7 @@ struct PieChart: View {
     var colors: [Color] {
         return slices.map(\.color)
     }
-    var icons: [ImageResource] {
+    var icons: [String] {
         return slices.map(\.icon)
     }
     var percentage: Double {

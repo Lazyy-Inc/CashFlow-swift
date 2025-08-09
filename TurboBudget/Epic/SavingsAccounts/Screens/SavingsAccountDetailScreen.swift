@@ -11,6 +11,7 @@ import StatsKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import TransactionModule
 
 struct SavingsAccountDetailScreen: View {
     
@@ -139,7 +140,7 @@ struct SavingsAccountDetailScreen: View {
 // MARK: - Preview
 #Preview {
     SavingsAccountDetailScreen(savingsAccount: .mockSavingsAccount)
-        .environmentObject(ThemeManager())
-        .environmentObject(TransferStore())
-        .environmentObject(AccountStore())
+        .environmentObject(ThemeManager.shared)
+        .environmentObject(TransferStore.shared)
+        .environmentObject(AccountStore.shared)
 }

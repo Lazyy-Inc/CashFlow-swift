@@ -10,7 +10,8 @@ let package = Package(
         .library(name: "OnboardingModule", targets: ["OnboardingModule"]),
         .library(name: "PreferencesModule", targets: ["PreferencesModule"]),
         .library(name: "UserModule", targets: ["UserModule"]),
-        .library(name: "PaywallModule", targets: ["PaywallModule"])
+        .library(name: "PaywallModule", targets: ["PaywallModule"]),
+        .library(name: "TransactionModule", targets: ["TransactionModule"])
     ],
     dependencies: [
         .package(path: "./DesignSystemModule"),
@@ -19,10 +20,11 @@ let package = Package(
         .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.6"),
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
         .package(url: "https://github.com/theosementa/NavigationKit", branch: "2.0.2"),
-        .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.1"),
+        .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.3"),
         .package(url: "https://github.com/theosementa/NotificationKit", branch: "1.0.5"),
         .package(url: "https://github.com/theosementa/TheoKit", branch: "1.0.7"),
 
+        .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.9.3"),
         .package(url: "https://github.com/google/GoogleSignIn-iOS", exact: "9.0.0"),
         .package(url: "https://github.com/simibac/ConfettiSwiftUI", branch: "1.0.0"),
         .package(url: "https://github.com/izyumkin/MCEmojiPicker", branch: "1.2.3"),
@@ -69,6 +71,17 @@ let package = Package(
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(name: "PaywallModuleTests", dependencies: ["PaywallModule"])
+        .testTarget(name: "PaywallModuleTests", dependencies: ["PaywallModule"]),
+        
+        .target(
+            name: "TransactionModule",
+            dependencies: [
+                "DesignSystemModule",
+                "CoreModule",
+                .product(name: "Dependencies", package: "swift-dependencies")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "TransactionModuleTests", dependencies: ["TransactionModule"])
     ]
 )

@@ -12,6 +12,7 @@ import StatsKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import TransactionModule
 
 struct SubscriptionDetailsScreen: View {
     
@@ -64,13 +65,13 @@ struct SubscriptionDetailsScreen: View {
                         VStack(spacing: 24) {
                             VStack(spacing: 12) {
                                 DetailRow(
-                                    icon: .iconClockRepeat,
+                                    icon: "iconClockRepeat",
                                     text: Word.Classic.frequency,
                                     value: subscription.frequency.name
                                 )
                                 
                                 DetailRow(
-                                    icon: .iconCalendar,
+                                    icon: "iconCalendar",
                                     text: "subscription_next_transaction".localized,
                                     value: subscription.frequencyDate.formatted(date: .complete, time: .omitted).capitalized
                                 )
@@ -99,7 +100,7 @@ struct SubscriptionDetailsScreen: View {
                             if let firstSubscriptionDate = subscription.firstSubscriptionDate {
                                 VStack(spacing: 12) {
                                     DetailRow(
-                                        icon: .iconCalendar,
+                                        icon: "iconCalendar",
                                         text: "subscription_first_subscription".localized,
                                         value: firstSubscriptionDate.formatted(date: .complete, time: .omitted).capitalized
                                     )

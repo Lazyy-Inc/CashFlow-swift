@@ -11,6 +11,7 @@ import NavigationKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import TransactionModule
 
 struct SubcategoryTransactionsScreen: View {
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreModule
 
 extension CategoriesListScreen {
     
@@ -39,8 +40,8 @@ extension CategoriesListScreen.ViewModel {
         for (categoryId, transactions) in groupedTransactions {
             let totalAmount = transactions
                 .filter { transaction in
-                    let startOfMonth = date.startOfMonth
-                    let endOfMonth = date.endOfMonth
+                    let startOfMonth = date.startOfMonth ?? .now
+                    let endOfMonth = date.endOfMonth ?? .now
                     return transaction.date >= startOfMonth && transaction.date <= endOfMonth
                 }
                 .reduce(0.0) { sum, transaction in

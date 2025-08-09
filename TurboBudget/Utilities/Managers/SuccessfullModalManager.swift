@@ -8,29 +8,7 @@
 import SwiftUI
 import CoreModule
 
-final class SuccessfullModalManager: ObservableObject {
-    static let shared = SuccessfullModalManager()
-    
-    @Published var isPresenting: Bool = false
-    
-    @Published var title: String = ""
-    @Published var subtitle: String = ""
-    @Published var content: any View = EmptyView()
-    
-}
-
 extension SuccessfullModalManager {
-    
-    @MainActor
-    func showSuccessfulTransaction(type: SuccessfulType, transaction: TransactionModel) {
-        self.title = Word.Successful.Transaction.title(type: type)
-        self.subtitle = Word.Successful.Transaction.description(type: type)
-        self.content = AnyView(TransactionRowView(transaction: transaction).disabled(true))
-            
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.isPresenting = true
-        }
-    }
     
     @MainActor
     func showSuccessfulTransfer(type: SuccessfulType, transfer: TransactionModel) {

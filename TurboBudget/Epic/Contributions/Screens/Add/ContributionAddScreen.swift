@@ -9,6 +9,7 @@
 import SwiftUI
 import StatsKit
 import CoreModule
+import DesignSystemModule
 
 struct ContributionAddScreen: View {
 

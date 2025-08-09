@@ -9,15 +9,9 @@ import Foundation
 import NetworkKit
 import StatsKit
 import CoreModule
-
-final class TransactionStore: ObservableObject {
-    static let shared = TransactionStore()
-    
-    @Published var transactions: [TransactionModel] = []
-    
-    @Published private(set) var currentDateForFetch: Date = Date()
-    var dateFetched: [Date] = []
-}
+import SwiftUI
+import TransactionModule
+import TheoKit
 
 extension TransactionStore {
     
@@ -151,8 +145,8 @@ extension TransactionStore {
 extension TransactionStore {
     
     func fetchTransactionsOfCurrentMonth(accountID: Int) async {
-        let startDate = Date().startOfMonth
-        let endDate = Date().endOfMonth
+        let startDate = Date().startOfMonth ?? .now
+        let endDate = Date().endOfMonth ?? .now
         
         await self.fetchTransactionsByPeriod(
             accountID: accountID,
@@ -283,6 +277,74 @@ extension TransactionStore {
     func reset() {
         transactions.removeAll()
         dateFetched.removeAll()
+    }
+    
+}
+
+
+extension TransactionDTO {
+    
+    func toModel() throws -> TransactionModel {
+        guard let id,
+              let amount,
+              let dateISO
+        else { throw NetworkError.unknown }
+                
+        let date = dateISO.toDate()
+        let category = CategoryStore.shared.findCategoryById(categoryID)
+        
+        let subcategory = CategoryStore.shared.findSubcategoryById(subcategoryID)
+        
+        let senderAccount = AccountStore.shared.findByID(senderAccountID)
+        let receiverAccount = AccountStore.shared.findByID(receiverAccountID)
+        
+        return .init(
+            id: id,
+            name: name ?? "",
+            amount: amount,
+            date: date ?? .now,
+            creationDate: creationDate?.toDate(),
+            category: category,
+            subcategory: subcategory,
+            note: note,
+            isFromSubscription: isFromSubscription ?? false,
+            isFromApplePay: isFromApplePay ?? false,
+            nameFromApplePay: nameFromApplePay,
+            autoCat: autoCat,
+            senderAccount: senderAccount,
+            receiverAccount: receiverAccount,
+            address: address,
+            lat: lat,
+            long: long
+        )
+    }
+    
+}
+
+extension TransactionModel {
+    
+    var color: Color {
+        switch type {
+        case .expense:
+            return TKDesignSystem.Colors.Error.c500
+        case .income:
+            return .primary500
+        case .transfer:
+            return isSender ? TKDesignSystem.Colors.Error.c500 : .primary500
+        }
+    }
+    
+}
+
+extension CreditCardModel {
+    
+    var balanceAvailable: Double? {
+        guard let limitByMonth else { return nil }
+        let spent = TransactionStore.shared.expensesCurrentMonth
+            .compactMap(\.amount)
+            .reduce(0, +)
+        
+        return limitByMonth - spent
     }
     
 }

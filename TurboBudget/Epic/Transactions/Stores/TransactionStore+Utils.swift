@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreModule
 
 extension TransactionStore {
     
@@ -28,7 +29,7 @@ extension TransactionStore {
     // MARK: - Private Properties
     
     private var transactionsActualMonth: [TransactionModel] {
-        let dateRange = (start: Date().startOfMonth, end: Date().endOfMonth)
+        let dateRange = (start: Date().startOfMonth ?? .now, end: Date().endOfMonth ?? .now)
         return transactions.filter { transaction in
             let date = transaction.date
             return date >= dateRange.start && date <= dateRange.end

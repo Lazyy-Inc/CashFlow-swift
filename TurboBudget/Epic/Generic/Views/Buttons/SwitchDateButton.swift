@@ -65,14 +65,14 @@ struct SwitchDateButton: View {
         if inPast {
             switch type {
             case .month:
-                date = date.oneMonthAgo.startOfMonth
+                date = date.oneMonthAgo.startOfMonth ?? .now
             case .year:
                 date = date.oneYearAgo
             }
         } else {
             switch type {
             case .month:
-                date = date.inOneMonth.startOfMonth
+                date = date.inOneMonth.startOfMonth ?? .now
             case .year:
                 date = date.inOneYear
             }

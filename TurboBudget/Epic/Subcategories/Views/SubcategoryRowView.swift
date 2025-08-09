@@ -8,6 +8,7 @@
 import SwiftUI
 import TheoKit
 import DesignSystemModule
+import CoreModule
 
 struct SubcategoryRowView: View {
     
@@ -50,7 +51,7 @@ struct SubcategoryRowView: View {
             }
             .fullWidth(.leading)
             
-            IconSVG(icon: .iconArrowRight, value: .large)
+            IconSVG(icon: "iconArrowRight", value: .large)
                 .foregroundStyle(Color.label)
         }
         .padding(Padding.medium)
