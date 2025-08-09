@@ -201,5 +201,5 @@ extension TransactionDetailsScreen {
     }
     .environmentObject(TransactionStore())
     .environmentObject(PurchasesManager())
-    .environmentObject(ThemeManager())
+    .environmentObject(ThemeManager.shared)
 }

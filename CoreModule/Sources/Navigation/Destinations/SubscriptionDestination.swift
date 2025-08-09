@@ -8,7 +8,7 @@
 import SwiftUICore
 import NavigationKit
 
-enum SubscriptionDestination: DestinationItem {
+public enum SubscriptionDestination: DestinationItem {
     case list
     case create
     case update(subscription: SubscriptionModel)

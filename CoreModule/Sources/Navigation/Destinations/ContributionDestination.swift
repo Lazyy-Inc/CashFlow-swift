@@ -8,6 +8,6 @@
 import SwiftUICore
 import NavigationKit
 
-enum ContributionDestination: DestinationItem {
+public enum ContributionDestination: DestinationItem {
     case create(savingsPlan: SavingsPlanModel)
 }

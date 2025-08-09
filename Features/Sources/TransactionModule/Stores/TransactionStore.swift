@@ -151,8 +151,8 @@ extension TransactionStore {
 extension TransactionStore {
     
     func fetchTransactionsOfCurrentMonth(accountID: Int) async {
-        let startDate = Date().startOfMonth
-        let endDate = Date().endOfMonth
+        let startDate = Date().startOfMonth ?? .now
+        let endDate = Date().endOfMonth ?? .now
         
         await self.fetchTransactionsByPeriod(
             accountID: accountID,

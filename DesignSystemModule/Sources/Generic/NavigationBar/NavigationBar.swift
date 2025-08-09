@@ -7,6 +7,7 @@
 
 import SwiftUI
 import TheoKit
+import CoreModule
 
 public struct NavigationBar: View {
     

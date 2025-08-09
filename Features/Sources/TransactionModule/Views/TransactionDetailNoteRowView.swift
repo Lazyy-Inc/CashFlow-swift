@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreModule
+import DesignSystemModule
 
 struct TransactionDetailNoteRowView: View {
     
@@ -52,7 +53,7 @@ struct TransactionDetailNoteRowView: View {
         .padding()
         .background {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color.background100)
+                .fill(Color.Background.bg100)
         }
     } // body
 } // struct

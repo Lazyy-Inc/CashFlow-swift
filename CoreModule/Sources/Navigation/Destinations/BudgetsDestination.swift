@@ -8,7 +8,7 @@
 import SwiftUICore
 import NavigationKit
 
-enum BudgetsDestination: DestinationItem {
+public enum BudgetsDestination: DestinationItem {
     case list
     case create
     case transactions(subcategory: SubcategoryModel)

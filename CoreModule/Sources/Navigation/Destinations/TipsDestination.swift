@@ -8,6 +8,6 @@
 import SwiftUICore
 import NavigationKit
 
-enum TipsDestination: DestinationItem {
+public enum TipsDestination: DestinationItem {
     case applePayShortcut
 }

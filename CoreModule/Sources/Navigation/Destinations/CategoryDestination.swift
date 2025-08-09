@@ -8,7 +8,7 @@
 import SwiftUICore
 import NavigationKit
 
-enum CategoryDestination: DestinationItem {
+public enum CategoryDestination: DestinationItem {
     case list
     case transactions(category: CategoryModel, selectedDate: Date)
     case select(selectedCategory: Binding<CategoryModel?>, selectedSubcategory: Binding<SubcategoryModel?>)

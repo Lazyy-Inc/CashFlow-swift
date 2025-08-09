@@ -7,9 +7,8 @@
 
 import SwiftUI
 import TheoKit
-import DesignSystemModule
 
-struct NavigationBarWithMenu<Content: View>: View {
+public struct NavigationBarWithMenu<Content: View>: View {
     
     // MARK: Dependencies
     var title: String?
@@ -18,8 +17,18 @@ struct NavigationBarWithMenu<Content: View>: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    public init(
+        title: String? = nil,
+        dismissAction: (() -> Void)? = nil,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.title = title
+        self.dismissAction = dismissAction
+        self.content = content
+    }
+    
     // MARK: - View
-    var body: some View {
+    public var body: some View {
         HStack(spacing: Spacing.small) {
             VStack(alignment: .leading, spacing: Spacing.small) {
                 HStack(spacing: Spacing.extraSmall) {
@@ -30,7 +39,7 @@ struct NavigationBarWithMenu<Content: View>: View {
                             dismiss()
                         }
                     } label: {
-                        Image(.iconArrowLeft)
+                        Image("iconArrowLeft")
                             .resizable()
                             .renderingMode(.template)
                             .frame(width: 20, height: 20)
@@ -50,7 +59,7 @@ struct NavigationBarWithMenu<Content: View>: View {
             Spacer()
             
             Menu(content: content) {
-                Image(.iconEllipsis)
+                Image("iconEllipsis")
                     .renderingMode(.template)
                     .foregroundStyle(Color.label)
             }
@@ -59,6 +68,7 @@ struct NavigationBarWithMenu<Content: View>: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     NavigationBarWithMenu {
         

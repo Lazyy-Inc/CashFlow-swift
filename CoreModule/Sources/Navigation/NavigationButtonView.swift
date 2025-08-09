@@ -8,7 +8,7 @@
 import SwiftUI
 import NavigationKit
 
-struct NavigationButtonView<Label: View>: View {
+public struct NavigationButtonView<Label: View>: View {
 
     // MARK: Dependencies
     let route: Route
@@ -18,7 +18,7 @@ struct NavigationButtonView<Label: View>: View {
     let label: () -> Label
 
     // MARK: Init
-    init(
+    public init(
         route: Route,
         destination: AppDestination,
         onDismiss: (() -> Void)? = nil,
@@ -33,7 +33,7 @@ struct NavigationButtonView<Label: View>: View {
     }
 
     // MARK: -
-    var body: some View {
+    public var body: some View {
         GenericNavigationButton(
             route: route,
             destination: destination,

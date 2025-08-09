@@ -8,6 +8,6 @@
 import SwiftUICore
 import NavigationKit
 
-enum CreditCardDestination: DestinationItem {
+public enum CreditCardDestination: DestinationItem {
     case create
 }

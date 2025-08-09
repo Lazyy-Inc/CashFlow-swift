@@ -7,7 +7,7 @@
 
 import SwiftUI
 import TheoKit
-import DesignSystemModule
+import CoreModule
 
 struct SearchBarView: View {
     
@@ -20,7 +20,7 @@ struct SearchBarView: View {
     @FocusState private var isFocused: Bool
     
     // MARK: init
-    init(_ placeholder: String, searchText: Binding<String>) {
+    public init(_ placeholder: String, searchText: Binding<String>) {
         self.placeholder = placeholder
         self._searchText = searchText
     }
@@ -32,7 +32,7 @@ struct SearchBarView: View {
     // MARK: - View
     var body: some View {
         HStack(spacing: 8) {
-            Image(.iconSearch)
+            Image("iconSearch")
                 .resizable()
                 .renderingMode(.template)
                 .frame(width: 20, height: 20)
@@ -50,7 +50,7 @@ struct SearchBarView: View {
                 Button {
                     searchText = ""
                 } label: {
-                    Image(.iconXmarkCircle)
+                    Image("iconXmarkCircle")
                         .resizable()
                         .renderingMode(.template)
                         .frame(width: 16, height: 16)
@@ -76,5 +76,5 @@ struct SearchBarView: View {
     SearchBarView("kn", searchText: .constant("kn"))
         .padding()
         .background(Color.blue)
-        .environmentObject(ThemeManager())
+        .environmentObject(ThemeManager.shared)
 }

@@ -7,19 +7,32 @@
 
 import SwiftUI
 import TheoKit
-import DesignSystemModule
 
-struct DetailRow: View {
+public struct DetailRow: View {
     
     // Builder
-    var icon: ImageResource
+    var icon: String
     var text: String?
     var value: String
-    var iconBackgroundColor: Color = .background200
+    var iconBackgroundColor: Color = Color.Background.bg200
     var action: (() -> Void)?
     
+    public init(
+        icon: String,
+        text: String? = nil,
+        value: String,
+        iconBackgroundColor: Color,
+        action: (() -> Void)? = nil
+    ) {
+        self.icon = icon
+        self.text = text
+        self.value = value
+        self.iconBackgroundColor = iconBackgroundColor
+        self.action = action
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         Button {
             if let action { action() }
         } label: {
@@ -60,13 +73,13 @@ struct DetailRow: View {
 #Preview {
     VStack(spacing: 16) {
         DetailRow(
-            icon: .iconShirt,
+            icon: "iconShirt",
             value: "Vêtements, Chaussures, Accessoires",
             iconBackgroundColor: Color.red
         )
         
         DetailRow(
-            icon: .iconCalendar,
+            icon: "iconCalendar",
             text: "Date",
             value: "Vêtements, Chaussures, Accessoires",
             iconBackgroundColor: Color.red

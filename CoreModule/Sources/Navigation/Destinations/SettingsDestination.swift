@@ -8,7 +8,7 @@
 import SwiftUICore
 import NavigationKit
 
-enum SettingsDestination: DestinationItem {
+public enum SettingsDestination: DestinationItem {
     case home
     case debug
     case general

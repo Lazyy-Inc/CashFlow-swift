@@ -5,11 +5,10 @@
 //  Created by Theo Sementa on 17/04/2025.
 //
 
-import SwiftUICore
+import Foundation
 import NavigationKit
-import CoreModule
 
-enum TransactionDestination: DestinationItem {
+public enum TransactionDestination: DestinationItem {
     case list
     case specificList(month: Date, type: TransactionType)
     case create

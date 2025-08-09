@@ -8,7 +8,7 @@
 import SwiftUICore
 import NavigationKit
 
-enum SharedDestination: DestinationItem {
+public enum SharedDestination: DestinationItem {
     case paywall
     case whatsNew
     case qrCodeScanner

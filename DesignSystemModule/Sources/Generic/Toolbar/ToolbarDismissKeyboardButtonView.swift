@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import CoreModule
 
-struct ToolbarDismissKeyboardButtonView: ToolbarContent {
+public struct ToolbarDismissKeyboardButtonView: ToolbarContent {
     
     @EnvironmentObject private var themeManager: ThemeManager
     
+    public init() {}
+    
     // MARK: - body
-    var body: some ToolbarContent {
+    public var body: some ToolbarContent {
         ToolbarItem(placement: .keyboard) {
             HStack {
                 EmptyView()

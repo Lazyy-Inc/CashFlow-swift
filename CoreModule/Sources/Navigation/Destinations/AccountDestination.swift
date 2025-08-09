@@ -8,7 +8,7 @@
 import SwiftUICore
 import NavigationKit
 
-enum AccountDestination: DestinationItem {
+public enum AccountDestination: DestinationItem {
     case create
     case update(account: AccountModel)
     case dashboard

@@ -7,16 +7,30 @@
 
 import Foundation
 
-struct ReleaseNoteModel: Equatable, Hashable {
-    let version: String
-    let date: String
+public struct ReleaseNoteModel: Equatable, Hashable {
+    public let version: String
+    public let date: String
+
+    public let newFeatures: [String]?
+    public let newFeaturesPro: [String]?
+    public let bugfixes: [String]?
     
-    let newFeatures: [String]?
-    let newFeaturesPro: [String]?
-    let bugfixes: [String]?
+    public init(
+        version: String,
+        date: String,
+        newFeatures: [String]?,
+        newFeaturesPro: [String]?,
+        bugfixes: [String]?
+    ) {
+        self.version = version
+        self.date = date
+        self.newFeatures = newFeatures
+        self.newFeaturesPro = newFeaturesPro
+        self.bugfixes = bugfixes
+    }
 }
 
-extension ReleaseNoteModel {
+public extension ReleaseNoteModel {
  
     static let version2_0_4: ReleaseNoteModel = .init(
         version: "2.0.4",

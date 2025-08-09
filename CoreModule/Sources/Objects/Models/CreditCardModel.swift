@@ -57,6 +57,21 @@ public struct CreditCardModel: Codable, Identifiable, Equatable, Hashable {
     }
 }
 
+public extension CreditCardModel {
+    
+    var balanceAvailable: Double? {
+        // MARK: TODO
+//        guard let limitByMonth else { return nil }
+//        let spent = TransactionStore.shared.expensesCurrentMonth
+//            .compactMap(\.amount)
+//            .reduce(0, +)
+//        
+//        return limitByMonth - spent
+        return nil
+    }
+    
+}
+
 extension CreditCardModel {
     
     static let mock: CreditCardModel = .init(

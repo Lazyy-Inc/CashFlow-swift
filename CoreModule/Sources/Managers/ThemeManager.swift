@@ -17,15 +17,6 @@ public final class ThemeManager: ObservableObject {
 public enum ThemeColor: String, CaseIterable {
     case green, blue, purple, red
     
-    public var color: Color {
-        switch self {
-        case .green: return Color.primary500
-        case .blue: return .blue
-        case .purple: return .purple
-        case .red: return .red
-        }
-    }
-    
     public var name: String {
         switch self {
         case .green: return "theme_green".localized

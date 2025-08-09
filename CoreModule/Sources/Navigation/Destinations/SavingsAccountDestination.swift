@@ -8,7 +8,7 @@
 import SwiftUICore
 import NavigationKit
 
-enum SavingsAccountDestination: DestinationItem {
+public enum SavingsAccountDestination: DestinationItem {
     case create
     case update(savingsAccount: AccountModel)
     case list

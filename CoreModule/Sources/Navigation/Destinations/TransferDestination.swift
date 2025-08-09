@@ -8,6 +8,6 @@
 import SwiftUICore
 import NavigationKit
 
-enum TransferDestination: DestinationItem {
+public enum TransferDestination: DestinationItem {
     case create(receiverAccount: AccountModel? = nil)
 }
