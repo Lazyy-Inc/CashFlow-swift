@@ -29,10 +29,10 @@ extension TransactionStore {
     // MARK: - Private Properties
     
     private var transactionsActualMonth: [TransactionModel] {
-        let dateRange = (start: Date().startOfMonth ?? .now, end: Date().endOfMonth ?? .now)
+        let dateRange = (start: Date().startOfMonth, end: Date().endOfMonth)
         return transactions.filter { transaction in
             let date = transaction.date
-            return date >= dateRange.start && date <= dateRange.end
+            return date >= dateRange.start ?? .now && date <= dateRange.end ?? .now
         }
     }
     

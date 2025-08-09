@@ -9,22 +9,7 @@ import Foundation
 import NetworkKit
 import StatsKit
 import CoreModule
-
-final class TransferStore: ObservableObject {
-    static let shared = TransferStore()
-    
-    @Published var transfers: [TransactionModel] = []
-    
-    var monthsOfTransfers: [Date] {
-        let calendar = Calendar.current
-        
-        let uniqueMonths = Set(transfers.map {
-            calendar.dateComponents([.month, .year], from: $0.date)
-        })
-        
-        return uniqueMonths.compactMap { calendar.date(from: $0) }.sorted(by: >)
-    }
-}
+import TransactionModule
 
 extension TransferStore {
     

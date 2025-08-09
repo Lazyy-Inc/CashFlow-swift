@@ -10,7 +10,8 @@ let package = Package(
         .library(name: "OnboardingModule", targets: ["OnboardingModule"]),
         .library(name: "PreferencesModule", targets: ["PreferencesModule"]),
         .library(name: "UserModule", targets: ["UserModule"]),
-        .library(name: "PaywallModule", targets: ["PaywallModule"])
+        .library(name: "PaywallModule", targets: ["PaywallModule"]),
+        .library(name: "TransactionModule", targets: ["TransactionModule"])
     ],
     dependencies: [
         .package(path: "./DesignSystemModule"),
@@ -69,6 +70,16 @@ let package = Package(
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(name: "PaywallModuleTests", dependencies: ["PaywallModule"])
+        .testTarget(name: "PaywallModuleTests", dependencies: ["PaywallModule"]),
+        
+        .target(
+            name: "TransactionModule",
+            dependencies: [
+                "DesignSystemModule",
+                "CoreModule"
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "TransactionModuleTests", dependencies: ["TransactionModule"])
     ]
 )
