@@ -12,11 +12,14 @@ import NavigationKit
 import TheoKit
 import CoreModule
 import DesignSystemModule
+import Dependencies
 
 public struct TransactionsScreen: View {
     
+    // MARK: Dependencies
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+    
     // Environement
-    @EnvironmentObject private var transactionStore: TransactionStore
     @EnvironmentObject private var router: Router<AppDestination>
     
     public init() { }

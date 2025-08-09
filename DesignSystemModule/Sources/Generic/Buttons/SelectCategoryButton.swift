@@ -8,7 +8,6 @@
 import SwiftUI
 import NavigationKit
 import TheoKit
-import DesignSystemModule
 import CoreModule
 
 public struct SelectCategoryButton: View {

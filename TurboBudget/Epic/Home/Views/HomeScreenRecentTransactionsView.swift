@@ -12,12 +12,13 @@ import DesignSystemModule
 import PreferencesModule
 import CoreModule
 import TransactionModule
+import Dependencies
 
 struct HomeScreenRecentTransactionsView: View {
     
-    // EnvironmentObject
-    @EnvironmentObject private var transactionStore: TransactionStore
-    
+    // MARK: Dependencies
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+
     // Preferences
     @StateObject var preferencesDisplayHome: PreferencesDisplayHome = .shared
     

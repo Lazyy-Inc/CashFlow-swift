@@ -15,7 +15,7 @@ import CoreModule
 
 public struct TransactionAddScreen: View {
     
-    // builder
+    // MARK: Dependencies
     var transaction: TransactionModel?
     
     @StateObject private var viewModel: ViewModel
@@ -24,7 +24,6 @@ public struct TransactionAddScreen: View {
     @EnvironmentObject private var store: PurchasesManager
     
     @EnvironmentObject private var accountStore: AccountStore
-    @EnvironmentObject private var transactionStore: TransactionStore
     
     // Enum
     enum Field: CaseIterable {

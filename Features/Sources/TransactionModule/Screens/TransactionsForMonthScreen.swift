@@ -9,15 +9,14 @@ import SwiftUI
 import NavigationKit
 import CoreModule
 import DesignSystemModule
+import Dependencies
 
 public struct TransactionsForMonthScreen: View {
     
-    // Builder
+    // MARK: Dependencies
     var selectedDate: Date
     var type: TransactionType
-    
-    // Environment
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     
     // String variables
     @State private var searchText: String = ""

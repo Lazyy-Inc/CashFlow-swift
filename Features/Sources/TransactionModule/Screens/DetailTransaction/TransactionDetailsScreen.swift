@@ -13,15 +13,16 @@ import StatsKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
 public struct TransactionDetailsScreen: View {
 
     // MARK: Dependencies
     var transaction: TransactionModel
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     
     // MARK: Environments
     @EnvironmentObject private var router: Router<AppDestination>
-    @EnvironmentObject private var transactionStore: TransactionStore
     @EnvironmentObject var store: PurchasesManager
     @Environment(\.dismiss) private var dismiss
     

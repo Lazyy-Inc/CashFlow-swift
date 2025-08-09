@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import CoreModule
+import Dependencies
 
 extension TransactionAddScreen {
     
@@ -24,7 +25,7 @@ extension TransactionAddScreen {
         @Published var presentingConfirmationDialog: Bool = false
         
         let accountStore: AccountStore = .shared
-        let transactionStore: TransactionStore = .shared
+        @Dependency(\.transactionStore) private var transactionStore: TransactionStore
         let successfullModalManager: SuccessfullModalManager = .shared
         
         var isEditing: Bool {
