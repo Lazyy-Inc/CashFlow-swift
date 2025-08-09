@@ -13,6 +13,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import TransactionModule
+import EventModule
 
 struct SubscriptionDetailsScreen: View {
     

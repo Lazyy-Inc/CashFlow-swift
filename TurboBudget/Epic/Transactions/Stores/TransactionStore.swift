@@ -12,6 +12,7 @@ import CoreModule
 import SwiftUI
 import TransactionModule
 import TheoKit
+import EventModule
 
 extension TransactionStore {
     
@@ -79,7 +80,7 @@ extension TransactionStore {
                     sortTransactionsByDate()
                 }
                 AccountStore.shared.setNewBalance(accountID: accountID, newBalance: newBalance)
-                EventService.sendEventForTransactionCreated(transaction: transaction)
+                EventService.sendForTransactionCreated(transaction: transaction)
                 return shouldReturn ? transaction : nil
             }
             return nil
@@ -280,7 +281,6 @@ extension TransactionStore {
     }
     
 }
-
 
 extension TransactionDTO {
     

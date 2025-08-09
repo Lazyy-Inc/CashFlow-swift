@@ -9,6 +9,7 @@ import Foundation
 import NetworkKit
 import StatsKit
 import CoreModule
+import EventModule
 
 final class SavingsPlanStore: ObservableObject {
     static let shared = SavingsPlanStore()

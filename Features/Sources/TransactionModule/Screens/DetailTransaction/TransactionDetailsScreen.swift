@@ -14,6 +14,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import Dependencies
+import EventModule
 
 public struct TransactionDetailsScreen: View {
 

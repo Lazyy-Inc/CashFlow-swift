@@ -9,6 +9,7 @@ import Foundation
 import NetworkKit
 import StatsKit
 import CoreModule
+import EventModule
 
 final class ContributionStore: ObservableObject {
     static let shared = ContributionStore()

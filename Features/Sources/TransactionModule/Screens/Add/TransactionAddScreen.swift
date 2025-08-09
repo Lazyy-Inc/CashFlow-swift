@@ -12,6 +12,7 @@ import StatsKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import EventModule
 
 public struct TransactionAddScreen: View {
     
@@ -46,7 +47,7 @@ public struct TransactionAddScreen: View {
                     title: transaction == nil ? Word.Classic.create : Word.Classic.edit,
                     action: {
                         NetworkService.cancelAllTasks()
-//                        VibrationManager.vibration() // TODO: Do
+                        VibrationManager.vibration()
                         if transaction == nil {
                             await viewModel.createTransaction(dismiss: dismiss)
                         } else {

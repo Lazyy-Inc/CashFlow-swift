@@ -8,7 +8,6 @@ let package = Package(
     platforms: [.iOS(.v16)],
     products: [
         .library(name: "OnboardingModule", targets: ["OnboardingModule"]),
-        .library(name: "PreferencesModule", targets: ["PreferencesModule"]),
         .library(name: "UserModule", targets: ["UserModule"]),
         .library(name: "PaywallModule", targets: ["PaywallModule"]),
         .library(name: "TransactionModule", targets: ["TransactionModule"])
@@ -42,16 +41,6 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "OnboardingModuleTests", dependencies: ["OnboardingModule"]),
-        
-        .target(
-            name: "PreferencesModule",
-            dependencies: [
-                "CoreModule",
-                .product(name: "StatsKit", package: "StatsKit")
-            ],
-            swiftSettings: [.swiftLanguageMode(.v5)]
-        ),
-        .testTarget(name: "PreferencesModuleTests", dependencies: ["PreferencesModule"]),
         
         .target(
             name: "UserModule",

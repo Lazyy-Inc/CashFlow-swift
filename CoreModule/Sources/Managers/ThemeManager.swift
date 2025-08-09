@@ -15,7 +15,6 @@ public final class ThemeManager: ObservableObject {
     public init() { }
 }
 
-
 public enum ThemeColor: String, CaseIterable {
     case green, blue, purple, red
     

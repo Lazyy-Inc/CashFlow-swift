@@ -13,7 +13,7 @@ import CoreModule
 import StatsKit
 import UserModule
 import OnboardingModule
-import PreferencesModule
+import PreferenceModule
 
 @main
 struct TurboBudgetApp: App {

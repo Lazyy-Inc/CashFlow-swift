@@ -12,8 +12,9 @@ import CoreData
 import NavigationKit
 import StatsKit
 import CoreModule
-import PreferencesModule
+import PreferenceModule
 import DesignSystemModule
+import EventModule
 
 struct PageControllerScreen: View {
     

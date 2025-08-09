@@ -7,12 +7,11 @@
 
 import Foundation
 import UIKit
-import CoreModule
-import PreferencesModule
+import PreferenceModule
 
-final class VibrationManager { }
+public final class VibrationManager { }
 
-extension VibrationManager {
+public extension VibrationManager {
     
     static func vibration() {
         if PreferencesGeneral.shared.hapticFeedback {

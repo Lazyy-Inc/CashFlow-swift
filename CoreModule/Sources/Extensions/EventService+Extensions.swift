@@ -7,6 +7,7 @@
 
 import Foundation
 import StatsKit
+import EventModule
 
 public extension EventService {
     
@@ -27,7 +28,7 @@ public extension EventService {
     }
     
     @MainActor
-    static func sendEventForTransactionCreated(transaction: TransactionModel) {
+    static func sendForTransactionCreated(transaction: TransactionModel) {
         EventService.sendEvent(key: EventKeys.transactionCreated)
         EventService.sendTransactionTypeEvent(type: transaction.type)
         EventService.sendApplePayEvent(isFromApplePay: transaction.isFromApplePay)

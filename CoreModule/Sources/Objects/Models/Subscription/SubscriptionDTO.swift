@@ -72,4 +72,3 @@ public struct SubscriptionDTO: Codable {
         case firstSubscriptionDate
     }
 }
-

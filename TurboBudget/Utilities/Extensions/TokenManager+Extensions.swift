@@ -32,15 +32,13 @@ extension TokenManager {
                     
                     UserStore.shared.currentUser = user
                 } else {
-                    throw NSError(domain: "refreshTokenFailed", code: 401)
-//                    throw NetworkError.refreshTokenFailed // TODO: REACTIVE
+                    throw NetworkError.refreshTokenFailed
                 }
             }
         } else {
             UserStore.shared.currentUser = nil
             TokenManager.shared.setTokenAndRefreshToken(token: "", refreshToken: "")
-            throw NSError(domain: "refreshTokenFailed", code: 401)
-//            throw NetworkError.refreshTokenFailed // TODO: REACTIVE
+            throw NetworkError.refreshTokenFailed
         }
     }
     

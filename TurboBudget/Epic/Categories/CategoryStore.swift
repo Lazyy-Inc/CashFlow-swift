@@ -125,7 +125,6 @@ extension CategoryModel {
     
 }
 
-
 extension CategoryModel {
     
     var categorySlices: [PieSliceData] {

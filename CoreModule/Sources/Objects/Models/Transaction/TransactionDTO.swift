@@ -175,6 +175,4 @@ public extension TransactionDTO {
             long: long
         )
     }
-    
 }
-
