@@ -15,7 +15,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7"),
-        .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.6")
+        .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.6"),
+        .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.9.3")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,7 +25,8 @@ let package = Package(
             name: "CoreModule",
             dependencies: [
                 .product(name: "TheoKit", package: "TheoKit"),
-                .product(name: "StatsKit", package: "StatsKit")
+                .product(name: "StatsKit", package: "StatsKit"),
+                .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),

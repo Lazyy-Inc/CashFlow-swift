@@ -13,6 +13,7 @@ import NavigationKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
 public struct TransactionRowView: View {
     
@@ -22,6 +23,7 @@ public struct TransactionRowView: View {
     
     @EnvironmentObject private var router: Router<AppDestination>
     @EnvironmentObject private var transactionStore: TransactionStore
+//    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @EnvironmentObject private var accountStore: AccountStore
     
     var currentTransaction: TransactionModel {

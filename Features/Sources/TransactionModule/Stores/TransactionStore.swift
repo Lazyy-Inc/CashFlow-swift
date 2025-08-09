@@ -10,15 +10,6 @@ import NetworkKit
 import StatsKit
 import CoreModule
 
-final class TransactionStore: ObservableObject {
-    static let shared = TransactionStore()
-    
-    @Published var transactions: [TransactionModel] = []
-    
-    @Published private(set) var currentDateForFetch: Date = Date()
-    var dateFetched: [Date] = []
-}
-
 extension TransactionStore {
     
     var expenses: [TransactionModel] {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Dependencies
 
 public final class TransactionStore: ObservableObject {
     public static let shared = TransactionStore()
@@ -14,4 +15,15 @@ public final class TransactionStore: ObservableObject {
     
     @Published public var currentDateForFetch: Date = Date()
     public var dateFetched: [Date] = []
+}
+
+extension TransactionStore: DependencyKey {
+    public static var liveValue: TransactionStore = .shared
+}
+
+public extension DependencyValues {
+    var transactionStore: TransactionStore {
+        get { self[TransactionStore.self] }
+        set { self[TransactionStore.self] = newValue }
+    }
 }

@@ -24,6 +24,7 @@ let package = Package(
         .package(url: "https://github.com/theosementa/NotificationKit", branch: "1.0.5"),
         .package(url: "https://github.com/theosementa/TheoKit", branch: "1.0.7"),
 
+        .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.9.3"),
         .package(url: "https://github.com/google/GoogleSignIn-iOS", exact: "9.0.0"),
         .package(url: "https://github.com/simibac/ConfettiSwiftUI", branch: "1.0.0"),
         .package(url: "https://github.com/izyumkin/MCEmojiPicker", branch: "1.2.3"),
@@ -76,7 +77,8 @@ let package = Package(
             name: "TransactionModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule"
+                "CoreModule",
+                .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
