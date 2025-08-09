@@ -11,6 +11,7 @@ import SwiftUI
 import CoreModule
 
 public extension AlertManager {
+    
     func deleteTransaction(transaction: TransactionModel, dismissAction: DismissAction? = nil) {
         self.present(
             title: "alert_transaction_delete_title".localized,
@@ -21,6 +22,20 @@ public extension AlertManager {
             isDestructive: true,
             action: {
                 await TransactionStore.shared.deleteTransaction(transactionID: transaction.id)
+                if let dismissAction { dismissAction() }
+            }
+        )
+    }
+    
+    func deleteTransfer(transfer: TransactionModel, dismissAction: DismissAction? = nil) {
+        self.present(
+            title: "alert_transfer_delete_title".localized,
+            message: "alert_transfer_delete_message".localized,
+            buttonTitle: "word_delete".localized,
+            isDestructive: true,
+            action: {
+//                await TransferStore.shared.deleteTransfer(transferID: transfer.id)
+                // TODO: DO
                 if let dismissAction { dismissAction() }
             }
         )

@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import CoreModule
 
-extension Array where Element: Searchable {
+public extension Array where Element: Searchable {
     
     func search(_ query: String) -> [Element] {
         guard !query.isEmpty else { return self }

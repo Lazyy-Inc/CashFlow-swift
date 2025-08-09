@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreModule
 
-struct CircleCategory: View {
+public struct CircleCategory: View {
     
     // Builder
     var category: CategoryModel?
@@ -17,8 +17,18 @@ struct CircleCategory: View {
     
     @EnvironmentObject private var accountStore: AccountStore
     
+    public init(
+        category: CategoryModel? = nil,
+        subcategory: SubcategoryModel? = nil,
+        transaction: TransactionModel? = nil
+    ) {
+        self.category = category
+        self.subcategory = subcategory
+        self.transaction = transaction
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         ZStack {
             if let category, let subcategory {
                 Circle()
@@ -37,10 +47,10 @@ struct CircleCategory: View {
                       let accountID = selectedAccount._id {
                 let isSender = accountID == transaction.senderAccount?._id
                 Circle()
-                    .foregroundStyle(isSender ? .error400 : .primary500)
+                    .foregroundStyle(isSender ? Color.error400 : Color.primary500)
                     .frame(width: 36)
                 
-                IconSVG(icon: isSender ? .iconSend : .iconInbox, value: .medium)
+                IconSVG(icon: isSender ? "iconSend" : "iconInbox", value: .medium)
             } else {
                 Circle()
                     .foregroundStyle(.gray)

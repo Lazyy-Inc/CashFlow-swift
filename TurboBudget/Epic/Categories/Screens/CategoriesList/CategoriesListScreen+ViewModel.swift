@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreModule
 
 extension CategoriesListScreen {
     

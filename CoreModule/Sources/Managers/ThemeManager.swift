@@ -11,6 +11,8 @@ public final class ThemeManager: ObservableObject {
     public static let shared = ThemeManager()
     
     @AppStorage("theme") public var theme: ThemeColor = .green
+    
+    public init() { }
 }
 
 

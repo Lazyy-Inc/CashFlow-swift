@@ -9,7 +9,7 @@ import SwiftUI
 import StatsKit
 import CoreModule
 
-struct RecommendedCategoryButton: View {
+public struct RecommendedCategoryButton: View {
     
     // Builder
     var transactionName: String
@@ -19,8 +19,18 @@ struct RecommendedCategoryButton: View {
     @State private var bestCategory: CategoryModel?
     @State private var bestSubcategory: SubcategoryModel?
     
+    public init(
+        transactionName: String,
+        selectedCategory: Binding<CategoryModel?>,
+        selectedSubcategory: Binding<SubcategoryModel?>
+    ) {
+        self.transactionName = transactionName
+        self._selectedCategory = selectedCategory
+        self._selectedSubcategory = selectedSubcategory
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack {
             if let bestCategory {
                 let subcategoryFound = bestSubcategory
@@ -46,14 +56,15 @@ struct RecommendedCategoryButton: View {
             }
         }
         .onChange(of: transactionName) { newValue in
-            if newValue.count > 3 {
-                Task {
-                    if let response = await TransactionStore.shared.fetchCategory(name: transactionName) {
-                        bestCategory = CategoryStore.shared.findCategoryById(response.cat)
-                        bestSubcategory = CategoryStore.shared.findSubcategoryById(response.sub)
-                    }
-                }
-            }
+//            if newValue.count > 3 {
+//                Task {
+//                    if let response = await TransactionStore.shared.fetchCategory(name: transactionName) {
+//                        bestCategory = CategoryStore.shared.findCategoryById(response.cat)
+//                        bestSubcategory = CategoryStore.shared.findSubcategoryById(response.sub)
+//                    }
+//                }
+//            }
+            // TODO: DO
         }
     } // End body
 } // End struct

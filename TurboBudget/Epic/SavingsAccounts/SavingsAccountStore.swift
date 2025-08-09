@@ -7,12 +7,13 @@
 
 import Foundation
 import NetworkKit
+import CoreModule
 
-final class SavingsAccountStore: ObservableObject {
+public final class SavingsAccountStore: ObservableObject {
     
-    @Published var currentAccount: AccountModel
+    @Published public var currentAccount: AccountModel
     
-    init(currentAccount: AccountModel) {
+    public init(currentAccount: AccountModel) {
         self.currentAccount = currentAccount
     }
     

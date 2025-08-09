@@ -62,13 +62,17 @@ public struct CustomTextField: View {
     } // End body
 } // End struct
 
-extension CustomTextField {
-    public struct Configuration {
-        var title: String
-        var placeholder: String
-        var style: CustomTextFieldStyle = .text
+public extension CustomTextField {
+    struct Configuration {
+        public var title: String
+        public var placeholder: String
+        public var style: CustomTextFieldStyle = .text
         
-        init(title: String, placeholder: String, style: CustomTextFieldStyle) {
+        public init(
+            title: String,
+            placeholder: String,
+            style: CustomTextFieldStyle = .text
+        ) {
             self.title = title
             self.placeholder = placeholder
             self.style = style

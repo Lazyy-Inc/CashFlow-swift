@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension SubscriptionModel {
+public extension SubscriptionModel {
     
     static let mockClassicSubscriptionExpense: SubscriptionModel = .init(
         id: 1,

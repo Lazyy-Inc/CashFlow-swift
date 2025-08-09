@@ -83,7 +83,7 @@ struct TransactionDetailsScreen: View {
                     
                     VStack(spacing: Spacing.medium) {
                         DetailRow(
-                            icon: .iconCalendar,
+                            icon: "iconCalendar",
                             text: "transaction_detail_date".localized,
                             value: currentTransaction.date.formatted(
                                 date: .complete,
@@ -111,7 +111,7 @@ struct TransactionDetailsScreen: View {
                         
                         if let senderAccount = currentTransaction.senderAccount {
                             DetailRow(
-                                icon: .iconSend,
+                                icon: "iconSend",
                                 text: Word.Classic.senderAccount,
                                 value: senderAccount.name
                             )
@@ -119,7 +119,7 @@ struct TransactionDetailsScreen: View {
                         
                         if let receiverAccount = currentTransaction.receiverAccount {
                             DetailRow(
-                                icon: .iconInbox,
+                                icon: "iconInbox",
                                 text: Word.Classic.receiverAccount,
                                 value: receiverAccount.name
                             )

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreModule
+import DesignSystemModule
 
 struct CreateTransactionForSavingsAccountScreen: View {
     
@@ -83,7 +84,7 @@ struct CreateTransactionForSavingsAccountScreen: View {
                     type: viewModel.transaction == nil ? .creation : .edition,
                     isActive: viewModel.validateTrasaction()
                 ) {
-                    VibrationManager.vibration()
+//                    VibrationManager.vibration() // TODO: DO
                     if viewModel.transaction == nil {
                         await viewModel.createTransaction(dismiss: dismiss)
                     } else {

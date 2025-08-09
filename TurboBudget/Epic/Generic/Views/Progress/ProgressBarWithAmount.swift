@@ -55,7 +55,7 @@ struct ProgressBarWithAmount: View {
 #Preview {
     ProgressBarWithAmount(percentage: 0.4, value: 300)
         .frame(height: 38)
-        .environmentObject(ThemeManager())
+        .environmentObject(ThemeManager.shared)
         .padding()
         .background(Color.Background.bg50)
 }

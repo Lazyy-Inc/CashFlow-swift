@@ -137,5 +137,5 @@ struct AccountAddScreen: View {
 // MARK: - Preview
 #Preview {
     AccountAddScreen(type: .savings)
-        .environmentObject(AccountStore())
+        .environmentObject(AccountStore.shared)
 }

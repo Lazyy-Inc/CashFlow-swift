@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension FormatStyle where Self == Date.FormatStyle {
+public extension FormatStyle where Self == Date.FormatStyle {
     
     static var monthAndYear: Date.FormatStyle {
         return Date.FormatStyle().month(.wide).year()

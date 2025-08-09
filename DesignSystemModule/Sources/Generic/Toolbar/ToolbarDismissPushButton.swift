@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct ToolbarDismissPushButton: ToolbarContent {
+public struct ToolbarDismissPushButton: ToolbarContent {
     
     @Environment(\.dismiss) private var dismiss
     
+    public init() { }
+    
     // MARK: -
-    var body: some ToolbarContent {
+    public var body: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
             Button(action: { dismiss() }, label: {
                 Image(systemName: "chevron.left")

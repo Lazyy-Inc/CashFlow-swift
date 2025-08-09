@@ -7,6 +7,7 @@
 
 import SwiftUI
 import DesignSystemModule
+import CoreModule
 
 struct ReleaseNoteDetailView: View { // TODO: Apply Design Sytem for font
     

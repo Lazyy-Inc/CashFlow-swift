@@ -7,9 +7,9 @@
 
 import SwiftUI
 import TheoKit
-import DesignSystemModule
+import CoreModule
 
-struct CustomDatePicker: View {
+public struct CustomDatePicker: View {
     
     // Builder
     var title: String
@@ -21,8 +21,18 @@ struct CustomDatePicker: View {
     
     @EnvironmentObject private var themeManager: ThemeManager
     
+    public init(
+        title: String,
+        date: Binding<Date>,
+        onlyFutureDates: Bool = false
+    ) {
+        self.title = title
+        self._date = date
+        self.onlyFutureDates = onlyFutureDates
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title)
                 .padding(.leading, 8)

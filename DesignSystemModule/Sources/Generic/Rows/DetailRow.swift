@@ -21,7 +21,7 @@ public struct DetailRow: View {
         icon: String,
         text: String? = nil,
         value: String,
-        iconBackgroundColor: Color,
+        iconBackgroundColor: Color = Color.Background.bg200,
         action: (() -> Void)? = nil
     ) {
         self.icon = icon

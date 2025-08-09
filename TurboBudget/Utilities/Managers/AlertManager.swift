@@ -88,19 +88,6 @@ extension AlertManager {
         )
     }
     
-    func deleteTransfer(transfer: TransactionModel, dismissAction: DismissAction? = nil) {
-        self.present(
-            title: "alert_transfer_delete_title".localized,
-            message: "alert_transfer_delete_message".localized,
-            buttonTitle: "word_delete".localized,
-            isDestructive: true,
-            action: {
-                await TransferStore.shared.deleteTransfer(transferID: transfer.id)
-                if let dismissAction { dismissAction() }
-            }
-        )
-    }
-    
     func deleteSubscription(subscription: SubscriptionModel, dismissAction: DismissAction? = nil) {
         self.present(
             title: "alert_subscription_delete_title".localized,

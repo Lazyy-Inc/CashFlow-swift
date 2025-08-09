@@ -6,16 +6,21 @@
 //
 
 import SwiftUI
+import CoreModule
 
-struct ToolbarDismissButtonView: ToolbarContent {
+public struct ToolbarDismissButtonView: ToolbarContent {
     
     // Builder
     var action: () -> Void
     
     @EnvironmentObject private var themeManager: ThemeManager
     
+    public init(action: @escaping () -> Void) {
+        self.action = action
+    }
+    
     // MARK: - body
-    var body: some ToolbarContent {
+    public var body: some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
             Button(action: action, label: {
                 Text("word_cancel".localized)

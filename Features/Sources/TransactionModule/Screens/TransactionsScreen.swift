@@ -11,6 +11,7 @@ import SwiftUI
 import NavigationKit
 import TheoKit
 import CoreModule
+import DesignSystemModule
 
 struct TransactionsScreen: View {
     

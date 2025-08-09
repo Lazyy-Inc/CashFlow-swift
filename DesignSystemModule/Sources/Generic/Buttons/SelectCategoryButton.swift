@@ -11,14 +11,22 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 
-struct SelectCategoryButton: View {
+public struct SelectCategoryButton: View {
     
     // Builder
     @Binding var selectedCategory: CategoryModel?
     @Binding var selectedSubcategory: SubcategoryModel?
+    
+    public init(
+        selectedCategory: Binding<CategoryModel?>,
+        selectedSubcategory: Binding<SubcategoryModel?>
+    ) {
+        self._selectedCategory = selectedCategory
+        self._selectedSubcategory = selectedSubcategory
+    }
         
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(Word.Classic.category.capitalized)
                 .padding(.leading, 8)

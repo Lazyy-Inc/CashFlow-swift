@@ -10,6 +10,7 @@ import NavigationKit
 import TheoKit
 import DesignSystemModule
 import PreferencesModule
+import CoreModule
 
 struct HomeScreenRecentTransactionsView: View {
     

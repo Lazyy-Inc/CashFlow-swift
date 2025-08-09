@@ -47,7 +47,7 @@ struct TransactionAddScreen: View {
                     title: transaction == nil ? Word.Classic.create : Word.Classic.edit,
                     action: {
                         NetworkService.cancelAllTasks()
-                        VibrationManager.vibration()
+//                        VibrationManager.vibration() // TODO: Do
                         if transaction == nil {
                             await viewModel.createTransaction(dismiss: dismiss)
                         } else {

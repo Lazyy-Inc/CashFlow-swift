@@ -9,6 +9,7 @@
 import SwiftUI
 import SwipeActions
 import AlertKit
+import CoreModule
 
 struct ContributionRowView: View {
 

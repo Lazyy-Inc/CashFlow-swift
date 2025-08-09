@@ -10,6 +10,7 @@ import SwiftUI
 import Charts
 import TheoKit
 import DesignSystemModule
+import CoreModule
 
 struct CarouselOfChartsView: View {
     

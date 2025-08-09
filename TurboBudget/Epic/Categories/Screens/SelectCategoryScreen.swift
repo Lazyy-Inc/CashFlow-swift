@@ -8,6 +8,7 @@
 // Localizations 01/10/2023
 
 import SwiftUI
+import CoreModule
 
 struct SelectCategoryScreen: View {
     

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import DesignSystemModule
+import CoreModule
 
 struct NoInternetView: View {
     

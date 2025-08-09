@@ -10,7 +10,7 @@ import CoreModule
 import SwiftUI
 import TheoKit
 
-extension TransactionModel {
+public extension TransactionModel {
     
     var color: Color {
         switch type {

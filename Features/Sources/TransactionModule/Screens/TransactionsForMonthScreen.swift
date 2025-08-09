@@ -8,8 +8,9 @@
 import SwiftUI
 import NavigationKit
 import CoreModule
+import DesignSystemModule
 
-struct TransactionsForMonthScreen: View {
+public struct TransactionsForMonthScreen: View {
     
     // Builder
     var selectedDate: Date
@@ -21,8 +22,13 @@ struct TransactionsForMonthScreen: View {
     // String variables
     @State private var searchText: String = ""
     
+    public init(selectedDate: Date, type: TransactionType) {
+        self.selectedDate = selectedDate
+        self.type = type
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         let transactions = transactionStore.getTransactions(in: selectedDate).filter { $0.type == type }
         let transactionsFiltered = transactions.search(searchText)
         

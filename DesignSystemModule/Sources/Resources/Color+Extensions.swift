@@ -14,6 +14,10 @@ public extension Color {
         return Color("Primary500", bundle: BundleHelper.bundle)
     }
     
+    static var error400: Color {
+        return Color("Error400", bundle: BundleHelper.bundle)
+    }
+    
 }
 
 public extension Color {

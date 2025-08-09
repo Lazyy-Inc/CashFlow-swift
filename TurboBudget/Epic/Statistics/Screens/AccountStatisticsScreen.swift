@@ -141,5 +141,5 @@ struct AccountStatisticsScreen: View {
 // MARK: - Preview
 #Preview {
     AccountStatisticsScreen()
-        .environmentObject(AccountStore())
+        .environmentObject(AccountStore.shared)
 }

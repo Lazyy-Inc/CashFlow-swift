@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import CoreModule
 
-struct EmptyCategoryData: View {
+public struct EmptyCategoryData: View {
     
     @EnvironmentObject private var categoryStore: CategoryStore
     @EnvironmentObject private var themeManager: ThemeManager
     
+    public init() {}
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 16) {
             Image("NoSpend\(themeManager.theme.nameNotLocalized)")
                 .resizable()
@@ -31,5 +34,4 @@ struct EmptyCategoryData: View {
 #Preview {
     EmptyCategoryData()
         .padding()
-        .background(Color.primary100)
 }

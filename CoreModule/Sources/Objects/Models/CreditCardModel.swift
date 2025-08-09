@@ -72,7 +72,7 @@ public extension CreditCardModel {
     
 }
 
-extension CreditCardModel {
+public extension CreditCardModel {
     
     static let mock: CreditCardModel = .init(
         uuid: UUID(),

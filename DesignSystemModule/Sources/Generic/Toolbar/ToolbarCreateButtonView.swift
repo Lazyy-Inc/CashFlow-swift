@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreModule
 
-struct ToolbarValidationButtonView: ToolbarContent {
+public struct ToolbarValidationButtonView: ToolbarContent {
     
     // Builder
     var type: ValidationButtonType = .creation
@@ -19,8 +19,18 @@ struct ToolbarValidationButtonView: ToolbarContent {
     
     @State private var isLoading: Bool = false
     
+    public init(
+        type: ValidationButtonType,
+        isActive: Bool,
+        action: @escaping () async -> Void,
+    ) {
+        self.type = type
+        self.isActive = isActive
+        self.action = action
+    }
+    
     // MARK: - body
-    var body: some ToolbarContent {
+    public var body: some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             Button(action: {
                 Task {

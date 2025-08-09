@@ -8,9 +8,9 @@
 import SwiftUI
 import NavigationKit
 import TheoKit
-import DesignSystemModule
+import CoreModule
 
-struct CustomEmptyView: View {
+public struct CustomEmptyView: View {
     
     // builder
     var type: CustomEmptyViewType
@@ -40,8 +40,16 @@ struct CustomEmptyView: View {
         }
     }
     
+    public init(
+        type: CustomEmptyViewType,
+        isDisplayed: Bool
+    ) {
+        self.type = type
+        self.isDisplayed = isDisplayed
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(spacing: Spacing.small) {
             Image(emptyIcon)
                 .resizable()
@@ -76,12 +84,12 @@ struct CustomEmptyView: View {
         }
     }
     
-    var emptyIcon: ImageResource {
+    var emptyIcon: String {
         switch type {
         case .empty(let situation):
             return situation.icon
         case .noResults:
-            return .iconSearch
+            return "iconSearch"
         }
     }
     
@@ -114,17 +122,17 @@ struct CustomEmptyView: View {
 } // struct
 
 // MARK: - Utils
-enum CustomEmptyViewType: Equatable {
+public enum CustomEmptyViewType: Equatable {
     case empty(_ situation: CustomEmptyViewSituation)
     case noResults(_ searchText: String)
 }
 
-enum CustomEmptyViewSituationStyle: Equatable {
+public enum CustomEmptyViewSituationStyle: Equatable {
     case home
     case list
 }
 
-enum CustomEmptyViewSituation: Equatable {
+public enum CustomEmptyViewSituation: Equatable {
     case account
     case transactions(CustomEmptyViewSituationStyle)
     case subscriptions(CustomEmptyViewSituationStyle)
@@ -133,26 +141,26 @@ enum CustomEmptyViewSituation: Equatable {
     case savingsAccount
     case analytics
     
-    var icon: ImageResource {
+    public var icon: String {
         switch self {
         case .account:
-            return .iconPerson
+            return "iconPerson"
         case .transactions:
-            return .iconBanknote
+            return "iconBanknote"
         case .subscriptions:
-            return .iconClockRepeat
+            return "iconClockRepeat"
         case .savingsPlan:
-            return .iconPiggyBank
+            return "iconPiggyBank"
 //        case .contributions:
 //            return .iconHandCoins
         case .savingsAccount:
-            return .iconLandmark
+            return "iconLandmark"
         case .analytics:
-            return .iconLineChart
+            return "iconLineChart"
         }
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .account:
             return "empty_account_title"
@@ -169,7 +177,7 @@ enum CustomEmptyViewSituation: Equatable {
         }
     }
     
-    var description: String {
+    public var description: String {
         switch self {
         case .account:
             return "empty_account_list_description"
@@ -186,7 +194,7 @@ enum CustomEmptyViewSituation: Equatable {
         }
     }
     
-    func action(router: Router<AppDestination>) {
+    public func action(router: Router<AppDestination>) {
         switch self {
         case .account:
             router.present(route: .sheet, .account(.create))
