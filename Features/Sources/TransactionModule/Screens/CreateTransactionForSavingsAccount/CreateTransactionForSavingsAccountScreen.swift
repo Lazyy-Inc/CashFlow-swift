@@ -9,7 +9,7 @@ import SwiftUI
 import CoreModule
 import DesignSystemModule
 
-struct CreateTransactionForSavingsAccountScreen: View {
+public struct CreateTransactionForSavingsAccountScreen: View {
     
     @StateObject private var viewModel: ViewModel
     
@@ -21,12 +21,12 @@ struct CreateTransactionForSavingsAccountScreen: View {
     }
     @FocusState var focusedField: Field?
     
-    init(savingsAccount: AccountModel, transaction: TransactionModel? = nil) {
+    public init(savingsAccount: AccountModel, transaction: TransactionModel? = nil) {
         self._viewModel = StateObject(wrappedValue: .init(savingsAccount: savingsAccount, transaction: transaction))
     }
     
     // MARK: -
-    var body: some View {
+    public var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 24) {

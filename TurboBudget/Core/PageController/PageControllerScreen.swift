@@ -13,6 +13,7 @@ import NavigationKit
 import StatsKit
 import CoreModule
 import PreferencesModule
+import DesignSystemModule
 
 struct PageControllerScreen: View {
     
@@ -45,37 +46,33 @@ struct PageControllerScreen: View {
                         TabView(selection: $appManager.selectedTab) {
                             NavigationStackView(
                                 router: homeRouter,
-                                destinationContent: { AppDestination.content(for: $0) }
-                            ) {
-                                HomeScreen()
-                            }
+                                destinationContent: { AppDestination.content(for: $0) },
+                                initialContent: { HomeScreen() }
+                            )
                             .tag(0)
                             .toolbar(.hidden, for: .tabBar)
                             
                             NavigationStackView(
                                 router: analyticsRouter,
-                                destinationContent: { AppDestination.content(for: $0) }
-                            ) {
-                                AnalyticsScreen()
-                            }
+                                destinationContent: { AppDestination.content(for: $0) },
+                                initialContent: { AnalyticsScreen() }
+                            )
                             .tag(1)
                             .toolbar(.hidden, for: .tabBar)
                             
                             NavigationStackView(
                                 router: dashboardRouter,
-                                destinationContent: { AppDestination.content(for: $0) }
-                            ) {
-                                AccountDashboardScreen()
-                            }
+                                destinationContent: { AppDestination.content(for: $0) },
+                                initialContent: { AccountDashboardScreen() }
+                            )
                             .tag(2)
                             .toolbar(.hidden, for: .tabBar)
 
                             NavigationStackView(
                                 router: categoryRouter,
-                                destinationContent: { AppDestination.content(for: $0) }
-                            ) {
-                                CategoriesListScreen()
-                            }
+                                destinationContent: { AppDestination.content(for: $0) },
+                                initialContent: { CategoriesListScreen() }
+                            )
                             .tag(3)
                             .toolbar(.hidden, for: .tabBar)
                         }
@@ -92,13 +89,14 @@ struct PageControllerScreen: View {
                     } else {
                         NavigationStackView(
                             router: homeRouter,
-                            destinationContent: { AppDestination.content(for: $0) }
-                        ) {
-                            CustomEmptyView(
-                                type: .empty(.account),
-                                isDisplayed: true
-                            )
-                        }
+                            destinationContent: { AppDestination.content(for: $0) },
+                            initialContent: {
+                                CustomEmptyView(
+                                    type: .empty(.account),
+                                    isDisplayed: true
+                                )
+                            }
+                        )
                         .onAppear {
                             if !appManager.isRoutersRegistered {
                                 routerManager.register(router: homeRouter, for: .home)

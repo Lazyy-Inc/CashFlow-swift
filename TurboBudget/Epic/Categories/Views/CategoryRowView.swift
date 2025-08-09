@@ -43,7 +43,7 @@ struct CategoryRowView: View {
             }
             .fullWidth(.leading)
             
-            IconSVG(icon: .iconArrowRight, value: .large)
+            IconSVG(icon: "iconArrowRight", value: .large)
                 .foregroundStyle(Color.label)
         }
         .padding(Padding.medium)

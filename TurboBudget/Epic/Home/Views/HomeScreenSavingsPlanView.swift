@@ -10,6 +10,8 @@
 import SwiftUI
 import NavigationKit
 import PreferencesModule
+import CoreModule
+import DesignSystemModule
 
 struct HomeScreenSavingsPlanView: View {
         

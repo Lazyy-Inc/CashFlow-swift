@@ -11,6 +11,7 @@ import TheoKit
 import DesignSystemModule
 import PreferencesModule
 import CoreModule
+import TransactionModule
 
 struct HomeScreenRecentTransactionsView: View {
     

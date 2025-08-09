@@ -13,14 +13,16 @@ import TheoKit
 import CoreModule
 import DesignSystemModule
 
-struct TransactionsScreen: View {
+public struct TransactionsScreen: View {
     
     // Environement
     @EnvironmentObject private var transactionStore: TransactionStore
     @EnvironmentObject private var router: Router<AppDestination>
+    
+    public init() { }
             
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 0) {
             NavigationBar(
                 title: Word.Main.transactions,

@@ -9,6 +9,7 @@ import SwiftUICore
 import NavigationKit
 import PaywallModule
 import CoreModule
+import TransactionModule
 
 extension AppDestination {
     

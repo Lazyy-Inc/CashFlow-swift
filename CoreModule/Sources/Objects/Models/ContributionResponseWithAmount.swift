@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct ContributionResponseWithAmount: Codable {
-    var newAmount: Double?
-    var contribution: ContributionModel?
+public struct ContributionResponseWithAmount: Codable {
+    public var newAmount: Double?
+    public var contribution: ContributionModel?
+    
+    public init(newAmount: Double? = nil, contribution: ContributionModel? = nil) {
+        self.newAmount = newAmount
+        self.contribution = contribution
+    }
 }

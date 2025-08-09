@@ -39,7 +39,7 @@ struct AnalyticsScreen: View {
                         title: "word_statistics".localized,
                         withDismiss: false,
                         actionButton: .init(
-                            icon: .iconGear,
+                            icon: "iconGear",
                             action: { router.push(.settings(.home)) },
                             isDisabled: false
                         )
@@ -129,7 +129,7 @@ struct AnalyticsScreen: View {
                     await transactionStore.fetchTransactionsByPeriod(
                         accountID: accountID,
                         startDate: selectedDate,
-                        endDate: selectedDate.endOfMonth
+                        endDate: selectedDate.endOfMonth ?? .now
                     )
                     updateChartData()
                 }

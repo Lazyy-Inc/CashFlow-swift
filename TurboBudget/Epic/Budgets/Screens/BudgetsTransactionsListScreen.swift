@@ -11,6 +11,7 @@ import SwiftUI
 import NavigationKit
 import DesignSystemModule
 import CoreModule
+import TransactionModule
 
 struct BudgetsTransactionsListScreen: View {
 

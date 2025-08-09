@@ -8,12 +8,14 @@
 import SwiftUI
 import CoreModule
 
-struct CashFlowLoader: View {
+public struct CashFlowLoader: View {
     
     @EnvironmentObject private var themeManager: ThemeManager
     
+    public init() {}
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         ProgressView()
             .tint(Color.white)
             .padding()

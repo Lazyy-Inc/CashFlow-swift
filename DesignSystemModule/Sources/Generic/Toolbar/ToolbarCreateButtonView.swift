@@ -20,9 +20,9 @@ public struct ToolbarValidationButtonView: ToolbarContent {
     @State private var isLoading: Bool = false
     
     public init(
-        type: ValidationButtonType,
-        isActive: Bool,
-        action: @escaping () async -> Void,
+        type: ValidationButtonType = .creation,
+        isActive: Bool = true,
+        action: @escaping () async -> Void
     ) {
         self.type = type
         self.isActive = isActive

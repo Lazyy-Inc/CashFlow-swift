@@ -11,6 +11,7 @@ import StatsKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import TransactionModule
 
 struct SavingsAccountDetailScreen: View {
     

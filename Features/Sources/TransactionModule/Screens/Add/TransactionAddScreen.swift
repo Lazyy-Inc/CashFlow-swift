@@ -13,7 +13,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 
-struct TransactionAddScreen: View {
+public struct TransactionAddScreen: View {
     
     // builder
     var transaction: TransactionModel?
@@ -33,13 +33,13 @@ struct TransactionAddScreen: View {
     @FocusState var focusedField: Field?
     
     // init
-    init(transaction: TransactionModel? = nil) {
+    public init(transaction: TransactionModel? = nil) {
         self.transaction = transaction
         self._viewModel = StateObject(wrappedValue: ViewModel(transaction: transaction))
     }
     
     // MARK: -
-    var body: some View {
+    public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
                 title: transaction == nil ? Word.Title.Transaction.new : Word.Title.Transaction.update,

@@ -32,7 +32,7 @@ struct CategoriesListScreen: View {
                     title: "word_categories".localized,
                     withDismiss: false,
                     actionButton: .init(
-                        icon: .iconGear,
+                        icon: "iconGear",
                         action: { router.push(.settings(.home)) },
                         isDisabled: false
                     ),
@@ -114,7 +114,7 @@ struct CategoriesListScreen: View {
                     await transactionStore.fetchTransactionsByPeriod(
                         accountID: accountID,
                         startDate: viewModel.selectedDate,
-                        endDate: viewModel.selectedDate.endOfMonth
+                        endDate: viewModel.selectedDate.endOfMonth ?? .now
                     )
                     viewModel.calculateAllAmounts(for: viewModel.selectedDate)
                 }

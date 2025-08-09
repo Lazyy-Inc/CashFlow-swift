@@ -11,6 +11,8 @@ import AlertKit
 import NavigationKit
 import StatsKit
 import CoreModule
+import DesignSystemModule
+import TransactionModule
 
 struct SavingsPlanDetailScreen: View {
     
@@ -71,17 +73,17 @@ struct SavingsPlanDetailScreen: View {
                     ProgressBar(percentage: currentSavingsPlan.percentageComplete)
                         .frame(height: 48)
                     DetailRow(
-                        icon: .iconCoins,
+                        icon: "iconCoins",
                         text: Word.Classic.remaining,
                         value: currentSavingsPlan.amountToTheGoal.toCurrency()
                     )
                     DetailRow(
-                        icon: .iconHandCoins,
+                        icon: "iconHandCoins",
                         text: Word.Classic.contributed,
                         value: amountContributed.toCurrency()
                     )
                     DetailRow(
-                        icon: .iconLandmark,
+                        icon: "iconLandmark",
                         text: Word.Classic.finalTarget,
                         value: currentSavingsPlan.goalAmount?.toCurrency() ?? ""
                     )
@@ -113,13 +115,13 @@ struct SavingsPlanDetailScreen: View {
                     }
                     if currentSavingsPlan.endDate != nil {
                         DetailRow(
-                            icon: .iconLandmark,
+                            icon: "iconLandmark",
                             text: Word.Classic.monthlyTarget,
                             value: currentSavingsPlan.monthlyGoalAmount.toCurrency()
                         )
                     }
                     DetailRow(
-                        icon: .iconHandCoins,
+                        icon: "iconHandCoins",
                         text: Word.Classic.contributedThisMonth,
                         value: contributionStore.getAmountOfContributions(in: .now).toCurrency()
                     )
@@ -127,25 +129,25 @@ struct SavingsPlanDetailScreen: View {
                 
                 VStack(spacing: 8) {
                     DetailRow(
-                        icon: .iconCalendar,
+                        icon: "iconCalendar",
                         text: Word.Classic.startDate,
                         value: currentSavingsPlan.startDate.formatted(date: .abbreviated, time: .omitted)
                     )
                     DetailRow(
-                        icon: .iconHourGlass,
+                        icon: "iconHourGlass",
                         text: Word.Classic.daysElapsed,
                         value: "\(currentSavingsPlan.daysSinceStart)"
                     )
                     
                     if let endDate = currentSavingsPlan.endDate {
                         DetailRow(
-                            icon: .iconClock,
+                            icon: "iconClock",
                             text: Word.Classic.daysRemaining,
                             value: "\(currentSavingsPlan.daysRemaining)"
                         )
                         
                         DetailRow(
-                            icon: .iconCalendar,
+                            icon: "iconCalendar",
                             text: Word.Classic.endDate,
                             value: endDate.formatted(date: .abbreviated, time: .omitted)
                         )

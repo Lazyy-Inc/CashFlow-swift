@@ -14,7 +14,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 
-struct TransactionRowView: View {
+public struct TransactionRowView: View {
     
     // Builder
     var transaction: TransactionModel
@@ -28,8 +28,13 @@ struct TransactionRowView: View {
         return transactionStore.transactions.first { $0.id == transaction.id } ?? transaction
     }
     
+    public init(transaction: TransactionModel, isEditable: Bool = true) {
+        self.transaction = transaction
+        self.isEditable = isEditable
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         SwipeView(
             label: {
                 HStack(spacing: Spacing.medium) {

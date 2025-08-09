@@ -14,7 +14,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 
-struct TransactionDetailsScreen: View {
+public struct TransactionDetailsScreen: View {
 
     // MARK: Dependencies
     var transaction: TransactionModel
@@ -30,9 +30,13 @@ struct TransactionDetailsScreen: View {
     var currentTransaction: TransactionModel {
         return transactionStore.transactions.first { $0.id == transaction.id } ?? transaction
     }
+    
+    public init(transaction: TransactionModel) {
+        self.transaction = transaction
+    }
 
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(spacing: Spacing.extraLarge) {
             NavigationBarWithMenu {
                 NavigationButtonView(

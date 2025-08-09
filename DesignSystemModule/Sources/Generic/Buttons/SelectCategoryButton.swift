@@ -49,7 +49,7 @@ public struct SelectCategoryButton: View {
                         IconSVG(icon: selectedCategory.icon, value: .medium)
                         Text(selectedCategory.name)
                     } else {
-                        Image(.iconFolderPlus)
+                        Image("iconFolderPlus")
                             .resizable()
                             .renderingMode(.template)
                             .frame(width: 20, height: 20)

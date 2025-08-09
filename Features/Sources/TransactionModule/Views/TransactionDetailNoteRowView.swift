@@ -9,7 +9,7 @@ import SwiftUI
 import CoreModule
 import DesignSystemModule
 
-struct TransactionDetailNoteRowView: View {
+public struct TransactionDetailNoteRowView: View {
     
     // Builder
     @Binding var note: String
@@ -20,8 +20,12 @@ struct TransactionDetailNoteRowView: View {
     }
     @FocusState var focusedField: Field?
     
+    public init(note: Binding<String>) {
+        self._note = note
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 8) {
                 Text(Word.Classic.note)

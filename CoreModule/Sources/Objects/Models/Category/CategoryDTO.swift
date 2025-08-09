@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUICore
+import NetworkKit
 
 public struct CategoryDTO: Codable, Equatable, Hashable {
     public var id: Int?
