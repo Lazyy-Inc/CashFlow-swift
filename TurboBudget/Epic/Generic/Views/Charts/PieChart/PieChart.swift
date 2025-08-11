@@ -91,7 +91,7 @@ struct PieChart: View {
                             y: center.y + sin(midAngle.radians - .pi / 2) * iconRadius
                         )
                         
-                        IconSVG(icon: icons[index], value: .standard) // TODO: Verify
+                        IconSVG(icon: icons[index], value: .standard)
                         Image(icons[index])
                             .foregroundStyle(Color.white)
                             .position(iconPosition)

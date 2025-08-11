@@ -10,6 +10,7 @@ import NetworkKit
 import CoreModule
 import StatsKit
 import SwiftUI
+import EventModule
 
 final class BudgetStore: ObservableObject {
     static let shared = BudgetStore()

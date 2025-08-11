@@ -9,6 +9,7 @@ import Foundation
 import NetworkKit
 import StatsKit
 import CoreModule
+import EventModule
 
 extension TransactionStore {
     
@@ -76,7 +77,7 @@ extension TransactionStore {
                     sortTransactionsByDate()
                 }
                 AccountStore.shared.setNewBalance(accountID: accountID, newBalance: newBalance)
-                EventService.sendEventForTransactionCreated(transaction: transaction)
+                EventService.sendForTransactionCreated(transaction: transaction)
                 return shouldReturn ? transaction : nil
             }
             return nil

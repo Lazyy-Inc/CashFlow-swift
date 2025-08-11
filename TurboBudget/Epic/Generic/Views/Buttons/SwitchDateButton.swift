@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreModule
 
 enum SwitchDateButtonType {
     case month, year

@@ -10,6 +10,7 @@ import NetworkKit
 import StatsKit
 import CoreModule
 import TransactionModule
+import EventModule
 
 extension TransferStore {
     

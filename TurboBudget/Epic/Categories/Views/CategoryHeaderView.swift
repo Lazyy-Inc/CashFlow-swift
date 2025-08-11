@@ -25,7 +25,7 @@ struct CategoryHeaderView: View {
                 .frame(width: 30, height: 30)
                 .foregroundStyle(category.color)
                 .overlay {
-                    IconSVG(icon: category.icon, value: .small) // TODO: Verify
+                    IconSVG(icon: category.icon, value: .small)
                         .foregroundStyle(Color.white)
                 }
         }

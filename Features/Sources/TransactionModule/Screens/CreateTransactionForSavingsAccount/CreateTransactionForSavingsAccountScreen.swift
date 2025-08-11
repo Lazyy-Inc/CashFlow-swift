@@ -84,7 +84,7 @@ public struct CreateTransactionForSavingsAccountScreen: View {
                     type: viewModel.transaction == nil ? .creation : .edition,
                     isActive: viewModel.validateTrasaction()
                 ) {
-//                    VibrationManager.vibration() // TODO: DO
+                    VibrationManager.vibration()
                     if viewModel.transaction == nil {
                         await viewModel.createTransaction(dismiss: dismiss)
                     } else {

@@ -13,6 +13,7 @@ import StatsKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import EventModule
 
 struct SubscriptionsListScreen: View {
     

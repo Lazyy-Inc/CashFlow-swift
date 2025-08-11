@@ -13,6 +13,7 @@ import StatsKit
 import CoreModule
 import DesignSystemModule
 import TransactionModule
+import EventModule
 
 struct SavingsPlanDetailScreen: View {
     

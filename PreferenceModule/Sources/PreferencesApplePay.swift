@@ -7,8 +7,8 @@
 
 import Foundation
 import Combine
+import EventModule
 import StatsKit
-import CoreModule
 
 public final class PreferencesApplePay: ObservableObject {
     public static let shared = PreferencesApplePay()

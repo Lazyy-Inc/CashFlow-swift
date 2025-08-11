@@ -13,7 +13,7 @@ import CoreModule
 import StatsKit
 import UserModule
 import OnboardingModule
-import PreferencesModule
+import PreferenceModule
 
 @main
 struct TurboBudgetApp: App {
@@ -32,7 +32,6 @@ struct TurboBudgetApp: App {
     @StateObject private var userStore: UserStore = .shared
     @StateObject private var accountStore: AccountStore = .shared
     @StateObject private var categoryStore: CategoryStore = .shared
-    @StateObject private var transactionStore: TransactionStore = .shared
     @StateObject private var transferStore: TransferStore = .shared
     @StateObject private var subscriptionStore: SubscriptionStore = .shared
     @StateObject private var savingsPlanStore: SavingsPlanStore = .shared
@@ -109,7 +108,6 @@ struct TurboBudgetApp: App {
             .environmentObject(userStore)
             .environmentObject(accountStore)
             .environmentObject(categoryStore)
-            .environmentObject(transactionStore)
             .environmentObject(transferStore)
             .environmentObject(subscriptionStore)
             .environmentObject(savingsPlanStore)

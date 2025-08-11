@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreModule
-import PreferencesModule
+import PreferenceModule
 
 struct SettingsGeneralView: View {
     

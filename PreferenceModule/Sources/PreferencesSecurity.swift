@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 import StatsKit
-import CoreModule
+import EventModule
 
 public final class PreferencesSecurity: ObservableObject {
     public static let shared = PreferencesSecurity()

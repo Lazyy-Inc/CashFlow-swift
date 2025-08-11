@@ -82,7 +82,7 @@ struct BannerView: View {
     
     var body: some View {
         Text(title)
-//            .font(.Body.mediu) // TODO: ICI
+            .font(.mediumText16())
             .foregroundStyle(style == .error ? Color.white : Color(uiColor: .systemBackground))
             .padding(24)
             .frame(maxWidth: .infinity)

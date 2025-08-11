@@ -17,13 +17,12 @@ import Dependencies
 
 public struct TransactionRowView: View {
     
-    // Builder
+    // MARK: Dependencies
     var transaction: TransactionModel
     var isEditable: Bool = true
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     
     @EnvironmentObject private var router: Router<AppDestination>
-    @EnvironmentObject private var transactionStore: TransactionStore
-//    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @EnvironmentObject private var accountStore: AccountStore
     
     var currentTransaction: TransactionModel {

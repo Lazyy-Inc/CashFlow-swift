@@ -9,7 +9,8 @@ import Foundation
 import Combine
 import StatsKit
 import CoreModule
-import PreferencesModule
+import PreferenceModule
+import EventModule
 
 final class SubscriptionPreferences: ObservableObject {
     static let shared = SubscriptionPreferences()

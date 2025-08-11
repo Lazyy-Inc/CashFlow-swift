@@ -8,13 +8,14 @@
 import Foundation
 import NotificationKit
 import CoreModule
+import Dependencies
 
 extension AppManager {
  
     @MainActor
     func loadStartData() async {
         let accountStore: AccountStore = .shared
-        let transactionStore: TransactionStore = .shared
+        @Dependency(\.transactionStore) var transactionStore: TransactionStore
         let subscriptionStore: SubscriptionStore = .shared
         let savingsPlanStore: SavingsPlanStore = .shared
         let budgetStore: BudgetStore = .shared

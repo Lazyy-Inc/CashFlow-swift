@@ -11,11 +11,13 @@ import Charts
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
 struct CarouselOfChartsView: View {
     
     // Environment
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+
     @EnvironmentObject private var themeManager: ThemeManager
     
     // State variables

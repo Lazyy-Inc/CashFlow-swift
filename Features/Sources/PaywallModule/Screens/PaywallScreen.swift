@@ -10,6 +10,7 @@ import SwiftUI
 import StatsKit
 import CoreModule
 import DesignSystemModule
+import EventModule
 
 public struct PaywallScreen: View {
     

@@ -11,11 +11,15 @@ import StatsKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
+import EventModule
 
 struct TransactionsListScreen: View {
     
+    // MARK: Dependencies
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+    
     @EnvironmentObject private var accountStore: AccountStore
-    @EnvironmentObject private var transactionStore: TransactionStore
     
     @State private var isLoading: Bool = false
     

@@ -12,6 +12,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import TransactionModule
+import EventModule
 
 struct SavingsAccountDetailScreen: View {
     
@@ -40,12 +41,12 @@ struct SavingsAccountDetailScreen: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationBarWithMenu(title: savingsAccountStore.currentAccount.name) {
-//                NavigationButtonView( // TODO: Reactivate
-//                    route: .push,
-//                    destination: AppDestination.savingsAccount(.createTransaction(savingsAccount: savingsAccountStore.currentAccount))
-//                ) {
-//                    Label(Word.Classic.add, systemImage: "plus")
-//                }
+                NavigationButtonView(
+                    route: .push,
+                    destination: AppDestination.savingsAccount(.createTransaction(savingsAccount: savingsAccountStore.currentAccount))
+                ) {
+                    Label(Word.Classic.add, systemImage: "plus")
+                }
                 NavigationButtonView(
                     route: .push,
                     destination: AppDestination.transfer(.create(receiverAccount: savingsAccountStore.currentAccount))

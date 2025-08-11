@@ -12,10 +12,11 @@ import StatsKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import EventModule
 
 public struct TransactionAddScreen: View {
     
-    // builder
+    // MARK: Dependencies
     var transaction: TransactionModel?
     
     @StateObject private var viewModel: ViewModel
@@ -24,7 +25,6 @@ public struct TransactionAddScreen: View {
     @EnvironmentObject private var store: PurchasesManager
     
     @EnvironmentObject private var accountStore: AccountStore
-    @EnvironmentObject private var transactionStore: TransactionStore
     
     // Enum
     enum Field: CaseIterable {
@@ -47,7 +47,7 @@ public struct TransactionAddScreen: View {
                     title: transaction == nil ? Word.Classic.create : Word.Classic.edit,
                     action: {
                         NetworkService.cancelAllTasks()
-//                        VibrationManager.vibration() // TODO: Do
+                        VibrationManager.vibration()
                         if transaction == nil {
                             await viewModel.createTransaction(dismiss: dismiss)
                         } else {

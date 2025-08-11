@@ -8,6 +8,7 @@
 import Foundation
 import StoreKit
 import StatsKit
+import EventModule
 
 @MainActor
 public class PurchasesManager: NSObject, ObservableObject {
@@ -60,7 +61,7 @@ public extension PurchasesManager {
                 // Successful purhcase
                 await transaction.finish()
                 await self.updatePurchasedProducts()
-                // await UserStore.shared.update(body: .init(isPremium: true)) TODO: Reactivate
+//                await UserStore.shared.update(body: .init(isPremium: true)) TODO: Reactivate
                 EventService.sendEvent(key: EventKeys.userPremium)
             case let .success(.unverified(_, error)):
                 // Successful purchase but transaction/receipt can't be verified

@@ -11,7 +11,7 @@ import SwiftUI
 import NavigationKit
 import TheoKit
 import DesignSystemModule
-import PreferencesModule
+import PreferenceModule
 import CoreModule
 
 struct HomeScreenSubscriptionView: View {

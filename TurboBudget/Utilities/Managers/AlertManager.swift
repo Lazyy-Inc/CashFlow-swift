@@ -12,6 +12,7 @@ import NavigationKit
 import StatsKit
 import CoreModule
 import UserModule
+import EventModule
 
 extension AlertManager {
     

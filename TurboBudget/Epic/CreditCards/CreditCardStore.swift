@@ -9,6 +9,7 @@ import Foundation
 import NetworkKit
 import StatsKit
 import CoreModule
+import EventModule
 
 final class CreditCardStore: ObservableObject {
     static let shared = CreditCardStore()

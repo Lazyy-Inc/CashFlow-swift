@@ -11,6 +11,7 @@ import StatsKit
 import CoreModule
 import SwiftUI
 import TheoKit
+import EventModule
 
 final class SubscriptionStore: ObservableObject {
     static let shared = SubscriptionStore()
