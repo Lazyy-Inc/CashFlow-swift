@@ -15,6 +15,7 @@
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
 		D9564DE52E472CEB00F2341E /* EventModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564DE42E472CEB00F2341E /* EventModule */; };
 		D9564DE72E472CF000F2341E /* PreferenceModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564DE62E472CF000F2341E /* PreferenceModule */; };
+		D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D968BB2C2E4F2579006BB17A /* Sentry */; };
 		D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D96F3C9B2CB2E3B800CBABB8 /* MCEmojiPicker */; };
 		D96F97EC2E32B5F9006B0596 /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = D96F97EB2E32B5F9006B0596 /* UserModule */; };
 		D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */ = {isa = PBXBuildFile; productRef = D96F97ED2E32B924006B0596 /* OnboardingModule */; };
@@ -76,6 +77,7 @@
 				D980E52C2DC1E928005025E1 /* TheoKit in Frameworks */,
 				D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */,
 				D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */,
+				D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +153,7 @@
 				D9564CD02E467A8B00F2341E /* TransactionModule */,
 				D9564DE42E472CEB00F2341E /* EventModule */,
 				D9564DE62E472CF000F2341E /* PreferenceModule */,
+				D968BB2C2E4F2579006BB17A /* Sentry */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -194,6 +197,7 @@
 				D980E52A2DC1E928005025E1 /* XCRemoteSwiftPackageReference "TheoKit" */,
 				D901E7FE2DC3584600069818 /* XCRemoteSwiftPackageReference "StatsKit" */,
 				D9D5BC672E41352100118297 /* XCRemoteSwiftPackageReference "NavigationKit" */,
+				D968BB2B2E4F2579006BB17A /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 			);
 			productRefGroup = 81A707842A3B6B4C00BEB0BF /* Products */;
 			projectDirPath = "";
@@ -538,6 +542,14 @@
 				minimumVersion = 1.0.4;
 			};
 		};
+		D968BB2B2E4F2579006BB17A /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.55.0;
+			};
+		};
 		D96F3C9A2CB2E3B800CBABB8 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/izyumkin/MCEmojiPicker";
@@ -609,6 +621,11 @@
 		D9564DE62E472CF000F2341E /* PreferenceModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PreferenceModule;
+		};
+		D968BB2C2E4F2579006BB17A /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D968BB2B2E4F2579006BB17A /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
 		};
 		D96F3C9B2CB2E3B800CBABB8 /* MCEmojiPicker */ = {
 			isa = XCSwiftPackageProductDependency;
