@@ -10,7 +10,7 @@ import AppIntents
 import CoreModule
 import UserModule
 import PreferenceModule
-import CoreModule
+import Sentry
 
 struct AddTransactionIntent: AppIntent {
     
@@ -87,6 +87,7 @@ struct AddTransactionIntent: AppIntent {
             
             return .result(dialog: IntentDialog(stringLiteral: formattedText))
         } catch {
+            SentrySDK.capture(error: error)
             return .result(dialog: IntentDialog(stringLiteral: "Fail to add transaction."))
         }
     }

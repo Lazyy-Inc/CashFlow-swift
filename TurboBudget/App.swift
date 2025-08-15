@@ -14,6 +14,7 @@ import StatsKit
 import UserModule
 import OnboardingModule
 import PreferenceModule
+import Sentry
 
 @main
 struct TurboBudgetApp: App {
@@ -51,6 +52,11 @@ struct TurboBudgetApp: App {
     init() { // TODO: Need refactor
         UINavigationBar.appearance().titleTextAttributes = [.font: UIFont(name: "PlusJakartaSans-Bold", size: 18)!]
         UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont(name: "PlusJakartaSans-Bold", size: 30)!]
+        
+        SentrySDK.start { options in
+            options.dsn = ProcessInfo.processInfo.environment["SENTRY_API_KEY"] ?? ""
+            options.sendDefaultPii = true
+        }
     }
     
     // MARK: -
