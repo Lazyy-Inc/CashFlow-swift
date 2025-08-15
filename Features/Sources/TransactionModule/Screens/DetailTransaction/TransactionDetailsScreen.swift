@@ -205,7 +205,7 @@ extension TransactionDetailsScreen {
     NavigationStack {
         TransactionDetailsScreen(transaction: .mockClassicTransaction)
     }
-    .environmentObject(TransactionStore.shared)
+    .environment(TransactionStore.shared)
     .environmentObject(PurchasesManager())
     .environmentObject(ThemeManager.shared)
 }

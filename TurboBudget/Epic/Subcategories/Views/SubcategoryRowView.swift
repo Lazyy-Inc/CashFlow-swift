@@ -9,6 +9,7 @@ import SwiftUI
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
 struct SubcategoryRowView: View {
     
@@ -17,7 +18,7 @@ struct SubcategoryRowView: View {
     var selectedDate: Date
     
     // MARK: Environments
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     
     // Computed var
     var stringAmount: String {

@@ -12,12 +12,13 @@ import NavigationKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
 struct CategoriesListScreen: View {
     
     // MARK: EnvironmentObject
     @EnvironmentObject private var accountStore: AccountStore
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @EnvironmentObject private var categoryStore: CategoryStore
     @EnvironmentObject private var router: Router<AppDestination>
     

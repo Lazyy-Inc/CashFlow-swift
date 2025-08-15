@@ -11,6 +11,7 @@ import NavigationKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
 struct SubcategoryListScreen: View {
     
@@ -19,7 +20,7 @@ struct SubcategoryListScreen: View {
     var selectedDate: Date
     
     // MARK: Environnements
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @EnvironmentObject private var categoryStore: CategoryStore
     
     // MARK: StateObject

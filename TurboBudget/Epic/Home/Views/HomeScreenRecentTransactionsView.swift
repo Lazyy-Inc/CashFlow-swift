@@ -22,6 +22,10 @@ struct HomeScreenRecentTransactionsView: View {
     // Preferences
     @StateObject var preferencesDisplayHome: PreferencesDisplayHome = .shared
     
+    var transactions: [TransactionModel] {
+        return Array(transactionStore.transactions.prefix(preferencesDisplayHome.transaction_value))
+    }
+    
     // MARK: -
     var body: some View {
         if preferencesDisplayHome.transaction_isDisplayed {
@@ -30,7 +34,6 @@ struct HomeScreenRecentTransactionsView: View {
                 
                 if transactionStore.transactions.isNotEmpty {
                     VStack(spacing: Spacing.medium) {
-                        let transactions = transactionStore.transactions.prefix(preferencesDisplayHome.transaction_value)
                         ForEach(transactions) { transaction in
                             NavigationButtonView(route: .push, destination: AppDestination.transaction(.detail(transaction: transaction))) {
                                 TransactionRowView(transaction: transaction)

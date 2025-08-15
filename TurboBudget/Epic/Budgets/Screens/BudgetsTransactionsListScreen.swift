@@ -12,6 +12,7 @@ import NavigationKit
 import DesignSystemModule
 import CoreModule
 import TransactionModule
+import Dependencies
 
 struct BudgetsTransactionsListScreen: View {
 
@@ -19,7 +20,7 @@ struct BudgetsTransactionsListScreen: View {
     var subcategory: SubcategoryModel
     
     @EnvironmentObject private var budgetStore: BudgetStore
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
 
     // Environment
     @Environment(\.dismiss) private var dismiss

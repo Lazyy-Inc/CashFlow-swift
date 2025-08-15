@@ -9,11 +9,12 @@ import SwiftUI
 import NavigationKit
 import TheoKit
 import CoreModule
+import Dependencies
 
 struct HomeHeaderView: View {
     
     @EnvironmentObject private var accountStore: AccountStore
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @EnvironmentObject private var purchaseManager: PurchasesManager
     
     // MARK: -

@@ -13,6 +13,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import TransactionModule
+import Dependencies
 
 struct CategoryTransactionsScreen: View {
     
@@ -21,7 +22,7 @@ struct CategoryTransactionsScreen: View {
     var selectedDate: Date
     
     // MARK: Environments
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     
     // MARK: States
     @State private var searchText: String = ""

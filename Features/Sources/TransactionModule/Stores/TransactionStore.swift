@@ -11,7 +11,7 @@ import StatsKit
 import CoreModule
 import EventModule
 
-extension TransactionStore {
+public extension TransactionStore {
     
     var expenses: [TransactionModel] {
         return transactions.filter { $0.type == .expense }
@@ -40,7 +40,7 @@ extension TransactionStore {
     
 }
 
-extension TransactionStore {
+public extension TransactionStore {
     
     @MainActor
     func fetchTransactionsByPeriod(accountID: Int, startDate: Date, endDate: Date, type: TransactionType? = nil) async {
@@ -140,7 +140,7 @@ extension TransactionStore {
     }
 }
 
-extension TransactionStore {
+public extension TransactionStore {
     
     func fetchTransactionsOfCurrentMonth(accountID: Int) async {
         let startDate = Date().startOfMonth ?? .now
@@ -182,7 +182,7 @@ extension TransactionStore {
     
 }
 
-extension TransactionStore {
+public extension TransactionStore {
     
     func getTransactions(in month: Date? = nil) -> [TransactionModel] {
         return filterTransactions(inMonth: month)
@@ -198,7 +198,7 @@ extension TransactionStore {
     
 }
 
-extension TransactionStore {
+public extension TransactionStore {
     
     func getExpenses(transactions: [TransactionModel], in month: Date? = nil) -> [TransactionModel] {
         return transactions
@@ -234,7 +234,7 @@ extension TransactionStore {
     
 }
 
-extension TransactionStore {
+public extension TransactionStore {
     
     func getIncomes(transactions: [TransactionModel], in month: Date? = nil) -> [TransactionModel] {
         return transactions
@@ -262,7 +262,7 @@ extension TransactionStore {
     
 }
 
-extension TransactionStore {
+public extension TransactionStore {
     
     func getTransactionFromSubscriptions(in month: Date? = nil) -> [TransactionModel] {
         return getTransactions(in: month)
@@ -270,7 +270,7 @@ extension TransactionStore {
     }
 }
 
-extension TransactionStore {
+public extension TransactionStore {
     
     func reset() {
         transactions.removeAll()

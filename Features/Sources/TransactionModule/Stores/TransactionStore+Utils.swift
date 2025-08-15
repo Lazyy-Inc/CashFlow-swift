@@ -8,7 +8,7 @@
 import Foundation
 import CoreModule
 
-extension TransactionStore {
+public extension TransactionStore {
     
     func transactionsByCategory(_ categoryID: Int?) -> [TransactionModel] {
         return self.transactions
@@ -53,7 +53,7 @@ extension TransactionStore {
     }
 }
 
-extension TransactionStore {
+public extension TransactionStore {
     
     func expensesForSelectedMonth(selectedDate: Date) -> [TransactionModel] {
         var transactionsExpenses: [TransactionModel] = []
@@ -86,7 +86,7 @@ extension TransactionStore {
     }
 }
 
-extension TransactionStore {
+public extension TransactionStore {
 
     func amountGainOrLossByMonth(month: Date) -> Double {
         let amountOfExpenses = amountExpensesForSelectedMonth(month: month)
@@ -97,7 +97,7 @@ extension TransactionStore {
     
 }
 
-extension TransactionStore {
+public extension TransactionStore {
     
     func dailyTransactions(for month: Date, type: TransactionType) -> [AmountByDay] {
         let dates = month.allDateOfMonth
@@ -141,7 +141,7 @@ extension TransactionStore {
     
 }
 
-extension TransactionStore {
+public extension TransactionStore {
     
     func totalCashFlowForSpecificMonthYear(month: Int, year: Int) -> Double {
         var amount: Double = 0.0

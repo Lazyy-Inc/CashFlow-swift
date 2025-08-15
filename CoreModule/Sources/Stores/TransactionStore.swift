@@ -8,12 +8,13 @@
 import Foundation
 import Dependencies
 
-public final class TransactionStore: ObservableObject {
+@Observable
+public final class TransactionStore {
     public static let shared = TransactionStore()
     
-    @Published public var transactions: [TransactionModel] = []
+    public var transactions: [TransactionModel] = []
     
-    @Published public var currentDateForFetch: Date = Date()
+    public var currentDateForFetch: Date = Date()
     public var dateFetched: [Date] = []
 }
 

@@ -18,7 +18,7 @@ var resources: [Resource] {
 
 let package = Package(
     name: "DesignSystemModule",
-    platforms: [.iOS(.v16)],
+    platforms: [.iOS(.v17)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
