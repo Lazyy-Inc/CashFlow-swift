@@ -27,10 +27,8 @@ struct SettingsAccountScreen: View {
         }
         .navigationTitle("word_account".localized)
         .navigationBarTitleDisplayMode(.inline)
-        .onChange(of: preferencesAccount.mainAccountId) { newValue in
-            Task {
-                await accountStore.updateAccount(accountID: newValue, body: .init(isMain: true))
-            }
+        .onChangeAsync(of: preferencesAccount.mainAccountId) {
+            await accountStore.updateAccount(accountID: $0, body: .init(isMain: true))
         }
     } // body
 } // struct

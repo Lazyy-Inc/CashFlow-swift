@@ -25,7 +25,7 @@ struct BannerModifier: ViewModifier {
                 }
                 .animation(.spring(), value: banner)
             }
-            .onChange(of: banner) { _ in
+            .onChange(of: banner) {
                 showBanner()
             }
     } // End body

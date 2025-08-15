@@ -104,7 +104,7 @@ struct AccountDashboardScreen: View {
                                 .fontWithLineHeight(.Title.medium)
                                 .foregroundStyle(themeManager.theme.color)
                             }
-                            .onChange(of: accountStore.selectedAccount?.id) { _ in
+                            .onChange(of: accountStore.selectedAccount?.id) {
                                 if appManager.isStartDataLoaded {
                                     appManager.resetAllStoresData()
                                     Task {

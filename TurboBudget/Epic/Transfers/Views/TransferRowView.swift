@@ -98,7 +98,7 @@ struct TransferRowView: View {
                 Rectangle()
                     .foregroundStyle(.error400)
             })
-            .onChange(of: cancelDeleting) { _ in
+            .onChange(of: cancelDeleting) {
                 context.state.wrappedValue = .closed
             }
         })
