@@ -13,12 +13,13 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import EventModule
+import Dependencies
 
-struct SavingsPlanListScreen: View {
+public struct SavingsPlanListScreen: View {
     
     // Environment
-    @EnvironmentObject private var savingsPlanStore: SavingsPlanStore
-    @EnvironmentObject private var contributionStore: ContributionStore
+    @Dependency(\.savingsPlanStore) private var savingsPlanStore
+    @Dependency(\.contributionStore) private var contributionStore
     @EnvironmentObject private var router: Router<AppDestination>
         
     // String variables
@@ -32,8 +33,10 @@ struct SavingsPlanListScreen: View {
     // Other
     private let layout: [GridItem] = [GridItem(.flexible(minimum: 40), spacing: 16), GridItem(.flexible(minimum: 40), spacing: 16)]
     
+    public init() { }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
                 title: Word.Main.savingsPlans,

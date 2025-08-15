@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreModule
 
-struct ProgressBar: View {
+public struct ProgressBar: View {
     
     // Builder
     var percentage: Double
@@ -22,15 +22,19 @@ struct ProgressBar: View {
         return percentage.toString(maxDigits: 0) + " %"
     }
     
+    public init(percentage: Double) {
+        self.percentage = percentage
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             let widthText = percentageString.width(usingFont: UIFont(name: "PlusJakartaSans-SemiBold", size: 16)!) * 1.8 // TODO: Need refactor
             let widthPercentage = geometry.size.width * min(1, percentage)
             let progressWidth = max(widthText, widthPercentage)
             
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color.background100)
+                .fill(Color.Background.bg100)
                 .overlay(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                         .fill(themeManager.theme.color)

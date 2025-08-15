@@ -8,18 +8,26 @@
 import SwiftUI
 import CoreModule
 
-enum SwitchDateButtonType {
+public enum SwitchDateButtonType {
     case month, year
 }
 
-struct SwitchDateButton: View {
+public struct SwitchDateButton: View {
     
     // Builder
     @Binding var date: Date
     var type: SwitchDateButtonType
     
+    public init(
+        date: Binding<Date>,
+        type: SwitchDateButtonType
+    ) {
+        self._date = date
+        self.type = type
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         HStack {
             DelayedButton(delay: 0.1) {
                 changePeriodDate(inPast: true)

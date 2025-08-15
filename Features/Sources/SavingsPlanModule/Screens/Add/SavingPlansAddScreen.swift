@@ -13,8 +13,9 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import EventModule
+import Dependencies
 
-struct SavingPlansAddScreen: View {
+public struct SavingPlansAddScreen: View {
     
     // builder
     var savingsPlan: SavingsPlanModel?
@@ -22,8 +23,8 @@ struct SavingPlansAddScreen: View {
     
     // Custom
     @EnvironmentObject private var accountStore: AccountStore
-    @EnvironmentObject private var savingsPlanStore: SavingsPlanStore
-    @EnvironmentObject private var contributionStore: ContributionStore
+    @Dependency(\.savingsPlanStore) private var savingsPlanStore
+    @Dependency(\.contributionStore) private var contributionStore
     
     // Environment
     @Environment(\.dismiss) private var dismiss
@@ -35,13 +36,13 @@ struct SavingPlansAddScreen: View {
     @FocusState private var focusedField: Field?
     
     // init
-    init(savingsPlan: SavingsPlanModel? = nil) {
+    public init(savingsPlan: SavingsPlanModel? = nil) {
         self.savingsPlan = savingsPlan
         self._viewModel = StateObject(wrappedValue: ViewModel(savingsPlan: savingsPlan))
     }
     
     // MARK: -
-    var body: some View {
+    public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
                 title: savingsPlan == nil ? Word.Title.SavingsPlan.new : Word.Title.SavingsPlan.update,

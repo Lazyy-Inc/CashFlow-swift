@@ -12,12 +12,14 @@ import NavigationKit
 import PreferenceModule
 import CoreModule
 import DesignSystemModule
+import Dependencies
+import SavingsPlanModule
 
 struct HomeScreenSavingsPlanView: View {
         
     // Environment
-    @EnvironmentObject private var savingsPlanStore: SavingsPlanStore
-    @EnvironmentObject private var contributionStore: ContributionStore
+    @Dependency(\.savingsPlanStore) private var savingsPlanStore
+    @Dependency(\.contributionStore) private var contributionStore
     
     // Preferences
     @StateObject var preferencesDisplayHome: PreferencesDisplayHome = .shared

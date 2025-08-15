@@ -9,22 +9,27 @@ import SwiftUI
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
-struct SavingsPlanRowView: View {
+public struct SavingsPlanRowView: View {
 
     // Custom type
     var savingsPlan: SavingsPlanModel
 
     // Environnement
     @EnvironmentObject private var themeManager: ThemeManager
-    @EnvironmentObject private var savingsPlanStore: SavingsPlanStore
+    @Dependency(\.savingsPlanStore) private var savingsPlanStore
     
     var currentSavingsPlan: SavingsPlanModel {
         return savingsPlanStore.savingsPlans.first { $0.id == savingsPlan.id } ?? savingsPlan
     }
+    
+    public init(savingsPlan: SavingsPlanModel) {
+        self.savingsPlan = savingsPlan
+    }
 
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack {
             HStack {
                 Rectangle()
@@ -38,7 +43,7 @@ struct SavingsPlanRowView: View {
                 
                 Spacer()
                 
-                Image(.iconArrowRight)
+                Image("iconArrowRight")
                     .renderingMode(.template)
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
             }
@@ -56,7 +61,7 @@ struct SavingsPlanRowView: View {
             Text(currentSavingsPlan.name ?? "")
                 .fontWithLineHeight(.Body.medium)
                 .foregroundStyle(Color.label)
-                .lineLimit(1)                  
+                .lineLimit(1)
         }
         .padding(Padding.standard)
         .aspectRatio(1, contentMode: .fit)
@@ -73,7 +78,7 @@ struct SavingsPlanRowView: View {
 #Preview {
     SavingsPlanRowView(savingsPlan: .mockClassicSavingsPlan)
         .environmentObject(ThemeManager())
-        .environmentObject(SavingsPlanStore())
+        .environment(SavingsPlanStore.shared)
         .frame(width: 180)
         .padding()
         .background(Color.Background.bg50)

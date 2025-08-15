@@ -10,6 +10,7 @@ import NetworkKit
 import StatsKit
 import CoreModule
 import EventModule
+import SavingsPlanModule
 
 extension AccountStore {
     

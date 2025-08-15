@@ -34,8 +34,6 @@ struct TurboBudgetApp: App {
     @StateObject private var accountStore: AccountStore = .shared
     @StateObject private var categoryStore: CategoryStore = .shared
     @StateObject private var transferStore: TransferStore = .shared
-    @StateObject private var savingsPlanStore: SavingsPlanStore = .shared
-    @StateObject private var contributionStore: ContributionStore = .shared
     @StateObject private var budgetStore: BudgetStore = .shared
     @StateObject private var creditCardStore: CreditCardStore = .shared
     
@@ -114,8 +112,6 @@ struct TurboBudgetApp: App {
             .environmentObject(accountStore)
             .environmentObject(categoryStore)
             .environmentObject(transferStore)
-            .environmentObject(savingsPlanStore)
-            .environmentObject(contributionStore)
             .environmentObject(budgetStore)
             .environmentObject(creditCardStore)
             

@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 import CoreModule
 
-struct GenericBarChart: View {
+public struct GenericBarChart: View {
     
     // Builder
     var title: String
@@ -19,8 +19,20 @@ struct GenericBarChart: View {
     
     @EnvironmentObject private var themeManager: ThemeManager
     
+    public init(
+        title: String,
+        selectedDate: Binding<Date>,
+        values: [Double],
+        amount: Double
+    ) {
+        self.title = title
+        self._selectedDate = selectedDate
+        self.values = values
+        self.amount = amount
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
@@ -90,7 +102,7 @@ struct GenericBarChart: View {
         .padding(12)
         .background {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color.background100)
+                .fill(Color.Background.bg100)
         }
     } // body
 } // struct

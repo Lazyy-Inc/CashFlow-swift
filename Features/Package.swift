@@ -12,7 +12,8 @@ let package = Package(
         .library(name: "PaywallModule", targets: ["PaywallModule"]),
         .library(name: "TransactionModule", targets: ["TransactionModule"]),
         .library(name: "SubscriptionModule", targets: ["SubscriptionModule"]),
-        .library(name: "SavingsPlanModule", targets: ["SavingsPlanModule"])
+        .library(name: "SavingsPlanModule", targets: ["SavingsPlanModule"]),
+        .library(name: "ContributionModule", targets: ["ContributionModule"])
     ],
     dependencies: [
         .package(path: "./DesignSystemModule"),
@@ -92,10 +93,21 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule",
+                "ContributionModule",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(name: "SavingsPlanModuleTests", dependencies: ["SavingsPlanModule"])
+        .testTarget(name: "SavingsPlanModuleTests", dependencies: ["SavingsPlanModule"]),
+        .target(
+            name: "ContributionModule",
+            dependencies: [
+                "DesignSystemModule",
+                "CoreModule",
+                .product(name: "Dependencies", package: "swift-dependencies")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "ContributionModuleTests", dependencies: ["ContributionModule"])
     ]
 )

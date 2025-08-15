@@ -35,13 +35,13 @@ struct CustomDatePickerWithToggle: View {
                     Button {
                         withAnimation { isEnabled.toggle() }
                     } label: {
-                        Image(.iconCheck)
+                        Image("iconCheck")
                             .renderingMode(.template)
                             .foregroundStyle(Color.label)
                             .padding(8)
                             .frame(width: self.datePickerHeight, height: self.datePickerHeight)
                             .roundedRectangleBorder(
-                                isEnabled ? themeManager.theme.color : Color.background300,
+                                isEnabled ? themeManager.theme.color : Color.Background.bg300,
                                 radius: 8
                             )
                     }

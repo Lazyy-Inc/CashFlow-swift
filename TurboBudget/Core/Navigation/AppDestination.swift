@@ -6,11 +6,12 @@
 //
 
 import SwiftUICore
+import CoreModule
 import NavigationKit
 import PaywallModule
-import CoreModule
 import TransactionModule
 import SubscriptionModule
+import SavingsPlanModule
 
 extension AppDestination {
     

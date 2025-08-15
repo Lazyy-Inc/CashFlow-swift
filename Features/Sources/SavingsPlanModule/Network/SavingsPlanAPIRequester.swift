@@ -9,14 +9,14 @@ import Foundation
 import NetworkKit
 import CoreModule
 
-enum SavingsPlanAPIRequester: APIRequestBuilder {
+public enum SavingsPlanAPIRequester: APIRequestBuilder {
     case fetch(accountID: Int)
     case create(accountID: Int, body: SavingsPlanModel)
     case update(savingsplanID: Int, body: SavingsPlanModel)
     case delete(savingsplanID: Int)
 }
 
-extension SavingsPlanAPIRequester {
+public extension SavingsPlanAPIRequester {
     var path: String {
         switch self {
         case .fetch(let accountID):             return NetworkPath.SavingsPlan.base(accountID: accountID)
