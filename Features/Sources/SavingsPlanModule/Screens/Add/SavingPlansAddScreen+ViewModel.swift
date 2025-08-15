@@ -60,29 +60,28 @@ extension SavingPlansAddScreen.ViewModel {
     }
     
     func createSavingsPlan(dismiss: DismissAction) async {
-        // TODO: !REACTIVE
-//        let accountStore: AccountStore = .shared
-//        @Dependency(\.savingsPlanStore) var savingsPlanStore
-//        @Dependency(\.contributionStore) var contributionStore
-//        let successfullModalManager: SuccessfullModalManager = .shared
-//        
-//        guard let account = accountStore.selectedAccount else { return }
-//        guard let accountID = account._id else { return }
-//        
-//        if let savingsPlan = await savingsPlanStore.createSavingsPlan(accountID: accountID, body: bodyForCreation()) {
-//            if let savingsPlanID = savingsPlan.id, savingPlanAmountOfStart.toDouble() != 0 {
-//                await contributionStore.createContribution(
-//                    savingsplanID: savingsPlanID,
-//                    body: .init(
-//                        amount: savingPlanAmountOfStart.toDouble(),
-//                        typeNum: ContributionType.addition.rawValue,
-//                        dateString: startDate.toISO())
-//                )
-//            }
-//            
-//            await dismiss()
-//            await successfullModalManager.showSuccessfulSavingsPlan(type: .new, savingsPlan: savingsPlan)
-//        }
+        let accountStore: AccountStore = .shared
+        @Dependency(\.savingsPlanStore) var savingsPlanStore
+        @Dependency(\.contributionStore) var contributionStore
+        let successfullModalManager: SuccessfullModalManager = .shared
+        
+        guard let account = accountStore.selectedAccount else { return }
+        guard let accountID = account._id else { return }
+        
+        if let savingsPlan = await savingsPlanStore.createSavingsPlan(accountID: accountID, body: bodyForCreation()) {
+            if let savingsPlanID = savingsPlan.id, savingPlanAmountOfStart.toDouble() != 0 {
+                await contributionStore.createContribution(
+                    savingsplanID: savingsPlanID,
+                    body: .init(
+                        amount: savingPlanAmountOfStart.toDouble(),
+                        typeNum: ContributionType.addition.rawValue,
+                        dateString: startDate.toISO())
+                )
+            }
+            
+            await dismiss()
+            await successfullModalManager.showSuccessfulSavingsPlan(type: .new, savingsPlan: savingsPlan)
+        }
     }
     
     func updateSavingsPlan(dismiss: DismissAction) async {
