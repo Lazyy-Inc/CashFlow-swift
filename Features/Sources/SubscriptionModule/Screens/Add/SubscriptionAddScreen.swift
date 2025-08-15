@@ -14,7 +14,7 @@ import DesignSystemModule
 import CoreModule
 import EventModule
 
-struct SubscriptionAddScreen: View {
+public struct SubscriptionAddScreen: View {
     
     // builder
     var subscription: SubscriptionModel?
@@ -32,13 +32,13 @@ struct SubscriptionAddScreen: View {
     @FocusState private var focusedField: Field?
     
     // init
-    init(subscription: SubscriptionModel? = nil) {
+    public init(subscription: SubscriptionModel? = nil) {
         self.subscription = subscription
         self._viewModel = StateObject(wrappedValue: ViewModel(subscription: subscription))
     }
     
     // MARK: -
-    var body: some View {
+    public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
                 title: subscription == nil ? Word.Title.Subscription.new : Word.Title.Subscription.update,

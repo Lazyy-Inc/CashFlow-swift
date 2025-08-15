@@ -7,8 +7,8 @@
 
 import SwiftUI
 import TheoKit
-import DesignSystemModule
 import CoreModule
+import DesignSystemModule
 
 struct FrequencyPicker: View {
     

@@ -9,6 +9,9 @@ import Foundation
 import NotificationKit
 import CoreModule
 import Dependencies
+import PreferenceModule
+import TransactionModule
+import SubscriptionModule
 
 extension AppManager {
  

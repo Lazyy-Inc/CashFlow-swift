@@ -9,14 +9,14 @@ import Foundation
 import NetworkKit
 import CoreModule
 
-enum SubscriptionAPIRequester: APIRequestBuilder {
+public enum SubscriptionAPIRequester: APIRequestBuilder {
     case fetch(accountID: Int)
     case create(accountID: Int, body: SubscriptionDTO)
     case update(subscriptionID: Int, body: SubscriptionDTO)
     case delete(subscriptionID: Int)
 }
 
-extension SubscriptionAPIRequester {
+public extension SubscriptionAPIRequester {
     var path: String {
         switch self {
         case .fetch(let accountID):             return NetworkPath.Subscription.base(accountID: accountID)
