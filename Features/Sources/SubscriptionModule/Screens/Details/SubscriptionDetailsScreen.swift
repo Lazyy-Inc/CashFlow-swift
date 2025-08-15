@@ -12,9 +12,9 @@ import StatsKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
-import TransactionModule
 import EventModule
 import Dependencies
+import TransactionModule
 
 public struct SubscriptionDetailsScreen: View {
     
