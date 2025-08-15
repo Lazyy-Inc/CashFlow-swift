@@ -10,6 +10,7 @@ import NavigationKit
 import PaywallModule
 import CoreModule
 import TransactionModule
+import SubscriptionModule
 
 extension AppDestination {
     

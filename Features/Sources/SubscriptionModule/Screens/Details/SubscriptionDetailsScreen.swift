@@ -14,15 +14,16 @@ import DesignSystemModule
 import CoreModule
 import TransactionModule
 import EventModule
+import Dependencies
 
-struct SubscriptionDetailsScreen: View {
+public struct SubscriptionDetailsScreen: View {
     
     // Builder
     var subscriptionId: Int
     
     // Custom type
     @EnvironmentObject private var router: Router<AppDestination>
-    @EnvironmentObject private var subscriptionStore: SubscriptionStore
+    @Dependency(\.subscriptionStore) private var subscriptionStore
     @StateObject var viewModel: ViewModel = .init()
     
     // Environement
@@ -32,8 +33,12 @@ struct SubscriptionDetailsScreen: View {
         return subscriptionStore.subscriptions.first { $0.id == subscriptionId }
     }
     
+    public init(subscriptionId: Int) {
+        self.subscriptionId = subscriptionId
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         if let subscription {
             VStack(spacing: Spacing.extraLarge) {
                 NavigationBarWithMenu {

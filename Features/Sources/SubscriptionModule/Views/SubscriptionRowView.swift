@@ -13,21 +13,26 @@ import NavigationKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
-struct SubscriptionRowView: View {
+public struct SubscriptionRowView: View {
     
     // Builder
     var subscription: SubscriptionModel
     
     @EnvironmentObject private var router: Router<AppDestination>
-    @EnvironmentObject private var subscriptionStore: SubscriptionStore
+    @Dependency(\.subscriptionStore) private var subscriptionStore
     
     var currentSubscription: SubscriptionModel {
         return subscriptionStore.subscriptions.first { $0.id == subscription.id } ?? subscription
     }
     
+    public init(subscription: SubscriptionModel) {
+        self.subscription = subscription
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         SwipeView(
             label: {
                 HStack(spacing: Spacing.medium) {
@@ -97,7 +102,7 @@ struct SubscriptionRowView: View {
                     .foregroundStyle(Color.textReversed)
                 }, background: { _ in
                     Rectangle()
-                        .foregroundStyle(.error400)
+                        .foregroundStyle(Color.error400)
                 })
             }
         )

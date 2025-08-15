@@ -12,11 +12,10 @@ import CoreModule
 import SwiftUI
 import TheoKit
 import EventModule
+import PreferenceModule
+import DesignSystemModule
 
-final class SubscriptionStore: ObservableObject {
-    static let shared = SubscriptionStore()
-    
-    @Published var subscriptions: [SubscriptionModel] = []
+public extension SubscriptionStore {
     
     var subscriptionsByMonth: [Date: [SubscriptionModel]] {
         let groupedByMonth = Dictionary(grouping: subscriptions) { subscription in
@@ -29,9 +28,6 @@ final class SubscriptionStore: ObservableObject {
                 result[entry.key] = entry.value
             }
     }
-}
-
-extension SubscriptionStore {
     
     @MainActor
     func fetchSubscriptions(accountID: Int) async {
@@ -86,7 +82,7 @@ extension SubscriptionStore {
     
 }
 
-extension SubscriptionStore {
+public extension SubscriptionStore {
     
     func reset() {
         subscriptions.removeAll()
@@ -94,7 +90,7 @@ extension SubscriptionStore {
     
 }
 
-extension SubscriptionModel {
+public extension SubscriptionModel {
     
     var category: CategoryModel? {
         return CategoryStore.shared.findCategoryById(categoryID)

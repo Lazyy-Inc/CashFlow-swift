@@ -8,10 +8,13 @@
 import SwiftUI
 import NotificationKit
 import CoreModule
+import PreferenceModule
+import Dependencies
+import SubscriptionModule
 
 struct SettingsSubscriptionScreen: View {
     
-    @EnvironmentObject private var subscriptionStore: SubscriptionStore
+    @Dependency(\.subscriptionStore) private var subscriptionStore
     @StateObject private var preferencesSubscription: SubscriptionPreferences = .shared
         
     // MARK: -

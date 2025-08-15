@@ -14,19 +14,22 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import EventModule
+import Dependencies
 
-struct SubscriptionsListScreen: View {
+public struct SubscriptionsListScreen: View {
     
     // Environement
-    @EnvironmentObject private var subscriptionStore: SubscriptionStore
+    @Dependency(\.subscriptionStore) private var subscriptionStore
     @EnvironmentObject private var router: Router<AppDestination>
     @Environment(\.dismiss) private var dismiss
     
     // State or Binding Orientation
     @State private var orientation = UIDeviceOrientation.unknown
     
+    public init() { }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 0) {
             NavigationBar(
                 title: Word.Main.subscriptions.localized,
