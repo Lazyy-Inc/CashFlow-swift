@@ -152,7 +152,7 @@ public enum CustomEmptyViewSituation: Equatable {
         case .savingsPlan:
             return "iconPiggyBank"
 //        case .contributions:
-//            return .iconHandCoins
+//            return "iconHandCoins"
         case .savingsAccount:
             return "iconLandmark"
         case .analytics:

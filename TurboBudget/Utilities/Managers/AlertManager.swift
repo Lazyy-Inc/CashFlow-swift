@@ -89,36 +89,4 @@ extension AlertManager {
         )
     }
     
-    func deleteSavingsPlan(savingsPlan: SavingsPlanModel, dismissAction: DismissAction? = nil) {
-        self.present(
-            title: "alert_savingsplan_delete_title".localized,
-            message: "alert_savingsplan_delete_message".localized,
-            buttonTitle: "word_delete".localized,
-            isDestructive: true,
-            action: {
-                if let savingsPlanID = savingsPlan.id {
-                    await SavingsPlanStore.shared.deleteSavingsPlan(savingsPlanID: savingsPlanID)
-                    if let dismissAction { dismissAction() }
-                }
-            }
-        )
-    }
-    
-    func deleteContribution(savingsPlan: SavingsPlanModel, contribution: ContributionModel) {
-        self.present(
-            title: "alert_contribution_delete_title".localized,
-            message: "alert_contribution_delete_message".localized,
-            buttonTitle: "word_delete".localized,
-            isDestructive: true,
-            action: {
-                if let contributionID = contribution.id, let savingsPlanID = savingsPlan.id {
-                    await ContributionStore.shared.deleteContribution(
-                        savingsplanID: savingsPlanID,
-                        contributionID: contributionID
-                    )
-                }
-            }
-        )
-    }
-    
 }

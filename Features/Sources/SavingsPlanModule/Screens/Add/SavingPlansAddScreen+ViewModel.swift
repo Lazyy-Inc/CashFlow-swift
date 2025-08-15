@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import CoreData
 import SwiftUI
 import CoreModule
+import Dependencies
 
 extension SavingPlansAddScreen {
     
@@ -61,8 +61,8 @@ extension SavingPlansAddScreen.ViewModel {
     
     func createSavingsPlan(dismiss: DismissAction) async {
         let accountStore: AccountStore = .shared
-        let savingsPlanStore: SavingsPlanStore = .shared
-        let contributionStore: ContributionStore = .shared
+        @Dependency(\.savingsPlanStore) var savingsPlanStore
+        @Dependency(\.contributionStore) var contributionStore
         let successfullModalManager: SuccessfullModalManager = .shared
         
         guard let account = accountStore.selectedAccount else { return }

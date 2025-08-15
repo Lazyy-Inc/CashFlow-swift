@@ -1,23 +1,17 @@
 //
-//  SavingsPlanStore.swift
-//  CashFlow
+//  File.swift
+//  Features
 //
-//  Created by Theo Sementa on 15/11/2024.
+//  Created by Theo Sementa on 15/08/2025.
 //
 
 import Foundation
+import CoreModule
 import NetworkKit
 import StatsKit
-import CoreModule
 import EventModule
 
-final class SavingsPlanStore: ObservableObject {
-    static let shared = SavingsPlanStore()
-    
-    @Published var savingsPlans: [SavingsPlanModel] = []
-}
-
-extension SavingsPlanStore {
+public extension SavingsPlanStore {
     
     @MainActor
     func fetchSavingsPlans(accountID: Int) async {
@@ -60,24 +54,6 @@ extension SavingsPlanStore {
                 EventService.sendEvent(key: EventKeys.savingsPlanDeleted)
             }
         } catch { NetworkService.handleError(error: error) }
-    }
-    
-}
-
-extension SavingsPlanStore {
-    
-    func setNewAmount(savingsPlanID: Int, newAmount: Double) {
-        if let savingsPlanIndex = savingsPlans.firstIndex(where: { $0.id == savingsPlanID }) {
-            self.savingsPlans[savingsPlanIndex].currentAmount = newAmount
-        }
-    }
-    
-}
-
-extension SavingsPlanStore {
-    
-    func reset() {
-        self.savingsPlans.removeAll()
     }
     
 }

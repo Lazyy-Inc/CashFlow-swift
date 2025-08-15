@@ -14,8 +14,9 @@ import CoreModule
 import DesignSystemModule
 import TransactionModule
 import EventModule
+import Dependencies
 
-struct SavingsPlanDetailScreen: View {
+public struct SavingsPlanDetailScreen: View {
     
     // Builder
     var savingsPlan: SavingsPlanModel
@@ -25,8 +26,8 @@ struct SavingsPlanDetailScreen: View {
     @EnvironmentObject var store: PurchasesManager
     @EnvironmentObject private var themeManager: ThemeManager
     
-    @EnvironmentObject private var savingsPlanStore: SavingsPlanStore
-    @EnvironmentObject private var contributionStore: ContributionStore
+    @Dependency(\.savingsPlanStore) private var savingsPlanStore
+    @Dependency(\.contributionStore) private var contributionStore
     
     @State private var savingPlanNote: String = ""
     
@@ -45,12 +46,16 @@ struct SavingsPlanDetailScreen: View {
         return savingsPlanStore.savingsPlans.first { $0.id == savingsPlan.id } ?? savingsPlan
     }
     
+    public init(savingsPlan: SavingsPlanModel) {
+        self.savingsPlan = savingsPlan
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         ScrollView {
             Circle()
                 .frame(width: 100, height: 100)
-                .foregroundStyle(.background100)
+                .foregroundStyle(Color.Background.bg100)
                 .overlay {
                     Circle()
                         .frame(width: 80, height: 80)
@@ -64,7 +69,7 @@ struct SavingsPlanDetailScreen: View {
                 }
             
             Text(currentSavingsPlan.name ?? "")
-                .titleAdjustSize()
+//                .titleAdjustSize()
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
                      
@@ -178,6 +183,7 @@ struct SavingsPlanDetailScreen: View {
                             ContributionRowView(savingsPlan: currentSavingsPlan, contribution: contribution)
                         }
                     } else {
+                        // TODO: !Reactive and test
 //                        CustomEmptyView(
 //                            type: .empty(.contributions),
 //                            isDisplayed: contributionStore.contributions.isEmpty
