@@ -18,6 +18,16 @@ public final class TransactionStore {
     public var dateFetched: [Date] = []
 }
 
+public extension TransactionStore {
+    
+    func reset() {
+        transactions.removeAll()
+        dateFetched.removeAll()
+    }
+    
+}
+
+// MARK: - Dependencies
 extension TransactionStore: DependencyKey {
     public static var liveValue: TransactionStore = .shared
 }

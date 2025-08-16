@@ -19,6 +19,7 @@
 		D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968BF5A2E4F29A7006BB17A /* SubscriptionModule */; };
 		D968C1772E4F4A6A006BB17A /* SavingsPlanModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1762E4F4A6A006BB17A /* SavingsPlanModule */; };
 		D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1782E4F5E59006BB17A /* ContributionModule */; };
+		D968C1B02E50651E006BB17A /* AccountModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1AF2E50651E006BB17A /* AccountModule */; };
 		D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D96F3C9B2CB2E3B800CBABB8 /* MCEmojiPicker */; };
 		D96F97EC2E32B5F9006B0596 /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = D96F97EB2E32B5F9006B0596 /* UserModule */; };
 		D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */ = {isa = PBXBuildFile; productRef = D96F97ED2E32B924006B0596 /* OnboardingModule */; };
@@ -73,6 +74,7 @@
 				D9D5BC692E41352100118297 /* NavigationKit in Frameworks */,
 				D9D2C64B2E29850700FEE9FD /* DesignSystemModule in Frameworks */,
 				81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */,
+				D968C1B02E50651E006BB17A /* AccountModule in Frameworks */,
 				D9D2C65A2E2CB63600FEE9FD /* CoreModule in Frameworks */,
 				D9564DE72E472CF000F2341E /* PreferenceModule in Frameworks */,
 				D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */,
@@ -163,6 +165,7 @@
 				D968BF5A2E4F29A7006BB17A /* SubscriptionModule */,
 				D968C1762E4F4A6A006BB17A /* SavingsPlanModule */,
 				D968C1782E4F5E59006BB17A /* ContributionModule */,
+				D968C1AF2E50651E006BB17A /* AccountModule */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -647,6 +650,10 @@
 		D968C1782E4F5E59006BB17A /* ContributionModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ContributionModule;
+		};
+		D968C1AF2E50651E006BB17A /* AccountModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AccountModule;
 		};
 		D96F3C9B2CB2E3B800CBABB8 /* MCEmojiPicker */ = {
 			isa = XCSwiftPackageProductDependency;
