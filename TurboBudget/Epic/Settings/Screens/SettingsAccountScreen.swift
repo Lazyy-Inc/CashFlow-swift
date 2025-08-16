@@ -7,6 +7,8 @@
 
 import SwiftUI
 import CoreModule
+import PreferenceModule
+import AccountModule
 
 struct SettingsAccountScreen: View {
     

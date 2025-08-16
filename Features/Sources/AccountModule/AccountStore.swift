@@ -10,9 +10,9 @@ import NetworkKit
 import StatsKit
 import CoreModule
 import EventModule
-import SavingsPlanModule
+import PreferenceModule
 
-extension AccountStore {
+public extension AccountStore {
     
     @MainActor
     func fetchAccounts() async {
@@ -96,7 +96,7 @@ extension AccountStore {
                 TransactionStore.shared.reset()
                 SubscriptionStore.shared.reset()
                 SavingsPlanStore.shared.reset()
-                BudgetStore.shared.reset()
+//                BudgetStore.shared.reset() // TODO: Active
                 selectedAccount = nil
             }
         } catch { NetworkService.handleError(error: error) }
@@ -117,7 +117,7 @@ extension AccountStore {
     }
 }
 
-extension AccountStore {
+public extension AccountStore {
     
     func cashFlowAmount(for month: Date) -> Double {
         let monthNum = month.month - 1

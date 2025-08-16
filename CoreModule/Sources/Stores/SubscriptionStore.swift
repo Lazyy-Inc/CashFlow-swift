@@ -15,6 +15,16 @@ public final class SubscriptionStore {
     public var subscriptions: [SubscriptionModel] = []
 }
 
+public extension SubscriptionStore {
+    
+    func reset() {
+        subscriptions.removeAll()
+    }
+    
+}
+
+
+// MARK: - Dependencies
 extension SubscriptionStore: DependencyKey {
     public static var liveValue: SubscriptionStore = .shared
 }

@@ -7,15 +7,14 @@
 
 import Foundation
 import Combine
-import PreferenceModule
 
-final class AccountPreferences: ObservableObject {
-    static let shared = AccountPreferences()
+public final class AccountPreferences: ObservableObject {
+    public static let shared = AccountPreferences()
     
-    let objectWillChange = PassthroughSubject<Void, Never>()
+    public let objectWillChange = PassthroughSubject<Void, Never>()
     
     @UserDefault("PreferencesAccount_mainAccountId", defaultValue: 0)
-    var mainAccountId: Int {
+    public var mainAccountId: Int {
         willSet { objectWillChange.send() }
     }
     
