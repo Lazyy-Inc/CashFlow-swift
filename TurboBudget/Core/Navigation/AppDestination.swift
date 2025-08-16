@@ -13,6 +13,7 @@ import TransactionModule
 import SubscriptionModule
 import SavingsPlanModule
 import ContributionModule
+import AccountModule
 
 extension AppDestination {
     

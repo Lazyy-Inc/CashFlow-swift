@@ -9,30 +9,30 @@ import Foundation
 import NetworkKit
 import CoreModule
 
-struct AccountService {
+public struct AccountService {
     
-    static func fetchAll() async throws -> [AccountModel] {
+    public static func fetchAll() async throws -> [AccountModel] {
         return try await NetworkService.sendRequest(
             apiBuilder: AccountAPIRequester.fetch,
             responseModel: [AccountModel].self
         )
     }
     
-    static func create(body: AccountModel) async throws -> AccountModel {
+    public static func create(body: AccountModel) async throws -> AccountModel {
         return try await NetworkService.sendRequest(
             apiBuilder: AccountAPIRequester.create(body: body),
             responseModel: AccountModel.self
         )
     }
     
-    static func update(id: Int, body: AccountModel) async throws -> AccountModel {
+    public static func update(id: Int, body: AccountModel) async throws -> AccountModel {
         return try await NetworkService.sendRequest(
             apiBuilder: AccountAPIRequester.update(accountID: id, body: body),
             responseModel: AccountModel.self
         )
     }
     
-    static func delete(id: Int) async throws {
+    public static func delete(id: Int) async throws {
         try await NetworkService.sendRequest(
             apiBuilder: AccountAPIRequester.delete(accountID: id)
         )
@@ -40,7 +40,7 @@ struct AccountService {
     
 }
 
-extension AccountService {
+public extension AccountService {
     
     static func fetchCashFlow(id: Int, year: Int) async throws -> [Double] {
         return try await NetworkService.sendRequest(

@@ -9,7 +9,7 @@ import Foundation
 import NetworkKit
 import CoreModule
 
-enum AccountAPIRequester: APIRequestBuilder {
+public enum AccountAPIRequester: APIRequestBuilder {
     case fetch
     case create(body: AccountModel)
     case update(accountID: Int, body: AccountModel)
@@ -18,7 +18,7 @@ enum AccountAPIRequester: APIRequestBuilder {
     case stats(accountID: Int, withSavings: Bool)
 }
 
-extension AccountAPIRequester {
+public extension AccountAPIRequester {
     var path: String {
         switch self {
         case .fetch:                return NetworkPath.Account.base

@@ -13,7 +13,7 @@ import TheoKit
 import DesignSystemModule
 import NetworkKit
 
-struct AccountAddScreen: View {
+public struct AccountAddScreen: View {
     
     // Builder
     var type: AccountType
@@ -26,44 +26,14 @@ struct AccountAddScreen: View {
     @Environment(\.dismiss) private var dismiss
     
     // init
-    init(type: AccountType, account: AccountModel? = nil) {
+    public init(type: AccountType, account: AccountModel? = nil) {
         self.type = type
         self.account = account
         self._viewModel = StateObject(wrappedValue: .init(type: type, account: account))
     }
     
     // MARK: -
-    var body: some View {
-//        ScrollView {
-
-//        } // End ScrollView
-//        .scrollIndicators(.hidden)
-//        .scrollDismissesKeyboard(.interactively)
-//        .ignoresSafeArea(.keyboard)
-//        .overlay(alignment: .bottom) {
-//            CreateButton(
-//                type: account == nil ? .creation : .edition,
-//                isActive: viewModel.isAccountValid()
-//            ) {
-//                if account != nil {
-//                    await viewModel.updateAccount(dismiss: dismiss)
-//                } else {
-//                    await viewModel.createAccount(dismiss: dismiss)
-//                }
-//            }
-//            .padding(.bottom)
-//        }
-//        .padding(.horizontal, 24)
-//        .interactiveDismissDisabled(viewModel.isAccountInCreation()) {
-//            viewModel.presentingConfirmationDialog.toggle()
-//        }
-//        .confirmationDialog("", isPresented: $viewModel.presentingConfirmationDialog) {
-//            Button("word_cancel_changes".localized, role: .destructive, action: { dismiss() })
-//            Button("word_return".localized, role: .cancel, action: { })
-//        }
-//        .navigationBarBackButtonHidden(true)
-//        .navigationBarTitleDisplayMode(.inline)
-        
+    public var body: some View {        
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
                 title: account == nil ? Word.Title.Account.new : Word.Title.Account.update,

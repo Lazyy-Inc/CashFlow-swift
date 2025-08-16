@@ -82,14 +82,6 @@ public extension SubscriptionStore {
     
 }
 
-public extension SubscriptionStore {
-    
-    func reset() {
-        subscriptions.removeAll()
-    }
-    
-}
-
 public extension SubscriptionModel {
     
     var category: CategoryModel? {
