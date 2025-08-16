@@ -109,7 +109,7 @@ struct CategoriesListScreen: View {
         .refreshable {
             await categoryStore.fetchCategories()
         }
-        .onChange(of: viewModel.selectedDate) { _ in
+        .onChange(of: viewModel.selectedDate) {
             if let account = accountStore.selectedAccount, let accountID = account._id {
                 Task {
                     await transactionStore.fetchTransactionsByPeriod(

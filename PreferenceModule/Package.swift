@@ -11,7 +11,7 @@ let package = Package(
         .library(
             name: "PreferenceModule",
             targets: ["PreferenceModule"]
-        ),
+        )
     ],
     dependencies: [
         .package(path: "./EventModule"),

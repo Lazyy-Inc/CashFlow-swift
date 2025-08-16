@@ -61,7 +61,7 @@ struct CarouselOfChartsView: View {
         .onAppear {
             updateChartData()
         }
-        .onChange(of: transactionStore.transactions.count) { _ in
+        .onChange(of: transactionStore.transactions.count) {
             updateChartData()
         }
     } // body

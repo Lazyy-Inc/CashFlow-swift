@@ -53,7 +53,7 @@ struct AnalyticsScreen: View {
                             values: accountStore.cashflow,
                             amount: amount
                         )
-                        .onChange(of: selectedDate) { _ in
+                        .onChange(of: selectedDate) {
                             Task {
                                 if selectedDate.year != selectedYear {
                                     selectedYear = selectedDate.year
@@ -124,7 +124,7 @@ struct AnalyticsScreen: View {
             }
         } // VStack
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
-        .onChange(of: selectedDate) { _ in
+        .onChange(of: selectedDate) {
             if let account = accountStore.selectedAccount, let accountID = account._id {
                 Task {
                     await transactionStore.fetchTransactionsByPeriod(

@@ -129,11 +129,9 @@ struct AccountStatisticsScreen: View {
                 await accountStore.fetchStats(accountID: accountID, withSavings: withSavings)
             }
         }
-        .onChange(of: withSavings) { newValue in
-            Task {
-                if let selectedAccount = accountStore.selectedAccount, let accountID = selectedAccount._id {
-                    await accountStore.fetchStats(accountID: accountID, withSavings: newValue)
-                }
+        .onChangeAsync(of: withSavings) {
+            if let selectedAccount = accountStore.selectedAccount, let accountID = selectedAccount._id {
+                await accountStore.fetchStats(accountID: accountID, withSavings: $0)
             }
         }
     } // body

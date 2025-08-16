@@ -123,7 +123,7 @@ struct PageControllerScreen: View {
             } // End if unlocked
         }
         .padding(viewModel.isUnlocked ? 0 : 0)
-        .onChange(of: viewModel.launchScreenEnd, perform: { newValue in
+        .onChange(of: viewModel.launchScreenEnd, perform: {
             if accountStore.selectedAccount != nil && !preferencesGeneral.isAlreadyOpen {
                 viewModel.showOnboarding = false
                 preferencesGeneral.isAlreadyOpen = true
@@ -132,7 +132,7 @@ struct PageControllerScreen: View {
             }
             
             // LaunchScreen ended
-            if newValue {
+            if $0 {
                 // Already open + app close
                 if !UserDefaults.standard.bool(forKey: "appIsOpen") && preferencesGeneral.isAlreadyOpen {
                     if preferencesSecurity.isBiometricEnabled {
@@ -147,8 +147,8 @@ struct PageControllerScreen: View {
                 }
             }
         })
-        .onChange(of: scenePhase) { newValue in
-            if newValue != .active {
+        .onChange(of: scenePhase) {
+            if $0 != .active {
                 UserDefaults.standard.set(false, forKey: "appIsOpen")
             }
         }

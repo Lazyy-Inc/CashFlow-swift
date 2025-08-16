@@ -103,14 +103,14 @@ public struct SavingsPlanDetailScreen: View {
                             values: contributionsByMonth,
                             amount: amount
                         )
-                        .onChange(of: selectedDate) { _ in
+                        .onChange(of: selectedDate) {
                             if selectedDate.year != selectedYear {
                                 selectedYear = selectedDate.year
                                 contributionsByMonth = contributionStore.getContributionsAmountByMonth(for: selectedDate.year)
                             }
                             amount = contributionsByMonth[selectedDate.month - 1]
                         }
-                        .onChange(of: contributionStore.contributions.count) { _ in
+                        .onChange(of: contributionStore.contributions.count) {
                             contributionsByMonth = contributionStore.getContributionsAmountByMonth(for: selectedDate.year)
                             amount = contributionsByMonth[selectedDate.month - 1]
                         }

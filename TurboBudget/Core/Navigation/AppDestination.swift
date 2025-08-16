@@ -12,6 +12,7 @@ import PaywallModule
 import TransactionModule
 import SubscriptionModule
 import SavingsPlanModule
+import ContributionModule
 
 extension AppDestination {
     

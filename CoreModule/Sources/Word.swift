@@ -9,7 +9,6 @@
 import Foundation
 import TheoKit
 
-// swiftlint:disable:next type_name
 public struct Word {
     
     public struct Classic {

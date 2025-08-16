@@ -56,8 +56,8 @@ public struct RecommendedCategoryButton: View {
                 }
             }
         }
-        .onChange(of: transactionName) { newValue in
-//            if newValue.count > 3 {
+        .onChange(of: transactionName) { // TODO: DO
+//            if $0.count > 3 {
 //                Task {
 //                    if let response = await TransactionStore.shared.fetchCategory(name: transactionName) {
 //                        bestCategory = CategoryStore.shared.findCategoryById(response.cat)
@@ -65,7 +65,7 @@ public struct RecommendedCategoryButton: View {
 //                    }
 //                }
 //            }
-            // TODO: DO
+            
         }
     } // End body
 } // End struct

@@ -40,7 +40,7 @@ struct QRCodeScannerScreen: View {
             }
             .compositingGroup()
         }
-        .onChange(of: identityToken) { _ in
+        .onChange(of: identityToken) {
 //            Task {
 //                do {
 //                    try await NetworkService.sendRequest(

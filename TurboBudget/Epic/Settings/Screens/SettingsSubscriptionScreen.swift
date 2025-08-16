@@ -16,7 +16,7 @@ struct SettingsSubscriptionScreen: View {
     
     @Dependency(\.subscriptionStore) private var subscriptionStore
     @StateObject private var preferencesSubscription: SubscriptionPreferences = .shared
-        
+    
     // MARK: -
     var body: some View {
         Form {
@@ -37,44 +37,40 @@ struct SettingsSubscriptionScreen: View {
         }
         .navigationTitle(Word.Main.subscription)
         .navigationBarTitleDisplayMode(.inline)
-        .onChange(of: preferencesSubscription.isNotificationsEnabled) { newValue in
-            Task {
-                if newValue {
-                    if await NotificationsManager.shared.requestNotificationPermission() {
-                        for subscription in subscriptionStore.subscriptions {
-                            await NotificationsManager.shared.scheduleNotification(
-                                for: .init(
-                                    id: "\(subscription.id)",
-                                    title: "CashFlow",
-                                    message: subscription.notifMessage,
-                                    date: subscription.dateNotif
-                                ),
-                                daysBefore: preferencesSubscription.dayBeforeReceiveNotification
-                            )
-                        }
-                    } else {
-                        preferencesSubscription.isNotificationsEnabled = false
-                        return
+        .onChangeAsync(of: preferencesSubscription.isNotificationsEnabled) {
+            if $0 {
+                if await NotificationsManager.shared.requestNotificationPermission() {
+                    for subscription in subscriptionStore.subscriptions {
+                        await NotificationsManager.shared.scheduleNotification(
+                            for: .init(
+                                id: "\(subscription.id)",
+                                title: "CashFlow",
+                                message: subscription.notifMessage,
+                                date: subscription.dateNotif
+                            ),
+                            daysBefore: preferencesSubscription.dayBeforeReceiveNotification
+                        )
                     }
                 } else {
-                    NotificationsManager.shared.removeAllPendingNotifications()
+                    preferencesSubscription.isNotificationsEnabled = false
+                    return
                 }
+            } else {
+                NotificationsManager.shared.removeAllPendingNotifications()
             }
         }
-        .onChange(of: preferencesSubscription.dayBeforeReceiveNotification) { newValue in
+        .onChangeAsync(of: preferencesSubscription.dayBeforeReceiveNotification) {
             NotificationsManager.shared.removeAllPendingNotifications()
-            Task {
-                for subscription in subscriptionStore.subscriptions {
-                    await NotificationsManager.shared.scheduleNotification(
-                        for: .init(
-                            id: "\(subscription.id)",
-                            title: "CashFlow",
-                            message: subscription.notifMessage,
-                            date: subscription.dateNotif
-                        ),
-                        daysBefore: newValue
-                    )
-                }
+            for subscription in subscriptionStore.subscriptions {
+                await NotificationsManager.shared.scheduleNotification(
+                    for: .init(
+                        id: "\(subscription.id)",
+                        title: "CashFlow",
+                        message: subscription.notifMessage,
+                        date: subscription.dateNotif
+                    ),
+                    daysBefore: $0
+                )
             }
         }
     } // body

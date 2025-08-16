@@ -31,8 +31,8 @@ struct SettingsApplePayView: View {
             } footer: {
                 Text("settings_preferences_applepay_address_footer".localized)
             }
-            .onChange(of: preferences.isAddAddressAutomaticallyEnabled) { newValue in
-                if newValue { LocationManager.shared.requestLocationPermission() }
+            .onChange(of: preferences.isAddAddressAutomaticallyEnabled) {
+                if $0 { LocationManager.shared.requestLocationPermission() }
             }
         }
         .navigationTitle("Apple Pay")
