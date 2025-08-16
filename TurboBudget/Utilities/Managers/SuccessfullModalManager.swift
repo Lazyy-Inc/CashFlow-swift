@@ -22,17 +22,6 @@ extension SuccessfullModalManager {
     }
     
     @MainActor
-    func showSuccessfulContribution(type: SuccessfulType, savingsPlan: SavingsPlanModel, contribution: ContributionModel) {
-        self.title = Word.Successful.Contribution.title(type: type)
-        self.subtitle = Word.Successful.Contribution.description(type: type)
-        self.content = AnyView(ContributionRowView(savingsPlan: savingsPlan, contribution: contribution))
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.isPresenting = true
-        }
-    }
-    
-    @MainActor
     func showSuccessfullBudget(type: SuccessfulType, budget: BudgetModel) {
         self.title = "budget_successful".localized
         self.subtitle = "budget_successful_desc".localized

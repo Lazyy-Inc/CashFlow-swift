@@ -10,6 +10,7 @@ import SwiftUI
 import SwipeActions
 import AlertKit
 import CoreModule
+import DesignSystemModule
 
 struct ContributionRowView: View {
 
@@ -35,7 +36,7 @@ struct ContributionRowView: View {
                 VStack(alignment: .trailing, spacing: 3) {
                     Text("\(contribution.symbol) \(contribution.amount?.toCurrency() ?? "")")
                         .font(.semiBoldText16())
-                        .foregroundStyle(contribution.type == .withdrawal ? .error400 : .primary500)
+                        .foregroundStyle(contribution.type == .withdrawal ? Color.error400 : Color.primary500)
                     
                     Text(contribution.date.formatted(date: .numeric, time: .omitted))
                         .font(Font.mediumSmall())
@@ -46,7 +47,7 @@ struct ContributionRowView: View {
             .padding(.horizontal, 4)
             .background {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(Color.background100)
+                    .fill(Color.Background.bg100)
             }
         }, trailingActions: { context in
             SwipeAction(action: {
@@ -65,7 +66,7 @@ struct ContributionRowView: View {
                 .foregroundStyle(Color(uiColor: .systemBackground))
             }, background: { _ in
                 Rectangle()
-                    .foregroundStyle(.error400)
+                    .foregroundStyle(Color.error400)
             })
             .allowSwipeToTrigger()
         })

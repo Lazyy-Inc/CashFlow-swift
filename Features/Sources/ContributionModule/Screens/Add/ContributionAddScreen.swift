@@ -12,7 +12,7 @@ import CoreModule
 import DesignSystemModule
 import EventModule
 
-struct ContributionAddScreen: View {
+public struct ContributionAddScreen: View {
 
     // Builder
     var savingsPlan: SavingsPlanModel
@@ -24,13 +24,13 @@ struct ContributionAddScreen: View {
     @Environment(\.dismiss) private var dismiss
     
     // init
-    init(savingsPlan: SavingsPlanModel) {
+    public init(savingsPlan: SavingsPlanModel) {
         self.savingsPlan = savingsPlan
         self._viewModel = StateObject(wrappedValue: .init(savingsPlan: savingsPlan))
     }
 
     // MARK: - Body
-    var body: some View {
+    public var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 24) {
