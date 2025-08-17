@@ -8,9 +8,9 @@
 import Foundation
 import NetworkKit
 import CoreModule
-import TransactionModule
+//import TransactionModule
 
-extension CategoryStore {
+public extension CategoryStore {
     
     @MainActor
     func fetchCategories() async {
@@ -29,7 +29,7 @@ extension CategoryStore {
     
 }
 
-extension CategoryStore {
+public extension CategoryStore {
     
     private func computeCategoryData(for month: Date) -> [Int?: CategoryTransactionData] {
         let allMonthTransactions = TransactionStore.shared.getTransactions(in: month)
@@ -98,7 +98,7 @@ extension CategoryStore {
     }
 }
 
-extension CategoryModel {
+public extension CategoryModel {
     
     var transactions: [TransactionModel] {
         return TransactionStore.shared.transactions.filter { $0.category?.id == self.id }
@@ -118,44 +118,5 @@ extension CategoryModel {
     var subscriptions: [TransactionModel] {
         return transactions.filter { $0.isFromSubscription == true }
     }
-
-    var transactionsFiltered: [TransactionModel] {
-        return self.transactions
-            .filter { Calendar.current.isDate($0.date, equalTo: FilterManager.shared.date, toGranularity: .month) }
-    }
     
-}
-
-extension CategoryModel {
-    
-    var categorySlices: [PieSliceData] {
-        var array: [PieSliceData] = []
-        let filterManager = FilterManager.shared
-        
-        for subcategory in self.subcategories ?? [] {
-            let transactionsFiltered = subcategory.transactions
-                .filter { Calendar.current.isDate($0.date, equalTo: filterManager.date, toGranularity: .month) }
-            
-            let amount = transactionsFiltered
-                .map { $0.amount }
-                .reduce(0, +)
-            
-            if amount != 0 {
-                array.append(
-                    .init(
-                        categoryID: self.id,
-                        subcategoryID: subcategory.id,
-                        icon: subcategory.icon,
-                        value: subcategory.transactionsFiltered
-                            .map { $0.amount }
-                            .reduce(0, +),
-                        color: subcategory.color
-                    )
-                )
-            }
-        }
-        
-        return array
-    }
-        
 }

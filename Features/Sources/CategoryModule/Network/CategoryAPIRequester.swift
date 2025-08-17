@@ -9,11 +9,11 @@ import Foundation
 import NetworkKit
 import CoreModule
 
-enum CategoryAPIRequester: APIRequestBuilder {
+public enum CategoryAPIRequester: APIRequestBuilder {
     case fetchCategories
 }
 
-extension CategoryAPIRequester {
+public extension CategoryAPIRequester {
     var path: String {
         return NetworkPath.Category.base
     }

@@ -15,6 +15,7 @@ import CoreModule
 import PreferenceModule
 import DesignSystemModule
 import EventModule
+import CategoryModule
 
 struct PageControllerScreen: View {
     

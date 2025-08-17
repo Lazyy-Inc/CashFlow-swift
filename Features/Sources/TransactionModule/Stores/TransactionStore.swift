@@ -163,41 +163,6 @@ public extension TransactionStore {
     
 }
 
-extension TransactionStore {
-    
-    private func filterTransactions(
-        forCategory category: CategoryModel? = nil,
-        forSubcategory subcategory: SubcategoryModel? = nil,
-        inMonth month: Date? = nil,
-        ofType type: TransactionType? = nil
-    ) -> [TransactionModel] {
-        return transactions.filter { transaction in
-            let matchesCategory = category.map { transaction.category == $0 } ?? true
-            let matchesSubcategory = subcategory.map { transaction.subcategory == $0 } ?? true
-            let matchesMonth = month.map { Calendar.current.isDate(transaction.date, equalTo: $0, toGranularity: .month) } ?? true
-            let matchesType = type.map { transaction.type == $0 } ?? true
-            return matchesCategory && matchesSubcategory && matchesMonth && matchesType
-        }
-    }
-    
-}
-
-public extension TransactionStore {
-    
-    func getTransactions(in month: Date? = nil) -> [TransactionModel] {
-        return filterTransactions(inMonth: month)
-    }
-    
-    func getTransactions(for category: CategoryModel, in month: Date? = nil) -> [TransactionModel] {
-        return filterTransactions(forCategory: category, inMonth: month)
-    }
-    
-    func getTransactions(for subcategory: SubcategoryModel, in month: Date? = nil) -> [TransactionModel] {
-        return filterTransactions(forSubcategory: subcategory, inMonth: month)
-    }
-    
-}
-
 public extension TransactionStore {
     
     func getExpenses(transactions: [TransactionModel], in month: Date? = nil) -> [TransactionModel] {
