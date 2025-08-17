@@ -14,7 +14,7 @@ import DesignSystemModule
 import CoreModule
 import EventModule
 
-struct BudgetAddScreen: View {
+public struct BudgetAddScreen: View {
     
     // Custom
     @StateObject private var viewModel: ViewModel = .init()
@@ -22,8 +22,10 @@ struct BudgetAddScreen: View {
     // Environment
     @Environment(\.dismiss) private var dismiss
     
+    public init() { }
+    
     // MARK: - body
-    var body: some View {
+    public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
                 title: Word.Title.Budget.new,

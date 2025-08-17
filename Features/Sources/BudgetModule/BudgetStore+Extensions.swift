@@ -12,10 +12,7 @@ import StatsKit
 import SwiftUI
 import EventModule
 
-final class BudgetStore: ObservableObject {
-    static let shared = BudgetStore()
-    
-    @Published var budgets: [BudgetModel] = []
+public extension BudgetStore {
     
     var budgetsByCategory: [CategoryModel: [BudgetModel]] {
         let groupedBySubcategory = Dictionary(grouping: budgets) { $0.category }
@@ -29,9 +26,6 @@ final class BudgetStore: ObservableObject {
                 result[entry.key] = entry.value
             }
     }
-}
-
-extension BudgetStore {
     
     @MainActor
     func fetchBudgets(accountID: Int) async {
@@ -77,15 +71,7 @@ extension BudgetStore {
     }
 }
 
-extension BudgetStore {
- 
-    func reset() {
-        self.budgets.removeAll()
-    }
-    
-}
-
-extension BudgetModel {
+public extension BudgetModel {
     
     var category: CategoryModel? {
         return CategoryStore.shared.findCategoryById(categoryID)

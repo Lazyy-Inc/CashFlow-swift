@@ -14,12 +14,12 @@ import CoreModule
 import TransactionModule
 import Dependencies
 
-struct BudgetsTransactionsListScreen: View {
+public struct BudgetsTransactionsListScreen: View {
 
     // Builder
     var subcategory: SubcategoryModel
     
-    @EnvironmentObject private var budgetStore: BudgetStore
+    @Dependency(\.budgetStore) private var budgetStore
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore
 
     // Environment
@@ -35,9 +35,13 @@ struct BudgetsTransactionsListScreen: View {
     @State private var ascendingOrder: Bool = false
     @State private var showEditMaxAmount: Bool = false
     @State private var showDeleteBudget: Bool = false
+    
+    public init(subcategory: SubcategoryModel) {
+        self.subcategory = subcategory
+    }
 
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack {
             if subcategory.transactions.isNotEmpty {
                 List(transactionStore.getExpenses(for: subcategory, in: .now)) { transaction in

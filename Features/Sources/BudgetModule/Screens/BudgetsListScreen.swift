@@ -12,15 +12,18 @@ import NavigationKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
-struct BudgetsListScreen: View {
+public struct BudgetsListScreen: View {
     
     // Environnement
     @EnvironmentObject private var router: Router<AppDestination>
-    @EnvironmentObject private var budgetStore: BudgetStore
+    @Dependency(\.budgetStore) private var budgetStore
+    
+    public init() { }
     
     // MARK: -
-    var body: some View {
+    public var body: some View {
         ListWithBluredHeader(maxBlurRadius: Blur.topbar) {
             NavigationBar(
                 title: "word_budgets".localized,

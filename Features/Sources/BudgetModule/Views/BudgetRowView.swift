@@ -10,13 +10,14 @@ import SwiftUI
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
 struct BudgetRowView: View {
     
     // Builder
     var budget: BudgetModel
     
-    @EnvironmentObject var budgetStore: BudgetStore
+    @Dependency(\.budgetStore) private var budgetStore
     
     var currentBudget: BudgetModel {
         return budgetStore.budgets.first { $0.id == budget.id } ?? budget
