@@ -14,6 +14,7 @@ import SubscriptionModule
 import SavingsPlanModule
 import ContributionModule
 import AccountModule
+import BudgetModule
 
 extension AppDestination {
     

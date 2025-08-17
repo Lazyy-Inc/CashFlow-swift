@@ -9,14 +9,14 @@ import Foundation
 import NetworkKit
 import CoreModule
 
-enum BudgetAPIRequester: APIRequestBuilder {
+public enum BudgetAPIRequester: APIRequestBuilder {
     case fetch(accountID: Int)
     case create(accountID: Int, body: BudgetModel)
     case update(budgetID: Int, body: BudgetModel)
     case delete(budgetID: Int)
 }
 
-extension BudgetAPIRequester {
+public extension BudgetAPIRequester {
     var path: String {
         switch self {
         case .fetch(let accountID):     return NetworkPath.Budget.base(accountID: accountID)

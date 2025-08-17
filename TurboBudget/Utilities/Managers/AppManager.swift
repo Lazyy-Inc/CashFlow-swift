@@ -12,6 +12,7 @@ import Dependencies
 import PreferenceModule
 import TransactionModule
 import SubscriptionModule
+import BudgetModule
 
 extension AppManager {
  
@@ -21,7 +22,7 @@ extension AppManager {
         @Dependency(\.transactionStore) var transactionStore: TransactionStore
         let subscriptionStore: SubscriptionStore = .shared
         let savingsPlanStore: SavingsPlanStore = .shared
-        let budgetStore: BudgetStore = .shared
+        @Dependency(\.budgetStore) var budgetStore
         let creditCardStore: CreditCardStore = .shared
         let categoryStore: CategoryStore = .shared
         

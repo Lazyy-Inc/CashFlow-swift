@@ -7,15 +7,25 @@
 
 import SwiftUI
 
-struct ProgressCircle: View {
+public struct ProgressCircle: View {
     
     // Builder
     var value: Double
     var percentage: Double
     var color: Color
     
+    public init(
+        value: Double,
+        percentage: Double,
+        color: Color
+    ) {
+        self.value = value
+        self.percentage = percentage
+        self.color = color
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         ZStack {
             Circle()
                 .stroke(style: StrokeStyle(lineWidth: 20))
@@ -29,8 +39,8 @@ struct ProgressCircle: View {
                 .font(.semiBoldSmall())
                 .foregroundStyle(Color.text)
         }
-    } // body
-} // struct
+    }
+}
 
 // MARK: - Preview
 #Preview {
