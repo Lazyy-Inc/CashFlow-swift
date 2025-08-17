@@ -21,6 +21,7 @@
 		D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1782E4F5E59006BB17A /* ContributionModule */; };
 		D968C1B02E50651E006BB17A /* AccountModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1AF2E50651E006BB17A /* AccountModule */; };
 		D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1C62E51BCF6006BB17A /* BudgetModule */; };
+		D968C1E42E51C6AA006BB17A /* CategoryModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1E32E51C6AA006BB17A /* CategoryModule */; };
 		D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D96F3C9B2CB2E3B800CBABB8 /* MCEmojiPicker */; };
 		D96F97EC2E32B5F9006B0596 /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = D96F97EB2E32B5F9006B0596 /* UserModule */; };
 		D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */ = {isa = PBXBuildFile; productRef = D96F97ED2E32B924006B0596 /* OnboardingModule */; };
@@ -65,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9887FE22AA457A400AFC915 /* StoreKit.framework in Frameworks */,
+				D968C1E42E51C6AA006BB17A /* CategoryModule in Frameworks */,
 				D912D00A2D140523006DF5DC /* AlertKit in Frameworks */,
 				D968C1772E4F4A6A006BB17A /* SavingsPlanModule in Frameworks */,
 				8129E7512A483A7400FF23E5 /* ConfettiSwiftUI in Frameworks */,
@@ -169,6 +171,7 @@
 				D968C1782E4F5E59006BB17A /* ContributionModule */,
 				D968C1AF2E50651E006BB17A /* AccountModule */,
 				D968C1C62E51BCF6006BB17A /* BudgetModule */,
+				D968C1E32E51C6AA006BB17A /* CategoryModule */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -661,6 +664,10 @@
 		D968C1C62E51BCF6006BB17A /* BudgetModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BudgetModule;
+		};
+		D968C1E32E51C6AA006BB17A /* CategoryModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CategoryModule;
 		};
 		D96F3C9B2CB2E3B800CBABB8 /* MCEmojiPicker */ = {
 			isa = XCSwiftPackageProductDependency;

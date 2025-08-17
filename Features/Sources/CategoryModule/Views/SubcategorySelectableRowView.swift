@@ -10,7 +10,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 
-struct SubcategorySelectableRowView: View {
+public struct SubcategorySelectableRowView: View {
     
     // MARK: Dependencies
     var subcategory: SubcategoryModel
@@ -20,8 +20,18 @@ struct SubcategorySelectableRowView: View {
     // MARK: Environments
     @EnvironmentObject private var themeManager: ThemeManager
     
+    public init(
+        subcategory: SubcategoryModel,
+        isSelected: Bool,
+        action: @escaping () -> Void
+    ) {
+        self.subcategory = subcategory
+        self.isSelected = isSelected
+        self.action = action
+    }
+    
     // MARK: - View
-    var body: some View {
+    public var body: some View {
         Button(action: action) {
             HStack {
                 Circle()

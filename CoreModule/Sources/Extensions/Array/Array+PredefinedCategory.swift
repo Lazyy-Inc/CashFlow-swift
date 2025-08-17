@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import CoreModule
 
-extension Array where Element == CategoryModel {
+public extension Array where Element == CategoryModel {
     
     func searchFor(_ searchText: String) -> [CategoryModel] {
         let categories = CategoryStore.shared.categories

@@ -10,7 +10,7 @@
 import SwiftUI
 import CoreModule
 
-struct SelectCategoryScreen: View {
+public struct SelectCategoryScreen: View {
     
     // Builder
     @Binding var selectedCategory: CategoryModel?
@@ -32,8 +32,16 @@ struct SelectCategoryScreen: View {
             .searchFor(searchText)
     }
     
+    public init(
+        selectedCategory: Binding<CategoryModel?>,
+        selectedSubcategory: Binding<SubcategoryModel?>
+    ) {
+        self._selectedCategory = selectedCategory
+        self._selectedSubcategory = selectedSubcategory
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         NavigationStack {
             ScrollView {
                 ForEach(categoriesFiltered) { category in

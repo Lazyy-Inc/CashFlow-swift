@@ -14,7 +14,7 @@ import DesignSystemModule
 import CoreModule
 import Dependencies
 
-struct CategoriesListScreen: View {
+public struct CategoriesListScreen: View {
     
     // MARK: EnvironmentObject
     @EnvironmentObject private var accountStore: AccountStore
@@ -25,8 +25,10 @@ struct CategoriesListScreen: View {
     // MARK: StateObject
     @StateObject private var viewModel: ViewModel = .init()
     
+    public init() { }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 0) {
             ListWithBluredHeader(maxBlurRadius: Blur.topbar) {
                 NavigationBar(

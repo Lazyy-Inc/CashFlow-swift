@@ -15,7 +15,7 @@ import CoreModule
 import TransactionModule
 import Dependencies
 
-struct CategoryTransactionsScreen: View {
+public struct CategoryTransactionsScreen: View {
     
     // MARK: Dependencies
     var category: CategoryModel
@@ -29,8 +29,13 @@ struct CategoryTransactionsScreen: View {
     @State private var amountExpense: Double = 0
     @State private var amountIncome: Double = 0
     
+    public init(category: CategoryModel, selectedDate: Date) {
+        self.category = category
+        self.selectedDate = selectedDate
+    }
+    
     // MARK: - View
-    var body: some View {
+    public var body: some View {
         let transactions = transactionStore.getTransactions(for: category, in: selectedDate)
         let transactionsFiltered = transactions.search(searchText)
         

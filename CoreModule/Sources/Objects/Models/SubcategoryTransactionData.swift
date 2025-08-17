@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import CoreModule
 
-struct SubcategoryTransactionData {
-    let subcategory: SubcategoryModel
-    let transactions: [TransactionModel]
-    let totalAmount: Double
+public struct SubcategoryTransactionData {
+    public let subcategory: SubcategoryModel
+    public let transactions: [TransactionModel]
+    public let totalAmount: Double
     
-    init(subcategory: SubcategoryModel, transactions: [TransactionModel]) {
+    public init(subcategory: SubcategoryModel, transactions: [TransactionModel]) {
         self.subcategory = subcategory
         self.transactions = transactions
         self.totalAmount = transactions.map(\.amount).reduce(0, +)
