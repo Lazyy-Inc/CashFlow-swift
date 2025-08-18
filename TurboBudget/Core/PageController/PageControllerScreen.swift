@@ -11,6 +11,11 @@ import CloudKit
 import CoreData
 import NavigationKit
 import StatsKit
+import CoreModule
+import PreferenceModule
+import DesignSystemModule
+import EventModule
+import CategoryModule
 
 struct PageControllerScreen: View {
     
@@ -41,27 +46,35 @@ struct PageControllerScreen: View {
                 ZStack(alignment: .bottom) {
                     if accountStore.selectedAccount != nil {
                         TabView(selection: $appManager.selectedTab) {
-                            RoutedNavigationStack(router: homeRouter) {
-                                AppDestination.shared(.home).body(route: .push)
-                            }
+                            NavigationStackView(
+                                router: homeRouter,
+                                destinationContent: { AppDestination.content(for: $0) },
+                                initialContent: { HomeScreen() }
+                            )
                             .tag(0)
                             .toolbar(.hidden, for: .tabBar)
                             
-                            RoutedNavigationStack(router: analyticsRouter) {
-                                AppDestination.shared(.analytics).body(route: .push)
-                            }
+                            NavigationStackView(
+                                router: analyticsRouter,
+                                destinationContent: { AppDestination.content(for: $0) },
+                                initialContent: { AnalyticsScreen() }
+                            )
                             .tag(1)
                             .toolbar(.hidden, for: .tabBar)
                             
-                            RoutedNavigationStack(router: dashboardRouter) {
-                                AppDestination.account(.dashboard).body(route: .push)
-                            }
+                            NavigationStackView(
+                                router: dashboardRouter,
+                                destinationContent: { AppDestination.content(for: $0) },
+                                initialContent: { AccountDashboardScreen() }
+                            )
                             .tag(2)
                             .toolbar(.hidden, for: .tabBar)
 
-                            RoutedNavigationStack(router: categoryRouter) {
-                                AppDestination.category(.list).body(route: .push)
-                            }
+                            NavigationStackView(
+                                router: categoryRouter,
+                                destinationContent: { AppDestination.content(for: $0) },
+                                initialContent: { CategoriesListScreen() }
+                            )
                             .tag(3)
                             .toolbar(.hidden, for: .tabBar)
                         }
@@ -76,12 +89,16 @@ struct PageControllerScreen: View {
                             }
                         }
                     } else {
-                        RoutedNavigationStack(router: homeRouter) {
-                            CustomEmptyView(
-                                type: .empty(.account),
-                                isDisplayed: true
-                            )
-                        }
+                        NavigationStackView(
+                            router: homeRouter,
+                            destinationContent: { AppDestination.content(for: $0) },
+                            initialContent: {
+                                CustomEmptyView(
+                                    type: .empty(.account),
+                                    isDisplayed: true
+                                )
+                            }
+                        )
                         .onAppear {
                             if !appManager.isRoutersRegistered {
                                 routerManager.register(router: homeRouter, for: .home)
@@ -93,9 +110,9 @@ struct PageControllerScreen: View {
                         CustomTabBar()
                     }
                 }
-                .sheet(isPresented: $viewModel.showOnboarding) {
-                    OnboardingScreen()
-                }
+//                .sheet(isPresented: $viewModel.showOnboarding) {
+//                    OnboardingScreen()
+//                }
                 .blur(radius: appManager.isMenuPresented ? 12 : 0)
                 .overlay {
                     if appManager.isMenuPresented {
@@ -107,7 +124,7 @@ struct PageControllerScreen: View {
             } // End if unlocked
         }
         .padding(viewModel.isUnlocked ? 0 : 0)
-        .onChange(of: viewModel.launchScreenEnd, perform: { newValue in
+        .onChange(of: viewModel.launchScreenEnd, perform: {
             if accountStore.selectedAccount != nil && !preferencesGeneral.isAlreadyOpen {
                 viewModel.showOnboarding = false
                 preferencesGeneral.isAlreadyOpen = true
@@ -116,7 +133,7 @@ struct PageControllerScreen: View {
             }
             
             // LaunchScreen ended
-            if newValue {
+            if $0 {
                 // Already open + app close
                 if !UserDefaults.standard.bool(forKey: "appIsOpen") && preferencesGeneral.isAlreadyOpen {
                     if preferencesSecurity.isBiometricEnabled {
@@ -131,13 +148,13 @@ struct PageControllerScreen: View {
                 }
             }
         })
-        .onChange(of: scenePhase) { newValue in
-            if newValue != .active {
+        .onChange(of: scenePhase) {
+            if $0 != .active {
                 UserDefaults.standard.set(false, forKey: "appIsOpen")
             }
         }
         .onAppear {
-            EventService.sendEvent(key: .appSession)
+            EventService.sendEvent(key: EventKeys.appSession)
         }
     } // body
 } // struct

@@ -9,6 +9,10 @@
 import SwiftUI
 import NavigationKit
 import TheoKit
+import DesignSystemModule
+import CoreModule
+import TransactionModule
+import Dependencies
 
 struct SubcategoryTransactionsScreen: View {
     
@@ -17,7 +21,7 @@ struct SubcategoryTransactionsScreen: View {
     var selectedDate: Date
     
     // MARK: Environments
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
         
     // MARK: States
     @State private var searchText: String = ""
@@ -38,7 +42,7 @@ struct SubcategoryTransactionsScreen: View {
                 List {
                     Section {
                         ForEach(transactionsFiltered) { transaction in
-                            NavigationButton(
+                            NavigationButtonView(
                                 route: .push,
                                 destination: AppDestination.transaction(.detail(transaction: transaction))
                             ) {
@@ -46,7 +50,7 @@ struct SubcategoryTransactionsScreen: View {
                             }
                         }
                         .noDefaultStyle()
-                        .padding(.bottom, DesignSystem.Padding.medium)
+                        .padding(.bottom, Padding.medium)
                     } header: {
                         DetailOfExpensesAndIncomesByMonth(
                             month: selectedDate,
@@ -54,7 +58,7 @@ struct SubcategoryTransactionsScreen: View {
                             amountOfIncomes: 0
                         )
                     }
-                    .padding(.horizontal, TKDesignSystem.Padding.large)
+                    .padding(.horizontal, Padding.large)
                 }
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)

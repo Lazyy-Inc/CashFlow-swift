@@ -49,12 +49,13 @@
             ReferencedContainer = "container:CashFlow.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-com.apple.CoreData.CloudKitDebug"
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "SENTRY_API_KEY"
+            value = "https://cd53c7bc24384b1a894d3f51b739f3b2@glitchtip.lazyy.fr/5"
             isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <StoreKitConfigurationFileReference
          identifier = "../../TurboBudget/Core/InAppConfiguration/MainStoreKitConfiguration.storekit">
       </StoreKitConfigurationFileReference>

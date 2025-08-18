@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CoreModule
+import PreferenceModule
 
 struct SettingsDisplayView: View {
     

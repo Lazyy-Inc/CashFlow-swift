@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreModule
 
 struct CreditCardView: View {
     
@@ -125,5 +126,5 @@ struct CreditCardBackView: View {
 #Preview {
     CreditCardView(creditCard: .mock)
         .padding()
-        .environmentObject(ThemeManager())
+        .environmentObject(ThemeManager.shared)
 }

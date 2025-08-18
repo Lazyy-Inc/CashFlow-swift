@@ -8,26 +8,34 @@
 import SwiftUI
 import NavigationKit
 import TheoKit
+import DesignSystemModule
+import PreferenceModule
+import CoreModule
+import TransactionModule
+import Dependencies
 
 struct HomeScreenRecentTransactionsView: View {
     
-    // EnvironmentObject
-    @EnvironmentObject private var transactionStore: TransactionStore
-    
+    // MARK: Dependencies
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+
     // Preferences
     @StateObject var preferencesDisplayHome: PreferencesDisplayHome = .shared
+    
+    var transactions: [TransactionModel] {
+        return Array(transactionStore.transactions.prefix(preferencesDisplayHome.transaction_value))
+    }
     
     // MARK: -
     var body: some View {
         if preferencesDisplayHome.transaction_isDisplayed {
-            VStack(spacing: TKDesignSystem.Spacing.standard) {
+            VStack(spacing: Spacing.standard) {
                 HomeScreenComponentHeaderView(type: .recentTransactions)
                 
                 if transactionStore.transactions.isNotEmpty {
-                    VStack(spacing: TKDesignSystem.Spacing.medium) {
-                        let transactions = transactionStore.transactions.prefix(preferencesDisplayHome.transaction_value)
+                    VStack(spacing: Spacing.medium) {
                         ForEach(transactions) { transaction in
-                            NavigationButton(route: .push, destination: AppDestination.transaction(.detail(transaction: transaction))) {
+                            NavigationButtonView(route: .push, destination: AppDestination.transaction(.detail(transaction: transaction))) {
                                 TransactionRowView(transaction: transaction)
                             }
                         }

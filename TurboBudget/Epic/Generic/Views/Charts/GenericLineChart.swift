@@ -8,6 +8,8 @@
 import SwiftUI
 import Charts
 import TheoKit
+import DesignSystemModule
+import CoreModule
 
 struct GenericLineChart: View {
     
@@ -23,15 +25,15 @@ struct GenericLineChart: View {
     
     // MARK: -
     var body: some View {
-        VStack(spacing: TKDesignSystem.Spacing.large) {
-            VStack(alignment: .leading, spacing: TKDesignSystem.Spacing.extraSmall) {
+        VStack(spacing: Spacing.large) {
+            VStack(alignment: .leading, spacing: Spacing.extraSmall) {
                 Text(config.title)
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
-                    .fontWithLineHeight(DesignSystem.Fonts.Body.small)
+                    .fontWithLineHeight(.Body.small)
                 
                 Text(amounts.reduce(0, +).toCurrency())
                     .foregroundStyle(Color.label)
-                    .fontWithLineHeight(DesignSystem.Fonts.Title.medium)
+                    .fontWithLineHeight(.Title.medium)
             }
             .fullWidth(.leading)
             
@@ -59,7 +61,7 @@ struct GenericLineChart: View {
             .chartYAxis {
                 AxisMarks { value in
                     AxisGridLine(stroke: StrokeStyle(lineWidth: 1))
-                        .foregroundStyle(Color.background200)
+                        .foregroundStyle(Color.Background.bg200)
                     AxisValueLabel {
                         if let doubleValue = value.as(Double.self) {
                             Text(doubleValue.toCurrency())
@@ -72,14 +74,14 @@ struct GenericLineChart: View {
             .chartXAxis {
                 AxisMarks { _ in
                     AxisGridLine(stroke: StrokeStyle(lineWidth: 1))
-                        .foregroundStyle(Color.background200)
+                        .foregroundStyle(Color.Background.bg200)
                     AxisValueLabel()
                         .font(.system(size: 11, weight: .semibold))
                         .offset(y: 4)
                 }
             }
         }
-        .padding(TKDesignSystem.Padding.standard)
+        .padding(Padding.standard)
         .roundedRectangleBorder(
             TKDesignSystem.Colors.Background.Theme.bg100,
             radius: 16,

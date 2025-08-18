@@ -9,6 +9,9 @@
 import SwiftUI
 import NavigationKit
 import TheoKit
+import DesignSystemModule
+import CoreModule
+import Dependencies
 
 struct SubcategoryListScreen: View {
     
@@ -17,7 +20,7 @@ struct SubcategoryListScreen: View {
     var selectedDate: Date
     
     // MARK: Environnements
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @EnvironmentObject private var categoryStore: CategoryStore
     
     // MARK: StateObject
@@ -42,11 +45,11 @@ struct SubcategoryListScreen: View {
     
     // MARK: - View
     var body: some View {
-        ListWithBluredHeader(maxBlurRadius: DesignSystem.Blur.topbar) {
+        ListWithBluredHeader(maxBlurRadius: Blur.topbar) {
             NavigationBar(title: "word_subcategories".localized)
         } content: {
             ForEach(searchResults) { subcategory in
-                NavigationButton(
+                NavigationButtonView(
                     route: .push,
                     destination: AppDestination.subcategory(
                         .transactions(
@@ -57,8 +60,8 @@ struct SubcategoryListScreen: View {
                 ) {
                     SubcategoryRowView(subcategory: subcategory, selectedDate: selectedDate)
                 }
-                .padding(.bottom, TKDesignSystem.Spacing.medium)
-                .padding(.horizontal, TKDesignSystem.Padding.large)
+                .padding(.bottom, Spacing.medium)
+                .padding(.horizontal, Padding.large)
             }
             .noDefaultStyle()
         }

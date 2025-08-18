@@ -10,6 +10,9 @@ import AlertKit
 import SwiftUI
 import NavigationKit
 import StatsKit
+import CoreModule
+import UserModule
+import EventModule
 
 extension AlertManager {
     
@@ -20,7 +23,7 @@ extension AlertManager {
             buttonTitle: "alert_cashflow_pro_action_button".localized,
             isDestructive: false,
             action: {
-                router.present(route: .sheet, .shared(.paywall))
+                router.present(route: .fullScreenCover, .shared(.paywall))
             }
         )
     }
@@ -43,8 +46,9 @@ extension AlertManager {
             buttonTitle: "alert_signout_action_button".localized,
             isDestructive: true,
             action: {
+                // TODO: Clear data
                 await UserStore.shared.signOut()
-                EventService.sendEvent(key: .userLogout)
+                EventService.sendEvent(key: EventKeys.userLogout)
                 dismiss()
             }
         )
@@ -57,8 +61,9 @@ extension AlertManager {
             buttonTitle: "word_delete".localized,
             isDestructive: true,
             action: {
+                // TODO: Clear data
                 await UserStore.shared.deleteAccount()
-                EventService.sendEvent(key: .userDeleted)
+                EventService.sendEvent(key: EventKeys.userDeleted)
                 dismiss()
             }
         )
@@ -79,79 +84,6 @@ extension AlertManager {
                 if let accountID = account._id {
                     await AccountStore.shared.deleteAccount(accountID: accountID)
                     if let dismissAction { dismissAction() }
-                }
-            }
-        )
-    }
-    
-    func deleteTransaction(transaction: TransactionModel, dismissAction: DismissAction? = nil) {
-        self.present(
-            title: "alert_transaction_delete_title".localized,
-            message: transaction.type == .expense
-            ? "alert_transaction_expense_message".localized
-            : "alert_transaction_income_message".localized,
-            buttonTitle: "word_delete".localized,
-            isDestructive: true,
-            action: {
-                await TransactionStore.shared.deleteTransaction(transactionID: transaction.id)
-                if let dismissAction { dismissAction() }
-            }
-        )
-    }
-    
-    func deleteTransfer(transfer: TransactionModel, dismissAction: DismissAction? = nil) {
-        self.present(
-            title: "alert_transfer_delete_title".localized,
-            message: "alert_transfer_delete_message".localized,
-            buttonTitle: "word_delete".localized,
-            isDestructive: true,
-            action: {
-                await TransferStore.shared.deleteTransfer(transferID: transfer.id)
-                if let dismissAction { dismissAction() }
-            }
-        )
-    }
-    
-    func deleteSubscription(subscription: SubscriptionModel, dismissAction: DismissAction? = nil) {
-        self.present(
-            title: "alert_subscription_delete_title".localized,
-            message: "alert_subscription_delete_message".localized,
-            buttonTitle: "word_delete".localized,
-            isDestructive: true,
-            action: {
-                await SubscriptionStore.shared.deleteSubscription(subscriptionID: subscription.id)
-                if let dismissAction { dismissAction() }
-            }
-        )
-    }
-    
-    func deleteSavingsPlan(savingsPlan: SavingsPlanModel, dismissAction: DismissAction? = nil) {
-        self.present(
-            title: "alert_savingsplan_delete_title".localized,
-            message: "alert_savingsplan_delete_message".localized,
-            buttonTitle: "word_delete".localized,
-            isDestructive: true,
-            action: {
-                if let savingsPlanID = savingsPlan.id {
-                    await SavingsPlanStore.shared.deleteSavingsPlan(savingsPlanID: savingsPlanID)
-                    if let dismissAction { dismissAction() }
-                }
-            }
-        )
-    }
-    
-    func deleteContribution(savingsPlan: SavingsPlanModel, contribution: ContributionModel) {
-        self.present(
-            title: "alert_contribution_delete_title".localized,
-            message: "alert_contribution_delete_message".localized,
-            buttonTitle: "word_delete".localized,
-            isDestructive: true,
-            action: {
-                if let contributionID = contribution.id, let savingsPlanID = savingsPlan.id {
-                    await ContributionStore.shared.deleteContribution(
-                        savingsplanID: savingsPlanID,
-                        contributionID: contributionID
-                    )
                 }
             }
         )

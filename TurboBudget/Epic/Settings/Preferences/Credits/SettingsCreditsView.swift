@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreModule
 
 struct SettingsCreditsView: View {
     
@@ -59,7 +60,7 @@ struct SettingsCreditsView: View {
         } // End ScrollView
         .padding(.horizontal)
         .scrollIndicators(.hidden)
-        .background(Color.background)
+        .background(Color.Background.bg50)
         .navigationTitle(Word.Title.Setting.credits)
         .navigationBarTitleDisplayMode(.inline)
     } // End body

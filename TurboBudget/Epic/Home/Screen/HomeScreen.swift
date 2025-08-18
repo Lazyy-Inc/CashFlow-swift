@@ -12,6 +12,9 @@ import CoreData
 import StoreKit
 import NavigationKit
 import TheoKit
+import DesignSystemModule
+import CoreModule
+import PreferenceModule
 
 struct HomeScreen: View {
         
@@ -25,9 +28,9 @@ struct HomeScreen: View {
     
     // MARK: -
     var body: some View {
-        BetterScrollView(maxBlurRadius: DesignSystem.Blur.topbar) {
+        BetterScrollView(maxBlurRadius: Blur.topbar) {
             HomeHeaderView()
-                .padding(TKDesignSystem.Padding.large)
+                .padding(Padding.large)
         } content: { _ in
             CarouselOfChartsView()
                 .padding(.bottom, 24)
@@ -37,7 +40,7 @@ struct HomeScreen: View {
                 HomeScreenRecentTransactionsView()
                 HomeScreenSavingsPlanView()
             }
-            .padding(.horizontal, TKDesignSystem.Padding.large)
+            .padding(.horizontal, Padding.large)
             
             Rectangle()
                 .frame(height: 120)
@@ -56,8 +59,8 @@ struct HomeScreen: View {
                     requestReview()
                 }
             }
-            if preferencesGeneral.numberOfOpenings % 20 == 0 && !purchasesManager.isCashFlowPro {
-                router.present(route: .sheet, .shared(.paywall))
+            if preferencesGeneral.numberOfOpenings % 12 == 0 && !purchasesManager.isCashFlowPro {
+                router.present(route: .fullScreenCover, .shared(.paywall))
             }
             if preferencesGeneral.isAlreadyOpen && !preferencesGeneral.isWhatsNewSeen {
                 router.present(route: .modalFitContent, .shared(.whatsNew))

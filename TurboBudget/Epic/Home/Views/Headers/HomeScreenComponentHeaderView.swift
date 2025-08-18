@@ -8,6 +8,7 @@
 import SwiftUI
 import NavigationKit
 import TheoKit
+import CoreModule
 
 struct HomeScreenComponentHeaderView: View {
     
@@ -18,7 +19,7 @@ struct HomeScreenComponentHeaderView: View {
     
     // MARK: -
     var body: some View {
-        NavigationButton(route: .push, destination: type.destination) {
+        NavigationButtonView(route: .push, destination: type.destination) {
             HStack(spacing: 8) {
                 Text(type.title)
                     .foregroundStyle(Color.label)

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreModule
 
 struct StatisticsRowView: View {
     
@@ -17,11 +18,11 @@ struct StatisticsRowView: View {
     var body: some View {
         HStack(spacing: 8) {
             Text(text)
-                .font(.Text.regular)
+                .font(.regularSmall())
                 .lineLimit(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Text(value)
-                .font(.Text.semibold)
+                .font(.semiBoldText16())
                 .fixedSize(horizontal: false, vertical: false)
         }
     } // body
@@ -33,5 +34,5 @@ struct StatisticsRowView: View {
         StatisticsRowView(text: "Dépense cette semaine", value: 134.toCurrency())
     }
     .padding()
-    .background(Color.background)
+    .background(Color.Background.bg50)
 }

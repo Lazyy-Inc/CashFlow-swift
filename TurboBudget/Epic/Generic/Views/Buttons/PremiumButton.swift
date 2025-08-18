@@ -7,6 +7,7 @@
 
 import SwiftUI
 import NavigationKit
+import CoreModule
 
 struct PremiumButton: View {
     
@@ -14,8 +15,8 @@ struct PremiumButton: View {
     
     // MARK: -
     var body: some View {
-        NavigationButton(
-            route: .sheet,
+        NavigationButtonView(
+            route: .fullScreenCover,
             destination: AppDestination.shared(.paywall)
         ) {
             HStack(spacing: 4) {

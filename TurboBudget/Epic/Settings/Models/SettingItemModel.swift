@@ -10,6 +10,7 @@ import SwiftUICore
 import NavigationKit
 import AlertKit
 import SwiftUI
+import CoreModule
 
 enum SettingItemModel: Identifiable {
     case cashFlowPro
@@ -149,7 +150,7 @@ enum SettingItemModel: Identifiable {
         dismiss: DismissAction? = nil
     ) {
         switch self {
-        case .cashFlowPro: router.present(route: .sheet, .shared(.paywall))
+        case .cashFlowPro: router.present(route: .fullScreenCover, .shared(.paywall))
         case .general:     router.push(.settings(.general))
         case .security:    router.push(.settings(.security))
         case .appearance:  router.push(.settings(.appearance))

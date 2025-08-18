@@ -7,6 +7,7 @@
 
 import SwiftUI
 import NavigationKit
+import CoreModule
 
 struct CreationMenuAction: Identifiable {
     let id = UUID()
@@ -43,7 +44,7 @@ struct CreationMenuButton: View {
         } label: {
             Label {
                 Text(action.title)
-                    .fontWithLineHeight(DesignSystem.Fonts.Title.medium)
+                    .fontWithLineHeight(.Title.medium)
             } icon: {
                 Image(action.icon)
                     .renderingMode(.template)

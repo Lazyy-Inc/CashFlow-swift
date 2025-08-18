@@ -9,12 +9,17 @@
 
 import SwiftUI
 import NavigationKit
+import PreferenceModule
+import CoreModule
+import DesignSystemModule
+import Dependencies
+import SavingsPlanModule
 
 struct HomeScreenSavingsPlanView: View {
         
     // Environment
-    @EnvironmentObject private var savingsPlanStore: SavingsPlanStore
-    @EnvironmentObject private var contributionStore: ContributionStore
+    @Dependency(\.savingsPlanStore) private var savingsPlanStore
+    @Dependency(\.contributionStore) private var contributionStore
     
     // Preferences
     @StateObject var preferencesDisplayHome: PreferencesDisplayHome = .shared
@@ -33,7 +38,7 @@ struct HomeScreenSavingsPlanView: View {
             if !savingsPlanStore.savingsPlans.isEmpty {
                 LazyVGrid(columns: layout, alignment: .center) {
                     ForEach(savingsPlanStore.savingsPlans.prefix(preferencesDisplayHome.savingsPlan_value)) { savingsPlan in
-                        NavigationButton(
+                        NavigationButtonView(
                             route: .push,
                             destination: AppDestination.savingsPlan(.detail(savingsPlan: savingsPlan)),
                             onNavigate: {

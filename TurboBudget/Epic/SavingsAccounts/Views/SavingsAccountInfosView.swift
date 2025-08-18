@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CoreModule
+import DesignSystemModule
 
 struct SavingsAccountInfosView: View {
     
@@ -18,7 +20,7 @@ struct SavingsAccountInfosView: View {
     var body: some View {
         VStack(spacing: 12) {
             DetailRow(
-                icon: .iconCoins,
+                icon: "iconCoins",
                 text: Word.Classic.currentAmount,
                 value: savingsAccount.balance.toCurrency()
             )
@@ -28,7 +30,7 @@ struct SavingsAccountInfosView: View {
             
             if let maxAmount = savingsAccount.maxAmount {
                 DetailRow(
-                    icon: .iconLandmark,
+                    icon: "iconLandmark",
                     text: Word.Classic.maxAmount,
                     value: maxAmount.toCurrency()
                 )
@@ -44,6 +46,6 @@ struct SavingsAccountInfosView: View {
 #Preview {
     SavingsAccountInfosView(savingsAccount: .mockSavingsAccount)
         .padding()
-        .background(Color.background)
+        .background(Color.Background.bg50)
         .environmentObject(ThemeManager())
 }

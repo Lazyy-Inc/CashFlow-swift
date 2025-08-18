@@ -10,6 +10,8 @@ import SwiftUI
 import AlertKit
 import NavigationKit
 import TheoKit
+import DesignSystemModule
+import CoreModule
 
 struct AccountDashboardScreen: View {
     
@@ -70,7 +72,7 @@ struct AccountDashboardScreen: View {
                     PremiumButton()
                 }
                 
-                NavigationButton(route: .push, destination: AppDestination.settings(.home)) {
+                NavigationButtonView(route: .push, destination: AppDestination.settings(.home)) {
                     Image(.iconGear)
                         .renderingMode(.template)
                         .foregroundStyle(Color.text)
@@ -91,7 +93,7 @@ struct AccountDashboardScreen: View {
                                     }
                                 }
                             } label: {
-                                HStack(spacing: DesignSystem.Spacing.small) {
+                                HStack(spacing: Spacing.small) {
                                     Text(account.name)
                                         .multilineTextAlignment(.center)
                                         .lineLimit(2)
@@ -99,10 +101,10 @@ struct AccountDashboardScreen: View {
                                     Image(.iconChevronUpDown)
                                         .renderingMode(.template)
                                 }
-                                .fontWithLineHeight(DesignSystem.Fonts.Title.medium)
+                                .fontWithLineHeight(.Title.medium)
                                 .foregroundStyle(themeManager.theme.color)
                             }
-                            .onChange(of: accountStore.selectedAccount?.id) { _ in
+                            .onChange(of: accountStore.selectedAccount?.id) {
                                 if appManager.isStartDataLoaded {
                                     appManager.resetAllStoresData()
                                     Task {
@@ -113,12 +115,12 @@ struct AccountDashboardScreen: View {
                             
                             VStack(alignment: .center, spacing: 0) {
                                 Text(account.balance.toCurrency())
-                                    .fontWithLineHeight(DesignSystem.Fonts.Display.extraLarge)
+                                    .fontWithLineHeight(.Display.extraLarge)
                                     .animation(.default, value: account.balance)
                                     .contentTransition(.numericText())
                                 
                                 Text("home_screen_available_balance".localized)
-                                    .fontWithLineHeight(DesignSystem.Fonts.Body.medium)
+                                    .fontWithLineHeight(.Body.medium)
                                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
                             }
                             .fullWidth()
@@ -126,7 +128,7 @@ struct AccountDashboardScreen: View {
                     }
                     
                     VStack(spacing: 16) {LazyVGrid(columns: viewModel.columns, spacing: 16, content: {
-                            NavigationButton(route: .push, destination: AppDestination.account(.statistics)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.account(.statistics)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconLineChart,
@@ -141,7 +143,7 @@ struct AccountDashboardScreen: View {
                                 }
                             }
                             
-                            NavigationButton(route: .push, destination: AppDestination.savingsAccount(.list)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.savingsAccount(.list)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconLandmark,
@@ -150,7 +152,7 @@ struct AccountDashboardScreen: View {
                                 )
                             }
                             
-                            NavigationButton(route: .push, destination: AppDestination.transaction(.list)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.transaction(.list)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconWallet,
@@ -159,7 +161,7 @@ struct AccountDashboardScreen: View {
                                 )
                             }
                             
-                            NavigationButton(route: .push, destination: AppDestination.subscription(.list)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.subscription(.list)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconClockRepeat,
@@ -168,7 +170,7 @@ struct AccountDashboardScreen: View {
                                 )
                             }
                             
-                            NavigationButton(route: .push, destination: AppDestination.savingsPlan(.list)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.savingsPlan(.list)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconPiggyBank,
@@ -177,7 +179,7 @@ struct AccountDashboardScreen: View {
                                 )
                             }
                             
-                            NavigationButton(route: .push, destination: AppDestination.budget(.list)) {
+                            NavigationButtonView(route: .push, destination: AppDestination.budget(.list)) {
                                 DashboardRowView(
                                     config: .init(
                                         icon: .iconPieChart,
@@ -206,7 +208,7 @@ struct AccountDashboardScreen: View {
             }
             .scrollIndicators(.hidden)
         }
-        .padding(TKDesignSystem.Padding.large)
+        .padding(Padding.large)
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
         .alert("account_detail_rename".localized, isPresented: $viewModel.isEditingAccountName, actions: {
             TextField("account_detail_new_name".localized, text: $viewModel.accountName)

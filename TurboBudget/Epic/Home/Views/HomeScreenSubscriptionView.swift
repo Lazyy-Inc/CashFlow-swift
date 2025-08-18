@@ -10,24 +10,29 @@
 import SwiftUI
 import NavigationKit
 import TheoKit
+import DesignSystemModule
+import PreferenceModule
+import CoreModule
+import Dependencies
+import SubscriptionModule
 
 struct HomeScreenSubscriptionView: View {
     
     // Environment
-    @EnvironmentObject private var subscriptionStore: SubscriptionStore
+    @Dependency(\.subscriptionStore) private var subscriptionStore
     
     // Preferences
     @StateObject var preferencesDisplayHome: PreferencesDisplayHome = .shared
     
     // MARK: -
     var body: some View {
-        VStack(spacing: TKDesignSystem.Spacing.standard) {
+        VStack(spacing: Spacing.standard) {
             HomeScreenComponentHeaderView(type: .subscription)
             
             if !subscriptionStore.subscriptions.isEmpty {
-                VStack(spacing: TKDesignSystem.Spacing.medium) {
+                VStack(spacing: Spacing.medium) {
                     ForEach(subscriptionStore.subscriptions.prefix(preferencesDisplayHome.subscription_value)) { subscription in
-                        NavigationButton(
+                        NavigationButtonView(
                             route: .push,
                             destination: AppDestination.subscription(.detail(subscriptionId: subscription.id))
                         ) {

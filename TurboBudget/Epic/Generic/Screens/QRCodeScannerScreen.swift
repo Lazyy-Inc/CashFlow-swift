@@ -7,6 +7,7 @@
 
 import SwiftUI
 import NetworkKit
+import CoreModule
 
 struct QRCodeScannerScreen: View {
     
@@ -39,15 +40,15 @@ struct QRCodeScannerScreen: View {
             }
             .compositingGroup()
         }
-        .onChange(of: identityToken) { _ in
-            Task {
-                do {
-                    try await NetworkService.sendRequest(
-                        apiBuilder: AuthAPIRequester.socket(body: .init(identityToken: identityToken))
-                    )
-                    dismiss()
-                } catch {}
-            }
+        .onChange(of: identityToken) {
+//            Task {
+//                do {
+//                    try await NetworkService.sendRequest(
+//                        apiBuilder: AuthAPIRequester.socket(body: .init(identityToken: identityToken))
+//                    )
+//                    dismiss()
+//                } catch {}
+//            }
         }
     } // body
 } // struct

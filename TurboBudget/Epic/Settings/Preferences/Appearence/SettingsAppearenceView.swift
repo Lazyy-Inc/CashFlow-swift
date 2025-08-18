@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreModule
 
 struct SettingsAppearenceView: View {
                 
@@ -27,7 +28,7 @@ struct SettingsAppearenceView: View {
         } // ScrollView
         .scrollIndicators(.hidden)
         .scrollContentBackground(.hidden)
-        .background(Color.background)
+        .background(Color.Background.bg50)
         .navigationBarTitleDisplayMode(.inline)
     } // body
 } // struct

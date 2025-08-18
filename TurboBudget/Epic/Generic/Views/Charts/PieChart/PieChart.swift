@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import CoreModule
+import DesignSystemModule
 
 struct PieChart: View {
     
@@ -36,7 +38,7 @@ struct PieChart: View {
     var colors: [Color] {
         return slices.map(\.color)
     }
-    var icons: [ImageResource] {
+    var icons: [String] {
         return slices.map(\.icon)
     }
     var percentage: Double {
@@ -89,7 +91,7 @@ struct PieChart: View {
                             y: center.y + sin(midAngle.radians - .pi / 2) * iconRadius
                         )
                         
-                        IconSVG(icon: icons[index], value: .standard) // TODO: Verify
+                        IconSVG(icon: icons[index], value: .standard)
                         Image(icons[index])
                             .foregroundStyle(Color.white)
                             .position(iconPosition)

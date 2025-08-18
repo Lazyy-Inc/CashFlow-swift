@@ -8,6 +8,8 @@
 
 import SwiftUI
 import AlertKit
+import DesignSystemModule
+import CoreModule
 
 struct CustomTabBar: View {
     

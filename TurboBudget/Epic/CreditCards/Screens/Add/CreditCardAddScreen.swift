@@ -7,6 +7,9 @@
 
 import SwiftUI
 import StatsKit
+import CoreModule
+import DesignSystemModule
+import EventModule
 
 struct CreditCardAddScreen: View {
     
@@ -101,7 +104,7 @@ struct CreditCardAddScreen: View {
     } // body
     
     func dismissAction() {
-        EventService.sendEvent(key: .creditcardCreationCanceled)
+        EventService.sendEvent(key: EventKeys.creditcardCreationCanceled)
         dismiss()
     }
     

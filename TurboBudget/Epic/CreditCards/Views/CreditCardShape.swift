@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreModule
 
 struct CreditCardShape: View {
     
@@ -48,6 +49,6 @@ struct CreditCardShape: View {
 // MARK: - Preview
 #Preview {
     CreditCardShape()
-        .environmentObject(ThemeManager())
+        .environmentObject(ThemeManager.shared)
         .padding()
 }

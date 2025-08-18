@@ -7,6 +7,7 @@
 
 import Foundation
 import NavigationKit
+import CoreModule
 
 final class AppRouterManager: ObservableObject {
     static let shared = AppRouterManager()
@@ -39,7 +40,7 @@ extension AppRouterManager {
     }
     
     var isNavigationInProgress: Bool {
-        return routers.values.map(\.isNavigationInProgress).contains(true)
+        return routers.values.map(\.navigationPath.isNotEmpty).contains(true)
     }
     
 }

@@ -7,28 +7,22 @@
 
 import Foundation
 import NotificationKit
-
-final class AppManager: ObservableObject {
-    static let shared = AppManager()
-    
-    @Published var appState: ApplicationState = .idle
-    
-    @Published var selectedTab: Int = 0
-    @Published var isMenuPresented: Bool = false
-    
-    @Published var isStartDataLoaded: Bool = false
-    @Published var isRoutersRegistered: Bool = false
-}
+import CoreModule
+import Dependencies
+import PreferenceModule
+import TransactionModule
+import SubscriptionModule
+import BudgetModule
 
 extension AppManager {
  
     @MainActor
     func loadStartData() async {
         let accountStore: AccountStore = .shared
-        let transactionStore: TransactionStore = .shared
+        @Dependency(\.transactionStore) var transactionStore: TransactionStore
         let subscriptionStore: SubscriptionStore = .shared
         let savingsPlanStore: SavingsPlanStore = .shared
-        let budgetStore: BudgetStore = .shared
+        @Dependency(\.budgetStore) var budgetStore
         let creditCardStore: CreditCardStore = .shared
         let categoryStore: CategoryStore = .shared
         

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwipeActions
+import CoreModule
 
 enum TransferRowLocation {
     case successfulSheet, savingsAccount
@@ -97,7 +98,7 @@ struct TransferRowView: View {
                 Rectangle()
                     .foregroundStyle(.error400)
             })
-            .onChange(of: cancelDeleting) { _ in
+            .onChange(of: cancelDeleting) {
                 context.state.wrappedValue = .closed
             }
         })

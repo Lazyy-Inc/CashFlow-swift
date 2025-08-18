@@ -1,5 +1,5 @@
 {
-  "originHash" : "40444f3606140c3faee16e6d06cf03505f7ed6a2ae3b6d52cfda7d85a9e34f68",
+  "originHash" : "1270785bc2be1cb4cf5a2861a18ab68386017e6e5c6f1c0e8837eb88e93d19b2",
   "pins" : [
     {
       "identity" : "alertkit",
@@ -24,8 +24,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/openid/AppAuth-iOS.git",
       "state" : {
-        "revision" : "c89ed571ae140f8eb1142735e6e23d7bb8c34cb2",
-        "version" : "1.7.5"
+        "revision" : "145104f5ea9d58ae21b60add007c33c1cc0c948e",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "combine-schedulers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/combine-schedulers",
+      "state" : {
+        "revision" : "5928286acce13def418ec36d05a001a9641086f2",
+        "version" : "1.0.3"
       }
     },
     {
@@ -33,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/simibac/ConfettiSwiftUI",
       "state" : {
-        "revision" : "f45961f97bbae6fff6e2e64546fea0189425ad92",
-        "version" : "1.1.0"
+        "branch" : "1.0.0",
+        "revision" : "7b86d9f838a32ecfad8e69c7dbf900fea7500c76"
       }
     },
     {
@@ -42,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleSignIn-iOS",
       "state" : {
-        "revision" : "65fb3f1aa6ffbfdc79c4e22178a55cd91561f5e9",
-        "version" : "8.0.0"
+        "revision" : "3996d908c7b3ce8a87d39c808f9a6b2a08fbe043",
+        "version" : "9.0.0"
       }
     },
     {
@@ -51,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleUtilities.git",
       "state" : {
-        "revision" : "53156c7ec267db846e6b64c9f4c4e31ba4cf75eb",
-        "version" : "8.0.2"
+        "revision" : "60da361632d0de02786f709bdc0c4df340f7613e",
+        "version" : "8.1.0"
       }
     },
     {
@@ -69,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GTMAppAuth.git",
       "state" : {
-        "revision" : "5d7d66f647400952b1758b230e019b07c0b4b22a",
-        "version" : "4.1.1"
+        "revision" : "56e0ccf09a6dd29dc7e68bdf729598240ca8aa16",
+        "version" : "5.0.0"
       }
     },
     {
@@ -78,8 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/izyumkin/MCEmojiPicker",
       "state" : {
-        "revision" : "e0b4903b75ae1cc418d276d84d1cb946b8a1d73c",
-        "version" : "1.2.3"
+        "branch" : "1.2.3",
+        "revision" : "e0b4903b75ae1cc418d276d84d1cb946b8a1d73c"
       }
     },
     {
@@ -87,8 +96,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/NavigationKit",
       "state" : {
-        "revision" : "7f11d08380bf080f4d494a40a6492758cead1320",
-        "version" : "1.1.0"
+        "branch" : "2.0.2",
+        "revision" : "0ecf2988ce5aa03d21dfe1efd4e17a434ebde808"
       }
     },
     {
@@ -96,8 +105,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/NetworkKit",
       "state" : {
-        "revision" : "7f7e8523b564b7bcc5d7b16fcb56fca692b92b6a",
-        "version" : "1.0.1"
+        "branch" : "1.0.3",
+        "revision" : "03f71712761d6127e1c557d0f964092fa267f78a"
       }
     },
     {
@@ -105,8 +114,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/NotificationKit",
       "state" : {
-        "revision" : "f94bed80a6eabdabf763fda927e45b14e14262d7",
-        "version" : "1.0.5"
+        "branch" : "1.0.5",
+        "revision" : "f94bed80a6eabdabf763fda927e45b14e14262d7"
       }
     },
     {
@@ -119,12 +128,57 @@
       }
     },
     {
+      "identity" : "sentry-cocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getsentry/sentry-cocoa.git",
+      "state" : {
+        "revision" : "3c2eee7773df58bdfb9e10e72d9a4be44253e0d9",
+        "version" : "8.55.0"
+      }
+    },
+    {
       "identity" : "statskit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/StatsKit",
       "state" : {
-        "revision" : "f318796edb7033917d0868574c552fb310482e7c",
-        "version" : "1.0.4"
+        "revision" : "02e4a8168048aee43e258ce14e405f453418ecdd",
+        "version" : "1.0.6"
+      }
+    },
+    {
+      "identity" : "swift-clocks",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-clocks",
+      "state" : {
+        "revision" : "cc46202b53476d64e824e0b6612da09d84ffde8e",
+        "version" : "1.0.6"
+      }
+    },
+    {
+      "identity" : "swift-concurrency-extras",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-concurrency-extras",
+      "state" : {
+        "revision" : "82a4ae7170d98d8538ec77238b7eb8e7199ef2e8",
+        "version" : "1.3.1"
+      }
+    },
+    {
+      "identity" : "swift-dependencies",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-dependencies",
+      "state" : {
+        "revision" : "eefcdaa88d2e2fd82e3405dfb6eb45872011a0b5",
+        "version" : "1.9.3"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax",
+      "state" : {
+        "revision" : "f99ae8aa18f0cf0d53481901f88a0991dc3bd4a2",
+        "version" : "601.0.1"
       }
     },
     {
@@ -132,8 +186,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/aheze/SwipeActions",
       "state" : {
-        "revision" : "41e6f6dce02d8cfa164f8c5461a41340850ca3ab",
-        "version" : "1.1.0"
+        "branch" : "1.1.0",
+        "revision" : "41e6f6dce02d8cfa164f8c5461a41340850ca3ab"
       }
     },
     {
@@ -141,8 +195,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/TheoKit",
       "state" : {
-        "revision" : "3bfc75ced60c83e270ff9314d406d2cf67972a52",
-        "version" : "1.0.7"
+        "branch" : "1.0.7",
+        "revision" : "3bfc75ced60c83e270ff9314d406d2cf67972a52"
+      }
+    },
+    {
+      "identity" : "xctest-dynamic-overlay",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
+      "state" : {
+        "revision" : "b2ed9eabefe56202ee4939dd9fc46b6241c88317",
+        "version" : "1.6.1"
       }
     }
   ],

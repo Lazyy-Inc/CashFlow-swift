@@ -7,6 +7,9 @@
 
 import SwiftUI
 import TheoKit
+import DesignSystemModule
+import CoreModule
+import Dependencies
 
 struct SubcategoryRowView: View {
     
@@ -15,7 +18,7 @@ struct SubcategoryRowView: View {
     var selectedDate: Date
     
     // MARK: Environments
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     
     // Computed var
     var stringAmount: String {
@@ -38,24 +41,24 @@ struct SubcategoryRowView: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 Text(subcategory.name)
-                    .fontWithLineHeight(DesignSystem.Fonts.Body.mediumBold)
+                    .fontWithLineHeight(.Body.mediumBold)
                     .foregroundStyle(Color.label)
                     .lineLimit(1)
                 
                 Text(stringAmount)
-                    .fontWithLineHeight(DesignSystem.Fonts.Body.small)
+                    .fontWithLineHeight(.Body.small)
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
                     .lineLimit(1)
             }
             .fullWidth(.leading)
             
-            IconSVG(icon: .iconArrowRight, value: .large)
+            IconSVG(icon: "iconArrowRight", value: .large)
                 .foregroundStyle(Color.label)
         }
-        .padding(TKDesignSystem.Padding.medium)
+        .padding(Padding.medium)
         .roundedRectangleBorder(
             TKDesignSystem.Colors.Background.Theme.bg100,
-            radius: TKDesignSystem.Radius.standard,
+            radius: CornerRadius.standard,
             lineWidth: 1,
             strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
         )

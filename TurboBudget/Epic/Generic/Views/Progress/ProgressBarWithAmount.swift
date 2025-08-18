@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreModule
 
 struct ProgressBarWithAmount: View {
     
@@ -25,7 +26,7 @@ struct ProgressBarWithAmount: View {
     var body: some View {
         GeometryReader { geometry in
             RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .fill(Color.background200)
+                .fill(Color.Background.bg200)
                 .overlay(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
                         .fill(themeManager.theme.color)
@@ -42,7 +43,7 @@ struct ProgressBarWithAmount: View {
                         .animation(.smooth.delay(0.3), value: progressBarWidth)
                 }
                 .onAppear {
-                    let widthText = formatNumber(value).width(usingFont: UIFont(name: nameFontSemiBold, size: 16)!) * 1.4
+                    let widthText = formatNumber(value).width(usingFont: UIFont(name: "PlusJakartaSans-SemiBold", size: 16)!) * 1.4 // TODO: Need refactor
                     let widthPercentage = geometry.size.width * min(1, percentage)
                     progressBarWidth = max(widthText, widthPercentage)
                 }
@@ -54,7 +55,7 @@ struct ProgressBarWithAmount: View {
 #Preview {
     ProgressBarWithAmount(percentage: 0.4, value: 300)
         .frame(height: 38)
-        .environmentObject(ThemeManager())
+        .environmentObject(ThemeManager.shared)
         .padding()
-        .background(Color.background)
+        .background(Color.Background.bg50)
 }

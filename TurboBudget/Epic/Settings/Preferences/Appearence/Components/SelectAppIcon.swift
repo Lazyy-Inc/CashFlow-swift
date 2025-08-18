@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreModule
 
 struct SelectAppIcon: View {
     
@@ -98,6 +99,6 @@ struct SelectAppIcon: View {
         SelectAppIcon()
             .padding()
     }
-    .background(Color.background)
+    .background(Color.Background.bg50)
     .environmentObject(ThemeManager())
 }

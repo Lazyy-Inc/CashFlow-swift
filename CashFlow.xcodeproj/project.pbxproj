@@ -11,20 +11,38 @@
 		81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 81D990B32A49F03000EF13A3 /* SwipeActions */; };
 		D901E8002DC3584600069818 /* StatsKit in Frameworks */ = {isa = PBXBuildFile; productRef = D901E7FF2DC3584600069818 /* StatsKit */; };
 		D912D00A2D140523006DF5DC /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = D912D0092D140523006DF5DC /* AlertKit */; };
-		D9300BF82CE63B4100194630 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D9300BF72CE63B4100194630 /* GoogleSignIn */; };
-		D9300BFA2CE63B4100194630 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D9300BF92CE63B4100194630 /* GoogleSignInSwift */; };
 		D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94594F62D16A03A00A989F0 /* NotificationKit */; };
+		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
+		D9564DE52E472CEB00F2341E /* EventModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564DE42E472CEB00F2341E /* EventModule */; };
+		D9564DE72E472CF000F2341E /* PreferenceModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564DE62E472CF000F2341E /* PreferenceModule */; };
+		D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D968BB2C2E4F2579006BB17A /* Sentry */; };
+		D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968BF5A2E4F29A7006BB17A /* SubscriptionModule */; };
+		D968C1772E4F4A6A006BB17A /* SavingsPlanModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1762E4F4A6A006BB17A /* SavingsPlanModule */; };
+		D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1782E4F5E59006BB17A /* ContributionModule */; };
+		D968C1B02E50651E006BB17A /* AccountModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1AF2E50651E006BB17A /* AccountModule */; };
+		D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1C62E51BCF6006BB17A /* BudgetModule */; };
+		D968C1E42E51C6AA006BB17A /* CategoryModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1E32E51C6AA006BB17A /* CategoryModule */; };
 		D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D96F3C9B2CB2E3B800CBABB8 /* MCEmojiPicker */; };
+		D96F97EC2E32B5F9006B0596 /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = D96F97EB2E32B5F9006B0596 /* UserModule */; };
+		D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */ = {isa = PBXBuildFile; productRef = D96F97ED2E32B924006B0596 /* OnboardingModule */; };
 		D97F63EF2DAFA3240060B741 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = D97F63EE2DAFA3240060B741 /* NetworkKit */; };
-		D97F64BA2DB156ED0060B741 /* NavigationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D97F64B92DB156ED0060B741 /* NavigationKit */; };
 		D980E52C2DC1E928005025E1 /* TheoKit in Frameworks */ = {isa = PBXBuildFile; productRef = D980E52B2DC1E928005025E1 /* TheoKit */; };
 		D9887FE22AA457A400AFC915 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9887FE12AA457A400AFC915 /* StoreKit.framework */; };
+		D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9D208042E315D5800FEE9FD /* PaywallModule */; };
+		D9D2C64B2E29850700FEE9FD /* DesignSystemModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9D2C64A2E29850700FEE9FD /* DesignSystemModule */; };
+		D9D2C65A2E2CB63600FEE9FD /* CoreModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9D2C6592E2CB63600FEE9FD /* CoreModule */; };
+		D9D5BC692E41352100118297 /* NavigationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D9D5BC682E41352100118297 /* NavigationKit */; };
 		D9F5C2222DB39458008267F5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D9F5C2212DB39458008267F5 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		81A707832A3B6B4C00BEB0BF /* CashFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D922E9A92E46688200B94AF7 /* Features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Features; sourceTree = "<group>"; };
+		D9564DE22E472A2000F2341E /* PreferenceModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PreferenceModule; sourceTree = "<group>"; };
+		D9564DE32E472B1900F2341E /* EventModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = EventModule; sourceTree = "<group>"; };
 		D9887FE12AA457A400AFC915 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D9D2C5C22E297E9400FEE9FD /* DesignSystemModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystemModule; sourceTree = "<group>"; };
+		D9D2C6582E2CB49F00FEE9FD /* CoreModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CoreModule; sourceTree = "<group>"; };
 		D9F5C2212DB39458008267F5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,18 +65,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9300BF82CE63B4100194630 /* GoogleSignIn in Frameworks */,
 				D9887FE22AA457A400AFC915 /* StoreKit.framework in Frameworks */,
+				D968C1E42E51C6AA006BB17A /* CategoryModule in Frameworks */,
 				D912D00A2D140523006DF5DC /* AlertKit in Frameworks */,
+				D968C1772E4F4A6A006BB17A /* SavingsPlanModule in Frameworks */,
 				8129E7512A483A7400FF23E5 /* ConfettiSwiftUI in Frameworks */,
-				D9300BFA2CE63B4100194630 /* GoogleSignInSwift in Frameworks */,
+				D96F97EC2E32B5F9006B0596 /* UserModule in Frameworks */,
+				D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */,
+				D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */,
+				D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */,
+				D9D5BC692E41352100118297 /* NavigationKit in Frameworks */,
+				D9D2C64B2E29850700FEE9FD /* DesignSystemModule in Frameworks */,
 				81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */,
+				D968C1B02E50651E006BB17A /* AccountModule in Frameworks */,
+				D9D2C65A2E2CB63600FEE9FD /* CoreModule in Frameworks */,
+				D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */,
+				D9564DE72E472CF000F2341E /* PreferenceModule in Frameworks */,
+				D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */,
 				D97F63EF2DAFA3240060B741 /* NetworkKit in Frameworks */,
+				D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */,
+				D9564DE52E472CEB00F2341E /* EventModule in Frameworks */,
 				D901E8002DC3584600069818 /* StatsKit in Frameworks */,
 				D980E52C2DC1E928005025E1 /* TheoKit in Frameworks */,
 				D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */,
 				D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */,
-				D97F64BA2DB156ED0060B741 /* NavigationKit in Frameworks */,
+				D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +99,11 @@
 		81A7077A2A3B6B4C00BEB0BF = {
 			isa = PBXGroup;
 			children = (
+				D9564DE32E472B1900F2341E /* EventModule */,
+				D9564DE22E472A2000F2341E /* PreferenceModule */,
+				D922E9A92E46688200B94AF7 /* Features */,
+				D9D2C6582E2CB49F00FEE9FD /* CoreModule */,
+				D9D2C5C22E297E9400FEE9FD /* DesignSystemModule */,
 				D9F5C2212DB39458008267F5 /* README.md */,
 				D9F0E45F2CE525390054E305 /* TurboBudget */,
 				81A707842A3B6B4C00BEB0BF /* Products */,
@@ -115,14 +151,27 @@
 				8129E7502A483A7400FF23E5 /* ConfettiSwiftUI */,
 				81D990B32A49F03000EF13A3 /* SwipeActions */,
 				D96F3C9B2CB2E3B800CBABB8 /* MCEmojiPicker */,
-				D9300BF72CE63B4100194630 /* GoogleSignIn */,
-				D9300BF92CE63B4100194630 /* GoogleSignInSwift */,
 				D912D0092D140523006DF5DC /* AlertKit */,
 				D94594F62D16A03A00A989F0 /* NotificationKit */,
 				D97F63EE2DAFA3240060B741 /* NetworkKit */,
-				D97F64B92DB156ED0060B741 /* NavigationKit */,
 				D980E52B2DC1E928005025E1 /* TheoKit */,
 				D901E7FF2DC3584600069818 /* StatsKit */,
+				D9D2C64A2E29850700FEE9FD /* DesignSystemModule */,
+				D9D2C6592E2CB63600FEE9FD /* CoreModule */,
+				D9D208042E315D5800FEE9FD /* PaywallModule */,
+				D96F97EB2E32B5F9006B0596 /* UserModule */,
+				D96F97ED2E32B924006B0596 /* OnboardingModule */,
+				D9D5BC682E41352100118297 /* NavigationKit */,
+				D9564CD02E467A8B00F2341E /* TransactionModule */,
+				D9564DE42E472CEB00F2341E /* EventModule */,
+				D9564DE62E472CF000F2341E /* PreferenceModule */,
+				D968BB2C2E4F2579006BB17A /* Sentry */,
+				D968BF5A2E4F29A7006BB17A /* SubscriptionModule */,
+				D968C1762E4F4A6A006BB17A /* SavingsPlanModule */,
+				D968C1782E4F5E59006BB17A /* ContributionModule */,
+				D968C1AF2E50651E006BB17A /* AccountModule */,
+				D968C1C62E51BCF6006BB17A /* BudgetModule */,
+				D968C1E32E51C6AA006BB17A /* CategoryModule */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -160,13 +209,13 @@
 				8129E74F2A483A7400FF23E5 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 				81D990B22A49F03000EF13A3 /* XCRemoteSwiftPackageReference "SwipeActions" */,
 				D96F3C9A2CB2E3B800CBABB8 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */,
-				D9300BF62CE63B4100194630 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				D912D0082D140523006DF5DC /* XCRemoteSwiftPackageReference "AlertKit" */,
 				D94594F52D16A03A00A989F0 /* XCRemoteSwiftPackageReference "NotificationKit" */,
 				D97F63ED2DAFA3240060B741 /* XCRemoteSwiftPackageReference "NetworkKit" */,
-				D97F64B82DB156ED0060B741 /* XCRemoteSwiftPackageReference "NavigationKit" */,
 				D980E52A2DC1E928005025E1 /* XCRemoteSwiftPackageReference "TheoKit" */,
 				D901E7FE2DC3584600069818 /* XCRemoteSwiftPackageReference "StatsKit" */,
+				D9D5BC672E41352100118297 /* XCRemoteSwiftPackageReference "NavigationKit" */,
+				D968BB2B2E4F2579006BB17A /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 			);
 			productRefGroup = 81A707842A3B6B4C00BEB0BF /* Products */;
 			projectDirPath = "";
@@ -352,9 +401,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = TurboBudget/TurboBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20250521;
+				CURRENT_PROJECT_VERSION = 20250729;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"TurboBudget/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -378,11 +427,11 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.0.5;
+				MARKETING_VERSION = 2.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Sementa.CashFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -404,9 +453,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = TurboBudget/TurboBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20250521;
+				CURRENT_PROJECT_VERSION = 20250729;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"TurboBudget/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -430,11 +479,11 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.0.5;
+				MARKETING_VERSION = 2.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Sementa.CashFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -503,20 +552,20 @@
 				kind = branch;
 			};
 		};
-		D9300BF62CE63B4100194630 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
 		D94594F52D16A03A00A989F0 /* XCRemoteSwiftPackageReference "NotificationKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/theosementa/NotificationKit";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.4;
+			};
+		};
+		D968BB2B2E4F2579006BB17A /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.55.0;
 			};
 		};
 		D96F3C9A2CB2E3B800CBABB8 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */ = {
@@ -535,20 +584,20 @@
 				minimumVersion = 1.0.1;
 			};
 		};
-		D97F64B82DB156ED0060B741 /* XCRemoteSwiftPackageReference "NavigationKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/theosementa/NavigationKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.6;
-			};
-		};
 		D980E52A2DC1E928005025E1 /* XCRemoteSwiftPackageReference "TheoKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/theosementa/TheoKit";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
+			};
+		};
+		D9D5BC672E41352100118297 /* XCRemoteSwiftPackageReference "NavigationKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/theosementa/NavigationKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -574,40 +623,91 @@
 			package = D912D0082D140523006DF5DC /* XCRemoteSwiftPackageReference "AlertKit" */;
 			productName = AlertKit;
 		};
-		D9300BF72CE63B4100194630 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9300BF62CE63B4100194630 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-		D9300BF92CE63B4100194630 /* GoogleSignInSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9300BF62CE63B4100194630 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignInSwift;
-		};
 		D94594F62D16A03A00A989F0 /* NotificationKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D94594F52D16A03A00A989F0 /* XCRemoteSwiftPackageReference "NotificationKit" */;
 			productName = NotificationKit;
+		};
+		D9564CD02E467A8B00F2341E /* TransactionModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TransactionModule;
+		};
+		D9564DE42E472CEB00F2341E /* EventModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EventModule;
+		};
+		D9564DE62E472CF000F2341E /* PreferenceModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PreferenceModule;
+		};
+		D968BB2C2E4F2579006BB17A /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D968BB2B2E4F2579006BB17A /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
+		};
+		D968BF5A2E4F29A7006BB17A /* SubscriptionModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SubscriptionModule;
+		};
+		D968C1762E4F4A6A006BB17A /* SavingsPlanModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SavingsPlanModule;
+		};
+		D968C1782E4F5E59006BB17A /* ContributionModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ContributionModule;
+		};
+		D968C1AF2E50651E006BB17A /* AccountModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AccountModule;
+		};
+		D968C1C62E51BCF6006BB17A /* BudgetModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BudgetModule;
+		};
+		D968C1E32E51C6AA006BB17A /* CategoryModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CategoryModule;
 		};
 		D96F3C9B2CB2E3B800CBABB8 /* MCEmojiPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D96F3C9A2CB2E3B800CBABB8 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */;
 			productName = MCEmojiPicker;
 		};
+		D96F97EB2E32B5F9006B0596 /* UserModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserModule;
+		};
+		D96F97ED2E32B924006B0596 /* OnboardingModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OnboardingModule;
+		};
 		D97F63EE2DAFA3240060B741 /* NetworkKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D97F63ED2DAFA3240060B741 /* XCRemoteSwiftPackageReference "NetworkKit" */;
 			productName = NetworkKit;
 		};
-		D97F64B92DB156ED0060B741 /* NavigationKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D97F64B82DB156ED0060B741 /* XCRemoteSwiftPackageReference "NavigationKit" */;
-			productName = NavigationKit;
-		};
 		D980E52B2DC1E928005025E1 /* TheoKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D980E52A2DC1E928005025E1 /* XCRemoteSwiftPackageReference "TheoKit" */;
 			productName = TheoKit;
+		};
+		D9D208042E315D5800FEE9FD /* PaywallModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PaywallModule;
+		};
+		D9D2C64A2E29850700FEE9FD /* DesignSystemModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystemModule;
+		};
+		D9D2C6592E2CB63600FEE9FD /* CoreModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreModule;
+		};
+		D9D5BC682E41352100118297 /* NavigationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9D5BC672E41352100118297 /* XCRemoteSwiftPackageReference "NavigationKit" */;
+			productName = NavigationKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

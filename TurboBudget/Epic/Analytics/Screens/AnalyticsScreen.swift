@@ -10,12 +10,15 @@ import SwiftUI
 import UIKit
 import NavigationKit
 import TheoKit
+import DesignSystemModule
+import CoreModule
+import Dependencies
 
 struct AnalyticsScreen: View {
     
     // Stores
     @EnvironmentObject private var accountStore: AccountStore
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @EnvironmentObject private var router: Router<AppDestination>
         
     // Custom
@@ -32,25 +35,25 @@ struct AnalyticsScreen: View {
     var body: some View {
         VStack(spacing: 0) {
             if !transactionStore.transactions.isEmpty {
-                BetterScrollView(maxBlurRadius: DesignSystem.Blur.topbar) {
+                BetterScrollView(maxBlurRadius: Blur.topbar) {
                     NavigationBar(
                         title: "word_statistics".localized,
                         withDismiss: false,
                         actionButton: .init(
-                            icon: .iconGear,
+                            icon: "iconGear",
                             action: { router.push(.settings(.home)) },
                             isDisabled: false
                         )
                     )
                 } content: { _ in
-                    VStack(spacing: TKDesignSystem.Spacing.large) {
+                    VStack(spacing: Spacing.large) {
                         GenericBarChart(
                             title: "cashflowchart_title".localized,
                             selectedDate: $selectedDate,
                             values: accountStore.cashflow,
                             amount: amount
                         )
-                        .onChange(of: selectedDate) { _ in
+                        .onChange(of: selectedDate) {
                             Task {
                                 if selectedDate.year != selectedYear {
                                     selectedYear = selectedDate.year
@@ -64,7 +67,7 @@ struct AnalyticsScreen: View {
                             amount = accountStore.cashFlowAmount(for: selectedDate)
                         }
                         
-                        NavigationButton(
+                        NavigationButtonView(
                             route: .push,
                             destination: AppDestination.transaction(.specificList(month: selectedDate, type: .income))) {
                                 GenericLineChart(
@@ -77,7 +80,7 @@ struct AnalyticsScreen: View {
                                 )
                             }
                         
-                        NavigationButton(
+                        NavigationButtonView(
                             route: .push,
                             destination: AppDestination.transaction(.specificList(month: selectedDate, type: .expense))) {
                                 GenericLineChart(
@@ -107,7 +110,7 @@ struct AnalyticsScreen: View {
                             )
                         )
                     }
-                    .padding(.horizontal, TKDesignSystem.Padding.large)
+                    .padding(.horizontal, Padding.large)
                     
                     Rectangle()
                         .frame(height: 120)
@@ -121,13 +124,13 @@ struct AnalyticsScreen: View {
             }
         } // VStack
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
-        .onChange(of: selectedDate) { _ in
+        .onChange(of: selectedDate) {
             if let account = accountStore.selectedAccount, let accountID = account._id {
                 Task {
                     await transactionStore.fetchTransactionsByPeriod(
                         accountID: accountID,
                         startDate: selectedDate,
-                        endDate: selectedDate.endOfMonth
+                        endDate: selectedDate.endOfMonth ?? .now
                     )
                     updateChartData()
                 }

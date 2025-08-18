@@ -9,6 +9,10 @@ import SwiftUI
 import NavigationKit
 import StatsKit
 import TheoKit
+import DesignSystemModule
+import CoreModule
+import TransactionModule
+import EventModule
 
 struct SavingsAccountDetailScreen: View {
     
@@ -37,19 +41,19 @@ struct SavingsAccountDetailScreen: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationBarWithMenu(title: savingsAccountStore.currentAccount.name) {
-//                NavigationButton( // TODO: Reactivate
-//                    route: .push,
-//                    destination: AppDestination.savingsAccount(.createTransaction(savingsAccount: savingsAccountStore.currentAccount))
-//                ) {
-//                    Label(Word.Classic.add, systemImage: "plus")
-//                }
-                NavigationButton(
+                NavigationButtonView(
+                    route: .push,
+                    destination: AppDestination.savingsAccount(.createTransaction(savingsAccount: savingsAccountStore.currentAccount))
+                ) {
+                    Label(Word.Classic.add, systemImage: "plus")
+                }
+                NavigationButtonView(
                     route: .push,
                     destination: AppDestination.transfer(.create(receiverAccount: savingsAccountStore.currentAccount))
                 ) {
                     Label(Word.Main.transfer, systemImage: "arrow.left.arrow.right")
                 }
-                NavigationButton(
+                NavigationButtonView(
                     route: .sheet,
                     destination: AppDestination.savingsAccount(.update(savingsAccount: savingsAccountStore.currentAccount))
                 ) {
@@ -64,13 +68,13 @@ struct SavingsAccountDetailScreen: View {
             List {
                 SavingsAccountInfosView(savingsAccount: currentAccount)
                     .noDefaultStyle()
-                    .padding(.horizontal, TKDesignSystem.Padding.large)
+                    .padding(.horizontal, Padding.large)
                 
                 ForEach(transferStore.monthsOfTransfers, id: \.self) { month in
                     Section {
                         ForEach(transferStore.transfers) { transfer in
                             if Calendar.current.isDate(transfer.date, equalTo: month, toGranularity: .month) {
-                                NavigationButton(
+                                NavigationButtonView(
                                     route: .push,
                                     destination: AppDestination.transaction(.detail(transaction: transfer))
                                 ) {
@@ -81,8 +85,8 @@ struct SavingsAccountDetailScreen: View {
                                     }
                                 }
                                 .environmentObject(savingsAccountStore)
-                                .padding(.bottom, TKDesignSystem.Padding.medium)
-                                .padding(.horizontal, TKDesignSystem.Padding.large)
+                                .padding(.bottom, Padding.medium)
+                                .padding(.horizontal, Padding.large)
                             }
                         }
                         .noDefaultStyle()
@@ -92,7 +96,7 @@ struct SavingsAccountDetailScreen: View {
                             amountOfSavings: transferStore.amountOfSavingsByMonth(month: month),
                             amountOfWithdrawal: transferStore.amountOfWithdrawalByMonth(month: month)
                         )
-                        .padding(.horizontal, TKDesignSystem.Padding.large)
+                        .padding(.horizontal, Padding.large)
                     }
                     .foregroundStyle(Color.label)
                 }
@@ -100,7 +104,7 @@ struct SavingsAccountDetailScreen: View {
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
             .scrollIndicators(.hidden)
-            .padding(.top, TKDesignSystem.Padding.large)
+            .padding(.top, Padding.large)
         }
         .navigationBarBackButtonHidden(true)
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
@@ -129,7 +133,7 @@ struct SavingsAccountDetailScreen: View {
             }
         }
         .onAppear {
-            EventService.sendEvent(key: .accountSavingsDetailPage)
+            EventService.sendEvent(key: EventKeys.accountSavingsDetailPage)
         }
     } // body
 } // struct
@@ -137,7 +141,7 @@ struct SavingsAccountDetailScreen: View {
 // MARK: - Preview
 #Preview {
     SavingsAccountDetailScreen(savingsAccount: .mockSavingsAccount)
-        .environmentObject(ThemeManager())
-        .environmentObject(TransferStore())
-        .environmentObject(AccountStore())
+        .environmentObject(ThemeManager.shared)
+        .environmentObject(TransferStore.shared)
+        .environmentObject(AccountStore.shared)
 }

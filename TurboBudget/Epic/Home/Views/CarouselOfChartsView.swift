@@ -9,11 +9,15 @@
 import SwiftUI
 import Charts
 import TheoKit
+import DesignSystemModule
+import CoreModule
+import Dependencies
 
 struct CarouselOfChartsView: View {
     
     // Environment
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+
     @EnvironmentObject private var themeManager: ThemeManager
     
     // State variables
@@ -35,7 +39,7 @@ struct CarouselOfChartsView: View {
                         mainColor: Color.error400
                     )
                 )
-                .padding(.horizontal, TKDesignSystem.Padding.large)
+                .padding(.horizontal, Padding.large)
                 .tag(0)
                 
                 GenericLineChart(
@@ -46,7 +50,7 @@ struct CarouselOfChartsView: View {
                         mainColor: Color.primary500
                     )
                 )
-                .padding(.horizontal, TKDesignSystem.Padding.large)
+                .padding(.horizontal, Padding.large)
                 .tag(1)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -57,7 +61,7 @@ struct CarouselOfChartsView: View {
         .onAppear {
             updateChartData()
         }
-        .onChange(of: transactionStore.transactions.count) { _ in
+        .onChange(of: transactionStore.transactions.count) {
             updateChartData()
         }
     } // body

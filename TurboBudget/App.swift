@@ -9,6 +9,12 @@ import SwiftUI
 import AlertKit
 import NotificationKit
 import TheoKit
+import CoreModule
+import StatsKit
+import UserModule
+import OnboardingModule
+import PreferenceModule
+import Sentry
 
 @main
 struct TurboBudgetApp: App {
@@ -27,12 +33,7 @@ struct TurboBudgetApp: App {
     @StateObject private var userStore: UserStore = .shared
     @StateObject private var accountStore: AccountStore = .shared
     @StateObject private var categoryStore: CategoryStore = .shared
-    @StateObject private var transactionStore: TransactionStore = .shared
     @StateObject private var transferStore: TransferStore = .shared
-    @StateObject private var subscriptionStore: SubscriptionStore = .shared
-    @StateObject private var savingsPlanStore: SavingsPlanStore = .shared
-    @StateObject private var contributionStore: ContributionStore = .shared
-    @StateObject private var budgetStore: BudgetStore = .shared
     @StateObject private var creditCardStore: CreditCardStore = .shared
     
     // Environment
@@ -40,48 +41,58 @@ struct TurboBudgetApp: App {
     
     // Preferences
     @StateObject private var preferencesSecurity: PreferencesSecurity = .shared
+    @StateObject private var preferencesGeneral: PreferencesGeneral = .shared
     @StateObject private var preferencesSubscription: SubscriptionPreferences = .shared
         
     // init
-    init() {
-        UINavigationBar.appearance().titleTextAttributes = [.font: UIFont(name: nameFontBold, size: 18)!]
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont(name: nameFontBold, size: 30)!]
+    init() { // TODO: Need refactor
+        UINavigationBar.appearance().titleTextAttributes = [.font: UIFont(name: "PlusJakartaSans-Bold", size: 18)!]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont(name: "PlusJakartaSans-Bold", size: 30)!]
+        
+        SentrySDK.start { options in
+            options.dsn = ProcessInfo.processInfo.environment["SENTRY_API_KEY"] ?? ""
+            options.sendDefaultPii = true
+        }
     }
     
     // MARK: -
     var body: some Scene {
         WindowGroup {
             Group {
-                switch appManager.appState {
-                case .idle:
-                    SplashScreenView()
-                case .loading:
-                    SplashScreenView()
-                case .success:
-                    Group {
-                        if preferencesSecurity.isSecurityReinforced {
-                            if scenePhase == .active {
-                                PageControllerScreen()
+                if !preferencesGeneral.isAlreadyOpen {
+                    OnboardingScreen()
+                } else {
+                    switch appManager.appState {
+                    case .idle:
+                        SplashScreenView()
+                    case .loading:
+                        SplashScreenView()
+                    case .success:
+                        Group {
+                            if preferencesSecurity.isSecurityReinforced {
+                                if scenePhase == .active {
+                                    PageControllerScreen()
+                                } else {
+                                    Image("LaunchScreen")
+                                        .resizable()
+                                        .edgesIgnoringSafeArea([.bottom, .top])
+                                }
                             } else {
-                                Image("LaunchScreen")
-                                    .resizable()
-                                    .edgesIgnoringSafeArea([.bottom, .top])
+                                PageControllerScreen()
                             }
-                        } else {
-                            PageControllerScreen()
                         }
-                    }
-                    .task {
-                        if !appManager.isStartDataLoaded {
-                            await accountStore.fetchAccounts()
-                            await appManager.loadStartData()
-                            appManager.isStartDataLoaded = true
+                        .task {
+                            if !appManager.isStartDataLoaded {
+                                await accountStore.fetchAccounts()
+                                await appManager.loadStartData()
+                                appManager.isStartDataLoaded = true
+                            }
                         }
+                    case .needLogin:
+                        LoginBackScreen()
+                    case .noInternet:
+                        NoInternetView()
                     }
-                case .needLogin:
-                    LoginScreen()
-                case .noInternet:
-                    NoInternetView()
                 }
             }
             .overlay(alignment: .bottom) {
@@ -99,12 +110,7 @@ struct TurboBudgetApp: App {
             .environmentObject(userStore)
             .environmentObject(accountStore)
             .environmentObject(categoryStore)
-            .environmentObject(transactionStore)
             .environmentObject(transferStore)
-            .environmentObject(subscriptionStore)
-            .environmentObject(savingsPlanStore)
-            .environmentObject(contributionStore)
-            .environmentObject(budgetStore)
             .environmentObject(creditCardStore)
             
             .preferredColorScheme(appearanceManager.appearance.colorScheme)
@@ -141,6 +147,8 @@ struct TurboBudgetApp: App {
                 TKDesignSystem.fontBold = "Satoshi-Bold"
                 TKDesignSystem.fontMedium = "Satoshi-Medium"
                 TKDesignSystem.fontRegular = "Satoshi-Regular"
+                
+                EventService.initialize(projectName: "CashFlow", platform: "iOS")
             }
         }
     } // body

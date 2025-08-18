@@ -7,6 +7,10 @@
 
 import CoreData
 import AppIntents
+import CoreModule
+import UserModule
+import PreferenceModule
+import Sentry
 
 struct AddTransactionIntent: AppIntent {
     
@@ -83,6 +87,7 @@ struct AddTransactionIntent: AppIntent {
             
             return .result(dialog: IntentDialog(stringLiteral: formattedText))
         } catch {
+            SentrySDK.capture(error: error)
             return .result(dialog: IntentDialog(stringLiteral: "Fail to add transaction."))
         }
     }
@@ -114,8 +119,10 @@ extension AccountModel: AppEntity {
 }
 
 // Create a query to fetch all accounts
-struct AccountQuery: EntityQuery {
-    func entities(for identifiers: [AccountModel.ID]) async throws -> [AccountModel] {
+public struct AccountQuery: EntityQuery {
+    public init() { }
+    
+    public func entities(for identifiers: [AccountModel.ID]) async throws -> [AccountModel] {
         let accountStore = AccountStore.shared
         await accountStore.fetchAccounts()
         
@@ -127,7 +134,7 @@ struct AccountQuery: EntityQuery {
         }
     }
     
-    func suggestedEntities() async throws -> [AccountModel] {
+    public func suggestedEntities() async throws -> [AccountModel] {
         let userStore: UserStore = .shared
         try await userStore.loginWithToken()
         

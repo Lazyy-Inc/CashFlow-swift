@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ConfettiSwiftUI
+import CoreModule
 
 struct SuccessfullCreationView: View {
     
@@ -64,8 +65,8 @@ struct SuccessfullCreationView: View {
         .animation(.smooth, value: succesfullModalManager.isPresenting)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
-        .onChange(of: succesfullModalManager.isPresenting) { newValue in
-            if newValue { 
+        .onChange(of: succesfullModalManager.isPresenting) {
+            if $0 {
                 confettiCounter += 1
             } else {
                 succesfullModalManager.resetData()

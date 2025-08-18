@@ -8,11 +8,13 @@
 import SwiftUI
 import NavigationKit
 import TheoKit
+import CoreModule
+import Dependencies
 
 struct HomeHeaderView: View {
     
     @EnvironmentObject private var accountStore: AccountStore
-    @EnvironmentObject private var transactionStore: TransactionStore
+    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @EnvironmentObject private var purchaseManager: PurchasesManager
     
     // MARK: -
@@ -21,13 +23,13 @@ struct HomeHeaderView: View {
             VStack(alignment: .leading, spacing: 0) {
                 if let account = accountStore.selectedAccount {
                     Text(account.balance.toCurrency())
-                        .fontWithLineHeight(DesignSystem.Fonts.Title.large)
+                        .fontWithLineHeight(.Title.large)
                         .contentTransition(.numericText())
                         .animation(.smooth, value: account.balance)
                 }
                 
                 Text("home_screen_available_balance".localized)
-                    .fontWithLineHeight(DesignSystem.Fonts.Body.small)
+                    .fontWithLineHeight(.Body.small)
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -36,7 +38,7 @@ struct HomeHeaderView: View {
                 PremiumButton()
             }
             
-            NavigationButton(route: .push, destination: AppDestination.settings(.home)) {
+            NavigationButtonView(route: .push, destination: AppDestination.settings(.home)) {
                 Image(.iconGear)
                     .renderingMode(.template)
                     .foregroundStyle(Color.text)

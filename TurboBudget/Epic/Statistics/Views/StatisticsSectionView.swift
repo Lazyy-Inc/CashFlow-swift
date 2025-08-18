@@ -16,7 +16,7 @@ struct StatisticsSectionView<Content: View>: View {
     var body: some View {
         VStack(spacing: 8) {
             Text(title)
-                .font(.Title.semibold)
+                .font(.semiBoldH3())
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 8)
             
@@ -41,5 +41,5 @@ struct StatisticsSectionView<Content: View>: View {
         ])
     }
     .padding()
-    .background(Color.background)
+    .background(Color.Background.bg50)
 }
