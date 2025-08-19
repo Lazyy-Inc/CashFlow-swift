@@ -14,7 +14,7 @@ import CoreModule
 import TransactionModule
 import Dependencies
 
-struct SubcategoryTransactionsScreen: View {
+public struct SubcategoryTransactionsScreen: View {
     
     // MARK: Dependencies
     var subcategory: SubcategoryModel
@@ -26,8 +26,16 @@ struct SubcategoryTransactionsScreen: View {
     // MARK: States
     @State private var searchText: String = ""
     
+    public init(
+        subcategory: SubcategoryModel,
+        selectedDate: Date
+    ) {
+        self.subcategory = subcategory
+        self.selectedDate = selectedDate
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         let transactionsExpenses = transactionStore.getExpenses(for: subcategory, in: selectedDate)
         let transactionsFiltered = transactionsExpenses.search(searchText)
         
