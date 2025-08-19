@@ -19,7 +19,8 @@ let package = Package(
         .library(name: "CategoryModule", targets: ["CategoryModule"]),
         .library(name: "SubcategoryModule", targets: ["SubcategoryModule"]),
         .library(name: "SavingsAccountModule", targets: ["SavingsAccountModule"]),
-        .library(name: "TransferModule", targets: ["TransferModule"])
+        .library(name: "TransferModule", targets: ["TransferModule"]),
+        .library(name: "SettingsModule", targets: ["SettingsModule"])
     ],
     dependencies: [
         .package(path: "./DesignSystemModule"),
@@ -189,6 +190,17 @@ let package = Package(
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(name: "TransferModuleTests", dependencies: ["TransferModule"])
+        .testTarget(name: "TransferModuleTests", dependencies: ["TransferModule"]),
+        
+        .target(
+            name: "SettingsModule",
+            dependencies: [
+                "DesignSystemModule",
+                "CoreModule",
+                .product(name: "Dependencies", package: "swift-dependencies")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "SettingsModuleTests", dependencies: ["SettingsModule"])
     ]
 )
