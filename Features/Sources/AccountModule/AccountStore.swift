@@ -96,7 +96,7 @@ public extension AccountStore {
                 TransactionStore.shared.reset()
                 SubscriptionStore.shared.reset()
                 SavingsPlanStore.shared.reset()
-//                BudgetStore.shared.reset() // TODO: Active
+                BudgetStore.shared.reset()
                 selectedAccount = nil
             }
         } catch { NetworkService.handleError(error: error) }

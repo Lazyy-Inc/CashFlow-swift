@@ -12,7 +12,7 @@ import CoreModule
 import TransactionModule
 import EventModule
 
-extension TransferStore {
+public extension TransferStore {
     
     @MainActor
     func fetchTransfersWithPagination(accountID: Int, perPage: Int = 50) async {
@@ -80,7 +80,7 @@ extension TransferStore {
     
 }
 
-extension TransferStore {
+public extension TransferStore {
     func sortTransfersByDate() {
         self.transfers.sort { $0.date > $1.date }
     }

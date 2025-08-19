@@ -13,8 +13,10 @@ import DesignSystemModule
 import CoreModule
 import TransactionModule
 import EventModule
+import TransferModule
+import AccountModule
 
-struct SavingsAccountDetailScreen: View {
+public struct SavingsAccountDetailScreen: View {
     
     // Builder
     @StateObject private var savingsAccountStore: SavingsAccountStore
@@ -33,20 +35,22 @@ struct SavingsAccountDetailScreen: View {
     }
     
     // init
-    init(savingsAccount: AccountModel) {
+    public init(savingsAccount: AccountModel) {
         self._savingsAccountStore = StateObject(wrappedValue: .init(currentAccount: savingsAccount))
     }
     
     // MARK: - body
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 0) {
             NavigationBarWithMenu(title: savingsAccountStore.currentAccount.name) {
-                NavigationButtonView(
-                    route: .push,
-                    destination: AppDestination.savingsAccount(.createTransaction(savingsAccount: savingsAccountStore.currentAccount))
-                ) {
-                    Label(Word.Classic.add, systemImage: "plus")
-                }
+//                NavigationButtonView( // TODO: Re enable
+//                    route: .push,
+//                    destination: AppDestination.savingsAccount(
+//                        .createTransaction(savingsAccount: savingsAccountStore.currentAccount)
+//                    )
+//                ) {
+//                    Label(Word.Classic.add, systemImage: "plus")
+//                }
                 NavigationButtonView(
                     route: .push,
                     destination: AppDestination.transfer(.create(receiverAccount: savingsAccountStore.currentAccount))
@@ -54,7 +58,7 @@ struct SavingsAccountDetailScreen: View {
                     Label(Word.Main.transfer, systemImage: "arrow.left.arrow.right")
                 }
                 NavigationButtonView(
-                    route: .sheet,
+                    route: .push,
                     destination: AppDestination.savingsAccount(.update(savingsAccount: savingsAccountStore.currentAccount))
                 ) {
                     Label(Word.Classic.edit, systemImage: "pencil")
@@ -83,11 +87,12 @@ struct SavingsAccountDetailScreen: View {
                                     } else {
                                         TransactionRowView(transaction: transfer, isEditable: false)
                                     }
+                                    EmptyView()
                                 }
-                                .environmentObject(savingsAccountStore)
                                 .padding(.bottom, Padding.medium)
                                 .padding(.horizontal, Padding.large)
                             }
+                           
                         }
                         .noDefaultStyle()
                     } header: {
@@ -127,7 +132,7 @@ struct SavingsAccountDetailScreen: View {
             }, message: { Text("account_detail_delete_account_desc".localized) }
         )
         .task {
-            if let accountID = savingsAccountStore.currentAccount._id {
+            if let accountID = currentAccount._id {
                 transferStore.transfers = []
                 await transferStore.fetchTransfersWithPagination(accountID: accountID)
             }
@@ -135,6 +140,7 @@ struct SavingsAccountDetailScreen: View {
         .onAppear {
             EventService.sendEvent(key: EventKeys.accountSavingsDetailPage)
         }
+        .environmentObject(savingsAccountStore)
     } // body
 } // struct
 

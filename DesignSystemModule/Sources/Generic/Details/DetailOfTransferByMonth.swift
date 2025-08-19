@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreModule
 
-struct DetailOfTransferByMonth: View {
+public struct DetailOfTransferByMonth: View {
 
     // Builder
     var month: Date
@@ -17,9 +17,19 @@ struct DetailOfTransferByMonth: View {
 
     // Environnement
     @EnvironmentObject var store: PurchasesManager
+    
+    public init(
+        month: Date,
+        amountOfSavings: Double = 0,
+        amountOfWithdrawal: Double = 0
+    ) {
+        self.month = month
+        self.amountOfSavings = amountOfSavings
+        self.amountOfWithdrawal = amountOfWithdrawal
+    }
 
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading) {
             Text(month.formatted(.monthAndYear).capitalized)
                 .font(.mediumCustom(size: 22))

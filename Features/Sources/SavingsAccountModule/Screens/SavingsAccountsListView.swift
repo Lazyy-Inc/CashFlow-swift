@@ -12,7 +12,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 
-struct SavingsAccountsListView: View {
+public struct SavingsAccountsListView: View {
     
     // Environment
     @EnvironmentObject private var router: Router<AppDestination>
@@ -42,8 +42,10 @@ struct SavingsAccountsListView: View {
         return accountStore.savingsAccounts.search(searchText)
     }
     
+    public init() { }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
                 title: Word.Main.savingsAccounts,
@@ -51,7 +53,7 @@ struct SavingsAccountsListView: View {
                     title: "word_create".localized,
                     action: {
                         if purchaseManager.isCashFlowPro || accountStore.savingsAccounts.isEmpty {
-                            router.push(.savingsPlan(.create))
+                            router.push(.savingsAccount(.create))
                         } else {
                             alertManager.showPaywall(router: router)
                         }

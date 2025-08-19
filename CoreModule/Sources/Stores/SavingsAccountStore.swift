@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import NetworkKit
-import CoreModule
 
 public final class SavingsAccountStore: ObservableObject {
     

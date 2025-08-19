@@ -26,14 +26,14 @@ struct SavingsAccountRowView: View {
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg200)
                     .cornerRadius(CornerRadius.small)
                     .overlay {
-                        Image(.iconLandmark)
+                        Image("iconLandmark")
                             .renderingMode(.template)
                             .foregroundStyle(Color.label)
                     }
                 
                 Spacer()
                 
-                Image(.iconArrowRight)
+                Image("iconArrowRight")
                     .renderingMode(.template)
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
             }
