@@ -17,6 +17,7 @@ let package = Package(
         .library(name: "AccountModule", targets: ["AccountModule"]),
         .library(name: "BudgetModule", targets: ["BudgetModule"]),
         .library(name: "CategoryModule", targets: ["CategoryModule"]),
+        .library(name: "SubcategoryModule", targets: ["SubcategoryModule"]),
         .library(name: "SavingsAccountModule", targets: ["SavingsAccountModule"]),
         .library(name: "TransferModule", targets: ["TransferModule"])
     ],
@@ -151,6 +152,18 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "CategoryModuleTests", dependencies: ["CategoryModule"]),
+        
+        .target(
+            name: "SubcategoryModule",
+            dependencies: [
+                "DesignSystemModule",
+                "CoreModule",
+                "TransactionModule",
+                .product(name: "Dependencies", package: "swift-dependencies")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "SubcategoryModuleTests", dependencies: ["SubcategoryModule"]),
         
         .target(
             name: "SavingsAccountModule",

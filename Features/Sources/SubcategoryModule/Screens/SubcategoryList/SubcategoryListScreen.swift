@@ -13,7 +13,7 @@ import DesignSystemModule
 import CoreModule
 import Dependencies
 
-struct SubcategoryListScreen: View {
+public struct SubcategoryListScreen: View {
     
     // MARK: Dependencies
     var category: CategoryModel
@@ -43,8 +43,13 @@ struct SubcategoryListScreen: View {
         }
     }
     
+    public init(category: CategoryModel, selectedDate: Date) {
+        self.category = category
+        self.selectedDate = selectedDate
+    }
+    
     // MARK: - View
-    var body: some View {
+    public var body: some View {
         ListWithBluredHeader(maxBlurRadius: Blur.topbar) {
             NavigationBar(title: "word_subcategories".localized)
         } content: {
