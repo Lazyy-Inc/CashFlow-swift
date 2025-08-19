@@ -9,9 +9,9 @@ import Foundation
 import NetworkKit
 import CoreModule
 
-struct TransferService {
+public struct TransferService {
     
-    static func create(
+    public static func create(
         from senderAccountID: Int,
         to receiverAccountID: Int,
         body: TransferBody
@@ -26,7 +26,7 @@ struct TransferService {
         )
     }
     
-    static func delete(id: Int) async throws -> TransferResponseWithBalances {
+    public static func delete(id: Int) async throws -> TransferResponseWithBalances {
         return try await NetworkService.sendRequest(
             apiBuilder: TransferAPIRequester.delete(transferID: id),
             responseModel: TransferResponseWithBalances.self

@@ -9,11 +9,11 @@ import SwiftUI
 import SwipeActions
 import CoreModule
 
-enum TransferRowLocation {
+public enum TransferRowLocation {
     case successfulSheet, savingsAccount
 }
 
-struct TransferRowView: View {
+public struct TransferRowView: View {
 
     // MARK: Dependencies
     var transfer: TransactionModel
@@ -37,16 +37,24 @@ struct TransferRowView: View {
         }
     }
 
+    public init(
+        transfer: TransactionModel,
+        location: TransferRowLocation = .savingsAccount
+    ) {
+        self.transfer = transfer
+        self.location = location
+    }
+    
     // MARK: - View
-    var body: some View {
+    public var body: some View {
         SwipeView(label: {
             HStack {
                 Circle()
-                    .foregroundStyle(.background200)
+                    .foregroundStyle(Color.Background.bg200)
                     .frame(width: 50)
                     .overlay {
                         Circle()
-                            .foregroundStyle(isSender ? .error400 : .primary500)
+                            .foregroundStyle(isSender ? Color.error400 : Color.primary500)
                             .shadow(radius: 4, y: 4)
                             .frame(width: 34)
                         
@@ -70,7 +78,7 @@ struct TransferRowView: View {
                 VStack(alignment: .trailing, spacing: 5) {
                     Text("\(isSender ? "-" : "+") \((transfer.amount).toCurrency())")
                         .font(.semiBoldText16())
-                        .foregroundStyle(isSender ? .error400 : .primary500)
+                        .foregroundStyle(isSender ? Color.error400 : Color.primary500)
                         .lineLimit(1)
                     Text(transfer.date.formatted(date: .numeric, time: .omitted))
                         .font(Font.mediumSmall())
@@ -81,7 +89,7 @@ struct TransferRowView: View {
             .padding(12)
             .background {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(Color.background100)
+                    .fill(Color.Background.bg100)
             }
         }, trailingActions: { context in
             SwipeAction(action: {
@@ -96,7 +104,7 @@ struct TransferRowView: View {
                 .foregroundStyle(Color(uiColor: .systemBackground))
             }, background: { _ in
                 Rectangle()
-                    .foregroundStyle(.error400)
+                    .foregroundStyle(Color.error400)
             })
             .onChange(of: cancelDeleting) {
                 context.state.wrappedValue = .closed

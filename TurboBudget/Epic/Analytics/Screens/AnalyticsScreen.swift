@@ -13,6 +13,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import Dependencies
+import AccountModule
 
 struct AnalyticsScreen: View {
     

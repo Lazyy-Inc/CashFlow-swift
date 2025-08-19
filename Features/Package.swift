@@ -17,7 +17,8 @@ let package = Package(
         .library(name: "AccountModule", targets: ["AccountModule"]),
         .library(name: "BudgetModule", targets: ["BudgetModule"]),
         .library(name: "CategoryModule", targets: ["CategoryModule"]),
-        .library(name: "SavingsAccountModule", targets: ["SavingsAccountModule"])
+        .library(name: "SavingsAccountModule", targets: ["SavingsAccountModule"]),
+        .library(name: "TransferModule", targets: ["TransferModule"])
     ],
     dependencies: [
         .package(path: "./DesignSystemModule"),
@@ -98,6 +99,7 @@ let package = Package(
                 "DesignSystemModule",
                 "CoreModule",
                 "ContributionModule",
+                "TransactionModule",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -131,6 +133,7 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule",
+                "TransactionModule",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -142,6 +145,7 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule",
+                "TransactionModule",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -153,10 +157,25 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule",
+                "TransferModule",
+                "AccountModule",
+                .product(name: "NavigationKit", package: "NavigationKit"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(name: "SavingsAccountModuleTests", dependencies: ["SavingsAccountModule"])
+        .testTarget(name: "SavingsAccountModuleTests", dependencies: ["SavingsAccountModule"]),
+        
+        .target(
+            name: "TransferModule",
+            dependencies: [
+                "DesignSystemModule",
+                "CoreModule",
+                "TransactionModule",
+                .product(name: "Dependencies", package: "swift-dependencies")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "TransferModuleTests", dependencies: ["TransferModule"])
     ]
 )

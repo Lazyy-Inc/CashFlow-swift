@@ -12,7 +12,7 @@ import DesignSystemModule
 import CoreModule
 import EventModule
 
-struct TransferAddScreen: View {
+public struct TransferAddScreen: View {
     
     // Builder
     @StateObject private var viewModel: ViewModel
@@ -21,12 +21,12 @@ struct TransferAddScreen: View {
     @EnvironmentObject private var themeManager: ThemeManager
     
     // init
-    init(receiverAccount: AccountModel? = nil) {
+    public init(receiverAccount: AccountModel? = nil) {
         self._viewModel = StateObject(wrappedValue: .init(receiverAccount: receiverAccount))
     }
     
     // MARK: -
-    var body: some View {
+    public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
                 title: Word.Title.Transfer.new,
