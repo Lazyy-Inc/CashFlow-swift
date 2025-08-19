@@ -9,27 +9,6 @@ import Foundation
 import NavigationKit
 import CoreModule
 
-final class AppRouterManager: ObservableObject {
-    static let shared = AppRouterManager()
-    private var routers: [AppTabs: Router<AppDestination>] = [:]
-}
-
-extension AppRouterManager {
-
-    func register(router: Router<AppDestination>, for tab: AppTabs) {
-        return routers[tab] = router
-    }
-    
-    func router(for tab: AppTabs) -> Router<AppDestination>? {
-        return routers[tab]
-    }
-    
-    func resetRouters() {
-        routers.removeAll()
-    }
-    
-}
-
 extension AppRouterManager {
     
     func navigateToTab(_ tab: AppTabs, then: @escaping () -> Void) {

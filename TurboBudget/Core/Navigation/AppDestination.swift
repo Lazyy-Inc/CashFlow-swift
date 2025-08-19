@@ -18,6 +18,7 @@ import BudgetModule
 import CategoryModule
 import SavingsAccountModule
 import TransferModule
+import OnboardingModule
 
 extension AppDestination {
     

@@ -10,7 +10,7 @@ import NavigationKit
 import CoreModule
 import PreferenceModule
 
-struct WhatsNewScreen: View {
+public struct WhatsNewScreen: View {
     
     @StateObject private var preferencesGeneral: PreferencesGeneral = .shared
     
@@ -21,8 +21,10 @@ struct WhatsNewScreen: View {
         return AppRouterManager.shared.router(for: .home)
     }
     
+    public init() { }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 64) {
             VStack {
                 Text(Word.WhatsNew.title)
@@ -61,7 +63,7 @@ struct WhatsNewScreen: View {
                         .fullWidth()
                         .foregroundStyle(Color.white)
                         .padding()
-                        .roundedRectangleBorder(.background200, radius: 16)
+                        .roundedRectangleBorder(Color.Background.bg200, radius: 16)
                 }
             }
             .padding(.horizontal, 24)
