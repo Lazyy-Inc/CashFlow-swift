@@ -20,6 +20,7 @@ import SavingsAccountModule
 import TransferModule
 import OnboardingModule
 import SubcategoryModule
+import SettingsModule
 
 extension AppDestination {
     

@@ -18,6 +18,12 @@ public extension Color {
         return Color("Error400", bundle: BundleHelper.bundle)
     }
     
+    struct Secondary {
+        public static var secondary300: Color {
+            return Color("Secondary300", bundle: BundleHelper.bundle)
+        }
+    }
+    
 }
 
 public extension Color {
@@ -49,6 +55,36 @@ public extension Color {
         
         public static var bg600: Color {
             return Color("background600", bundle: BundleHelper.bundle)
+        }
+    }
+    
+    struct Settings {
+        public static var settingsBlue: Color {
+            return Color("settingsBlue", bundle: BundleHelper.bundle)
+        }
+        public static var settingsDarkBlue: Color {
+            return Color("settingsDarkBlue", bundle: BundleHelper.bundle)
+        }
+        public static var settingsDarkPurple: Color {
+            return Color("settingsDarkPurple", bundle: BundleHelper.bundle)
+        }
+        public static var settingsGray: Color {
+            return Color("settingsGray", bundle: BundleHelper.bundle)
+        }
+        public static var settingsGreen: Color {
+            return Color("settingsGreen", bundle: BundleHelper.bundle)
+        }
+        public static var settingsOrange: Color {
+            return Color("settingsOrange", bundle: BundleHelper.bundle)
+        }
+        public static var settingsPurple: Color {
+            return Color("settingsPurple", bundle: BundleHelper.bundle)
+        }
+        public static var settingsRed: Color {
+            return Color("settingsRed", bundle: BundleHelper.bundle)
+        }
+        public static var settingsTurquoise: Color {
+            return Color("settingsTurquoise", bundle: BundleHelper.bundle)
         }
     }
     
