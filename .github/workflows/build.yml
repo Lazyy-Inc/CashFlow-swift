@@ -94,6 +94,9 @@ jobs:
       - name: Install Periphery
         run: brew install peripheryapp/periphery/periphery
 
+      - name: List available simulators
+        run: xcrun simctl list devices
+
       - name: Run Periphery with proper Git config
         run: |
           # Vérifier que la config Git est toujours active
@@ -105,7 +108,7 @@ jobs:
           --schemes CashFlow \
           --targets CashFlow \
           --format xcode \
-          -- -destination platform="iOS Simulator,name=iPhone 14"
+          -- -destination platform="iOS Simulator,name=iPhone 14,OS=17.5'"
         env:
           GIT_TERMINAL_PROMPT: 0
 
