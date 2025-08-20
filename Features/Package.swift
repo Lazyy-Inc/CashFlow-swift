@@ -197,6 +197,8 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule",
+                "AccountModule",
+                "SubscriptionModule",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
