@@ -41,7 +41,7 @@ jobs:
         run: brew install peripheryapp/periphery/periphery
 
       - name: Run Periphery
-        run: periphery scan --project CashFlow.xcodeproj --schemes CashFlow --format xcode
+        run: periphery scan --project CashFlow.xcodeproj --schemes CashFlow --targets CashFlow --format xcode
 
       # SonarQube
       - uses: sonarsource/sonarqube-scan-action@master
