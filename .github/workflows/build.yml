@@ -14,35 +14,69 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          
-      - name: Configure git for private packages
+
+      # Diagnostic: Vérifier les packages dans Package.swift
+      - name: Debug - Show Package.swift dependencies
         run: |
-          git config --global url."https://${GH_TOKEN}:x-oauth-basic@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
-          git config --global credential.helper store
+          if [ -f "Package.swift" ]; then
+            echo "=== Package.swift content ==="
+            cat Package.swift
+          fi
+          
+          # Chercher les dépendances dans le projet Xcode
+          echo "=== Xcode project packages ==="
+          find . -name "*.xcodeproj" -exec echo "Project: {}" \; -exec plutil -p "{}/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" 2>/dev/null \; || echo "No Package.resolved found"
+
+      # Configuration Git plus précise
+      - name: Configure git authentication
+        run: |
+          # Test d'accès sans auth d'abord
+          echo "Testing public GitHub access..."
+          git ls-remote https://github.com/apple/swift.git HEAD || echo "Public access failed"
+          
+          # Configure l'auth pour tes repos privés
+          git config --global url."https://${GH_TOKEN}@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
+          
+          # Test d'accès privé
+          echo "Testing private repo access..."
+          git ls-remote https://github.com/theosementa/CoreModule.git HEAD || echo "Private access failed"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      # Debug: Vérifier l'authentification
-      - name: Debug - Show git config
+      # Clear tout le cache SPM
+      - name: Clear all SPM caches
         run: |
-          git config --list | grep url
-          echo "Git auth test completed"
-
-      # Clear SPM cache si nécessaire
-      - name: Clear SPM cache
-        run: |
+          echo "Clearing SPM caches..."
           rm -rf ~/Library/Caches/org.swift.swiftpm
           rm -rf ~/Library/Developer/Xcode/DerivedData
-        continue-on-error: true
+          rm -rf .build
+          
+          # Clear aussi le cache git si il existe
+          rm -rf ~/.gitconfig || true
+          
+          # Reconfigure git après le clear
+          git config --global url."https://${GH_TOKEN}@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: Install GNU coreutils for timeout
-        run: brew install coreutils
-
-      # Résolution des dépendances avec timeout et verbose
+      # Résolution avec diagnostics détaillés
       - name: Resolve Swift Package dependencies
         run: |
           echo "Starting dependency resolution..."
-          timeout 900 xcodebuild -resolvePackageDependencies -verbose
+          echo "Current directory: $(pwd)"
+          echo "Xcode version: $(xcodebuild -version)"
+          
+          # Résolution avec verbose mais sans timeout shell
+          xcodebuild -resolvePackageDependencies -verbose
+        timeout-minutes: 8
+        continue-on-error: false
+
+      # Si la résolution échoue, essayer plan B
+      - name: Fallback - Manual SPM resolution
+        if: failure()
+        run: |
+          echo "Trying manual SPM resolution..."
+          swift package resolve || echo "Swift package resolve failed"
         timeout-minutes: 5
 
       # SwiftLint
@@ -52,7 +86,7 @@ jobs:
       - name: Run SwiftLint
         run: swiftlint lint --quiet --reporter json CashFlow
 
-      # mobsfscan (in a virtualenv)
+      # mobsfscan
       - name: Set up Python venv and install mobsfscan
         run: |
           python3 -m venv mobsfvenv
