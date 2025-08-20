@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8129E7512A483A7400FF23E5 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8129E7502A483A7400FF23E5 /* ConfettiSwiftUI */; };
 		81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 81D990B32A49F03000EF13A3 /* SwipeActions */; };
-		D901E8002DC3584600069818 /* StatsKit in Frameworks */ = {isa = PBXBuildFile; productRef = D901E7FF2DC3584600069818 /* StatsKit */; };
 		D912D00A2D140523006DF5DC /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = D912D0092D140523006DF5DC /* AlertKit */; };
 		D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94594F62D16A03A00A989F0 /* NotificationKit */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
@@ -93,7 +92,6 @@
 				D97F63EF2DAFA3240060B741 /* NetworkKit in Frameworks */,
 				D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */,
 				D9564DE52E472CEB00F2341E /* EventModule in Frameworks */,
-				D901E8002DC3584600069818 /* StatsKit in Frameworks */,
 				D980E52C2DC1E928005025E1 /* TheoKit in Frameworks */,
 				D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */,
 				D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */,
@@ -163,7 +161,6 @@
 				D94594F62D16A03A00A989F0 /* NotificationKit */,
 				D97F63EE2DAFA3240060B741 /* NetworkKit */,
 				D980E52B2DC1E928005025E1 /* TheoKit */,
-				D901E7FF2DC3584600069818 /* StatsKit */,
 				D9D2C64A2E29850700FEE9FD /* DesignSystemModule */,
 				D9D2C6592E2CB63600FEE9FD /* CoreModule */,
 				D9D208042E315D5800FEE9FD /* PaywallModule */,
@@ -225,7 +222,6 @@
 				D94594F52D16A03A00A989F0 /* XCRemoteSwiftPackageReference "NotificationKit" */,
 				D97F63ED2DAFA3240060B741 /* XCRemoteSwiftPackageReference "NetworkKit" */,
 				D980E52A2DC1E928005025E1 /* XCRemoteSwiftPackageReference "TheoKit" */,
-				D901E7FE2DC3584600069818 /* XCRemoteSwiftPackageReference "StatsKit" */,
 				D9D5BC672E41352100118297 /* XCRemoteSwiftPackageReference "NavigationKit" */,
 				D968BB2B2E4F2579006BB17A /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 			);
@@ -548,14 +544,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		D901E7FE2DC3584600069818 /* XCRemoteSwiftPackageReference "StatsKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/theosementa/StatsKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
-			};
-		};
 		D912D0082D140523006DF5DC /* XCRemoteSwiftPackageReference "AlertKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/theosementa/AlertKit";
@@ -624,11 +612,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 81D990B22A49F03000EF13A3 /* XCRemoteSwiftPackageReference "SwipeActions" */;
 			productName = SwipeActions;
-		};
-		D901E7FF2DC3584600069818 /* StatsKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D901E7FE2DC3584600069818 /* XCRemoteSwiftPackageReference "StatsKit" */;
-			productName = StatsKit;
 		};
 		D912D0092D140523006DF5DC /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;
