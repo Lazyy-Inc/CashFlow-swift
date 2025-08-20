@@ -15,7 +15,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../EventModule"),
-        .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.6")
+        .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.7")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

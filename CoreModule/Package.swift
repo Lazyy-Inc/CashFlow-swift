@@ -17,7 +17,7 @@ let package = Package(
         .package(path: "../PreferenceModule"),
         .package(path: "../EventModule"),
         .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7"),
-        .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.6"),
+        .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.7"),
         .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.9.3")
     ],
     targets: [
