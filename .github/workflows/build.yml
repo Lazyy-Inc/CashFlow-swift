@@ -14,18 +14,17 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          persist-credentials: true
 
       # Configuration Git GLOBALE pour tous les outils
       - name: Configure git authentication globally
         run: |
-          # Configure l'auth pour tes repos privés de manière globale
-          git config --global url."https://${GH_TOKEN}@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
+          # Configure l'auth pour les repos privés (token écrit directement)
+          git config --global url."https://${{ secrets.GH_TOKEN }}:@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
           
           # Test d'accès privé
           echo "Testing private repo access..."
           git ls-remote https://github.com/theosementa/AlertKit.git HEAD || echo "Private access test failed"
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       # Clear tous les caches possibles
       - name: Clear all caches
@@ -58,8 +57,6 @@ jobs:
           # Résolution avec verbose
           xcodebuild -resolvePackageDependencies -verbose
         timeout-minutes: 8
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       # Si la résolution échoue, essayer plan B
       - name: Fallback - Manual SPM resolution
@@ -68,8 +65,6 @@ jobs:
           echo "Trying manual SPM resolution..."
           swift package resolve || echo "Swift package resolve failed"
         timeout-minutes: 5
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       # SwiftLint sur tout le projet
       - name: Install SwiftLint
@@ -104,10 +99,9 @@ jobs:
           # Vérifier que la config Git est toujours active
           git config --list | grep url.https || echo "No Git URL rewrite found"
           
-          # Lancer Periphery avec variables d'environnement Git
+          # Lancer Periphery
           periphery scan --project CashFlow.xcodeproj --schemes CashFlow --targets CashFlow --format xcode
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIT_TERMINAL_PROMPT: 0
 
       # SonarQube
