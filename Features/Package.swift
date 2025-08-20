@@ -23,8 +23,8 @@ let package = Package(
         .library(name: "SettingsModule", targets: ["SettingsModule"])
     ],
     dependencies: [
-        .package(path: "./DesignSystemModule"),
-        .package(path: "./CoreModule"),
+        .package(path: "../DesignSystemModule"),
+        .package(path: "../CoreModule"),
         
         .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.6"),
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
