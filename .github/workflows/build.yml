@@ -100,7 +100,12 @@ jobs:
           git config --list | grep url.https || echo "No Git URL rewrite found"
           
           # Lancer Periphery
-          periphery scan --project CashFlow.xcodeproj --schemes CashFlow --targets CashFlow --format xcode
+          periphery scan \
+            --project CashFlow.xcodeproj \
+            --schemes CashFlow \
+            --targets CashFlow \
+            --format xcode \
+            --build-arguments -destination,"platform=iOS Simulator,name=iPhone 14,OS=latest"
         env:
           GIT_TERMINAL_PROMPT: 0
 
