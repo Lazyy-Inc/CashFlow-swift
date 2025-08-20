@@ -43,22 +43,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      # Clear tout le cache SPM
-      - name: Clear all SPM caches
-        run: |
-          echo "Clearing SPM caches..."
-          rm -rf ~/Library/Caches/org.swift.swiftpm
-          rm -rf ~/Library/Developer/Xcode/DerivedData
-          rm -rf .build
-          
-          # Clear aussi le cache git si il existe
-          rm -rf ~/.gitconfig || true
-          
-          # Reconfigure git après le clear
-          git config --global url."https://${GH_TOKEN}@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
       # Résolution avec diagnostics détaillés
       - name: Resolve Swift Package dependencies
         run: |
