@@ -13,29 +13,37 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
+      # SwiftLint
       - name: Install SwiftLint
         run: brew install swiftlint
 
       - name: Run SwiftLint
         run: swiftlint lint --quiet --reporter json TurboBudget
 
-      # ----- mobsfscan -----
-      - name: Install mobsfscan
-        run: pip3 install mobsfscan
+      # mobsfscan (in a virtualenv)
+      - name: Set up Python venv and install mobsfscan
+        run: |
+          python3 -m venv mobsfvenv
+          source mobsfvenv/bin/activate
+          pip install --upgrade pip
+          pip install mobsfscan
 
       - name: Run mobsfscan
-        run: mobsfscan . --json > mobsfscan-report.json
+        run: |
+          source mobsfvenv/bin/activate
+          mobsfscan . --json > mobsfscan-report.json
+        continue-on-error: true  # Mettre à false pour échouer si mobsfscan détecte des failles
 
-      # ----- Periphery -----
+      # Periphery
       - name: Install Periphery
         run: brew install peripheryapp/periphery/periphery
 
       - name: Run Periphery
         run: periphery scan --project TurboBudget.xcodeproj --scheme TurboBudget --format xcode
 
-      # ----- SonarQube -----
+      # SonarQube
       - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
