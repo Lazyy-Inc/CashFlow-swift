@@ -26,7 +26,7 @@ let package = Package(
         .package(path: "../DesignSystemModule"),
         .package(path: "../CoreModule"),
         
-        .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.7"),
+        .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.8"),
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
         .package(url: "https://github.com/theosementa/NavigationKit", branch: "2.0.2"),
         .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.3"),
