@@ -15,6 +15,27 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Configuration Git GLOBALE pour tous les outils
+      - name: Configure git authentication globally
+        run: |
+          # Configure l'auth pour tes repos privés de manière globale
+          git config --global url."https://${GH_TOKEN}@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
+          
+          # Test d'accès privé
+          echo "Testing private repo access..."
+          git ls-remote https://github.com/theosementa/AlertKit.git HEAD || echo "Private access test failed"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      # Clear tous les caches possibles
+      - name: Clear all caches
+        run: |
+          rm -rf ~/Library/Caches/org.swift.swiftpm
+          rm -rf ~/Library/Developer/Xcode/DerivedData
+          rm -rf ~/Library/Caches/com.github.peripheryapp
+          rm -rf .build
+        continue-on-error: true
+
       # Diagnostic: Vérifier les packages dans Package.swift
       - name: Debug - Show Package.swift dependencies
         run: |
@@ -27,22 +48,6 @@ jobs:
           echo "=== Xcode project packages ==="
           find . -name "*.xcodeproj" -exec echo "Project: {}" \; -exec plutil -p "{}/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" 2>/dev/null \; || echo "No Package.resolved found"
 
-      # Configuration Git plus précise
-      - name: Configure git authentication
-        run: |
-          # Test d'accès sans auth d'abord
-          echo "Testing public GitHub access..."
-          git ls-remote https://github.com/apple/swift.git HEAD || echo "Public access failed"
-          
-          # Configure l'auth pour tes repos privés
-          git config --global url."https://${GH_TOKEN}@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
-          
-          # Test d'accès privé
-          echo "Testing private repo access..."
-          git ls-remote https://github.com/theosementa/CoreModule.git HEAD || echo "Private access failed"
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
       # Résolution avec diagnostics détaillés
       - name: Resolve Swift Package dependencies
         run: |
@@ -50,10 +55,11 @@ jobs:
           echo "Current directory: $(pwd)"
           echo "Xcode version: $(xcodebuild -version)"
           
-          # Résolution avec verbose mais sans timeout shell
+          # Résolution avec verbose
           xcodebuild -resolvePackageDependencies -verbose
         timeout-minutes: 8
-        continue-on-error: false
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       # Si la résolution échoue, essayer plan B
       - name: Fallback - Manual SPM resolution
@@ -62,13 +68,18 @@ jobs:
           echo "Trying manual SPM resolution..."
           swift package resolve || echo "Swift package resolve failed"
         timeout-minutes: 5
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      # SwiftLint
+      # SwiftLint sur tout le projet
       - name: Install SwiftLint
         run: brew install swiftlint
 
-      - name: Run SwiftLint
-        run: swiftlint lint --quiet --reporter json TurboBudget
+      - name: Run SwiftLint on entire project
+        run: |
+          echo "Running SwiftLint on entire project..."
+          swiftlint lint --quiet --reporter json .
+        continue-on-error: true
 
       # mobsfscan
       - name: Set up Python venv and install mobsfscan
@@ -84,12 +95,20 @@ jobs:
           mobsfscan . --json > mobsfscan-report.json
         continue-on-error: true
 
-      # Periphery
+      # Periphery avec configuration Git héritée
       - name: Install Periphery
         run: brew install peripheryapp/periphery/periphery
 
-      - name: Run Periphery
-        run: periphery scan --project CashFlow.xcodeproj --schemes CashFlow --targets CashFlow --format xcode
+      - name: Run Periphery with proper Git config
+        run: |
+          # Vérifier que la config Git est toujours active
+          git config --list | grep url.https || echo "No Git URL rewrite found"
+          
+          # Lancer Periphery avec variables d'environnement Git
+          periphery scan --project CashFlow.xcodeproj --schemes CashFlow --targets CashFlow --format xcode
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIT_TERMINAL_PROMPT: 0
 
       # SonarQube
       - uses: sonarsource/sonarqube-scan-action@master
