@@ -108,7 +108,7 @@ jobs:
           --schemes CashFlow \
           --targets CashFlow \
           --format xcode \
-          -- -destination platform="iOS Simulator,name=iPhone 14,OS=17.5'"
+          -- -destination platform="iOS Simulator,name=iPhone 16,OS=18.0"
         env:
           GIT_TERMINAL_PROMPT: 0
 
