@@ -101,11 +101,11 @@ jobs:
           
           # Lancer Periphery
           periphery scan \
-            --project CashFlow.xcodeproj \
-            --schemes CashFlow \
-            --targets CashFlow \
-            --format xcode \
-            --build-arguments -destination,"platform=iOS Simulator,name=iPhone 14,OS=latest"
+          --project CashFlow.xcodeproj \
+          --schemes CashFlow \
+          --targets CashFlow \
+          --format xcode \
+          -- -destination platform="iOS Simulator,name=iPhone 14"
         env:
           GIT_TERMINAL_PROMPT: 0
 
