@@ -15,6 +15,12 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
+      - name: Configure git for private packages
+        run: |
+          git config --global url."https://${GH_TOKEN}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
       # Résolution des dépendances Swift Package Manager
       - name: Resolve Swift Package dependencies
         run: xcodebuild -resolvePackageDependencies
