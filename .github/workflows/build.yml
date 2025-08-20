@@ -35,6 +35,9 @@ jobs:
           rm -rf ~/Library/Developer/Xcode/DerivedData
         continue-on-error: true
 
+      - name: Install GNU coreutils for timeout
+        run: brew install coreutils
+
       # Résolution des dépendances avec timeout et verbose
       - name: Resolve Swift Package dependencies
         run: |
