@@ -8,6 +8,7 @@
 import SwiftUI
 import SwipeActions
 import CoreModule
+import Dependencies
 
 public enum TransferRowLocation {
     case successfulSheet, savingsAccount
@@ -20,7 +21,7 @@ public struct TransferRowView: View {
     var location: TransferRowLocation = .savingsAccount
     
     // MARK: Environments
-    @EnvironmentObject private var savingsAccountRepository: SavingsAccountStore
+    @Dependency(\.savingsAccountStore) private var savingsAccountStore
     @EnvironmentObject private var transferStore: TransferStore
     @EnvironmentObject private var accountStore: AccountStore
         
@@ -33,7 +34,7 @@ public struct TransferRowView: View {
         case .successfulSheet:
             return accountStore.selectedAccount?._id == transfer.senderAccount?._id
         case .savingsAccount:
-            return savingsAccountRepository.currentAccount._id == transfer.senderAccount?._id
+            return savingsAccountStore.currentAccount?._id == transfer.senderAccount?._id
         }
     }
 

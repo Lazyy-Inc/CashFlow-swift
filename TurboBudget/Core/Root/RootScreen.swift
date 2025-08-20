@@ -1,5 +1,5 @@
 //
-//  PageControllerScreen.swift
+//  RootScreen.swift
 //  TurboBudget
 //
 //  Created by Théo Sementa on 15/06/2023.
@@ -17,7 +17,7 @@ import DesignSystemModule
 import EventModule
 import CategoryModule
 
-struct PageControllerScreen: View {
+struct RootScreen: View {
     
     // Environment
     @EnvironmentObject private var appManager: AppManager
@@ -161,5 +161,5 @@ struct PageControllerScreen: View {
 
 // MARK: - Preview
 #Preview {
-    PageControllerScreen()
+    RootScreen()
 }

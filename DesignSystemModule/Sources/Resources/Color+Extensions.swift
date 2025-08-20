@@ -22,6 +22,10 @@ public extension Color {
         public static var secondary300: Color {
             return Color("Secondary300", bundle: BundleHelper.bundle)
         }
+        
+        public static var secondary400: Color {
+            return Color("Secondary400", bundle: BundleHelper.bundle)
+        }
     }
     
 }

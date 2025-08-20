@@ -11,14 +11,16 @@ import NavigationKit
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Dependencies
 
 public struct SavingsAccountsListView: View {
-    
+        
     // Environment
     @EnvironmentObject private var router: Router<AppDestination>
     @EnvironmentObject private var alertManager: AlertManager
     @EnvironmentObject private var purchaseManager: PurchasesManager
     @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.savingsAccountStore) private var savingsAccountStore
     @Environment(\.dismiss) private var dismiss
     
     @State private var searchText: String = ""
@@ -80,7 +82,8 @@ public struct SavingsAccountsListView: View {
                         ForEach(savingsAccountsFiltered) { account in
                             NavigationButtonView(
                                 route: .push,
-                                destination: AppDestination.savingsAccount(.detail(savingsAccount: account))
+                                destination: AppDestination.savingsAccount(.detail(savingsAccount: account)),
+                                onNavigate: { savingsAccountStore.currentAccount = account }
                             ) {
                                 SavingsAccountRowView(savingsAccount: account)
                             }

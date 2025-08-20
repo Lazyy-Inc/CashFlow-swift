@@ -14,6 +14,7 @@ import StatsKit
 import UserModule
 import OnboardingModule
 import PreferenceModule
+import DesignSystemModule
 import Sentry
 
 @main
@@ -71,14 +72,14 @@ struct TurboBudgetApp: App {
                         Group {
                             if preferencesSecurity.isSecurityReinforced {
                                 if scenePhase == .active {
-                                    PageControllerScreen()
+                                    RootScreen()
                                 } else {
                                     Image("LaunchScreen")
                                         .resizable()
                                         .edgesIgnoringSafeArea([.bottom, .top])
                                 }
                             } else {
-                                PageControllerScreen()
+                                RootScreen()
                             }
                         }
                         .task {

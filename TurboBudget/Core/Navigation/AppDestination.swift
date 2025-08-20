@@ -80,7 +80,7 @@ extension AppDestination {
         case .list:
             AnyView(SavingsAccountsListView())
         case .detail(let savingsAccount):
-            AnyView(SavingsAccountDetailScreen(savingsAccount: savingsAccount))
+            AnyView(SavingsAccountDetailScreen())
         case .createTransaction(let savingsAccount, let transaction):
             AnyView(CreateTransactionForSavingsAccountScreen(savingsAccount: savingsAccount, transaction: transaction))
         }

@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreModule
 
-struct PageControl: View {
+public struct PageControl: View {
     
     // Builder
     var maxPages: Int
@@ -16,13 +16,18 @@ struct PageControl: View {
     
     @EnvironmentObject private var themeManager: ThemeManager
     
+    public init(maxPages: Int, currentPage: Int) {
+        self.maxPages = maxPages
+        self.currentPage = currentPage
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         HStack(spacing: 6) {
             ForEach(0...(min(1, maxPages)), id: \.self) { index in
                 Circle()
                     .frame(width: 10, height: 10)
-                    .foregroundStyle(index == currentPage ? themeManager.theme.color : Color.background100)
+                    .foregroundStyle(index == currentPage ? themeManager.theme.color : Color.Background.bg100)
             }
         }
     }

@@ -8,7 +8,7 @@
 import Foundation
 import LocalAuthentication
 
-extension PageControllerScreen {
+extension RootScreen {
     
     final class ViewModel: ObservableObject {
         @Published var showOnboarding: Bool = false
@@ -18,7 +18,7 @@ extension PageControllerScreen {
     
 }
 
-extension PageControllerScreen.ViewModel {
+extension RootScreen.ViewModel {
     
     func authenticate() {
         let context = LAContext()

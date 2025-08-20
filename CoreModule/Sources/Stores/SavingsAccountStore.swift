@@ -6,13 +6,24 @@
 //
 
 import Foundation
+import Dependencies
 
-public final class SavingsAccountStore: ObservableObject {
+@Observable
+public final class SavingsAccountStore {
+    public static let shared = SavingsAccountStore()
     
-    @Published public var currentAccount: AccountModel
+    public var currentAccount: AccountModel? = nil
     
-    public init(currentAccount: AccountModel) {
-        self.currentAccount = currentAccount
+}
+
+// MARK: - Dependencies
+extension SavingsAccountStore: DependencyKey {
+    public static var liveValue: SavingsAccountStore = .shared
+}
+
+public extension DependencyValues {
+    var savingsAccountStore: SavingsAccountStore {
+        get { self[SavingsAccountStore.self] }
+        set { self[SavingsAccountStore.self] = newValue }
     }
-    
 }

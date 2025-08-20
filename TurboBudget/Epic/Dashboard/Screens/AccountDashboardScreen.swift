@@ -31,36 +31,39 @@ struct AccountDashboardScreen: View {
     var body: some View {
         VStack(spacing: 32) {
             HStack {
-                Menu(content: {
-                    if let account = accountStore.selectedAccount {
-                        Button(
-                            action: {
-                                router.present(route: .sheet, .account(.update(account: account)))
-                            },
-                            label: { Label(Word.Classic.edit, systemImage: "pencil") }
-                        )
-                    }
-                    
-                    if let creditCard = creditCardStore.creditCards.first, let uuid = creditCard.uuid {
+                Menu(
+                    content: {
+                        if let account = accountStore.selectedAccount {
+                            NavigationButtonView(
+                                route: .push,
+                                destination: .account(.update(account: account))
+                            ) {
+                                Label(Word.Classic.edit, systemImage: "pencil")
+                            }
+                        }
+                        
+                        if let creditCard = creditCardStore.creditCards.first,
+                           let uuid = creditCard.uuid {
+                            Button(
+                                role: .destructive,
+                                action: {
+                                    Task {
+                                        if let account = accountStore.selectedAccount, let accountID = account._id {
+                                            await creditCardStore.deleteCreditCard(accountID: accountID, cardID: uuid)
+                                        }
+                                    }
+                                },
+                                label: { Label(Word.CreditCard.deleteTitle, systemImage: "trash.fill") }
+                            )
+                        }
+                        
                         Button(
                             role: .destructive,
-                            action: {
-                                Task {
-                                    if let account = accountStore.selectedAccount, let accountID = account._id {
-                                        await creditCardStore.deleteCreditCard(accountID: accountID, cardID: uuid)
-                                    }
-                                }
-                            },
-                            label: { Label(Word.CreditCard.deleteTitle, systemImage: "trash.fill") }
+                            action: { viewModel.isDeleting.toggle() },
+                            label: { Label(Word.Classic.delete, systemImage: "trash.fill") }
                         )
-                    }
-                    
-                    Button(
-                        role: .destructive,
-                        action: { viewModel.isDeleting.toggle() },
-                        label: { Label(Word.Classic.delete, systemImage: "trash.fill") }
-                    )
-                }, label: {
+                    },
+                    label: {
                     Image(systemName: "ellipsis")
                         .foregroundStyle(Color.text)
                         .font(.system(size: 18, weight: .medium, design: .rounded))

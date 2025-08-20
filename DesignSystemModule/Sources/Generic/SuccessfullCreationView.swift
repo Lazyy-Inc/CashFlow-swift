@@ -9,7 +9,7 @@ import SwiftUI
 import ConfettiSwiftUI
 import CoreModule
 
-struct SuccessfullCreationView: View {
+public struct SuccessfullCreationView: View {
     
     // Environment
     @EnvironmentObject private var succesfullModalManager: SuccessfullModalManager
@@ -17,8 +17,10 @@ struct SuccessfullCreationView: View {
     // Number variables
     @State private var confettiCounter: Int = 0
     
+    public init() { }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         ZStack(alignment: .bottom) {
             if succesfullModalManager.isPresenting {
                 Color.black
@@ -45,7 +47,7 @@ struct SuccessfullCreationView: View {
                         
                         Text(succesfullModalManager.subtitle)
                             .font(.mediumSmall())
-                            .foregroundStyle(.secondary400)
+                            .foregroundStyle(Color.Secondary.secondary400)
                             .multilineTextAlignment(.center)
                     }
 
@@ -56,7 +58,7 @@ struct SuccessfullCreationView: View {
                 .frame(maxWidth: .infinity)
                 .padding(24)
                 .padding(.vertical, 8)
-                .background(Color.background300)
+                .background(Color.Background.bg300)
                 .clipShape(RoundedRectangle(cornerRadius: UIScreen.main.displayCornerRadius, style: .continuous))
                 .transition(.move(edge: .bottom))
                 .padding(4)

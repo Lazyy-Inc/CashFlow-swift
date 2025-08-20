@@ -37,7 +37,6 @@ struct TabBarItem: View {
             )
         })
 //        .frame(maxWidth: .infinity)
-        .buttonStyle(BouncyButtonStyle())
     } // body
     
     // MARK: - Functions

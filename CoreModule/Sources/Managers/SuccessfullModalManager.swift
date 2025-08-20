@@ -18,3 +18,13 @@ public final class SuccessfullModalManager: ObservableObject {
     @Published public var content: any View = EmptyView()
     
 }
+
+public extension SuccessfullModalManager {
+    
+    func resetData() {
+        self.title = ""
+        self.subtitle = ""
+        self.content = EmptyView()
+    }
+    
+}
