@@ -64,7 +64,7 @@ public struct CategoriesListScreen: View {
                     }
                     .noDefaultStyle()
                     .padding(.horizontal, Padding.large)
-                    
+                     
                     Rectangle()
                         .frame(height: 100)
                         .opacity(0)
