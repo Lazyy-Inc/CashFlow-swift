@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@MainActor
+
 public final class URLManager {
     
     public static func openURL(url: String) {
@@ -64,7 +64,6 @@ public final class URLManager {
             URLManager.openURL(url: PredefinedURL.Setting.termsAndConditions.rawValue)
         }
         
-        @MainActor
         public struct Credits {
             public static func showChatGPT() {
                 URLManager.openURL(url: PredefinedURL.Setting.Credits.chatGPT.rawValue)
@@ -81,7 +80,6 @@ public final class URLManager {
             public static func showSwiftUIConfetti() {
                 URLManager.openURL(url: PredefinedURL.Setting.Credits.swiftUIConfetti.rawValue)
             }
-            
             public static func showStorySet() {
                 URLManager.openURL(url: PredefinedURL.Setting.Credits.storySet.rawValue)
             }
