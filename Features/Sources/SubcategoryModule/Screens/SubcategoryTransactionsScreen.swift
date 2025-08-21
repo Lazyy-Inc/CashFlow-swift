@@ -43,7 +43,7 @@ public struct SubcategoryTransactionsScreen: View {
             NavigationBar(
                 title: Word.Main.transactions,
                 placeholder: "word_search".localized,
-                searchText: $searchText,
+                searchText: $searchText
             )
          
             if transactionsFiltered.isNotEmpty {

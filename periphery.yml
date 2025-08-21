@@ -1,36 +1,52 @@
-# Configuration Periphery permissive pour CashFlow
+# Configuration Periphery pour CashFlow
+
 project: CashFlow.xcodeproj
 schemes:
   - CashFlow
 targets:
   - CashFlow
 
-# Build configuration
+# Arguments de build
 build_arguments:
   - -destination
   - platform=iOS Simulator,name=iPhone 16,OS=18.4
+  - -configuration
+  - Debug
+  - -allowProvisioningUpdates
+  - -allowProvisioningDeviceRegistration
 
-# Output
+# Output JSON
 format: json
-output_file: periphery-report.json
+output: periphery-report.json
 
-# Options pour réduire les faux positifs
+# Options pour garder certains éléments malgré qu'ils semblent inutilisés
 retain_public: true
 retain_objc_accessible: true
 retain_objc_annotated: true
 retain_unused_protocol_func_params: true
-retain_codable_properties: true
 
-# Exclusions communes
-exclude_files:
-  - "*/Tests/*"
-  - "*/Preview Content/*"
-  - "*/.build/*"
+# Ajout : pour retenir assign-only properties si besoin
+# retain_assign_only_property_types:
+#   - String
+#   - Int
+#   - etc.
 
-# Mode moins strict
+# Mode moins strict / CI-friendly
 strict: false
 verbose: false
 quiet: true
-
-# Désactiver les mises à jour automatiques
 disable_update_check: true
+
+# Exclusion de répertoires ou patterns (tu peux adapter selon ton projet)
+report_exclude:
+  - ".*Tests.*"
+  - "Pods/.*"
+  - "Carthage/.*"
+  - "External/.*"
+
+# Option baselined – pour ignorer les anciens résultats connus
+# baseline: periphery-baseline.json
+
+# Option pour ignorer erreurs de build si tu veux continuer en CI
+# (à tester selon la version de Periphery – certaines options peuvent avoir changé)
+ignore_build_errors: true
