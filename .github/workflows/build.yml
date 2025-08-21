@@ -54,11 +54,18 @@ jobs:
           swiftlint lint --quiet --reporter json .
         continue-on-error: true
         
-      # Mobsfscan          
+      # Mobsfscan en SARIF
       - name: mobsfscan
-        uses: MobSF/mobsfscan@main
-        with:
-          args: '. --json --output mobsfscan-report.json'
+        run: |
+          pip install mobsfscan
+          mobsfscan . --sarif > mobsfscan-report.sarif
+          echo "Mobsfscan SARIF completed, checking output..."
+          if [ -f "mobsfscan-report.sarif" ]; then
+            echo "SARIF file created successfully"
+            head -20 mobsfscan-report.sarif
+          else
+            echo "SARIF file not found!"
+          fi
 
       # Periphery avec fichier de configuration
       - name: Install Periphery
