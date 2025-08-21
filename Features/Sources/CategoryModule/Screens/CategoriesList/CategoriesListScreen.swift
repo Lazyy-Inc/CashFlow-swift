@@ -40,7 +40,7 @@ public struct CategoriesListScreen: View {
                         isDisabled: false
                     ),
                     placeholder: "word_search".localized,
-                    searchText: $viewModel.searchText.animation(),
+                    searchText: $viewModel.searchText.animation()
                 )
             } content: {
                 if viewModel.categoriesFiltered.isNotEmpty {
