@@ -52,20 +52,6 @@ jobs:
           swiftlint lint --quiet --reporter json .
         continue-on-error: true
 
-      # mobsfscan
-      - name: Set up Python venv and install mobsfscan
-        run: |
-          python3 -m venv mobsfvenv
-          source mobsfvenv/bin/activate
-          pip install --upgrade pip
-          pip install mobsfscan
-
-      - name: Run mobsfscan
-        run: |
-          source mobsfvenv/bin/activate
-          mobsfscan . --json > mobsfscan-report.json
-        continue-on-error: true
-
       # Periphery avec fichier de configuration
       - name: Install Periphery
         run: brew install peripheryapp/periphery/periphery

@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 public final class URLManager {
     
     public static func openURL(url: String) {
