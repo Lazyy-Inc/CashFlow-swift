@@ -11,9 +11,11 @@ jobs:
     name: Build & Analysis
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
         with:
           fetch-depth: 0
+          python-version: '3.12'
 
       # Configuration Git GLOBALE pour tous les outils
       - name: Configure git authentication globally
@@ -51,6 +53,12 @@ jobs:
           echo "Running SwiftLint on entire project..."
           swiftlint lint --quiet --reporter json .
         continue-on-error: true
+        
+      # Mobsfscan
+      - name: mobsfscan
+        uses: MobSF/mobsfscan@main
+        with:
+          args: '. --json'
 
       # Periphery avec fichier de configuration
       - name: Install Periphery
