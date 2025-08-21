@@ -54,11 +54,11 @@ jobs:
           swiftlint lint --quiet --reporter json .
         continue-on-error: true
         
-      # Mobsfscan
+      # Mobsfscan          
       - name: mobsfscan
         uses: MobSF/mobsfscan@main
         with:
-          args: '. --json'
+          args: '. --json --output mobsfscan-report.json'
 
       # Periphery avec fichier de configuration
       - name: Install Periphery
