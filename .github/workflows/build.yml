@@ -70,6 +70,19 @@ jobs:
       - name: Install Periphery
         run: brew install peripheryapp/periphery/periphery
 
+      - name: List available simulators
+        run: xcrun simctl list devices
+
+      - name: Select Xcode 16.2
+        #  run: sudo xcode-select -s /Applications/Xcode_16.2.app         old path
+        run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
+
+      - name: Print Xcode version
+        run: xcodebuild -version
+
+      - name: Download iOS Platform                            # this definitivly make it work
+        run: xcodebuild -downloadPlatform iOS
+
       - name: Run Periphery with configuration file
         run: |
           echo "Running Periphery with periphery.yml configuration..."
