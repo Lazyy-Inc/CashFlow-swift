@@ -74,7 +74,6 @@ jobs:
         run: |
           echo "Running SwiftLint on entire project..."
           swiftlint lint --quiet --reporter json .
-        continue-on-error: true
 
       # mobsfscan
       - name: Set up Python venv and install mobsfscan
@@ -123,14 +122,6 @@ jobs:
           fi
         env:
           GIT_TERMINAL_PROMPT: 0
-
-      # Optionnel: Upload du rapport Periphery comme artifact
-      - name: Upload Periphery report
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: periphery-report
-          path: periphery-report.json 
 
       # SonarQube
       - uses: sonarsource/sonarqube-scan-action@master
