@@ -34,25 +34,15 @@ jobs:
           git config --global url."https://${{ secrets.GH_TOKEN }}:@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
           git ls-remote https://github.com/theosementa/AlertKit.git HEAD || echo "Private access test failed"
 
-      # Debug infos
-      - name: Debug - Show Package.swift dependencies
-        run: |
-          if [ -f "Package.swift" ]; then
-            echo "=== Package.swift content ==="
-            cat Package.swift
-          fi
-          echo "=== Xcode project packages ==="
-          find . -name "*.xcodeproj" -exec echo "Project: {}" \; -exec plutil -p "{}/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" 2>/dev/null \; || echo "No Package.resolved found"
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_16.x.app/Contents/Developer
+      - name: Print Xcode Version
+        run: xcodebuild -version
 
       # Resolve Swift Package dependencies
       - name: Resolve Swift Package dependencies
         run: xcodebuild -resolvePackageDependencies -verbose
         timeout-minutes: 8
-
-      - name: Fallback - Manual SPM resolution
-        if: failure()
-        run: swift package resolve || echo "Swift package resolve failed"
-        timeout-minutes: 5
 
       # Install SwiftLint
       - name: Install SwiftLint
