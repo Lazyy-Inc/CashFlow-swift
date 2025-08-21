@@ -107,21 +107,30 @@ jobs:
       - name: Download iOS Platform                            # this definitivly make it work
         run: xcodebuild -downloadPlatform iOS
 
-      - name: Run Periphery with proper Git config
+      - name: Run Periphery with configuration file
         run: |
-          # Vérifier que la config Git est toujours active
+          echo "Running Periphery with periphery.yml configuration..."
           git config --list | grep url.https || echo "No Git URL rewrite found"
           
-          # Lancer Periphery
-          periphery scan \
-          --project CashFlow.xcodeproj \
-          --schemes CashFlow \
-          --targets CashFlow \
-          --format xcode \
-          -- -destination platform="iOS Simulator,name=iPhone 16,OS=18.4" \
-          2>/dev/null
+          # Lancer Periphery avec le fichier de config
+          periphery scan --config periphery.yml
+          
+          # Afficher le résumé si un rapport JSON a été généré
+          if [ -f "periphery-report.json" ]; then
+            echo ""
+            echo "📊 Periphery Analysis Summary:"
+            echo "Total issues found: $(cat periphery-report.json | jq length 2>/dev/null || echo 'Unable to parse')"
+          fi
         env:
           GIT_TERMINAL_PROMPT: 0
+
+      # Optionnel: Upload du rapport Periphery comme artifact
+      - name: Upload Periphery report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: periphery-report
+          path: periphery-report.json 
 
       # SonarQube
       - uses: sonarsource/sonarqube-scan-action@master

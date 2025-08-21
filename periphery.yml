@@ -1,0 +1,36 @@
+# Configuration Periphery permissive pour CashFlow
+project: CashFlow.xcodeproj
+schemes:
+  - CashFlow
+targets:
+  - CashFlow
+
+# Build configuration
+build_arguments:
+  - -destination
+  - platform=iOS Simulator,name=iPhone 16,OS=18.4
+
+# Output
+format: json
+output_file: periphery-report.json
+
+# Options pour réduire les faux positifs
+retain_public: true
+retain_objc_accessible: true
+retain_objc_annotated: true
+retain_unused_protocol_func_params: true
+retain_codable_properties: true
+
+# Exclusions communes
+exclude_files:
+  - "*/Tests/*"
+  - "*/Preview Content/*"
+  - "*/.build/*"
+
+# Mode moins strict
+strict: false
+verbose: false
+quiet: true
+
+# Désactiver les mises à jour automatiques
+disable_update_check: true
