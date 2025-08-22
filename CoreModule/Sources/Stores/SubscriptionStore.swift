@@ -23,7 +23,6 @@ public extension SubscriptionStore {
     
 }
 
-
 // MARK: - Dependencies
 extension SubscriptionStore: DependencyKey {
     public static var liveValue: SubscriptionStore = .shared

@@ -12,8 +12,7 @@ import Dependencies
 public final class SavingsAccountStore {
     public static let shared = SavingsAccountStore()
     
-    public var currentAccount: AccountModel? = nil
-    
+    public var currentAccount: AccountModel?    
 }
 
 // MARK: - Dependencies
