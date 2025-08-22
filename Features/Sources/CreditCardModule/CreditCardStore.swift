@@ -11,14 +11,7 @@ import StatsKit
 import CoreModule
 import EventModule
 
-final class CreditCardStore: ObservableObject {
-    static let shared = CreditCardStore()
-    
-    @Published var creditCards: [CreditCardModel] = []
-    @Published var uuids: [UUID] = []
-}
-
-extension CreditCardStore {
+public extension CreditCardStore {
  
     @MainActor
     func fetchCreditCards(accountID: Int) async {
@@ -59,15 +52,6 @@ extension CreditCardStore {
             KeychainManager.shared.deleteItemFromKeychain(id: cardID.uuidString)
             EventService.sendEvent(key: EventKeys.creditcardDeleted)
         } catch { NetworkService.handleError(error: error) }
-    }
-    
-}
-
-extension CreditCardStore {
- 
-    func reset() {
-        self.creditCards.removeAll()
-        self.uuids.removeAll()
     }
     
 }

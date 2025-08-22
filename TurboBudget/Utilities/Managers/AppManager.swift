@@ -13,6 +13,7 @@ import PreferenceModule
 import TransactionModule
 import SubscriptionModule
 import BudgetModule
+import CreditCardModule
 
 extension AppManager {
  

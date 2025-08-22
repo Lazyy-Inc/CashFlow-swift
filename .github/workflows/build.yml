@@ -81,8 +81,9 @@ jobs:
       - name: Print Xcode version
         run: xcodebuild -version
 
-      - name: Download iOS Platform                            # this definitivly make it work
+      - name: Download iOS Platform
         run: xcodebuild -downloadPlatform iOS
+        timeout-minutes: 10
 
       - name: Run Periphery with configuration file
         run: |

@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreModule
 
-struct CreditCardView: View {
+public struct CreditCardView: View {
     
     // Builder
     var creditCard: CreditCardModel
@@ -21,8 +21,12 @@ struct CreditCardView: View {
         return creditCardStore.creditCards.first { $0.id == creditCard.id } ?? creditCard
     }
     
+    public init(creditCard: CreditCardModel) {
+        self.creditCard = creditCard
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         ZStack {
             CreditCardFrontView(creditCard: currentCreditCard)
                 .rotation3DEffect(
