@@ -83,10 +83,9 @@ public struct SavingsAccountsListView: View {
                             NavigationButtonView(
                                 route: .push,
                                 destination: AppDestination.savingsAccount(.detail(savingsAccount: account)),
-                                onNavigate: { savingsAccountStore.currentAccount = account }
-                            ) {
-                                SavingsAccountRowView(savingsAccount: account)
-                            }
+                                onNavigate: { savingsAccountStore.currentAccount = account },
+                                label: { SavingsAccountRowView(savingsAccount: account) }
+                            )
                         }
                     })
                     .padding(.horizontal, Padding.large)

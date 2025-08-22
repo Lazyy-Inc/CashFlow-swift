@@ -66,8 +66,8 @@ struct TransactionsListScreen: View {
             }
         }
         .animation(.smooth, value: transactionStore.transactions.count)
-        .onChange(of: isLoading) {
-            if $0 {
+        .onChange(of: isLoading) { _, newValue in
+            if newValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                     Task {
                         if let selectedAccount = self.accountStore.selectedAccount, let accountID = selectedAccount._id {

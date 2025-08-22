@@ -9,7 +9,7 @@ import SwiftUI
 import DesignSystemModule
 import CoreModule
 
-public struct ReleaseNoteDetailView: View { // TODO: Apply Design Sytem for font
+public struct ReleaseNoteDetailView: View {
     
     var releaseNote: ReleaseNoteModel
     
@@ -24,10 +24,10 @@ public struct ReleaseNoteDetailView: View { // TODO: Apply Design Sytem for font
                 VStack(spacing: Spacing.large) {
                     VStack(alignment: .leading, spacing: Spacing.extraSmall) {
                         Text("\("release_note_title".localized) \(releaseNote.version)")
-                            .font(.system(size: 24, weight: .bold))
+                            .fontWithLineHeight(.Title.large)
                         
                         Text(releaseNote.date)
-                            .font(.system(size: 16, weight: .medium))
+                            .fontWithLineHeight(.Body.medium)
                             .foregroundStyle(Color(UIColor.lightGray))
                     }
                     .fullWidth(.leading)
@@ -35,13 +35,13 @@ public struct ReleaseNoteDetailView: View { // TODO: Apply Design Sytem for font
                     if let newFeatures = releaseNote.newFeatures, newFeatures.isEmpty == false {
                         VStack(alignment: .leading, spacing: Spacing.standard) {
                             Text("release_note_new_features".localized)
-                                .font(.system(size: 20, weight: .medium))
+                                .fontWithLineHeight(.Title.medium)
                                 .foregroundStyle(Color.primary500)
                                 .fullWidth(.leading)
                             
                             ForEach(newFeatures, id: \.self) { feature in
                                 Text("- \(feature)")
-                                    .font(.system(size: 16, weight: .medium))
+                                    .fontWithLineHeight(.Body.medium)
                             }
                         }
                     }
@@ -49,13 +49,13 @@ public struct ReleaseNoteDetailView: View { // TODO: Apply Design Sytem for font
                     if let newFeaturesPro = releaseNote.newFeaturesPro, newFeaturesPro.isEmpty == false {
                         VStack(alignment: .leading, spacing: Spacing.standard) {
                             Text("release_note_new_features_pro".localized)
-                                .font(.system(size: 20, weight: .medium))
+                                .fontWithLineHeight(.Title.medium)
                                 .foregroundStyle(Color.primary500)
                                 .fullWidth(.leading)
                             
                             ForEach(newFeaturesPro, id: \.self) { feature in
                                 Text("- \(feature)")
-                                    .font(.system(size: 16, weight: .medium))
+                                    .fontWithLineHeight(.Body.medium)
                             }
                         }
                     }
@@ -63,13 +63,13 @@ public struct ReleaseNoteDetailView: View { // TODO: Apply Design Sytem for font
                     if let bugfixes = releaseNote.bugfixes, bugfixes.isEmpty == false {
                         VStack(alignment: .leading, spacing: Spacing.standard) {
                             Text("release_note_bugfixes".localized)
-                                .font(.system(size: 20, weight: .medium))
+                                .fontWithLineHeight(.Title.medium)
                                 .foregroundStyle(Color.primary500)
                                 .fullWidth(.leading)
                             
                             ForEach(bugfixes, id: \.self) { bug in
                                 Text("- \(bug)")
-                                    .font(.system(size: 16, weight: .medium))
+                                    .fontWithLineHeight(.Body.medium)
                             }
                         }
                     }

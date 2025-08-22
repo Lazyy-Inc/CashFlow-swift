@@ -67,8 +67,8 @@ public struct SuccessfullCreationView: View {
         .animation(.smooth, value: succesfullModalManager.isPresenting)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
-        .onChange(of: succesfullModalManager.isPresenting) {
-            if $0 {
+        .onChange(of: succesfullModalManager.isPresenting) { _, newValue in
+            if newValue {
                 confettiCounter += 1
             } else {
                 succesfullModalManager.resetData()

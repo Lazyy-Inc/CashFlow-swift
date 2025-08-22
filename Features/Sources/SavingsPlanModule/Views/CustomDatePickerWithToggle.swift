@@ -92,8 +92,8 @@ struct CustomDatePickerWithToggle: View {
             )
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .onChange(of: isEnabled) {
-            if $0 == false {
+        .onChange(of: isEnabled) { _, newValue in
+            if newValue == false {
                 withAnimation { self.isDatePickerShowing = false }
             }
         }
