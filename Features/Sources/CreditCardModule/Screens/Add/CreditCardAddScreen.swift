@@ -11,14 +11,16 @@ import CoreModule
 import DesignSystemModule
 import EventModule
 
-struct CreditCardAddScreen: View {
+public struct CreditCardAddScreen: View {
     
     @StateObject private var viewModel: ViewModel = .init()
     
     @Environment(\.dismiss) private var dismiss
     
+    public init() {}
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         ScrollView {
             VStack(spacing: 24) {
                 CreditCardTextField(

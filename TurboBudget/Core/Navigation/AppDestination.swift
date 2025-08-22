@@ -21,6 +21,7 @@ import TransferModule
 import OnboardingModule
 import SubcategoryModule
 import SettingsModule
+import CreditCardModule
 
 extension AppDestination {
     

@@ -20,7 +20,8 @@ let package = Package(
         .library(name: "SubcategoryModule", targets: ["SubcategoryModule"]),
         .library(name: "SavingsAccountModule", targets: ["SavingsAccountModule"]),
         .library(name: "TransferModule", targets: ["TransferModule"]),
-        .library(name: "SettingsModule", targets: ["SettingsModule"])
+        .library(name: "SettingsModule", targets: ["SettingsModule"]),
+        .library(name: "CreditCardModule", targets: ["CreditCardModule"])
     ],
     dependencies: [
         .package(path: "../DesignSystemModule"),
@@ -203,6 +204,17 @@ let package = Package(
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(name: "SettingsModuleTests", dependencies: ["SettingsModule"])
+        .testTarget(name: "SettingsModuleTests", dependencies: ["SettingsModule"]),
+        
+        .target(
+            name: "CreditCardModule",
+            dependencies: [
+                "DesignSystemModule",
+                "CoreModule",
+                .product(name: "Dependencies", package: "swift-dependencies")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "CreditCardModuleTests", dependencies: ["CreditCardModule"])
     ]
 )

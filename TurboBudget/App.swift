@@ -134,7 +134,7 @@ struct TurboBudgetApp: App {
                     appManager.appState = .needLogin
                 }
             }
-            .onChange(of: networkMonitor.isConnected) { newValue in
+            .onChange(of: networkMonitor.isConnected) { _, newValue in
                 Task {
                     if newValue {
                         try await userStore.loginWithToken()

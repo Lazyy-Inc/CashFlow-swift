@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8129E7512A483A7400FF23E5 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8129E7502A483A7400FF23E5 /* ConfettiSwiftUI */; };
 		81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 81D990B32A49F03000EF13A3 /* SwipeActions */; };
+		D9083BF22E5878CE0077F9C5 /* CreditCardModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9083BF12E5878CE0077F9C5 /* CreditCardModule */; };
 		D912D00A2D140523006DF5DC /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = D912D0092D140523006DF5DC /* AlertKit */; };
 		D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94594F62D16A03A00A989F0 /* NotificationKit */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
@@ -81,6 +82,7 @@
 				D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */,
 				D9D5BC692E41352100118297 /* NavigationKit in Frameworks */,
 				D9D2C64B2E29850700FEE9FD /* DesignSystemModule in Frameworks */,
+				D9083BF22E5878CE0077F9C5 /* CreditCardModule in Frameworks */,
 				81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */,
 				D968C1B02E50651E006BB17A /* AccountModule in Frameworks */,
 				D9D2C65A2E2CB63600FEE9FD /* CoreModule in Frameworks */,
@@ -181,6 +183,7 @@
 				D968C2062E54D2D3006BB17A /* TransferModule */,
 				D968C2312E54F3CA006BB17A /* SubcategoryModule */,
 				D968C2462E54F6F8006BB17A /* SettingsModule */,
+				D9083BF12E5878CE0077F9C5 /* CreditCardModule */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -612,6 +615,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 81D990B22A49F03000EF13A3 /* XCRemoteSwiftPackageReference "SwipeActions" */;
 			productName = SwipeActions;
+		};
+		D9083BF12E5878CE0077F9C5 /* CreditCardModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CreditCardModule;
 		};
 		D912D0092D140523006DF5DC /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;

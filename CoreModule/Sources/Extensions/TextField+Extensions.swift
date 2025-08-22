@@ -8,14 +8,14 @@
 import Foundation
 import SwiftUI
 
-extension TextField {
+public extension TextField {
     func format(
         _ binding: Binding<String>,
         type: TextFieldFormatter.FormatType? = nil
     ) -> some View {
-        self.onChange(of: binding.wrappedValue) {
+        self.onChange(of: binding.wrappedValue) { _, newValue in
             guard let type else { return }
-            binding.wrappedValue = TextFieldFormatter(type: type).format($0)
+            binding.wrappedValue = TextFieldFormatter(type: type).format(newValue)
         }
     }
 }

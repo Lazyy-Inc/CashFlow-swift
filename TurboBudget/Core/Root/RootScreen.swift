@@ -124,7 +124,7 @@ struct RootScreen: View {
             } // End if unlocked
         }
         .padding(viewModel.isUnlocked ? 0 : 0)
-        .onChange(of: viewModel.launchScreenEnd, perform: {
+        .onChange(of: viewModel.launchScreenEnd) { _, newValue in
             if accountStore.selectedAccount != nil && !preferencesGeneral.isAlreadyOpen {
                 viewModel.showOnboarding = false
                 preferencesGeneral.isAlreadyOpen = true
@@ -133,7 +133,7 @@ struct RootScreen: View {
             }
             
             // LaunchScreen ended
-            if $0 {
+            if newValue {
                 // Already open + app close
                 if !UserDefaults.standard.bool(forKey: "appIsOpen") && preferencesGeneral.isAlreadyOpen {
                     if preferencesSecurity.isBiometricEnabled {
@@ -147,9 +147,9 @@ struct RootScreen: View {
                     UserDefaults.standard.set(true, forKey: "appIsOpen")
                 }
             }
-        })
-        .onChange(of: scenePhase) {
-            if $0 != .active {
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            if newPhase != .active {
                 UserDefaults.standard.set(false, forKey: "appIsOpen")
             }
         }

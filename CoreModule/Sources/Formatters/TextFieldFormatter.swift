@@ -7,14 +7,18 @@
 
 import Foundation
 
-struct TextFieldFormatter {
-    enum FormatType {
+public struct TextFieldFormatter {
+    public enum FormatType {
         case creditCard
     }
     
     let type: FormatType
     
-    func format(_ input: String) -> String {
+    public init(type: FormatType) {
+        self.type = type
+    }
+    
+    public func format(_ input: String) -> String {
         
         let limitedInput: Substring
         switch type {
