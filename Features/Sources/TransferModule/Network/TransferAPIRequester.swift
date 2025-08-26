@@ -9,12 +9,12 @@ import Foundation
 import NetworkKit
 import CoreModule
 
-public enum TransferAPIRequester: APIRequestBuilder {
+enum TransferAPIRequester: APIRequestBuilder {
     case transfer(senderAccountID: Int, receiverAccountID: Int, body: TransferBody)
     case delete(transferID: Int)
 }
 
-public extension TransferAPIRequester {
+extension TransferAPIRequester {
     var path: String {
         switch self {
         case .transfer(let senderAccountIDD, let receiverAccountID, _):

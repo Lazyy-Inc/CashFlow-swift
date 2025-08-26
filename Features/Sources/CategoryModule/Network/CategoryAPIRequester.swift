@@ -9,28 +9,28 @@ import Foundation
 import NetworkKit
 import CoreModule
 
-public enum CategoryAPIRequester: APIRequestBuilder {
-    case fetchCategories
+enum CategoryAPIRequester: APIRequestBuilder {
+  case fetchCategories
 }
 
-public extension CategoryAPIRequester {
-    var path: String {
-        return NetworkPath.Category.base
-    }
-    
-    var httpMethod: HTTPMethod {
-        return .GET
-    }
-    
-    var parameters: [URLQueryItem]? {
-        return nil
-    }
-    
-    var isTokenNeeded: Bool {
-        return true
-    }
-    
-    var body: Data? {
-        return nil
-    }
+extension CategoryAPIRequester {
+  var path: String {
+    return NetworkPath.Category.base
+  }
+  
+  var httpMethod: HTTPMethod {
+    return .GET
+  }
+  
+  var parameters: [URLQueryItem]? {
+    return nil
+  }
+  
+  var isTokenNeeded: Bool {
+    return true
+  }
+  
+  var body: Data? {
+    return nil
+  }
 }
