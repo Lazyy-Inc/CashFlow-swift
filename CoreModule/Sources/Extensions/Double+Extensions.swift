@@ -2,7 +2,7 @@
 //  Split Number.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 07/08/2023.
+//  Created by Theo Sementa on 07/08/2023.
 //
 
 import Foundation

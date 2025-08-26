@@ -2,7 +2,7 @@
 //  DetailOfExpensesAndIncomesByMonth.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 25/09/2023.
+//  Created by Theo Sementa on 25/09/2023.
 //
 // Localizations 01/10/2023
 

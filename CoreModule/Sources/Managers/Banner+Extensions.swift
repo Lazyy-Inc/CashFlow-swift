@@ -2,7 +2,7 @@
 //  Banner+Extensions.swift
 //  Split
 //
-//  Created by KaayZenn on 06/06/2024.
+//  Created by Theo Sementa on 06/06/2024.
 //
 // TODO: Change placec
 import Foundation

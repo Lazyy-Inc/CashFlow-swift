@@ -2,7 +2,7 @@
 //  SignInWithGoogleManager.swift
 //  Split
 //
-//  Created by KaayZenn on 29/05/2024.
+//  Created by Theo Sementa on 29/05/2024.
 //
 
 // https://paulallies.medium.com/google-sign-in-swiftui-2909e01ea4ed

@@ -2,7 +2,7 @@
 //  SignInWithAppleManager.swift
 //  Split
 //
-//  Created by KaayZenn on 29/05/2024.
+//  Created by Theo Sementa on 29/05/2024.
 //
 
 import Foundation

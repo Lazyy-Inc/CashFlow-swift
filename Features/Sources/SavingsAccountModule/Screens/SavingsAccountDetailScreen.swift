@@ -2,7 +2,7 @@
 //  SavingsAccountDetailScreen.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 20/02/2024.
+//  Created by Theo Sementa on 20/02/2024.
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  SubcategoryHomeViewModel.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 04/07/2024.
+//  Created by Theo Sementa on 04/07/2024.
 //
 
 import Foundation

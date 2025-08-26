@@ -2,7 +2,7 @@
 //  SettingsDisplayView.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 25/02/2024.
+//  Created by Theo Sementa on 25/02/2024.
 //
 
 import SwiftUI

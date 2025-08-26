@@ -2,7 +2,7 @@
 //  FilterManager.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 16/03/2024.
+//  Created by Theo Sementa on 16/03/2024.
 //
 
 import Foundation

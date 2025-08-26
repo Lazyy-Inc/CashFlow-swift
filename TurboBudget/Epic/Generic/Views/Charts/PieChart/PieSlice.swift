@@ -2,7 +2,7 @@
 //  PieSlice.swift
 //  CustomPieChart
 //
-//  Created by KaayZenn on 11/08/2024.
+//  Created by Theo Sementa on 11/08/2024.
 //
 
 import Foundation

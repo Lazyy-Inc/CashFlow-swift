@@ -2,7 +2,7 @@
 //  SettingRow.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 24/02/2024.
+//  Created by Theo Sementa on 24/02/2024.
 //
 
 import SwiftUI

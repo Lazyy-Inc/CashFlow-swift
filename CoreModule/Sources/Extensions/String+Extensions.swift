@@ -2,7 +2,7 @@
 //  String.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 10/09/2023.
+//  Created by Theo Sementa on 10/09/2023.
 //
 
 import Foundation

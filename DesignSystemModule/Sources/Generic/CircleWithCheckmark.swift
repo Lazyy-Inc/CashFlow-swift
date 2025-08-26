@@ -2,7 +2,7 @@
 //  CircleWithCheckmark.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 13/08/2023.
+//  Created by Theo Sementa on 13/08/2023.
 //
 
 import SwiftUI

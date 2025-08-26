@@ -2,7 +2,7 @@
 //  TPieChart.swift
 //  CustomPieChart
 //
-//  Created by KaayZenn on 10/08/2024.
+//  Created by Theo Sementa on 10/08/2024.
 //
 
 import Foundation

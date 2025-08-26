@@ -2,7 +2,7 @@
 //  QRScannerController.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 25/07/2023.
+//  Created by Theo Sementa on 25/07/2023.
 //
 //
 //  Keep for futur

@@ -1,15 +1,15 @@
 //
-//  CreateAccountViewModel.swift
+//  AddAccountScreen+ViewModel.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 17/02/2024.
+//  Created by Theo Sementa on 17/02/2024.
 //
 
 import Foundation
 import SwiftUI
 import CoreModule
 
-extension AccountAddScreen {
+extension AddAccountScreen {
     
     final class ViewModel: ObservableObject {
         
@@ -36,7 +36,7 @@ extension AccountAddScreen {
     
 }
 
-extension AccountAddScreen.ViewModel {
+extension AddAccountScreen.ViewModel {
     
     func isAccountInCreation() -> Bool {
         if !name.isBlank || balance.toDouble() != 0 || !maxAmount.isBlank {

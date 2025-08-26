@@ -2,7 +2,7 @@
 //  SubscriptionRowView.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 18/07/2023.
+//  Created by Theo Sementa on 18/07/2023.
 //
 // Localizations 01/10/2023
 

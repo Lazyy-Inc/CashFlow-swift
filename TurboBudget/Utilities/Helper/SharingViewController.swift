@@ -2,7 +2,7 @@
 //  SharingViewController.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 23/07/2023.
+//  Created by Theo Sementa on 23/07/2023.
 //
 
 import Foundation

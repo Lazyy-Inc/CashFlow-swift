@@ -2,7 +2,7 @@
 //  CategoryTransactionsScreen.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 18/08/2023.
+//  Created by Theo Sementa on 18/08/2023.
 //
 // Refactor 26/09/2023
 // Localizations 01/10/2023

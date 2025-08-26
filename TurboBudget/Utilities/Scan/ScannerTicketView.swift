@@ -2,7 +2,7 @@
 //  ScannerView.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 08/10/2023.
+//  Created by Theo Sementa on 08/10/2023.
 //
 
 import VisionKit

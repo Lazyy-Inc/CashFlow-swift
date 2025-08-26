@@ -2,7 +2,7 @@
 //  DetailOfTransferByMonth.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 23/11/2023.
+//  Created by Theo Sementa on 23/11/2023.
 //
 
 import SwiftUI

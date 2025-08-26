@@ -13,7 +13,7 @@ import TheoKit
 import DesignSystemModule
 import NetworkKit
 
-public struct AccountAddScreen: View {
+public struct AddAccountScreen: View {
     
     // Builder
     var type: AccountType
@@ -106,6 +106,6 @@ public struct AccountAddScreen: View {
 
 // MARK: - Preview
 #Preview {
-    AccountAddScreen(type: .savings)
+    AddAccountScreen(type: .savings)
         .environmentObject(AccountStore.shared)
 }

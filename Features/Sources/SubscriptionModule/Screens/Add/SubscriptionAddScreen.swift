@@ -2,7 +2,7 @@
 //  AddAutomationsView.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 18/07/2023.
+//  Created by Theo Sementa on 18/07/2023.
 //
 // Localizations 30/09/2023
 

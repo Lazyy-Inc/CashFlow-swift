@@ -2,7 +2,7 @@
 //  CreateSubscriptionViewModel.swift
 //  CashFlow
 //
-//  Created by KaayZenn on 02/11/2023.
+//  Created by Theo Sementa on 02/11/2023.
 //
 
 import Foundation

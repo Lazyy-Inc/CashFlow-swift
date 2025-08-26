@@ -62,9 +62,9 @@ extension AppDestination {
     static private func destiantionAccount(_ account: AccountDestination) -> some View {
         switch account {
         case .create:
-            AnyView(AccountAddScreen(type: .classic))
+            AnyView(AddAccountScreen(type: .classic))
         case .update(let account):
-            AnyView(AccountAddScreen(type: .classic, account: account))
+            AnyView(AddAccountScreen(type: .classic, account: account))
         case .dashboard:
             AnyView(AccountDashboardScreen())
         case .statistics:
@@ -75,9 +75,9 @@ extension AppDestination {
     static private func destinationSavingsAccount(_ savingsAccount: SavingsAccountDestination) -> some View {
         switch savingsAccount {
         case .create:
-            AnyView(AccountAddScreen(type: .savings))
+            AnyView(AddAccountScreen(type: .savings))
         case .update(let account):
-            AnyView(AccountAddScreen(type: .savings, account: account))
+            AnyView(AddAccountScreen(type: .savings, account: account))
         case .list:
             AnyView(SavingsAccountsListView())
         case .detail(_):
