@@ -43,6 +43,9 @@
 /* Begin PBXFileReference section */
 		81A707832A3B6B4C00BEB0BF /* CashFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9084D982E5F72980077F9C5 /* Navigation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Navigation; sourceTree = "<group>"; };
+		D9084D9B2E5F73310077F9C5 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
+		D9084D9C2E5F73B50077F9C5 /* Stores */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Stores; sourceTree = "<group>"; };
+		D9084D9D2E5F75320077F9C5 /* Mocks */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Mocks; sourceTree = "<group>"; };
 		D922E9A92E46688200B94AF7 /* Features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Features; sourceTree = "<group>"; };
 		D9564DE22E472A2000F2341E /* PreferenceModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PreferenceModule; sourceTree = "<group>"; };
 		D9564DE32E472B1900F2341E /* EventModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = EventModule; sourceTree = "<group>"; };
@@ -110,6 +113,9 @@
 		81A7077A2A3B6B4C00BEB0BF = {
 			isa = PBXGroup;
 			children = (
+				D9084D9D2E5F75320077F9C5 /* Mocks */,
+				D9084D9C2E5F73B50077F9C5 /* Stores */,
+				D9084D9B2E5F73310077F9C5 /* Models */,
 				D9084D982E5F72980077F9C5 /* Navigation */,
 				D9564DE32E472B1900F2341E /* EventModule */,
 				D9564DE22E472A2000F2341E /* PreferenceModule */,

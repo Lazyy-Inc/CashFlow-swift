@@ -7,11 +7,6 @@
 
 import Foundation
 
-public enum AccountType: Int, CaseIterable {
-    case classic = 0
-    case savings = 1
-}
-
 public struct AccountModel: Codable, Identifiable, Equatable, Hashable {
     public var _id: Int?
     public var _name: String?
@@ -95,32 +90,4 @@ public struct AccountModel: Codable, Identifiable, Equatable, Hashable {
         case createdAtRaw = "createdAt"
         case isMain
     }
-}
-
-extension AccountModel: Searchable {
-    public var searchableText: String {
-        return name
-    }
-}
-
-extension AccountModel {
-    
-    public var name: String {
-        return self._name ?? ""
-    }
-    
-    public var balance: Double {
-        return self._balance ?? 0
-    }
-    
-    public var type: AccountType? {
-        guard let typeNum else { return nil }
-        return AccountType(rawValue: typeNum)
-    }
-    
-    public var createdAt: Date? {
-        guard let createdAtRaw else { return nil }
-        return createdAtRaw.toDate()
-    }
-    
 }

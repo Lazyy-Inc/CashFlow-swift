@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public extension TransactionModel {
     
@@ -13,8 +14,8 @@ public extension TransactionModel {
         id: 1,
         name: "Mock Classic Transaction",
         amount: 20,
-        date: .now,
-        creationDate: .now,
+        date: Date.now,
+        creationDate: Date.now,
         category: CategoryModel.mock,
         subcategory: SubcategoryModel.mock,
         isFromSubscription: false,

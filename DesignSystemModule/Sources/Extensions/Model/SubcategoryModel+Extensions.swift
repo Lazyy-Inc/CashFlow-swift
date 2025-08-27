@@ -1,28 +1,14 @@
 //
-//  SubcategoryModel.swift
-//  CashFlow
+//  File.swift
+//  DesignSystemModule
 //
-//  Created by Theo Sementa on 26/11/2024.
+//  Created by Theo Sementa on 27/08/2025.
 //
 
 import Foundation
-import SwiftUI
-
-public struct SubcategoryModel: Identifiable, Equatable, Hashable {
-    public var id: Int
-    public var name: String
-    public var icon: String
-    public var color: Color
-    public var isVisible: Bool
-    
-    public init(id: Int, name: String, icon: String, color: Color, isVisible: Bool) {
-        self.id = id
-        self.name = name
-        self.icon = icon
-        self.color = color
-        self.isVisible = isVisible
-    }
-}
+import Models
+import CoreModule
+import Stores
 
 public extension SubcategoryModel {
     

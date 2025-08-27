@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUICore
-import CoreLocation
 import TheoKit
 
 public struct TransactionModel: Identifiable, Equatable, Hashable {
@@ -73,57 +72,8 @@ public struct TransactionModel: Identifiable, Equatable, Hashable {
 
 public extension TransactionModel {
     
-    var coordinates: CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: lat ?? 0, longitude: long ?? 0)
-    }
-
-}
-
-extension TransactionModel: Searchable {
-    public var searchableText: String {
-        return nameDisplayed
-    }
-}
-
-public extension TransactionModel {
-    
-    var isSender: Bool {
-        guard let selectedAccount = AccountStore.shared.selectedAccount else { return false }
-        return senderAccount?.id == selectedAccount.id
-    }
-    
-    var nameDisplayed: String {
-        switch type {
-        case .expense, .income:
-            return self.name
-        case .transfer:
-            guard let senderAccount, let receiverAccount else { return "" }
-            
-            if isSender {
-                let receiverAccountName = receiverAccount.name
-                return [Word.Classic.sent, Word.Preposition.to, receiverAccountName].joined(separator: " ")
-            } else {
-                let senderAccountName = senderAccount.name
-                return [Word.Classic.received, Word.Preposition.from, senderAccountName].joined(separator: " ")
-            }
-        }
-    }
-    
-    var symbol: String {
-        switch type {
-        case .expense:  return "-"
-        case .income:   return "+"
-        case .transfer:
-            if isSender {
-                return "-"
-            } else {
-                return "+"
-            }
-        }
-    }
-    
     var type: TransactionType {
-        if self.senderAccount != nil, self.receiverAccount != nil {
+        if self.senderAccount != nil && self.receiverAccount != nil {
             return .transfer
         }
         

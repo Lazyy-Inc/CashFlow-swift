@@ -10,6 +10,7 @@ import SwiftUI
 import MapKit
 import CoreModule
 import DesignSystemModule
+import Models
 
 @available(iOS 17.0, *)
 struct TransactionMapRow: View {
@@ -18,8 +19,13 @@ struct TransactionMapRow: View {
     var transaction: TransactionModel
         
     var cameraPosition: MapCameraPosition {
+      let coordinates = CLLocationCoordinate2D(
+        latitude: transaction.lat ?? 0,
+        longitude: transaction.long ?? 0
+      )
+      
         return .region(.init(
-            center: transaction.coordinates,
+            center: coordinates,
             latitudinalMeters: 400,
             longitudinalMeters: 400)
         )

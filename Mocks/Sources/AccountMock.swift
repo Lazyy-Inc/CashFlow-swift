@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public extension AccountModel {
     static let mockClassicAccount: AccountModel = .init(

@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import Models
+import SwiftUI
 
 public extension CategoryModel {
     static let mock = CategoryModel(
         id: 1,
         name: "category1_name".localized,
         icon: "iconCart",
-        color: .red,
+        color: Color.red,
         subcategories: [
             SubcategoryModel.mock
         ]
