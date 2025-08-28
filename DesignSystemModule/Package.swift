@@ -24,14 +24,18 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../CoreModule"),
-        .package(path: "../Models")
+        .package(path: "../Mocks"),
+        .package(path: "../Models"),
+        .package(path: "../Stores")
     ],
     targets: [
         .target(
             name: "DesignSystemModule",
             dependencies: [
                 "CoreModule",
-                "Models"
+                "Models",
+                "Mocks",
+                "Stores"
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),

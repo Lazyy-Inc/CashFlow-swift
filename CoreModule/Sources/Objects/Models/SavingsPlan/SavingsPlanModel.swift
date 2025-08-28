@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public struct SavingsPlanModel: Codable, Identifiable, Equatable, Hashable {
     public var id: Int?

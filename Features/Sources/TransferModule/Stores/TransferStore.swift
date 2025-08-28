@@ -11,6 +11,8 @@ import StatsKit
 import CoreModule
 import TransactionModule
 import EventModule
+import Models
+import Stores
 
 public extension TransferStore {
     

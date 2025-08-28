@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreModule
+import Stores
+import Models
 
 public extension TransactionStore {
     

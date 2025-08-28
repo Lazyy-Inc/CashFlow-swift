@@ -13,6 +13,7 @@ import DesignSystemModule
 import CoreModule
 import Dependencies
 import EventModule
+import Stores
 
 struct TransactionsListScreen: View {
     

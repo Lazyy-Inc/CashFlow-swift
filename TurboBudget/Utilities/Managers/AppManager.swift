@@ -14,6 +14,7 @@ import TransactionModule
 import SubscriptionModule
 import BudgetModule
 import CreditCardModule
+import Stores
 
 extension AppManager {
  

@@ -9,6 +9,7 @@ import Foundation
 import CoreModule
 import SwiftUI
 import DesignSystemModule
+import Models
 
 extension SuccessfullModalManager {
     

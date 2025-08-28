@@ -14,6 +14,7 @@ import DesignSystemModule
 import CoreModule
 import Dependencies
 import AccountModule
+import Stores
 
 struct AnalyticsScreen: View {
     

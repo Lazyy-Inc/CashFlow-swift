@@ -7,6 +7,8 @@
 
 import SwiftUI
 import CoreModule
+import Models
+import Mocks
 
 public struct CategoryHeaderView: View {
     
@@ -37,5 +39,5 @@ public struct CategoryHeaderView: View {
 
 // MARK: - Preview
 #Preview {
-    CategoryHeaderView(category: .mock)
+  CategoryHeaderView(category: .mock)
 }

@@ -10,6 +10,7 @@ import NavigationKit
 import TheoKit
 import CoreModule
 import Dependencies
+import Stores
 
 struct HomeHeaderView: View {
     

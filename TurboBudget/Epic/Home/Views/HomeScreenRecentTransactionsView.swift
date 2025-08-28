@@ -13,6 +13,8 @@ import PreferenceModule
 import CoreModule
 import TransactionModule
 import Dependencies
+import Models
+import Stores
 
 struct HomeScreenRecentTransactionsView: View {
     

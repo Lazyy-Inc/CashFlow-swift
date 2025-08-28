@@ -11,6 +11,8 @@ import StatsKit
 import CoreModule
 import EventModule
 import PreferenceModule
+import Models
+import Stores
 
 public extension AccountStore {
     

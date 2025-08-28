@@ -7,6 +7,7 @@
 
 import Foundation
 import NetworkKit
+import Models
 
 public struct SubscriptionDTO: Codable {
     public var id: Int?

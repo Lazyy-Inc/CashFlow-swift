@@ -8,6 +8,7 @@
 import Foundation
 import NetworkKit
 import CoreModule
+import Models
 
 public enum TransactionAPIRequester: APIRequestBuilder {
     case fetch(accountID: Int)

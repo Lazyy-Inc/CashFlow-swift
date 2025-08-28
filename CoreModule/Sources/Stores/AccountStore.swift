@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public final class AccountStore: ObservableObject {
     public static let shared = AccountStore()

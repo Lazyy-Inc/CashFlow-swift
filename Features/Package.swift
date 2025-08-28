@@ -26,6 +26,9 @@ let package = Package(
     dependencies: [
         .package(path: "../DesignSystemModule"),
         .package(path: "../CoreModule"),
+        .package(path: "../Mocks"),
+        .package(path: "../Models"),
+        .package(path: "../Stores"),
         
         .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.8"),
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
@@ -78,6 +81,9 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]

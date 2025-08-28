@@ -14,6 +14,7 @@ import TheoKit
 import EventModule
 import PreferenceModule
 import DesignSystemModule
+import Models
 
 public extension SubscriptionStore {
     

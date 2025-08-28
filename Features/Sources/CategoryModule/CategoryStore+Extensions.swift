@@ -8,6 +8,8 @@
 import Foundation
 import NetworkKit
 import CoreModule
+import Models
+import Stores
 
 public extension CategoryStore {
     

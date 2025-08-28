@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Models
+import Models
 
 public final class TransferStore: ObservableObject {
     public static let shared = TransferStore()

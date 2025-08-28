@@ -13,6 +13,7 @@ import TheoKit
 import CoreModule
 import DesignSystemModule
 import Dependencies
+import Stores
 
 public struct TransactionsScreen: View {
     

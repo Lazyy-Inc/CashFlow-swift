@@ -9,6 +9,7 @@
 
 import SwiftUI
 import CoreModule
+import Models
 
 public struct SelectCategoryScreen: View {
     

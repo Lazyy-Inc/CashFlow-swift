@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public struct SubcategoryTransactionData {
     public let subcategory: SubcategoryModel

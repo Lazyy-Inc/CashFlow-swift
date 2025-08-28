@@ -11,6 +11,7 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import EventModule
+import Models
 
 public struct TransferAddScreen: View {
     

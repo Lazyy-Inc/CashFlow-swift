@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public final class CategoryStore: ObservableObject {
     public static let shared = CategoryStore()

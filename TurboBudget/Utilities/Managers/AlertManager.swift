@@ -13,6 +13,7 @@ import StatsKit
 import CoreModule
 import UserModule
 import EventModule
+import Models
 
 extension AlertManager {
     

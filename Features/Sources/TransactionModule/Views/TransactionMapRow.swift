@@ -11,20 +11,24 @@ import MapKit
 import CoreModule
 import DesignSystemModule
 import Models
+import Mocks
 
 @available(iOS 17.0, *)
 struct TransactionMapRow: View {
     
     // dependencies
     var transaction: TransactionModel
+  
+  var coordinates: CLLocationCoordinate2D {
+    let coordinates = CLLocationCoordinate2D(
+      latitude: transaction.lat ?? 0,
+      longitude: transaction.long ?? 0
+    )
+    return coordinates
+  }
         
     var cameraPosition: MapCameraPosition {
-      let coordinates = CLLocationCoordinate2D(
-        latitude: transaction.lat ?? 0,
-        longitude: transaction.long ?? 0
-      )
-      
-        return .region(.init(
+      return .region(.init(
             center: coordinates,
             latitudinalMeters: 400,
             longitudinalMeters: 400)
@@ -35,7 +39,7 @@ struct TransactionMapRow: View {
     var body: some View {
         let systemImage: String = transaction.subcategory?.icon ?? "iconQuestionFile"
         Map(initialPosition: cameraPosition) {
-            Annotation(transaction.nameDisplayed, coordinate: transaction.coordinates) {
+            Annotation(transaction.nameDisplayed, coordinate: coordinates) {
                 IconSVG(icon: systemImage, value: .standard)
                     .padding(6)
                     .background {

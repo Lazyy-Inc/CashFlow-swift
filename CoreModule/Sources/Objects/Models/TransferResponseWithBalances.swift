@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public struct TransferResponseWithBalances: Codable {
     public var senderNewBalance: Double?

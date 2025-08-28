@@ -10,6 +10,7 @@ import CoreModule
 import SwiftUI
 import DesignSystemModule
 import TransactionModule
+import Models
 
 extension SuccessfullModalManager {
     
