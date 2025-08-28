@@ -10,6 +10,7 @@ import AlertKit
 import SwiftUI
 import CoreModule
 import Models
+import Stores
 
 public extension AlertManager {
     

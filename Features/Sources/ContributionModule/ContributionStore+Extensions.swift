@@ -11,6 +11,7 @@ import StatsKit
 import CoreModule
 import EventModule
 import Models
+import Stores
 
 public extension ContributionStore {
     

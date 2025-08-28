@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreModule
+import Stores
 
 public struct EmptyCategoryData: View {
     

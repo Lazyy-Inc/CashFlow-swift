@@ -10,6 +10,7 @@ import SwiftUI
 import CoreModule
 import DesignSystemModule
 import Models
+import Stores
 
 struct PieChart: View {
     

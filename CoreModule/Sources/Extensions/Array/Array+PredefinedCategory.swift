@@ -7,6 +7,7 @@
 
 import Foundation
 import Models
+import Stores
 
 public extension Array where Element == CategoryModel {
     

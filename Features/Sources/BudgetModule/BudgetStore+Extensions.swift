@@ -12,6 +12,7 @@ import StatsKit
 import SwiftUI
 import EventModule
 import Models
+import Stores
 
 public extension BudgetStore {
     

@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreModule
+import Stores
 
 public extension SubscriptionStore {
     

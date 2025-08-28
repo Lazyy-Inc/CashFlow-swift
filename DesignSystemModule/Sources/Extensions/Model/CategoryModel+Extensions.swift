@@ -8,6 +8,7 @@
 import Foundation
 import Models
 import CoreModule
+import Stores
 
 extension CategoryModel: @retroactive Searchable {
     public var searchableText: String {

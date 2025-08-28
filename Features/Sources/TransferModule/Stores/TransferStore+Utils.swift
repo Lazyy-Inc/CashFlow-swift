@@ -8,6 +8,7 @@
 import Foundation
 import CoreModule
 import Models
+import Stores
 
 public extension TransferStore {
     

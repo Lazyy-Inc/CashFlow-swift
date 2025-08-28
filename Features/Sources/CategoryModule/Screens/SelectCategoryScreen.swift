@@ -10,6 +10,7 @@
 import SwiftUI
 import CoreModule
 import Models
+import Stores
 
 public struct SelectCategoryScreen: View {
     
