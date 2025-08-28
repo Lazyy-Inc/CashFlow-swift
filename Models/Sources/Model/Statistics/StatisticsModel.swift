@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct StatisticsModel: Codable {
+public struct StatisticsModel: Codable, Sendable {
     public let week: WeeklyStatistics?
     public let month: MonthlyStatistics?
     public let year: YearlyStatistics?
@@ -20,7 +20,7 @@ public struct StatisticsModel: Codable {
 }
 
 // MARK: - Weekly
-public struct WeeklyStatistics: Codable {
+public struct WeeklyStatistics: Codable, Sendable {
     public let expense: ExpenseWeeklyStatistics?
     public let income: IncomeWeeklyStatistics?
     
@@ -30,7 +30,7 @@ public struct WeeklyStatistics: Codable {
     }
 }
 
-public struct ExpenseWeeklyStatistics: Codable {
+public struct ExpenseWeeklyStatistics: Codable, Sendable {
     public let thisWeek: Double?
     public let lastWeek: Double?
     
@@ -40,7 +40,7 @@ public struct ExpenseWeeklyStatistics: Codable {
     }
 }
 
-public struct IncomeWeeklyStatistics: Codable {
+public struct IncomeWeeklyStatistics: Codable, Sendable {
     public let thisWeek: Double?
     public let lastWeek: Double?
     
@@ -51,7 +51,7 @@ public struct IncomeWeeklyStatistics: Codable {
 }
 
 // MARK: - Monthly
-public struct MonthlyStatistics: Codable {
+public struct MonthlyStatistics: Codable, Sendable {
     public let expense: ExpenseMonthlyStatistics?
     public let income: IncomeMonthlyStatistics?
     
@@ -61,7 +61,7 @@ public struct MonthlyStatistics: Codable {
     }
 }
 
-public struct ExpenseMonthlyStatistics: Codable {
+public struct ExpenseMonthlyStatistics: Codable, Sendable {
     public let thisMonth: Double?
     public let lastMonth: Double?
     
@@ -71,7 +71,7 @@ public struct ExpenseMonthlyStatistics: Codable {
     }
 }
 
-public struct IncomeMonthlyStatistics: Codable {
+public struct IncomeMonthlyStatistics: Codable, Sendable {
     public let thisMonth: Double?
     public let lastMonth: Double?
     
@@ -82,7 +82,7 @@ public struct IncomeMonthlyStatistics: Codable {
 }
 
 // MARK: - Yearly
-public struct YearlyStatistics: Codable {
+public struct YearlyStatistics: Codable, Sendable {
     public let expense: ExpenseYearlyStatistics?
     public let income: IncomeYearlyStatistics?
     
@@ -92,7 +92,7 @@ public struct YearlyStatistics: Codable {
     }
 }
 
-public struct ExpenseYearlyStatistics: Codable {
+public struct ExpenseYearlyStatistics: Codable, Sendable {
     public let thisYear: Double?
     public let lastYear: Double?
     
@@ -102,7 +102,7 @@ public struct ExpenseYearlyStatistics: Codable {
     }
 }
 
-public struct IncomeYearlyStatistics: Codable {
+public struct IncomeYearlyStatistics: Codable, Sendable {
     public let thisYear: Double?
     public let lastYear: Double?
     

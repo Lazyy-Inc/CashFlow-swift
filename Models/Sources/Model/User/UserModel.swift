@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct UserModel: Codable, Identifiable {
+public struct UserModel: Codable, Identifiable, Sendable {
     public var id: Int?
     public var firstName: String?
     public var lastName: String?

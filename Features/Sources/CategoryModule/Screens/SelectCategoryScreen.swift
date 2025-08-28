@@ -141,7 +141,6 @@ public struct SelectCategoryScreen: View {
 //    }
 // }
 
-
 // TODO: Change
 public extension Array where Element == CategoryModel {
     

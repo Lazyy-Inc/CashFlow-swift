@@ -37,69 +37,26 @@ public extension CategoryStore {
 
 // MARK: - Utils
 public extension CategoryStore {
-    
-    var toCategorized: CategoryModel? {
-        return self.categories.first { $0.isToCategorized }
-    }
-    
-    func findCategoryByName(_ name: String) -> CategoryModel? {
-        return self.categories.first(where: { $0.name == name })
-    }
-
-    func findCategoryById(_ id: Int?) -> CategoryModel? {
-        return self.categories.first(where: { $0.id == id })
-    }
-    
-    func findSubcategoryById(_ id: Int?) -> SubcategoryModel? {
-        return self.subcategories.first(where: { $0.id == id })
-    }
-    
-    func reset() {
-        self.categories = []
-        self.subcategories = []
-    }
-    
-}
-
-// TODO: Change
-import SwiftUI
-
-public extension SubcategoryDTO {
   
-  func toModel() throws -> SubcategoryModel {
-    guard let id,
-          let name,
-          let icon,
-          let color,
-          let isVisible
-    else { throw NetworkError.parsingError }
-    
-    return SubcategoryModel(
-      id: id,
-      name: name.localized,
-      icon: icon,
-      color: Color(hex: color),
-      isVisible: isVisible
-    )
+  var toCategorized: CategoryModel? {
+    return self.categories.first { $0.isToCategorized }
   }
   
-}
-
-public extension CategoryDTO {
-    
-    func toModel() throws -> CategoryModel {
-        guard let id,
-              let name,
-              let icon,
-              let color
-        else { throw NetworkError.parsingError }
-        
-        return .init(
-            id: id,
-            name: name.localized,
-            icon: icon,
-            color: Color(hex: color),
-            subcategories: try subcategories?.map { try $0.toModel() } ?? []
-        )
-    }
+  func findCategoryByName(_ name: String) -> CategoryModel? {
+    return self.categories.first(where: { $0.name == name })
+  }
+  
+  func findCategoryById(_ id: Int?) -> CategoryModel? {
+    return self.categories.first(where: { $0.id == id })
+  }
+  
+  func findSubcategoryById(_ id: Int?) -> SubcategoryModel? {
+    return self.subcategories.first(where: { $0.id == id })
+  }
+  
+  func reset() {
+    self.categories = []
+    self.subcategories = []
+  }
+  
 }

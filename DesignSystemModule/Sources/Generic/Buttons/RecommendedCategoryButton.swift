@@ -11,6 +11,7 @@ import CoreModule
 import EventModule
 import Models
 import Mocks
+import Stores
 
 public struct RecommendedCategoryButton: View {
     
@@ -58,16 +59,15 @@ public struct RecommendedCategoryButton: View {
                 }
             }
         }
-        .onChange(of: transactionName) { // TODO: DO
-//            if $0.count > 3 {
-//                Task {
-//                    if let response = await TransactionStore.shared.fetchCategory(name: transactionName) {
-//                        bestCategory = CategoryStore.shared.findCategoryById(response.cat)
-//                        bestSubcategory = CategoryStore.shared.findSubcategoryById(response.sub)
-//                    }
-//                }
-//            }
-            
+        .onChange(of: transactionName) { _, newValue in
+            if newValue.count > 3 {
+                Task {
+                    if let response = await TransactionStore.shared.fetchCategory(name: transactionName) {
+                        bestCategory = CategoryStore.shared.findCategoryById(response.cat)
+                        bestSubcategory = CategoryStore.shared.findSubcategoryById(response.sub)
+                    }
+                }
+            }
         }
     } // End body
 } // End struct

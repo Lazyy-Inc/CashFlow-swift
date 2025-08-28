@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import SwiftUICore
-import TheoKit
+import SwiftUI
 
-public struct TransactionModel: Identifiable, Equatable, Hashable {
+public struct TransactionModel: Identifiable, Equatable, Hashable, Sendable {
     public var id: Int
     public var name: String
     public var amount: Double

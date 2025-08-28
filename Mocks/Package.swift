@@ -10,13 +10,15 @@ let package = Package(
         .library(name: "Mocks", targets: ["Mocks"])
     ],
     dependencies: [
-      .package(path: "../Models")
+      .package(path: "../Models"),
+      .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7")
     ],
     targets: [
         .target(
             name: "Mocks",
             dependencies: [
-              "Models"
+              "Models",
+              .product(name: "TheoKit", package: "TheoKit")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),

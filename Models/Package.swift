@@ -7,19 +7,18 @@ let package = Package(
     name: "Models",
     platforms: [.iOS(.v17)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "Models",
-            targets: ["Models"]),
+        .library(name: "Models", targets: ["Models"])
+    ],
+    dependencies: [
+      .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7")
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Models"),
-        .testTarget(
-            name: "ModelsTests",
-            dependencies: ["Models"]
+            name: "Models",
+            dependencies: [
+              .product(name: "TheoKit", package: "TheoKit")
+            ]
         ),
+        .testTarget(name: "ModelsTests", dependencies: ["Models"])
     ]
 )

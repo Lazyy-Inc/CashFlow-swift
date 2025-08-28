@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct TransactionFetchCategoryResponse: Codable {
+public struct TransactionFetchCategoryResponse: Codable, Sendable {
     public var cat: Int?
     public var sub: Int?
     

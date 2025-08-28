@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum SubscriptionFrequency: Int, Codable, CaseIterable {
+public enum SubscriptionFrequency: Int, Codable, CaseIterable, Sendable {
     case monthly = 0
     case yearly = 1
     case weekly = 2

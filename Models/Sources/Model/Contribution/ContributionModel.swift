@@ -19,7 +19,7 @@ public enum ContributionType: Int, CaseIterable {
     }
 }
 
-public struct ContributionModel: Codable, Identifiable, Equatable, Hashable {
+public struct ContributionModel: Codable, Identifiable, Equatable, Hashable, Sendable {
     public var id: Int?
     public var name: String?
     public var amount: Double?

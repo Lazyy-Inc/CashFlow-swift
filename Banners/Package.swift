@@ -10,7 +10,7 @@ let package = Package(
     .library(name: "Banners", targets: ["Banners"])
   ],
   dependencies: [
-    .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7"),
+    .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7")
   ],
   targets: [
     .target(
@@ -19,6 +19,6 @@ let package = Package(
         .product(name: "TheoKit", package: "TheoKit")
       ]
     ),
-    .testTarget(name: "BannersTests", dependencies: ["Banners"]),
+    .testTarget(name: "BannersTests", dependencies: ["Banners"])
   ]
 )

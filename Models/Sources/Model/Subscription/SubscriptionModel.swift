@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct SubscriptionModel: Identifiable, Equatable, Hashable {
+public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
     public var id: Int
     public var name: String
     public var amount: Double

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AccountModel: Codable, Identifiable, Equatable, Hashable {
+public struct AccountModel: Codable, Identifiable, Equatable, Hashable, Sendable {
     public var _id: Int?
     public var _name: String?
     public var _balance: Double?

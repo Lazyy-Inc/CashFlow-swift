@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SubscriptionDTO: Codable {
+public struct SubscriptionDTO: Codable, Sendable {
     public var id: Int?
     public var name: String?
     public var amount: Double?

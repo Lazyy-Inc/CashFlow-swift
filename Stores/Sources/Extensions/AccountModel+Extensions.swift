@@ -8,13 +8,11 @@
 import Foundation
 import Models
 
-
-
 extension AccountModel {
     
-//    public var createdAt: Date? {
-//        guard let createdAtRaw else { return nil }
-//        return createdAtRaw.toDate()
-//    }
+    public var createdAt: Date? {
+        guard let createdAtRaw else { return nil }
+        return createdAtRaw.toDate()
+    }
     
 }

@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import Models
+import TheoKit
 
-public struct SavingsPlanModel: Codable, Identifiable, Equatable, Hashable {
+public struct SavingsPlanModel: Codable, Identifiable, Equatable, Hashable, Sendable {
     public var id: Int?
     public var name: String?
     public var emoji: String?

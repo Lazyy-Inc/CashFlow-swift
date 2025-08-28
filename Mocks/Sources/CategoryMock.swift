@@ -8,6 +8,7 @@
 import Foundation
 import Models
 import SwiftUI
+import TheoKit
 
 public extension CategoryModel {
     static let mock = CategoryModel(

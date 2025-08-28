@@ -79,7 +79,7 @@ let package = Package(
                 "CoreModule",
                 "Mocks",
                 "Models",
-                "Stores",
+                "Stores"
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),

@@ -12,7 +12,7 @@ let package = Package(
   dependencies: [
     .package(path: "../Models"),
     .package(path: "../Banners"),
-    .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.3"),
+    .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.3")
   ],
   targets: [
     .target(

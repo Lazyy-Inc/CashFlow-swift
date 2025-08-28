@@ -31,6 +31,6 @@ let package = Package(
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(name: "StoresTests", dependencies: ["Stores"]),
+        .testTarget(name: "StoresTests", dependencies: ["Stores"])
     ]
 )

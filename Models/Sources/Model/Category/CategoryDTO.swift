@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct CategoryDTO: Codable, Equatable, Hashable {
+public struct CategoryDTO: Codable, Equatable, Hashable, Sendable {
     public var id: Int?
     public var name: String?
     public var icon: String?

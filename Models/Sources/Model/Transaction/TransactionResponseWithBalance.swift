@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct TransactionResponseWithBalance: Codable {
+public struct TransactionResponseWithBalance: Codable, Sendable {
     public var newBalance: Double?
     public var transaction: TransactionDTO?
     

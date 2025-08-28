@@ -26,7 +26,8 @@ let package = Package(
         .package(path: "../CoreModule"),
         .package(path: "../Mocks"),
         .package(path: "../Models"),
-        .package(path: "../Stores")
+        .package(path: "../Stores"),
+        .package(path: "../Banners")
     ],
     targets: [
         .target(
@@ -35,7 +36,8 @@ let package = Package(
                 "CoreModule",
                 "Models",
                 "Mocks",
-                "Stores"
+                "Stores",
+                "Banners"
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),

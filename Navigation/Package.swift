@@ -19,6 +19,6 @@ let package = Package(
         .product(name: "NavigationKit", package: "NavigationKit")
       ]
     ),
-    .testTarget(name: "NavigationTests", dependencies: ["Navigation"]),
+    .testTarget(name: "NavigationTests", dependencies: ["Navigation"])
   ]
 )

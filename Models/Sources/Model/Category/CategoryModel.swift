@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct CategoryModel: Identifiable, Equatable, Hashable {
+public struct CategoryModel: Identifiable, Equatable, Hashable, Sendable {
     public var id: Int
     public var name: String
     public var icon: String
@@ -36,8 +36,8 @@ public extension CategoryModel {
     
 }
 
-//public extension CategoryModel {
-//    
+// public extension CategoryModel {
+//
 ////    var transactionsFiltered: [TransactionModel] {
 ////        return self.transactions
 ////            .filter { Calendar.current.isDate($0.date, equalTo: FilterManager.shared.date, toGranularity: .month) }
@@ -73,4 +73,4 @@ public extension CategoryModel {
 //        return array
 //    }
 //        
-//}
+// }

@@ -36,8 +36,7 @@ public extension AlertManager {
             buttonTitle: "word_delete".localized,
             isDestructive: true,
             action: {
-//                await TransferStore.shared.deleteTransfer(transferID: transfer.id)
-                // TODO: DO
+                await TransferStore.shared.deleteTransfer(transferID: transfer.id)
                 if let dismissAction { dismissAction() }
             }
         )

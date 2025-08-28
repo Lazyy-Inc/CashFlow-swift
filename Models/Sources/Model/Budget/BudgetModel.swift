@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct BudgetModel: Codable, Identifiable, Equatable, Hashable {
+public struct BudgetModel: Codable, Identifiable, Equatable, Hashable, Sendable {
     public var id: Int?
     var _amount: Double?
     public var categoryID: Int?

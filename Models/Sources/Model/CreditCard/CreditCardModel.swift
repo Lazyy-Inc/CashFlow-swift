@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CreditCardModel: Codable, Identifiable, Equatable, Hashable {
+public struct CreditCardModel: Codable, Identifiable, Equatable, Hashable, Sendable {
     public var id: Int?
     public var uuid: UUID?
     public var holder: String

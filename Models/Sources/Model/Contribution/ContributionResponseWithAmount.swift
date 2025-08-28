@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ContributionResponseWithAmount: Codable {
+public struct ContributionResponseWithAmount: Codable, Sendable {
     public var newAmount: Double?
     public var contribution: ContributionModel?
     
