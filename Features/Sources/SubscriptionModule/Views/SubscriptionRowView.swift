@@ -9,7 +9,7 @@
 import SwiftUI
 import SwipeActions
 import AlertKit
-import NavigationKit
+import Navigation
 import TheoKit
 import DesignSystemModule
 import CoreModule

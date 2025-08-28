@@ -7,7 +7,7 @@
 // Localizations 01/10/2023
 
 import SwiftUI
-import NavigationKit
+import Navigation
 import StatsKit
 import TheoKit
 import DesignSystemModule

@@ -8,7 +8,7 @@
 // Refactor 25/02/2024
 
 import SwiftUI
-import NavigationKit
+import Navigation
 import TheoKit
 import DesignSystemModule
 import PreferenceModule

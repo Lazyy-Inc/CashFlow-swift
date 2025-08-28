@@ -8,7 +8,7 @@
 
 import SwiftUI
 import UIKit
-import NavigationKit
+import Navigation
 import TheoKit
 import DesignSystemModule
 import CoreModule

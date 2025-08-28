@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import NavigationKit
+import Navigation
 import AlertKit
 
 public extension AlertManager {

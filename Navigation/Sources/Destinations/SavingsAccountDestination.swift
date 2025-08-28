@@ -5,7 +5,6 @@
 //  Created by Theo Sementa on 17/04/2025.
 //
 
-import SwiftUICore
 import NavigationKit
 import Models
 

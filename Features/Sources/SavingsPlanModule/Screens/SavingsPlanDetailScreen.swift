@@ -8,7 +8,7 @@
 
 import SwiftUI
 import AlertKit
-import NavigationKit
+import Navigation
 import StatsKit
 import CoreModule
 import DesignSystemModule

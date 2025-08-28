@@ -9,7 +9,7 @@ import Foundation
 import NavigationKit
 
 public final class AppRouterManager: ObservableObject {
-    public static let shared = AppRouterManager()
+    @MainActor public static let shared = AppRouterManager()
     public var routers: [AppTabs: Router<AppDestination>] = [:]
 }
 

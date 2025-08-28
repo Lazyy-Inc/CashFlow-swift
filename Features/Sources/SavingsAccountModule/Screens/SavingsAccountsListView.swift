@@ -7,7 +7,7 @@
 
 import SwiftUI
 import AlertKit
-import NavigationKit
+import Navigation
 import TheoKit
 import DesignSystemModule
 import CoreModule

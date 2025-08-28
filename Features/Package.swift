@@ -29,6 +29,7 @@ let package = Package(
         .package(path: "../Mocks"),
         .package(path: "../Models"),
         .package(path: "../Stores"),
+        .package(path: "../Navigation"),
         
         .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.8"),
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
@@ -53,6 +54,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "GoogleSignIn", package: "GoogleSignIn-iOS")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -66,6 +68,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "NetworkKit", package: "NetworkKit")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -79,7 +82,8 @@ let package = Package(
                 "CoreModule",
                 "Mocks",
                 "Models",
-                "Stores"
+                "Stores",
+                "Navigation",
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
@@ -93,6 +97,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -108,6 +113,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -124,6 +130,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -138,6 +145,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -152,6 +160,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -167,6 +176,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -182,6 +192,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -197,6 +208,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -213,6 +225,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "NavigationKit", package: "NavigationKit"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
@@ -229,6 +242,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -245,6 +259,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -259,6 +274,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
+                "Navigation",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]

@@ -7,7 +7,7 @@
 
 import SwiftUICore
 import CoreModule
-import NavigationKit
+import Navigation
 import PaywallModule
 import TransactionModule
 import SubscriptionModule

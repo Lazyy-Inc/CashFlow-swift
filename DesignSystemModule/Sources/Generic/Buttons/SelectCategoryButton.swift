@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import NavigationKit
+import Navigation
 import TheoKit
 import CoreModule
 import Models

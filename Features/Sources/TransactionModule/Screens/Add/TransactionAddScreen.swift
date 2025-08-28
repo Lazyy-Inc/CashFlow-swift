@@ -7,7 +7,7 @@
 
 import SwiftUI
 import NetworkKit
-import NavigationKit
+import Navigation
 import StatsKit
 import TheoKit
 import DesignSystemModule

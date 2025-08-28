@@ -10,7 +10,7 @@
 import SwiftUI
 import CoreData
 import StoreKit
-import NavigationKit
+import Navigation
 import TheoKit
 import DesignSystemModule
 import CoreModule

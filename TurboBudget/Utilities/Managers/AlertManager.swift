@@ -8,7 +8,7 @@
 import Foundation
 import AlertKit
 import SwiftUI
-import NavigationKit
+import Navigation
 import StatsKit
 import CoreModule
 import UserModule

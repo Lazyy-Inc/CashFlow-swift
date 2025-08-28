@@ -9,7 +9,7 @@
 import SwiftUI
 import CloudKit
 import CoreData
-import NavigationKit
+import Navigation
 import StatsKit
 import CoreModule
 import PreferenceModule
