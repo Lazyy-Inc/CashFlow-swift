@@ -9,13 +9,12 @@
 // https://github.com/google/GoogleSignIn-iOS/issues/378
 import SwiftUI
 import GoogleSignIn
-import NetworkKit
 import Core
-@preconcurrency import UserModule
 import Preferences
 import Events
 import NetworkModule
 import Models
+import Stores
 
 class SignInWithGoogleManager: ObservableObject {
     

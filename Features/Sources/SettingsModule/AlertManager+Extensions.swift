@@ -9,7 +9,8 @@ import Foundation
 import AlertKit
 import SwiftUI
 import Events
-import UserModule
+import Core
+import Stores
 
 extension AlertManager {
     
@@ -22,6 +23,7 @@ extension AlertManager {
             action: {
                 // TODO: Clear data
                 await UserStore.shared.signOut()
+                AppManager.shared.appState = .needLogin
                 EventService.sendEvent(key: EventKeys.userLogout)
                 dismiss()
             }
@@ -37,6 +39,7 @@ extension AlertManager {
             action: {
                 // TODO: Clear data
                 await UserStore.shared.deleteAccount()
+                AppManager.shared.appState = .needLogin
                 EventService.sendEvent(key: EventKeys.userDeleted)
                 dismiss()
             }

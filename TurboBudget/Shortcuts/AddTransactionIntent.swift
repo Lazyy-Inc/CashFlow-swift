@@ -8,7 +8,6 @@
 import CoreData
 import AppIntents
 import Core
-import UserModule
 import Preferences
 import Sentry
 import Models

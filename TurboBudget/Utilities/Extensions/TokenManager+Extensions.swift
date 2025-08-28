@@ -9,9 +9,9 @@
 import Foundation
 import NetworkKit
 import Core
-import UserModule
 import NetworkModule
 import Models
+import Stores
 
 extension TokenManager {
 

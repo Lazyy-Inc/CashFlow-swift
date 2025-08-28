@@ -7,13 +7,12 @@
 
 import Foundation
 import AuthenticationServices
-@preconcurrency import NetworkKit
 import Core
-@preconcurrency import UserModule
 import Preferences
 import Events
 import NetworkModule
 import Models
+import Stores
 
 class SignInWithAppleManager: NSObject {
     

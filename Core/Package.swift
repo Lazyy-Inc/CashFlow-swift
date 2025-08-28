@@ -12,6 +12,7 @@ let package = Package(
     dependencies: [
         .package(path: "../Preferences"),
         .package(path: "../Events"),
+        .package(path: "../Stores"),
         .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7"),
         .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.9.3")
     ],
@@ -21,6 +22,7 @@ let package = Package(
             dependencies: [
                 "Preferences",
                 "Events",
+                "Stores",
                 .product(name: "TheoKit", package: "TheoKit"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],

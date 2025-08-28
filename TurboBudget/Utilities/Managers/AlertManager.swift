@@ -10,7 +10,6 @@ import AlertKit
 import SwiftUI
 import Navigation
 import Core
-import UserModule
 import Events
 import Models
 import Stores

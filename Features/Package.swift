@@ -8,7 +8,6 @@ let package = Package(
     platforms: [.iOS(.v17)],
     products: [
         .library(name: "OnboardingModule", targets: ["OnboardingModule"]),
-        .library(name: "UserModule", targets: ["UserModule"]),
         .library(name: "PaywallModule", targets: ["PaywallModule"]),
         .library(name: "TransactionModule", targets: ["TransactionModule"]),
         .library(name: "SubscriptionModule", targets: ["SubscriptionModule"]),
@@ -49,7 +48,6 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Core",
-                "UserModule",
                 "Mocks",
                 "Models",
                 "Stores",
@@ -59,20 +57,6 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "OnboardingModuleTests", dependencies: ["OnboardingModule"]),
-        
-        .target(
-            name: "UserModule",
-            dependencies: [
-                "Core",
-                "Mocks",
-                "Models",
-                "Stores",
-                "Navigation",
-                .product(name: "NetworkKit", package: "NetworkKit")
-            ],
-            swiftSettings: [.swiftLanguageMode(.v5)]
-        ),
-        .testTarget(name: "UserModuleTests", dependencies: ["UserModule"]),
         
         .target(
             name: "PaywallModule",

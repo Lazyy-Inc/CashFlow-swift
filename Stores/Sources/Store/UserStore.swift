@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import NetworkKit
-import Core
 import Models
 import NetworkModule
 
@@ -53,7 +51,6 @@ public extension UserStore {
     func signOut() async {
         TokenManager.shared.setTokenAndRefreshToken(token: "", refreshToken: "")
         self.currentUser = nil
-        AppManager.shared.appState = .needLogin
     }
     
     @MainActor
@@ -72,7 +69,6 @@ public extension UserStore {
             )
             TokenManager.shared.setTokenAndRefreshToken(token: "", refreshToken: "")
             self.currentUser = nil
-            AppManager.shared.appState = .needLogin
         } catch { NetworkService.handleError(error: error) }
     }
 }

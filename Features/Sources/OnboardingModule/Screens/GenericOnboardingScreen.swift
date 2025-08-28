@@ -8,7 +8,6 @@
 import SwiftUI
 import DesignSystem
 import AuthenticationServices
-import UserModule
 import NetworkKit
 import Core
 

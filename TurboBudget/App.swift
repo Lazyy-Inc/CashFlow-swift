@@ -10,7 +10,6 @@ import AlertKit
 import NotificationKit
 import TheoKit
 import Core
-import UserModule
 import OnboardingModule
 import Preferences
 import DesignSystem
