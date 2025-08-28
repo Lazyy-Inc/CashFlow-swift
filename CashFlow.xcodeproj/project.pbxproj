@@ -15,11 +15,11 @@
 		D9084DA12E5F823C0077F9C5 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA02E5F823C0077F9C5 /* Models */; };
 		D9084DA42E6068DB0077F9C5 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA32E6068DB0077F9C5 /* NetworkModule */; };
 		D9084DA72E606BEB0077F9C5 /* Banners in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA62E606BEB0077F9C5 /* Banners */; };
+		D9084DA92E6081AE0077F9C5 /* PreferenceModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA82E6081AE0077F9C5 /* PreferenceModule */; };
 		D912D00A2D140523006DF5DC /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = D912D0092D140523006DF5DC /* AlertKit */; };
 		D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94594F62D16A03A00A989F0 /* NotificationKit */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
 		D9564DE52E472CEB00F2341E /* EventModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564DE42E472CEB00F2341E /* EventModule */; };
-		D9564DE72E472CF000F2341E /* PreferenceModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564DE62E472CF000F2341E /* PreferenceModule */; };
 		D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D968BB2C2E4F2579006BB17A /* Sentry */; };
 		D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968BF5A2E4F29A7006BB17A /* SubscriptionModule */; };
 		D968C1772E4F4A6A006BB17A /* SavingsPlanModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1762E4F4A6A006BB17A /* SavingsPlanModule */; };
@@ -103,7 +103,6 @@
 				D9D2C65A2E2CB63600FEE9FD /* CoreModule in Frameworks */,
 				D968C2322E54F3CA006BB17A /* SubcategoryModule in Frameworks */,
 				D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */,
-				D9564DE72E472CF000F2341E /* PreferenceModule in Frameworks */,
 				D968C2072E54D2D3006BB17A /* TransferModule in Frameworks */,
 				D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */,
 				D97F63EF2DAFA3240060B741 /* NetworkKit in Frameworks */,
@@ -112,6 +111,7 @@
 				D9564DE52E472CEB00F2341E /* EventModule in Frameworks */,
 				D980E52C2DC1E928005025E1 /* TheoKit in Frameworks */,
 				D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */,
+				D9084DA92E6081AE0077F9C5 /* PreferenceModule in Frameworks */,
 				D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */,
 				D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */,
 			);
@@ -193,7 +193,6 @@
 				D9D5BC682E41352100118297 /* NavigationKit */,
 				D9564CD02E467A8B00F2341E /* TransactionModule */,
 				D9564DE42E472CEB00F2341E /* EventModule */,
-				D9564DE62E472CF000F2341E /* PreferenceModule */,
 				D968BB2C2E4F2579006BB17A /* Sentry */,
 				D968BF5A2E4F29A7006BB17A /* SubscriptionModule */,
 				D968C1762E4F4A6A006BB17A /* SavingsPlanModule */,
@@ -211,6 +210,7 @@
 				D9084DA02E5F823C0077F9C5 /* Models */,
 				D9084DA32E6068DB0077F9C5 /* NetworkModule */,
 				D9084DA62E606BEB0077F9C5 /* Banners */,
+				D9084DA82E6081AE0077F9C5 /* PreferenceModule */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -667,6 +667,10 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Banners;
 		};
+		D9084DA82E6081AE0077F9C5 /* PreferenceModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PreferenceModule;
+		};
 		D912D0092D140523006DF5DC /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D912D0082D140523006DF5DC /* XCRemoteSwiftPackageReference "AlertKit" */;
@@ -684,10 +688,6 @@
 		D9564DE42E472CEB00F2341E /* EventModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = EventModule;
-		};
-		D9564DE62E472CF000F2341E /* PreferenceModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PreferenceModule;
 		};
 		D968BB2C2E4F2579006BB17A /* Sentry */ = {
 			isa = XCSwiftPackageProductDependency;
