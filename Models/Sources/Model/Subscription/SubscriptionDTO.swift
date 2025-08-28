@@ -7,7 +7,6 @@
 
 import Foundation
 import NetworkKit
-import Models
 
 public struct SubscriptionDTO: Codable {
     public var id: Int?
@@ -52,7 +51,7 @@ public struct SubscriptionDTO: Codable {
         amount: Double,
         type: TransactionType,
         frequency: SubscriptionFrequency,
-        frequencyDate: Date,
+        frequencyDate: String,
         categoryID: Int,
         subcategoryID: Int? = nil
     ) {
@@ -60,7 +59,7 @@ public struct SubscriptionDTO: Codable {
         self.amount = amount
         self.typeNum = type.rawValue
         self.frequencyNum = frequency.rawValue
-        self.frequencyDate = frequencyDate.toISO()
+        self.frequencyDate = frequencyDate
         self.categoryID = categoryID
         self.subcategoryID = subcategoryID
     }

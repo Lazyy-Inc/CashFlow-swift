@@ -96,6 +96,9 @@ let package = Package(
                 "DesignSystemModule",
                 "CoreModule",
                 "TransactionModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]

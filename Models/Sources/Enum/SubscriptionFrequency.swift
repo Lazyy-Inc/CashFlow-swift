@@ -11,12 +11,4 @@ public enum SubscriptionFrequency: Int, Codable, CaseIterable {
     case monthly = 0
     case yearly = 1
     case weekly = 2
-    
-    public var name: String {
-        switch self {
-        case .monthly: return Word.Frequency.monthly
-        case .yearly: return Word.Frequency.yearly
-        case .weekly: return Word.Frequency.weekly
-        }
-    }
 }

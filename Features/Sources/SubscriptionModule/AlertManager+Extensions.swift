@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import AlertKit
 import CoreModule
+import Models
 
 public extension AlertManager {
     
