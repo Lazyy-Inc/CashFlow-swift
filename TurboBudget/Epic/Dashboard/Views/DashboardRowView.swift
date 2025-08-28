@@ -7,7 +7,7 @@
 
 import SwiftUI
 import TheoKit
-import DesignSystemModule
+import DesignSystem
 
 struct DashboardRowView: View {
     

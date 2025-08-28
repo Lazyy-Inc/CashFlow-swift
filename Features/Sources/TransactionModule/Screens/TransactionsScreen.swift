@@ -11,7 +11,7 @@ import SwiftUI
 import Navigation
 import TheoKit
 import Core
-import DesignSystemModule
+import DesignSystem
 import Dependencies
 import Stores
 

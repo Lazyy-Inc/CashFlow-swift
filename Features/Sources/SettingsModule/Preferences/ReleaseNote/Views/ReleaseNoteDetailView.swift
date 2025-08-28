@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import DesignSystemModule
+import DesignSystem
 import Core
 import Models
 

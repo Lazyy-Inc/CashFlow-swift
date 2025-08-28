@@ -11,7 +11,7 @@ import AlertKit
 import Navigation
 import StatsKit
 import Core
-import DesignSystemModule
+import DesignSystem
 import TransactionModule
 import EventModule
 import Dependencies

@@ -8,7 +8,7 @@
 import SwiftUI
 import Navigation
 import TheoKit
-import DesignSystemModule
+import DesignSystem
 import Preferences
 import Core
 import TransactionModule

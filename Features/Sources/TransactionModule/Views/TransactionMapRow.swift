@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import MapKit
 import Core
-import DesignSystemModule
+import DesignSystem
 import Models
 import Mocks
 

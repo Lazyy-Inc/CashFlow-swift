@@ -8,7 +8,7 @@
 import SwiftUI
 import StatsKit
 import Core
-import DesignSystemModule
+import DesignSystem
 import EventModule
 
 public struct CreditCardAddScreen: View {

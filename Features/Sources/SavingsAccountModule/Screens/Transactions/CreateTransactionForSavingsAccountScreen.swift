@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Core
-import DesignSystemModule
+import DesignSystem
 import TheoKit
 import NetworkKit
 import Models

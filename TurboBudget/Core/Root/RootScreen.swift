@@ -13,7 +13,7 @@ import Navigation
 import StatsKit
 import Core
 import Preferences
-import DesignSystemModule
+import DesignSystem
 import EventModule
 import CategoryModule
 import Stores

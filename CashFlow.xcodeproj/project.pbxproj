@@ -17,6 +17,7 @@
 		D9084DA72E606BEB0077F9C5 /* Banners in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA62E606BEB0077F9C5 /* Banners */; };
 		D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F392E6091E60077F9C5 /* Preferences */; };
 		D9084F3D2E6093FB0077F9C5 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F3C2E6093FB0077F9C5 /* Core */; };
+		D9084F402E609BC70077F9C5 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F3F2E609BC70077F9C5 /* DesignSystem */; };
 		D912D00A2D140523006DF5DC /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = D912D0092D140523006DF5DC /* AlertKit */; };
 		D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94594F62D16A03A00A989F0 /* NotificationKit */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
@@ -39,7 +40,6 @@
 		D980E52C2DC1E928005025E1 /* TheoKit in Frameworks */ = {isa = PBXBuildFile; productRef = D980E52B2DC1E928005025E1 /* TheoKit */; };
 		D9887FE22AA457A400AFC915 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9887FE12AA457A400AFC915 /* StoreKit.framework */; };
 		D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9D208042E315D5800FEE9FD /* PaywallModule */; };
-		D9D2C64B2E29850700FEE9FD /* DesignSystemModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9D2C64A2E29850700FEE9FD /* DesignSystemModule */; };
 		D9D5BC692E41352100118297 /* NavigationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D9D5BC682E41352100118297 /* NavigationKit */; };
 		D9F5C2222DB39458008267F5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D9F5C2212DB39458008267F5 /* README.md */; };
 /* End PBXBuildFile section */
@@ -54,10 +54,10 @@
 		D9084DA52E606BA00077F9C5 /* Banners */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Banners; sourceTree = "<group>"; };
 		D9084F382E6091D60077F9C5 /* Preferences */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Preferences; sourceTree = "<group>"; };
 		D9084F3B2E6093AB0077F9C5 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
+		D9084F3E2E609BA10077F9C5 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
 		D922E9A92E46688200B94AF7 /* Features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Features; sourceTree = "<group>"; };
 		D9564DE32E472B1900F2341E /* EventModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = EventModule; sourceTree = "<group>"; };
 		D9887FE12AA457A400AFC915 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		D9D2C5C22E297E9400FEE9FD /* DesignSystemModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystemModule; sourceTree = "<group>"; };
 		D9F5C2212DB39458008267F5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,7 +95,6 @@
 				D968C2052E54D055006BB17A /* SavingsAccountModule in Frameworks */,
 				D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */,
 				D9D5BC692E41352100118297 /* NavigationKit in Frameworks */,
-				D9D2C64B2E29850700FEE9FD /* DesignSystemModule in Frameworks */,
 				D9083BF22E5878CE0077F9C5 /* CreditCardModule in Frameworks */,
 				81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */,
 				D9084DA72E606BEB0077F9C5 /* Banners in Frameworks */,
@@ -110,6 +109,7 @@
 				D9084D9A2E5F72D70077F9C5 /* Navigation in Frameworks */,
 				D9564DE52E472CEB00F2341E /* EventModule in Frameworks */,
 				D980E52C2DC1E928005025E1 /* TheoKit in Frameworks */,
+				D9084F402E609BC70077F9C5 /* DesignSystem in Frameworks */,
 				D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */,
 				D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */,
 				D9084F3D2E6093FB0077F9C5 /* Core in Frameworks */,
@@ -125,7 +125,7 @@
 			children = (
 				D9084F3B2E6093AB0077F9C5 /* Core */,
 				D9084DA52E606BA00077F9C5 /* Banners */,
-				D9D2C5C22E297E9400FEE9FD /* DesignSystemModule */,
+				D9084F3E2E609BA10077F9C5 /* DesignSystem */,
 				D9564DE32E472B1900F2341E /* EventModule */,
 				D922E9A92E46688200B94AF7 /* Features */,
 				D9084D9D2E5F75320077F9C5 /* Mocks */,
@@ -185,7 +185,6 @@
 				D94594F62D16A03A00A989F0 /* NotificationKit */,
 				D97F63EE2DAFA3240060B741 /* NetworkKit */,
 				D980E52B2DC1E928005025E1 /* TheoKit */,
-				D9D2C64A2E29850700FEE9FD /* DesignSystemModule */,
 				D9D208042E315D5800FEE9FD /* PaywallModule */,
 				D96F97EB2E32B5F9006B0596 /* UserModule */,
 				D96F97ED2E32B924006B0596 /* OnboardingModule */,
@@ -211,6 +210,7 @@
 				D9084DA62E606BEB0077F9C5 /* Banners */,
 				D9084F392E6091E60077F9C5 /* Preferences */,
 				D9084F3C2E6093FB0077F9C5 /* Core */,
+				D9084F3F2E609BC70077F9C5 /* DesignSystem */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -675,6 +675,10 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
 		};
+		D9084F3F2E609BC70077F9C5 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
 		D912D0092D140523006DF5DC /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D912D0082D140523006DF5DC /* XCRemoteSwiftPackageReference "AlertKit" */;
@@ -764,10 +768,6 @@
 		D9D208042E315D5800FEE9FD /* PaywallModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PaywallModule;
-		};
-		D9D2C64A2E29850700FEE9FD /* DesignSystemModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DesignSystemModule;
 		};
 		D9D5BC682E41352100118297 /* NavigationKit */ = {
 			isa = XCSwiftPackageProductDependency;

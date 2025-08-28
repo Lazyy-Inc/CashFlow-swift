@@ -11,7 +11,7 @@ import AlertKit
 import Navigation
 import StatsKit
 import TheoKit
-import DesignSystemModule
+import DesignSystem
 import Core
 import Dependencies
 import EventModule

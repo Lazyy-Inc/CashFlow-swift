@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 import Core
-import DesignSystemModule
+import DesignSystem
 import Models
 import Stores
 

@@ -9,7 +9,7 @@
 import SwiftUI
 import StatsKit
 import Core
-import DesignSystemModule
+import DesignSystem
 import EventModule
 import Models
 

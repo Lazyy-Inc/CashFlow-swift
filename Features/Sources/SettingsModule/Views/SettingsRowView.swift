@@ -9,7 +9,7 @@ import SwiftUI
 import TheoKit
 import Navigation
 import AlertKit
-import DesignSystemModule
+import DesignSystem
 import Core
 
 struct SettingsRowView: View {

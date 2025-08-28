@@ -11,7 +11,7 @@ import SwiftUI
 import Navigation
 import Preferences
 import Core
-import DesignSystemModule
+import DesignSystem
 import Dependencies
 import SavingsPlanModule
 

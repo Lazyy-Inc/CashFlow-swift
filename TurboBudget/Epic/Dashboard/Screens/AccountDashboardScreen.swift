@@ -10,7 +10,7 @@ import SwiftUI
 import AlertKit
 import Navigation
 import TheoKit
-import DesignSystemModule
+import DesignSystem
 import Core
 import CreditCardModule
 import Stores

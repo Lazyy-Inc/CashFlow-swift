@@ -14,7 +14,7 @@ import StatsKit
 import UserModule
 import OnboardingModule
 import Preferences
-import DesignSystemModule
+import DesignSystem
 import Sentry
 import Stores
 

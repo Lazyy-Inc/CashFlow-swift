@@ -9,7 +9,7 @@
 
 import SwiftUI
 import Navigation
-import DesignSystemModule
+import DesignSystem
 import Core
 import TransactionModule
 import Dependencies

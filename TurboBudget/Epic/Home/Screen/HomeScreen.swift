@@ -12,7 +12,7 @@ import CoreData
 import StoreKit
 import Navigation
 import TheoKit
-import DesignSystemModule
+import DesignSystem
 import Core
 import Preferences
 

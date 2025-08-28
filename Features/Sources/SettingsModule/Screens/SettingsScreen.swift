@@ -8,7 +8,7 @@
 import SwiftUI
 import AlertKit
 import TheoKit
-import DesignSystemModule
+import DesignSystem
 import Core
 import UserModule
 

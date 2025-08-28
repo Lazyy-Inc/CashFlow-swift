@@ -7,7 +7,7 @@
 
 import SwiftUI
 import TheoKit
-import DesignSystemModule
+import DesignSystem
 import Core
 import Dependencies
 import Models

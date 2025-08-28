@@ -10,7 +10,7 @@ import SwiftUI
 import SwipeActions
 import AlertKit
 import Core
-import DesignSystemModule
+import DesignSystem
 import Models
 
 struct ContributionRowView: View {

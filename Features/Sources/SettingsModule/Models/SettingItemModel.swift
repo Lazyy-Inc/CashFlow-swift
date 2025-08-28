@@ -11,7 +11,7 @@ import Navigation
 import AlertKit
 import SwiftUI
 import Core
-import DesignSystemModule
+import DesignSystem
 
 enum SettingItemModel: Identifiable {
     case cashFlowPro

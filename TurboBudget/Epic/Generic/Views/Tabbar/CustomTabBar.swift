@@ -8,7 +8,7 @@
 
 import SwiftUI
 import AlertKit
-import DesignSystemModule
+import DesignSystem
 import Core
 import Stores
 

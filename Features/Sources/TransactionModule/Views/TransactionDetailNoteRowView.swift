@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Core
-import DesignSystemModule
+import DesignSystem
 
 public struct TransactionDetailNoteRowView: View {
     

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import DesignSystemModule
+import DesignSystem
 import AuthenticationServices
 import UserModule
 import NetworkKit

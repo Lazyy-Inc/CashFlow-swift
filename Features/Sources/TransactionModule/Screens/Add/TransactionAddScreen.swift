@@ -10,7 +10,7 @@ import NetworkKit
 import Navigation
 import StatsKit
 import TheoKit
-import DesignSystemModule
+import DesignSystem
 import Core
 import EventModule
 import Models

@@ -8,7 +8,7 @@
 import SwiftUI
 import Charts
 import TheoKit
-import DesignSystemModule
+import DesignSystem
 import Core
 import Models
 

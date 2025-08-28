@@ -10,7 +10,7 @@ import SwiftUI
 import MCEmojiPicker
 import StatsKit
 import TheoKit
-import DesignSystemModule
+import DesignSystem
 import Core
 import EventModule
 import Dependencies
