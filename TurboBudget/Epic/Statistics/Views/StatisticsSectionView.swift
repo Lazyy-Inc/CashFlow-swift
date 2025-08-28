@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Models
 
 struct StatisticsSectionView<Content: View>: View {
     

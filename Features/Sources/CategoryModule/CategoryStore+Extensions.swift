@@ -10,6 +10,7 @@ import NetworkKit
 import CoreModule
 import Models
 import Stores
+import SwiftUI
 
 public extension CategoryStore {
     
@@ -120,4 +121,44 @@ public extension CategoryModel {
         return transactions.filter { $0.isFromSubscription == true }
     }
     
+}
+
+public extension CategoryDTO {
+    
+    func toModel() throws -> CategoryModel {
+        guard let id,
+              let name,
+              let icon,
+              let color
+        else { throw NetworkError.parsingError }
+        
+        return .init(
+            id: id,
+            name: name.localized,
+            icon: icon,
+            color: Color(hex: color),
+            subcategories: try subcategories?.map { try $0.toModel() } ?? []
+        )
+    }
+}
+
+public extension SubcategoryDTO {
+  
+  func toModel() throws -> SubcategoryModel {
+    guard let id,
+          let name,
+          let icon,
+          let color,
+          let isVisible
+    else { throw NetworkError.parsingError }
+    
+    return SubcategoryModel(
+      id: id,
+      name: name.localized,
+      icon: icon,
+      color: Color(hex: color),
+      isVisible: isVisible
+    )
+  }
+  
 }

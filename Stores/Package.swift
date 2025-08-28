@@ -10,13 +10,16 @@ let package = Package(
         .library(name: "Stores", targets: ["Stores"])
     ],
     dependencies: [
-      .package(path: "../Models")
+      .package(path: "../Models"),
+      
+      .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.9.3")
     ],
     targets: [
         .target(
             name: "Stores",
             dependencies: [
-              "Models"
+              "Models",
+              .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),

@@ -9,6 +9,7 @@ import SwiftUI
 import CoreModule
 import PreferenceModule
 import AccountModule
+import Stores
 
 public struct SettingsAccountScreen: View {
     

@@ -16,6 +16,7 @@ import EventModule
 import TransferModule
 import AccountModule
 import Dependencies
+import Stores
 
 public struct SavingsAccountDetailScreen: View {
     

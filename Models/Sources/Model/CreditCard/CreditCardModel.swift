@@ -71,16 +71,3 @@ public extension CreditCardModel {
     }
     
 }
-
-public extension CreditCardModel {
-    
-    static let mock: CreditCardModel = .init(
-        uuid: UUID(),
-        holder: "Test Holder",
-        number: "1234 5678 9012 3456",
-        cvc: "123",
-        expirateDate: Date().toISO(),
-        limitByMonth: 1500
-    )
-    
-}

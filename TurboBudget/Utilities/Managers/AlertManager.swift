@@ -14,6 +14,7 @@ import CoreModule
 import UserModule
 import EventModule
 import Models
+import Stores
 
 extension AlertManager {
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public final class AppManager: ObservableObject {
     @MainActor public static let shared = AppManager()

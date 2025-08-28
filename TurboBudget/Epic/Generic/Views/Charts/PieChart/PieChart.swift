@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import CoreModule
 import DesignSystemModule
+import Models
 
 struct PieChart: View {
     

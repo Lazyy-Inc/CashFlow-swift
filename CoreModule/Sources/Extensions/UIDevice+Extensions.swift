@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import LocalAuthentication
+import Models
 
 public extension UIDevice {
     

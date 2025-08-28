@@ -16,6 +16,7 @@ import OnboardingModule
 import PreferenceModule
 import DesignSystemModule
 import Sentry
+import Stores
 
 @main
 struct TurboBudgetApp: App {

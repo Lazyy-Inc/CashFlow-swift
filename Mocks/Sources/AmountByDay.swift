@@ -1,22 +1,12 @@
 //
-//  AmountByDay.swift
-//  CashFlow
+//  File.swift
+//  Mocks
 //
-//  Created by Theo Sementa on 25/07/2023.
+//  Created by Theo Sementa on 28/08/2025.
 //
 
 import Foundation
-
-public struct AmountByDay: Hashable, Identifiable {
-    public let id: UUID = UUID()
-    public var day: Date
-    public var amount: Double
-    
-    public init(day: Date, amount: Double) {
-        self.day = day
-        self.amount = amount
-    }
-}
+import Models
 
 public extension AmountByDay {
     static let mockToday = AmountByDay(

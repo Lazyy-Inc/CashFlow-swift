@@ -10,6 +10,7 @@ import SwipeActions
 import CoreModule
 import Dependencies
 import Models
+import Stores
 
 public enum TransferRowLocation {
     case successfulSheet, savingsAccount

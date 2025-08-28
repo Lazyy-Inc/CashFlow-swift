@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import SwiftUICore
-import TheoKit
+import SwiftUI
 
 public struct SubscriptionModel: Identifiable, Equatable, Hashable {
     public var id: Int

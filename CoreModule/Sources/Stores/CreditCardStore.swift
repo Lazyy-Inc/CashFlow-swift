@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public final class CreditCardStore: ObservableObject {
     public static let shared = CreditCardStore()

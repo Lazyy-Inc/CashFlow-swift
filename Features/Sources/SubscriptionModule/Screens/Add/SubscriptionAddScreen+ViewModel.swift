@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import CoreModule
 import Models
+import Stores
 
 extension SubscriptionAddScreen {
     

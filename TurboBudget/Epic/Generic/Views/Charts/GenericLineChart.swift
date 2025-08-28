@@ -10,6 +10,7 @@ import Charts
 import TheoKit
 import DesignSystemModule
 import CoreModule
+import Models
 
 struct GenericLineChart: View {
     

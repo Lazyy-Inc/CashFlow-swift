@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreModule
 import Models
+import Stores
 
 public struct CircleCategory: View {
     

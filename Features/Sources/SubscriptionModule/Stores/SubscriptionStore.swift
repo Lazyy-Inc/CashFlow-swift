@@ -161,3 +161,24 @@ public extension SubscriptionDTO {
     }
     
 }
+
+public extension SubcategoryDTO {
+  
+  func toModel() throws -> SubcategoryModel {
+    guard let id,
+          let name,
+          let icon,
+          let color,
+          let isVisible
+    else { throw NetworkError.parsingError }
+    
+    return SubcategoryModel(
+      id: id,
+      name: name.localized,
+      icon: icon,
+      color: Color(hex: color),
+      isVisible: isVisible
+    )
+  }
+  
+}

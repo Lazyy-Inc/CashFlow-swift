@@ -13,6 +13,7 @@ import TheoKit
 import DesignSystemModule
 import NetworkKit
 import Models
+import Stores
 
 public struct AddAccountScreen: View {
     

@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-public class Filter: Identifiable, ObservableObject {
-    public static let shared = Filter()
+public class Filter: Identifiable, ObservableObject { // TODO: To be deleted
+    @MainActor public static let shared = Filter()
     public var id: UUID = UUID()
     
     @Published public var date: Date = Date()
@@ -23,4 +23,4 @@ public class Filter: Identifiable, ObservableObject {
     @Published public var total: Bool = false
 }
 
-public let sharedFilter = Filter.shared
+@MainActor public let sharedFilter = Filter.shared
