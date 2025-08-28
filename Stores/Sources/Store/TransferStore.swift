@@ -8,7 +8,7 @@
 import Foundation
 import Models
 import NetworkModule
-import EventModule
+import Events
 
 public final class TransferStore: ObservableObject {
     public static let shared = TransferStore()

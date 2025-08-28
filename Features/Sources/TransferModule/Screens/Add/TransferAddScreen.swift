@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import StatsKit
 import TheoKit
 import DesignSystem
 import Core
-import EventModule
+import Events
 import Models
 
 public struct TransferAddScreen: View {

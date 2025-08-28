@@ -10,13 +10,13 @@ import AlertKit
 import NotificationKit
 import TheoKit
 import Core
-import StatsKit
 import UserModule
 import OnboardingModule
 import Preferences
 import DesignSystem
 import Sentry
 import Stores
+import Events
 
 @main
 struct TurboBudgetApp: App {

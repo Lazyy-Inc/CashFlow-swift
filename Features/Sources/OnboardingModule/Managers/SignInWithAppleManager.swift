@@ -8,11 +8,10 @@
 import Foundation
 import AuthenticationServices
 @preconcurrency import NetworkKit
-import StatsKit
 import Core
 @preconcurrency import UserModule
 import Preferences
-import EventModule
+import Events
 import NetworkModule
 import Models
 

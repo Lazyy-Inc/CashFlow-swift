@@ -7,12 +7,11 @@
 
 import SwiftUI
 import Navigation
-import StatsKit
 import TheoKit
 import DesignSystem
 import Core
 import Dependencies
-import EventModule
+import Events
 import Stores
 
 struct TransactionsListScreen: View {

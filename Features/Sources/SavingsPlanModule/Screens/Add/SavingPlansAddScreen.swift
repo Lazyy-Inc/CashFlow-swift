@@ -8,11 +8,10 @@
 
 import SwiftUI
 import MCEmojiPicker
-import StatsKit
 import TheoKit
 import DesignSystem
 import Core
-import EventModule
+import Events
 import Dependencies
 import Models
 import Stores

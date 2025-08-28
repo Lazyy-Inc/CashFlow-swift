@@ -9,7 +9,7 @@ import Foundation
 import Models
 import NetworkModule
 import Preferences
-import EventModule
+import Events
 
 public final class AccountStore: ObservableObject {
     public static let shared = AccountStore()

@@ -7,10 +7,9 @@
 // Localizations 30/09/2023
 
 import SwiftUI
-import StatsKit
 import Core
 import DesignSystem
-import EventModule
+import Events
 import Models
 
 public struct ContributionAddScreen: View {

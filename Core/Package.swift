@@ -11,9 +11,8 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Preferences"),
-        .package(path: "../EventModule"),
+        .package(path: "../Events"),
         .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7"),
-        .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.8"),
         .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.9.3")
     ],
     targets: [
@@ -21,9 +20,8 @@ let package = Package(
             name: "Core",
             dependencies: [
                 "Preferences",
-                "EventModule",
+                "Events",
                 .product(name: "TheoKit", package: "TheoKit"),
-                .product(name: "StatsKit", package: "StatsKit"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]

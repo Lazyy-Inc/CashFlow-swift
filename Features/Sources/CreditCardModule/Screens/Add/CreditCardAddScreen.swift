@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
-import StatsKit
 import Core
 import DesignSystem
-import EventModule
+import Events
 
 public struct CreditCardAddScreen: View {
     

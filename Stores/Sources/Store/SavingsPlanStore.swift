@@ -9,7 +9,7 @@ import Foundation
 import Dependencies
 import Models
 import NetworkModule
-import EventModule
+import Events
 
 @Observable
 public final class SavingsPlanStore {

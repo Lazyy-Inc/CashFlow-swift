@@ -7,12 +7,11 @@
 
 import SwiftUI
 import Navigation
-import StatsKit
 import TheoKit
 import DesignSystem
 import Core
 import TransactionModule
-import EventModule
+import Events
 import TransferModule
 import AccountModule
 import Dependencies

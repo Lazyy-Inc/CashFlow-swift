@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  EventModule
+//  Events
 //
 //  Created by Theo Sementa on 28/08/2025.
 //

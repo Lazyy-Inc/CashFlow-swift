@@ -9,12 +9,11 @@
 import SwiftUI
 import AlertKit
 import Navigation
-import StatsKit
 import TheoKit
 import DesignSystem
 import Core
 import Dependencies
-import EventModule
+import Events
 import Models
 import Mocks
 import Stores

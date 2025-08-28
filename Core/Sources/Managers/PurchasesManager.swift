@@ -7,8 +7,7 @@
 
 import Foundation
 import StoreKit
-import StatsKit
-import EventModule
+import Events
 
 @MainActor
 public class PurchasesManager: NSObject, ObservableObject {

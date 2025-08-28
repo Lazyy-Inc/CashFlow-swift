@@ -9,10 +9,9 @@ import Foundation
 import AlertKit
 import SwiftUI
 import Navigation
-import StatsKit
 import Core
 import UserModule
-import EventModule
+import Events
 import Models
 import Stores
 

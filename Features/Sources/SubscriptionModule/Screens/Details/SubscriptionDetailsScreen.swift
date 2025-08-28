@@ -8,11 +8,10 @@
 import SwiftUI
 import AlertKit
 import Navigation
-import StatsKit
 import TheoKit
 import DesignSystem
 import Core
-import EventModule
+import Events
 import Dependencies
 import TransactionModule
 import Models

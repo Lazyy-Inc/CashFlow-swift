@@ -9,11 +9,10 @@
 import SwiftUI
 import AlertKit
 import Navigation
-import StatsKit
 import Core
 import DesignSystem
 import TransactionModule
-import EventModule
+import Events
 import Dependencies
 import Models
 

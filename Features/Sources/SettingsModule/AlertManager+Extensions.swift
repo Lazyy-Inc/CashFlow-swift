@@ -8,8 +8,7 @@
 import Foundation
 import AlertKit
 import SwiftUI
-import StatsKit
-import EventModule
+import Events
 import UserModule
 
 extension AlertManager {

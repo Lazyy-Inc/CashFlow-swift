@@ -10,11 +10,10 @@ import SwiftUI
 import CloudKit
 import CoreData
 import Navigation
-import StatsKit
 import Core
 import Preferences
 import DesignSystem
-import EventModule
+import Events
 import CategoryModule
 import Stores
 

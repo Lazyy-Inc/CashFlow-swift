@@ -7,10 +7,9 @@
 // Localizations 01/10/2023
 
 import SwiftUI
-import StatsKit
 import Core
 import DesignSystem
-import EventModule
+import Events
 
 public struct PaywallScreen: View {
     

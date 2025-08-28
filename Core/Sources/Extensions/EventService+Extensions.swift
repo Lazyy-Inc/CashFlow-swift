@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import StatsKit
-import EventModule
+import Events
 import Models
 
 public extension EventService {

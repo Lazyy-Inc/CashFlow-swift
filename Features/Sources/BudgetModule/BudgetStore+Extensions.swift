@@ -8,9 +8,8 @@
 import Foundation
 import NetworkKit
 import Core
-import StatsKit
 import SwiftUI
-import EventModule
+import Events
 import Models
 import Stores
 import NetworkModule
