@@ -10,12 +10,14 @@ let package = Package(
     .library(name: "Navigation", targets: ["Navigation"])
   ],
   dependencies: [
+    .package(path: "../Models"),
     .package(url: "https://github.com/theosementa/NavigationKit", branch: "2.0.2")
   ],
   targets: [
     .target(
       name: "Navigation",
       dependencies: [
+        "Models",
         .product(name: "NavigationKit", package: "NavigationKit")
       ]
     ),

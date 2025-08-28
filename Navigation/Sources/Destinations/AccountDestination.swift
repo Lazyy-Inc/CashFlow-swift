@@ -12,5 +12,5 @@ public enum AccountDestination: DestinationItem {
     case create
     case update(account: AccountModel)
     case dashboard
-    case statistics    
+    case statistics
 }
