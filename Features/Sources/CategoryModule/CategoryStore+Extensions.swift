@@ -11,6 +11,7 @@ import CoreModule
 import Models
 import Stores
 import SwiftUI
+import NetworkModule
 
 public extension CategoryStore {
     

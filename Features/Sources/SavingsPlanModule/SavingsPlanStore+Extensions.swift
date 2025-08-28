@@ -12,6 +12,7 @@ import StatsKit
 import EventModule
 import Models
 import Stores
+import NetworkModule
 
 public extension SavingsPlanStore {
     

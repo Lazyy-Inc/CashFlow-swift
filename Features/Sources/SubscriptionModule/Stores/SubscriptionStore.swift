@@ -16,6 +16,7 @@ import PreferenceModule
 import DesignSystemModule
 import Models
 import Stores
+import NetworkModule
 
 public extension SubscriptionStore {
     
@@ -34,7 +35,7 @@ public extension SubscriptionStore {
     @MainActor
     func fetchSubscriptions(accountID: Int) async {
         do {
-            self.subscriptions = try await SubscriptionService.fetchAll(for: accountID)
+          self.subscriptions = try await SubscriptionService.fetchAll(for: accountID).map { try $0.toModel() }
             sortSubscriptionsByDate()
         } catch { NetworkService.handleError(error: error) }
     }
@@ -43,7 +44,7 @@ public extension SubscriptionStore {
     @MainActor
     func createSubscription(accountID: Int, body: SubscriptionDTO, shouldReturn: Bool = false) async -> SubscriptionModel? {
         do {
-            let subscription = try await SubscriptionService.create(accountID: accountID, body: body)
+          let subscription = try await SubscriptionService.create(accountID: accountID, body: body).toModel()
             self.subscriptions.append(subscription)
             sortSubscriptionsByDate()
             EventService.sendEvent(key: EventKeys.subscriptionCreated)
@@ -58,7 +59,7 @@ public extension SubscriptionStore {
     @MainActor
     func updateSubscription(subscriptionID: Int, body: SubscriptionDTO) async -> SubscriptionModel? {
         do {
-            let subscription = try await SubscriptionService.update(subscriptionID: subscriptionID, body: body)
+          let subscription = try await SubscriptionService.update(subscriptionID: subscriptionID, body: body).toModel()
             if let index = self.subscriptions.firstIndex(where: { $0.id == subscriptionID }) {
                 self.subscriptions[index] = subscription
                 sortSubscriptionsByDate()

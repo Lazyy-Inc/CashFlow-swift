@@ -12,6 +12,7 @@ import CoreModule
 import EventModule
 import Models
 import Stores
+import NetworkModule
 
 public extension CreditCardStore {
  

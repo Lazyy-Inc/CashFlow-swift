@@ -11,7 +11,11 @@ let package = Package(
     ],
     dependencies: [
       .package(path: "../Models"),
+      .package(path: "../NetworkModule"),
+      .package(path: "../PreferenceModule"),
+      .package(path: "../EventModule"),
       
+      .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7"),
       .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.9.3")
     ],
     targets: [
@@ -19,6 +23,10 @@ let package = Package(
             name: "Stores",
             dependencies: [
               "Models",
+              "NetworkModule",
+              "PreferenceModule",
+              "EventModule",
+              .product(name: "TheoKit", package: "TheoKit"),
               .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]

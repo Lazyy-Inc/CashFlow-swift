@@ -8,6 +8,8 @@
 import Foundation
 import NetworkKit
 import CoreModule
+import Models
+import NetworkModule
 
 public final class UserStore: ObservableObject {
     public static let shared = UserStore()

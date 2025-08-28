@@ -91,3 +91,26 @@ public struct AccountModel: Codable, Identifiable, Equatable, Hashable {
         case isMain
     }
 }
+
+extension AccountModel: Searchable {
+    public var searchableText: String {
+        return name
+    }
+}
+
+public extension AccountModel {
+  
+  var name: String {
+      return self._name ?? ""
+  }
+  
+  var balance: Double {
+      return self._balance ?? 0
+  }
+  
+  var type: AccountType? {
+      guard let typeNum else { return nil }
+      return AccountType(rawValue: typeNum)
+  }
+  
+}

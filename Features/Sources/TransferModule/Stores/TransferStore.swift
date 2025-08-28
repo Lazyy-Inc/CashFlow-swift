@@ -13,6 +13,7 @@ import TransactionModule
 import EventModule
 import Models
 import Stores
+import NetworkModule
 
 public extension TransferStore {
     

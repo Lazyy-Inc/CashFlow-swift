@@ -12,6 +12,7 @@ import CoreModule
 import EventModule
 import Stores
 import Models
+import NetworkModule
 
 public extension TransactionStore {
     
@@ -54,7 +55,7 @@ public extension TransactionStore {
                 startDate: startDate,
                 endDate: endDate,
                 type: type
-            )
+            ).map { try $0.toModel() }
             
             currentDateForFetch = startDate
             self.dateFetched.append(currentDateForFetch)

@@ -10,6 +10,7 @@ import SwiftUI
 import CoreModule
 import Models
 import Stores
+import NetworkModule
 
 extension CreditCardAddScreen {
     
