@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import NetworkKit
 
 public struct TransactionDTO: Codable {
     public var id: Int?

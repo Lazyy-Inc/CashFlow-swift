@@ -11,14 +11,6 @@ import Stores
 
 public extension SubscriptionStore {
     
-    func sortSubscriptionsByDate() {
-        self.subscriptions.sort { $0.frequencyDate < $1.frequencyDate }
-    }
-    
-}
-
-public extension SubscriptionStore {
-    
     func amountExpensesByMonth(month: Date) -> Double {
         return self.subscriptions
             .filter { Calendar.current.isDate($0.frequencyDate, equalTo: month, toGranularity: .month) && $0.type == .expense }

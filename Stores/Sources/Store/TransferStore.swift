@@ -1,19 +1,30 @@
 //
 //  TransferStore.swift
-//  CashFlow
+//  CoreModule
 //
-//  Created by Theo Sementa on 29/11/2024.
+//  Created by Theo Sementa on 09/08/2025.
 //
 
 import Foundation
-import NetworkKit
-import StatsKit
-import CoreModule
-import TransactionModule
-import EventModule
 import Models
-import Stores
 import NetworkModule
+import EventModule
+
+public final class TransferStore: ObservableObject {
+    public static let shared = TransferStore()
+    
+    @Published public var transfers: [TransactionModel] = []
+    
+    public var monthsOfTransfers: [Date] {
+        let calendar = Calendar.current
+        
+        let uniqueMonths = Set(transfers.map {
+            calendar.dateComponents([.month, .year], from: $0.date)
+        })
+        
+        return uniqueMonths.compactMap { calendar.date(from: $0) }.sorted(by: >)
+    }
+}
 
 public extension TransferStore {
     

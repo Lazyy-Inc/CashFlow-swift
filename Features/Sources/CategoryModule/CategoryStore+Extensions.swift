@@ -6,31 +6,9 @@
 //
 
 import Foundation
-import NetworkKit
 import CoreModule
 import Models
 import Stores
-import SwiftUI
-import NetworkModule
-
-public extension CategoryStore {
-    
-    @MainActor
-    func fetchCategories() async {
-        do {
-            let categories = try await NetworkService.sendRequest(
-                apiBuilder: CategoryAPIRequester.fetchCategories,
-                responseModel: [CategoryDTO].self
-            ).map { try $0.toModel() }
-            self.categories = categories
-            for (index, category) in self.categories.enumerated() {
-                self.categories[index].subcategories = category.subcategories?.filter { $0.isVisible }
-            }
-            self.subcategories = categories.flatMap { $0.subcategories ?? [] }
-        } catch { NetworkService.handleError(error: error) }
-    }
-    
-}
 
 public extension CategoryStore {
     
@@ -122,44 +100,4 @@ public extension CategoryModel {
         return transactions.filter { $0.isFromSubscription == true }
     }
     
-}
-
-public extension CategoryDTO {
-    
-    func toModel() throws -> CategoryModel {
-        guard let id,
-              let name,
-              let icon,
-              let color
-        else { throw NetworkError.parsingError }
-        
-        return .init(
-            id: id,
-            name: name.localized,
-            icon: icon,
-            color: Color(hex: color),
-            subcategories: try subcategories?.map { try $0.toModel() } ?? []
-        )
-    }
-}
-
-public extension SubcategoryDTO {
-  
-  func toModel() throws -> SubcategoryModel {
-    guard let id,
-          let name,
-          let icon,
-          let color,
-          let isVisible
-    else { throw NetworkError.parsingError }
-    
-    return SubcategoryModel(
-      id: id,
-      name: name.localized,
-      icon: icon,
-      color: Color(hex: color),
-      isVisible: isVisible
-    )
-  }
-  
 }
