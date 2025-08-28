@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreModule
-import PreferenceModule
+import Preferences
 
 struct TipApplePayShortcutScreen: View {
     

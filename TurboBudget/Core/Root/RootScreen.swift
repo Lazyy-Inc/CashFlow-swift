@@ -12,7 +12,7 @@ import CoreData
 import Navigation
 import StatsKit
 import CoreModule
-import PreferenceModule
+import Preferences
 import DesignSystemModule
 import EventModule
 import CategoryModule

@@ -8,7 +8,7 @@
 import Foundation
 import Models
 import NetworkModule
-import PreferenceModule
+import Preferences
 import EventModule
 
 public final class AccountStore: ObservableObject {

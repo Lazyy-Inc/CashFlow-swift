@@ -13,7 +13,7 @@ import CoreModule
 import StatsKit
 import UserModule
 import OnboardingModule
-import PreferenceModule
+import Preferences
 import DesignSystemModule
 import Sentry
 import Stores

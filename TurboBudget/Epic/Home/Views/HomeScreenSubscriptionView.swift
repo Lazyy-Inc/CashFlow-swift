@@ -11,7 +11,7 @@ import SwiftUI
 import Navigation
 import TheoKit
 import DesignSystemModule
-import PreferenceModule
+import Preferences
 import CoreModule
 import Dependencies
 import SubscriptionModule

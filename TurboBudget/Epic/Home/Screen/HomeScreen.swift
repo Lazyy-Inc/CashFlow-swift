@@ -14,7 +14,7 @@ import Navigation
 import TheoKit
 import DesignSystemModule
 import CoreModule
-import PreferenceModule
+import Preferences
 
 struct HomeScreen: View {
         

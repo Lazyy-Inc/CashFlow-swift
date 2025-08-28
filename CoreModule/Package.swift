@@ -14,7 +14,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../PreferenceModule"),
+        .package(path: "../Preferences"),
         .package(path: "../EventModule"),
         .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7"),
         .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.8"),
@@ -26,7 +26,7 @@ let package = Package(
         .target(
             name: "CoreModule",
             dependencies: [
-                "PreferenceModule",
+                "Preferences",
                 "EventModule",
                 .product(name: "TheoKit", package: "TheoKit"),
                 .product(name: "StatsKit", package: "StatsKit"),

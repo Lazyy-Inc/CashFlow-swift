@@ -9,7 +9,7 @@ import Foundation
 import NotificationKit
 import CoreModule
 import Dependencies
-import PreferenceModule
+import Preferences
 import TransactionModule
 import SubscriptionModule
 import BudgetModule

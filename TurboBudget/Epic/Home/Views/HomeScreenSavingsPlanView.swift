@@ -9,7 +9,7 @@
 
 import SwiftUI
 import Navigation
-import PreferenceModule
+import Preferences
 import CoreModule
 import DesignSystemModule
 import Dependencies

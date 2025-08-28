@@ -13,7 +13,7 @@ import NetworkKit
 import StatsKit
 import CoreModule
 @preconcurrency import UserModule
-import PreferenceModule
+import Preferences
 import EventModule
 import NetworkModule
 import Models

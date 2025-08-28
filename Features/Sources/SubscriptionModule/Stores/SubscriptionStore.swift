@@ -12,7 +12,7 @@ import CoreModule
 import SwiftUI
 import TheoKit
 import EventModule
-import PreferenceModule
+import Preferences
 import DesignSystemModule
 import Models
 import Stores

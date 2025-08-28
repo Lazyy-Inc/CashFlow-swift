@@ -8,7 +8,7 @@
 import SwiftUI
 import Navigation
 import CoreModule
-import PreferenceModule
+import Preferences
 
 public struct WhatsNewScreen: View {
     

@@ -15,7 +15,7 @@
 		D9084DA12E5F823C0077F9C5 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA02E5F823C0077F9C5 /* Models */; };
 		D9084DA42E6068DB0077F9C5 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA32E6068DB0077F9C5 /* NetworkModule */; };
 		D9084DA72E606BEB0077F9C5 /* Banners in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA62E606BEB0077F9C5 /* Banners */; };
-		D9084DA92E6081AE0077F9C5 /* PreferenceModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA82E6081AE0077F9C5 /* PreferenceModule */; };
+		D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F392E6091E60077F9C5 /* Preferences */; };
 		D912D00A2D140523006DF5DC /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = D912D0092D140523006DF5DC /* AlertKit */; };
 		D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94594F62D16A03A00A989F0 /* NotificationKit */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
@@ -52,8 +52,8 @@
 		D9084D9D2E5F75320077F9C5 /* Mocks */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Mocks; sourceTree = "<group>"; };
 		D9084DA22E6067BC0077F9C5 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkModule; sourceTree = "<group>"; };
 		D9084DA52E606BA00077F9C5 /* Banners */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Banners; sourceTree = "<group>"; };
+		D9084F382E6091D60077F9C5 /* Preferences */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Preferences; sourceTree = "<group>"; };
 		D922E9A92E46688200B94AF7 /* Features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Features; sourceTree = "<group>"; };
-		D9564DE22E472A2000F2341E /* PreferenceModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PreferenceModule; sourceTree = "<group>"; };
 		D9564DE32E472B1900F2341E /* EventModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = EventModule; sourceTree = "<group>"; };
 		D9887FE12AA457A400AFC915 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D9D2C5C22E297E9400FEE9FD /* DesignSystemModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystemModule; sourceTree = "<group>"; };
@@ -101,6 +101,7 @@
 				D9084DA72E606BEB0077F9C5 /* Banners in Frameworks */,
 				D968C1B02E50651E006BB17A /* AccountModule in Frameworks */,
 				D9D2C65A2E2CB63600FEE9FD /* CoreModule in Frameworks */,
+				D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */,
 				D968C2322E54F3CA006BB17A /* SubcategoryModule in Frameworks */,
 				D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */,
 				D968C2072E54D2D3006BB17A /* TransferModule in Frameworks */,
@@ -111,7 +112,6 @@
 				D9564DE52E472CEB00F2341E /* EventModule in Frameworks */,
 				D980E52C2DC1E928005025E1 /* TheoKit in Frameworks */,
 				D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */,
-				D9084DA92E6081AE0077F9C5 /* PreferenceModule in Frameworks */,
 				D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */,
 				D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */,
 			);
@@ -124,16 +124,16 @@
 			isa = PBXGroup;
 			children = (
 				D9084DA52E606BA00077F9C5 /* Banners */,
-				D9084DA22E6067BC0077F9C5 /* NetworkModule */,
-				D9084D9D2E5F75320077F9C5 /* Mocks */,
-				D9084D9C2E5F73B50077F9C5 /* Stores */,
-				D9084D9B2E5F73310077F9C5 /* Models */,
-				D9084D982E5F72980077F9C5 /* Navigation */,
-				D9564DE32E472B1900F2341E /* EventModule */,
-				D9564DE22E472A2000F2341E /* PreferenceModule */,
-				D922E9A92E46688200B94AF7 /* Features */,
 				D9D2C6582E2CB49F00FEE9FD /* CoreModule */,
 				D9D2C5C22E297E9400FEE9FD /* DesignSystemModule */,
+				D9564DE32E472B1900F2341E /* EventModule */,
+				D922E9A92E46688200B94AF7 /* Features */,
+				D9084D9D2E5F75320077F9C5 /* Mocks */,
+				D9084D9B2E5F73310077F9C5 /* Models */,
+				D9084D982E5F72980077F9C5 /* Navigation */,
+				D9084DA22E6067BC0077F9C5 /* NetworkModule */,
+				D9084F382E6091D60077F9C5 /* Preferences */,
+				D9084D9C2E5F73B50077F9C5 /* Stores */,
 				D9F5C2212DB39458008267F5 /* README.md */,
 				D9F0E45F2CE525390054E305 /* TurboBudget */,
 				81A707842A3B6B4C00BEB0BF /* Products */,
@@ -210,7 +210,7 @@
 				D9084DA02E5F823C0077F9C5 /* Models */,
 				D9084DA32E6068DB0077F9C5 /* NetworkModule */,
 				D9084DA62E606BEB0077F9C5 /* Banners */,
-				D9084DA82E6081AE0077F9C5 /* PreferenceModule */,
+				D9084F392E6091E60077F9C5 /* Preferences */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -667,9 +667,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Banners;
 		};
-		D9084DA82E6081AE0077F9C5 /* PreferenceModule */ = {
+		D9084F392E6091E60077F9C5 /* Preferences */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = PreferenceModule;
+			productName = Preferences;
 		};
 		D912D0092D140523006DF5DC /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;

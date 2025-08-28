@@ -9,7 +9,7 @@ import CoreData
 import AppIntents
 import CoreModule
 import UserModule
-import PreferenceModule
+import Preferences
 import Sentry
 import Models
 import Stores

@@ -8,7 +8,7 @@
 import SwiftUI
 import NotificationKit
 import CoreModule
-import PreferenceModule
+import Preferences
 import Dependencies
 import SubscriptionModule
 

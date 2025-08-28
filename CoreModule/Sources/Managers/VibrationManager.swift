@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import PreferenceModule
+import Preferences
 
 public final class VibrationManager { }
 
