@@ -10,11 +10,16 @@
 		8129E7512A483A7400FF23E5 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8129E7502A483A7400FF23E5 /* ConfettiSwiftUI */; };
 		81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 81D990B32A49F03000EF13A3 /* SwipeActions */; };
 		D9083BF22E5878CE0077F9C5 /* CreditCardModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9083BF12E5878CE0077F9C5 /* CreditCardModule */; };
+		D9084D9A2E5F72D70077F9C5 /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = D9084D992E5F72D70077F9C5 /* Navigation */; };
+		D9084D9F2E5F82230077F9C5 /* Mocks in Frameworks */ = {isa = PBXBuildFile; productRef = D9084D9E2E5F82230077F9C5 /* Mocks */; };
+		D9084DA12E5F823C0077F9C5 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA02E5F823C0077F9C5 /* Models */; };
+		D9084DA42E6068DB0077F9C5 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA32E6068DB0077F9C5 /* NetworkModule */; };
+		D9084DA72E606BEB0077F9C5 /* Banners in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA62E606BEB0077F9C5 /* Banners */; };
+		D9084DA92E6081AE0077F9C5 /* PreferenceModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA82E6081AE0077F9C5 /* PreferenceModule */; };
 		D912D00A2D140523006DF5DC /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = D912D0092D140523006DF5DC /* AlertKit */; };
 		D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94594F62D16A03A00A989F0 /* NotificationKit */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
 		D9564DE52E472CEB00F2341E /* EventModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564DE42E472CEB00F2341E /* EventModule */; };
-		D9564DE72E472CF000F2341E /* PreferenceModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564DE62E472CF000F2341E /* PreferenceModule */; };
 		D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D968BB2C2E4F2579006BB17A /* Sentry */; };
 		D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968BF5A2E4F29A7006BB17A /* SubscriptionModule */; };
 		D968C1772E4F4A6A006BB17A /* SavingsPlanModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1762E4F4A6A006BB17A /* SavingsPlanModule */; };
@@ -41,6 +46,12 @@
 
 /* Begin PBXFileReference section */
 		81A707832A3B6B4C00BEB0BF /* CashFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9084D982E5F72980077F9C5 /* Navigation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Navigation; sourceTree = "<group>"; };
+		D9084D9B2E5F73310077F9C5 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
+		D9084D9C2E5F73B50077F9C5 /* Stores */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Stores; sourceTree = "<group>"; };
+		D9084D9D2E5F75320077F9C5 /* Mocks */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Mocks; sourceTree = "<group>"; };
+		D9084DA22E6067BC0077F9C5 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkModule; sourceTree = "<group>"; };
+		D9084DA52E606BA00077F9C5 /* Banners */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Banners; sourceTree = "<group>"; };
 		D922E9A92E46688200B94AF7 /* Features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Features; sourceTree = "<group>"; };
 		D9564DE22E472A2000F2341E /* PreferenceModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PreferenceModule; sourceTree = "<group>"; };
 		D9564DE32E472B1900F2341E /* EventModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = EventModule; sourceTree = "<group>"; };
@@ -77,25 +88,30 @@
 				8129E7512A483A7400FF23E5 /* ConfettiSwiftUI in Frameworks */,
 				D96F97EC2E32B5F9006B0596 /* UserModule in Frameworks */,
 				D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */,
+				D9084DA42E6068DB0077F9C5 /* NetworkModule in Frameworks */,
 				D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */,
+				D9084D9F2E5F82230077F9C5 /* Mocks in Frameworks */,
+				D9084DA12E5F823C0077F9C5 /* Models in Frameworks */,
 				D968C2052E54D055006BB17A /* SavingsAccountModule in Frameworks */,
 				D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */,
 				D9D5BC692E41352100118297 /* NavigationKit in Frameworks */,
 				D9D2C64B2E29850700FEE9FD /* DesignSystemModule in Frameworks */,
 				D9083BF22E5878CE0077F9C5 /* CreditCardModule in Frameworks */,
 				81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */,
+				D9084DA72E606BEB0077F9C5 /* Banners in Frameworks */,
 				D968C1B02E50651E006BB17A /* AccountModule in Frameworks */,
 				D9D2C65A2E2CB63600FEE9FD /* CoreModule in Frameworks */,
 				D968C2322E54F3CA006BB17A /* SubcategoryModule in Frameworks */,
 				D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */,
-				D9564DE72E472CF000F2341E /* PreferenceModule in Frameworks */,
 				D968C2072E54D2D3006BB17A /* TransferModule in Frameworks */,
 				D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */,
 				D97F63EF2DAFA3240060B741 /* NetworkKit in Frameworks */,
 				D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */,
+				D9084D9A2E5F72D70077F9C5 /* Navigation in Frameworks */,
 				D9564DE52E472CEB00F2341E /* EventModule in Frameworks */,
 				D980E52C2DC1E928005025E1 /* TheoKit in Frameworks */,
 				D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */,
+				D9084DA92E6081AE0077F9C5 /* PreferenceModule in Frameworks */,
 				D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */,
 				D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */,
 			);
@@ -107,6 +123,12 @@
 		81A7077A2A3B6B4C00BEB0BF = {
 			isa = PBXGroup;
 			children = (
+				D9084DA52E606BA00077F9C5 /* Banners */,
+				D9084DA22E6067BC0077F9C5 /* NetworkModule */,
+				D9084D9D2E5F75320077F9C5 /* Mocks */,
+				D9084D9C2E5F73B50077F9C5 /* Stores */,
+				D9084D9B2E5F73310077F9C5 /* Models */,
+				D9084D982E5F72980077F9C5 /* Navigation */,
 				D9564DE32E472B1900F2341E /* EventModule */,
 				D9564DE22E472A2000F2341E /* PreferenceModule */,
 				D922E9A92E46688200B94AF7 /* Features */,
@@ -171,7 +193,6 @@
 				D9D5BC682E41352100118297 /* NavigationKit */,
 				D9564CD02E467A8B00F2341E /* TransactionModule */,
 				D9564DE42E472CEB00F2341E /* EventModule */,
-				D9564DE62E472CF000F2341E /* PreferenceModule */,
 				D968BB2C2E4F2579006BB17A /* Sentry */,
 				D968BF5A2E4F29A7006BB17A /* SubscriptionModule */,
 				D968C1762E4F4A6A006BB17A /* SavingsPlanModule */,
@@ -184,6 +205,12 @@
 				D968C2312E54F3CA006BB17A /* SubcategoryModule */,
 				D968C2462E54F6F8006BB17A /* SettingsModule */,
 				D9083BF12E5878CE0077F9C5 /* CreditCardModule */,
+				D9084D992E5F72D70077F9C5 /* Navigation */,
+				D9084D9E2E5F82230077F9C5 /* Mocks */,
+				D9084DA02E5F823C0077F9C5 /* Models */,
+				D9084DA32E6068DB0077F9C5 /* NetworkModule */,
+				D9084DA62E606BEB0077F9C5 /* Banners */,
+				D9084DA82E6081AE0077F9C5 /* PreferenceModule */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -620,6 +647,30 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = CreditCardModule;
 		};
+		D9084D992E5F72D70077F9C5 /* Navigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Navigation;
+		};
+		D9084D9E2E5F82230077F9C5 /* Mocks */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Mocks;
+		};
+		D9084DA02E5F823C0077F9C5 /* Models */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Models;
+		};
+		D9084DA32E6068DB0077F9C5 /* NetworkModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkModule;
+		};
+		D9084DA62E606BEB0077F9C5 /* Banners */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Banners;
+		};
+		D9084DA82E6081AE0077F9C5 /* PreferenceModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PreferenceModule;
+		};
 		D912D0092D140523006DF5DC /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D912D0082D140523006DF5DC /* XCRemoteSwiftPackageReference "AlertKit" */;
@@ -637,10 +688,6 @@
 		D9564DE42E472CEB00F2341E /* EventModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = EventModule;
-		};
-		D9564DE62E472CF000F2341E /* PreferenceModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PreferenceModule;
 		};
 		D968BB2C2E4F2579006BB17A /* Sentry */ = {
 			isa = XCSwiftPackageProductDependency;

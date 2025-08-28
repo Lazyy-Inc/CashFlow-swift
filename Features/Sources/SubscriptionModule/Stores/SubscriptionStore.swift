@@ -14,6 +14,9 @@ import TheoKit
 import EventModule
 import PreferenceModule
 import DesignSystemModule
+import Models
+import Stores
+import NetworkModule
 
 public extension SubscriptionStore {
     
@@ -27,57 +30,6 @@ public extension SubscriptionStore {
             .reduce(into: [Date: [SubscriptionModel]]()) { result, entry in
                 result[entry.key] = entry.value
             }
-    }
-    
-    @MainActor
-    func fetchSubscriptions(accountID: Int) async {
-        do {
-            self.subscriptions = try await SubscriptionService.fetchAll(for: accountID)
-            sortSubscriptionsByDate()
-        } catch { NetworkService.handleError(error: error) }
-    }
-    
-    @discardableResult
-    @MainActor
-    func createSubscription(accountID: Int, body: SubscriptionDTO, shouldReturn: Bool = false) async -> SubscriptionModel? {
-        do {
-            let subscription = try await SubscriptionService.create(accountID: accountID, body: body)
-            self.subscriptions.append(subscription)
-            sortSubscriptionsByDate()
-            EventService.sendEvent(key: EventKeys.subscriptionCreated)
-            return shouldReturn ? subscription : nil
-        } catch {
-            NetworkService.handleError(error: error)
-            return nil
-        }
-    }
-    
-    @discardableResult
-    @MainActor
-    func updateSubscription(subscriptionID: Int, body: SubscriptionDTO) async -> SubscriptionModel? {
-        do {
-            let subscription = try await SubscriptionService.update(subscriptionID: subscriptionID, body: body)
-            if let index = self.subscriptions.firstIndex(where: { $0.id == subscriptionID }) {
-                self.subscriptions[index] = subscription
-                sortSubscriptionsByDate()
-                EventService.sendEvent(key: EventKeys.subscriptionUpdated)
-            }
-            return subscription
-        } catch {
-            NetworkService.handleError(error: error)
-            return nil
-        }
-    }
-    
-    @MainActor
-    func deleteSubscription(subscriptionID: Int) async {
-        do {
-            try await SubscriptionService.delete(subscriptionID: subscriptionID)
-            if let index = self.subscriptions.firstIndex(where: { $0.id == subscriptionID }) {
-                self.subscriptions.remove(at: index)
-                EventService.sendEvent(key: EventKeys.subscriptionDeleted)
-            }
-        } catch { NetworkService.handleError(error: error) }
     }
     
 }
@@ -124,39 +76,4 @@ public extension SubscriptionModel {
         components.timeZone = TimeZone.current
         return Calendar.current.date(from: components) ?? frequencyDate
     }
-}
-
-public extension SubscriptionDTO {
- 
-    func toModel() throws -> SubscriptionModel {
-        guard let id,
-              let name,
-              let amount,
-              let typeNum,
-              let frequencyNum,
-              let frequencyDate,
-              let categoryID else { throw NetworkError.unknown }
-        
-        guard let type = TransactionType(rawValue: typeNum),
-              let frequency = SubscriptionFrequency(rawValue: frequencyNum),
-              let date = frequencyDate.toDate() else {
-            throw NetworkError.unknown
-        }
-        
-        let transactionModels = try? transactions?.map { try $0.toModel() }
-        
-        return SubscriptionModel(
-            id: id,
-            name: name,
-            amount: amount,
-            type: type,
-            frequency: frequency,
-            frequencyDate: date,
-            categoryID: categoryID,
-            subcategoryID: subcategoryID,
-            firstSubscriptionDate: firstSubscriptionDate?.toDate(),
-            transactions: transactionModels
-        )
-    }
-    
 }

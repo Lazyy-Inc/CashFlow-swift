@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public extension Array where Element: Searchable {
     

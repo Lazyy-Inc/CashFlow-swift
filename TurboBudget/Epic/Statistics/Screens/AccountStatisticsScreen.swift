@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreModule
 import DesignSystemModule
+import Stores
 
 struct AccountStatisticsScreen: View {
     

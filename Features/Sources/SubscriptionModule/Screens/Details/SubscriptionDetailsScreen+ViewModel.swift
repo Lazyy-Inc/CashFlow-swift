@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreModule
+import Models
+import Stores
 
 extension SubscriptionDetailsScreen {
     

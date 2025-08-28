@@ -6,27 +6,9 @@
 //
 
 import Foundation
-import NetworkKit
 import CoreModule
-
-public extension CategoryStore {
-    
-    @MainActor
-    func fetchCategories() async {
-        do {
-            let categories = try await NetworkService.sendRequest(
-                apiBuilder: CategoryAPIRequester.fetchCategories,
-                responseModel: [CategoryDTO].self
-            ).map { try $0.toModel() }
-            self.categories = categories
-            for (index, category) in self.categories.enumerated() {
-                self.categories[index].subcategories = category.subcategories?.filter { $0.isVisible }
-            }
-            self.subcategories = categories.flatMap { $0.subcategories ?? [] }
-        } catch { NetworkService.handleError(error: error) }
-    }
-    
-}
+import Models
+import Stores
 
 public extension CategoryStore {
     

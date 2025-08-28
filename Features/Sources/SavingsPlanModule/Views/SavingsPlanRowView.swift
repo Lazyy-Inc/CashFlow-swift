@@ -10,6 +10,8 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import Dependencies
+import Models
+import Stores
 
 public struct SavingsPlanRowView: View {
 

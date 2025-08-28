@@ -7,6 +7,7 @@
 
 import SwiftUICore
 import NavigationKit
+import Models
 
 public enum ContributionDestination: DestinationItem {
     case create(savingsPlan: SavingsPlanModel)

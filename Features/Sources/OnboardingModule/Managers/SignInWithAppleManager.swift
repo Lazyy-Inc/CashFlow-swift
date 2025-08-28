@@ -13,6 +13,8 @@ import CoreModule
 @preconcurrency import UserModule
 import PreferenceModule
 import EventModule
+import NetworkModule
+import Models
 
 class SignInWithAppleManager: NSObject {
     

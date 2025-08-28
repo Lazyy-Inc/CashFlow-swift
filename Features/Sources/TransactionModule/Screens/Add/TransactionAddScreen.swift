@@ -13,6 +13,8 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import EventModule
+import Models
+import Stores
 
 public struct TransactionAddScreen: View {
     

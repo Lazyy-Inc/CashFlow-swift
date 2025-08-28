@@ -12,6 +12,8 @@ import TheoKit
 import DesignSystemModule
 import CoreModule
 import Dependencies
+import Stores
+import Models
 
 struct CarouselOfChartsView: View {
     

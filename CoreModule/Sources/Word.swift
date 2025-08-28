@@ -8,6 +8,7 @@
 
 import Foundation
 import TheoKit
+import Models
 
 // swiftlint:disable:next type_body_length
 public struct Word {

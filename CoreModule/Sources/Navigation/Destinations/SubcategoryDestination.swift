@@ -7,6 +7,7 @@
 
 import SwiftUICore
 import NavigationKit
+import Models
 
 public enum SubcategoryDestination: DestinationItem {
     case list(category: CategoryModel, selectedDate: Date)

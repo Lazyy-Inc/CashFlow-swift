@@ -7,6 +7,7 @@
 
 import SwiftUICore
 import NavigationKit
+import Models
 
 public enum SubscriptionDestination: DestinationItem {
     case list

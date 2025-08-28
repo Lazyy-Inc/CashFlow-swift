@@ -14,6 +14,8 @@ import DesignSystemModule
 import CoreModule
 import TransactionModule
 import Dependencies
+import Stores
+import Models
 
 public struct CategoryTransactionsScreen: View {
     

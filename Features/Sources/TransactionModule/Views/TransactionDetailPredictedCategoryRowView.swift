@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreModule
 import DesignSystemModule
+import Models
 
 struct TransactionDetailPredictedCategoryRowView: View {
     

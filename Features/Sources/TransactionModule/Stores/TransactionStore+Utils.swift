@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreModule
+import Stores
+import Models
 
 public extension TransactionStore {
     
@@ -19,10 +21,7 @@ public extension TransactionStore {
         return self.transactions
             .filter { $0.subcategory?.id == subcategoryID }
     }
-    
-    func sortTransactionsByDate() {
-        self.transactions.sort { $0.date > $1.date }
-    }
+  
 }
 
 extension TransactionStore {

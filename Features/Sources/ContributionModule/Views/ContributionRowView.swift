@@ -11,6 +11,7 @@ import SwipeActions
 import AlertKit
 import CoreModule
 import DesignSystemModule
+import Models
 
 struct ContributionRowView: View {
 

@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import CoreModule
+import Models
+import Stores
 
 extension SubscriptionAddScreen {
     
@@ -63,7 +65,7 @@ extension SubscriptionAddScreen.ViewModel {
             amount: amount.toDouble(),
             type: selectedCategory?.isIncome == true ? TransactionType.income : TransactionType.expense,
             frequency: frequency,
-            frequencyDate: frequencyDate,
+            frequencyDate: frequencyDate.toISO(),
             categoryID: selectedCategory?.id ?? 0,
             subcategoryID: selectedSubcategory?.id
         )

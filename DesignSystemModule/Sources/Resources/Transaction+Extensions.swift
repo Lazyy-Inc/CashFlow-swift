@@ -9,6 +9,7 @@ import Foundation
 import CoreModule
 import SwiftUI
 import TheoKit
+import Models
 
 public extension TransactionModel {
     

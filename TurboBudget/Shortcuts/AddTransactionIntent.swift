@@ -11,6 +11,8 @@ import CoreModule
 import UserModule
 import PreferenceModule
 import Sentry
+import Models
+import Stores
 
 struct AddTransactionIntent: AppIntent {
     

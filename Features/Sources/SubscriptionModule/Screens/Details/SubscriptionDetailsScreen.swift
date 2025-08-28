@@ -15,6 +15,7 @@ import CoreModule
 import EventModule
 import Dependencies
 import TransactionModule
+import Models
 
 public struct SubscriptionDetailsScreen: View {
     

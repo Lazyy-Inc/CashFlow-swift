@@ -15,6 +15,9 @@ import DesignSystemModule
 import CoreModule
 import Dependencies
 import EventModule
+import Models
+import Mocks
+import Stores
 
 public struct TransactionDetailsScreen: View {
 
@@ -205,7 +208,6 @@ extension TransactionDetailsScreen {
     NavigationStack {
         TransactionDetailsScreen(transaction: .mockClassicTransaction)
     }
-    .environment(TransactionStore.shared)
     .environmentObject(PurchasesManager())
     .environmentObject(ThemeManager.shared)
 }

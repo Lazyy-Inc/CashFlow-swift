@@ -8,6 +8,8 @@
 import Foundation
 import CoreModule
 import TransactionModule
+import Models
+import Stores
 
 extension SubcategoryListScreen {
     

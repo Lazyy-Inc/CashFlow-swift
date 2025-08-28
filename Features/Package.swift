@@ -26,6 +26,9 @@ let package = Package(
     dependencies: [
         .package(path: "../DesignSystemModule"),
         .package(path: "../CoreModule"),
+        .package(path: "../Mocks"),
+        .package(path: "../Models"),
+        .package(path: "../Stores"),
         
         .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.8"),
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
@@ -47,6 +50,9 @@ let package = Package(
                 "DesignSystemModule",
                 "CoreModule",
                 "UserModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "GoogleSignIn", package: "GoogleSignIn-iOS")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -57,6 +63,9 @@ let package = Package(
             name: "UserModule",
             dependencies: [
                 "CoreModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "NetworkKit", package: "NetworkKit")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -67,7 +76,10 @@ let package = Package(
             name: "PaywallModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule"
+                "CoreModule",
+                "Mocks",
+                "Models",
+                "Stores"
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
@@ -78,6 +90,9 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -90,6 +105,9 @@ let package = Package(
                 "DesignSystemModule",
                 "CoreModule",
                 "TransactionModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -103,6 +121,9 @@ let package = Package(
                 "CoreModule",
                 "ContributionModule",
                 "TransactionModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -114,6 +135,9 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -125,6 +149,9 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -137,6 +164,9 @@ let package = Package(
                 "DesignSystemModule",
                 "CoreModule",
                 "TransactionModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -149,6 +179,9 @@ let package = Package(
                 "DesignSystemModule",
                 "CoreModule",
                 "TransactionModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -161,6 +194,9 @@ let package = Package(
                 "DesignSystemModule",
                 "CoreModule",
                 "TransactionModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -174,6 +210,9 @@ let package = Package(
                 "CoreModule",
                 "TransferModule",
                 "AccountModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "NavigationKit", package: "NavigationKit"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
@@ -187,6 +226,9 @@ let package = Package(
                 "DesignSystemModule",
                 "CoreModule",
                 "TransactionModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -200,6 +242,9 @@ let package = Package(
                 "CoreModule",
                 "AccountModule",
                 "SubscriptionModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -211,6 +256,9 @@ let package = Package(
             dependencies: [
                 "DesignSystemModule",
                 "CoreModule",
+                "Mocks",
+                "Models",
+                "Stores",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]

@@ -7,14 +7,7 @@
 
 import Foundation
 import CoreModule
-
-public extension SubscriptionStore {
-    
-    func sortSubscriptionsByDate() {
-        self.subscriptions.sort { $0.frequencyDate < $1.frequencyDate }
-    }
-    
-}
+import Stores
 
 public extension SubscriptionStore {
     

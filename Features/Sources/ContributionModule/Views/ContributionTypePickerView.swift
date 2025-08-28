@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreModule
+import Models
 
 struct ContributionTypePickerView: View {
     

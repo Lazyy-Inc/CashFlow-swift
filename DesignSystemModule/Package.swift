@@ -20,22 +20,24 @@ let package = Package(
     name: "DesignSystemModule",
     platforms: [.iOS(.v17)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "DesignSystemModule",
-            targets: ["DesignSystemModule"]
-        )
+        .library(name: "DesignSystemModule", targets: ["DesignSystemModule"])
     ],
     dependencies: [
-        .package(path: "../CoreModule")
+        .package(path: "../CoreModule"),
+        .package(path: "../Mocks"),
+        .package(path: "../Models"),
+        .package(path: "../Stores"),
+        .package(path: "../Banners")
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "DesignSystemModule",
             dependencies: [
-                "CoreModule"
+                "CoreModule",
+                "Models",
+                "Mocks",
+                "Stores",
+                "Banners"
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),

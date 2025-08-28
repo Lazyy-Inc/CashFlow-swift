@@ -7,6 +7,7 @@
 
 import Foundation
 import NavigationKit
+import Models
 
 public enum TransactionDestination: DestinationItem {
     case list
