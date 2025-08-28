@@ -6,7 +6,7 @@
 //
 
 import SwiftUICore
-import CoreModule
+import Core
 import Navigation
 import PaywallModule
 import TransactionModule

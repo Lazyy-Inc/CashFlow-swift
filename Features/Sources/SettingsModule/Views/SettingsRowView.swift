@@ -10,7 +10,7 @@ import TheoKit
 import Navigation
 import AlertKit
 import DesignSystemModule
-import CoreModule
+import Core
 
 struct SettingsRowView: View {
     

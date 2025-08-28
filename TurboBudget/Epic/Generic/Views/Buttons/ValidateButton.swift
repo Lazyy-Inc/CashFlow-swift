@@ -7,7 +7,7 @@
 // Localizations 01/10/2023
 
 import SwiftUI
-import CoreModule
+import Core
 
 struct ValidateButton: View {
 

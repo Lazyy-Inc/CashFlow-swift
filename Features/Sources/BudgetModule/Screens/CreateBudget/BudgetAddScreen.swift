@@ -11,7 +11,7 @@ import Navigation
 import StatsKit
 import TheoKit
 import DesignSystemModule
-import CoreModule
+import Core
 import EventModule
 
 public struct BudgetAddScreen: View {

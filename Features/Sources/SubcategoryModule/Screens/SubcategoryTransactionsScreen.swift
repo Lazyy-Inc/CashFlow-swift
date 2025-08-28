@@ -10,7 +10,7 @@ import SwiftUI
 import Navigation
 import TheoKit
 import DesignSystemModule
-import CoreModule
+import Core
 import TransactionModule
 import Dependencies
 import Models

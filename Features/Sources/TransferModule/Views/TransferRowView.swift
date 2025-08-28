@@ -7,7 +7,7 @@
 
 import SwiftUI
 import SwipeActions
-import CoreModule
+import Core
 import Dependencies
 import Models
 import Stores

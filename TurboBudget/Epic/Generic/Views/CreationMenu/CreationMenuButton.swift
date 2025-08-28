@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Navigation
-import CoreModule
+import Core
 
 struct CreationMenuAction: Identifiable {
     let id = UUID()

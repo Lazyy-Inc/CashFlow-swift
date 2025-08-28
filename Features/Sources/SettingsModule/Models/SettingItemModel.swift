@@ -10,7 +10,7 @@ import SwiftUICore
 import Navigation
 import AlertKit
 import SwiftUI
-import CoreModule
+import Core
 import DesignSystemModule
 
 enum SettingItemModel: Identifiable {

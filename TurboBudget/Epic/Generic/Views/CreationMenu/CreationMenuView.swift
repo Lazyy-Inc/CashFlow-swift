@@ -8,7 +8,7 @@
 import SwiftUI
 import AlertKit
 import Navigation
-import CoreModule
+import Core
 import Stores
 
 struct CreationMenuView: View {

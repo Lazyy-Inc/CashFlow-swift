@@ -10,7 +10,7 @@
 import SwiftUI
 import Navigation
 import Preferences
-import CoreModule
+import Core
 import DesignSystemModule
 import Dependencies
 import SavingsPlanModule

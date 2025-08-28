@@ -11,7 +11,7 @@ import SwiftUI
 import GoogleSignIn
 import NetworkKit
 import StatsKit
-import CoreModule
+import Core
 @preconcurrency import UserModule
 import Preferences
 import EventModule

@@ -1,6 +1,6 @@
 //
 //  AppManager.swift
-//  CoreModule
+//  Core
 //
 //  Created by Theo Sementa on 24/07/2025.
 //

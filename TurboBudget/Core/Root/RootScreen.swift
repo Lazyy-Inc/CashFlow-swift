@@ -11,7 +11,7 @@ import CloudKit
 import CoreData
 import Navigation
 import StatsKit
-import CoreModule
+import Core
 import Preferences
 import DesignSystemModule
 import EventModule

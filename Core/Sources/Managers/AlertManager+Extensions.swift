@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  CoreModule
+//  Core
 //
 //  Created by Theo Sementa on 19/08/2025.
 //

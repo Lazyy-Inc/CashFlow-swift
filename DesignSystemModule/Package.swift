@@ -23,7 +23,7 @@ let package = Package(
         .library(name: "DesignSystemModule", targets: ["DesignSystemModule"])
     ],
     dependencies: [
-        .package(path: "../CoreModule"),
+        .package(path: "../Core"),
         .package(path: "../Mocks"),
         .package(path: "../Models"),
         .package(path: "../Stores"),
@@ -33,7 +33,7 @@ let package = Package(
         .target(
             name: "DesignSystemModule",
             dependencies: [
-                "CoreModule",
+                "Core",
                 "Models",
                 "Mocks",
                 "Stores",

@@ -10,7 +10,7 @@ import Navigation
 import StatsKit
 import TheoKit
 import DesignSystemModule
-import CoreModule
+import Core
 import Dependencies
 import EventModule
 import Stores

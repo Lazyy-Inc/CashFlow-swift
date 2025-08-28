@@ -1,6 +1,6 @@
 //
 //  CreditCardStore.swift
-//  CoreModule
+//  Core
 //
 //  Created by Theo Sementa on 22/08/2025.
 //

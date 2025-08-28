@@ -1,6 +1,6 @@
 //
 //  Numeric+Extensions.swift
-//  CoreModule
+//  Core
 //
 //  Created by Theo Sementa on 20/07/2025.
 //

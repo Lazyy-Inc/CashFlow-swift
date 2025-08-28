@@ -9,7 +9,7 @@ import SwiftUI
 import AlertKit
 import TheoKit
 import DesignSystemModule
-import CoreModule
+import Core
 import UserModule
 
 public struct SettingsScreen: View {

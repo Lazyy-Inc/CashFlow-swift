@@ -10,7 +10,7 @@ import DesignSystemModule
 import AuthenticationServices
 import UserModule
 import NetworkKit
-import CoreModule
+import Core
 
 struct GenericOnboardingScreen: View {
     

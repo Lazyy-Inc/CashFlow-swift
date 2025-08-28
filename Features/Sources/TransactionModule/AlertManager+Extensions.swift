@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  CoreModule
+//  Core
 //
 //  Created by Theo Sementa on 09/08/2025.
 //
@@ -8,7 +8,7 @@
 import Foundation
 import AlertKit
 import SwiftUI
-import CoreModule
+import Core
 import Models
 import Stores
 

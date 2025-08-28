@@ -8,7 +8,7 @@
 import Foundation
 import AlertKit
 import SwiftUI
-import CoreModule
+import Core
 import Models
 import Stores
 

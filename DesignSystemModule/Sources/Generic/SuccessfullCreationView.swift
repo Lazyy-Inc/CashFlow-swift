@@ -7,7 +7,7 @@
 
 import SwiftUI
 import ConfettiSwiftUI
-import CoreModule
+import Core
 
 public struct SuccessfullCreationView: View {
     

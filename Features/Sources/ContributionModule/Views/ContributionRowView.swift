@@ -9,7 +9,7 @@
 import SwiftUI
 import SwipeActions
 import AlertKit
-import CoreModule
+import Core
 import DesignSystemModule
 import Models
 

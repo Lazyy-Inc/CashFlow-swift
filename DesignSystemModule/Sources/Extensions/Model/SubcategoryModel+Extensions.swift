@@ -7,7 +7,7 @@
 
 import Foundation
 import Models
-import CoreModule
+import Core
 import Stores
 
 public extension SubcategoryModel {

@@ -12,7 +12,7 @@ import Navigation
 import TheoKit
 import DesignSystemModule
 import Preferences
-import CoreModule
+import Core
 import Dependencies
 import SubscriptionModule
 

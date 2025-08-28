@@ -7,7 +7,7 @@
 
 import SwiftUI
 import NetworkKit
-import CoreModule
+import Core
 
 struct QRCodeScannerScreen: View {
     

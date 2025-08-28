@@ -25,7 +25,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../DesignSystemModule"),
-        .package(path: "../CoreModule"),
+        .package(path: "../Core"),
         .package(path: "../Mocks"),
         .package(path: "../Models"),
         .package(path: "../Stores"),
@@ -49,7 +49,7 @@ let package = Package(
             name: "OnboardingModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "UserModule",
                 "Mocks",
                 "Models",
@@ -64,7 +64,7 @@ let package = Package(
         .target(
             name: "UserModule",
             dependencies: [
-                "CoreModule",
+                "Core",
                 "Mocks",
                 "Models",
                 "Stores",
@@ -79,7 +79,7 @@ let package = Package(
             name: "PaywallModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "Mocks",
                 "Models",
                 "Stores",
@@ -93,7 +93,7 @@ let package = Package(
             name: "TransactionModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "Mocks",
                 "Models",
                 "Stores",
@@ -108,7 +108,7 @@ let package = Package(
             name: "SubscriptionModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "TransactionModule",
                 "Mocks",
                 "Models",
@@ -124,7 +124,7 @@ let package = Package(
             name: "SavingsPlanModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "ContributionModule",
                 "TransactionModule",
                 "Mocks",
@@ -141,7 +141,7 @@ let package = Package(
             name: "ContributionModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "Mocks",
                 "Models",
                 "Stores",
@@ -156,7 +156,7 @@ let package = Package(
             name: "AccountModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "Mocks",
                 "Models",
                 "Stores",
@@ -171,7 +171,7 @@ let package = Package(
             name: "BudgetModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "TransactionModule",
                 "Mocks",
                 "Models",
@@ -187,7 +187,7 @@ let package = Package(
             name: "CategoryModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "TransactionModule",
                 "Mocks",
                 "Models",
@@ -203,7 +203,7 @@ let package = Package(
             name: "SubcategoryModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "TransactionModule",
                 "Mocks",
                 "Models",
@@ -219,7 +219,7 @@ let package = Package(
             name: "SavingsAccountModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "TransferModule",
                 "AccountModule",
                 "Mocks",
@@ -237,7 +237,7 @@ let package = Package(
             name: "TransferModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "TransactionModule",
                 "Mocks",
                 "Models",
@@ -253,7 +253,7 @@ let package = Package(
             name: "SettingsModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "AccountModule",
                 "SubscriptionModule",
                 "Mocks",
@@ -270,7 +270,7 @@ let package = Package(
             name: "CreditCardModule",
             dependencies: [
                 "DesignSystemModule",
-                "CoreModule",
+                "Core",
                 "Mocks",
                 "Models",
                 "Stores",

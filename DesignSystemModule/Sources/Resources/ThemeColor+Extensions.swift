@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import CoreModule
+import Core
 
 extension ThemeColor {
     public var color: Color {

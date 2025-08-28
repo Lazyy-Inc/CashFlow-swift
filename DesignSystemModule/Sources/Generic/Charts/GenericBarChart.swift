@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Charts
-import CoreModule
+import Core
 
 public struct GenericBarChart: View {
     

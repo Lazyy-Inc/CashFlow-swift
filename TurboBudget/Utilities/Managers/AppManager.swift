@@ -7,7 +7,7 @@
 
 import Foundation
 import NotificationKit
-import CoreModule
+import Core
 import Dependencies
 import Preferences
 import TransactionModule

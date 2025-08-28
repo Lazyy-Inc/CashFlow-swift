@@ -9,7 +9,7 @@
 import SwiftUI
 import TheoKit
 import DesignSystemModule
-import CoreModule
+import Core
 import Dependencies
 import Models
 import Mocks

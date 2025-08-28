@@ -1,6 +1,6 @@
 //
 //  AccountStore.swift
-//  CoreModule
+//  Core
 //
 //  Created by Theo Sementa on 09/08/2025.
 //

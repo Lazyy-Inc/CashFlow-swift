@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CoreModule
+import Core
 import SwiftUI
 import Models
 

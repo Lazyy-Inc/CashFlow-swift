@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CoreModule
+import Core
 import Banners
 
 struct BannerModifier: ViewModifier {

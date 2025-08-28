@@ -8,7 +8,7 @@
 import SwiftUI
 import TheoKit
 import DesignSystemModule
-import CoreModule
+import Core
 
 struct CustomDatePickerWithToggle: View {
     

@@ -7,7 +7,7 @@
 
 import SwiftUI
 import StatsKit
-import CoreModule
+import Core
 import EventModule
 
 struct SelectThemeColor: View {

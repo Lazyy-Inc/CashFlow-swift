@@ -8,7 +8,7 @@
 import Foundation
 import Models
 import Stores
-import CoreModule
+import Core
 
 extension TransactionModel: @retroactive Searchable {
     public var searchableText: String {

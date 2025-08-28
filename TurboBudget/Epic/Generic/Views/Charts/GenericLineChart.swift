@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 import TheoKit
 import DesignSystemModule
-import CoreModule
+import Core
 import Models
 
 struct GenericLineChart: View {

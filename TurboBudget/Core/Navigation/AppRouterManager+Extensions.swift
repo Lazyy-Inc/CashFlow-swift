@@ -7,7 +7,7 @@
 
 import Foundation
 import Navigation
-import CoreModule
+import Core
 
 extension AppRouterManager {
     

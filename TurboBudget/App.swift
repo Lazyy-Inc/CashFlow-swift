@@ -9,7 +9,7 @@ import SwiftUI
 import AlertKit
 import NotificationKit
 import TheoKit
-import CoreModule
+import Core
 import StatsKit
 import UserModule
 import OnboardingModule

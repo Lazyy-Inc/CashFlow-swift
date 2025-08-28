@@ -7,7 +7,7 @@
 
 import Foundation
 import Models
-import CoreModule
+import Core
 
 public extension TransactionType {
   

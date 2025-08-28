@@ -8,7 +8,7 @@
 import SwiftUI
 import Navigation
 import TheoKit
-import CoreModule
+import Core
 
 public struct CustomEmptyView: View {
     

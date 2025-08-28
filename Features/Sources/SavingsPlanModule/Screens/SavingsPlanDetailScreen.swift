@@ -10,7 +10,7 @@ import SwiftUI
 import AlertKit
 import Navigation
 import StatsKit
-import CoreModule
+import Core
 import DesignSystemModule
 import TransactionModule
 import EventModule

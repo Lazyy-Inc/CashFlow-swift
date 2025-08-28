@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import CoreModule
+import Core
 import Dependencies
 import Models
 import Stores

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 import MapKit
-import CoreModule
+import Core
 import DesignSystemModule
 import Models
 import Mocks

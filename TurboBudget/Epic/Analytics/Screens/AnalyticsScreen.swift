@@ -11,7 +11,7 @@ import UIKit
 import Navigation
 import TheoKit
 import DesignSystemModule
-import CoreModule
+import Core
 import Dependencies
 import AccountModule
 import Stores

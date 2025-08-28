@@ -8,7 +8,7 @@
 import Foundation
 import NetworkKit
 import StatsKit
-import CoreModule
+import Core
 import SwiftUI
 import TheoKit
 import EventModule

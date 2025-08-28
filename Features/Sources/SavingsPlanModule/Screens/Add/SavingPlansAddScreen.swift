@@ -11,7 +11,7 @@ import MCEmojiPicker
 import StatsKit
 import TheoKit
 import DesignSystemModule
-import CoreModule
+import Core
 import EventModule
 import Dependencies
 import Models

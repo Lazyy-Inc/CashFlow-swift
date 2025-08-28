@@ -7,7 +7,7 @@
 
 import SwiftUI
 import DesignSystemModule
-import CoreModule
+import Core
 import Models
 
 public struct ReleaseNoteDetailView: View {

@@ -8,7 +8,7 @@
 import Foundation
 import NetworkKit
 import StatsKit
-import CoreModule
+import Core
 import EventModule
 import Stores
 import Models

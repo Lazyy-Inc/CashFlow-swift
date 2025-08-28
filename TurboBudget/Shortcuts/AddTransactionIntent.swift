@@ -7,7 +7,7 @@
 
 import CoreData
 import AppIntents
-import CoreModule
+import Core
 import UserModule
 import Preferences
 import Sentry

@@ -7,7 +7,7 @@
 
 import SwiftUI
 import TheoKit
-import CoreModule
+import Core
 
 public enum CustomTextFieldStyle {
     case text

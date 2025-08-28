@@ -7,7 +7,7 @@
 
 import Foundation
 import NetworkKit
-import CoreModule
+import Core
 import Models
 import NetworkModule
 
