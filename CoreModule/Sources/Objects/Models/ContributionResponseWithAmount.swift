@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public struct ContributionResponseWithAmount: Codable {
     public var newAmount: Double?

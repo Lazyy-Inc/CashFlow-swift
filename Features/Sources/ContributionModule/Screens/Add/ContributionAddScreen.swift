@@ -11,6 +11,7 @@ import StatsKit
 import CoreModule
 import DesignSystemModule
 import EventModule
+import Models
 
 public struct ContributionAddScreen: View {
 

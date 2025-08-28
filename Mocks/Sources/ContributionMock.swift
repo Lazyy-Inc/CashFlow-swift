@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import Models
 
 public extension ContributionModel {
     
     static let mockContribution: ContributionModel = .init(
         amount: 100,
-        dateString: Date().toISO()
+        dateString: Date().ISO8601Format()
     )
     
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Dependencies
+import Models
 
 @Observable
 public final class SavingsPlanStore {

@@ -8,6 +8,7 @@
 import Foundation
 import NetworkKit
 import CoreModule
+import Models
 
 enum SavingsPlanAPIRequester: APIRequestBuilder {
   case fetch(accountID: Int)

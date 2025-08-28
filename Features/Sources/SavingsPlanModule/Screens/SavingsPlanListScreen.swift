@@ -14,6 +14,7 @@ import DesignSystemModule
 import CoreModule
 import EventModule
 import Dependencies
+import Models
 
 public struct SavingsPlanListScreen: View {
     

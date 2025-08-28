@@ -15,6 +15,7 @@ import DesignSystemModule
 import TransactionModule
 import EventModule
 import Dependencies
+import Models
 
 public struct SavingsPlanDetailScreen: View {
     

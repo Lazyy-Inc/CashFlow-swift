@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 public extension SavingsPlanModel {
     
@@ -13,7 +14,7 @@ public extension SavingsPlanModel {
         id: 1,
         name: "Mock Savings Plan",
         emoji: "🤑",
-        startDateString: Date().toISO(),
+        startDateString: Date().ISO8601Format(),
         currentAmount: 200,
         goalAmount: 2000
     )

@@ -10,6 +10,7 @@ import AlertKit
 import SwiftUI
 import CoreModule
 import ContributionModule
+import Models
 
 public extension AlertManager {
     
