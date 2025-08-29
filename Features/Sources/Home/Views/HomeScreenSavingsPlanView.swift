@@ -40,7 +40,7 @@ struct HomeScreenSavingsPlanView: View {
                     ForEach(savingsPlanStore.savingsPlans.prefix(preferencesDisplayHome.savingsPlan_value)) { savingsPlan in
                         NavigationButtonView(
                             route: .push,
-                            destination: AppDestination.savingsPlan(.detail(savingsPlan: savingsPlan)),
+                            destination: .savingsPlan(.detail(savingsPlan: savingsPlan)),
                             onNavigate: {
                                 Task {
                                     if let savingsPlanID = savingsPlan.id {
@@ -64,8 +64,8 @@ struct HomeScreenSavingsPlanView: View {
         }
         .animation(.smooth, value: savingsPlanStore.savingsPlans.count)
         .isDisplayed(preferencesDisplayHome.savingsPlan_isDisplayed)
-    } // End body
-} // End struct
+    }
+}
 
 // MARK: - Preview
 #Preview {

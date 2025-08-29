@@ -19,7 +19,7 @@ struct ProgressBarWithAmount: View {
     @State private var progressBarWidth: CGFloat = 0
     
     var valueString: String {
-        return formatNumber(value)
+      return value.formattedAbbreviatedCurrency()
     }
     
     // MARK: -
@@ -43,7 +43,8 @@ struct ProgressBarWithAmount: View {
                         .animation(.smooth.delay(0.3), value: progressBarWidth)
                 }
                 .onAppear {
-                    let widthText = formatNumber(value).width(usingFont: UIFont(name: "PlusJakartaSans-SemiBold", size: 16)!) * 1.4 // TODO: Need refactor
+                  let formatedValue = value.formattedAbbreviatedCurrency()
+                    let widthText = formatedValue.width(usingFont: UIFont(name: "PlusJakartaSans-SemiBold", size: 16)!) * 1.4 // TODO: Need refactor
                     let widthPercentage = geometry.size.width * min(1, percentage)
                     progressBarWidth = max(widthText, widthPercentage)
                 }

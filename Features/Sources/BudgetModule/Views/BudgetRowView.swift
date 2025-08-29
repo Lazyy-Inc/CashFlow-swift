@@ -45,7 +45,7 @@ struct BudgetRowView: View {
                     HStack {
                         Text("budget_cell_max".localized + " :")
                         Spacer()
-                        Text(formatNumber(currentBudget.amount))
+                      Text(currentBudget.amount.formattedAbbreviatedCurrency())
                     }
                     .lineLimit(1)
                     .padding(8)
@@ -54,7 +54,7 @@ struct BudgetRowView: View {
                     HStack {
                         Text("budget_cell_actual".localized + " :")
                         Spacer()
-                        Text(formatNumber(currentBudget.currentAmount))
+                      Text(currentBudget.currentAmount.formattedAbbreviatedCurrency())
                     }
                     .lineLimit(1)
                     .padding(8)
@@ -64,7 +64,7 @@ struct BudgetRowView: View {
                         HStack {
                             Text("budget_cell_overrun".localized + " :")
                             Spacer()
-                            Text(formatNumber(currentBudget.currentAmount - currentBudget.amount))
+                          Text((currentBudget.currentAmount - currentBudget.amount).formattedAbbreviatedCurrency())
                         }
                         .lineLimit(1)
                         .padding(8)

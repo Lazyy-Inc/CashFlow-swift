@@ -177,6 +177,8 @@ public struct TransactionDetailsScreen: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .toolbarBackground(Color.clear, for: .navigationBar)
+        .toolbar(.hidden, for: .navigationBar)
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
     } // body
 } // struct

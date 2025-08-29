@@ -34,7 +34,7 @@ struct HomeScreenSubscriptionView: View {
                     ForEach(subscriptionStore.subscriptions.prefix(preferencesDisplayHome.subscription_value)) { subscription in
                         NavigationButtonView(
                             route: .push,
-                            destination: AppDestination.subscription(.detail(subscriptionId: subscription.id))
+                            destination: .subscription(.detail(subscriptionId: subscription.id))
                         ) {
                             SubscriptionRowView(subscription: subscription)
                         }

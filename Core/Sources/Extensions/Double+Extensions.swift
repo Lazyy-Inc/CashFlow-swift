@@ -23,33 +23,32 @@ public extension Double {
         return (self * divisor).rounded() / 100
     }
 
-}
-
-// TODO: Remove from global scope
-public func formatNumber(_ n: Double) -> String {
+  func formattedAbbreviatedCurrency() -> String {
+    let n = self
     let num = abs(n)
     let sign = (n < 0) ? "-" :  ""
     
     switch num {
     case 1_000_000_000...:
-        var formatted = num / 1_000_000_000
-        formatted = formatted.reduceScale(to: 1)
-        return "\(sign)\(UserCurrency.symbol)\(formatted)B"
-        
+      var formatted = num / 1_000_000_000
+      formatted = formatted.reduceScale(to: 1)
+      return "\(sign)\(UserCurrency.symbol)\(formatted)B"
+      
     case 1_000_000...:
-        var formatted = num / 1_000_000
-        formatted = formatted.reduceScale(to: 1)
-        return "\(sign)\(UserCurrency.symbol)\(formatted)M"
-        
+      var formatted = num / 1_000_000
+      formatted = formatted.reduceScale(to: 1)
+      return "\(sign)\(UserCurrency.symbol)\(formatted)M"
+      
     case 1_000...:
-        var formatted = num / 1_000
-        formatted = formatted.reduceScale(to: 1)
-        return "\(sign)\(UserCurrency.symbol)\(formatted)K"
-        
+      var formatted = num / 1_000
+      formatted = formatted.reduceScale(to: 1)
+      return "\(sign)\(UserCurrency.symbol)\(formatted)K"
+      
     case 0...:
-        return n.toCurrency()
-        
+      return n.toCurrency()
+      
     default:
-        return n.toCurrency()
+      return n.toCurrency()
     }
+  }
 }

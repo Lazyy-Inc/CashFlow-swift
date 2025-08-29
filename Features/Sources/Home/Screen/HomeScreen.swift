@@ -8,7 +8,6 @@
 // Refactor 18/02/2024
 
 import SwiftUI
-import CoreData
 import StoreKit
 import Navigation
 import TheoKit

@@ -68,7 +68,10 @@ let package = Package(
             "Mocks",
             "Models",
             "Stores",
-            "Navigation"
+            "Navigation",
+            "TransactionModule",
+            "SavingsPlanModule",
+            "SubscriptionModule"
           ],
           swiftSettings: [.swiftLanguageMode(.v5)]
         ),
@@ -82,7 +85,7 @@ let package = Package(
                 "Mocks",
                 "Models",
                 "Stores",
-                "Navigation",
+                "Navigation"
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
