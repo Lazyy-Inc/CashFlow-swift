@@ -5,7 +5,6 @@
 //  Created by Theo Sementa on 13/10/2023.
 //  Localized with Toglee on 16/04/2025
 
-import CoreData
 import AppIntents
 import Core
 import Preferences

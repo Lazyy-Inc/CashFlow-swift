@@ -62,17 +62,4 @@ public extension SubscriptionModel {
         }
     }
     
-    var notifMessage: String {
-        let daysBefore = SubscriptionPreferences.shared.dayBeforeReceiveNotification
-        let notifMessage = self.type == .expense ? Word.Notifications.willRemoved : Word.Notifications.willAdded
-        return "\(self.amount)\(UserCurrency.symbol) \(notifMessage) \(daysBefore) \(Word.Classic.days). (\(self.name))"
-    }
-    
-    var dateNotif: Date {
-        var components = Calendar.current.dateComponents([.minute, .hour, .day, .month, .year], from: frequencyDate)
-        components.hour = 10
-        components.minute = 0
-        components.timeZone = TimeZone.current
-        return Calendar.current.date(from: components) ?? frequencyDate
-    }
 }

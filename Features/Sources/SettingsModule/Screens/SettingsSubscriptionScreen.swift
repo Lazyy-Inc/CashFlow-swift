@@ -47,8 +47,8 @@ public struct SettingsSubscriptionScreen: View {
                             for: .init(
                                 id: "\(subscription.id)",
                                 title: "CashFlow",
-                                message: subscription.notifMessage,
-                                date: subscription.dateNotif
+                                message: NotificationsManager.notifMessage(for: subscription),
+                                date: NotificationsManager.dateNotif(for: subscription)
                             ),
                             daysBefore: preferencesSubscription.dayBeforeReceiveNotification
                         )
@@ -68,8 +68,8 @@ public struct SettingsSubscriptionScreen: View {
                     for: .init(
                         id: "\(subscription.id)",
                         title: "CashFlow",
-                        message: subscription.notifMessage,
-                        date: subscription.dateNotif
+                        message: NotificationsManager.notifMessage(for: subscription),
+                        date: NotificationsManager.dateNotif(for: subscription)
                     ),
                     daysBefore: $0
                 )

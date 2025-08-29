@@ -24,6 +24,7 @@ import SettingsModule
 import CreditCardModule
 
 import Home
+import Dashboard
 
 extension AppDestination {
     

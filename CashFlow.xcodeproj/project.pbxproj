@@ -20,6 +20,7 @@
 		D9084F402E609BC70077F9C5 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F3F2E609BC70077F9C5 /* DesignSystem */; };
 		D9084F432E609E7C0077F9C5 /* Events in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F422E609E7C0077F9C5 /* Events */; };
 		D9084F452E615DF80077F9C5 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F442E615DF80077F9C5 /* Home */; };
+		D9084F472E61690F0077F9C5 /* Dashboard in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F462E61690F0077F9C5 /* Dashboard */; };
 		D912D00A2D140523006DF5DC /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = D912D0092D140523006DF5DC /* AlertKit */; };
 		D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94594F62D16A03A00A989F0 /* NotificationKit */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
@@ -108,6 +109,7 @@
 				D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */,
 				D9084D9A2E5F72D70077F9C5 /* Navigation in Frameworks */,
 				D980E52C2DC1E928005025E1 /* TheoKit in Frameworks */,
+				D9084F472E61690F0077F9C5 /* Dashboard in Frameworks */,
 				D9084F402E609BC70077F9C5 /* DesignSystem in Frameworks */,
 				D9084F432E609E7C0077F9C5 /* Events in Frameworks */,
 				D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */,
@@ -211,6 +213,7 @@
 				D9084F3F2E609BC70077F9C5 /* DesignSystem */,
 				D9084F422E609E7C0077F9C5 /* Events */,
 				D9084F442E615DF80077F9C5 /* Home */,
+				D9084F462E61690F0077F9C5 /* Dashboard */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -686,6 +689,10 @@
 		D9084F442E615DF80077F9C5 /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Home;
+		};
+		D9084F462E61690F0077F9C5 /* Dashboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Dashboard;
 		};
 		D912D0092D140523006DF5DC /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -7,8 +7,6 @@
 // Localizations 30/09/2023
 
 import SwiftUI
-import CloudKit
-import CoreData
 import Navigation
 import Core
 import Preferences
@@ -16,7 +14,9 @@ import DesignSystem
 import Events
 import CategoryModule
 import Stores
+
 import Home
+import Dashboard
 
 struct RootScreen: View {
     

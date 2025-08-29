@@ -29,7 +29,7 @@ struct DashboardRowView: View {
                 
                 Spacer()
                 
-                Image(.iconArrowRight)
+                Image("iconArrowRight")
                     .renderingMode(.template)
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
             }
@@ -50,7 +50,7 @@ struct DashboardRowView: View {
         .opacity(config.isLocked ? 0.4 : 1)
         .overlay {
             if config.isLocked {
-                Image(.iconDoorLocked)
+                Image("iconDoorLocked")
                     .resizable()
                     .renderingMode(.template)
                     .foregroundStyle(Color.label)
@@ -63,7 +63,7 @@ struct DashboardRowView: View {
 // MARK: - Configuration
 extension DashboardRowView {
     struct Configuration {
-        var icon: ImageResource
+        var icon: String
         var text: String
         var isLocked: Bool = false
     }
@@ -74,7 +74,7 @@ extension DashboardRowView {
     HStack(spacing: 8) {
         DashboardRowView(
             config: .init(
-                icon: .iconPiggyBank,
+                icon: "iconPiggyBank",
                 text: "Preview 1",
                 isLocked: true
             )
@@ -82,11 +82,11 @@ extension DashboardRowView {
         
         DashboardRowView(
             config: .init(
-                icon: .iconClockRepeat,
+                icon: "iconClockRepeat",
                 text: "Preview 2"
             )
         )
     }
     .padding()
-    .background(Color.primary200)
+    .background(Color.primary500)
 }

@@ -159,10 +159,36 @@ public extension TransactionStore {
         }
     }
   
+  
+  func fetchTransactionsOfCurrentMonth(accountID: Int) async {
+    let startDate = Date().startOfMonth ?? .now
+    let endDate = Date().endOfMonth ?? .now
+    
+    await self.fetchTransactionsByPeriod(
+      accountID: accountID,
+      startDate: startDate,
+      endDate: endDate
+    )
+    
+    if self.transactions.count < 15 {
+      await self.fetchTransactionsByPeriod(
+        accountID: accountID,
+        startDate: startDate.oneMonthAgo,
+        endDate: endDate.oneMonthAgo
+      )
+    }
+  }
+  
   func sortTransactionsByDate() {
       self.transactions.sort { $0.date > $1.date }
   }
     
+}
+
+extension Date {
+  var oneMonthAgo: Date {
+      return Calendar.current.date(byAdding: .month, value: -1, to: self)!
+  }
 }
 
 // MARK: - Dependencies

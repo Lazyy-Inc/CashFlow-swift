@@ -22,7 +22,8 @@ let package = Package(
         .library(name: "SettingsModule", targets: ["SettingsModule"]),
         .library(name: "CreditCardModule", targets: ["CreditCardModule"]),
         
-        .library(name: "Home", targets: ["Home"])
+        .library(name: "Home", targets: ["Home"]),
+        .library(name: "Dashboard", targets: ["Dashboard"])
     ],
     dependencies: [
         .package(path: "../DesignSystem"),
@@ -76,6 +77,21 @@ let package = Package(
           swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "HomeTests", dependencies: ["Home"]),
+        
+        .target(
+          name: "Dashboard",
+          dependencies: [
+            "DesignSystem",
+            "Core",
+            "Mocks",
+            "Models",
+            "Stores",
+            "Navigation",
+            "CreditCardModule"
+          ],
+          swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "DashboardTests", dependencies: ["Dashboard"]),
         
         .target(
             name: "PaywallModule",
