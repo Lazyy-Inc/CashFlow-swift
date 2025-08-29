@@ -33,7 +33,7 @@ struct CarouselOfChartsView: View {
     var body: some View {
         VStack {
             TabView(selection: $selectedChart) {
-                GenericLineChart(
+                GenericLineChartView(
                     selectedDate: .now,
                     values: dailyExpenses,
                     config: .init(
@@ -44,7 +44,7 @@ struct CarouselOfChartsView: View {
                 .padding(.horizontal, Padding.large)
                 .tag(0)
                 
-                GenericLineChart(
+              GenericLineChartView(
                     selectedDate: .now,
                     values: dailyIncomes,
                     config: .init(

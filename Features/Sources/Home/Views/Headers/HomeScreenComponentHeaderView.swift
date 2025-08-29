@@ -26,7 +26,7 @@ struct HomeScreenComponentHeaderView: View {
                     .font(TKDesignSystem.Fonts.Title.medium)
                     .fullWidth(.leading)
                 
-                Image(.iconArrowRight)
+                Image("iconArrowRight")
                     .renderingMode(.template)
                     .foregroundStyle(themeManager.theme.color)
             }

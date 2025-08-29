@@ -23,6 +23,8 @@ import SubcategoryModule
 import SettingsModule
 import CreditCardModule
 
+import Home
+
 extension AppDestination {
     
     @ViewBuilder

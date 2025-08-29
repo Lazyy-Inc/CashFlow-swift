@@ -27,7 +27,8 @@ let package = Package(
         .package(path: "../Mocks"),
         .package(path: "../Models"),
         .package(path: "../Stores"),
-        .package(path: "../Banners")
+        .package(path: "../Banners"),
+        .package(path: "../Navigation")
     ],
     targets: [
         .target(
@@ -37,7 +38,8 @@ let package = Package(
               "Models",
               "Mocks",
               "Stores",
-              "Banners"
+              "Banners",
+              "Navigation"
           ],
           swiftSettings: [.swiftLanguageMode(.v5)]
         ),

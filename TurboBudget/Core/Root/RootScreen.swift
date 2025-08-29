@@ -16,6 +16,7 @@ import DesignSystem
 import Events
 import CategoryModule
 import Stores
+import Home
 
 struct RootScreen: View {
     

@@ -11,6 +11,7 @@ import TheoKit
 import Core
 import Dependencies
 import Stores
+import DesignSystem
 
 struct HomeHeaderView: View {
     
@@ -36,11 +37,11 @@ struct HomeHeaderView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             if !purchaseManager.isCashFlowPro {
-                PremiumButton()
+              PremiumButtonView()
             }
             
             NavigationButtonView(route: .push, destination: AppDestination.settings(.home)) {
-                Image(.iconGear)
+                Image("iconGear")
                     .renderingMode(.template)
                     .foregroundStyle(Color.text)
             }

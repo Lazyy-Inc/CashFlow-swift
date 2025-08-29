@@ -16,7 +16,7 @@ import DesignSystem
 import Core
 import Preferences
 
-struct HomeScreen: View {
+public struct HomeScreen: View {
         
     @EnvironmentObject private var router: Router<AppDestination>
     @EnvironmentObject private var purchasesManager: PurchasesManager
@@ -26,8 +26,11 @@ struct HomeScreen: View {
     // Environment
     @Environment(\.requestReview) private var requestReview
     
+  
+    public init() {}
+  
     // MARK: -
-    var body: some View {
+    public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             HomeHeaderView()
                 .padding(Padding.large)

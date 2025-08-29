@@ -19,6 +19,7 @@
 		D9084F3D2E6093FB0077F9C5 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F3C2E6093FB0077F9C5 /* Core */; };
 		D9084F402E609BC70077F9C5 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F3F2E609BC70077F9C5 /* DesignSystem */; };
 		D9084F432E609E7C0077F9C5 /* Events in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F422E609E7C0077F9C5 /* Events */; };
+		D9084F452E615DF80077F9C5 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F442E615DF80077F9C5 /* Home */; };
 		D912D00A2D140523006DF5DC /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = D912D0092D140523006DF5DC /* AlertKit */; };
 		D94594F72D16A03A00A989F0 /* NotificationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94594F62D16A03A00A989F0 /* NotificationKit */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
@@ -96,6 +97,7 @@
 				D9083BF22E5878CE0077F9C5 /* CreditCardModule in Frameworks */,
 				81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */,
 				D9084DA72E606BEB0077F9C5 /* Banners in Frameworks */,
+				D9084F452E615DF80077F9C5 /* Home in Frameworks */,
 				D968C1B02E50651E006BB17A /* AccountModule in Frameworks */,
 				D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */,
 				D968C2322E54F3CA006BB17A /* SubcategoryModule in Frameworks */,
@@ -208,6 +210,7 @@
 				D9084F3C2E6093FB0077F9C5 /* Core */,
 				D9084F3F2E609BC70077F9C5 /* DesignSystem */,
 				D9084F422E609E7C0077F9C5 /* Events */,
+				D9084F442E615DF80077F9C5 /* Home */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -679,6 +682,10 @@
 		D9084F422E609E7C0077F9C5 /* Events */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Events;
+		};
+		D9084F442E615DF80077F9C5 /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
 		};
 		D912D0092D140523006DF5DC /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;

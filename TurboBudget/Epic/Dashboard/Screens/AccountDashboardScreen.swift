@@ -74,7 +74,7 @@ struct AccountDashboardScreen: View {
                 Spacer()
                 
                 if !store.isCashFlowPro {
-                    PremiumButton()
+                    PremiumButtonView()
                 }
                 
                 NavigationButtonView(route: .push, destination: AppDestination.settings(.home)) {

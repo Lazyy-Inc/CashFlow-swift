@@ -73,7 +73,7 @@ struct AnalyticsScreen: View {
                         NavigationButtonView(
                             route: .push,
                             destination: AppDestination.transaction(.specificList(month: selectedDate, type: .income))) {
-                                GenericLineChart(
+                                GenericLineChartView(
                                     selectedDate: selectedDate,
                                     values: dailyIncomes,
                                     config: .init(
@@ -86,7 +86,7 @@ struct AnalyticsScreen: View {
                         NavigationButtonView(
                             route: .push,
                             destination: AppDestination.transaction(.specificList(month: selectedDate, type: .expense))) {
-                                GenericLineChart(
+                                GenericLineChartView(
                                     selectedDate: selectedDate,
                                     values: dailyExpenses,
                                     config: .init(
@@ -96,7 +96,7 @@ struct AnalyticsScreen: View {
                                 )
                             }
                         
-                        GenericLineChart(
+                        GenericLineChartView(
                             selectedDate: selectedDate,
                             values: dailySubscriptionsIncomes,
                             config: .init(
@@ -104,7 +104,7 @@ struct AnalyticsScreen: View {
                                 mainColor: Color.primary500
                             )
                         )
-                        GenericLineChart(
+                        GenericLineChartView(
                             selectedDate: selectedDate,
                             values: dailySubscriptionsExpenses,
                             config: .init(
