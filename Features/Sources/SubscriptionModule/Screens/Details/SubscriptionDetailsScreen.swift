@@ -84,23 +84,27 @@ public struct SubscriptionDetailsScreen: View {
                             }
                             
                             VStack(spacing: 12) {
-                                if let category = subscription.category {
-                                    DetailRow(
-                                        icon: category.icon,
-                                        value: category.name,
-                                        iconBackgroundColor: category.color) {
-                                            presentChangeCategory()
-                                        }
-                                    
-                                    if let subcategory = subscription.subcategory {
-                                        DetailRow(
-                                            icon: subcategory.icon,
-                                            value: subcategory.name,
-                                            iconBackgroundColor: subcategory.color) {
-                                                presentChangeCategory()
-                                            }
-                                    }
+                              if let category = subscription.category {
+                                DetailRow(
+                                  icon: category.icon,
+                                  value: category.name,
+                                  iconBackgroundColor: category.color,
+                                  isCategory: true
+                                ) {
+                                  presentChangeCategory()
                                 }
+                                
+                                if let subcategory = subscription.subcategory {
+                                  DetailRow(
+                                    icon: subcategory.icon,
+                                    value: subcategory.name,
+                                    iconBackgroundColor: subcategory.color,
+                                    isCategory: true
+                                  ) {
+                                    presentChangeCategory()
+                                  }
+                                }
+                              }
                             }
                             
                             if let firstSubscriptionDate = subscription.firstSubscriptionDate {

@@ -99,6 +99,15 @@ public struct AccountDashboardScreen: View {
                     Text(account.name)
                   }
                 }
+                Button {
+                  if !accountStore.accounts.isEmpty && !store.isCashFlowPro {
+                      alertManager.showPaywall(router: router)
+                  } else {
+                    router.push(.account(.create))
+                  }
+                } label: {
+                  Label("Ajouter un compte", systemImage: "plus") // TODO: TBL
+                }
               } label: {
                 HStack(spacing: Spacing.small) {
                   Text(account.name)

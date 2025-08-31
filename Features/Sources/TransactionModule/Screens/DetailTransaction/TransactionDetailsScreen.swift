@@ -99,23 +99,27 @@ public struct TransactionDetailsScreen: View {
                             ).capitalized
                         )
                         
-                        if let category = currentTransaction.category {
-                            DetailRow(
-                                icon: category.icon,
-                                value: category.name,
-                                iconBackgroundColor: category.color) {
-                                    presentChangeCategory()
-                                }
-                            
-                            if let subcategory = currentTransaction.subcategory {
-                                DetailRow(
-                                    icon: subcategory.icon,
-                                    value: subcategory.name,
-                                    iconBackgroundColor: subcategory.color) {
-                                        presentChangeCategory()
-                                    }
-                            }
+                      if let category = currentTransaction.category {
+                        DetailRow(
+                          icon: category.icon,
+                          value: category.name,
+                          iconBackgroundColor: category.color,
+                          isCategory: true
+                        ) {
+                          presentChangeCategory()
                         }
+                        
+                        if let subcategory = currentTransaction.subcategory {
+                          DetailRow(
+                            icon: subcategory.icon,
+                            value: subcategory.name,
+                            iconBackgroundColor: subcategory.color,
+                            isCategory: true
+                          ) {
+                            presentChangeCategory()
+                          }
+                        }
+                      }
                         
                         if let senderAccount = currentTransaction.senderAccount {
                             DetailRow(
