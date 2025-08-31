@@ -12,7 +12,7 @@ import Stores
 
 @MainActor
 public class PurchasesManager: NSObject, ObservableObject {
-    let productIDs: [String] = ["com.Sementa.CashFlow.lifetime"]
+    let productIDs: [String] = ["com.Sementa.CashFlow.lifetime", "cashflow_plus_299_1m"]
     var purchasedProductIDs: Set<String> = []
     
     @Published public var products: [Product] = []
