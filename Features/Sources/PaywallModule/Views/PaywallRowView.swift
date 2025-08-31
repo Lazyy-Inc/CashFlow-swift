@@ -22,15 +22,17 @@ struct PaywallRowView: View {
   var body: some View {
     HStack(spacing: 12) {
       RoundedRectangle(cornerRadius: CornerRadius.standard, style: .continuous)
-        .frame(width: 44)
+        .frame(width: 44, height: 44)
         .foregroundStyle(color.opacity(0.3))
         .overlay {
           Image(imageName)
-            .font(.system(size: 24, weight: .semibold, design: .rounded))
+            .resizable()
+            .renderingMode(.template)
+            .frame(width: 24, height: 24)
             .foregroundStyle(color)
         }
       
-      VStack(alignment: .leading) {
+      VStack(alignment: .leading, spacing: 0) {
         Text(title)
           .fontWithLineHeight(.Body.medium)
           .lineLimit(1)

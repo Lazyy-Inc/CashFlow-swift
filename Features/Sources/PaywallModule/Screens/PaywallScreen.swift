@@ -22,10 +22,8 @@ public struct PaywallScreen: View {
   // MARK: - View
   public var body: some View {
     NavigationStack {
-      VStack(spacing: 0) {
-        
+      VStack(spacing: Spacing.large) {
         PaywallHeaderView()
-          .padding()
         
         ScrollView {
           VStack(spacing: 24) {
@@ -40,9 +38,9 @@ public struct PaywallScreen: View {
             }, label: {
               PaywallRowView(
                 imageName: "iconSparkles",
-                title: "paywall_prediction_title".localized,
-                text: "paywall_prediction_desc".localized,
-                color: .red,
+                title: "paywall_ia_title".localized,
+                text: "paywall_ia_desc".localized,
+                color: .blue,
                 isDetailed: true
               )
             })
@@ -56,26 +54,26 @@ public struct PaywallScreen: View {
             )
             
             PaywallRowView(
-              imageName: "creditcard.and.123",
-              title: Word.Main.creditCard,
-              text: Word.Paywall.CreditCard.desc,
+              imageName: "iconCreditCard",
+              title: "paywall_bank_accounts_title".localized,
+              text: "paywall_bank_accounts_desc_plus".localized,
+              color: .yellow,
+              isDetailed: false
+            )
+            
+            PaywallRowView(
+              imageName: "iconLandmark",
+              title: "paywall_savings_accounts_title".localized,
+              text: "paywall_savings_accounts_desc_plus".localized,
               color: .green,
               isDetailed: false
             )
             
             PaywallRowView(
-              imageName: "creditcard.fill",
-              title: "paywall_item_account_title".localized,
-              text: "paywall_item_account_description".localized,
-              color: .orange,
-              isDetailed: false
-            )
-            
-            PaywallRowView(
-              imageName: "building.columns.fill",
-              title: Word.Main.savingsAccounts,
-              text: Word.Paywall.SavingsAccount.desc,
-              color: .blue,
+              imageName: "iconPiggyBank",
+              title: "paywall_savings_plans_title".localized,
+              text: "paywall_savings_plans_desc_plus".localized,
+              color: .green,
               isDetailed: false
             )
             
@@ -89,44 +87,49 @@ public struct PaywallScreen: View {
               .onAppear { EventService.sendEvent(key: EventKeys.paywallDetailBudgets) }
             }, label: {
               PaywallRowView(
-                imageName: "chart.pie.fill",
-                title: "word_budgets".localized,
+                imageName: "iconPieChart",
+                title: "paywall_budgets_title".localized,
                 text: "paywall_budgets_desc".localized,
                 color: .purple,
                 isDetailed: true
               )
             })
             
-            NavigationLink(destination: {
-              PaywallFeatureDetailScreen(
-                title: "word_statistics".localized,
-                imageWithout: ["stat1WithoutPaywallDetailled", "stat2WithoutPaywallDetailled"],
-                imageWith: ["stat1WithPaywallDetailled", "stat2WithPaywallDetailled"],
-                desc: "paywall_detailled_statistics".localized
-              )
-            }, label: {
-              PaywallRowView(
-                imageName: "chart.xyaxis.line",
-                title: "word_statistics".localized,
-                text: "paywall_statistics_desc".localized,
-                color: .yellow,
-                isDetailed: true
-              )
-            })
-            
             PaywallRowView(
-              imageName: "person.fill",
-              title: "paywall_support_dev".localized,
-              text: "paywall_support_dev_desc".localized,
-              color: .blue,
+              imageName: "iconCreditCard",
+              title: "paywall_bank_cards_title".localized,
+              text: "paywall_bank_cards_desc".localized,
+              color: .orange,
               isDetailed: false
             )
+            
+            //            NavigationLink(destination: {
+            //              PaywallFeatureDetailScreen(
+            //                title: "word_statistics".localized,
+            //                imageWithout: ["stat1WithoutPaywallDetailled", "stat2WithoutPaywallDetailled"],
+            //                imageWith: ["stat1WithPaywallDetailled", "stat2WithPaywallDetailled"],
+            //                desc: "paywall_detailled_statistics".localized
+            //              )
+            //            }, label: {
+            //              PaywallRowView(
+            //                imageName: "chart.xyaxis.line",
+            //                title: "word_statistics".localized,
+            //                text: "paywall_statistics_desc".localized,
+            //                color: .yellow,
+            //                isDetailed: true
+            //              )
+            //            })
+            
+            //            PaywallRowView(
+            //              imageName: "person.fill",
+            //              title: "paywall_support_dev".localized,
+            //              text: "paywall_support_dev_desc".localized,
+            //              color: .blue,
+            //              isDetailed: false
+            //            )
           }
-          .padding(.horizontal, 24)
         }
         .scrollIndicators(.hidden)
-        
-        Spacer()
         
         VStack(spacing: 8) {
           if let lifetime = store.lifetime, !store.isCashFlowPro {
@@ -159,10 +162,8 @@ public struct PaywallScreen: View {
           .frame(maxWidth: .infinity, alignment: .trailing)
           .padding(.trailing, 8)
         }
-        .padding(.horizontal)
-        .padding(.top)
-        .background(Color.Background.bg200)
       }
+      .padding()
       .background(Color.Background.bg50)
     } // NavigationStack
     .onAppear {
