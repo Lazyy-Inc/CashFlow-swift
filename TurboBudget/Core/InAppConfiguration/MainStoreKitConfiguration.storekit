@@ -44,7 +44,7 @@
     "_applicationInternalID" : "6450913423",
     "_developerTeamID" : "8TMMB69WBG",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 767851357.74300897,
+    "_lastSynchronizedDate" : 778333711.54625404,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -96,7 +96,53 @@
     ]
   },
   "subscriptionGroups" : [
+    {
+      "id" : "21738567",
+      "localizations" : [
 
+      ],
+      "name" : "Abonnement Premium",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6748975811",
+          "introductoryOffer" : {
+            "internalID" : "4574F18D",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "Boostez vos économies facilement",
+              "displayName" : "CashFlow Plus",
+              "locale" : "fr"
+            },
+            {
+              "description" : "Boost your savings easily",
+              "displayName" : "CashFlow Plus",
+              "locale" : "en_GB"
+            }
+          ],
+          "productID" : "cashflow_plus_299_1m",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "CashFlow Plus",
+          "subscriptionGroupID" : "21738567",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
   ],
   "version" : {
     "major" : 4,

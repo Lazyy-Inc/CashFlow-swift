@@ -41,6 +41,7 @@ let package = Package(
               "Banners",
               "Navigation"
           ],
+          resources: resources,
           swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "DesignSystemTests", dependencies: ["DesignSystem"])

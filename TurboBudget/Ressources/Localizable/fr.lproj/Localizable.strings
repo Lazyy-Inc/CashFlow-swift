@@ -680,7 +680,22 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 
 "paywall_automations_desc" = "Automatisez les contributions que vous faites à un plan d'épargne.";
 
-"paywall_budgets_desc" = "Fixez des limites de dépenses pour une catégorie particulière.";
+/*  */
+"paywall_bank_accounts_desc_plus" = "Suivez jusqu’à 3 comptes bancaires pour une vision claire de votre argent.";
+
+/*  */
+"paywall_bank_accounts_title" = "Comptes bancaires";
+
+/*  */
+"paywall_bank_cards_desc" = "Ajoutez vos cartes pour un suivi plus précis et centralisé.";
+
+/*  */
+"paywall_bank_cards_title" = "Cartes bancaires";
+
+"paywall_budgets_desc" = "Fixez des limites par catégorie pour garder le contrôle.";
+
+/*  */
+"paywall_budgets_title" = "Budgets";
 
 "paywall_category_desc" = "Triez vos catégories par jour.";
 
@@ -695,6 +710,12 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "paywall_detailled_statistics" = "Suivez mieux vos dépenses grâce à des statistiques détaillées. Découvrez instantanément vos gains ou pertes du mois avec le widget sur la page de votre compte.";
 
 "paywall_financial_advice_desc" = "Débloquez de nouveaux outils pour respecter tous les conseils financiers.";
+
+/*  */
+"paywall_ia_desc" = "Classement automatique de vos dépenses grâce à une IA performante.";
+
+/*  */
+"paywall_ia_title" = "Intelligence artificielle";
 
 /*  */
 "paywall_item_account_description" = "Comptes bancaires illimités pour une gestion parfaite de votre argent";
@@ -718,9 +739,33 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 
 "paywall_restore" = "Restaurer CashFlow Pro";
 
+/*  */
+"paywall_savings_accounts_desc_plus" = "Gérez jusqu’à 3 comptes épargne pour suivre vos économies en temps réel.";
+
+/*  */
+"paywall_savings_accounts_title" = "Comptes épargnes";
+
+/*  */
+"paywall_savings_plans_desc_plus" = "Définissez jusqu’à 6 objectifs pour financer vos projets.";
+
+/*  */
+"paywall_savings_plans_title" = "Plans épargnes";
+
 "paywall_savingsaccounts_desc" = "Compte d'épargne illimité pour une meilleure gestion de votre argent";
 
+/*  */
+"paywall_seven_days_free" = "7 jours pour 0";
+
+/*  */
+"paywall_start_trial" = "Commencer mon essai gratuit";
+
 "paywall_statistics_desc" = "Voir plus de statistiques sur vos transactions.";
+
+/*  */
+"paywall_stats_desc" = "Visualisez l’évolution de vos dépenses selon la règle 50-30-20… ou vos propres règles.";
+
+/*  */
+"paywall_stats_title" = "Statistiques";
 
 "paywall_support_dev" = "Soutenez le développeur";
 
@@ -728,7 +773,10 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 
 "paywall_thanks" = "Merci pour votre soutien !";
 
-"paywall_title" = "CashFlow Pro";
+/*  */
+"paywall_then_by_month" = "Puis %@ / mois";
+
+"paywall_title" = "Choisissez l'abonnement qui correspond à votre gestion financière.";
 
 "qrcode_recover_transactions" = "Retrouvez la transaction en ouvrant le menu +, le même menu que pour l'ajout d'une transaction. Vous trouverez ensuite le bouton permettant de scanner ce QRCode.";
 
