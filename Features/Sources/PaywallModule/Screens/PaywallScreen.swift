@@ -23,10 +23,13 @@ public struct PaywallScreen: View {
   public var body: some View {
     NavigationStack {
       VStack(spacing: Spacing.large) {
-        PaywallHeaderView()
-        
+       
         ScrollView {
-          VStack(spacing: 24) {
+          VStack(spacing: Spacing.large) {
+            PaywallHeaderView()
+            
+            PaywallSubscriptionButtonView(style: .cashFlowPlus)
+            
             NavigationLink(destination: {
               PaywallFeatureDetailScreen(
                 title: "paywall_prediction_title".localized,
@@ -40,7 +43,7 @@ public struct PaywallScreen: View {
                 imageName: "iconSparkles",
                 title: "paywall_ia_title".localized,
                 text: "paywall_ia_desc".localized,
-                color: .blue,
+                color: .Settings.settingsBlue,
                 isDetailed: true
               )
             })
@@ -49,15 +52,15 @@ public struct PaywallScreen: View {
               imageName: "iconLineChart",
               title: "paywall_stats_title".localized,
               text: "paywall_stats_desc".localized,
-              color: .orange,
+              color: .Settings.settingsOrange,
               isDetailed: true
             )
             
             PaywallRowView(
-              imageName: "apple.logo",
+              imageName: "iconAppleLogo",
               title: "paywall_item_applepay_title".localized,
               text: "paywall_item_applepay_description".localized,
-              color: .indigo,
+              color: .Settings.settingsPurple,
               isDetailed: false
             )
             
@@ -73,7 +76,7 @@ public struct PaywallScreen: View {
               imageName: "iconLandmark",
               title: "paywall_savings_accounts_title".localized,
               text: "paywall_savings_accounts_desc_plus".localized,
-              color: .green,
+              color: .Settings.settingsGreen,
               isDetailed: false
             )
             
@@ -81,7 +84,7 @@ public struct PaywallScreen: View {
               imageName: "iconPiggyBank",
               title: "paywall_savings_plans_title".localized,
               text: "paywall_savings_plans_desc_plus".localized,
-              color: .green,
+              color: .Settings.settingsGreen,
               isDetailed: false
             )
             
@@ -98,7 +101,7 @@ public struct PaywallScreen: View {
                 imageName: "iconPieChart",
                 title: "paywall_budgets_title".localized,
                 text: "paywall_budgets_desc".localized,
-                color: .purple,
+                color: .Settings.settingsPurple,
                 isDetailed: true
               )
             })
@@ -107,7 +110,7 @@ public struct PaywallScreen: View {
               imageName: "iconCreditCard",
               title: "paywall_bank_cards_title".localized,
               text: "paywall_bank_cards_desc".localized,
-              color: .orange,
+              color: .Settings.settingsOrange,
               isDetailed: false
             )
             

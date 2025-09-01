@@ -680,7 +680,22 @@ Simple, fast, secure - your financial peace of mind starts here.";
 
 "paywall_automations_desc" = "Automate the contributions you make to a savings plan.";
 
-"paywall_budgets_desc" = "Set spending limits for a specific category.";
+/*  */
+"paywall_bank_accounts_desc_plus" = "Track up to 3 bank accounts for a clear overview of your finances.";
+
+/*  */
+"paywall_bank_accounts_title" = "Bank accounts";
+
+/*  */
+"paywall_bank_cards_desc" = "Add your cards for more accurate and centralized tracking.";
+
+/*  */
+"paywall_bank_cards_title" = "Bank cards";
+
+"paywall_budgets_desc" = "Set limits by category to stay in control.";
+
+/*  */
+"paywall_budgets_title" = "Budgets";
 
 "paywall_category_desc" = "Sort your categories by day.";
 
@@ -695,6 +710,12 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "paywall_detailled_statistics" = "Track your expenses better with detailed statistics. Instantly discover your monthly gains or losses with the widget on your account page.";
 
 "paywall_financial_advice_desc" = "Unlock new tools to follow all financial advice.";
+
+/*  */
+"paywall_ia_desc" = "Automatic classification of your expenses thanks to powerful AI.";
+
+/*  */
+"paywall_ia_title" = "Artificial intelligence";
 
 /*  */
 "paywall_item_account_description" = "Unlimited bank accounts for perfect money management";
@@ -718,9 +739,33 @@ Simple, fast, secure - your financial peace of mind starts here.";
 
 "paywall_restore" = "Restore CashFlow Pro";
 
+/*  */
+"paywall_savings_accounts_desc_plus" = "Manage up to 3 savings accounts to track your savings in real time.";
+
+/*  */
+"paywall_savings_accounts_title" = "Savings accounts";
+
+/*  */
+"paywall_savings_plans_desc_plus" = "Set up to 6 goals to finance your projects.";
+
+/*  */
+"paywall_savings_plans_title" = "Savings plans";
+
 "paywall_savingsaccounts_desc" = "Unlimited savings account for better management of your money";
 
+/*  */
+"paywall_seven_days_free" = "7 days for 0";
+
+/*  */
+"paywall_start_trial" = "Start my free trial";
+
 "paywall_statistics_desc" = "View more statistics on your transactions.";
+
+/*  */
+"paywall_stats_desc" = "Visualize the evolution of your expenses according to the 50-30-20 rule... or your own rules.";
+
+/*  */
+"paywall_stats_title" = "Statistics";
 
 "paywall_support_dev" = "Support the developer";
 
@@ -728,7 +773,10 @@ Simple, fast, secure - your financial peace of mind starts here.";
 
 "paywall_thanks" = "Thank you for your support!";
 
-"paywall_title" = "CashFlow Pro";
+/*  */
+"paywall_then_by_month" = "Then %@ / month";
+
+"paywall_title" = "Choose the subscription that suits your financial management needs.";
 
 "qrcode_recover_transactions" = "Find the transaction by opening the menu +, the same menu used for adding a transaction. You will then find the button to scan this QR code.";
 
