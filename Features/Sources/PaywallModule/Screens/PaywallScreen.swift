@@ -46,6 +46,14 @@ public struct PaywallScreen: View {
             })
             
             PaywallRowView(
+              imageName: "iconLineChart",
+              title: "paywall_stats_title".localized,
+              text: "paywall_stats_desc".localized,
+              color: .orange,
+              isDetailed: true
+            )
+            
+            PaywallRowView(
               imageName: "apple.logo",
               title: "paywall_item_applepay_title".localized,
               text: "paywall_item_applepay_description".localized,
@@ -132,27 +140,7 @@ public struct PaywallScreen: View {
         .scrollIndicators(.hidden)
         
         VStack(spacing: 8) {
-          if let lifetime = store.lifetime, !store.isCashFlowPro {
-            AsyncButton {
-              if let product = store.products.first {
-                await store.buyProduct(product)
-              }
-            } label: {
-              let fakePrice = lifetime.price * 2
-              PaywallPayementRowView(
-                price: lifetime.price.toCurrency(),
-                promoText: fakePrice.toCurrency()
-              )
-            }
-          } else {
-            Text("paywall_thanks".localized)
-              .font(.semiBoldCustom(size: 20))
-              .foregroundStyle(.white)
-              .frame(maxWidth: .infinity)
-              .padding()
-              .background(Color.primary500)
-              .cornerRadius(15)
-          }
+          PaywallPayementButtonView()
           
           AsyncButton { await store.restorePurchases() } label: {
             Text("paywall_restore".localized)
