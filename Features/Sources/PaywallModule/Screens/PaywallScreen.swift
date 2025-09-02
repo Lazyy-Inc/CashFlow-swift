@@ -30,30 +30,20 @@ public struct PaywallScreen: View {
             
             PaywallSubscriptionButtonView(style: .cashFlowPlus)
             
-            NavigationLink(destination: {
-              PaywallFeatureDetailScreen(
-                title: "paywall_prediction_title".localized,
-                imageWithout: [],
-                imageWith: ["predictionPaywallDetailled"],
-                desc: "paywall_detailled_prediction".localized
-              )
-              .onAppear { EventService.sendEvent(key: EventKeys.paywallDetailPrediction) }
-            }, label: {
-              PaywallRowView(
-                imageName: "iconSparkles",
-                title: "paywall_ia_title".localized,
-                text: "paywall_ia_desc".localized,
-                color: .Settings.settingsBlue,
-                isDetailed: true
-              )
-            })
+            PaywallRowView(
+              imageName: "iconSparkles",
+              title: "paywall_ia_title".localized,
+              text: "paywall_ia_desc".localized,
+              color: .Settings.settingsBlue,
+              isDetailed: false
+            )
             
             PaywallRowView(
               imageName: "iconLineChart",
               title: "paywall_stats_title".localized,
               text: "paywall_stats_desc".localized,
               color: .Settings.settingsOrange,
-              isDetailed: true
+              isDetailed: false
             )
             
             PaywallRowView(
@@ -88,23 +78,13 @@ public struct PaywallScreen: View {
               isDetailed: false
             )
             
-            NavigationLink(destination: {
-              PaywallFeatureDetailScreen(
-                title: "word_budgets".localized,
-                imageWithout: [],
-                imageWith: ["budgetPaywallDetailled"],
-                desc: "paywall_detailled_budgets".localized
-              )
-              .onAppear { EventService.sendEvent(key: EventKeys.paywallDetailBudgets) }
-            }, label: {
-              PaywallRowView(
-                imageName: "iconPieChart",
-                title: "paywall_budgets_title".localized,
-                text: "paywall_budgets_desc".localized,
-                color: .Settings.settingsPurple,
-                isDetailed: true
-              )
-            })
+            PaywallRowView(
+              imageName: "iconPieChart",
+              title: "paywall_budgets_title".localized,
+              text: "paywall_budgets_desc".localized,
+              color: .Settings.settingsPurple,
+              isDetailed: false
+            )
             
             PaywallRowView(
               imageName: "iconCreditCard",
