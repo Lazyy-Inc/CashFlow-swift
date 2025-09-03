@@ -10,13 +10,15 @@ let package = Package(
         .library(name: "Preferences", targets: ["Preferences"])
     ],
     dependencies: [
-      .package(path: "../Events")
+      .package(path: "../Events"),
+      .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.9")
     ],
     targets: [
         .target(
             name: "Preferences",
             dependencies: [
-              .product(name: "Events", package: "Events")
+              .product(name: "Events", package: "Events"),
+              .product(name: "StatsKit", package: "StatsKit")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),

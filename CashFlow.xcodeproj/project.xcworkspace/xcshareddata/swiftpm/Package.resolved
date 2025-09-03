@@ -1,5 +1,5 @@
 {
-  "originHash" : "d80aaf2f38f89484a43731064ed5c7f62b0635b3546a813139ad8ab28ba8b71e",
+  "originHash" : "2d0e718f2b064102fb39f6eebf929734988bda5985109180eddc5d34239f2cb3",
   "pins" : [
     {
       "identity" : "alertkit",
@@ -96,8 +96,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/NavigationKit",
       "state" : {
-        "branch" : "2.0.2",
-        "revision" : "0ecf2988ce5aa03d21dfe1efd4e17a434ebde808"
+        "branch" : "2.0.3",
+        "revision" : "84f4c1169b1c3a08611297782013d30722d5076a"
       }
     },
     {
@@ -105,8 +105,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/NetworkKit",
       "state" : {
-        "branch" : "1.0.3",
-        "revision" : "03f71712761d6127e1c557d0f964092fa267f78a"
+        "branch" : "1.0.4",
+        "revision" : "f98d20dece24fc0978c5051fe83a7657117f67fc"
       }
     },
     {
@@ -141,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/StatsKit",
       "state" : {
-        "revision" : "acf42343a058e2ad24d6f99224382eb5887ba9f2",
-        "version" : "1.0.8"
+        "revision" : "03383c62946231ca07b4b688f37f67dde43e2c52",
+        "version" : "1.0.9"
       }
     },
     {
@@ -195,8 +195,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theosementa/TheoKit",
       "state" : {
-        "branch" : "1.0.7",
-        "revision" : "3bfc75ced60c83e270ff9314d406d2cf67972a52"
+        "branch" : "1.1.5",
+        "revision" : "9df064ec1b2c8d618f40c8623cb89cd2ceb6c99e"
       }
     },
     {

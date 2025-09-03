@@ -11,7 +11,7 @@ let package = Package(
   ],
   dependencies: [
     .package(path: "../Models"),
-    .package(url: "https://github.com/theosementa/NavigationKit", branch: "2.0.2")
+    .package(url: "https://github.com/theosementa/NavigationKit", branch: "2.0.3")
   ],
   targets: [
     .target(

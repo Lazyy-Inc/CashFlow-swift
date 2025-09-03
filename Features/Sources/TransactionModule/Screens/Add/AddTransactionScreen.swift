@@ -1,5 +1,5 @@
 //
-//  TransactionAddScreen.swift
+//  AddTransactionScreen.swift
 //  TurboBudget
 //
 //  Created by Théo Sementa on 16/06/2023.
@@ -15,7 +15,7 @@ import Events
 import Models
 import Stores
 
-public struct TransactionAddScreen: View {
+public struct AddTransactionScreen: View {
     
     // MARK: Dependencies
     var transaction: TransactionModel?
@@ -76,9 +76,7 @@ public struct TransactionAddScreen: View {
                 )
                 .focused($focusedField, equals: .title)
                 .submitLabel(.next)
-                .onSubmit {
-                    focusedField = .amount
-                }
+                .onSubmit { focusedField = .amount }
                 
                 CustomTextField(
                     text: $viewModel.transactionAmount,
@@ -137,5 +135,5 @@ public struct TransactionAddScreen: View {
 
 // MARK: - Preview
 #Preview {
-    TransactionAddScreen()
+    AddTransactionScreen()
 }

@@ -1,0 +1,56 @@
+//
+//  SwiftUIView.swift
+//  DesignSystem
+//
+//  Created by Theo Sementa on 02/09/2025.
+//
+
+import SwiftUI
+import Core
+import Models
+import TheoKit
+
+struct GenericPickerView<T: Nameable>: View {
+  
+  @Binding var selectedItem: T
+  let items: [T]
+  
+  @EnvironmentObject private var themeManager: ThemeManager
+  
+  // MARK: -
+  var body: some View {
+    VStack(alignment: .leading, spacing: 6) {
+      Text(Word.Classic.frequency)
+        .padding(.leading, 8)
+        .font(.system(size: 12, weight: .regular))
+      
+      HStack(spacing: 0) {
+        Spacer()
+        Picker(selection: $selectedItem) {
+          ForEach(items, id: \.self) { item in
+            Text(item.name).tag(item)
+          }
+        } label: {
+          Text(selectedItem.name)
+        }
+        .tint(themeManager.theme.color)
+        .padding(8)
+      }
+      .roundedRectangleBorder(
+        TKDesignSystem.Colors.Background.Theme.bg100,
+        radius: CornerRadius.medium,
+        lineWidth: 1,
+        strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
+      )
+    }
+  }
+}
+
+// MARK: - Preview
+#Preview {
+  GenericPickerView(
+    selectedItem: .constant(RepartitionType.saved),
+    items: RepartitionType.allCases
+  )
+  .environmentObject(ThemeManager())
+}

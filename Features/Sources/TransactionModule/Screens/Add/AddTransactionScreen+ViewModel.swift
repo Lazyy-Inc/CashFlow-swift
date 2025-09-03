@@ -12,7 +12,7 @@ import Dependencies
 import Models
 import Stores
 
-extension TransactionAddScreen {
+extension AddTransactionScreen {
     
     final class ViewModel: ObservableObject {
         
@@ -100,7 +100,7 @@ extension TransactionAddScreen {
 }
 
 // MARK: - Utils
-extension TransactionAddScreen.ViewModel {
+extension AddTransactionScreen.ViewModel {
     
     func resetData() {
         transactionTitle = ""
@@ -113,7 +113,7 @@ extension TransactionAddScreen.ViewModel {
 }
 
 // MARK: - Verification
-extension TransactionAddScreen.ViewModel {
+extension AddTransactionScreen.ViewModel {
     
     func isTransactionInCreation() -> Bool {
         if selectedCategory != nil || selectedSubcategory != nil || !transactionTitle.isEmpty || transactionAmount.toDouble() != 0 {

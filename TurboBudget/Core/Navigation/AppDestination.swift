@@ -5,7 +5,7 @@
 //  Created by Theo Sementa on 17/04/2025.
 //
 
-import SwiftUICore
+import SwiftUI
 import Core
 import Navigation
 import PaywallModule
@@ -104,9 +104,9 @@ extension AppDestination {
         case .specificList(let month, let type):
             AnyView(TransactionsForMonthScreen(selectedDate: month, type: type))
         case .create:
-            AnyView(TransactionAddScreen())
+            AnyView(AddTransactionScreen())
         case .update(let transaction):
-            AnyView(TransactionAddScreen(transaction: transaction))
+            AnyView(AddTransactionScreen(transaction: transaction))
         case .detail(let transaction):
             AnyView(TransactionDetailsScreen(transaction: transaction))
         }

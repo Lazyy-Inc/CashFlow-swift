@@ -12,7 +12,8 @@ let package = Package(
   dependencies: [
     .package(path: "../Models"),
     .package(path: "../Banners"),
-    .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.3")
+    .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.4"),
+    .package(url: "https://github.com/theosementa/TheoKit", branch: "1.1.5")
   ],
   targets: [
     .target(
@@ -20,7 +21,8 @@ let package = Package(
       dependencies: [
         "Models",
         "Banners",
-        .product(name: "NetworkKit", package: "NetworkKit")
+        .product(name: "NetworkKit", package: "NetworkKit"),
+        .product(name: "TheoKit", package: "TheoKit")
       ],
       swiftSettings: [.swiftLanguageMode(.v5)]
     ),

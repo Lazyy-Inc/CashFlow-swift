@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftUICore
+import SwiftUI
 import Navigation
 import AlertKit
 import SwiftUI

@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
       .package(path: "../Models"),
-      .package(url: "https://github.com/theosementa/TheoKit", exact: "1.0.7")
+      .package(url: "https://github.com/theosementa/TheoKit", exact: "1.1.5")
     ],
     targets: [
         .target(

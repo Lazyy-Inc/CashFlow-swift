@@ -28,7 +28,10 @@ let package = Package(
         .package(path: "../Models"),
         .package(path: "../Stores"),
         .package(path: "../Banners"),
-        .package(path: "../Navigation")
+        .package(path: "../Navigation"),
+        
+        .package(url: "https://github.com/theosementa/TheoKit", branch: "1.1.5"),
+        .package(url: "https://github.com/simibac/ConfettiSwiftUI", branch: "1.0.0")
     ],
     targets: [
         .target(
@@ -39,11 +42,13 @@ let package = Package(
               "Mocks",
               "Stores",
               "Banners",
-              "Navigation"
+              "Navigation",
+              
+              .product(name: "TheoKit", package: "TheoKit"),
+              .product(name: "ConfettiSwiftUI", package: "ConfettiSwiftUI")
           ],
           resources: resources,
           swiftSettings: [.swiftLanguageMode(.v5)]
-        ),
-        .testTarget(name: "DesignSystemTests", dependencies: ["DesignSystem"])
+        )
     ]
 )
