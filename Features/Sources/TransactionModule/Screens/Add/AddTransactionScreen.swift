@@ -23,7 +23,7 @@ public struct AddTransactionScreen: View {
     @StateObject private var viewModel: ViewModel
     
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private var store: PurchasesManager
+    @EnvironmentObject private var purchasesManager: PurchasesManager
     
     @EnvironmentObject private var accountStore: AccountStore
     
@@ -94,7 +94,7 @@ public struct AddTransactionScreen: View {
                         selectedSubcategory: $viewModel.selectedSubcategory
                     )
                     
-                    if store.isCashFlowPro && viewModel.selectedCategory == nil {
+                    if purchasesManager.isCashFlowPro && viewModel.selectedCategory == nil {
                         RecommendedCategoryButton(
                             transactionName: viewModel.transactionTitle,
                             selectedCategory: $viewModel.selectedCategory,
@@ -108,6 +108,14 @@ public struct AddTransactionScreen: View {
                     title: Word.Classic.date,
                     date: $viewModel.transactionDate
                 )
+              
+              if purchasesManager.isCashFlowPro {
+                GenericPickerView(
+                  title: "repartition_picker_title".localized,
+                  selectedItem: $viewModel.repartitionType,
+                  items: RepartitionType.allCases
+                )
+              }
             }
             .padding(.horizontal, 24)
         }

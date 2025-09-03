@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum RepartitionType: CaseIterable {
+public enum RepartitionType: String, CaseIterable, Sendable {
   case notDefined
   case needed
   case wanted

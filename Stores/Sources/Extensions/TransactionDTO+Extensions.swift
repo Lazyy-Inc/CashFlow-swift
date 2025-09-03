@@ -18,9 +18,11 @@ public extension TransactionDTO {
         else { throw NetworkError.unknown }
                 
         let date = dateISO.toDate()
+      
         let category = CategoryStore.shared.findCategoryById(categoryID)
-        
         let subcategory = CategoryStore.shared.findSubcategoryById(subcategoryID)
+      
+        let repartitionType = RepartitionType(rawValue: repartitionType ?? "")
         
         let senderAccount = AccountStore.shared.findByID(senderAccountID)
         let receiverAccount = AccountStore.shared.findByID(receiverAccountID)
@@ -33,6 +35,7 @@ public extension TransactionDTO {
             creationDate: creationDate?.toDate(),
             category: category,
             subcategory: subcategory,
+            repartitionType: repartitionType,
             note: note,
             isFromSubscription: isFromSubscription ?? false,
             isFromApplePay: isFromApplePay ?? false,

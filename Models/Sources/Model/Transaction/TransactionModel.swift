@@ -16,6 +16,7 @@ public struct TransactionModel: Identifiable, Equatable, Hashable, Sendable {
     public var creationDate: Date?
     public var category: CategoryModel?
     public var subcategory: SubcategoryModel?
+    public var repartitionType: RepartitionType?
     public var note: String?
 
     public var isFromSubscription: Bool
@@ -38,6 +39,7 @@ public struct TransactionModel: Identifiable, Equatable, Hashable, Sendable {
         creationDate: Date? = nil,
         category: CategoryModel? = nil,
         subcategory: SubcategoryModel? = nil,
+        repartitionType: RepartitionType? = nil,
         note: String? = nil,
         isFromSubscription: Bool,
         isFromApplePay: Bool,
@@ -56,6 +58,7 @@ public struct TransactionModel: Identifiable, Equatable, Hashable, Sendable {
         self.creationDate = creationDate
         self.category = category
         self.subcategory = subcategory
+        self.repartitionType = repartitionType
         self.note = note
         self.isFromSubscription = isFromSubscription
         self.isFromApplePay = isFromApplePay

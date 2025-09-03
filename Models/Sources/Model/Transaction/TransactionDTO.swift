@@ -16,6 +16,7 @@ public struct TransactionDTO: Codable, Sendable {
     public var creationDate: String?
     public var categoryID: Int?
     public var subcategoryID: Int?
+    public var repartitionType: String?
     public var note: String?
 
     public var isFromSubscription: Bool?
@@ -40,6 +41,7 @@ public struct TransactionDTO: Codable, Sendable {
         case creationDate
         case categoryID
         case subcategoryID
+        case repartitionType
         case isFromSubscription
         case isFromApplePay
         case nameFromApplePay
@@ -66,6 +68,7 @@ public extension TransactionDTO {
         creationDate: String? = nil,
         categoryID: Int? = nil,
         subcategoryID: Int? = nil,
+        repartitionType: String? = nil,
         isFromSubscription: Bool? = nil,
         isFromApplePay: Bool? = nil,
         nameFromApplePay: String? = nil,
@@ -83,6 +86,7 @@ public extension TransactionDTO {
         self.creationDate = creationDate
         self.categoryID = categoryID
         self.subcategoryID = subcategoryID
+        self.repartitionType = repartitionType
         self.isFromSubscription = isFromSubscription
         self.isFromApplePay = isFromApplePay
         self.nameFromApplePay = nameFromApplePay
@@ -100,7 +104,8 @@ public extension TransactionDTO {
         type: Int,
         dateISO: String,
         categoryID: Int? = nil,
-        subcategoryID: Int? = nil
+        subcategoryID: Int? = nil,
+        repartitionType: String? = nil
     ) -> TransactionDTO {
         return .init(
             name: name,
@@ -108,7 +113,8 @@ public extension TransactionDTO {
             type: type,
             dateISO: dateISO,
             categoryID: categoryID,
-            subcategoryID: subcategoryID
+            subcategoryID: subcategoryID,
+            repartitionType: repartitionType
         )
     }
     

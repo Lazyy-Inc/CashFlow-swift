@@ -23,6 +23,7 @@ extension AddTransactionScreen {
         @Published var transactionDate: Date = Date()
         @Published var selectedCategory: CategoryModel?
         @Published var selectedSubcategory: SubcategoryModel?
+        @Published var repartitionType: RepartitionType = .notDefined
         
         @Published var presentingConfirmationDialog: Bool = false
         
@@ -43,6 +44,7 @@ extension AddTransactionScreen {
                 self.transactionDate = transaction.date
                 self.selectedCategory = transaction.category
                 self.selectedSubcategory = transaction.subcategory
+                self.repartitionType = transaction.repartitionType ?? .notDefined
             }
         }
         
@@ -61,7 +63,8 @@ extension AddTransactionScreen {
                 type: selectedCategory?.isIncome == true ? TransactionType.income.rawValue : TransactionType.expense.rawValue,
                 dateISO: transactionDate.toISO(),
                 categoryID: selectedCategory?.id,
-                subcategoryID: selectedSubcategory?.id
+                subcategoryID: selectedSubcategory?.id,
+                repartitionType: repartitionType.rawValue
             )
         }
         
