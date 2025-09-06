@@ -820,6 +820,21 @@ Simple, fast, secure - your financial peace of mind starts here.";
 /*  */
 "release_note_title" = "Release note -";
 
+/*  */
+"repartition_picker_title" = "Repartition";
+
+/*  */
+"repartition_type_needed" = "Needed";
+
+/*  */
+"repartition_type_not_defined" = "Not defined";
+
+/*  */
+"repartition_type_saved" = "Saved";
+
+/*  */
+"repartition_type_wanted" = "Wanted";
+
 "sample_account_name" = "Theo's account";
 
 "sample_boite" = "Nightclub";
@@ -945,12 +960,6 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "setting_financiel_advice_fifth_desc" = "Choose a specific period, such as a week or a month, during which you commit to not spending money on non-essential items. During this period, question every potential purchase and ask yourself whether you really need them. This can help you become aware of your spending habits and identify areas where you could cut back in the long term.";
 
 "setting_financiel_advice_first" = "1. 50-30-20";
-
-"setting_financiel_advice_first_desc" = "The 50-30-20 rule is a common approach to managing your budget. According to this rule, you should allocate : 
-- 50%% of your income on essentials such as housing, food and utilities.
-- 30%% of your income to discretionary spending, such as leisure and outings.
-- 20%% of your income to savings and debt repayment.
-This can serve as a guideline for balancing your spending, saving and planning your financial future. However, it's important to adapt it to your personal situation and specific goals.";
 
 "setting_financiel_advice_fourth" = "4. The financial objective";
 
@@ -1116,6 +1125,18 @@ This can serve as a guideline for balancing your spending, saving and planning y
 "shortcuts_name_two" = "Create a transaction in ${applicationName}";
 
 "sort_by_word" = "Sort by";
+
+/*  */
+"statistics_charts_lock_button" = "Start my free trial";
+
+/*  */
+"statistics_charts_lock_desc" = "Advanced statistics to track your budget perfectly";
+
+/*  */
+"statistics_charts_lock_title" = "Follow up with the %@ rule";
+
+/*  */
+"statistics_charts_rules_desc" = "Your budget follows the %@ rule: %@%% for necessities, %@%% for wants, and %@%% for savings.";
 
 "statistics_total" = "Total";
 

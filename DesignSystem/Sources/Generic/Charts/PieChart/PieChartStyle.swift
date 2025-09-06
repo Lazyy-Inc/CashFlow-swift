@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum PieChartStyle {
+public enum PieChartStyle {
     case category, subcategory
 }

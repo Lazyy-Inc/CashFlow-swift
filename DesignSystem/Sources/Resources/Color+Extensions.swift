@@ -9,103 +9,117 @@ import Foundation
 import SwiftUI
 
 public extension Color {
-    
-    static var primary500: Color {
-        return Color("Primary500", bundle: BundleHelper.bundle)
+  
+  static var primary500: Color {
+    return Color("Primary500", bundle: BundleHelper.bundle)
+  }
+  
+  static var error400: Color {
+    return Color("Error400", bundle: BundleHelper.bundle)
+  }
+  
+  struct Secondary {
+    public static var secondary300: Color {
+      return Color("Secondary300", bundle: BundleHelper.bundle)
     }
     
-    static var error400: Color {
-        return Color("Error400", bundle: BundleHelper.bundle)
+    public static var secondary400: Color {
+      return Color("Secondary400", bundle: BundleHelper.bundle)
     }
-    
-    struct Secondary {
-        public static var secondary300: Color {
-            return Color("Secondary300", bundle: BundleHelper.bundle)
-        }
-        
-        public static var secondary400: Color {
-            return Color("Secondary400", bundle: BundleHelper.bundle)
-        }
-    }
-    
+  }
+  
 }
 
 public extension Color {
-    
-    struct Background {
-        public static var bg50: Color {
-            return Color("background50", bundle: BundleHelper.bundle)
-        }
-        
-        public static var bg100: Color {
-            return Color("background100", bundle: BundleHelper.bundle)
-        }
-        
-        public static var bg200: Color {
-            return Color("background200", bundle: BundleHelper.bundle)
-        }
-        
-        public static var bg300: Color {
-            return Color("background300", bundle: BundleHelper.bundle)
-        }
-        
-        public static var bg400: Color {
-            return Color("background400", bundle: BundleHelper.bundle)
-        }
-        
-        public static var bg500: Color {
-            return Color("background500", bundle: BundleHelper.bundle)
-        }
-        
-        public static var bg600: Color {
-            return Color("background600", bundle: BundleHelper.bundle)
-        }
+  
+  struct Background {
+    public static var bg50: Color {
+      return Color("background50", bundle: BundleHelper.bundle)
     }
     
-    struct Settings {
-        public static var settingsBlue: Color {
-            return Color("settingsBlue", bundle: BundleHelper.bundle)
-        }
-        public static var settingsDarkBlue: Color {
-            return Color("settingsDarkBlue", bundle: BundleHelper.bundle)
-        }
-        public static var settingsDarkPurple: Color {
-            return Color("settingsDarkPurple", bundle: BundleHelper.bundle)
-        }
-        public static var settingsGray: Color {
-            return Color("settingsGray", bundle: BundleHelper.bundle)
-        }
-        public static var settingsGreen: Color {
-            return Color("settingsGreen", bundle: BundleHelper.bundle)
-        }
-        public static var settingsOrange: Color {
-            return Color("settingsOrange", bundle: BundleHelper.bundle)
-        }
-        public static var settingsPurple: Color {
-            return Color("settingsPurple", bundle: BundleHelper.bundle)
-        }
-        public static var settingsRed: Color {
-            return Color("settingsRed", bundle: BundleHelper.bundle)
-        }
-        public static var settingsTurquoise: Color {
-            return Color("settingsTurquoise", bundle: BundleHelper.bundle)
-        }
+    public static var bg100: Color {
+      return Color("background100", bundle: BundleHelper.bundle)
     }
     
+    public static var bg200: Color {
+      return Color("background200", bundle: BundleHelper.bundle)
+    }
+    
+    public static var bg300: Color {
+      return Color("background300", bundle: BundleHelper.bundle)
+    }
+    
+    public static var bg400: Color {
+      return Color("background400", bundle: BundleHelper.bundle)
+    }
+    
+    public static var bg500: Color {
+      return Color("background500", bundle: BundleHelper.bundle)
+    }
+    
+    public static var bg600: Color {
+      return Color("background600", bundle: BundleHelper.bundle)
+    }
+  }
+  
+  struct Settings {
+    public static var settingsBlue: Color {
+      return Color("settingsBlue", bundle: BundleHelper.bundle)
+    }
+    public static var settingsDarkBlue: Color {
+      return Color("settingsDarkBlue", bundle: BundleHelper.bundle)
+    }
+    public static var settingsDarkPurple: Color {
+      return Color("settingsDarkPurple", bundle: BundleHelper.bundle)
+    }
+    public static var settingsGray: Color {
+      return Color("settingsGray", bundle: BundleHelper.bundle)
+    }
+    public static var settingsGreen: Color {
+      return Color("settingsGreen", bundle: BundleHelper.bundle)
+    }
+    public static var settingsOrange: Color {
+      return Color("settingsOrange", bundle: BundleHelper.bundle)
+    }
+    public static var settingsPurple: Color {
+      return Color("settingsPurple", bundle: BundleHelper.bundle)
+    }
+    public static var settingsRed: Color {
+      return Color("settingsRed", bundle: BundleHelper.bundle)
+    }
+    public static var settingsTurquoise: Color {
+      return Color("settingsTurquoise", bundle: BundleHelper.bundle)
+    }
+  }
+  
+  struct Category {
+    public static var categoryLeisure: Color {
+      return Color("categoryLeisure", bundle: BundleHelper.bundle)
+    }
+    
+    public static var categorySavings: Color {
+      return Color("categorySavings", bundle: BundleHelper.bundle)
+    }
+    
+    public static var categoryHealth: Color {
+      return Color("categoryHealth", bundle: BundleHelper.bundle)
+    }
+  }
+  
 }
 
 public extension Color {
-    
-    static var text: Color {
-        return Color("text", bundle: BundleHelper.bundle)
-    }
-    
-    static var textReversed: Color {
-        return Color("textReversed", bundle: BundleHelper.bundle)
-    }
-    
-    static var customGray: Color {
-        return Color("customGray", bundle: BundleHelper.bundle)
-    }
-    
+  
+  static var text: Color {
+    return Color("text", bundle: BundleHelper.bundle)
+  }
+  
+  static var textReversed: Color {
+    return Color("textReversed", bundle: BundleHelper.bundle)
+  }
+  
+  static var customGray: Color {
+    return Color("customGray", bundle: BundleHelper.bundle)
+  }
+  
 }

@@ -54,7 +54,7 @@ public extension CategoryStore {
             .filter { !$0.category.isIncome }
             .map { data in
                 PieSliceData(
-                    categoryID: data.category.id,
+                  title: data.category.name,
                     icon: data.category.icon,
                     value: data.totalAmount,
                     color: data.category.color
@@ -68,8 +68,7 @@ public extension CategoryStore {
             .values
             .map { data in
                 PieSliceData(
-                    categoryID: category.id,
-                    subcategoryID: data.subcategory.id,
+                  title: data.subcategory.name,
                     icon: data.subcategory.icon,
                     value: data.totalAmount,
                     color: data.subcategory.color

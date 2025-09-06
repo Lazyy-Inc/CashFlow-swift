@@ -57,7 +57,7 @@ public struct SelectCategoryButton: View {
                     }
                 }
                 .fontWithLineHeight(.Body.medium)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(selectedCategory == nil ? Color.text : Color.white)
                 .padding(Padding.regular)
                 .fullWidth(.leading)
                 .roundedRectangleBorder(

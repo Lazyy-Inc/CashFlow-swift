@@ -24,6 +24,7 @@ enum SettingItemModel: Identifiable {
     
     case account
     case subscription
+    case statistics
     case applePay
     
     case shortcutApplePay
@@ -53,6 +54,7 @@ enum SettingItemModel: Identifiable {
         case .display:     return Word.Title.Setting.display
         case .account:     return "word_account".localized
         case .subscription: return Word.Main.subscription
+        case .statistics:  return "Statistics" // TODO: TBL
         case .applePay:    return "Apple Pay"
         case .shortcutApplePay: return "settings_applepay_shortcut_button".localized
         case .faq:         return "F.A.Q"
@@ -78,6 +80,7 @@ enum SettingItemModel: Identifiable {
         case .display:      return "iconSmartphone"
         case .account:      return "iconPerson"
         case .subscription: return "iconClockRepeat"
+        case .statistics:   return "iconLineChart"
         case .applePay:     return "iconCreditCard"
         case .shortcutApplePay: return "iconCreditCard"
         case .faq:          return "iconQuestionFile"
@@ -103,6 +106,7 @@ enum SettingItemModel: Identifiable {
         case .display:     return Color.Settings.settingsBlue
         case .account:     return Color.primary500
         case .subscription: return Color.Settings.settingsRed
+        case .statistics:  return Color.Settings.settingsOrange
         case .applePay:    return Color.Settings.settingsPurple
         case .shortcutApplePay: return Color.Settings.settingsPurple
         case .faq:         return Color.Settings.settingsGreen
@@ -128,6 +132,7 @@ enum SettingItemModel: Identifiable {
         case .display:     return true
         case .account:     return true
         case .subscription: return true
+        case .statistics:  return true
         case .applePay:    return true
         case .shortcutApplePay: return false
         case .faq:         return false
@@ -158,6 +163,7 @@ enum SettingItemModel: Identifiable {
         case .display:     router.push(.settings(.display))
         case .account:     router.push(.settings(.account))
         case .subscription: router.push(.settings(.subscription))
+        case .statistics:  router.push(.settings(.statistics))
         case .applePay:    router.push(.settings(.applePay))
         case .shortcutApplePay:
             URLManager.openURL(url: URLManager.PredefinedURL.Tutos.importFromApplePay.rawValue)

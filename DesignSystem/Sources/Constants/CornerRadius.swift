@@ -8,6 +8,8 @@
 import Foundation
 
 public struct CornerRadius {
+    /// `Value = 4`
+    public static let extraSmall: CGFloat = 8
     /// `Value = 8`
     public static let small: CGFloat = 8
     /// `Value = 12`

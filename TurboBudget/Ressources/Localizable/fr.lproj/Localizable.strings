@@ -820,6 +820,21 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 /*  */
 "release_note_title" = "Note de mise à jour -";
 
+/*  */
+"repartition_picker_title" = "Repartition";
+
+/*  */
+"repartition_type_needed" = "Besoin";
+
+/*  */
+"repartition_type_not_defined" = "Non défini";
+
+/*  */
+"repartition_type_saved" = "Epargne";
+
+/*  */
+"repartition_type_wanted" = "Envie";
+
 "sample_account_name" = "Compte de Théo";
 
 "sample_boite" = "Boite de nuit";
@@ -945,12 +960,6 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "setting_financiel_advice_fifth_desc" = "Choisissez une période spécifique, comme une semaine ou un mois, pendant laquelle vous vous engagez à ne pas dépenser d'argent pour des articles non essentiels. Durant cette période, questionnez chaque achat potentiel et demandez-vous si vous en avez vraiment besoin. Cela peut vous aider à prendre conscience de vos habitudes de dépenses et à identifier les domaines où vous pourriez réduire vos dépenses sur le long terme.";
 
 "setting_financiel_advice_first" = "1. 50-30-20";
-
-"setting_financiel_advice_first_desc" = "La règle 50-30-20 est une approche courante pour gérer votre budget. Selon cette règle, vous devriez allouer : 
-- 50%% de vos revenus aux dépenses essentielles telles que le logement, la nourriture et les services publics.
-- 30%% de vos revenus aux dépenses discrétionnaires, telles que les loisirs et les sorties.
-- 20%% de vos revenus aux économies et au remboursement des dettes.
-Cela peut servir de ligne directrice pour équilibrer vos dépenses, épargner et planifier votre avenir financier. Cependant, il est important de l'adapter à votre situation personnelle et à vos objectifs spécifiques.";
 
 "setting_financiel_advice_fourth" = "4. L'objectif financier";
 
@@ -1116,6 +1125,18 @@ Cela peut servir de ligne directrice pour équilibrer vos dépenses, épargner e
 "shortcuts_name_two" = "Créer une transaction dans ${applicationName}";
 
 "sort_by_word" = "Trier par";
+
+/*  */
+"statistics_charts_lock_button" = "Commencer mon essai gratuit";
+
+/*  */
+"statistics_charts_lock_desc" = "Statistiques avancées pour suivre votre budget à la perfection";
+
+/*  */
+"statistics_charts_lock_title" = "Suivi avec la règle %@";
+
+/*  */
+"statistics_charts_rules_desc" = "Votre budget suit la règle %@ : %@%% pour les besoins, %@%% pour les envies et %@%% pour l’épargne.";
 
 "statistics_total" = "Total";
 

@@ -17,6 +17,7 @@ import Stores
 
 import Home
 import Dashboard
+import Statistics
 
 struct RootScreen: View {
     
@@ -58,7 +59,7 @@ struct RootScreen: View {
                             NavigationStackView(
                                 router: analyticsRouter,
                                 destinationContent: { AppDestination.content(for: $0) },
-                                initialContent: { AnalyticsScreen() }
+                                initialContent: { StatisticsScreen() }
                             )
                             .tag(1)
                             .toolbar(.hidden, for: .tabBar)

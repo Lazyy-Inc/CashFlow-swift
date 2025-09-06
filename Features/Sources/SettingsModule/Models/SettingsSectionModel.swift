@@ -26,7 +26,7 @@ extension SettingsSectionModel {
     
     static let features: SettingsSectionModel = .init(
         title: "settings_features_title".localized,
-        items: [.account, .subscription, .applePay]
+        items: [.account, .subscription, .statistics, .applePay]
     )
     
     static let help: SettingsSectionModel = .init(

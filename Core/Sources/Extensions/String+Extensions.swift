@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Models
 
 public extension String {
     func matches(for regex: String) -> [String] {
@@ -22,4 +23,8 @@ public extension String {
             return []
         }
     }
+  
+  func toRepartitionRule() -> RepartitionRule? {
+    return RepartitionRule(rawValue: self)
+  }
 }

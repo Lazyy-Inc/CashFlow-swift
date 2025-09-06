@@ -16,6 +16,7 @@ public enum SettingsDestination: DestinationItem {
     case display
     case account
     case subscription
+    case statistics
     case credits
     case applePay
 }

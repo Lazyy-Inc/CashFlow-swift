@@ -9,17 +9,15 @@ import Foundation
 import SwiftUI
 
 public struct PieSliceData: Hashable {
-    public var categoryID: Int
-    public var subcategoryID: Int?
-    public var icon: String
-    public var value: Double
-    public var color: Color
-    
-    public init(categoryID: Int, subcategoryID: Int? = nil, icon: String, value: Double, color: Color) {
-        self.categoryID = categoryID
-        self.subcategoryID = subcategoryID
-        self.icon = icon
-        self.value = value
-        self.color = color
-    }
+  public var title: String
+  public var icon: String?
+  public var value: Double
+  public var color: Color
+  
+  public init(title: String, icon: String? = nil, value: Double, color: Color) {
+    self.title = title
+    self.icon = icon
+    self.value = value
+    self.color = color
+  }
 }

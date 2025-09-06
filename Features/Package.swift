@@ -23,7 +23,8 @@ let package = Package(
         .library(name: "CreditCardModule", targets: ["CreditCardModule"]),
         
         .library(name: "Home", targets: ["Home"]),
-        .library(name: "Dashboard", targets: ["Dashboard"])
+        .library(name: "Dashboard", targets: ["Dashboard"]),
+        .library(name: "Statistics", targets: ["Statistics"])
     ],
     dependencies: [
         .package(path: "../DesignSystem"),
@@ -92,6 +93,20 @@ let package = Package(
           swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "DashboardTests", dependencies: ["Dashboard"]),
+        
+        .target(
+          name: "Statistics",
+          dependencies: [
+            "DesignSystem",
+            "Core",
+            "Mocks",
+            "Models",
+            "Stores",
+            "Navigation"
+          ],
+          swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "StatisticsTests", dependencies: ["Statistics"]),
         
         .target(
             name: "PaywallModule",

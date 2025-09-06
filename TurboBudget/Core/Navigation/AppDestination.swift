@@ -201,6 +201,8 @@ extension AppDestination {
             AnyView(SettingsAccountScreen())
         case .subscription:
             AnyView(SettingsSubscriptionScreen())
+        case .statistics:
+            AnyView(SettingsStatisticsScreen())
         case .credits:
             AnyView(SettingsCreditsView())
         case .applePay:

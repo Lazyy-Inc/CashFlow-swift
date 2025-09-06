@@ -123,8 +123,8 @@ public extension TransactionStore {
 
 public extension TransactionStore {
     
-    func getTransactions(in month: Date? = nil) -> [TransactionModel] {
-        return filterTransactions(inMonth: month)
+  func getTransactions(in month: Date? = nil, type: TransactionType? = nil) -> [TransactionModel] {
+        return filterTransactions(inMonth: month, ofType: type)
     }
     
     func getTransactions(for category: CategoryModel, in month: Date? = nil) -> [TransactionModel] {
