@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 import Events
-import Models
 
 public final class StatisticsPreferences: ObservableObject {
   public static let shared = StatisticsPreferences()
@@ -20,7 +19,7 @@ public final class StatisticsPreferences: ObservableObject {
     willSet { objectWillChange.send() }
   }
   
-  @UserDefault("StatisticsPreferences_repartitionRule", defaultValue: RepartitionRule.rule50_30_20.rawValue)
+  @UserDefault("StatisticsPreferences_repartitionRule", defaultValue: "50-30-20")
   public var repartitionRule: String {
     willSet { objectWillChange.send() }
   }
