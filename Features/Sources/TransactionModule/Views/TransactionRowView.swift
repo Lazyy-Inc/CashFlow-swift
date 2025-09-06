@@ -115,7 +115,7 @@ public struct TransactionRowView: View {
                 .foregroundStyle(Color(uiColor: .systemBackground))
             }, background: { _ in
                 Rectangle()
-                    .foregroundStyle(Color.error400)
+                    .foregroundStyle(Color.Error.error400)
             })
         })
         .swipeActionsStyle(.cascade)

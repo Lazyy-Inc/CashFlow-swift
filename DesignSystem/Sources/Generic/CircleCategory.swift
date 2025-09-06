@@ -49,7 +49,7 @@ public struct CircleCategory: View {
                       let accountID = selectedAccount._id {
                 let isSender = accountID == transaction.senderAccount?._id
                 Circle()
-                    .foregroundStyle(isSender ? Color.error400 : Color.primary500)
+                .foregroundStyle(isSender ? Color.Error.error400 : Color.primary500)
                     .frame(width: 36)
                 
                 IconSVG(icon: isSender ? "iconSend" : "iconInbox", value: .medium)

@@ -11,6 +11,7 @@ import DesignSystem
 import Stores
 import Navigation
 import Dependencies
+import Core
 
 public struct StatisticsScreen: View {
   
@@ -18,6 +19,7 @@ public struct StatisticsScreen: View {
   
   @Dependency(\.transactionStore) private var transactionStore: TransactionStore
   @EnvironmentObject private var router: Router<AppDestination>
+  @EnvironmentObject private var purchasesManager: PurchasesManager
   
   public init() { }
   
@@ -37,10 +39,42 @@ public struct StatisticsScreen: View {
           )
         } content: { _ in
           VStack(spacing: Spacing.large) {
-            RepartitionStatisticsCellView(
-              date: $viewModel.repartitionDate,
-              slices: viewModel.slices
-            )
+            if purchasesManager.isCashFlowPro {
+              RepartitionStatisticsCellView(
+                date: $viewModel.repartitionDate,
+                slices: viewModel.slices
+              )
+            } else {
+              Image("repartitionStatisticsBg")
+                .resizable()
+                .scaledToFit()
+                .blur(radius: 10)
+                .overlay {
+                  CustomEmptyView(
+                    type: .empty(.repartitionStatistics),
+                    isDisplayed: !purchasesManager.isCashFlowPro
+                  )
+                  .shadow(radius: 10)
+                }
+                .overlay(alignment: .bottom) {
+                  AsyncButton {
+                      if let product = purchasesManager.products.first {
+                        await purchasesManager.buyProduct(product)
+                      }
+                  } label: {
+                    Text("paywall_start_trial".localized)
+                      .fontWithLineHeight(.Body.large)
+                      .foregroundStyle(Color.white)
+                      .fullWidth()
+                      .padding(Padding.standard)
+                      .background {
+                        RoundedRectangle(cornerRadius: CornerRadius.standard, style: .continuous)
+                          .fill(LinearGradient.main)
+                      }
+                  }
+                  .padding(Padding.standard)
+                }
+            }
           }
           .padding(Padding.large)
           

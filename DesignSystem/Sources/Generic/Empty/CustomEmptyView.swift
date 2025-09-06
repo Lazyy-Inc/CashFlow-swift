@@ -34,6 +34,8 @@ public struct CustomEmptyView: View {
                 return false
             case .analytics:
                 return false
+            case .repartitionStatistics:
+                return false
             }
         case .noResults:
             return false
@@ -140,6 +142,7 @@ public enum CustomEmptyViewSituation: Equatable {
 //    case contributions
     case savingsAccount
     case analytics
+    case repartitionStatistics
     
     public var icon: String {
         switch self {
@@ -156,6 +159,8 @@ public enum CustomEmptyViewSituation: Equatable {
         case .savingsAccount:
             return "iconLandmark"
         case .analytics:
+            return "iconLineChart"
+        case .repartitionStatistics:
             return "iconLineChart"
         }
     }
@@ -174,6 +179,8 @@ public enum CustomEmptyViewSituation: Equatable {
             return "empty_savingsaccount_title"
         case .analytics:
             return "empty_stats_title"
+        case .repartitionStatistics:
+            return "statistics_charts_lock_title"
         }
     }
     
@@ -191,6 +198,8 @@ public enum CustomEmptyViewSituation: Equatable {
             return "empty_savingsaccount_list_description"
         case .analytics:
             return "empty_stats_list_description"
+        case .repartitionStatistics:
+            return "statistics_charts_lock_desc"
         }
     }
     
@@ -208,6 +217,8 @@ public enum CustomEmptyViewSituation: Equatable {
             router.push(.savingsAccount(.create))
         case .analytics:
             router.push(.transaction(.create))
+        case .repartitionStatistics:
+           return
         }
     }
 }

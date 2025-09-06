@@ -36,7 +36,7 @@ struct ContributionRowView: View {
                 VStack(alignment: .trailing, spacing: 3) {
                     Text("\(contribution.symbol) \(contribution.amount?.toCurrency() ?? "")")
                         .font(.semiBoldText16())
-                        .foregroundStyle(contribution.type == .withdrawal ? Color.error400 : Color.primary500)
+                        .foregroundStyle(contribution.type == .withdrawal ? Color.Error.error400 : Color.primary500)
                     
                     Text(contribution.date.formatted(date: .numeric, time: .omitted))
                         .font(Font.mediumSmall())
@@ -66,7 +66,7 @@ struct ContributionRowView: View {
                 .foregroundStyle(Color(uiColor: .systemBackground))
             }, background: { _ in
                 Rectangle()
-                    .foregroundStyle(Color.error400)
+                    .foregroundStyle(Color.Error.error400)
             })
             .allowSwipeToTrigger()
         })

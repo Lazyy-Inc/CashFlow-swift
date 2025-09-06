@@ -38,7 +38,7 @@ struct CarouselOfChartsView: View {
                     values: dailyExpenses,
                     config: .init(
                         title: "carousel_charts_expenses_current_month".localized,
-                        mainColor: Color.error400
+                        mainColor: Color.Error.error400
                     )
                 )
                 .padding(.horizontal, Padding.large)

@@ -22,6 +22,12 @@ struct RepartitionStatisticsCellView: View {
   // MARK: -
   var body: some View {
     VStack(spacing: Spacing.extraLarge) {
+      if statisticsPreferences.salary == 0 {
+        Text("statistics_chart_salary_missing".localized)
+          .fontWithLineHeight(.Body.medium)
+          .foregroundStyle(Color.Error.error600)
+      }
+      
       PieChart(
         month: date,
         slices: slices,

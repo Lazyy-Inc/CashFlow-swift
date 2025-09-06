@@ -91,7 +91,7 @@ struct AnalyticsScreen: View {
                                     values: dailyExpenses,
                                     config: .init(
                                         title: "chart_expenses_expenses_in".localized + " " + selectedDate.formatted(.monthAndYear),
-                                        mainColor: Color.error400
+                                        mainColor: Color.Error.error400
                                     )
                                 )
                             }
@@ -109,7 +109,7 @@ struct AnalyticsScreen: View {
                             values: dailySubscriptionsExpenses,
                             config: .init(
                                 title: "chart_auto_expenses_expenses_in".localized + " " + selectedDate.formatted(.monthAndYear),
-                                mainColor: Color.error400
+                                mainColor: Color.Error.error400
                             )
                         )
                     }

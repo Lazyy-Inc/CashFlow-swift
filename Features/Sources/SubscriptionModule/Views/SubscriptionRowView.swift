@@ -103,7 +103,7 @@ public struct SubscriptionRowView: View {
                     .foregroundStyle(Color.textReversed)
                 }, background: { _ in
                     Rectangle()
-                        .foregroundStyle(Color.error400)
+                        .foregroundStyle(Color.Error.error400)
                 })
             }
         )

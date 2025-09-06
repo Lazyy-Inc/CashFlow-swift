@@ -57,7 +57,7 @@ public struct TransferRowView: View {
                     .frame(width: 50)
                     .overlay {
                         Circle()
-                            .foregroundStyle(isSender ? Color.error400 : Color.primary500)
+                            .foregroundStyle(isSender ? Color.Error.error400 : Color.primary500)
                             .shadow(radius: 4, y: 4)
                             .frame(width: 34)
                         
@@ -81,7 +81,7 @@ public struct TransferRowView: View {
                 VStack(alignment: .trailing, spacing: 5) {
                     Text("\(isSender ? "-" : "+") \((transfer.amount).toCurrency())")
                         .font(.semiBoldText16())
-                        .foregroundStyle(isSender ? Color.error400 : Color.primary500)
+                        .foregroundStyle(isSender ? Color.Error.error400 : Color.primary500)
                         .lineLimit(1)
                     Text(transfer.date.formatted(date: .numeric, time: .omitted))
                         .font(Font.mediumSmall())
@@ -107,7 +107,7 @@ public struct TransferRowView: View {
                 .foregroundStyle(Color(uiColor: .systemBackground))
             }, background: { _ in
                 Rectangle()
-                    .foregroundStyle(Color.error400)
+                    .foregroundStyle(Color.Error.error400)
             })
             .onChange(of: cancelDeleting) {
                 context.state.wrappedValue = .closed

@@ -14,10 +14,6 @@ public extension Color {
     return Color("Primary500", bundle: BundleHelper.bundle)
   }
   
-  static var error400: Color {
-    return Color("Error400", bundle: BundleHelper.bundle)
-  }
-  
   struct Secondary {
     public static var secondary300: Color {
       return Color("Secondary300", bundle: BundleHelper.bundle)
@@ -89,6 +85,15 @@ public extension Color {
     }
     public static var settingsTurquoise: Color {
       return Color("settingsTurquoise", bundle: BundleHelper.bundle)
+    }
+  }
+  
+  struct Error {
+    public static var error400: Color {
+      return Color("Error400", bundle: BundleHelper.bundle)
+    }
+    public static var error600: Color {
+      return Color("Error600", bundle: BundleHelper.bundle)
     }
   }
   

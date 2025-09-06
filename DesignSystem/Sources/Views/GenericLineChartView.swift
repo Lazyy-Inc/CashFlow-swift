@@ -124,7 +124,7 @@ extension GenericLineChartView {
     values: [.mockToday, .mockTomorrow],
     config: .init(
       title: "Preview chart",
-      mainColor: Color.error400
+      mainColor: Color.Error.error400
     )
   )
 }
