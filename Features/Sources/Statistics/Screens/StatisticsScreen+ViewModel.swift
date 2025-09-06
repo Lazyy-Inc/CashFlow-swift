@@ -19,6 +19,10 @@ extension StatisticsScreen {
     let transactionStore: TransactionStore = .shared
     
     var repartitionDate: Date = Date()
+    
+    var selectedDate: Date = Date()
+    var selectedYear: Int = Date().year
+    var amount: Double = 0
   }
   
 }

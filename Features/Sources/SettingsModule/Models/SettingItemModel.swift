@@ -54,7 +54,7 @@ enum SettingItemModel: Identifiable {
         case .display:     return Word.Title.Setting.display
         case .account:     return "word_account".localized
         case .subscription: return Word.Main.subscription
-        case .statistics:  return "Statistics" // TODO: TBL
+        case .statistics:  return "settings_statistics_title".localized
         case .applePay:    return "Apple Pay"
         case .shortcutApplePay: return "settings_applepay_shortcut_button".localized
         case .faq:         return "F.A.Q"

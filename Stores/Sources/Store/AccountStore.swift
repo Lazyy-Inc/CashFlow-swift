@@ -155,4 +155,5 @@ public extension AccountStore {
             self.stats = try await AccountService.fetchStats(id: accountID, withSavings: withSavings)
         } catch { NetworkService.handleError(error: error) }
     }
+  
 }

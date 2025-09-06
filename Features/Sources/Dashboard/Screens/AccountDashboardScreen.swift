@@ -106,7 +106,7 @@ public struct AccountDashboardScreen: View {
                     router.push(.account(.create))
                   }
                 } label: {
-                  Label("Ajouter un compte", systemImage: "plus") // TODO: TBL
+                  Label("account_dashboard_add_account".localized, systemImage: "plus")
                 }
               } label: {
                 HStack(spacing: Spacing.small) {

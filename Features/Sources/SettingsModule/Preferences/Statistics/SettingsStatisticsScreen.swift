@@ -21,7 +21,10 @@ public struct SettingsStatisticsScreen: View {
   public var body: some View {
     Form {
         Section {
-          Picker("Règle de répartition", selection: $statisticsPreferences.repartitionRule) { // TODO: TBL
+          Picker(
+            "settings_statistics_repartition_rule".localized,
+            selection: $statisticsPreferences.repartitionRule
+          ) {
             ForEach(RepartitionRule.allCases, id: \.self) { rule in
               Text(rule.rawValue).tag(rule.rawValue)
             }
@@ -31,30 +34,31 @@ public struct SettingsStatisticsScreen: View {
             isSalaryAlertPresented = true
           } label: {
             HStack {
-              Text("Salaire pour appliquer la règle \(statisticsPreferences.repartitionRule)") // TODO: TBL
+              Text("settings_statistics_salary".localized)
                 .fullWidth(.leading)
+                .foregroundStyle(Color.text)
               
               Text(statisticsPreferences.salary.toCurrency())
             }
           }
         } footer: {
-          
+          Text(String(format: "settings_statistics_salary_desc".localized, statisticsPreferences.repartitionRule))
         }
     }
-    .navigationTitle("word_account".localized)
+    .navigationTitle("settings_statistics_title".localized)
     .navigationBarTitleDisplayMode(.inline)
-    .alert("Enter your name", isPresented: $isSalaryAlertPresented) { // TODO: TBL
-      TextField("Enter your salary", text: $salaryInput) // TODO: TBL
+    .alert("settings_statistics_salary".localized, isPresented: $isSalaryAlertPresented) {
+      TextField("settings_statistics_field_salary_placeholder".localized, text: $salaryInput)
         .keyboardType(.decimalPad)
       
-      Button("Annuler".localized, role: .cancel) { // TODO: TBL
+      Button("word_cancel".localized, role: .cancel) {
         salaryInput = ""
       }
-      Button("Enregistrer".localized) { // TODO: TBL
+      Button("word_save".localized) {
         statisticsPreferences.salary = salaryInput.toDouble()
       }
     } message: {
-      Text("Votre salaire serviera uniquement pour appliquer la règle de répartition choisie.") // TODO: TBL
+      Text("settings_statistics_field_salary_desc".localized)
     }
   }
   

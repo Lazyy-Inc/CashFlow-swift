@@ -2,6 +2,9 @@
 
 "account_card_limit" = "Limite de la carte";
 
+/*  */
+"account_dashboard_add_account" = "Ajouter un compte";
+
 "account_detail_add_credit_card" = "Ajouter une carte de crédit";
 
 "account_detail_alert_almost_exceeded" = "Le plafond est bientôt dépassé !";
@@ -824,16 +827,16 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "repartition_picker_title" = "Repartition";
 
 /*  */
-"repartition_type_needed" = "Besoin";
+"repartition_type_needed" = "Besoins";
 
 /*  */
 "repartition_type_not_defined" = "Non défini";
 
 /*  */
-"repartition_type_saved" = "Epargne";
+"repartition_type_saved" = "Epargnes";
 
 /*  */
-"repartition_type_wanted" = "Envie";
+"repartition_type_wanted" = "Envies";
 
 "sample_account_name" = "Compte de Théo";
 
@@ -1089,6 +1092,24 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 /*  */
 "settings_privacy_title" = "Confidentialité";
 
+/*  */
+"settings_statistics_field_salary_desc" = "Votre salaire sera uniquement utilisé pour appliquer la règle de répartition choisie.";
+
+/*  */
+"settings_statistics_field_salary_placeholder" = "Entrez votre salaire";
+
+/*  */
+"settings_statistics_repartition_rule" = "Règle de répartition";
+
+/*  */
+"settings_statistics_salary" = "Salaire";
+
+/*  */
+"settings_statistics_salary_desc" = "Votre salaire sers seulement à appliquer la règle %@. Cette information reste en local sur votre appareil.";
+
+/*  */
+"settings_statistics_title" = "Statistiques";
+
 "shortcut_all_para" = "Créer une transaction de ${amount} pour ${title}";
 
 "shortcut_desccription" = "Le raccourci permet de créer une transaction sans que vous ayez à rentrer dans l'app. Si le nom de la transaction est identique à une transaction passé alors il prendra la même catégorie, sinon il sera dans 'à catégoriser'.";
@@ -1127,13 +1148,16 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "sort_by_word" = "Trier par";
 
 /*  */
+"statistics_chart_salary_missing" = "Configurer un salaire dans les paramètres";
+
+/*  */
 "statistics_charts_lock_button" = "Commencer mon essai gratuit";
 
 /*  */
 "statistics_charts_lock_desc" = "Statistiques avancées pour suivre votre budget à la perfection";
 
 /*  */
-"statistics_charts_lock_title" = "Suivi avec la règle %@";
+"statistics_charts_lock_title" = "Suivi avec la règle 50-30-20";
 
 /*  */
 "statistics_charts_rules_desc" = "Votre budget suit la règle %@ : %@%% pour les besoins, %@%% pour les envies et %@%% pour l’épargne.";
@@ -1603,6 +1627,9 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "word_retry" = "Réessayer";
 
 "word_return" = "Retour";
+
+/*  */
+"word_save" = "Enregistrer";
 
 "word_savings" = "Epargne";
 

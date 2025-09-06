@@ -2,6 +2,9 @@
 
 "account_card_limit" = "Card limit";
 
+/*  */
+"account_dashboard_add_account" = "Add an account";
+
 "account_detail_add_credit_card" = "Add a credit card";
 
 "account_detail_alert_almost_exceeded" = "Your card limit is soon exceeded.";
@@ -1089,6 +1092,24 @@ Simple, fast, secure - your financial peace of mind starts here.";
 /*  */
 "settings_privacy_title" = "Privacy";
 
+/*  */
+"settings_statistics_field_salary_desc" = "Your salary will only be used to apply the chosen distribution rule.";
+
+/*  */
+"settings_statistics_field_salary_placeholder" = "Enter your salary";
+
+/*  */
+"settings_statistics_repartition_rule" = "Repartition rule";
+
+/*  */
+"settings_statistics_salary" = "Salary";
+
+/*  */
+"settings_statistics_salary_desc" = "Your salary is only used to apply rule %@. This information remains locally on your device.";
+
+/*  */
+"settings_statistics_title" = "Statistics";
+
 "shortcut_all_para" = "Create a transaction of ${amount} for ${title}";
 
 "shortcut_desccription" = "The shortcut allows you to create a transaction without having to enter the app. If the transaction name is the same as a past transaction, it will take the same category; otherwise, it will be in 'To categorise'.";
@@ -1127,13 +1148,16 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "sort_by_word" = "Sort by";
 
 /*  */
+"statistics_chart_salary_missing" = "Set up a salary in the settings";
+
+/*  */
 "statistics_charts_lock_button" = "Start my free trial";
 
 /*  */
 "statistics_charts_lock_desc" = "Advanced statistics to track your budget perfectly";
 
 /*  */
-"statistics_charts_lock_title" = "Follow up with the %@ rule";
+"statistics_charts_lock_title" = "Follow up with the 50-30-20 rule";
 
 /*  */
 "statistics_charts_rules_desc" = "Your budget follows the %@ rule: %@%% for necessities, %@%% for wants, and %@%% for savings.";
@@ -1603,6 +1627,9 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "word_retry" = "Retry";
 
 "word_return" = "Back";
+
+/*  */
+"word_save" = "Save";
 
 "word_savings" = "Savings";
 

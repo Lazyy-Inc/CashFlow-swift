@@ -18,6 +18,7 @@ public struct StatisticsScreen: View {
   @State private var viewModel: ViewModel = .init()
   
   @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+  @EnvironmentObject private var accountStore: AccountStore
   @EnvironmentObject private var router: Router<AppDestination>
   @EnvironmentObject private var purchasesManager: PurchasesManager
   
@@ -39,6 +40,26 @@ public struct StatisticsScreen: View {
           )
         } content: { _ in
           VStack(spacing: Spacing.large) {
+            GenericBarChart(
+                title: "cashflowchart_title".localized,
+                selectedDate: $viewModel.selectedDate,
+                values: accountStore.cashflow,
+                amount: viewModel.amount
+            )
+            .onChange(of: viewModel.selectedDate) {
+              Task {
+                if viewModel.selectedDate.year != viewModel.selectedYear {
+                  viewModel.selectedYear = viewModel.selectedDate.year
+                  await fetchCashFlow()
+                }
+                viewModel.amount = accountStore.cashFlowAmount(for: viewModel.selectedDate)
+              }
+            }
+            .task {
+              await fetchCashFlow()
+              viewModel.amount = accountStore.cashFlowAmount(for: viewModel.selectedDate)
+            }
+            
             if purchasesManager.isCashFlowPro {
               RepartitionStatisticsCellView(
                 date: $viewModel.repartitionDate,
@@ -75,6 +96,7 @@ public struct StatisticsScreen: View {
                   .padding(Padding.standard)
                 }
             }
+            
           }
           .padding(Padding.large)
           
@@ -106,6 +128,13 @@ public struct StatisticsScreen: View {
 //      updateChartData()
 //    }
   }
+  
+  func fetchCashFlow() async {
+    if let selectedAccount = accountStore.selectedAccount, let accountID = selectedAccount._id {
+      await accountStore.fetchCashFlow(accountID: accountID, year: viewModel.selectedDate.year)
+    }
+  }
+  
 }
 
 // MARK: - Preview
