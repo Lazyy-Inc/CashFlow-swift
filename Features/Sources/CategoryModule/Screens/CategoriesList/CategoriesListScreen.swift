@@ -77,10 +77,12 @@ public struct CategoriesListScreen: View {
           .noDefaultStyle()
           .padding(8)
           .frame(maxWidth: .infinity)
-          .background {
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-              .fill(Color.Background.bg100)
-          }
+          .roundedRectangleBorder(
+            Color.Background.bg100,
+            radius: CornerRadius.standard,
+            lineWidth: 1,
+            strokeColor: Color.Background.bg200
+          )
           .padding(.horizontal, Padding.large)
           .padding(.bottom, Padding.large)
           

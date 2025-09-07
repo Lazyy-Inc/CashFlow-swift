@@ -13,32 +13,25 @@ import Stores
 
 public struct PieChart: View {
   
-  // Builder
+  // MARK: Dependencies
   var month: Date
   var slices: [PieSliceData]
-  
-  // Configuration
   var config: Configuration
   
-  // Other
+  // MARK: States
   @State private var activeSlice: PieSliceData?
   
-  // Computed
-  var values: [Double] {
-    return PieChart.adjustValues(slices.map(\.value))
-  }
-  var colors: [Color] {
-    return slices.map(\.color)
-  }
-  var icons: [String] {
-    return slices.compactMap(\.icon)
-  }
+  // MARK: Computed variables
+  var values: [Double] { return PieChart.adjustValues(slices.map(\.value)) }
+  var colors: [Color] { return slices.map(\.color) }
+  var icons: [String] { return slices.compactMap(\.icon) }
   var percentage: Double {
     if let activeSlice {
       return (activeSlice.value / slices.map(\.value).reduce(0, +)) * 100
     } else { return 0 }
   }
   
+  // MARK: Init
   public init(
     month: Date,
     slices: [PieSliceData],
@@ -135,5 +128,5 @@ public struct PieChart: View {
     }
     .aspectRatio(1, contentMode: .fit)
     .frame(height: config.height)
-  } // End body
-} // End struct
+  }
+}
