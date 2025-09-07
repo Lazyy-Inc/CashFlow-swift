@@ -16,118 +16,134 @@ import Dependencies
 import Stores
 
 public struct CategoriesListScreen: View {
-    
-    // MARK: EnvironmentObject
-    @EnvironmentObject private var accountStore: AccountStore
-    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
-    @EnvironmentObject private var categoryStore: CategoryStore
-    @EnvironmentObject private var router: Router<AppDestination>
-    
-    // MARK: StateObject
-    @StateObject private var viewModel: ViewModel = .init()
-    
-    public init() { }
-    
-    // MARK: -
-    public var body: some View {
-        VStack(spacing: 0) {
-            ListWithBluredHeader(maxBlurRadius: Blur.topbar) {
-                NavigationBar(
-                    title: "word_categories".localized,
-                    withDismiss: false,
-                    actionButton: .init(
-                        icon: "iconGear",
-                        action: { router.push(.settings(.home)) },
-                        isDisabled: false
-                    ),
-                    placeholder: "word_search".localized,
-                    searchText: $viewModel.searchText.animation()
+  
+  // MARK: EnvironmentObject
+  @EnvironmentObject private var accountStore: AccountStore
+  @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+  @EnvironmentObject private var categoryStore: CategoryStore
+  @EnvironmentObject private var router: Router<AppDestination>
+  
+  // MARK: StateObject
+  @StateObject private var viewModel: ViewModel = .init()
+  
+  public init() { }
+  
+  // MARK: -
+  public var body: some View {
+    VStack(spacing: 0) {
+      ListWithBluredHeader(maxBlurRadius: Blur.topbar) {
+        NavigationBar(
+          title: "word_categories".localized,
+          withDismiss: false,
+          actionButton: .init(
+            icon: "iconGear",
+            action: { router.push(.settings(.home)) },
+            isDisabled: false
+          ),
+          placeholder: "word_search".localized,
+          searchText: $viewModel.searchText.animation()
+        )
+      } content: {
+        if viewModel.categoriesFiltered.isNotEmpty {
+          VStack(spacing: 24) {
+            if !viewModel.isChartDisplayed {
+              EmptyCategoryData()
+                .padding(8)
+                .noDefaultStyle()
+            } else if viewModel.searchText.isEmpty {
+              PieChart(
+                month: viewModel.selectedDate,
+                slices: CategoryStore.shared.categoriesSlices(for: viewModel.selectedDate),
+                config: .init(
+                  style: .category,
+                  backgroundColor: Color.Background.bg100,
+                  space: 0.2,
+                  hole: 0.75
                 )
-            } content: {
-                if viewModel.categoriesFiltered.isNotEmpty {
-                    ForEach(viewModel.categoriesFiltered) { category in
-                        let subcategories = category.subcategories
-                        NavigationButtonView(
-                            route: .push,
-                            destination: (
-                                subcategories?.isEmpty == false
-                                ? AppDestination.subcategory(.list(category: category, selectedDate: viewModel.selectedDate))
-                                : AppDestination.category(.transactions(category: category, selectedDate: viewModel.selectedDate))
-                            )
-                        ) {
-                            CategoryRowView(
-                                category: category,
-                                selectedDate: viewModel.selectedDate,
-                                amount: (viewModel.categoryAmounts[category.id]?.amount ?? 0).toCurrency()
-                            )
-                        }
-                        .padding(.bottom, Spacing.medium)
-                    }
-                    .noDefaultStyle()
-                    .padding(.horizontal, Padding.large)
-                     
-                    Rectangle()
-                        .frame(height: 100)
-                        .opacity(0)
-                        .noDefaultStyle()
-                } else {
-                    CustomEmptyView(
-                        type: .noResults(viewModel.searchText),
-                        isDisplayed: viewModel.categoriesFiltered.isEmpty && !viewModel.searchText.isEmpty
-                    )
-                }
+              )
+              .buttonStyle(PlainButtonStyle())
+              .padding(8)
+              .noDefaultStyle()
             }
             
-            //                VStack(spacing: 24) { // TODO: deplace in analytics
-            //                    if !viewModel.isChartDisplayed {
-            //                        EmptyCategoryData()
-            //                            .padding(8)
-            //                    } else if viewModel.searchText.isEmpty {
-            //                        PieChart(
-            //                            month: viewModel.selectedDate,
-            //                            slices: CategoryStore.shared.categoriesSlices(for: viewModel.selectedDate),
-            //                            backgroundColor: Color.background100,
-            //                            configuration: .init(style: .category, space: 0.2, hole: 0.75)
-            //                        )
-            //                        .padding(8)
-            //                    }
-            //
-            //                    VStack(spacing: 8) {
-            //                        SwitchDateButton(date: $viewModel.selectedDate, type: .month)
-            //                        SwitchDateButton(date: $viewModel.selectedDate, type: .year)
-            //                    }
-            //                }
-            //                .padding(8)
-            //                .frame(maxWidth: .infinity)
-            //                .background {
-            //                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-            //                        .fill(Color.background100)
-            //                }
-            //                .padding(.bottom, 8)
-        } // VStack
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
-        .onAppear {
-            viewModel.calculateAllAmounts(for: viewModel.selectedDate)
-        }
-        .refreshable {
-            await categoryStore.fetchCategories()
-        }
-        .onChange(of: viewModel.selectedDate) {
-            if let account = accountStore.selectedAccount, let accountID = account._id {
-                Task {
-                    await transactionStore.fetchTransactionsByPeriod(
-                        accountID: accountID,
-                        startDate: viewModel.selectedDate,
-                        endDate: viewModel.selectedDate.endOfMonth ?? .now
-                    )
-                    viewModel.calculateAllAmounts(for: viewModel.selectedDate)
-                }
+            VStack(spacing: 8) {
+              SwitchDateButton(date: $viewModel.selectedDate, type: .month)
+                .buttonStyle(PlainButtonStyle())
+              SwitchDateButton(date: $viewModel.selectedDate, type: .year)
+                .buttonStyle(PlainButtonStyle())
             }
+            .noDefaultStyle()
+          }
+          .noDefaultStyle()
+          .padding(8)
+          .frame(maxWidth: .infinity)
+          .background {
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+              .fill(Color.Background.bg100)
+          }
+          .padding(.horizontal, Padding.large)
+          .padding(.bottom, Padding.large)
+          
+          VStack(spacing: Spacing.medium) {
+            ForEach(viewModel.categoriesFiltered) { category in
+              let subcategories = category.subcategories
+              NavigationButtonView(
+                route: .push,
+                destination: (
+                  subcategories?.isEmpty == false
+                  ? AppDestination.subcategory(.list(category: category, selectedDate: viewModel.selectedDate))
+                  : AppDestination.category(.transactions(category: category, selectedDate: viewModel.selectedDate))
+                ),
+                label: {
+                  CategoryRowView(
+                    category: category,
+                    selectedDate: viewModel.selectedDate,
+                    amount: (viewModel.categoryAmounts[category.id]?.amount ?? 0).toCurrency()
+                  )
+                }
+              )
+              .buttonStyle(PlainButtonStyle())
+            }
+          }
+          .noDefaultStyle()
+          .padding(.horizontal, Padding.large)
+          
+          Rectangle()
+            .frame(height: 100)
+            .opacity(0)
+            .noDefaultStyle()
+        } else {
+          CustomEmptyView(
+            type: .noResults(viewModel.searchText),
+            isDisplayed: viewModel.categoriesFiltered.isEmpty && !viewModel.searchText.isEmpty
+          )
+          .noDefaultStyle()
         }
-    } // body
+      }
+    } // VStack
+    .background(TKDesignSystem.Colors.Background.Theme.bg50)
+    .onAppear {
+      viewModel.calculateAllAmounts(for: viewModel.selectedDate)
+    }
+    .refreshable {
+      await categoryStore.fetchCategories()
+    }
+    .onChange(of: viewModel.selectedDate) {
+      if let account = accountStore.selectedAccount, let accountID = account._id {
+        Task {
+          await transactionStore.fetchTransactionsByPeriod(
+            accountID: accountID,
+            startDate: viewModel.selectedDate,
+            endDate: viewModel.selectedDate.endOfMonth ?? .now
+          )
+          viewModel.calculateAllAmounts(for: viewModel.selectedDate)
+        }
+      }
+    }
+  } // body
 } // struct
 
 // MARK: - Preview
 #Preview {
-    CategoriesListScreen()
+  CategoriesListScreen()
 }

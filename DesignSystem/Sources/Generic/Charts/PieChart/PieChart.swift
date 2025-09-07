@@ -94,11 +94,10 @@ public struct PieChart: View {
             )
             
             IconSVG(icon: icons[index], value: .standard)
-            Image(icons[index])
               .foregroundStyle(Color.white)
               .position(iconPosition)
           }
-        } // End ForEach
+        }
         
         if config.holeSizeRatio > 0 {
           Circle()
