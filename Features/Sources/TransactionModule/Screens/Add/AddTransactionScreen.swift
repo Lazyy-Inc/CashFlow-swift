@@ -119,9 +119,6 @@ public struct AddTransactionScreen: View {
             }
             .padding(.horizontal, 24)
         }
-        .toolbar {
-            ToolbarDismissKeyboardButtonView()
-        }
         .confirmationDialog("", isPresented: $viewModel.presentingConfirmationDialog) {
             Button("word_cancel_changes".localized, role: .destructive, action: { dismissAction() })
             Button("word_return".localized, role: .cancel, action: { })

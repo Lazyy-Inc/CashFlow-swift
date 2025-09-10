@@ -117,9 +117,9 @@ extension AppDestination {
         case .list:
             AnyView(SubscriptionsListScreen())
         case .create:
-            AnyView(SubscriptionAddScreen())
+            AnyView(AddSubscriptionScreen())
         case .update(let subscription):
-            AnyView(SubscriptionAddScreen(subscription: subscription))
+            AnyView(AddSubscriptionScreen(subscription: subscription))
         case .detail(let subscriptionId):
             AnyView(SubscriptionDetailsScreen(subscriptionId: subscriptionId))
         }

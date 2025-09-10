@@ -11,7 +11,7 @@ import Core
 import Models
 import Stores
 
-extension SubscriptionAddScreen {
+extension AddSubscriptionScreen {
     
     final class ViewModel: ObservableObject {
         let successfullModalManager: SuccessfullModalManager = .shared
@@ -47,7 +47,7 @@ extension SubscriptionAddScreen {
     
 }
 
-extension SubscriptionAddScreen.ViewModel {
+extension AddSubscriptionScreen.ViewModel {
     
     func onChangeType(newValue: TransactionType) {
         if newValue == .income {
@@ -112,7 +112,7 @@ extension SubscriptionAddScreen.ViewModel {
 }
 
 // MARK: - Verification
-extension SubscriptionAddScreen.ViewModel {
+extension AddSubscriptionScreen.ViewModel {
 
     func isAutomationInCreation() -> Bool {
         if selectedCategory != nil || selectedSubcategory != nil || !name.isBlank || amount.toDouble() != 0 {

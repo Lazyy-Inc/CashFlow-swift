@@ -46,6 +46,7 @@ public struct NavigationBarWithMenu<Content: View>: View {
                         Text("word_return".localized)
                             .fontWithLineHeight(.Body.medium)
                     }
+                    .glassButtonEffect()
                 }
                 .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
                 
@@ -63,6 +64,7 @@ public struct NavigationBarWithMenu<Content: View>: View {
                     .renderingMode(.template)
                     .foregroundStyle(Color.label)
             }
+            .glassButtonEffect()
         }
         .padding(.horizontal, Padding.large)
     }

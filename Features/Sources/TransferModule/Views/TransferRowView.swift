@@ -89,6 +89,7 @@ public struct TransferRowView: View {
                         .lineLimit(1)
                 }
             }
+            .geometryGroup()
             .padding(12)
             .background {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)

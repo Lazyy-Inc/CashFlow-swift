@@ -71,6 +71,7 @@ public struct TransactionRowView: View {
                             .lineLimit(1)
                     }
                 }
+                .geometryGroup()
                 .padding(Padding.medium)
                 .roundedRectangleBorder(
                     TKDesignSystem.Colors.Background.Theme.bg100,

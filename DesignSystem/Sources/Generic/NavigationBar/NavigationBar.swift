@@ -59,7 +59,7 @@ public struct NavigationBar: View {
                                 Text("word_return".localized)
                                     .fontWithLineHeight(.Body.medium)
                             }
-                            
+                            .glassButtonEffect()
                         }
                         .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
                     }
@@ -80,6 +80,7 @@ public struct NavigationBar: View {
                                     .foregroundStyle(themeManager.theme.color)
                             }
                         }
+                        .glassButtonEffect()
                         .fullWidth(.trailing)
                         .disabled(actionButton.isDisabled)
                         .opacity(actionButton.isDisabled ? 0.5 : 1)

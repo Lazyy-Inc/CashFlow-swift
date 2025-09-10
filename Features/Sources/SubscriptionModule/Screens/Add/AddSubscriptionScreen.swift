@@ -14,7 +14,7 @@ import Core
 import Events
 import Models
 
-public struct SubscriptionAddScreen: View {
+public struct AddSubscriptionScreen: View {
     
     // builder
     var subscription: SubscriptionModel?
@@ -113,9 +113,6 @@ public struct SubscriptionAddScreen: View {
             }
             .padding(.horizontal, 24)
         }
-        .toolbar {
-            ToolbarDismissKeyboardButtonView()
-        }
         .confirmationDialog("", isPresented: $viewModel.presentingConfirmationDialog) {
             Button("word_cancel_changes".localized, role: .destructive, action: { dismissAction() })
             Button("word_return".localized, role: .cancel, action: { })
@@ -137,7 +134,7 @@ public struct SubscriptionAddScreen: View {
 
 // MARK: - Preview
 #Preview {
-    SubscriptionAddScreen()
+    AddSubscriptionScreen()
 }
 
 struct OnTapDismissKeyboardModifier2: ViewModifier {
