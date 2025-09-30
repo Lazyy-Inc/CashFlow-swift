@@ -36,14 +36,7 @@ public extension UserStore {
             self.currentUser = user
         } catch {
             self.currentUser = nil
-            // TODO: NETWORK ERROR
-//            if let networkError = error as? NetworkError {
-//                if networkError == .fieldIsIncorrectlyFilled {
-//                    BannerManager.shared.banner = Banner.emailInvalid
-//                } else {
-//                    BannerManager.shared.banner = networkError.banner
-//                }
-//            }
+            NetworkService.handleError(error: error)
         }
     }
     

@@ -100,6 +100,8 @@ public extension AppManager {
         budgetStore.reset()
         creditCardStore.reset()
         categoryStore.reset()
+      
+        NotificationsManager.shared.removeAllPendingNotifications()
     }
     
 }

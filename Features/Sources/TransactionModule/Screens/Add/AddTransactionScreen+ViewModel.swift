@@ -48,14 +48,6 @@ extension AddTransactionScreen {
             }
         }
         
-        // TODO: Faire un POC Scanner
-        //    func makeScannerView() -> ScannerTicketView {
-        //        ScannerTicketView { amount, date, errorMessage in
-        //            if let amount { self.transactionAmount = String(amount) }
-        //            if let date { self.transactionDate = date }
-        //        }
-        //    }
-        
         func bodyForCreation() -> TransactionDTO {
             return TransactionDTO.body(
                 name: transactionTitle.trimmingCharacters(in: .whitespaces),

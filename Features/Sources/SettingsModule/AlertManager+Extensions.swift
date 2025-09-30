@@ -21,9 +21,9 @@ extension AlertManager {
             buttonTitle: "alert_signout_action_button".localized,
             isDestructive: true,
             action: {
-                // TODO: Clear data
                 await UserStore.shared.signOut()
                 AppManager.shared.appState = .needLogin
+                AppManager.shared.resetAllStoresData()
                 EventService.sendEvent(key: EventKeys.userLogout)
                 dismiss()
             }
@@ -37,9 +37,9 @@ extension AlertManager {
             buttonTitle: "word_delete".localized,
             isDestructive: true,
             action: {
-                // TODO: Clear data
                 await UserStore.shared.deleteAccount()
                 AppManager.shared.appState = .needLogin
+                AppManager.shared.resetAllStoresData()
                 EventService.sendEvent(key: EventKeys.userDeleted)
                 dismiss()
             }

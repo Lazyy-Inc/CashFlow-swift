@@ -1,26 +1,24 @@
 //
-//  TokenManager+Extensions.swift
-//  CashFlow
+//  File.swift
+//  Core
 //
-//  Created by Theo Sementa on 25/07/2025.
+//  Created by Theo Sementa on 30/09/2025.
 //
-// TODO: Edit this bad files
 
 import Foundation
 import NetworkKit
-import Core
 import NetworkModule
 import Models
 import Stores
 
-extension TokenManager {
+public extension TokenManager {
 
     @MainActor
     func refreshToken() async throws {
         if let refreshTokenInKeychain = KeychainManager.shared.retrieveItemFromKeychain(
             id: KeychainService.refreshToken.rawValue,
             type: String.self
-        ), !refreshTokenInKeychain.isEmpty {
+        ), refreshTokenInKeychain.isEmpty == false {
             do {
                 let user = try await NetworkService.sendRequest(
                     apiBuilder: UserAPIRequester.refreshToken(refreshToken: refreshTokenInKeychain),
@@ -42,15 +40,6 @@ extension TokenManager {
             TokenManager.shared.setTokenAndRefreshToken(token: "", refreshToken: "")
             throw NetworkError.refreshTokenFailed
         }
-    }
-    
-}
-
-extension UserStore {
-    
-    @MainActor
-    func loginWithToken() async throws {
-        try await TokenManager.shared.refreshToken()
     }
     
 }

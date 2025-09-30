@@ -20,7 +20,7 @@ import Events
 @main
 struct TurboBudgetApp: App {
     
-    // Custom type
+    // MARK: Managers
     @StateObject private var appManager: AppManager = .shared
     @StateObject private var appearanceManager = AppearanceManager()
     @StateObject private var purchasesManager = PurchasesManager()
@@ -30,32 +30,29 @@ struct TurboBudgetApp: App {
     @StateObject private var successfullModalManager: SuccessfullModalManager = .shared
     @StateObject private var networkMonitor = NetworkMonitor()
     
-    // Stores
+    // MARK: Stores
     @StateObject private var userStore: UserStore = .shared
     @StateObject private var accountStore: AccountStore = .shared
     @StateObject private var transferStore: TransferStore = .shared
     @StateObject private var creditCardStore: CreditCardStore = .shared
     
-    // Environment
+    // MARK: Environments
     @Environment(\.scenePhase) private var scenePhase
     
-    // Preferences
+    // MARK: Preferences
     @StateObject private var preferencesSecurity: PreferencesSecurity = .shared
     @StateObject private var preferencesGeneral: PreferencesGeneral = .shared
     @StateObject private var preferencesSubscription: SubscriptionPreferences = .shared
         
-    // init
-    init() { // TODO: Need refactor
-        UINavigationBar.appearance().titleTextAttributes = [.font: UIFont(name: "PlusJakartaSans-Bold", size: 18)!]
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont(name: "PlusJakartaSans-Bold", size: 30)!]
-        
+    // MARK: Init
+    init() {
         SentrySDK.start { options in
             options.dsn = ProcessInfo.processInfo.environment["SENTRY_API_KEY"] ?? ""
             options.sendDefaultPii = true
         }
     }
     
-    // MARK: -
+    // MARK: - View
     var body: some Scene {
         WindowGroup {
             Group {
