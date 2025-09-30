@@ -56,18 +56,3 @@ public struct CreditCardModel: Codable, Identifiable, Equatable, Hashable, Senda
         try container.encode(limitByMonth, forKey: .limitByMonth)
     }
 }
-
-public extension CreditCardModel {
-    
-    var balanceAvailable: Double? {
-        // MARK: TODO
-//        guard let limitByMonth else { return nil }
-//        let spent = TransactionStore.shared.expensesCurrentMonth
-//            .compactMap(\.amount)
-//            .reduce(0, +)
-//        
-//        return limitByMonth - spent
-        return nil
-    }
-    
-}

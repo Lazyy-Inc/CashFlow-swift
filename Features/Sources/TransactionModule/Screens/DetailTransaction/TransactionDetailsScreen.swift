@@ -194,15 +194,13 @@ public struct TransactionDetailsScreen: View {
 // MARK: - Utils
 extension TransactionDetailsScreen {
   
-  // TODO: DUPLICATED
   func presentChangeCategory() {
     router.present(
       route: .sheet,
       .category(.select(
         selectedCategory: $viewModel.selectedCategory,
         selectedSubcategory: $viewModel.selectedSubcategory
-      )
-      )
+      ))
     ) {
       if viewModel.selectedCategory != nil {
         viewModel.updateCategory(transactionID: currentTransaction.id)

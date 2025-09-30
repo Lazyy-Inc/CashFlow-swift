@@ -43,7 +43,6 @@ let package = Package(
               "Stores",
               "Banners",
               "Navigation",
-              
               .product(name: "TheoKit", package: "TheoKit"),
               .product(name: "ConfettiSwiftUI", package: "ConfettiSwiftUI")
           ],

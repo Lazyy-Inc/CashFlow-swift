@@ -161,7 +161,6 @@ public struct SubscriptionDetailsScreen: View {
 // MARK: - Utils
 extension SubscriptionDetailsScreen {
 
-    // TODO: DUPLICATED
     func presentChangeCategory() {
         router.present(
             route: .sheet,

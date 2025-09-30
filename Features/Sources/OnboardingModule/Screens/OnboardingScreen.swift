@@ -39,8 +39,8 @@ public struct OnboardingScreen: View {
     // MARK: - View
     public var body: some View {
         TabView(selection: $currentPage) {
-            ForEach(items.indices) { index in
-                GenericOnboardingScreen(item: items[index])
+            ForEach(Array(items.enumerated()), id: \.offset) { index, item in
+                GenericOnboardingScreen(item: item)
                     .tag(index)
             }
         }

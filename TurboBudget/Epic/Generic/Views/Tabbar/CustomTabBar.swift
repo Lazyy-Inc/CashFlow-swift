@@ -34,8 +34,13 @@ struct CustomTabBar: View {
         ZStack(alignment: .top) {
             TabBarShape()
                 .foregroundStyle(colorScheme == .light ? .primary0 : .secondary500)
-                .cornerRadius(10, corners: .topLeft)
-                .cornerRadius(10, corners: .topRight)
+                .clipShape(
+                  .rect(
+                    topLeadingRadius: CornerRadius.standard,
+                    topTrailingRadius: CornerRadius.standard,
+                    style: .continuous
+                  )
+                )
                 .frame(height: 100)
                 .shadow(radius: 64, y: -3)
             
@@ -67,7 +72,13 @@ struct CustomTabBar: View {
     CustomTabBar()
     
     TabBarShape()
-        .cornerRadius(15, corners: [.topLeft, .topRight])
+        .clipShape(
+          .rect(
+            topLeadingRadius: 15,
+            topTrailingRadius: 15,
+            style: .continuous
+          )
+        )
         .frame(width: UIScreen.main.bounds.width, height: 100)
         .padding()
 }

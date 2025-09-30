@@ -15,19 +15,6 @@ import NetworkModule
 
 public extension TransactionStore {
     
-    var expenses: [TransactionModel] {
-        return transactions.filter { $0.type == .expense }
-    }
-    
-    var expensesCurrentMonth: [TransactionModel] {
-        return expenses
-            .filter { Calendar.current.isDate($0.date, equalTo: Date(), toGranularity: .month) }
-    }
-    
-    var incomes: [TransactionModel] {
-        return transactions.filter { $0.type == .income }
-    }
-    
     var transactionsByMonth: [Date: [TransactionModel]] {
         let groupedByMonth = Dictionary(grouping: transactions) { transaction in
             Calendar.current.date(from: Calendar.current.dateComponents([.month, .year], from: transaction.date))!

@@ -22,6 +22,23 @@ public final class TransactionStore {
 }
 
 public extension TransactionStore {
+  
+  var expenses: [TransactionModel] {
+      return transactions.filter { $0.type == .expense }
+  }
+  
+  var expensesCurrentMonth: [TransactionModel] {
+      return expenses
+          .filter { Calendar.current.isDate($0.date, equalTo: Date(), toGranularity: .month) }
+  }
+  
+  var incomes: [TransactionModel] {
+      return transactions.filter { $0.type == .income }
+  }
+  
+}
+
+public extension TransactionStore {
     
     @MainActor
     func fetchTransactionsByPeriod(accountID: Int, startDate: Date, endDate: Date, type: TransactionType? = nil) async {

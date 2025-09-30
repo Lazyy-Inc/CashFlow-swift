@@ -8,17 +8,20 @@
 import SwiftUI
 import Core
 import DesignSystem
+import ConfettiSwiftUI
 
 struct PaywallPayementButtonView: View {
   
   // MARK: Environment
   @EnvironmentObject private var purchasesManager: PurchasesManager
   
+  @State private var confettiCounter: Int = 0
+  
   // MARK: -
   var body: some View {
     AsyncButton {
       if purchasesManager.isCashFlowPro {
-        // TODO: Send confetti
+        confettiCounter += 1
       } else {
         if let product = purchasesManager.products.first {
           await purchasesManager.buyProduct(product)
@@ -35,7 +38,14 @@ struct PaywallPayementButtonView: View {
             .fill(LinearGradient.main)
         }
     }
-  }  
+    .confettiCannon(
+        counter: $confettiCounter,
+        num: 50,
+        openingAngle: Angle(degrees: 0),
+        closingAngle: Angle(degrees: 360),
+        radius: 200
+    )
+  }
 }
 
 // MARK: - Preview
