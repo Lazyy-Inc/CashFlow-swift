@@ -11,17 +11,22 @@ import Events
 import Models
 import Mocks
 import Stores
+import Dependencies
 
 public struct RecommendedCategoryButton: View {
   
-  // Builder
+  // MARK: Dependencies
   var transactionName: String
   @Binding var selectedCategory: CategoryModel?
   @Binding var selectedSubcategory: SubcategoryModel?
   
+  @Dependency(\.categoryStore) var categoryStore
+  
+  // MARK: States
   @State private var bestCategory: CategoryModel?
   @State private var bestSubcategory: SubcategoryModel?
   
+  // MARK: Init
   public init(
     transactionName: String,
     selectedCategory: Binding<CategoryModel?>,
@@ -64,8 +69,8 @@ public struct RecommendedCategoryButton: View {
       if newValue.count > 3 {
         Task {
           if let response = await TransactionStore.shared.fetchCategory(name: transactionName) {
-            bestCategory = CategoryStore.shared.findCategoryById(response.cat)
-            bestSubcategory = CategoryStore.shared.findSubcategoryById(response.sub)
+            bestCategory = categoryStore.findCategoryById(response.cat)
+            bestSubcategory = categoryStore.findSubcategoryById(response.sub)
           }
         }
       }

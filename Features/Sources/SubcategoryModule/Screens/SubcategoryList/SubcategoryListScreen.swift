@@ -23,7 +23,7 @@ public struct SubcategoryListScreen: View {
     
     // MARK: Environnements
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore
-    @EnvironmentObject private var categoryStore: CategoryStore
+    @Dependency(\.categoryStore) private var categoryStore
     
     // MARK: StateObject
     @StateObject private var viewModel: ViewModel = .init()
@@ -63,7 +63,7 @@ public struct SubcategoryListScreen: View {
             } else if viewModel.searchText.isEmpty {
               PieChart(
                 month: selectedDate,
-                slices: CategoryStore.shared.subcategoriesSlices(for: category, in: selectedDate),
+                slices: categoryStore.subcategoriesSlices(for: category, in: selectedDate),
                 config: .init(
                   style: .category,
                   backgroundColor: Color.Background.bg100,

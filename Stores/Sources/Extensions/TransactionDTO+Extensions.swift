@@ -8,6 +8,7 @@
 import Foundation
 import Models
 import NetworkModule
+import Dependencies
 
 public extension TransactionDTO {
     
@@ -16,11 +17,13 @@ public extension TransactionDTO {
               let amount,
               let dateISO
         else { throw NetworkError.unknown }
+      
+        @Dependency(\.categoryStore) var categoryStore
                 
         let date = dateISO.toDate()
       
-        let category = CategoryStore.shared.findCategoryById(categoryID)
-        let subcategory = CategoryStore.shared.findSubcategoryById(subcategoryID)
+        let category = categoryStore.findCategoryById(categoryID)
+        let subcategory = categoryStore.findSubcategoryById(subcategoryID)
       
         let repartitionType = RepartitionType(rawValue: repartitionType ?? "")
         

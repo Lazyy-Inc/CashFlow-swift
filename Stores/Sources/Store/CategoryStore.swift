@@ -8,29 +8,29 @@
 import Foundation
 import Models
 import NetworkModule
+import Dependencies
 
-public final class CategoryStore: ObservableObject {
-    public static let shared = CategoryStore()
-    
-    @Published public var categories: [CategoryModel] = []
-    @Published public var subcategories: [SubcategoryModel] = []
+@Observable
+public final class CategoryStore {
+  public var categories: [CategoryModel] = []
+  public var subcategories: [SubcategoryModel] = []
 }
 
 public extension CategoryStore {
   
   @MainActor
   func fetchCategories() async {
-      do {
-          let categories = try await NetworkService.sendRequest(
-              apiBuilder: CategoryAPIRequester.fetchCategories,
-              responseModel: [CategoryDTO].self
-          ).map { try $0.toModel() }
-          self.categories = categories
-          for (index, category) in self.categories.enumerated() {
-              self.categories[index].subcategories = category.subcategories?.filter { $0.isVisible }
-          }
-          self.subcategories = categories.flatMap { $0.subcategories ?? [] }
-      } catch { NetworkService.handleError(error: error) }
+    do {
+      let categories = try await NetworkService.sendRequest(
+        apiBuilder: CategoryAPIRequester.fetchCategories,
+        responseModel: [CategoryDTO].self
+      ).map { try $0.toModel() }
+      self.categories = categories
+      for (index, category) in self.categories.enumerated() {
+        self.categories[index].subcategories = category.subcategories?.filter { $0.isVisible }
+      }
+      self.subcategories = categories.flatMap { $0.subcategories ?? [] }
+    } catch { NetworkService.handleError(error: error) }
   }
   
 }
@@ -59,4 +59,16 @@ public extension CategoryStore {
     self.subcategories = []
   }
   
+}
+
+// MARK: - Dependencies
+struct CategoryStoreKey: DependencyKey {
+  static let liveValue: CategoryStore = .init()
+}
+
+public extension DependencyValues {
+  var categoryStore: CategoryStore {
+    get { self[CategoryStoreKey.self] }
+    set { self[CategoryStoreKey.self] = newValue }
+  }
 }

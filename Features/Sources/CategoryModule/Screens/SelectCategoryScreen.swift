@@ -13,121 +13,114 @@ import Models
 import Stores
 
 public struct SelectCategoryScreen: View {
-    
-    // Builder
-    @Binding var selectedCategory: CategoryModel?
-    @Binding var selectedSubcategory: SubcategoryModel?
-    
-    // Custom
-    @EnvironmentObject private var categoryStore: CategoryStore
-    @EnvironmentObject private var themeManager: ThemeManager
-    
-    // Environnements
-    @Environment(\.dismiss) private var dismiss
-    
-    // State or Binding String
-    @State private var searchText: String = ""
-    
-    // Computed variables
-    var categoriesFiltered: [CategoryModel] {
-        return categoryStore.categories
-            .searchFor(searchText)
-    }
-    
-    public init(
-        selectedCategory: Binding<CategoryModel?>,
-        selectedSubcategory: Binding<SubcategoryModel?>
-    ) {
-        self._selectedCategory = selectedCategory
-        self._selectedSubcategory = selectedSubcategory
-    }
-    
-    // MARK: -
-    public var body: some View {
-        NavigationStack {
-            ScrollView {
-                ForEach(categoriesFiltered) { category in
-                    VStack {
-                        Text(category.name)
-                            .font(.mediumCustom(size: 22))
-                            .fullWidth(.leading)
-                            .padding([.horizontal, .top])
-                        
-                        if category.subcategories == nil || category.subcategories?.isEmpty == true {
-                            CategorySelectableRowView(
-                                category: category,
-                                isSelected: selectedCategory == category
-                            ) {
-                                withAnimation {
-                                    selectedSubcategory = nil
-                                    selectedCategory = category
-                                    dismiss()
-                                }
-                            }
-                        } else {
-                            VStack {
-                                let subcategories: [SubcategoryModel] = searchText.isEmpty
-                                ? category.subcategories ?? []
-                                : category.subcategories?.filter { $0.name.localizedStandardContains(searchText) } ?? []
-                                ForEach(subcategories) { subcategory in
-                                    SubcategorySelectableRowView(
-                                        subcategory: subcategory,
-                                        isSelected: selectedSubcategory == subcategory
-                                    ) {
-                                        withAnimation {
-                                            selectedCategory = category
-                                            selectedSubcategory = subcategory
-                                            dismiss()
-                                        }
-                                    }
-                                }
-                            }
-                        }
+  
+  // MARK: Dependencies
+  @Binding var selectedCategory: CategoryModel?
+  @Binding var selectedSubcategory: SubcategoryModel?
+  
+  // MARK: Environments
+  @EnvironmentObject private var themeManager: ThemeManager
+  @Environment(\.dismiss) private var dismiss
+  
+  // MARK: States
+  @State private var viewModel: ViewModel = .init()
+  
+  // MARK: Init
+  public init(
+    selectedCategory: Binding<CategoryModel?>,
+    selectedSubcategory: Binding<SubcategoryModel?>
+  ) {
+    self._selectedCategory = selectedCategory
+    self._selectedSubcategory = selectedSubcategory
+  }
+  
+  // MARK: - View
+  public var body: some View {
+    NavigationStack {
+      ScrollView {
+        ForEach(viewModel.categoriesFiltered) { category in
+          VStack {
+            Text(category.name)
+              .font(.mediumCustom(size: 22))
+              .fullWidth(.leading)
+              .padding([.horizontal, .top])
+            
+            if category.subcategories == nil || category.subcategories?.isEmpty == true {
+              CategorySelectableRowView(
+                category: category,
+                isSelected: selectedCategory == category
+              ) {
+                withAnimation {
+                  selectedSubcategory = nil
+                  selectedCategory = category
+                  dismiss()
+                }
+              }
+            } else {
+              VStack {
+                ForEach(viewModel.subcategoriesFiltered(for: category)) { subcategory in
+                  SubcategorySelectableRowView(
+                    subcategory: subcategory,
+                    isSelected: selectedSubcategory == subcategory
+                  ) {
+                    withAnimation {
+                      selectedCategory = category
+                      selectedSubcategory = subcategory
+                      dismiss()
                     }
-                    .padding()
+                  }
                 }
-                
-                Rectangle()
-                    .frame(height: 60)
-                    .opacity(0)
-                
-                Spacer()
+              }
             }
-            .scrollIndicators(.hidden)
-            .overlay {
-                if !searchText.isEmpty && categoriesFiltered.isEmpty {
-                    VStack(spacing: 20) {
-                        Image("NoResults\(themeManager.theme.nameNotLocalized.capitalized)")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .shadow(radius: 4, y: 4)
-                            .frame(width: UIDevice.isIpad
-                                   ? UIScreen.main.bounds.width / 3
-                                   : UIScreen.main.bounds.width / 1.5
-                            )
-                        
-                        Text("word_no_results".localized + " '\(searchText)'")
-                            .font(.semiBoldText16())
-                            .multilineTextAlignment(.center)
-                    }
-                    .offset(y: -20)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
-            }
-            .navigationTitle("what_category_title".localized)
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: { dismiss() }, label: {
-                        Image(systemName: "xmark")
-                            .foregroundStyle(Color.text)
-                            .font(.system(size: 18, weight: .semibold))
-                    })
-                }
-            }
-        } // Navigation Stack
-        .searchable(text: $searchText.animation(), placement: .navigationBarDrawer(displayMode: .always), prompt: "word_search".localized)
-    } // body
+          }
+          .padding()
+        }
+        
+        Rectangle()
+          .frame(height: 60)
+          .opacity(0)
+        
+        Spacer()
+      }
+      .scrollIndicators(.hidden)
+      .overlay {
+        if !viewModel.searchText.isEmpty && viewModel.categoriesFiltered.isEmpty {
+          VStack(spacing: 20) {
+            Image("NoResults\(themeManager.theme.nameNotLocalized.capitalized)")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .shadow(radius: 4, y: 4)
+              .frame(width: UIDevice.isIpad
+                     ? UIScreen.main.bounds.width / 3
+                     : UIScreen.main.bounds.width / 1.5
+              )
+            
+            Text("word_no_results".localized + " '\(viewModel.searchText)'")
+              .font(.semiBoldText16())
+              .multilineTextAlignment(.center)
+          }
+          .offset(y: -20)
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+      }
+      .navigationTitle("what_category_title".localized)
+      .navigationBarTitleDisplayMode(.large)
+      .toolbar {
+        ToolbarItemGroup(placement: .navigationBarTrailing) {
+          Button(action: { dismiss() }, label: {
+            Image(systemName: "xmark")
+              .foregroundStyle(Color.text)
+              .font(.system(size: 18, weight: .semibold))
+          })
+        }
+      }
+    } // Navigation Stack
+    .searchable(
+      text: $viewModel.searchText.animation(),
+      placement: .navigationBarDrawer(displayMode: .always),
+      prompt: "word_search".localized
+    )
+  } // body
 } // struct
 
 // MARK: - Preview
@@ -140,30 +133,3 @@ public struct SelectCategoryScreen: View {
 //        SelectCategoryScreen(selectedCategory: $selectedCategoryPreview, selectedSubcategory: )
 //    }
 // }
-
-// TODO: Change
-public extension Array where Element == CategoryModel {
-    
-    func searchFor(_ searchText: String) -> [CategoryModel] {
-        let categories = CategoryStore.shared.categories
-        
-        guard let income = categories.filter({ $0.isIncome }).first else { return [] }
-        guard let toCategorized = categories.filter({ $0.isToCategorized }).first else { return [] }
-        let allCategories = [toCategorized, income] + categories
-            .filter { !$0.isIncome && !$0.isToCategorized }
-            .sorted { $0.name < $1.name }
-        
-        if searchText.isEmpty {
-            return allCategories
-        } else { // Searching
-            let filteredCategories = allCategories
-                .filter {
-                    $0.name.localizedStandardContains(searchText)
-                    || (($0.subcategories ?? []).contains { $0.name.localizedStandardContains(searchText) })
-                }
-            
-            return filteredCategories
-        }
-    }
-    
-}

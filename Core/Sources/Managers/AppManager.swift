@@ -34,7 +34,7 @@ public extension AppManager {
         let savingsPlanStore: SavingsPlanStore = .shared
         @Dependency(\.budgetStore) var budgetStore
         let creditCardStore: CreditCardStore = .shared
-        let categoryStore: CategoryStore = .shared
+        @Dependency(\.categoryStore) var categoryStore
         
         let preferencesSubscription: SubscriptionPreferences = .shared
         
@@ -92,7 +92,7 @@ public extension AppManager {
         let savingsPlanStore: SavingsPlanStore = .shared
         let budgetStore: BudgetStore = .shared
         let creditCardStore: CreditCardStore = .shared
-        let categoryStore: CategoryStore = .shared
+        @Dependency(\.categoryStore) var categoryStore
         
         transactionStore.reset()
         subscriptionStore.reset()

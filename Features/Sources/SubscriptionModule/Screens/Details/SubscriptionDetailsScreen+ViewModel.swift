@@ -9,6 +9,7 @@ import Foundation
 import Core
 import Models
 import Stores
+import Dependencies
 
 extension SubscriptionDetailsScreen {
     
@@ -24,10 +25,11 @@ extension SubscriptionDetailsScreen.ViewModel {
     @MainActor
     func updateCategory(subscriptionID: Int) {
         let subscriptionStore: SubscriptionStore = .shared
+        @Dependency(\.categoryStore) var categoryStore
         
         var body: SubscriptionDTO = .init()
         
-        if let selectedCategory, let newCategory = CategoryStore.shared.findCategoryById(selectedCategory.id) {
+        if let selectedCategory, let newCategory = categoryStore.findCategoryById(selectedCategory.id) {
             body.categoryID = newCategory.id
             body.subcategoryID = nil
             
@@ -35,7 +37,7 @@ extension SubscriptionDetailsScreen.ViewModel {
                 selectedSubcategory = nil
             }
             
-            if let selectedSubcategory, let newSubcategory = CategoryStore.shared.findSubcategoryById(selectedSubcategory.id) {
+            if let selectedSubcategory, let newSubcategory = categoryStore.findSubcategoryById(selectedSubcategory.id) {
                 body.subcategoryID = newSubcategory.id
             }
             

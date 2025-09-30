@@ -16,6 +16,7 @@ import DesignSystem
 import Models
 import Stores
 import NetworkModule
+import Dependencies
 
 public extension SubscriptionStore {
     
@@ -36,11 +37,13 @@ public extension SubscriptionStore {
 public extension SubscriptionModel {
     
     var category: CategoryModel? {
-        return CategoryStore.shared.findCategoryById(categoryID)
+      @Dependency(\.categoryStore) var categoryStore
+      return categoryStore.findCategoryById(categoryID)
     }
     
     var subcategory: SubcategoryModel? {
-        return CategoryStore.shared.findSubcategoryById(subcategoryID)
+      @Dependency(\.categoryStore) var categoryStore
+      return categoryStore.findSubcategoryById(subcategoryID)
     }
 
     var symbol: String {

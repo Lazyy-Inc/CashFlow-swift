@@ -11,7 +11,6 @@ import Stores
 
 public struct EmptyCategoryData: View {
     
-    @EnvironmentObject private var categoryStore: CategoryStore
     @EnvironmentObject private var themeManager: ThemeManager
     
     public init() {}

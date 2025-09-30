@@ -9,6 +9,7 @@ import Foundation
 import Models
 import Core
 import Stores
+import Dependencies
 
 extension CategoryModel: @retroactive Searchable {
     public var searchableText: String {
@@ -20,11 +21,13 @@ extension CategoryModel: @retroactive Searchable {
 public extension CategoryModel {
     
     static var revenue: CategoryModel? {
-        return CategoryStore.shared.findCategoryById(1)
+        @Dependency(\.categoryStore) var categoryStore
+        return categoryStore.findCategoryById(1)
     }
     
     static var toCategorized: CategoryModel? {
-        return CategoryStore.shared.findCategoryById(0)
+        @Dependency(\.categoryStore) var categoryStore
+        return categoryStore.findCategoryById(0)
     }
     
 }

@@ -9,6 +9,7 @@ import Foundation
 import Core
 import Stores
 import Models
+import Dependencies
 
 public extension TransactionStore {
     
@@ -143,6 +144,7 @@ public extension TransactionStore {
 public extension TransactionStore {
     
     func totalCashFlowForSpecificMonthYear(month: Int, year: Int) -> Double {
+        @Dependency(\.categoryStore) var categoryStore
         var amount: Double = 0.0
         
         var components = DateComponents()
@@ -155,7 +157,7 @@ public extension TransactionStore {
         for transaction in self.transactions {
             if let dateOfMonthSelected {
                 if Calendar.current.isDate(transaction.date, equalTo: dateOfMonthSelected, toGranularity: .month)
-                    && CategoryStore.shared.findCategoryById(transaction.category?.id) != nil {
+                    && categoryStore.findCategoryById(transaction.category?.id) != nil {
                     if transaction.type == .expense {
                         amount -= transaction.amount
                     } else if transaction.type == .income {

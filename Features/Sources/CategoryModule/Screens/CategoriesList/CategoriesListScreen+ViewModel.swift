@@ -9,21 +9,26 @@ import Foundation
 import Core
 import Models
 import Stores
+import Dependencies
 
 extension CategoriesListScreen {
     
     final class ViewModel: ObservableObject {
-        let categories = CategoryStore.shared.categories
-            
         @Published var categoryAmounts: [Int?: CategoryAmount] = [:]
         @Published var searchText: String = ""
         
         @Published var selectedDate: Date = Date()
+      
+        @Dependency(\.categoryStore) var categoryStore
     }
     
 }
 
 extension CategoriesListScreen.ViewModel {
+  
+    var categories: [CategoryModel] {
+      return categoryStore.categories
+    }
     
     var isChartDisplayed: Bool {
         return !TransactionStore.shared.getExpenses(in: selectedDate).isEmpty

@@ -20,7 +20,7 @@ public struct CategoriesListScreen: View {
   // MARK: EnvironmentObject
   @EnvironmentObject private var accountStore: AccountStore
   @Dependency(\.transactionStore) private var transactionStore: TransactionStore
-  @EnvironmentObject private var categoryStore: CategoryStore
+  @Dependency(\.categoryStore) var categoryStore
   @EnvironmentObject private var router: Router<AppDestination>
   
   // MARK: StateObject
@@ -53,7 +53,7 @@ public struct CategoriesListScreen: View {
             } else if viewModel.searchText.isEmpty {
               PieChart(
                 month: viewModel.selectedDate,
-                slices: CategoryStore.shared.categoriesSlices(for: viewModel.selectedDate),
+                slices: categoryStore.categoriesSlices(for: viewModel.selectedDate),
                 config: .init(
                   style: .category,
                   backgroundColor: Color.Background.bg100,

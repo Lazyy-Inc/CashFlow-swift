@@ -23,6 +23,7 @@ public struct TransactionDetailsScreen: View {
   // MARK: Dependencies
   var transaction: TransactionModel
   @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+  @Dependency(\.categoryStore) private var categoryStore
   
   // MARK: Environments
   @EnvironmentObject private var router: Router<AppDestination>
@@ -169,10 +170,10 @@ public struct TransactionDetailsScreen: View {
         let transactionID = currentTransaction.id
         if let response = await transactionStore.fetchCategory(name: currentTransaction.nameDisplayed, transactionID: transactionID) {
           if let cat = response.cat {
-            viewModel.bestCategory = CategoryStore.shared.findCategoryById(cat)
+            viewModel.bestCategory = categoryStore.findCategoryById(cat)
           }
           if let sub = response.sub {
-            viewModel.bestSubcategory = CategoryStore.shared.findSubcategoryById(sub)
+            viewModel.bestSubcategory = categoryStore.findSubcategoryById(sub)
           }
         }
       }
