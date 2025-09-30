@@ -21,7 +21,6 @@ struct GenericOnboardingScreen: View {
     
     // MARK: Constants
     private let signInWithAppleManager: SignInWithAppleManager = .init()
-    private let signInWithGoogleManager: SignInWithGoogleManager = .init()
     
     // MARK: Computed variables
     var isLastPage: Bool {
@@ -69,7 +68,7 @@ struct GenericOnboardingScreen: View {
                                 icon: .Brand.google,
                                 title: "login_google".localized
                             ),
-                            action: { signInWithGoogleManager.signIn() }
+                            action: { SignInWithGoogleManager.signIn() }
                         )
                         
                         SignInButton(

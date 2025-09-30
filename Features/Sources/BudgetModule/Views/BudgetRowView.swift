@@ -50,7 +50,8 @@ struct BudgetRowView: View {
                     .lineLimit(1)
                     .padding(8)
                     .background(Color.Background.bg200)
-                    .cornerRadius(12)
+                    .clipShape(RoundedRectangle(cornerRadius: CornerRadius.medium, style: .continuous))
+                  
                     HStack {
                         Text("budget_cell_actual".localized + " :")
                         Spacer()
@@ -59,7 +60,8 @@ struct BudgetRowView: View {
                     .lineLimit(1)
                     .padding(8)
                     .background(Color.Background.bg200)
-                    .cornerRadius(12)
+                    .clipShape(RoundedRectangle(cornerRadius: CornerRadius.medium, style: .continuous))
+                  
                     if currentBudget.amount < currentBudget.currentAmount {
                         HStack {
                             Text("budget_cell_overrun".localized + " :")
@@ -69,7 +71,7 @@ struct BudgetRowView: View {
                         .lineLimit(1)
                         .padding(8)
                         .background(Color.Background.bg200)
-                        .cornerRadius(12)
+                        .clipShape(RoundedRectangle(cornerRadius: CornerRadius.medium, style: .continuous))
                     }
                 }
                 .font(Font.mediumText16())

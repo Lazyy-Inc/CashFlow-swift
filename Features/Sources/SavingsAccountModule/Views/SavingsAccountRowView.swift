@@ -26,7 +26,7 @@ struct SavingsAccountRowView: View {
                 Rectangle()
                     .frame(width: 40, height: 40)
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg200)
-                    .cornerRadius(CornerRadius.small)
+                    .clipShape(RoundedRectangle(cornerRadius: CornerRadius.small, style: .continuous))
                     .overlay {
                         Image("iconLandmark")
                             .renderingMode(.template)

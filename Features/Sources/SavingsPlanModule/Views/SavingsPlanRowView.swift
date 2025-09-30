@@ -37,7 +37,7 @@ public struct SavingsPlanRowView: View {
                 Rectangle()
                     .frame(width: 40, height: 40)
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg200)
-                    .cornerRadius(CornerRadius.small)
+                    .clipShape(RoundedRectangle(cornerRadius: CornerRadius.small, style: .continuous))
                     .overlay {
                         Text(currentSavingsPlan.emoji ?? "")
                             .font(.system(size: 24, weight: .semibold, design: .rounded))

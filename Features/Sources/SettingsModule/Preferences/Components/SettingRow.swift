@@ -24,7 +24,7 @@ struct SettingRow: View {
                 .font(.footnote)
                 .frame(width: 28, height: 28)
                 .background(backgroundColor)
-                .cornerRadius(6)
+                .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
             
             Text(text)
                 .foregroundStyle(Color.text)
