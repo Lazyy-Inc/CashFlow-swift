@@ -94,7 +94,7 @@ struct AddTransactionIntent: AppIntent {
     
 }
 
-extension AccountModel: AppEntity {
+extension AccountModel: @retroactive AppEntity {
     public static var typeDisplayRepresentation: TypeDisplayRepresentation {
         return TypeDisplayRepresentation(name: "Account")
     }

@@ -7,56 +7,62 @@
 
 import SwiftUI
 import Core
+import DesignSystem
 
 struct ProgressBarWithAmount: View {
-    
-    // Builder
-    var percentage: Double
-    var value: Double
-    
-    @EnvironmentObject private var themeManager: ThemeManager
-    
-    @State private var progressBarWidth: CGFloat = 0
-    
-    var valueString: String {
-      return value.formattedAbbreviatedCurrency()
-    }
-    
-    // MARK: -
-    var body: some View {
-        GeometryReader { geometry in
-            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .fill(Color.Background.bg200)
-                .overlay(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .fill(themeManager.theme.color)
-                        .frame(width: progressBarWidth)
-                        .overlay(alignment: .trailing) {
-                            Text(valueString)
-                                .opacity(progressBarWidth != 0 ? 1 : 0)
-                                .padding(.trailing, 8)
-                                .font(.semiBoldVerySmall())
-                                .foregroundStyle(Color(uiColor: .systemBackground))
-                                .padding(.leading, 8)
-                                .fixedSize(horizontal: true, vertical: false)
-                        }
-                        .animation(.smooth.delay(0.3), value: progressBarWidth)
-                }
-                .onAppear {
-                  let formatedValue = value.formattedAbbreviatedCurrency()
-                    let widthText = formatedValue.width(usingFont: UIFont(name: "PlusJakartaSans-SemiBold", size: 16)!) * 1.4 // TODO: Need refactor
-                    let widthPercentage = geometry.size.width * min(1, percentage)
-                    progressBarWidth = max(widthText, widthPercentage)
-                }
+  
+  // MARK: Dependencies
+  var percentage: Double
+  var value: Double
+  
+  // MARK: Environments
+  @EnvironmentObject private var themeManager: ThemeManager
+  
+  // MARK: States
+  @State private var valueWidth: CGFloat = 0
+  @State private var widthPercentage: CGFloat = 0
+  
+  // MARK: Computed variables
+  var valueString: String {
+    return value.formattedAbbreviatedCurrency()
+  }
+  
+  var progressWidth: CGFloat {
+    max(valueWidth, widthPercentage)
+  }
+  
+  // MARK: - View
+  var body: some View {
+    GeometryReader { geometry in
+      RoundedRectangle(cornerRadius: 8, style: .continuous)
+        .fill(Color.Background.bg200)
+        .overlay(alignment: .leading) {
+          RoundedRectangle(cornerRadius: 8, style: .continuous)
+            .fill(themeManager.theme.color)
+            .frame(width: progressWidth)
+            .overlay(alignment: .trailing) {
+              Text(valueString)
+                .fontWithLineHeight(.Label.large)
+                .foregroundStyle(Color.textReversed)
+                .getSize { valueWidth = $0.width }
+                .opacity(progressWidth != 0 ? 1 : 0)
+                .padding(.horizontal, 8)
+                .fixedSize(horizontal: true, vertical: false)
+            }
+            .animation(.smooth.delay(0.3), value: progressWidth)
         }
-    } // body
-} // struct
+        .onAppear {
+          widthPercentage = geometry.size.width * min(1, percentage)
+        }
+    }
+  }
+}
 
 // MARK: - Preview
 #Preview {
-    ProgressBarWithAmount(percentage: 0.4, value: 300)
-        .frame(height: 38)
-        .environmentObject(ThemeManager.shared)
-        .padding()
-        .background(Color.Background.bg50)
+  ProgressBarWithAmount(percentage: 0.4, value: 300)
+    .frame(height: 38)
+    .environmentObject(ThemeManager.shared)
+    .padding()
+    .background(Color.Background.bg50)
 }

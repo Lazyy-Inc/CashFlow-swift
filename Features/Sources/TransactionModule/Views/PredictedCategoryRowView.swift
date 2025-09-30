@@ -1,5 +1,5 @@
 //
-//  TransactionDetailPredictedCategoryRowView.swift
+//  PredictedCategoryRowView.swift
 //  CashFlow
 //
 //  Created by Theo Sementa on 05/12/2024.
@@ -10,7 +10,7 @@ import Core
 import DesignSystem
 import Models
 
-struct TransactionDetailPredictedCategoryRowView: View {
+struct PredictedCategoryRowView: View {
     
     // Builder
     var category: CategoryModel
@@ -65,7 +65,7 @@ struct TransactionDetailPredictedCategoryRowView: View {
 
 // MARK: - Preview
 #Preview {
-    TransactionDetailPredictedCategoryRowView(
+    PredictedCategoryRowView(
         category: .mock,
         subcategory: .mock
     )

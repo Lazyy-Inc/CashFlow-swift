@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Core
 
 struct PeopleRow: View {
     
@@ -15,7 +16,7 @@ struct PeopleRow: View {
     // MARK: -
     var body: some View {
         Button(action: {
-//            URLManager.openURL(url: people.url) // TODO: People detail
+          URLManager.openURL(url: people.linkedin?.absoluteString ?? "")
         }, label: {
             HStack(spacing: 12) {
                 Image(people.image)

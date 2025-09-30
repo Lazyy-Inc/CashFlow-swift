@@ -25,7 +25,6 @@ public struct HomeScreen: View {
     // Environment
     @Environment(\.requestReview) private var requestReview
     
-  
     public init() {}
   
     // MARK: -

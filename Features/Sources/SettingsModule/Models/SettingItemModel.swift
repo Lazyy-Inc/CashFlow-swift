@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 import Navigation
 import AlertKit
-import SwiftUI
 import Core
 import DesignSystem
 

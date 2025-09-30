@@ -77,7 +77,7 @@ public struct TransactionDetailsScreen: View {
         
         if let categoryFound = viewModel.bestCategory {
           let subcategoryFound = viewModel.bestSubcategory
-          TransactionDetailPredictedCategoryRowView(
+          PredictedCategoryRowView(
             category: categoryFound,
             subcategory: subcategoryFound,
             action: {

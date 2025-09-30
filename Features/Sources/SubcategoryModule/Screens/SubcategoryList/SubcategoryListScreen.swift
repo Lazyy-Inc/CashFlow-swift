@@ -55,39 +55,56 @@ public struct SubcategoryListScreen: View {
         ListWithBluredHeader(maxBlurRadius: Blur.topbar) {
             NavigationBar(title: "word_subcategories".localized)
         } content: {
-            ForEach(searchResults) { subcategory in
-                NavigationButtonView(
-                    route: .push,
-                    destination: AppDestination.subcategory(
-                        .transactions(
-                            subcategory: subcategory,
-                            selectedDate: selectedDate
-                        )
-                    )
-                ) {
-                    SubcategoryRowView(subcategory: subcategory, selectedDate: selectedDate)
-                }
-                .padding(.bottom, Spacing.medium)
-                .padding(.horizontal, Padding.large)
+          VStack(spacing: 24) {
+            if !viewModel.isDisplayChart(category: category) {
+              EmptyCategoryData()
+                .padding(8)
+                .noDefaultStyle()
+            } else if viewModel.searchText.isEmpty {
+              PieChart(
+                month: selectedDate,
+                slices: CategoryStore.shared.subcategoriesSlices(for: category, in: selectedDate),
+                config: .init(
+                  style: .category,
+                  backgroundColor: Color.Background.bg100,
+                  space: 0.2,
+                  hole: 0.75
+                )
+              )
+              .buttonStyle(PlainButtonStyle())
+              .padding(8)
+              .noDefaultStyle()
             }
-            .noDefaultStyle()
+          }
+          .noDefaultStyle()
+          .padding(8)
+          .frame(maxWidth: .infinity)
+          .roundedRectangleBorder(
+            Color.Background.bg100,
+            radius: CornerRadius.standard,
+            lineWidth: 1,
+            strokeColor: Color.Background.bg200
+          )
+          .padding(.horizontal, Padding.large)
+          .padding(.bottom, Padding.large)
+          
+          ForEach(searchResults) { subcategory in
+            NavigationButtonView(
+              route: .push,
+              destination: AppDestination.subcategory(
+                .transactions(
+                  subcategory: subcategory,
+                  selectedDate: selectedDate
+                )
+              )
+            ) {
+              SubcategoryRowView(subcategory: subcategory, selectedDate: selectedDate)
+            }
+            .padding(.bottom, Spacing.medium)
+            .padding(.horizontal, Padding.large)
+          }
+          .noDefaultStyle()
         }
-
-            //                    if viewModel.isDisplayChart(category: category) && viewModel.searchText.isEmpty { // TODO: deplace in alaytics
-            //                        PieChart(
-            //                            month: selectedDate,
-            //                            slices: categoryStore.subcategoriesSlices(for: category, in: selectedDate),
-            //                            backgroundColor: Color.background100,
-            //                            configuration: .init(style: .subcategory, space: 0.2, hole: 0.75)
-            //                        )
-            //                        .padding()
-            //                        .frame(maxWidth: .infinity)
-            //                        .background {
-            //                            RoundedRectangle(cornerRadius: 16, style: .continuous)
-            //                                .fill(Color.background100)
-            //                        }
-            //                        .padding(.bottom, 8)
-            //                    }
         .navigationBarBackButtonHidden(true)
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
     }

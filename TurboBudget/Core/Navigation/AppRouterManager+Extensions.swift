@@ -11,12 +11,12 @@ import Core
 
 extension AppRouterManager {
     
-    func navigateToTab(_ tab: AppTabs, then: @escaping () -> Void) {
-        AppManager.shared.selectedTab = tab.rawValue
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            then()
-        }
-    }
+//    func navigateToTab(_ tab: AppTabs, then: @escaping () -> Void) {
+//        AppManager.shared.selectedTab = tab.rawValue
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//            then()
+//        }
+//    }
     
     var isNavigationInProgress: Bool {
         return routers.values.map(\.navigationPath.isNotEmpty).contains(true)

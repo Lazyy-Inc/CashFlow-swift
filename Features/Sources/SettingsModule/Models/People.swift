@@ -119,7 +119,8 @@ extension People {
     var linkedin: URL? {
         switch self {
         case .theoSementa: return URL(string: "https://www.linkedin.com/in/theosementa/")
-        default: return nil
+        case .remiWeil: return URL(string: "https://www.linkedin.com/in/remi-weil-a19b3a1b9/")
+        case .serenaDeAraujo: return URL(string: "https://www.linkedin.com/in/s%C3%A9r%C3%A9na-de-araujo-2567b3237/")
         }
     }
     

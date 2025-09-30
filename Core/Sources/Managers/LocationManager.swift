@@ -8,7 +8,7 @@
 import CoreLocation
 
 public final class LocationManager: NSObject, CLLocationManagerDelegate {
-    @MainActor public static let shared = LocationManager()
+    public static let shared = LocationManager()
     private let locationManager = CLLocationManager()
     
     override init() {
