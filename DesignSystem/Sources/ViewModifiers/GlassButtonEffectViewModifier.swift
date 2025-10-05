@@ -16,6 +16,8 @@ struct GlassButtonEffectViewModifier: ViewModifier {
           $0
             .padding(Padding.small)
             .glassEffect()
+        } else {
+          $0
         }
       }
   }
