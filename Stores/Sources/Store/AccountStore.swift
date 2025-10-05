@@ -10,6 +10,7 @@ import Models
 import NetworkModule
 import Preferences
 import Events
+import Repositories
 
 public final class AccountStore: ObservableObject {
     public static let shared = AccountStore()
@@ -62,6 +63,14 @@ public extension AccountStore {
             self.accounts = accounts.filter { $0.type == AccountType.classic }
             self.classicAccounts = accounts.filter { $0.type == AccountType.classic }
             self.savingsAccounts = accounts.filter { $0.type == AccountType.savings }
+          
+            let localAccounts = try await AccountRepository.fetchAll()
+            if localAccounts.isEmpty {
+              for account in accounts {
+                guard let remoteId = account._id else { continue }
+                AccountRepository.create(remoteId: remoteId, name: account.name)
+              }
+            }
 
             if let account = findByID(AccountPreferences.shared.mainAccountId) {
                 self.selectedAccount = account
@@ -77,6 +86,10 @@ public extension AccountStore {
     func createAccount(body: AccountModel) async -> AccountModel? {
         do {
             let account = try await AccountService.create(body: body)
+            if let remoteId = account._id {
+              AccountRepository.create(remoteId: remoteId, name: account.name)
+            }
+          
             if account.type == AccountType.classic {
                 self.accounts.append(account)
                 if selectedAccount == nil {

@@ -46,6 +46,8 @@ public extension AppManager {
             await budgetStore.fetchBudgets(accountID: accountID)
             await creditCardStore.fetchCreditCards(accountID: accountID)
             
+            await createTransactionsFromApplePay()
+          
             if preferencesSubscription.isNotificationsEnabled {
                 for subscription in subscriptionStore.subscriptions {
                     await NotificationsManager.shared.scheduleNotification(
@@ -84,6 +86,30 @@ public extension AppManager {
             }
         }
     }
+  
+  func createTransactionsFromApplePay() async {
+    @Dependency(\.transactionStore) var transactionStore: TransactionStore
+    
+    let transactionsFromApplePay = UserDefaultsManager.getArrayCodable(
+      key: .transactionFromApplePay,
+      as: TransactionDTO.self
+    )
+        
+    guard !transactionsFromApplePay.isEmpty else { return }
+    
+    await withTaskGroup(of: Void.self) { group in
+      for transaction in transactionsFromApplePay {
+        guard let accountID = transaction.accountId else { continue }
+        
+        group.addTask {
+          await transactionStore.createTransaction(accountID: accountID, body: transaction)
+        }
+      }
+      
+      await group.waitForAll()
+      UserDefaultsManager.delete(key: .transactionFromApplePay)
+    }
+  }
     
     @MainActor
     func resetAllStoresData() {

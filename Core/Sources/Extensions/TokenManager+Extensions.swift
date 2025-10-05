@@ -10,6 +10,7 @@ import NetworkKit
 import NetworkModule
 import Models
 import Stores
+import Sentry
 
 public extension TokenManager {
 
@@ -32,10 +33,15 @@ public extension TokenManager {
                     
                     UserStore.shared.currentUser = user
                 } else {
+                    SentrySDK.capture(message: "Token or refresh token missing in refresh token response")
                     throw NetworkError.refreshTokenFailed
                 }
+            } catch {
+              SentrySDK.capture(error: error)
+              SentrySDK.capture(message: "Refresh token failed from API, logging out user")
             }
         } else {
+            SentrySDK.capture(message: "No refresh token found, logging out user")
             UserStore.shared.currentUser = nil
             TokenManager.shared.setTokenAndRefreshToken(token: "", refreshToken: "")
             throw NetworkError.refreshTokenFailed

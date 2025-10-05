@@ -37,6 +37,8 @@
 		D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */ = {isa = PBXBuildFile; productRef = D96F97ED2E32B924006B0596 /* OnboardingModule */; };
 		D976E44E2E689FB800D16DBE /* Statistics in Frameworks */ = {isa = PBXBuildFile; productRef = D976E44D2E689FB800D16DBE /* Statistics */; };
 		D9887FE22AA457A400AFC915 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9887FE12AA457A400AFC915 /* StoreKit.framework */; };
+		D9B2F4812E929CB400CF5ABC /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = D9B2F4802E929CB400CF5ABC /* Repositories */; };
+		D9B2F4832E929CB800CF5ABC /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D9B2F4822E929CB800CF5ABC /* Persistence */; };
 		D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9D208042E315D5800FEE9FD /* PaywallModule */; };
 		D9F5C2222DB39458008267F5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D9F5C2212DB39458008267F5 /* README.md */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,8 @@
 		D9084F412E609E330077F9C5 /* Events */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Events; sourceTree = "<group>"; };
 		D922E9A92E46688200B94AF7 /* Features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Features; sourceTree = "<group>"; };
 		D9887FE12AA457A400AFC915 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D9B2F47E2E929B6800CF5ABC /* Repositories */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Repositories; sourceTree = "<group>"; };
+		D9B2F47F2E929BEF00CF5ABC /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Persistence; sourceTree = "<group>"; };
 		D9F5C2212DB39458008267F5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +108,8 @@
 				D968C1B02E50651E006BB17A /* AccountModule in Frameworks */,
 				D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */,
 				D968C2322E54F3CA006BB17A /* SubcategoryModule in Frameworks */,
+				D9B2F4812E929CB400CF5ABC /* Repositories in Frameworks */,
+				D9B2F4832E929CB800CF5ABC /* Persistence in Frameworks */,
 				D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */,
 				D968C2072E54D2D3006BB17A /* TransferModule in Frameworks */,
 				D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */,
@@ -133,7 +139,9 @@
 				D9084D9B2E5F73310077F9C5 /* Models */,
 				D9084D982E5F72980077F9C5 /* Navigation */,
 				D9084DA22E6067BC0077F9C5 /* NetworkModule */,
+				D9B2F47F2E929BEF00CF5ABC /* Persistence */,
 				D9084F382E6091D60077F9C5 /* Preferences */,
+				D9B2F47E2E929B6800CF5ABC /* Repositories */,
 				D9084D9C2E5F73B50077F9C5 /* Stores */,
 				D9F5C2212DB39458008267F5 /* README.md */,
 				D9F0E45F2CE525390054E305 /* TurboBudget */,
@@ -209,6 +217,8 @@
 				D9084F442E615DF80077F9C5 /* Home */,
 				D9084F462E61690F0077F9C5 /* Dashboard */,
 				D976E44D2E689FB800D16DBE /* Statistics */,
+				D9B2F4802E929CB400CF5ABC /* Repositories */,
+				D9B2F4822E929CB800CF5ABC /* Persistence */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -713,6 +723,14 @@
 		D976E44D2E689FB800D16DBE /* Statistics */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Statistics;
+		};
+		D9B2F4802E929CB400CF5ABC /* Repositories */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Repositories;
+		};
+		D9B2F4822E929CB800CF5ABC /* Persistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Persistence;
 		};
 		D9D208042E315D5800FEE9FD /* PaywallModule */ = {
 			isa = XCSwiftPackageProductDependency;

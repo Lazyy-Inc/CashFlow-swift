@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct TransactionDTO: Codable, Sendable {
+public struct TransactionDTO: Codable, Sendable, Equatable {
     public var id: Int?
     public var name: String?
     public var amount: Double?
@@ -30,6 +30,8 @@ public struct TransactionDTO: Codable, Sendable {
     public var address: String?
     public var lat: Double?
     public var long: Double?
+  
+    public var accountId: Int? // Only for transactions with ApplePay
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -52,6 +54,7 @@ public struct TransactionDTO: Codable, Sendable {
         case address
         case lat
         case long
+        case accountId
     }
 }
 
@@ -76,7 +79,8 @@ public extension TransactionDTO {
         note: String? = nil,
         address: String? = nil,
         lat: Double? = nil,
-        long: Double? = nil
+        long: Double? = nil,
+        accountId: Int? = nil // Only for transactions with ApplePay
     ) {
         self.id = id
         self.name = name
@@ -95,6 +99,7 @@ public extension TransactionDTO {
         self.address = address
         self.lat = lat
         self.long = long
+        self.accountId = accountId
     }
     
     /// Classic Transaction Body
@@ -105,7 +110,8 @@ public extension TransactionDTO {
         dateISO: String,
         categoryID: Int? = nil,
         subcategoryID: Int? = nil,
-        repartitionType: String? = nil
+        repartitionType: String? = nil,
+        accountId: Int? = nil // Only for transactions with ApplePay
     ) -> TransactionDTO {
         return .init(
             name: name,
@@ -114,7 +120,8 @@ public extension TransactionDTO {
             dateISO: dateISO,
             categoryID: categoryID,
             subcategoryID: subcategoryID,
-            repartitionType: repartitionType
+            repartitionType: repartitionType,
+            accountId: accountId
         )
     }
     
