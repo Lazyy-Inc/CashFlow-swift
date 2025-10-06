@@ -57,10 +57,9 @@ extension CreateTransactionForSavingsAccountScreen.ViewModel {
         guard let accountID = savingsAccount._id else { return }
         
         if let transaction = await transactionStore.createTransaction(
-            accountID: accountID,
+            accountId: accountID,
             body: bodyForCreation(),
-            shouldReturn: true,
-            addInRepo: false
+            shouldStore: false
         ) {
             TransferStore.shared.transfers.append(transaction)
             dismiss()
@@ -77,10 +76,9 @@ extension CreateTransactionForSavingsAccountScreen.ViewModel {
         guard let transactionID = transaction?.id else { return }
         
         if let transaction = await transactionStore.updateTransaction(
-            accountID: accountID,
-            transactionID: transactionID,
-            body: bodyForCreation(),
-            shouldReturn: true
+            accountId: accountID,
+            transactionId: transactionID,
+            body: bodyForCreation()
         ) {
             dismiss()
             successfullModalManager.showSuccessfulTransaction(type: .update, transaction: transaction)

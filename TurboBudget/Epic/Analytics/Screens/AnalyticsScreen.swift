@@ -131,9 +131,8 @@ struct AnalyticsScreen: View {
             if let account = accountStore.selectedAccount, let accountID = account._id {
                 Task {
                     await transactionStore.fetchTransactionsByPeriod(
-                        accountID: accountID,
-                        startDate: selectedDate,
-                        endDate: selectedDate.endOfMonth ?? .now
+                        accountId: accountID,
+                        period: .init(startDate: selectedDate, endDate: selectedDate.endOfMonth ?? .now)
                     )
                     updateChartData()
                 }

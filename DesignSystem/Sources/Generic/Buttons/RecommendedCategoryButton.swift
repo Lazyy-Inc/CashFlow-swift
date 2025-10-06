@@ -68,7 +68,7 @@ public struct RecommendedCategoryButton: View {
     .onChange(of: transactionName) { _, newValue in
       if newValue.count > 3 {
         Task {
-          if let response = await TransactionStore.shared.fetchCategory(name: transactionName) {
+          if let response = await TransactionStore.shared.fetchRecommendedCategory(name: transactionName) {
             bestCategory = categoryStore.findCategoryById(response.cat)
             bestSubcategory = categoryStore.findSubcategoryById(response.sub)
           }

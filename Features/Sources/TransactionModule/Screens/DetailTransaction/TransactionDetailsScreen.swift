@@ -168,7 +168,7 @@ public struct TransactionDetailsScreen: View {
       if store.isCashFlowPro && currentTransaction.category?.id == 0 {
         guard !currentTransaction.nameDisplayed.isBlank else { return }
         let transactionID = currentTransaction.id
-        if let response = await transactionStore.fetchCategory(name: currentTransaction.nameDisplayed, transactionID: transactionID) {
+        if let response = await transactionStore.fetchRecommendedCategory(name: currentTransaction.nameDisplayed, transactionId: transactionID) {
           if let cat = response.cat {
             viewModel.bestCategory = categoryStore.findCategoryById(cat)
           }

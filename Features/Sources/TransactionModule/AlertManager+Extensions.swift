@@ -23,7 +23,7 @@ public extension AlertManager {
             buttonTitle: "word_delete".localized,
             isDestructive: true,
             action: {
-                await TransactionStore.shared.deleteTransaction(transactionID: transaction.id)
+                await TransactionStore.shared.deleteTransaction(transactionId: transaction.id)
                 if let dismissAction { dismissAction() }
             }
         )

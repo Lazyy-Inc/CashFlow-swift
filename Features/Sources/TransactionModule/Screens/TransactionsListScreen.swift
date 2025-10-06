@@ -74,9 +74,11 @@ struct TransactionsListScreen: View {
                             let startDateOneMonthAgo = self.transactionStore.currentDateForFetch.oneMonthAgo
                             let endDateOneMonthAgo = startDateOneMonthAgo.endOfMonth ?? Date()
                             await self.transactionStore.fetchTransactionsByPeriod(
-                                accountID: accountID,
-                                startDate: startDateOneMonthAgo,
-                                endDate: endDateOneMonthAgo
+                                accountId: accountID,
+                                period: .init(
+                                  startDate: startDateOneMonthAgo,
+                                  endDate: endDateOneMonthAgo
+                                )
                             )
                             self.isLoading = false
                         }

@@ -102,7 +102,7 @@ public extension AppManager {
         guard let accountID = transaction.accountId else { continue }
         
         group.addTask {
-          await transactionStore.createTransaction(accountID: accountID, body: transaction)
+          await transactionStore.createTransaction(accountId: accountID, body: transaction)
         }
       }
       

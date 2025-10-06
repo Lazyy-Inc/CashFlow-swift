@@ -65,9 +65,8 @@ extension AddTransactionScreen {
             guard let accountID = account._id else { return }
             
             if let transaction = await transactionStore.createTransaction(
-                accountID: accountID,
-                body: bodyForCreation(),
-                shouldReturn: true
+                accountId: accountID,
+                body: bodyForCreation()
             ) {
                 await dismiss()
                 await successfullModalManager.showSuccessfulTransaction(type: .new, transaction: transaction)
@@ -80,10 +79,9 @@ extension AddTransactionScreen {
             guard let transactionID = transaction?.id else { return }
             
             if let transaction = await transactionStore.updateTransaction(
-                accountID: accountID,
-                transactionID: transactionID,
-                body: bodyForCreation(),
-                shouldReturn: true
+                accountId: accountID,
+                transactionId: transactionID,
+                body: bodyForCreation()
             ) {
                 await dismiss()
                 await successfullModalManager.showSuccessfulTransaction(type: .update, transaction: transaction)

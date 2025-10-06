@@ -40,8 +40,8 @@ extension TransactionDetailsScreen.ViewModel {
         
         Task {
             await transactionStore.updateTransaction(
-                accountID: accountID,
-                transactionID: transactionID,
+                accountId: accountID,
+                transactionId: transactionID,
                 body: .init(note: note)
             )
         }
@@ -74,8 +74,8 @@ extension TransactionDetailsScreen.ViewModel {
             
             Task {
                 await transactionStore.updateTransaction(
-                    accountID: accountID,
-                    transactionID: transactionID,
+                    accountId: accountID,
+                    transactionId: transactionID,
                     body: body
                 )
                 

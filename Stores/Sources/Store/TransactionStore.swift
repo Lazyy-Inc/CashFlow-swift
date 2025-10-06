@@ -12,7 +12,7 @@ import NetworkModule
 import Events
 
 @Observable
-public final class TransactionStore {
+public final class TransactionStore: TransactionStoreProtocol {
     public static let shared = TransactionStore()
     
     public var transactions: [TransactionModel] = []
@@ -40,43 +40,42 @@ public extension TransactionStore {
 
 public extension TransactionStore {
     
-    @MainActor
-    func fetchTransactionsByPeriod(accountID: Int, startDate: Date, endDate: Date, type: TransactionType? = nil) async {
-        guard dateFetched.filter({ Calendar.current.isDate($0, equalTo: startDate, toGranularity: .month) }).isEmpty else { return }
-        
-        do {
-            let transactions = try await TransactionService.fetchTransactionsByPeriod(
-                accountID: accountID,
-                startDate: startDate,
-                endDate: endDate,
-                type: type
-            ).map { try $0.toModel() }
-            
-            currentDateForFetch = startDate
-            self.dateFetched.append(currentDateForFetch)
-            
-            self.transactions += transactions
-            sortTransactionsByDate()
-            
-            EventService.sendEvent(key: EventKeys.transactionListPagination)
-        } catch { NetworkService.handleError(error: error) }
-    }
+  @MainActor
+  func fetchTransactionsByPeriod(accountId: Int, period: PeriodDateModel, type: TransactionType? = nil) async {
+    guard dateFetched.filter({ Calendar.current.isDate($0, equalTo: period.startDate, toGranularity: .month) }).isEmpty else { return }
     
-    /// Create transaction, add it to repository and optionally return it
+    do {
+      let transactions = try await TransactionService.fetchTransactionsByPeriod(
+        accountID: accountId,
+        startDate: period.startDate,
+        endDate: period.endDate,
+        type: type
+      ).map { try $0.toModel() }
+      
+      currentDateForFetch = period.startDate
+      self.dateFetched.append(currentDateForFetch)
+      
+      self.transactions += transactions
+      sortTransactionsByDate()
+      
+      EventService.sendEvent(key: EventKeys.transactionListPagination)
+    } catch { NetworkService.handleError(error: error) }
+  }
+    
     @discardableResult
     @MainActor
-    func createTransaction(accountID: Int, body: TransactionDTO, shouldReturn: Bool = false, addInRepo: Bool = true) async -> TransactionModel? {
+    func createTransaction(accountId: Int, body: TransactionDTO, shouldStore: Bool = true) async -> TransactionModel? {
         do {
-            let response = try await TransactionService.create(accountID: accountID, body: body)
+            let response = try await TransactionService.create(accountID: accountId, body: body)
             
             if let transaction = try response.transaction?.toModel(), let newBalance = response.newBalance {
-                if addInRepo {
+                if shouldStore {
                     self.transactions.append(transaction)
                     sortTransactionsByDate()
                 }
-                AccountStore.shared.setNewBalance(accountID: accountID, newBalance: newBalance)
+                AccountStore.shared.setNewBalance(accountID: accountId, newBalance: newBalance)
                 EventService.sendForTransactionCreated(transaction: transaction)
-                return shouldReturn ? transaction : nil
+                return transaction
             }
             return nil
         } catch {
@@ -88,17 +87,17 @@ public extension TransactionStore {
     /// Create transaction and optionally return it
     @discardableResult
     @MainActor
-    func updateTransaction(accountID: Int, transactionID: Int, body: TransactionDTO, shouldReturn: Bool = false) async -> TransactionModel? {
+    func updateTransaction(accountId: Int, transactionId: Int, body: TransactionDTO) async -> TransactionModel? {
         do {
-            let response = try await TransactionService.update(transactionID: transactionID, body: body)
+            let response = try await TransactionService.update(transactionID: transactionId, body: body)
             
             if let transaction = try response.transaction?.toModel(), let newBalance = response.newBalance {
                 if let index = self.transactions.map(\.id).firstIndex(of: transaction.id) {
                     self.transactions[index] = transaction
                     sortTransactionsByDate()
-                    AccountStore.shared.setNewBalance(accountID: accountID, newBalance: newBalance)
+                    AccountStore.shared.setNewBalance(accountID: accountId, newBalance: newBalance)
                     EventService.sendEvent(key: EventKeys.transactionUpdated)
-                    return shouldReturn ? transaction : nil
+                    return transaction
                 }
             }
             return nil
@@ -109,9 +108,9 @@ public extension TransactionStore {
     }
     
     @MainActor
-    func fetchCategory(name: String, transactionID: Int? = nil) async -> TransactionFetchCategoryResponse? {
+    func fetchRecommendedCategory(name: String, transactionId: Int? = nil) async -> TransactionFetchCategoryResponse? {
         do {
-            return try await TransactionService.fetchRecommendedCategory(name: name, transactionID: transactionID)
+            return try await TransactionService.fetchRecommendedCategory(name: name, transactionID: transactionId)
         } catch {
             NetworkService.handleError(error: error)
             return nil
@@ -119,15 +118,15 @@ public extension TransactionStore {
     }
     
     @MainActor
-    func deleteTransaction(transactionID: Int) async {
+    func deleteTransaction(transactionId: Int) async {
         let accountRepo: AccountStore = .shared
         do {
-            let response = try await TransactionService.delete(transactionID: transactionID)
+            let response = try await TransactionService.delete(transactionID: transactionId)
             
-            if let index = self.transactions.firstIndex(where: { $0.id == transactionID }) {
+            if let index = self.transactions.firstIndex(where: { $0.id == transactionId }) {
                 self.transactions.remove(at: index)
             }
-            TransferStore.shared.transfers.removeAll { $0.id == transactionID }
+            TransferStore.shared.transfers.removeAll { $0.id == transactionId }
             
             if let newBalance = response.newBalance, let account = accountRepo.selectedAccount, let accountID = account._id {
                 AccountStore.shared.setNewBalance(accountID: accountID, newBalance: newBalance)
@@ -181,16 +180,14 @@ public extension TransactionStore {
     let endDate = Date().endOfMonth ?? .now
     
     await self.fetchTransactionsByPeriod(
-      accountID: accountID,
-      startDate: startDate,
-      endDate: endDate
+      accountId: accountID,
+      period: .init(startDate: startDate, endDate: endDate)
     )
     
     if self.transactions.count < 15 {
       await self.fetchTransactionsByPeriod(
-        accountID: accountID,
-        startDate: startDate.oneMonthAgo,
-        endDate: endDate.oneMonthAgo
+        accountId: accountID,
+        period: .init(startDate: startDate.oneMonthAgo, endDate: endDate.oneMonthAgo)
       )
     }
   }

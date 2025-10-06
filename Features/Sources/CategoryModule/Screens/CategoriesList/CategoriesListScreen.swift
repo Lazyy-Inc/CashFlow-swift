@@ -134,9 +134,11 @@ public struct CategoriesListScreen: View {
       if let account = accountStore.selectedAccount, let accountID = account._id {
         Task {
           await transactionStore.fetchTransactionsByPeriod(
-            accountID: accountID,
-            startDate: viewModel.selectedDate,
-            endDate: viewModel.selectedDate.endOfMonth ?? .now
+            accountId: accountID,
+            period: .init(
+              startDate: viewModel.selectedDate,
+              endDate: viewModel.selectedDate.endOfMonth ?? .now
+            )
           )
           viewModel.calculateAllAmounts(for: viewModel.selectedDate)
         }
