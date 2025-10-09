@@ -147,10 +147,12 @@ struct RootScreen: View {
                 }
             }
         }
-        .onChange(of: scenePhase) { _, newPhase in
-            if newPhase != .active {
-                UserDefaults.standard.set(false, forKey: "appIsOpen")
-            }
+        .task(id: scenePhase) {
+          if scenePhase != .active {
+              UserDefaults.standard.set(false, forKey: "appIsOpen")
+          } else {
+            await appManager.createTransactionsFromApplePay()
+          }
         }
         .onAppear {
             EventService.sendEvent(key: EventKeys.appSession)

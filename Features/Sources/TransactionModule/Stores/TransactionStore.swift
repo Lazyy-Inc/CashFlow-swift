@@ -43,7 +43,7 @@ public extension TransactionStore {
     
     func getExpenses(in month: Date? = nil) -> [TransactionModel] {
         let startDate = Date()
-        let expenses = filterTransactions(inMonth: month, ofType: .expense)
+        let expenses = filterTransactions(filter: .init(month: month, type: .expense))
         
         defer {
             let diff = Date().timeIntervalSince(startDate) * 1000
@@ -78,7 +78,7 @@ public extension TransactionStore {
     }
     
     func getIncomes(in month: Date? = nil) -> [TransactionModel] {
-        return filterTransactions(inMonth: month, ofType: .income)
+      return filterTransactions(filter: .init(month: month, type: .income))
     }
     
     func getIncomes(for category: CategoryModel, in month: Date? = nil) -> [TransactionModel] {

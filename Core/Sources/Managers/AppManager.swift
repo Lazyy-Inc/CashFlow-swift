@@ -45,9 +45,7 @@ public extension AppManager {
             await savingsPlanStore.fetchSavingsPlans(accountID: accountID)
             await budgetStore.fetchBudgets(accountID: accountID)
             await creditCardStore.fetchCreditCards(accountID: accountID)
-            
-            await createTransactionsFromApplePay()
-          
+                      
             if preferencesSubscription.isNotificationsEnabled {
                 for subscription in subscriptionStore.subscriptions {
                     await NotificationsManager.shared.scheduleNotification(

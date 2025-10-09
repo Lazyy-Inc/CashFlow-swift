@@ -11,6 +11,7 @@ let package = Package(
   ],
   dependencies: [
     .package(path: "../Models"),
+    .package(path: "../Mocks"),
     .package(path: "../Banners"),
     .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.4"),
     .package(url: "https://github.com/theosementa/TheoKit", branch: "1.1.5")
@@ -20,6 +21,7 @@ let package = Package(
       name: "NetworkModule",
       dependencies: [
         "Models",
+        "Mocks",
         "Banners",
         .product(name: "NetworkKit", package: "NetworkKit"),
         .product(name: "TheoKit", package: "TheoKit")

@@ -9,19 +9,18 @@ import Foundation
 import NetworkKit
 import Models
 
-public struct TransactionService {
+public struct TransactionService: TransactionServiceProtocol {
     
     public static func fetchTransactionsByPeriod(
         accountID: Int,
-        startDate: Date,
-        endDate: Date,
+        period: PeriodDateModel,
         type: TransactionType? = nil
     ) async throws -> [TransactionDTO] {
         return try await NetworkService.sendRequest(
             apiBuilder: TransactionAPIRequester.fetchByPeriod(
                 accountID: accountID,
-                startDate: startDate.toQueryParam(),
-                endDate: endDate.toQueryParam(),
+                startDate: period.startDate.toQueryParam(),
+                endDate: period.endDate.toQueryParam(),
                 type: type?.rawValue
             ),
             responseModel: [TransactionDTO].self

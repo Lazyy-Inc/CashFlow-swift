@@ -72,7 +72,7 @@ public struct SavingsAccountDetailScreen: View {
                     ForEach(transferStore.monthsOfTransfers, id: \.self) { month in
                         Section {
                             ForEach(transferStore.transfers) { transfer in
-                                if Calendar.current.isDate(transfer.date, equalTo: month, toGranularity: .month) {
+//                                if Calendar.current.isDate(transfer.date, equalTo: month, toGranularity: .month) {
                                     NavigationButtonView(
                                         route: .push,
                                         destination: AppDestination.transaction(.detail(transaction: transfer))
@@ -86,8 +86,7 @@ public struct SavingsAccountDetailScreen: View {
                                     }
                                     .padding(.bottom, Padding.medium)
                                     .padding(.horizontal, Padding.large)
-                                }
-                                
+//                                }
                             }
                             .noDefaultStyle()
                         } header: {

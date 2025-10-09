@@ -12,7 +12,7 @@ import NetworkModule
 import Events
 
 @Observable
-public final class TransactionStore: TransactionStoreProtocol {
+public final class TransactionStore {
     public static let shared = TransactionStore()
     
     public var transactions: [TransactionModel] = []
@@ -47,8 +47,7 @@ public extension TransactionStore {
     do {
       let transactions = try await TransactionService.fetchTransactionsByPeriod(
         accountID: accountId,
-        startDate: period.startDate,
-        endDate: period.endDate,
+        period: period,
         type: type
       ).map { try $0.toModel() }
       
@@ -138,42 +137,38 @@ public extension TransactionStore {
 }
 
 public extension TransactionStore {
+  
+  func filterTransactions(filter: TransactionFilterModel) -> [TransactionModel] {
+    return transactions.filter { transaction in
+      let matchesCategory = filter.category.map { transaction.category == $0 } ?? true
+      let matchesSubcategory = filter.subcategory.map { transaction.subcategory == $0 } ?? true
+      let matchesMonth = filter.month.map { Calendar.current.isDate(transaction.date, equalTo: $0, toGranularity: .month) } ?? true
+      let matchesType = filter.type.map { transaction.type == $0 } ?? true
+      return matchesCategory && matchesSubcategory && matchesMonth && matchesType
+    }
+  }
     
   func getTransactions(in month: Date? = nil, type: TransactionType? = nil) -> [TransactionModel] {
-        return filterTransactions(inMonth: month, ofType: type)
-    }
-    
-    func getTransactions(for category: CategoryModel, in month: Date? = nil) -> [TransactionModel] {
-        return filterTransactions(forCategory: category, inMonth: month)
-    }
-    
-    func getTransactions(for subcategory: SubcategoryModel, in month: Date? = nil) -> [TransactionModel] {
-        return filterTransactions(forSubcategory: subcategory, inMonth: month)
-    }
-    
-    func reset() {
-        transactions.removeAll()
-        dateFetched.removeAll()
-    }
+    return filterTransactions(filter: .init(month: month, type: type))
+  }
+  
+  func getTransactions(for category: CategoryModel, in month: Date? = nil) -> [TransactionModel] {
+    return filterTransactions(filter: .init(category: category, month: month))
+  }
+  
+  func getTransactions(for subcategory: SubcategoryModel, in month: Date? = nil) -> [TransactionModel] {
+    return filterTransactions(filter: .init(subcategory: subcategory, month: month))
+  }
+  
+  func reset() {
+    transactions.removeAll()
+    dateFetched.removeAll()
+    currentDateForFetch = .now
+  }
     
 }
 
 public extension TransactionStore {
-    
-    func filterTransactions(
-        forCategory category: CategoryModel? = nil,
-        forSubcategory subcategory: SubcategoryModel? = nil,
-        inMonth month: Date? = nil,
-        ofType type: TransactionType? = nil
-    ) -> [TransactionModel] {
-        return transactions.filter { transaction in
-            let matchesCategory = category.map { transaction.category == $0 } ?? true
-            let matchesSubcategory = subcategory.map { transaction.subcategory == $0 } ?? true
-            let matchesMonth = month.map { Calendar.current.isDate(transaction.date, equalTo: $0, toGranularity: .month) } ?? true
-            let matchesType = type.map { transaction.type == $0 } ?? true
-            return matchesCategory && matchesSubcategory && matchesMonth && matchesType
-        }
-    }
   
   func fetchTransactionsOfCurrentMonth(accountID: Int) async {
     let startDate = Date().startOfMonth ?? .now

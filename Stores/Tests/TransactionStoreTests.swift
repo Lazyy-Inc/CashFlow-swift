@@ -8,7 +8,15 @@
 import Testing
 @testable import Stores
 
-@Test
-func example() async throws {
+struct TransactionStoreTests {
+  let sut = TransactionStore()
+}
+
+extension TransactionStoreTests {
+  
+  @Test
+  func example() async throws {
+    
+  }
   
 }
