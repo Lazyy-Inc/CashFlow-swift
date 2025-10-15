@@ -12,6 +12,8 @@ import Sentry
 import Models
 import Stores
 import Repositories
+import NotificationKit
+import UserNotifications
 
 struct AddTransactionIntent: AppIntent {
     
@@ -61,7 +63,7 @@ struct AddTransactionIntent: AppIntent {
             nameFromApplePay: title,
             autoCat: PreferencesApplePay.shared.isAddCategoryAutomaticallyEnabled,
             accountId: Int(account?.remoteId ?? 0)
-        )
+        ) 
               
         if PreferencesApplePay.shared.isAddAddressAutomaticallyEnabled && LocationManager.shared.isLocationEnabled {
             let location = LocationManager.shared.getCurrentLocation()
@@ -73,6 +75,13 @@ struct AddTransactionIntent: AppIntent {
         }
           
         UserDefaultsManager.appendCodable(key: .transactionFromApplePay, value: body)
+      
+        let notificationData = NotificationData(
+          id: UUID().uuidString,
+          title: "CashFlow",
+          message: String(format: "notification_apple_pay_payed".localized, "\(finalNumber)\(UserCurrency.symbol)", title)
+        )
+        await NotificationsManager.shared.scheduleNotification(for: notificationData, in: 10)
               
         let formatString = "shortcut_result_label".localized
         let formattedText = String(format: formatString, finalNumber.toString(), UserCurrency.symbol, title)

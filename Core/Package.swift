@@ -20,7 +20,7 @@ let package = Package(
         .package(url: "https://github.com/theosementa/TheoKit", exact: "1.1.5"),
         .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.9.3"),
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
-        .package(url: "https://github.com/theosementa/NotificationKit", branch: "1.0.5")
+        .package(url: "https://github.com/theosementa/NotificationKit", branch: "1.0.6")
     ],
     targets: [
         .target(
