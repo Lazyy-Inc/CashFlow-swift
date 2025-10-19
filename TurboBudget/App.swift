@@ -16,6 +16,7 @@ import DesignSystem
 import Sentry
 import Stores
 import Events
+import Dependencies
 
 @main
 struct TurboBudgetApp: App {
@@ -32,7 +33,7 @@ struct TurboBudgetApp: App {
     
     // MARK: Stores
     @StateObject private var userStore: UserStore = .shared
-    @StateObject private var accountStore: AccountStore = .shared
+    @Dependency(\.accountStore) var accountStore: AccountStore
     @StateObject private var transferStore: TransferStore = .shared
     @StateObject private var creditCardStore: CreditCardStore = .shared
     
@@ -105,7 +106,6 @@ struct TurboBudgetApp: App {
             .environmentObject(successfullModalManager)
             
             .environmentObject(userStore)
-            .environmentObject(accountStore)
             .environmentObject(transferStore)
             .environmentObject(creditCardStore)
             

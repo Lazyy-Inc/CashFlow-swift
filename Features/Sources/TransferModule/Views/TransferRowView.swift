@@ -24,8 +24,8 @@ public struct TransferRowView: View {
     
     // MARK: Environments
     @Dependency(\.savingsAccountStore) private var savingsAccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     @EnvironmentObject private var transferStore: TransferStore
-    @EnvironmentObject private var accountStore: AccountStore
         
     // MARK: States
     @State private var isDeleting: Bool = false

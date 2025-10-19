@@ -18,7 +18,7 @@ import Stores
 public struct CategoriesListScreen: View {
   
   // MARK: EnvironmentObject
-  @EnvironmentObject private var accountStore: AccountStore
+  @Dependency(\.accountStore) private var accountStore: AccountStore
   @Dependency(\.transactionStore) private var transactionStore: TransactionStore
   @Dependency(\.categoryStore) var categoryStore
   @EnvironmentObject private var router: Router<AppDestination>
@@ -99,8 +99,7 @@ public struct CategoriesListScreen: View {
                 label: {
                   CategoryRowView(
                     category: category,
-                    selectedDate: viewModel.selectedDate,
-                    amount: (viewModel.categoryAmounts[category.id]?.amount ?? 0).toCurrency()
+                    selectedDate: viewModel.selectedDate
                   )
                 }
               )
@@ -124,9 +123,6 @@ public struct CategoriesListScreen: View {
       }
     } // VStack
     .background(TKDesignSystem.Colors.Background.Theme.bg50)
-    .onAppear {
-      viewModel.calculateAllAmounts(for: viewModel.selectedDate)
-    }
     .refreshable {
       await categoryStore.fetchCategories()
     }
@@ -140,7 +136,6 @@ public struct CategoriesListScreen: View {
               endDate: viewModel.selectedDate.endOfMonth ?? .now
             )
           )
-          viewModel.calculateAllAmounts(for: viewModel.selectedDate)
         }
       }
     }

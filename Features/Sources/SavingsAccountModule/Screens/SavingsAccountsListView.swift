@@ -21,7 +21,7 @@ public struct SavingsAccountsListView: View {
     @EnvironmentObject private var router: Router<AppDestination>
     @EnvironmentObject private var alertManager: AlertManager
     @EnvironmentObject private var purchaseManager: PurchasesManager
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     @Dependency(\.savingsAccountStore) private var savingsAccountStore
     @Environment(\.dismiss) private var dismiss
     

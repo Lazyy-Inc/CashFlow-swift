@@ -10,12 +10,13 @@ import Core
 import Preferences
 import AccountModule
 import Stores
+import Dependencies
 
 public struct SettingsAccountScreen: View {
     
     @StateObject private var preferencesAccount: AccountPreferences = .shared
     
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     
     public init() { }
     

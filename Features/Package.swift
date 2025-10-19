@@ -73,7 +73,8 @@ let package = Package(
             "Navigation",
             "TransactionModule",
             "SavingsPlanModule",
-            "SubscriptionModule"
+            "SubscriptionModule",
+            "CategoryModule"
           ],
           swiftSettings: [.swiftLanguageMode(.v5)]
         ),

@@ -15,7 +15,7 @@ import DesignSystem
 
 struct HomeHeaderView: View {
     
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @EnvironmentObject private var purchaseManager: PurchasesManager
     

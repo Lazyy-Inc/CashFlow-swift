@@ -9,6 +9,7 @@ import SwiftUI
 import Core
 import Models
 import Stores
+import Dependencies
 
 public struct CircleCategory: View {
     
@@ -17,7 +18,7 @@ public struct CircleCategory: View {
     var subcategory: SubcategoryModel?
     var transaction: TransactionModel?
     
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     
     public init(
         category: CategoryModel? = nil,

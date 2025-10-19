@@ -12,6 +12,7 @@ import Core
 import Models
 import Mocks
 import Stores
+import Dependencies
 
 struct AccountPicker: View {
     
@@ -19,7 +20,7 @@ struct AccountPicker: View {
     var title: String
     @Binding var selected: AccountModel?
     
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     @EnvironmentObject private var themeManager: ThemeManager
     
     // MARK: -

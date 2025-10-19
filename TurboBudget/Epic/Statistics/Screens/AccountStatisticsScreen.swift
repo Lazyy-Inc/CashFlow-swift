@@ -9,10 +9,11 @@ import SwiftUI
 import Core
 import DesignSystem
 import Stores
+import Dependencies
 
 struct AccountStatisticsScreen: View {
     
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     
     @State private var withSavings: Bool = false
     
@@ -141,5 +142,4 @@ struct AccountStatisticsScreen: View {
 // MARK: - Preview
 #Preview {
     AccountStatisticsScreen()
-        .environmentObject(AccountStore.shared)
 }

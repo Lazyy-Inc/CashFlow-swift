@@ -23,7 +23,7 @@ public struct SavingPlansAddScreen: View {
     @StateObject private var viewModel: ViewModel
     
     // Custom
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     @Dependency(\.savingsPlanStore) private var savingsPlanStore
     @Dependency(\.contributionStore) private var contributionStore
     

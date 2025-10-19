@@ -18,8 +18,7 @@ struct TransactionsListScreen: View {
     
     // MARK: Dependencies
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore
-    
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     
     @State private var isLoading: Bool = false
     

@@ -22,10 +22,11 @@ public struct TransactionRowView: View {
     // MARK: Dependencies
     var transaction: TransactionModel
     var isEditable: Bool = true
+    
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     
     @EnvironmentObject private var router: Router<AppDestination>
-    @EnvironmentObject private var accountStore: AccountStore
     
     var currentTransaction: TransactionModel {
         return transactionStore.transactions.first { $0.id == transaction.id } ?? transaction

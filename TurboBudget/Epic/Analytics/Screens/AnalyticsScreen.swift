@@ -20,7 +20,7 @@ import Models
 struct AnalyticsScreen: View {
     
     // Stores
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @EnvironmentObject private var router: Router<AppDestination>
         

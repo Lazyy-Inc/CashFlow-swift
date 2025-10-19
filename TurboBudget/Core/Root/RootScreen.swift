@@ -14,16 +14,18 @@ import DesignSystem
 import Events
 import CategoryModule
 import Stores
+import Dependencies
 
 import Home
 import Dashboard
 import Statistics
+import SubscriptionModule
 
 struct RootScreen: View {
     
     // Environment
     @EnvironmentObject private var appManager: AppManager
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     
     @StateObject private var homeRouter: Router<AppDestination> = .init()
     @StateObject private var analyticsRouter: Router<AppDestination> = .init()
@@ -59,7 +61,7 @@ struct RootScreen: View {
                             NavigationStackView(
                                 router: analyticsRouter,
                                 destinationContent: { AppDestination.content(for: $0) },
-                                initialContent: { StatisticsScreen() }
+                                initialContent: { SubscriptionsScreen() }
                             )
                             .tag(1)
                             .toolbar(.hidden, for: .tabBar)

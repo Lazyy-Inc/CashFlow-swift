@@ -22,7 +22,7 @@ public struct SavingsAccountDetailScreen: View {
     // Builder    
     @EnvironmentObject private var themeManager: ThemeManager
     @EnvironmentObject private var transferStore: TransferStore
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     @Dependency(\.savingsAccountStore) private var savingsAccountStore
     
     @Environment(\.dismiss) private var dismiss
@@ -145,5 +145,4 @@ public struct SavingsAccountDetailScreen: View {
     SavingsAccountDetailScreen()
         .environmentObject(ThemeManager.shared)
         .environmentObject(TransferStore.shared)
-        .environmentObject(AccountStore.shared)
 }

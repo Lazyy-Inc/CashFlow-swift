@@ -16,8 +16,8 @@ public struct CornerRadius {
     public static let medium: CGFloat = 12
     /// `Value = 16`
     public static let standard: CGFloat = 16
-    /// `Value = 24`
-    public static let large: CGFloat = 24
+    /// `Value = 20`
+    public static let large: CGFloat = 20
     /// `Value = 32`
     public static let extraLarge: CGFloat = 32
 }

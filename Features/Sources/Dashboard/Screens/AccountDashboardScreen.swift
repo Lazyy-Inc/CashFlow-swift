@@ -14,6 +14,7 @@ import DesignSystem
 import Core
 import CreditCardModule
 import Stores
+import Dependencies
 
 public struct AccountDashboardScreen: View {
   
@@ -24,7 +25,7 @@ public struct AccountDashboardScreen: View {
   @EnvironmentObject private var themeManager: ThemeManager
   @EnvironmentObject private var appManager: AppManager
   
-  @EnvironmentObject private var accountStore: AccountStore
+  @Dependency(\.accountStore) var accountStore: AccountStore
   @EnvironmentObject private var creditCardStore: CreditCardStore
   
   @StateObject private var viewModel: ViewModel = .init()

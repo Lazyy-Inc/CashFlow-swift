@@ -1,0 +1,50 @@
+//
+//  SwiftUIView.swift
+//  Features
+//
+//  Created by Theo Sementa on 17/10/2025.
+//
+
+import SwiftUI
+import DesignSystem
+import Models
+import Navigation
+import TransactionModule
+import Dependencies
+
+struct HomeLastTransactionsSectionView: View {
+    
+    // MARK: Dependencies
+    @Dependency(\.transactionStore) private var transactionStore
+    
+    var lastTransactions: [TransactionModel] {
+        let sortedTransactions = transactionStore.getTransactions(in: Date())
+            .sorted { $0.date > $1.date }
+        return Array(sortedTransactions.prefix(5))
+    }
+    
+    // MARK: - View
+    var body: some View {
+        VStack(spacing: Spacing.medium) {
+            HomeSectionHeaderView(
+                title: "home_last_transactions".localized,
+                destination: .transaction(.list)
+            )
+            
+            ForEach(lastTransactions) { transaction in
+                NavigationButtonView(
+                    route: .push,
+                    destination: .transaction(.detail(transaction: transaction))
+                ) {
+                    TransactionRowView(transaction: transaction)
+                }
+            }
+        }
+    }
+    
+}
+
+// MARK: - Preview
+#Preview {
+    HomeLastTransactionsSectionView()
+}

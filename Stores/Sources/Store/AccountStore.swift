@@ -11,18 +11,20 @@ import NetworkModule
 import Preferences
 import Events
 import Repositories
+import Dependencies
 
-public final class AccountStore: ObservableObject {
+@Observable
+public final class AccountStore {
     public static let shared = AccountStore()
     
-    @Published public var accounts: [AccountModel] = []
-    @Published public var savingsAccounts: [AccountModel] = []
-    @Published public var classicAccounts: [AccountModel] = []
+    public var accounts: [AccountModel] = []
+    public var savingsAccounts: [AccountModel] = []
+    public var classicAccounts: [AccountModel] = []
     
-    @Published public var selectedAccount: AccountModel?
+    public var selectedAccount: AccountModel?
     
-    @Published public var cashflow: [Double] = []
-    @Published public var stats: StatisticsModel?
+    public var cashflow: [Double] = []
+    public var stats: StatisticsModel?
     
     public var allAccounts: [AccountModel] {
         return accounts + savingsAccounts
@@ -169,4 +171,16 @@ public extension AccountStore {
         } catch { NetworkService.handleError(error: error) }
     }
   
+}
+
+// MARK: - Dependencies
+extension AccountStore: DependencyKey {
+    public static var liveValue: AccountStore = .shared
+}
+
+public extension DependencyValues {
+    var accountStore: AccountStore {
+        get { self[AccountStore.self] }
+        set { self[AccountStore.self] = newValue }
+    }
 }

@@ -11,11 +11,12 @@ import AlertKit
 import DesignSystem
 import Core
 import Stores
+import Dependencies
 
 struct CustomTabBar: View {
     
     // Repo
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     @EnvironmentObject private var creditCardStore: CreditCardStore
     
     @EnvironmentObject private var store: PurchasesManager

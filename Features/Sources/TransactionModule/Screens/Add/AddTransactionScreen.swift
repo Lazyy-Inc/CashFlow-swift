@@ -14,6 +14,7 @@ import Core
 import Events
 import Models
 import Stores
+import Dependencies
 
 public struct AddTransactionScreen: View {
     
@@ -25,7 +26,7 @@ public struct AddTransactionScreen: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var purchasesManager: PurchasesManager
     
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     
     // Enum
     enum Field: CaseIterable {

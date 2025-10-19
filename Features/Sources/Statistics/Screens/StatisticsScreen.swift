@@ -18,7 +18,7 @@ public struct StatisticsScreen: View {
   @State private var viewModel: ViewModel = .init()
   
   @Dependency(\.transactionStore) private var transactionStore: TransactionStore
-  @EnvironmentObject private var accountStore: AccountStore
+  @Dependency(\.accountStore) var accountStore: AccountStore
   @EnvironmentObject private var router: Router<AppDestination>
   @EnvironmentObject private var purchasesManager: PurchasesManager
   

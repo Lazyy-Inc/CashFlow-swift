@@ -14,6 +14,7 @@ import DesignSystem
 import NetworkKit
 import Models
 import Stores
+import Dependencies
 
 public struct AddAccountScreen: View {
     
@@ -22,7 +23,7 @@ public struct AddAccountScreen: View {
     var account: AccountModel?
     
     @StateObject private var viewModel: ViewModel
-    @EnvironmentObject private var accountStore: AccountStore
+    @Dependency(\.accountStore) var accountStore: AccountStore
     
     // Environment
     @Environment(\.dismiss) private var dismiss
@@ -109,5 +110,4 @@ public struct AddAccountScreen: View {
 // MARK: - Preview
 #Preview {
     AddAccountScreen(type: .savings)
-        .environmentObject(AccountStore.shared)
 }

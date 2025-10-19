@@ -14,11 +14,13 @@ import TheoKit
 import DesignSystem
 import Core
 import Preferences
+import Dependencies
 
 public struct HomeScreen: View {
         
     @EnvironmentObject private var router: Router<AppDestination>
     @EnvironmentObject private var purchasesManager: PurchasesManager
+    @Dependency(\.transactionStore) private var transactionStore
     
     @StateObject private var preferencesGeneral: PreferencesGeneral = .shared
     
@@ -33,15 +35,18 @@ public struct HomeScreen: View {
             HomeHeaderView()
                 .padding(Padding.large)
         } content: { _ in
-            CarouselOfChartsView()
-                .padding(.bottom, 24)
-            
-            VStack(spacing: 32) {
+            VStack(spacing: Spacing.large) {
+                TwoStatisticsRowView(
+                    leftItem: .init(value: incomesThisMonth, text: "home_incomes_of_month".localized, color: .primary500),
+                    rightItem: .init(value: expensesTshisMonth, text: "home_expenses_of_month".localized, color: .red)
+                )
+                
+                HomeTopExpensesSectionView()
+                HomeLastTransactionsSectionView()
                 HomeScreenSubscriptionView()
-                HomeScreenRecentTransactionsView()
                 HomeScreenSavingsPlanView()
             }
-            .padding(.horizontal, Padding.large)
+            .padding(.horizontal, Spacing.large)
             
             Rectangle()
                 .frame(height: 120)
@@ -69,6 +74,27 @@ public struct HomeScreen: View {
         }
     } // body
 } // struct
+
+// MARK: - Utils
+extension HomeScreen {
+    
+    var incomesThisMonth: String {
+        let incomes = transactionStore.getIncomes(in: .now)
+            .map(\.amount)
+            .reduce(0, +)
+        
+        return "+" + incomes.toCurrency()
+    }
+    
+    var expensesTshisMonth: String {
+        let expenses = transactionStore.getExpenses(in: .now)
+            .map(\.amount)
+            .reduce(0, +)
+        
+        return "-" + expenses.toCurrency()
+    }
+    
+}
 
 // MARK: - Preview
 #Preview {
