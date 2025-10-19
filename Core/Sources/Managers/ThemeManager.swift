@@ -5,6 +5,8 @@
 //  Created by Theo Sementa on 09/08/2025.
 //
 
+// TODO: Replace @EnvironmentObject private var themeManager: ThemeManager by @Environment(\.theme)
+
 import SwiftUI
 
 public final class ThemeManager: ObservableObject {
@@ -35,4 +37,8 @@ public enum ThemeColor: String, CaseIterable {
         case .red: return "Red"
         }
     }
+}
+
+public extension EnvironmentValues {
+    @Entry var theme: ThemeColor = ThemeManager.shared.theme
 }

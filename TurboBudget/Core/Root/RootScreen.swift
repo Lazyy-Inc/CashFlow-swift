@@ -20,6 +20,7 @@ import Home
 import Dashboard
 import Statistics
 import SubscriptionModule
+import SettingsModule
 
 struct RootScreen: View {
     
@@ -86,12 +87,11 @@ struct RootScreen: View {
                             NavigationStackView(
                                 router: accountRouter,
                                 destinationContent: { AppDestination.content(for: $0) },
-                                initialContent: { CategoriesListScreen() }
+                                initialContent: { SettingsScreen() }
                             )
                             .tag(AppTabs.account)
                             .toolbar(.hidden, for: .tabBar)
                         }
-//                        .tint(Color.primary500)
                         .onAppear {
                             if !appManager.isRoutersRegistered {
                                 routerManager.resetRouters()
@@ -122,7 +122,11 @@ struct RootScreen: View {
                     }
                     
                     if !routerManager.isNavigationInProgress {
-                        TabbarView(selectedTab: $appManager.selectedTab)
+                        VStack(alignment: .trailing, spacing: Spacing.standard) {
+                            PlusButtonView { appManager.isMenuPresented.toggle() }
+                                .padding(.trailing, Spacing.standard)
+                            TabbarView(selectedTab: $appManager.selectedTab)
+                        }
                     }
                 }
                 .blur(radius: appManager.isMenuPresented ? 12 : 0)

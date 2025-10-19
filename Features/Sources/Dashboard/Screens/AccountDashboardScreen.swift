@@ -90,59 +90,7 @@ public struct AccountDashboardScreen: View {
       ScrollView {
         VStack(spacing: 32) {
           
-          if let account = accountStore.selectedAccount {
-            VStack(spacing: 16) {
-              Menu {
-                ForEach(accountStore.accounts) { account in
-                  Button {
-                    accountStore.setNewAccount(account: account)
-                  } label: {
-                    Text(account.name)
-                  }
-                }
-                Button {
-                  if !accountStore.accounts.isEmpty && !store.isCashFlowPro {
-                      alertManager.showPaywall(router: router)
-                  } else {
-                    router.push(.account(.create))
-                  }
-                } label: {
-                  Label("account_dashboard_add_account".localized, systemImage: "plus")
-                }
-              } label: {
-                HStack(spacing: Spacing.small) {
-                  Text(account.name)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-                  
-                  Image("iconChevronUpDown")
-                    .renderingMode(.template)
-                }
-                .fontWithLineHeight(.Title.medium)
-                .foregroundStyle(themeManager.theme.color)
-              }
-              .onChange(of: accountStore.selectedAccount?.id) {
-                if appManager.isStartDataLoaded {
-                  appManager.resetAllStoresData()
-                  Task {
-                    await appManager.loadStartData()
-                  }
-                }
-              }
-              
-              VStack(alignment: .center, spacing: 0) {
-                Text(account.balance.toCurrency())
-                  .fontWithLineHeight(.Display.extraLarge)
-                  .animation(.default, value: account.balance)
-                  .contentTransition(.numericText())
-                
-                Text("home_screen_available_balance".localized)
-                  .fontWithLineHeight(.Body.medium)
-                  .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
-              }
-              .fullWidth()
-            }
-          }
+          
           
           VStack(spacing: 16) {
             LazyVGrid(columns: viewModel.columns, spacing: 16, content: {
