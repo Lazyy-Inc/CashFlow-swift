@@ -1,0 +1,53 @@
+//
+//  SwiftUIView.swift
+//  Features
+//
+//  Created by Theo Sementa on 19/10/2025.
+//
+
+import SwiftUI
+import DesignSystem
+import Models
+import Navigation
+
+struct SubscriptionSectionView: View {
+    
+    // MARK: Dependencies
+    let title: String
+    let subtitle: String
+    let subscriptions: [SubscriptionModel]
+    
+    // MARK: - View
+    var body: some View {
+        VStack(alignment: .leading, spacing: Spacing.medium) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text(title)
+                    .fontWithLineHeight(.Body.large)
+                    .foregroundStyle(Color.text)
+                Text(subtitle)
+                    .fontWithLineHeight(.Body.small)
+                    .foregroundStyle(Color.Background.bg600)
+            }
+            
+            VStack(spacing: Spacing.small) {
+                ForEach(subscriptions) { subscription in
+                    NavigationButtonView(
+                        route: .push,
+                        destination: .subscription(.detail(subscriptionId: subscription.id))
+                    ) {
+                        SubscriptionRowView(subscription: subscription)
+                    }
+                }
+            }
+        }
+    }
+}
+
+// MARK: - Preview
+#Preview {
+    SubscriptionSectionView(
+        title: "A venir",
+        subtitle: "Il te reste 36,23 € à payer",
+        subscriptions: [.mockClassicSubscriptionExpense]
+    )
+}

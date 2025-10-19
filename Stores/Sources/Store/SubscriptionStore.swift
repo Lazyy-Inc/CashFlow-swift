@@ -72,15 +72,20 @@ public extension SubscriptionStore {
 }
 
 public extension SubscriptionStore {
-  
-  func reset() {
-    subscriptions.removeAll()
-  }
-  
-  private func sortSubscriptionsByDate() {
-      self.subscriptions.sort { $0.frequencyDate < $1.frequencyDate }
-  }
-  
+    
+    func reset() {
+        subscriptions.removeAll()
+    }
+    
+    private func sortSubscriptionsByDate() {
+        self.subscriptions.sort { $0.frequencyDate < $1.frequencyDate }
+    }
+    
+    func getSubscriptions(in date: Date) -> [SubscriptionModel] {
+        return self.subscriptions
+            .filter { Calendar.current.isDate($0.frequencyDate, equalTo: date, toGranularity: .month) }
+    }
+    
 }
 
 // MARK: - Dependencies

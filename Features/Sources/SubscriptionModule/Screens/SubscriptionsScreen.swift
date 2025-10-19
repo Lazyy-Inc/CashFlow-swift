@@ -25,19 +25,25 @@ public struct SubscriptionsScreen: View {
                     rightItem: .init(value: viewModel.totalMonthly.toCurrency(), text: "subscription_total_monthly".localized)
                 )
                 
-                VStack(spacing: Spacing.medium) {
-                    ForEach(viewModel.subscriptionStore.subscriptions) { subscription in
-                        NavigationButtonView(
-                            route: .push,
-                            destination: .subscription(.detail(subscriptionId: subscription.id))
-                        ) {
-                            SubscriptionRowView(subscription: subscription)
-                        }
-                    }
+                if !viewModel.subtitleToPay.isEmpty {
+                    SubscriptionSectionView(
+                        title: "subscription_coming_soon".localized,
+                        subtitle: viewModel.subtitleToPay,
+                        subscriptions: viewModel.subscriptionsToPay
+                    )
+                }
+                
+                if !viewModel.subtitlePaid.isEmpty {
+                    SubscriptionSectionView(
+                        title: "subscription_past".localized,
+                        subtitle: viewModel.subtitlePaid,
+                        subscriptions: viewModel.subscriptionsPaid
+                    )
                 }
             }
             .padding(Spacing.large)
         }
+        .background(Color.Background.bg50)
     }
     
 }

@@ -11,13 +11,14 @@ import Stores
 import Dependencies
 import Preferences
 import NotificationKit
+import Navigation
 
 public final class AppManager: ObservableObject {
     @MainActor public static let shared = AppManager()
     
     @Published public var appState: ApplicationState = .idle
     
-    @Published public var selectedTab: Int = 0
+    @Published public var selectedTab: AppTabs = .home
     @Published public var isMenuPresented: Bool = false
     
     @Published public var isStartDataLoaded: Bool = false

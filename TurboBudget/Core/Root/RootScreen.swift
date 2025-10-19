@@ -28,9 +28,10 @@ struct RootScreen: View {
     @Dependency(\.accountStore) var accountStore: AccountStore
     
     @StateObject private var homeRouter: Router<AppDestination> = .init()
-    @StateObject private var analyticsRouter: Router<AppDestination> = .init()
-    @StateObject private var dashboardRouter: Router<AppDestination> = .init()
-    @StateObject private var categoryRouter: Router<AppDestination> = .init()
+    @StateObject private var subscriptionRouter: Router<AppDestination> = .init()
+    @StateObject private var savingsRouter: Router<AppDestination> = .init()
+    @StateObject private var analysisRouter: Router<AppDestination> = .init()
+    @StateObject private var accountRouter: Router<AppDestination> = .init()
     @StateObject private var routerManager: AppRouterManager = .shared
     
     @StateObject private var viewModel: ViewModel = .init()
@@ -55,40 +56,50 @@ struct RootScreen: View {
                                 destinationContent: { AppDestination.content(for: $0) },
                                 initialContent: { HomeScreen() }
                             )
-                            .tag(0)
+                            .tag(AppTabs.home)
                             .toolbar(.hidden, for: .tabBar)
                             
                             NavigationStackView(
-                                router: analyticsRouter,
+                                router: subscriptionRouter,
                                 destinationContent: { AppDestination.content(for: $0) },
                                 initialContent: { SubscriptionsScreen() }
                             )
-                            .tag(1)
+                            .tag(AppTabs.subscriptions)
                             .toolbar(.hidden, for: .tabBar)
                             
                             NavigationStackView(
-                                router: dashboardRouter,
+                                router: savingsRouter,
                                 destinationContent: { AppDestination.content(for: $0) },
                                 initialContent: { AccountDashboardScreen() }
                             )
-                            .tag(2)
+                            .tag(AppTabs.savings)
+                            .toolbar(.hidden, for: .tabBar)
+                            
+                            NavigationStackView(
+                                router: analysisRouter,
+                                destinationContent: { AppDestination.content(for: $0) },
+                                initialContent: { AnalyticsScreen() }
+                            )
+                            .tag(AppTabs.analysis)
                             .toolbar(.hidden, for: .tabBar)
 
                             NavigationStackView(
-                                router: categoryRouter,
+                                router: accountRouter,
                                 destinationContent: { AppDestination.content(for: $0) },
                                 initialContent: { CategoriesListScreen() }
                             )
-                            .tag(3)
+                            .tag(AppTabs.account)
                             .toolbar(.hidden, for: .tabBar)
                         }
+//                        .tint(Color.primary500)
                         .onAppear {
                             if !appManager.isRoutersRegistered {
                                 routerManager.resetRouters()
                                 routerManager.register(router: homeRouter, for: .home)
-                                routerManager.register(router: analyticsRouter, for: .analytics)
-                                routerManager.register(router: dashboardRouter, for: .dashboard)
-                                routerManager.register(router: categoryRouter, for: .category)
+                                routerManager.register(router: subscriptionRouter, for: .subscriptions)
+                                routerManager.register(router: savingsRouter, for: .savings)
+                                routerManager.register(router: analysisRouter, for: .analysis)
+                                routerManager.register(router: accountRouter, for: .account)
                                 appManager.isRoutersRegistered = true
                             }
                         }
@@ -111,7 +122,7 @@ struct RootScreen: View {
                     }
                     
                     if !routerManager.isNavigationInProgress {
-                        CustomTabBar()
+                        TabbarView(selectedTab: $appManager.selectedTab)
                     }
                 }
                 .blur(radius: appManager.isMenuPresented ? 12 : 0)

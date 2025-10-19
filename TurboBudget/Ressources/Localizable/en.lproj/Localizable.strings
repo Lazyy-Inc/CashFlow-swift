@@ -1,21 +1,5 @@
-"account_balance" = "Account balance";
-
-"account_card_limit" = "Card limit";
-
 /*  */
 "account_dashboard_add_account" = "Add an account";
-
-"account_detail_add_credit_card" = "Add a credit card";
-
-"account_detail_alert_almost_exceeded" = "Your card limit is soon exceeded.";
-
-"account_detail_alert_exceeded" = "Your card limit has been exceeded.";
-
-"account_detail_avail_balance" = "Available balance";
-
-"account_detail_card_limit" = "Card limit";
-
-"account_detail_card_remaining" = "Remaining";
 
 "account_detail_cashflow" = "Cash flow";
 
@@ -36,20 +20,6 @@
 "account_detail_no_account" = "Create your first account to start using CashFlow !";
 
 "account_detail_rename" = "Rename";
-
-"account_info_credit_card" = "You can add a credit card by accessing your account.";
-
-"account_name" = "Account name";
-
-"account_new" = "New account";
-
-"account_placeholder_balance" = "$10,000";
-
-"account_placeholder_card_limit" = "$3,000";
-
-"account_placeholder_maxAmount" = "$50,000";
-
-"account_placeholder_name" = "Theo's account";
 
 "advice_yourself" = "Paying yourself first";
 
@@ -249,22 +219,6 @@
 
 "cashflowchart_alert_title" = "CashFlow Chart";
 
-"cashflowchart_title" = "Cash flow";
-
-"category00_name" = "To categorise";
-
-"category10_name" = "Health";
-
-"category10_subcategory1_name" = "Doctor";
-
-"category10_subcategory2_name" = "Mutual insurance";
-
-"category10_subcategory3_name" = "Opique";
-
-"category10_subcategory4_name" = "Pharmacy";
-
-"category10_subcategory5_name" = "Other";
-
 "category11_name" = "Transport";
 
 "category11_subcategory10_name" = "Public transport";
@@ -408,11 +362,28 @@
 /*  */
 "category_family_children" = "Family life & Children";
 
+"category_health" = "Health";
+
+"category_health_subcategory_doctor" = "Doctor";
+
+"category_health_subcategory_mutual_insurance" = "Mutual insurance";
+
+"category_health_subcategory_opique" = "Opique";
+
+"category_health_subcategory_others" = "Other";
+
+"category_health_subcategory_pharmacy" = "Pharmacy";
+
 /*  */
 "category_projects_events" = "Projects & Events";
 
 /*  */
+"category_screen_title" = "Categories";
+
+/*  */
 "category_subscriptions_services" = "Subscriptions & Services";
+
+"category_to_categorise" = "To categorise";
 
 "chart_auto_expenses_expenses_in" = "Automations expenses in";
 
@@ -446,7 +417,235 @@
 
 "contribution_withdraw" = "Withdraw";
 
+/*  */
+"create_account_field_current_amount_title" = "Current amount";
+
+/*  */
+"create_account_field_name_placeholder_five" = "Mathias's account";
+
+/*  */
+"create_account_field_name_placeholder_four" = "Thomas's account";
+
+/*  */
+"create_account_field_name_placeholder_one" = "Theo's account";
+
+/*  */
+"create_account_field_name_placeholder_three" = "Hugo's account";
+
+/*  */
+"create_account_field_name_placeholder_two" = "Remi's account";
+
+/*  */
+"create_account_field_name_title" = "Name";
+
+/*  */
+"create_account_title" = "New account";
+
+/*  */
+"create_account_validation_button" = "Create account";
+
 "create_add_category" = "Add a category";
+
+/*  */
+"create_contribution_field_amount_after_contribution" = "Amount after contribution";
+
+/*  */
+"create_contribution_field_amount_title" = "Amount";
+
+/*  */
+"create_contribution_field_contribution_type_add" = "Add";
+
+/*  */
+"create_contribution_field_contribution_type_remove" = "Withdraw";
+
+/*  */
+"create_contribution_field_contribution_type_title" = "Contribution type";
+
+/*  */
+"create_contribution_field_date_title" = "Date";
+
+/*  */
+"create_contribution_field_name_placeholder_one" = "Money from Grandma";
+
+/*  */
+"create_contribution_field_name_placeholder_two" = "Apple Stock - 2x";
+
+/*  */
+"create_contribution_field_name_title" = "Name (optional)";
+
+/*  */
+"create_contribution_title" = "New contribution";
+
+/*  */
+"create_contribution_validation_button" = "Add contribution";
+
+/*  */
+"create_financial_goal_field_amount_to_reach_title" = "Target amount";
+
+/*  */
+"create_financial_goal_field_end_goal_title" = "End of goal";
+
+/*  */
+"create_financial_goal_field_name_placeholder_five" = "Invest €10,000";
+
+/*  */
+"create_financial_goal_field_name_placeholder_four" = "Mountain house";
+
+/*  */
+"create_financial_goal_field_name_placeholder_one" = "New MacBook Pro";
+
+/*  */
+"create_financial_goal_field_name_placeholder_three" = "Trip to New York";
+
+/*  */
+"create_financial_goal_field_name_placeholder_two" = "New car";
+
+/*  */
+"create_financial_goal_field_name_title" = "Name";
+
+/*  */
+"create_financial_goal_field_start_amount_title" = "Starting amount";
+
+/*  */
+"create_financial_goal_field_start_goal_title" = "Start of goal";
+
+/*  */
+"create_financial_goal_title" = "New financial goal";
+
+/*  */
+"create_financial_validation_button" = "Create financial goal";
+
+/*  */
+"create_subscription_field_amount_title" = "Amount";
+
+/*  */
+"create_subscription_field_category_button" = "Add a category";
+
+/*  */
+"create_subscription_field_category_title" = "Category";
+
+/*  */
+"create_subscription_field_frequency_title" = "Frequency";
+
+/*  */
+"create_subscription_field_name_placeholder_eight" = "Credit card";
+
+/*  */
+"create_subscription_field_name_placeholder_five" = "iCloud";
+
+/*  */
+"create_subscription_field_name_placeholder_four" = "Salary";
+
+/*  */
+"create_subscription_field_name_placeholder_nine" = "Mortgage";
+
+/*  */
+"create_subscription_field_name_placeholder_one" = "Netflix";
+
+/*  */
+"create_subscription_field_name_placeholder_seven" = "ChatGPT Pro";
+
+/*  */
+"create_subscription_field_name_placeholder_six" = "Car insurance";
+
+/*  */
+"create_subscription_field_name_placeholder_ten" = "Hello Fresh";
+
+/*  */
+"create_subscription_field_name_placeholder_three" = "Basic Fit";
+
+/*  */
+"create_subscription_field_name_placeholder_two" = "Spotify";
+
+/*  */
+"create_subscription_field_name_title" = "Name";
+
+/*  */
+"create_subscription_field_next_payement_title" = "Next payment";
+
+/*  */
+"create_subscription_title" = "New subscription";
+
+/*  */
+"create_subscription_validation_button" = "Add subscription";
+
+/*  */
+"create_transaction_amount_after_transaction" = "Amount after transaction";
+
+/*  */
+"create_transaction_field_amount_title" = "Amount";
+
+/*  */
+"create_transaction_field_category_button" = "Add a category";
+
+/*  */
+"create_transaction_field_category_title" = "Category";
+
+/*  */
+"create_transaction_field_date_title" = "Date";
+
+/*  */
+"create_transaction_field_name_placeholder_eight" = "Insurance";
+
+/*  */
+"create_transaction_field_name_placeholder_five" = "Airbnb";
+
+/*  */
+"create_transaction_field_name_placeholder_four" = "Tree climbing";
+
+/*  */
+"create_transaction_field_name_placeholder_nine" = "10 Apple shares";
+
+/*  */
+"create_transaction_field_name_placeholder_one" = "Fuel";
+
+/*  */
+"create_transaction_field_name_placeholder_seven" = "Train ticket";
+
+/*  */
+"create_transaction_field_name_placeholder_six" = "Parking";
+
+/*  */
+"create_transaction_field_name_placeholder_ten" = "iPhone 17 Pro Max";
+
+/*  */
+"create_transaction_field_name_placeholder_three" = "Spotify";
+
+/*  */
+"create_transaction_field_name_placeholder_two" = "Burger King";
+
+/*  */
+"create_transaction_field_name_title" = "Name";
+
+/*  */
+"create_transaction_field_repartition_title" = "Breakdown";
+
+/*  */
+"create_transaction_title" = "New transaction";
+
+/*  */
+"create_transaction_validation_button" = "Create transaction";
+
+/*  */
+"create_transfer_amount_after_transfer" = "Amount after transfer";
+
+/*  */
+"create_transfer_field_amount_title" = "Amount";
+
+/*  */
+"create_transfer_field_date_title" = "Date";
+
+/*  */
+"create_transfer_field_receiver_account_title" = "Receiver account";
+
+/*  */
+"create_transfer_field_sender_account_title" = "Sender account";
+
+/*  */
+"create_transfer_title" = "New transfer";
+
+/*  */
+"create_transfer_validation_button" = "Make transfer";
 
 "creditcard_cvv" = "CVV";
 
@@ -496,6 +695,24 @@
 
 "empty_accounts_desc" = "Create your first account to start using CashFlow!";
 
+/*  */
+"empty_bank_account_button" = "Create an account";
+
+/*  */
+"empty_bank_account_desc" = "You’ll need an account to start tracking your budget";
+
+/*  */
+"empty_bank_account_title" = "No bank account";
+
+/*  */
+"empty_budget_button" = "Create a budget";
+
+/*  */
+"empty_budget_desc" = "No budget? That’s what we call “living in denial” 😏";
+
+/*  */
+"empty_budget_title" = "No budget";
+
 "empty_contributions_desc" = "You haven't registered any contributions yet.";
 
 /*  */
@@ -503,6 +720,15 @@
 
 /*  */
 "empty_expenses_this_month_title" = "No expenses this month";
+
+/*  */
+"empty_financial_goal_button" = "Create a financial goal";
+
+/*  */
+"empty_financial_goal_desc" = "No goals? Is that your strategy to never miss them? 😏";
+
+/*  */
+"empty_financial_goal_title" = "No financial goal";
 
 /*  */
 "empty_incomes_this_month_description" = "Money doesn't fall from the sky! Too bad ...";
@@ -517,6 +743,15 @@
 "empty_savingsPlans_create" = "Create a savings plan";
 
 "empty_savingsPlans_desc" = "You haven't registered any savings plans yet.";
+
+/*  */
+"empty_savings_account_button" = "Create a savings account";
+
+/*  */
+"empty_savings_account_desc" = "Are your savings hiding, or do they just not exist? 👀";
+
+/*  */
+"empty_savings_account_title" = "No savings account";
 
 /*  */
 "empty_savingsaccount_list_description" = "Create your first savings account by clicking on the create button at the top of the screen";
@@ -543,7 +778,16 @@
 "empty_stats_title" = "No statistics";
 
 /*  */
+"empty_subscription_button" = "Add a subscription";
+
+/*  */
+"empty_subscription_desc" = "No subscriptions? You’ve cracked the code to financial freedom 🔓";
+
+/*  */
 "empty_subscription_home_description" = "Create your first subscription by clicking here or on the + button at the bottom of the screen";
+
+/*  */
+"empty_subscription_title" = "No subscription";
 
 "empty_subscriptions_create" = "Create a subscription";
 
@@ -554,6 +798,15 @@
 
 /*  */
 "empty_subscriptions_title" = "No subscription";
+
+/*  */
+"empty_transaction_button" = "Create a transaction";
+
+/*  */
+"empty_transaction_desc" = "Zero transactions? Either you’ve got iron willpower or no funds left 😬";
+
+/*  */
+"empty_transaction_title" = "No transaction";
 
 "empty_transactions_create" = "Create a transaction";
 
@@ -606,11 +859,58 @@
 
 "filter_total" = "Total";
 
+/*  */
+"financial_goal_detail_contributed" = "Contributed";
+
+/*  */
+"financial_goal_detail_contributed_this_month" = "Contributed this month";
+
+/*  */
+"financial_goal_detail_contributions" = "Contributions";
+
+/*  */
+"financial_goal_detail_days_remaning" = "Days remaining";
+
+/*  */
+"financial_goal_detail_days_spent" = "Days spent";
+
+/*  */
+"financial_goal_detail_end_date" = "End date";
+
+/*  */
+"financial_goal_detail_final_goal" = "Final goal";
+
+/*  */
+"financial_goal_detail_monthly_goal" = "Monthly goal";
+
+/*  */
+"financial_goal_detail_remaining" = "Remaining";
+
+/*  */
+"financial_goal_detail_start_date" = "Start date";
+
 "frequency_monthly" = "Monthly";
 
 "frequency_weekly" = "Weekly";
 
 "frequency_yearly" = "Yearly";
+
+/*  */
+"home_account_selection_all" = "All accounts";
+
+"home_available_balance" = "Available balance";
+
+/*  */
+"home_budgets" = "Budgets";
+
+/*  */
+"home_expenses_of_month" = "Expenses of the month";
+
+/*  */
+"home_incomes_of_month" = "Incomes of the month";
+
+/*  */
+"home_last_transactions" = "Latest transactions";
 
 "home_screen_available_balance" = "Available balance";
 
@@ -619,6 +919,12 @@
 "home_screen_no_transaction" = "Create your first transaction !";
 
 "home_screen_title" = "Home";
+
+/*  */
+"home_see_all" = "See all";
+
+/*  */
+"home_top_expenses_of_month" = "Top expenses of the month";
 
 "login_apple" = "Sign in with Apple";
 
@@ -632,7 +938,13 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "name_first_transaction" = "Starting money";
 
 /*  */
+"navigation_bar_back_button" = "Back";
+
+/*  */
 "no_internet_description" = "There is a connection error. Please check your internet connection.";
+
+/*  */
+"notification_apple_pay_payed" = "You paid %@ to %@";
 
 /*  */
 "notification_one_week_later_message" = "It's been a while since we've seen you!";
@@ -657,7 +969,7 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "onboarding_page_one_title" = "Manage your finances simply.";
 
 /*  */
-"onboarding_page_three_description" = "Create savings plans, set budgets and track your progress in real time.";
+"onboarding_page_three_description" = "Create financial goals, set budgets, and track your progress in real time.";
 
 /*  */
 "onboarding_page_three_extra_label" = "You need an account to use CashFlow";
@@ -781,6 +1093,33 @@ Simple, fast, secure - your financial peace of mind starts here.";
 
 "paywall_title" = "Choose the subscription that suits your financial management needs.";
 
+/*  */
+"profile_appearance" = "Appearance";
+
+/*  */
+"profile_paywall" = "CashFlow Pro";
+
+/*  */
+"profile_preferences" = "Preferences";
+
+/*  */
+"profile_section_title_account_management" = "Account management";
+
+/*  */
+"profile_section_title_features" = "Features";
+
+/*  */
+"profile_section_title_help" = "Help";
+
+/*  */
+"profile_section_title_others" = "Others";
+
+/*  */
+"profile_section_title_privacy" = "Privacy";
+
+/*  */
+"profile_section_title_usage_and_display" = "Usage and display";
+
 "qrcode_recover_transactions" = "Find the transaction by opening the menu +, the same menu used for adding a transaction. You will then find the button to scan this QR code.";
 
 "qrcode_transactions_how" = "How to recover this transaction ?";
@@ -824,7 +1163,16 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "release_note_title" = "Release note -";
 
 /*  */
+"repartition_needed" = "Needs";
+
+/*  */
+"repartition_not_defined" = "Not defined";
+
+/*  */
 "repartition_picker_title" = "Repartition";
+
+/*  */
+"repartition_savings" = "Savings";
 
 /*  */
 "repartition_type_needed" = "Needed";
@@ -838,6 +1186,9 @@ Simple, fast, secure - your financial peace of mind starts here.";
 /*  */
 "repartition_type_wanted" = "Wanted";
 
+/*  */
+"repartition_wanted" = "Wants";
+
 "sample_account_name" = "Theo's account";
 
 "sample_boite" = "Nightclub";
@@ -850,7 +1201,19 @@ Simple, fast, secure - your financial peace of mind starts here.";
 
 "sample_retrait" = "Withdrawal";
 
+/*  */
+"savings_account_detail_current_amount" = "Current amount";
+
+/*  */
+"savings_account_detail_max_amount" = "Max amount";
+
 "savings_account_total_savings" = "Total savings";
+
+/*  */
+"savings_screen_financial_goals_title" = "Financial goals";
+
+/*  */
+"savings_screen_savings_account_title" = "Savings accounts";
 
 "savingsplan_detail_add_contribution" = "Add contribution";
 
@@ -893,6 +1256,9 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "savingsplans_for_home_no_savings_plan" = "Add your first savings plan by pressing the + button.";
 
 "savingsplans_for_home_title" = "My savings plans";
+
+/*  */
+"search_bar_placeholder" = "Search";
 
 "setting_account_card_limit_exceeds" = "Block expenses";
 
@@ -1147,6 +1513,8 @@ Simple, fast, secure - your financial peace of mind starts here.";
 
 "sort_by_word" = "Sort by";
 
+"statistics_cashflow_chart_title" = "Cash flow";
+
 /*  */
 "statistics_chart_salary_missing" = "Set up a salary in the settings";
 
@@ -1245,13 +1613,55 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "subcategory_wedding_birth" = "Wedding, Birth";
 
 /*  */
+"subcription_need_to_pay_and_receive" = "You still have %@ to pay and %@ to receive";
+
+/*  */
+"subcription_only_need_to_pay" = "You still have %@ to pay";
+
+/*  */
+"subcription_only_need_to_receive" = "You still have %@ to receive";
+
+/*  */
+"subscription_coming_soon" = "Coming soon";
+
+/*  */
+"subscription_detail_frequency" = "Frequency";
+
+/*  */
+"subscription_detail_next_transaction" = "Next transaction";
+
+/*  */
+"subscription_detail_since" = "Since";
+
+/*  */
+"subscription_detail_total" = "Total";
+
+/*  */
+"subscription_detail_transactions" = "Transactions";
+
+/*  */
 "subscription_first_subscription" = "First subscription";
 
 /*  */
-"subscription_next_transaction" = "Next transaction";
+"subscription_number_of_transactions" = "Number of transactions";
 
 /*  */
-"subscription_number_of_transactions" = "Number of transactions";
+"subscription_only_paid" = "You’ve already paid %@";
+
+/*  */
+"subscription_only_received" = "You’ve already received %@";
+
+/*  */
+"subscription_paid_and_received" = "You’ve already paid %@ and received %@";
+
+/*  */
+"subscription_past" = "Past";
+
+/*  */
+"subscription_total_monthly" = "Total monthly";
+
+/*  */
+"subscription_total_yearly" = "Total yearly";
 
 "successful_contribution_new_desc" = "Your contribution has been processed and added to your savings plan.";
 
@@ -1294,6 +1704,21 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "sync_fetching" = "We are in the process of recovering your data...";
 
 "sync_sorry_message" = "Sorry, we were unable to retrieve your data...";
+
+/*  */
+"tabbar_account_tab" = "Account";
+
+/*  */
+"tabbar_analysis_tab" = "Analytics";
+
+/*  */
+"tabbar_home_tab" = "Home";
+
+/*  */
+"tabbar_savings_tab" = "Savings";
+
+/*  */
+"tabbar_subscriptions_tab" = "Subscriptions";
 
 "temporality_in_two_days" = "In 2 days";
 
@@ -1388,13 +1813,28 @@ Simple, fast, secure - your financial peace of mind starts here.";
 
 "transaction_detail_date" = "Date";
 
+/*  */
+"transaction_detail_link_to_subscription" = "Linked to a subscription";
+
 "transaction_detail_note" = "Add a note to this transaction...";
+
+/*  */
+"transaction_detail_recommanded" = "Recommended";
+
+/*  */
+"transaction_detail_repartition" = "Breakdown";
+
+/*  */
+"transaction_detail_retrieve_by_apple_pay" = "Retrieved with Apple Pay";
 
 "transaction_new" = "New transaction";
 
 "transaction_placeholder_amount" = "0";
 
 "transaction_recommended_category" = "Recommended category";
+
+/*  */
+"transaction_screen_title" = "Transactions";
 
 "transaction_successful" = "Transaction created";
 

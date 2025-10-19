@@ -1,21 +1,5 @@
-"account_balance" = "Solde du compte";
-
-"account_card_limit" = "Limite de la carte";
-
 /*  */
 "account_dashboard_add_account" = "Ajouter un compte";
-
-"account_detail_add_credit_card" = "Ajouter une carte de crédit";
-
-"account_detail_alert_almost_exceeded" = "Le plafond est bientôt dépassé !";
-
-"account_detail_alert_exceeded" = "Le plafond a été dépassée.";
-
-"account_detail_avail_balance" = "Solde disponible";
-
-"account_detail_card_limit" = "Plafond de la carte";
-
-"account_detail_card_remaining" = "Restants";
 
 "account_detail_cashflow" = "Flux de trésorerie";
 
@@ -36,20 +20,6 @@
 "account_detail_no_account" = "Créez votre premier compte pour commencer à utiliser CashFlow !";
 
 "account_detail_rename" = "Renommer";
-
-"account_info_credit_card" = "Vous pourrez ajouter une carte de crédit en consultant votre compte.";
-
-"account_name" = "Nom du compte";
-
-"account_new" = "Nouveau compte";
-
-"account_placeholder_balance" = "10 000 €";
-
-"account_placeholder_card_limit" = "3 000 €";
-
-"account_placeholder_maxAmount" = "50 000 €";
-
-"account_placeholder_name" = "Compte de Theo";
 
 "advice_yourself" = "Se payer en premier";
 
@@ -249,22 +219,6 @@
 
 "cashflowchart_alert_title" = "CashFlow graphique";
 
-"cashflowchart_title" = "Flux de trésorerie";
-
-"category00_name" = "A catégoriser";
-
-"category10_name" = "Santé";
-
-"category10_subcategory1_name" = "Médecin";
-
-"category10_subcategory2_name" = "Assurance mutuelle";
-
-"category10_subcategory3_name" = "Optique";
-
-"category10_subcategory4_name" = "Pharmacie";
-
-"category10_subcategory5_name" = "Autres";
-
 "category11_name" = "Transport";
 
 "category11_subcategory10_name" = "Transport en commun";
@@ -408,11 +362,28 @@
 /*  */
 "category_family_children" = "Vie familiale et enfants";
 
+"category_health" = "Santé";
+
+"category_health_subcategory_doctor" = "Médecin";
+
+"category_health_subcategory_mutual_insurance" = "Assurance mutuelle";
+
+"category_health_subcategory_opique" = "Optique";
+
+"category_health_subcategory_others" = "Autres";
+
+"category_health_subcategory_pharmacy" = "Pharmacie";
+
 /*  */
 "category_projects_events" = "Projets et événements";
 
 /*  */
+"category_screen_title" = "Catégories";
+
+/*  */
 "category_subscriptions_services" = "Abonnements et services";
+
+"category_to_categorise" = "A catégoriser";
 
 "chart_auto_expenses_expenses_in" = "Dépenses automatisés en";
 
@@ -446,7 +417,235 @@
 
 "contribution_withdraw" = "Retirer";
 
+/*  */
+"create_account_field_current_amount_title" = "Montant actuel";
+
+/*  */
+"create_account_field_name_placeholder_five" = "Compte de Mathias";
+
+/*  */
+"create_account_field_name_placeholder_four" = "Compte de Thomas";
+
+/*  */
+"create_account_field_name_placeholder_one" = "Compte de Théo";
+
+/*  */
+"create_account_field_name_placeholder_three" = "Compte de Hugo";
+
+/*  */
+"create_account_field_name_placeholder_two" = "Compte de Rémi";
+
+/*  */
+"create_account_field_name_title" = "Nom";
+
+/*  */
+"create_account_title" = "Nouveau compte";
+
+/*  */
+"create_account_validation_button" = "Créer le compte";
+
 "create_add_category" = "Ajouter une catégorie";
+
+/*  */
+"create_contribution_field_amount_after_contribution" = "Montant après contribution";
+
+/*  */
+"create_contribution_field_amount_title" = "Montant";
+
+/*  */
+"create_contribution_field_contribution_type_add" = "Ajouter";
+
+/*  */
+"create_contribution_field_contribution_type_remove" = "Retirer";
+
+/*  */
+"create_contribution_field_contribution_type_title" = "Type de contribution";
+
+/*  */
+"create_contribution_field_date_title" = "Date";
+
+/*  */
+"create_contribution_field_name_placeholder_one" = "Argent de Mamie";
+
+/*  */
+"create_contribution_field_name_placeholder_two" = "Action Apple - 2x";
+
+/*  */
+"create_contribution_field_name_title" = "Nom (optionnel)";
+
+/*  */
+"create_contribution_title" = "Nouvelle contribution";
+
+/*  */
+"create_contribution_validation_button" = "Ajouter la contribution";
+
+/*  */
+"create_financial_goal_field_amount_to_reach_title" = "Somme à atteindre";
+
+/*  */
+"create_financial_goal_field_end_goal_title" = "Fin de l'objectif";
+
+/*  */
+"create_financial_goal_field_name_placeholder_five" = "Investir 10 000 €";
+
+/*  */
+"create_financial_goal_field_name_placeholder_four" = "Maison à la montagne";
+
+/*  */
+"create_financial_goal_field_name_placeholder_one" = "Nouveau MacBook Pro";
+
+/*  */
+"create_financial_goal_field_name_placeholder_three" = "Voyage à New York";
+
+/*  */
+"create_financial_goal_field_name_placeholder_two" = "Nouvelle voiture";
+
+/*  */
+"create_financial_goal_field_name_title" = "Nom";
+
+/*  */
+"create_financial_goal_field_start_amount_title" = "Montant de départ";
+
+/*  */
+"create_financial_goal_field_start_goal_title" = "Début de l'objectif";
+
+/*  */
+"create_financial_goal_title" = "Nouvel objectif financier";
+
+/*  */
+"create_financial_validation_button" = "Créer l’objectif financier";
+
+/*  */
+"create_subscription_field_amount_title" = "Montant";
+
+/*  */
+"create_subscription_field_category_button" = "Ajouter une catégorie";
+
+/*  */
+"create_subscription_field_category_title" = "Catégorie";
+
+/*  */
+"create_subscription_field_frequency_title" = "Fréquence";
+
+/*  */
+"create_subscription_field_name_placeholder_eight" = "Carte bancaire";
+
+/*  */
+"create_subscription_field_name_placeholder_five" = "iCloud";
+
+/*  */
+"create_subscription_field_name_placeholder_four" = "Salaire";
+
+/*  */
+"create_subscription_field_name_placeholder_nine" = "Crédit immobilier";
+
+/*  */
+"create_subscription_field_name_placeholder_one" = "Netflix";
+
+/*  */
+"create_subscription_field_name_placeholder_seven" = "ChatGPT Pro";
+
+/*  */
+"create_subscription_field_name_placeholder_six" = "Assurance voiture";
+
+/*  */
+"create_subscription_field_name_placeholder_ten" = "Hello Fresh";
+
+/*  */
+"create_subscription_field_name_placeholder_three" = "Basic Fit";
+
+/*  */
+"create_subscription_field_name_placeholder_two" = "Spotify";
+
+/*  */
+"create_subscription_field_name_title" = "Nom";
+
+/*  */
+"create_subscription_field_next_payement_title" = "Prochain prélèvement";
+
+/*  */
+"create_subscription_title" = "Nouvel abonnement";
+
+/*  */
+"create_subscription_validation_button" = "Ajouter l’abonnement";
+
+/*  */
+"create_transaction_amount_after_transaction" = "Montant après transaction";
+
+/*  */
+"create_transaction_field_amount_title" = "Montant";
+
+/*  */
+"create_transaction_field_category_button" = "Ajouter une catégorie";
+
+/*  */
+"create_transaction_field_category_title" = "Catégorie";
+
+/*  */
+"create_transaction_field_date_title" = "Date";
+
+/*  */
+"create_transaction_field_name_placeholder_eight" = "Assurance";
+
+/*  */
+"create_transaction_field_name_placeholder_five" = "Airbnb";
+
+/*  */
+"create_transaction_field_name_placeholder_four" = "Accrobranche";
+
+/*  */
+"create_transaction_field_name_placeholder_nine" = "10 actions Apple";
+
+/*  */
+"create_transaction_field_name_placeholder_one" = "Carburant";
+
+/*  */
+"create_transaction_field_name_placeholder_seven" = "Ticket de train";
+
+/*  */
+"create_transaction_field_name_placeholder_six" = "Parking";
+
+/*  */
+"create_transaction_field_name_placeholder_ten" = "iPhone 17 Pro Max";
+
+/*  */
+"create_transaction_field_name_placeholder_three" = "Spotify";
+
+/*  */
+"create_transaction_field_name_placeholder_two" = "Burger king";
+
+/*  */
+"create_transaction_field_name_title" = "Nom";
+
+/*  */
+"create_transaction_field_repartition_title" = "Répartition";
+
+/*  */
+"create_transaction_title" = "Nouvelle transaction";
+
+/*  */
+"create_transaction_validation_button" = "Créer la transaction";
+
+/*  */
+"create_transfer_amount_after_transfer" = "Montant après transfert";
+
+/*  */
+"create_transfer_field_amount_title" = "Montant";
+
+/*  */
+"create_transfer_field_date_title" = "Date";
+
+/*  */
+"create_transfer_field_receiver_account_title" = "Compte destinataire";
+
+/*  */
+"create_transfer_field_sender_account_title" = "Compte émetteur";
+
+/*  */
+"create_transfer_title" = "Nouveau transfert";
+
+/*  */
+"create_transfer_validation_button" = "Effectuer le transfert";
 
 "creditcard_cvv" = "CVC";
 
@@ -496,6 +695,24 @@
 
 "empty_accounts_desc" = "Créez votre premier compte pour commencer à utiliser CashFlow !";
 
+/*  */
+"empty_bank_account_button" = "Créer un compte";
+
+/*  */
+"empty_bank_account_desc" = "Il va te falloir un compte pour commencer à suivre ton budget";
+
+/*  */
+"empty_bank_account_title" = "Aucun compte bancaire";
+
+/*  */
+"empty_budget_button" = "Créer un budget";
+
+/*  */
+"empty_budget_desc" = "Pas de budget ? On appelle ça “vivre dans le déni” 😏";
+
+/*  */
+"empty_budget_title" = "Aucun budget";
+
 "empty_contributions_desc" = "Vous n'avez encore enregistré aucune contribution pour le moment.";
 
 /*  */
@@ -503,6 +720,15 @@
 
 /*  */
 "empty_expenses_this_month_title" = "Aucune dépense ce mois-ci";
+
+/*  */
+"empty_financial_goal_button" = "Créer un objectif financier";
+
+/*  */
+"empty_financial_goal_desc" = "Aucun objectif ? C’est ta stratégie pour ne jamais les rater ? 😏";
+
+/*  */
+"empty_financial_goal_title" = "Aucun objectif financier";
 
 /*  */
 "empty_incomes_this_month_description" = "L’argent ne tombe pas du ciel ! Dommage ...";
@@ -517,6 +743,15 @@
 "empty_savingsPlans_create" = "Créer un plan d'épargne";
 
 "empty_savingsPlans_desc" = "Vous n'avez encore enregistré aucun plan d'épargne pour le moment.";
+
+/*  */
+"empty_savings_account_button" = "Créer un compte épargne";
+
+/*  */
+"empty_savings_account_desc" = "Tes économies se cachent, ou elles n’existent juste pas ? 👀";
+
+/*  */
+"empty_savings_account_title" = "Aucun compte épargne";
 
 /*  */
 "empty_savingsaccount_list_description" = "Créez votre premier compte épargne en cliquant sur le bouton créer en haut de l’écran";
@@ -543,7 +778,16 @@
 "empty_stats_title" = "Aucune statistique";
 
 /*  */
+"empty_subscription_button" = "Ajouter un abonnement";
+
+/*  */
+"empty_subscription_desc" = "Aucun abonnement ? T’as percé le secret de la liberté financière 🔓";
+
+/*  */
 "empty_subscription_home_description" = "Créez votre premier abonnement en cliquant ici ou sur le bouton + en bas de l’écran";
+
+/*  */
+"empty_subscription_title" = "Aucun abonnement";
 
 "empty_subscriptions_create" = "Créer un abonnement";
 
@@ -554,6 +798,15 @@
 
 /*  */
 "empty_subscriptions_title" = "Aucun abonnement";
+
+/*  */
+"empty_transaction_button" = "Créer une transaction";
+
+/*  */
+"empty_transaction_desc" = "Zéro transaction ? Soit t’as une volonté de fer, soit t’as plus de fonds 😬";
+
+/*  */
+"empty_transaction_title" = "Aucune transaction";
 
 "empty_transactions_create" = "Créer une transaction";
 
@@ -606,11 +859,58 @@
 
 "filter_total" = "Total";
 
+/*  */
+"financial_goal_detail_contributed" = "Contribué";
+
+/*  */
+"financial_goal_detail_contributed_this_month" = "Contribué ce mois-ci";
+
+/*  */
+"financial_goal_detail_contributions" = "Contributions";
+
+/*  */
+"financial_goal_detail_days_remaning" = "Jours restants";
+
+/*  */
+"financial_goal_detail_days_spent" = "Jours écoulés";
+
+/*  */
+"financial_goal_detail_end_date" = "Date de fin";
+
+/*  */
+"financial_goal_detail_final_goal" = "Objectif final";
+
+/*  */
+"financial_goal_detail_monthly_goal" = "Objectif mensuel";
+
+/*  */
+"financial_goal_detail_remaining" = "Restant";
+
+/*  */
+"financial_goal_detail_start_date" = "Date de début";
+
 "frequency_monthly" = "Mensuel";
 
 "frequency_weekly" = "Hebdomadaire";
 
 "frequency_yearly" = "Annuel";
+
+/*  */
+"home_account_selection_all" = "Tous les comptes";
+
+"home_available_balance" = "Solde disponible";
+
+/*  */
+"home_budgets" = "Budgets";
+
+/*  */
+"home_expenses_of_month" = "Dépenses du mois";
+
+/*  */
+"home_incomes_of_month" = "Revenus du mois";
+
+/*  */
+"home_last_transactions" = "Dernières transactions";
 
 "home_screen_available_balance" = "Solde disponible";
 
@@ -619,6 +919,12 @@
 "home_screen_no_transaction" = "Créez votre première transaction !";
 
 "home_screen_title" = "Accueil";
+
+/*  */
+"home_see_all" = "Voir tout";
+
+/*  */
+"home_top_expenses_of_month" = "Top dépenses du mois";
 
 "login_apple" = "Se connecter avec Apple";
 
@@ -632,7 +938,13 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "name_first_transaction" = "Argent de départ";
 
 /*  */
+"navigation_bar_back_button" = "Retour";
+
+/*  */
 "no_internet_description" = "Il y a une erreur de connexion. Veuillez vérifier votre connexion internet.";
+
+/*  */
+"notification_apple_pay_payed" = "Tu as payé %@ à %@";
 
 /*  */
 "notification_one_week_later_message" = "Cela fait longtemps que nous ne t'avons pas vu !";
@@ -657,7 +969,7 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "onboarding_page_one_title" = "Gérez vos finances simplement.";
 
 /*  */
-"onboarding_page_three_description" = "Créez des plans d’épargne, définissez des budgets et suivez vos progrès en temps réel.";
+"onboarding_page_three_description" = "Créez des objectifs financiers, définissez des budgets et suivez vos progrès en temps réel.";
 
 /*  */
 "onboarding_page_three_extra_label" = "Un compte est requis pour utiliser CashFlow";
@@ -781,6 +1093,33 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 
 "paywall_title" = "Choisissez l'abonnement qui correspond à votre gestion financière.";
 
+/*  */
+"profile_appearance" = "Apparence";
+
+/*  */
+"profile_paywall" = "CashFlow Pro";
+
+/*  */
+"profile_preferences" = "Préférences";
+
+/*  */
+"profile_section_title_account_management" = "Gestion du compte";
+
+/*  */
+"profile_section_title_features" = "Fonctionnalités";
+
+/*  */
+"profile_section_title_help" = "Aides";
+
+/*  */
+"profile_section_title_others" = "Autres";
+
+/*  */
+"profile_section_title_privacy" = "Confidentialité";
+
+/*  */
+"profile_section_title_usage_and_display" = "Usage et affichage";
+
 "qrcode_recover_transactions" = "Retrouvez la transaction en ouvrant le menu +, le même menu que pour l'ajout d'une transaction. Vous trouverez ensuite le bouton permettant de scanner ce QRCode.";
 
 "qrcode_transactions_how" = "Comment récupérer cette transaction ?";
@@ -824,7 +1163,16 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "release_note_title" = "Note de mise à jour -";
 
 /*  */
+"repartition_needed" = "Besoins";
+
+/*  */
+"repartition_not_defined" = "Non défini";
+
+/*  */
 "repartition_picker_title" = "Repartition";
+
+/*  */
+"repartition_savings" = "Épargnes";
 
 /*  */
 "repartition_type_needed" = "Besoins";
@@ -838,6 +1186,9 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 /*  */
 "repartition_type_wanted" = "Envies";
 
+/*  */
+"repartition_wanted" = "Envies";
+
 "sample_account_name" = "Compte de Théo";
 
 "sample_boite" = "Boite de nuit";
@@ -850,7 +1201,19 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 
 "sample_retrait" = "Retrait";
 
+/*  */
+"savings_account_detail_current_amount" = "Montant actuel";
+
+/*  */
+"savings_account_detail_max_amount" = "Montant max";
+
 "savings_account_total_savings" = "Épargne total";
+
+/*  */
+"savings_screen_financial_goals_title" = "Objectifs financiers";
+
+/*  */
+"savings_screen_savings_account_title" = "Comptes épargnes ";
 
 "savingsplan_detail_add_contribution" = "Ajouter une contribution";
 
@@ -893,6 +1256,9 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "savingsplans_for_home_no_savings_plan" = "Ajoutez votre premier plan d'épargne en appuyant sur le bouton +.";
 
 "savingsplans_for_home_title" = "Mes plans d'épargne";
+
+/*  */
+"search_bar_placeholder" = "Rechercher";
 
 "setting_account_card_limit_exceeds" = "Bloquer les dépenses";
 
@@ -1147,6 +1513,8 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 
 "sort_by_word" = "Trier par";
 
+"statistics_cashflow_chart_title" = "Flux de trésorerie";
+
 /*  */
 "statistics_chart_salary_missing" = "Configurer un salaire dans les paramètres";
 
@@ -1245,13 +1613,55 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "subcategory_wedding_birth" = "Mariage, Naissance";
 
 /*  */
+"subcription_need_to_pay_and_receive" = "Il te reste %@ à payer et %@ à recevoir";
+
+/*  */
+"subcription_only_need_to_pay" = "Il te reste %@ à payer";
+
+/*  */
+"subcription_only_need_to_receive" = "Il te reste %@ à recevoir";
+
+/*  */
+"subscription_coming_soon" = "A venir";
+
+/*  */
+"subscription_detail_frequency" = "Fréquence";
+
+/*  */
+"subscription_detail_next_transaction" = "Prochaine transaction";
+
+/*  */
+"subscription_detail_since" = "Depuis";
+
+/*  */
+"subscription_detail_total" = "Total";
+
+/*  */
+"subscription_detail_transactions" = "Transactions";
+
+/*  */
 "subscription_first_subscription" = "Première souscription";
 
 /*  */
-"subscription_next_transaction" = "Prochaine transaction";
+"subscription_number_of_transactions" = "Nombre de transactions";
 
 /*  */
-"subscription_number_of_transactions" = "Nombre de transactions";
+"subscription_only_paid" = "Tu as déjà payé %@";
+
+/*  */
+"subscription_only_received" = "Tu as déjà reçu %@";
+
+/*  */
+"subscription_paid_and_received" = "Tu as déjà payé %@ et reçu %@";
+
+/*  */
+"subscription_past" = "Passé";
+
+/*  */
+"subscription_total_monthly" = "Total mensuel";
+
+/*  */
+"subscription_total_yearly" = "Total annuel";
 
 "successful_contribution_new_desc" = "Votre contribution a été traité et ajouté à votre plan d'épargne.";
 
@@ -1294,6 +1704,21 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "sync_fetching" = "Nous sommes entrain de récupérer vos données...";
 
 "sync_sorry_message" = "Désolé, nous n'avons pas pu récupérer vos données...";
+
+/*  */
+"tabbar_account_tab" = "Compte";
+
+/*  */
+"tabbar_analysis_tab" = "Analyses";
+
+/*  */
+"tabbar_home_tab" = "Accueil";
+
+/*  */
+"tabbar_savings_tab" = "Epargnes";
+
+/*  */
+"tabbar_subscriptions_tab" = "Abonnements";
 
 "temporality_in_two_days" = "Dans 2 jours";
 
@@ -1388,13 +1813,28 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 
 "transaction_detail_date" = "Date";
 
+/*  */
+"transaction_detail_link_to_subscription" = "Lié à un abonnement";
+
 "transaction_detail_note" = "Ajouter une note à cette transaction...";
+
+/*  */
+"transaction_detail_recommanded" = "Recommandé";
+
+/*  */
+"transaction_detail_repartition" = "Répartition";
+
+/*  */
+"transaction_detail_retrieve_by_apple_pay" = "Récupéré avec Apple Pay";
 
 "transaction_new" = "Nouvelle transaction";
 
 "transaction_placeholder_amount" = "0";
 
 "transaction_recommended_category" = "Catégorie recommandée";
+
+/*  */
+"transaction_screen_title" = "Transactions";
 
 "transaction_successful" = "Transaction créée";
 
@@ -1693,4 +2133,3 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 
 "word_yes" = "Oui";
 
-"notification_apple_pay_payed" = "Tu as payé %@ à %@";

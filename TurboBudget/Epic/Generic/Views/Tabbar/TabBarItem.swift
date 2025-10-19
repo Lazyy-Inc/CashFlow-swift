@@ -30,18 +30,18 @@ struct TabBarItem: View {
                 Text(title)
                     .fontWithLineHeight(.Label.large)
             }
-            .foregroundStyle(
-                appManager.selectedTab == tag
-                ? Color.label
-                : TKDesignSystem.Colors.Background.Theme.bg500
-            )
+//            .foregroundStyle(
+//                appManager.selectedTab == tag
+//                ? Color.label
+//                : TKDesignSystem.Colors.Background.Theme.bg500
+//            )
         })
 //        .frame(maxWidth: .infinity)
     } // body
     
     // MARK: - Functions
     func selectTab(_ tab: Int) {
-        appManager.selectedTab = tab
+//        appManager.selectedTab = tab
         appManager.isMenuPresented = false
         VibrationManager.vibration()
     }

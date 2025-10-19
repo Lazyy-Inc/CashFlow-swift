@@ -18,6 +18,7 @@ public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
     public var categoryID: Int
     public var subcategoryID: Int?
     public var firstSubscriptionDate: Date?
+    public var lastSubscriptionDate: Date?
     public var transactions: [TransactionModel]?
 
     // Initialiseur
@@ -31,6 +32,7 @@ public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
         categoryID: Int,
         subcategoryID: Int? = nil,
         firstSubscriptionDate: Date? = nil,
+        lastSubscriptionDate: Date? = nil,
         transactions: [TransactionModel]? = nil
     ) {
         self.id = id
@@ -42,6 +44,7 @@ public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
         self.categoryID = categoryID
         self.subcategoryID = subcategoryID
         self.firstSubscriptionDate = firstSubscriptionDate
+        self.lastSubscriptionDate = lastSubscriptionDate
         self.transactions = transactions
     }
     
