@@ -33,6 +33,16 @@ public final class AccountStore {
 
 public extension AccountStore {
     
+    var savingsAmount: Double {
+        return savingsAccounts
+            .map(\.balance)
+            .reduce(0, +)
+    }
+    
+}
+
+public extension AccountStore {
+    
     func findByID(_ id: Int?) -> AccountModel? {
         return self.allAccounts.first(where: { $0._id == id })
     }

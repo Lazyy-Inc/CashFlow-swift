@@ -23,6 +23,7 @@ let package = Package(
         .library(name: "CreditCardModule", targets: ["CreditCardModule"]),
         
         .library(name: "Home", targets: ["Home"]),
+        .library(name: "Savings", targets: ["Savings"]),
         .library(name: "Dashboard", targets: ["Dashboard"]),
         .library(name: "Statistics", targets: ["Statistics"])
     ],
@@ -79,6 +80,22 @@ let package = Package(
           swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "HomeTests", dependencies: ["Home"]),
+        
+        .target(
+            name: "Savings",
+            dependencies: [
+                "DesignSystem",
+                "Core",
+                "Mocks",
+                "Models",
+                "Stores",
+                "Navigation",
+                "SavingsPlanModule",
+                "SavingsAccountModule"
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(name: "SavingsTests", dependencies: ["Savings"]),
         
         .target(
           name: "Dashboard",

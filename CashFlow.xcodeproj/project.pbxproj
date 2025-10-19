@@ -40,6 +40,7 @@
 		D9B2F4812E929CB400CF5ABC /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = D9B2F4802E929CB400CF5ABC /* Repositories */; };
 		D9B2F4832E929CB800CF5ABC /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D9B2F4822E929CB800CF5ABC /* Persistence */; };
 		D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9D208042E315D5800FEE9FD /* PaywallModule */; };
+		D9DDD89E2EA509100015E0FB /* Savings in Frameworks */ = {isa = PBXBuildFile; productRef = D9DDD89D2EA509100015E0FB /* Savings */; };
 		D9F5C2222DB39458008267F5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D9F5C2212DB39458008267F5 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 				D976E44E2E689FB800D16DBE /* Statistics in Frameworks */,
 				D9084F452E615DF80077F9C5 /* Home in Frameworks */,
 				D968C1B02E50651E006BB17A /* AccountModule in Frameworks */,
+				D9DDD89E2EA509100015E0FB /* Savings in Frameworks */,
 				D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */,
 				D968C2322E54F3CA006BB17A /* SubcategoryModule in Frameworks */,
 				D9B2F4812E929CB400CF5ABC /* Repositories in Frameworks */,
@@ -219,6 +221,7 @@
 				D976E44D2E689FB800D16DBE /* Statistics */,
 				D9B2F4802E929CB400CF5ABC /* Repositories */,
 				D9B2F4822E929CB800CF5ABC /* Persistence */,
+				D9DDD89D2EA509100015E0FB /* Savings */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -735,6 +738,10 @@
 		D9D208042E315D5800FEE9FD /* PaywallModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PaywallModule;
+		};
+		D9DDD89D2EA509100015E0FB /* Savings */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Savings;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

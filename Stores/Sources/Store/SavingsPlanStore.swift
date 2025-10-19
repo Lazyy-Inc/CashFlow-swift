@@ -19,6 +19,16 @@ public final class SavingsPlanStore {
 }
 
 public extension SavingsPlanStore {
+    
+    var savingsAmount: Double {
+        return savingsPlans
+            .compactMap(\.currentAmount)
+            .reduce(0, +)
+    }
+    
+}
+
+public extension SavingsPlanStore {
   
   @MainActor
   func fetchSavingsPlans(accountID: Int) async {

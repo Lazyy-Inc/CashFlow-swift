@@ -17,6 +17,7 @@ import Stores
 import Dependencies
 
 import Home
+import Savings
 import Dashboard
 import Statistics
 import SubscriptionModule
@@ -71,7 +72,7 @@ struct RootScreen: View {
                             NavigationStackView(
                                 router: savingsRouter,
                                 destinationContent: { AppDestination.content(for: $0) },
-                                initialContent: { AccountDashboardScreen() }
+                                initialContent: { SavingsScreen() }
                             )
                             .tag(AppTabs.savings)
                             .toolbar(.hidden, for: .tabBar)

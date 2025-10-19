@@ -12,15 +12,19 @@ import Core
 import Models
 import Mocks
 
-struct SavingsAccountRowView: View {
+public struct SavingsAccountRowView: View {
     
     // Builder
     var savingsAccount: AccountModel
     
     let width = UIDevice.isIpad ? UIScreen.main.bounds.width / 4 - 16 : UIScreen.main.bounds.width / 2 - 16
     
+    public init(savingsAccount: AccountModel) {
+        self.savingsAccount = savingsAccount
+    }
+    
     // MARK: -
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .center) {
             HStack {
                 Rectangle()
