@@ -80,7 +80,7 @@ struct RootScreen: View {
                             NavigationStackView(
                                 router: analysisRouter,
                                 destinationContent: { AppDestination.content(for: $0) },
-                                initialContent: { AnalyticsScreen() }
+                                initialContent: { StatisticsScreen() }
                             )
                             .tag(AppTabs.analysis)
                             .toolbar(.hidden, for: .tabBar)
@@ -105,21 +105,12 @@ struct RootScreen: View {
                             }
                         }
                     } else {
-                        NavigationStackView(
-                            router: homeRouter,
-                            destinationContent: { AppDestination.content(for: $0) },
-                            initialContent: {
-                                CustomEmptyView(
-                                    type: .empty(.account),
-                                    isDisplayed: true
-                                )
+                        CFEmptyView(type: .noAccounts)
+                            .onAppear {
+                                if !appManager.isRoutersRegistered {
+                                    routerManager.register(router: homeRouter, for: .home)
+                                }
                             }
-                        )
-                        .onAppear {
-                            if !appManager.isRoutersRegistered {
-                                routerManager.register(router: homeRouter, for: .home)
-                            }
-                        }
                     }
                     
                     if !routerManager.isNavigationInProgress {
@@ -131,10 +122,8 @@ struct RootScreen: View {
                     }
                 }
                 .blur(radius: appManager.isMenuPresented ? 12 : 0)
-                .overlay {
-                    if appManager.isMenuPresented {
-                        CreationMenuView()
-                    }
+                .overlay(condition: appManager.isMenuPresented) {
+                    CreationMenuView()
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 .ignoresSafeArea(.keyboard)

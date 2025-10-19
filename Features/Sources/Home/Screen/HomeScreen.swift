@@ -43,8 +43,6 @@ public struct HomeScreen: View {
                 
                 HomeTopExpensesSectionView()
                 HomeLastTransactionsSectionView()
-                HomeScreenSubscriptionView()
-                HomeScreenSavingsPlanView()
             }
             .padding(.horizontal, Spacing.large)
             

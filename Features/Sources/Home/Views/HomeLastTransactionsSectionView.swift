@@ -25,20 +25,24 @@ struct HomeLastTransactionsSectionView: View {
     
     // MARK: - View
     var body: some View {
-        VStack(spacing: Spacing.medium) {
-            HomeSectionHeaderView(
-                title: "home_last_transactions".localized,
-                destination: .transaction(.list)
-            )
-            
-            ForEach(lastTransactions) { transaction in
-                NavigationButtonView(
-                    route: .push,
-                    destination: .transaction(.detail(transaction: transaction))
-                ) {
-                    TransactionRowView(transaction: transaction)
+        if lastTransactions.isNotEmpty {
+            VStack(spacing: Spacing.medium) {
+                HomeSectionHeaderView(
+                    title: "home_last_transactions".localized,
+                    destination: .transaction(.list)
+                )
+                
+                ForEach(lastTransactions) { transaction in
+                    NavigationButtonView(
+                        route: .push,
+                        destination: .transaction(.detail(transaction: transaction))
+                    ) {
+                        TransactionRowView(transaction: transaction)
+                    }
                 }
             }
+        } else {
+            CFEmptyView(type: .noTransactions)
         }
     }
     

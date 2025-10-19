@@ -20,7 +20,7 @@ public struct PlusButtonView: View {
     // MARK: - View
     public var body: some View {
         Button(action: action) {
-            IconSVG(icon: "iconPlus", value: .large)
+            IconSVG(icon: "iconPlus", value: .extraLarge)
                 .foregroundStyle(Color.white)
                 .padding(Spacing.medium)
                 .background(LinearGradient.main, in: Circle())
@@ -30,5 +30,5 @@ public struct PlusButtonView: View {
 
 // MARK: - Preview
 #Preview {
-    PlusButtonView() { }
+    PlusButtonView { }
 }

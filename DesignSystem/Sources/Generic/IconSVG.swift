@@ -18,6 +18,8 @@ public enum IconSVGValue: CGFloat {
     case medium = 20
     /// Value `24`
     case large = 24
+    /// Value `32`
+    case extraLarge = 32
 }
 
 public struct IconSVG: View {

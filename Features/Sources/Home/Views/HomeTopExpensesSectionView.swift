@@ -34,25 +34,22 @@ struct HomeTopExpensesSectionView: View {
     
     // MARK: - Views
     var body: some View {
-        if categories.isNotEmpty {
-            VStack(spacing: Spacing.medium) {
-                HomeSectionHeaderView(
-                    title: "home_top_expenses_of_month".localized,
-                    destination: .category(.list)
-                )
-                
-                ForEach(categories) { category in
-                    NavigationButtonView(
-                        route: .push,
-                        destination: .subcategory(.list(category: category, selectedDate: Date()))
-                    ) {
-                        CategoryRowView(category: category, selectedDate: Date())
-                    }
+        VStack(spacing: Spacing.medium) {
+            HomeSectionHeaderView(
+                title: "home_top_expenses_of_month".localized,
+                destination: .category(.list)
+            )
+            
+            ForEach(categories) { category in
+                NavigationButtonView(
+                    route: .push,
+                    destination: .subcategory(.list(category: category, selectedDate: Date()))
+                ) {
+                    CategoryRowView(category: category, selectedDate: Date())
                 }
             }
-        } else {
-            
         }
+        .isDisplayed(categories.isNotEmpty)
     }
     
 }
