@@ -37,7 +37,7 @@ struct SavingsAccountInfosView: View {
                     value: maxAmount.toCurrency()
                 )
                 
-                ProgressBar(percentage: savingsAccount.balance / maxAmount)
+                ProgressBarView(percentage: savingsAccount.balance / maxAmount)
                     .frame(height: rowHeight)
             }
         }

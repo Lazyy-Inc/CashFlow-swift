@@ -76,7 +76,7 @@ public struct SavingsPlanDetailScreen: View {
             VStack(spacing: 40) {
                 let amountContributed = contributionStore.getAmountOfContributions()
                 VStack(spacing: 8) {
-                    ProgressBar(percentage: currentSavingsPlan.percentageComplete)
+                    ProgressBarView(percentage: currentSavingsPlan.percentageComplete)
                         .frame(height: 48)
                     DetailRow(
                         icon: "iconCoins",

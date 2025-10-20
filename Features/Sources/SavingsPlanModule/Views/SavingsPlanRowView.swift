@@ -31,8 +31,8 @@ public struct SavingsPlanRowView: View {
 
     // MARK: -
     public var body: some View {
-        VStack {
-            HStack {
+        VStack(spacing: Spacing.standard) {
+            HStack(spacing: Spacing.small) {
                 Rectangle()
                     .frame(width: 40, height: 40)
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg200)
@@ -42,30 +42,42 @@ public struct SavingsPlanRowView: View {
                             .font(.system(size: 24, weight: .semibold, design: .rounded))
                     }
                 
-                Spacer()
-                
+                Text(savingsPlan.name ?? "")
+                    .fontWithLineHeight(.Body.medium)
+                    .foregroundStyle(Color.label)
+                    .lineLimit(1)
+                    .fullWidth(.leading)
+                                
                 Image("iconArrowRight")
                     .renderingMode(.template)
                     .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
             }
-                        
-            VStack(spacing: 0) {
-                Text("\((savingsPlan.currentAmount ?? 0).toCurrency())")
-                    .fontWithLineHeight(.Title.large)
-                    .foregroundStyle(Color.label)
-                Text("/ \((savingsPlan.goalAmount ?? 0).toCurrency())")
-                    .fontWithLineHeight(.Label.large)
-                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+            
+            VStack(spacing: Spacing.extraSmall) {
+                HStack(spacing: 0) {
+                    Text("\((savingsPlan.currentAmount ?? 0).toCurrency())")
+                        .fontWithLineHeight(.Body.small)
+                        .foregroundStyle(Color.label)
+                        .fullWidth(.leading)
+                    
+                    Text("/ \((savingsPlan.goalAmount ?? 0).toCurrency())")
+                        .fontWithLineHeight(.Body.small)
+                        .foregroundStyle(Color.Background.bg600)
+                        .fullWidth(.trailing)
+                }
+                
+                ProgressBarView(
+                    percentage: savingsPlan.percentageComplete,
+                    config: .init(
+                        backgroundColor: Color.Background.bg200,
+                        strokeColor: Color.Background.bg300
+                    )
+                )
+                .frame(height: 40)
             }
-            .frame(maxHeight: .infinity)
-                                   
-            Text(currentSavingsPlan.name ?? "")
-                .fontWithLineHeight(.Body.medium)
-                .foregroundStyle(Color.label)
-                .lineLimit(1)
         }
+        .fullWidth()
         .padding(Padding.standard)
-        .aspectRatio(1, contentMode: .fit)
         .roundedRectangleBorder(
             TKDesignSystem.Colors.Background.Theme.bg100,
             radius: CornerRadius.standard,
@@ -79,7 +91,6 @@ public struct SavingsPlanRowView: View {
 #Preview {
     SavingsPlanRowView(savingsPlan: .mockClassicSavingsPlan)
         .environment(SavingsPlanStore.shared)
-        .frame(width: 180)
         .padding()
         .background(Color.Background.bg50)
 }
