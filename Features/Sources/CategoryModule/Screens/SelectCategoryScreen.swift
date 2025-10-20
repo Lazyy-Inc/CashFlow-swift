@@ -83,25 +83,23 @@ public struct SelectCategoryScreen: View {
                 Spacer()
             }
             .scrollIndicators(.hidden)
-            .overlay {
-                if !viewModel.searchText.isEmpty && viewModel.categoriesFiltered.isEmpty {
-                    VStack(spacing: 20) {
-                        Image("NoResults\(theme.nameNotLocalized.capitalized)")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .shadow(radius: 4, y: 4)
-                            .frame(width: UIDevice.isIpad
-                                   ? UIScreen.main.bounds.width / 3
-                                   : UIScreen.main.bounds.width / 1.5
-                            )
-                        
-                        Text("word_no_results".localized + " '\(viewModel.searchText)'")
-                            .font(.semiBoldText16())
-                            .multilineTextAlignment(.center)
-                    }
-                    .offset(y: -20)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .overlay(condition: !viewModel.searchText.isEmpty && viewModel.categoriesFiltered.isEmpty) {
+                VStack(spacing: 20) {
+                    Image("NoResults\(theme.nameNotLocalized.capitalized)")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .shadow(radius: 4, y: 4)
+                        .frame(width: UIDevice.isIpad
+                               ? UIScreen.main.bounds.width / 3
+                               : UIScreen.main.bounds.width / 1.5
+                        )
+                    
+                    Text("word_no_results".localized + " '\(viewModel.searchText)'")
+                        .font(.semiBoldText16())
+                        .multilineTextAlignment(.center)
                 }
+                .offset(y: -20)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .navigationTitle("what_category_title".localized)
             .navigationBarTitleDisplayMode(.large)

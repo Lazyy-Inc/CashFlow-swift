@@ -43,6 +43,7 @@ public struct SettingsScreen: View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
                 title: "setting_home_title".localized,
+                withDismiss: false,
                 placeholder: "word_search".localized,
                 searchText: $searchText
             )
@@ -78,7 +79,7 @@ public struct SettingsScreen: View {
             
             Rectangle()
                 .foregroundStyle(Color.clear)
-                .frame(height: 40)
+                .frame(height: 60)
         }
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
         .navigationBarBackButtonHidden(true)

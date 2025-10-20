@@ -59,10 +59,8 @@ struct TransactionsListScreen: View {
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
-        .overlay(alignment: .bottom) {
-            if isLoading {
-                CashFlowLoader()
-            }
+        .overlay(condition: isLoading) {
+            CashFlowLoader()
         }
         .animation(.smooth, value: transactionStore.transactions.count)
         .onChange(of: isLoading) { _, newValue in

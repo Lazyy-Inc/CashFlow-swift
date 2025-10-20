@@ -26,7 +26,6 @@ struct TurboBudgetApp: App {
     @StateObject private var appearanceManager = AppearanceManager()
     @StateObject private var purchasesManager = PurchasesManager()
     @StateObject private var alertManager: AlertManager = .shared
-//    @StateObject private var themeManager: ThemeManager = .shared
     @StateObject private var filterManager: FilterManager = .shared
     @StateObject private var successfullModalManager: SuccessfullModalManager = .shared
     @StateObject private var networkMonitor = NetworkMonitor()
@@ -101,7 +100,6 @@ struct TurboBudgetApp: App {
             .environmentObject(appearanceManager)
             .environmentObject(purchasesManager)
             .environmentObject(alertManager)
-//            .environmentObject(themeManager)
             .environmentObject(filterManager)
             .environmentObject(successfullModalManager)
             

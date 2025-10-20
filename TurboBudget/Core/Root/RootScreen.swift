@@ -117,6 +117,8 @@ struct RootScreen: View {
                         VStack(alignment: .trailing, spacing: Spacing.standard) {
                             PlusButtonView { appManager.isMenuPresented.toggle() }
                                 .padding(.trailing, Spacing.standard)
+                                .isDisplayed(appManager.selectedTab != .account)
+                            
                             TabbarView(selectedTab: $appManager.selectedTab)
                         }
                     }

@@ -55,18 +55,16 @@ public struct SubcategorySelectableRowView: View {
                 TKDesignSystem.Colors.Background.Theme.bg200,
                 radius: CornerRadius.standard
             )
-            .overlay(alignment: .topTrailing) {
-                if isSelected {
-                    ZStack {
-                        Circle()
-                            .frame(width: 25, height: 25)
-                            .foregroundStyle(theme.color)
-                        Image(systemName: "checkmark")
-                            .font(.system(size: 12, weight: .heavy, design: .rounded))
-                            .foregroundStyle(.white)
-                    }
-                    .padding(8)
+            .overlay(.topTrailing, condition: isSelected) {
+                ZStack {
+                    Circle()
+                        .frame(width: 25, height: 25)
+                        .foregroundStyle(theme.color)
+                    Image(systemName: "checkmark")
+                        .font(.system(size: 12, weight: .heavy, design: .rounded))
+                        .foregroundStyle(.white)
                 }
+                .padding(8)
             }
         }
     } // body

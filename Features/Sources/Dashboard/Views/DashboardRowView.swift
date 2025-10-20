@@ -48,14 +48,12 @@ struct DashboardRowView: View {
             strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
         )
         .opacity(config.isLocked ? 0.4 : 1)
-        .overlay {
-            if config.isLocked {
-                Image("iconDoorLocked")
-                    .resizable()
-                    .renderingMode(.template)
-                    .foregroundStyle(Color.label)
-                    .frame(width: 40, height: 40)
-            }
+        .overlay(condition: config.isLocked) {
+            Image("iconDoorLocked")
+                .resizable()
+                .renderingMode(.template)
+                .foregroundStyle(Color.label)
+                .frame(width: 40, height: 40)
         }
     } // body
 } // struct
