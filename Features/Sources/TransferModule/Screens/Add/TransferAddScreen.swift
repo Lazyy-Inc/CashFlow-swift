@@ -18,7 +18,7 @@ public struct TransferAddScreen: View {
     @StateObject private var viewModel: ViewModel
     
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     // init
     public init(receiverAccount: AccountModel? = nil) {
@@ -85,7 +85,7 @@ public struct TransferAddScreen: View {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(senderAccount.name)
                                     .font(.mediumText16())
-                                    .foregroundStyle(themeManager.theme.color)
+                                    .foregroundStyle(theme.color)
                                 Text((senderAccount.balance - amount).toCurrency())
                                     .font(.boldText18())
                                     .contentTransition(.numericText())
@@ -96,7 +96,7 @@ public struct TransferAddScreen: View {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(receiverAccount.name)
                                     .font(.mediumText16())
-                                    .foregroundStyle(themeManager.theme.color)
+                                    .foregroundStyle(theme.color)
                                 Text((receiverAccount.balance + amount).toCurrency())
                                     .font(.boldText18())
                                     .contentTransition(.numericText())

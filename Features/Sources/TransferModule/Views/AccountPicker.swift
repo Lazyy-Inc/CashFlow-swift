@@ -21,7 +21,7 @@ struct AccountPicker: View {
     @Binding var selected: AccountModel?
     
     @Dependency(\.accountStore) var accountStore: AccountStore
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     // MARK: -
     var body: some View {
@@ -41,7 +41,7 @@ struct AccountPicker: View {
                 Text(selected?.name ?? "")
             }
             .fullWidth(.trailing)
-            .tint(themeManager.theme.color)
+            .tint(theme.color)
             .padding(8)
             .roundedRectangleBorder(
                 TKDesignSystem.Colors.Background.Theme.bg100,

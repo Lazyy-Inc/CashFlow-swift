@@ -20,10 +20,11 @@ struct CustomTabBar: View {
     @EnvironmentObject private var creditCardStore: CreditCardStore
     
     @EnvironmentObject private var store: PurchasesManager
-    @EnvironmentObject private var themeManager: ThemeManager
     @EnvironmentObject private var alertManager: AlertManager
     @EnvironmentObject private var appManager: AppManager
     @EnvironmentObject private var successfullModalManager: SuccessfullModalManager
+    
+    @Environment(\.theme) private var theme
     
     // Environement
     @Environment(\.colorScheme) private var colorScheme
@@ -49,7 +50,7 @@ struct CustomTabBar: View {
             
             ZStack {
                 Circle()
-                    .foregroundStyle(themeManager.theme.color)
+                    .foregroundStyle(theme.color)
                     .frame(width: 80)
                 
                 Image(systemName: "plus")

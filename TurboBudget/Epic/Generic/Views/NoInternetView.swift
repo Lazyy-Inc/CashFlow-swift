@@ -11,12 +11,12 @@ import Core
 
 struct NoInternetView: View {
     
-    @EnvironmentObject var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     // MARK: -
     var body: some View {
         VStack(spacing: Spacing.large) {
-            Image("NoInternet" + themeManager.theme.nameNotLocalized.capitalized)
+            Image("NoInternet" + theme.nameNotLocalized.capitalized)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .shadow(radius: 4, y: 4)
@@ -35,5 +35,4 @@ struct NoInternetView: View {
 // MARK: - Preview
 #Preview {
     NoInternetView()
-        .environmentObject(ThemeManager.shared)
 }

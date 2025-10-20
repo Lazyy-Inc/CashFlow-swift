@@ -39,5 +39,4 @@ public struct SettingsAppearenceView: View {
 #Preview {
     SettingsAppearenceView()
         .environmentObject(AppearanceManager())
-        .environmentObject(ThemeManager())
 }

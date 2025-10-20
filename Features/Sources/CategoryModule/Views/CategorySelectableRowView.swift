@@ -20,7 +20,7 @@ struct CategorySelectableRowView: View {
     var action: () -> Void
     
     // MARK: Environments
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     // MARK: -
     var body: some View {
@@ -51,7 +51,7 @@ struct CategorySelectableRowView: View {
                     ZStack {
                         Circle()
                             .frame(width: 25, height: 25)
-                            .foregroundStyle(themeManager.theme.color)
+                            .foregroundStyle(theme.color)
                         Image(systemName: "checkmark")
                             .font(.system(size: 12, weight: .heavy, design: .rounded))
                             .foregroundStyle(.white)

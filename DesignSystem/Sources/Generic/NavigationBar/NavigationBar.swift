@@ -36,7 +36,7 @@ public struct NavigationBar: View {
     }
     
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     // MARK: -
     public var body: some View {
@@ -59,7 +59,7 @@ public struct NavigationBar: View {
                                 Text("word_return".localized)
                                     .fontWithLineHeight(.Body.medium)
                             }
-                            .glassButtonEffect()
+//                            .glassButtonEffect()
                         }
                         .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
                     }
@@ -77,7 +77,7 @@ public struct NavigationBar: View {
                             } else if let title = actionButton.title {
                                 Text(title)
                                     .fontWithLineHeight(.Body.large)
-                                    .foregroundStyle(themeManager.theme.color)
+                                    .foregroundStyle(theme.color)
                             }
                         }
                         .glassButtonEffect()
@@ -135,5 +135,4 @@ extension NavigationBar {
             action: { }
         )
     )
-    .environmentObject(ThemeManager.shared)
 }

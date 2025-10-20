@@ -19,7 +19,7 @@ public struct CustomDatePicker: View {
     @State private var isDatePickerShowing: Bool = false
     let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     public init(
         title: String,
@@ -60,11 +60,11 @@ public struct CustomDatePicker: View {
                     if onlyFutureDates {
                         DatePicker("", selection: $date, in: tomorrow..., displayedComponents: [.date])
                             .datePickerStyle(.graphical)
-                            .tint(themeManager.theme.color)
+                            .tint(theme.color)
                     } else {
                         DatePicker("", selection: $date, displayedComponents: [.date])
                             .datePickerStyle(.graphical)
-                            .tint(themeManager.theme.color)
+                            .tint(theme.color)
                     }
                 }
             }

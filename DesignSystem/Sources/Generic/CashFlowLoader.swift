@@ -10,7 +10,7 @@ import Core
 
 public struct CashFlowLoader: View {
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     public init() {}
     
@@ -21,7 +21,7 @@ public struct CashFlowLoader: View {
             .padding()
             .background(
                 Circle()
-                    .fill(themeManager.theme.color)
+                    .fill(theme.color)
             )
     } // body
 } // struct
@@ -29,5 +29,4 @@ public struct CashFlowLoader: View {
 // MARK: - Preview
 #Preview {
     CashFlowLoader()
-        .environmentObject(ThemeManager.shared)
 }

@@ -17,7 +17,7 @@ public struct GenericBarChart: View {
     var values: [Double]
     var amount: Double
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     public init(
         title: String,
@@ -57,7 +57,7 @@ public struct GenericBarChart: View {
                         x: .value("x", "\(index)"),
                         y: .value("y", value)
                     )
-                    .foregroundStyle(selectedDate.month == (index + 1) ? Color.blue.gradient : themeManager.theme.color.gradient)
+                    .foregroundStyle(selectedDate.month == (index + 1) ? Color.blue.gradient : theme.color.gradient)
                     .offset(x: 0, y: value > 0 ? -2 : 2)
                     .clipShape(
                         UnevenRoundedRectangle(
@@ -115,5 +115,4 @@ public struct GenericBarChart: View {
         values: [12, 34, 56, 42, 35, 0, 0, 0, 0, 0, 0, 0],
         amount: 340
     )
-    .environmentObject(ThemeManager.shared)
 }

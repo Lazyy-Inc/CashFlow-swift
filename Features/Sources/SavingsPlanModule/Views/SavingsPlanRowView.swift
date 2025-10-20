@@ -19,7 +19,6 @@ public struct SavingsPlanRowView: View {
     var savingsPlan: SavingsPlanModel
 
     // Environnement
-    @EnvironmentObject private var themeManager: ThemeManager
     @Dependency(\.savingsPlanStore) private var savingsPlanStore
     
     var currentSavingsPlan: SavingsPlanModel {
@@ -79,7 +78,6 @@ public struct SavingsPlanRowView: View {
 // MARK: - Preview
 #Preview {
     SavingsPlanRowView(savingsPlan: .mockClassicSavingsPlan)
-        .environmentObject(ThemeManager())
         .environment(SavingsPlanStore.shared)
         .frame(width: 180)
         .padding()

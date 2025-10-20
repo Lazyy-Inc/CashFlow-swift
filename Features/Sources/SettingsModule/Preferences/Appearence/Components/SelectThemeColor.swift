@@ -11,7 +11,7 @@ import Events
 
 struct SelectThemeColor: View {
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @StateObject private var themeManager: ThemeManager = .shared
     
     // MARK: -
     var body: some View {

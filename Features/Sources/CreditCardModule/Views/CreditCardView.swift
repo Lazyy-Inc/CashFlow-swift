@@ -133,5 +133,4 @@ struct CreditCardBackView: View {
 #Preview {
     CreditCardView(creditCard: .mock)
         .padding()
-        .environmentObject(ThemeManager.shared)
 }

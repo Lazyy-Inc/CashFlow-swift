@@ -15,7 +15,7 @@ struct HomeScreenComponentHeaderView: View {
     // Builder
     var type: HomeScreenComponentHeaderType
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     // MARK: -
     var body: some View {
@@ -28,7 +28,7 @@ struct HomeScreenComponentHeaderView: View {
                 
                 Image("iconArrowRight")
                     .renderingMode(.template)
-                    .foregroundStyle(themeManager.theme.color)
+                    .foregroundStyle(theme.color)
             }
         }
     } // body

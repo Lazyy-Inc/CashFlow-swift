@@ -12,15 +12,16 @@ public struct CircleWithCheckmark: View {
 
     // State or Binding Int, Float and Double
     @State private var scaleCheckmark: CGFloat = 0
-    @EnvironmentObject private var themeManager: ThemeManager
-
+    
+    @Environment(\.theme) private var theme
+    
     public init() { }
     
     // MARK: - Body
     public var body: some View {
         Circle()
             .frame(width: 100, height: 100)
-            .foregroundStyle(themeManager.theme.color)
+            .foregroundStyle(theme.color)
             .overlay {
                 Image(systemName: "checkmark")
                     .foregroundStyle(Color.white)

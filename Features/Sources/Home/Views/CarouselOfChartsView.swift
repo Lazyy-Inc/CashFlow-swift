@@ -19,8 +19,6 @@ struct CarouselOfChartsView: View {
     
     // Environment
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore
-
-    @EnvironmentObject private var themeManager: ThemeManager
     
     // State variables
     @State private var selectedChart: Int = 0

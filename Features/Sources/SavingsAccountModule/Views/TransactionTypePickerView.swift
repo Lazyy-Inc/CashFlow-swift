@@ -14,7 +14,7 @@ struct TransactionTypePickerView: View {
     // builder
     @Binding var selected: TransactionType
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     // MARK: -
     var body: some View {
@@ -43,7 +43,7 @@ struct TransactionTypePickerView: View {
                         .foregroundStyle(Color.Background.bg200)
                         .overlay(alignment: .leading) {
                             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                .foregroundStyle(themeManager.theme.color)
+                                .foregroundStyle(theme.color)
                                 .frame(width: itemSize)
                                 .offset(x: itemSize * CGFloat(selected.rawValue))
                                 .animation(.smooth, value: selected)

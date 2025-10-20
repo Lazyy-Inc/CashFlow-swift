@@ -216,5 +216,4 @@ extension TransactionDetailsScreen {
     TransactionDetailsScreen(transaction: .mockClassicTransaction)
   }
   .environmentObject(PurchasesManager())
-  .environmentObject(ThemeManager.shared)
 }

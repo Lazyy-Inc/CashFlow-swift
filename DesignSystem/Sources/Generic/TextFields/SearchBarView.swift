@@ -15,7 +15,7 @@ struct SearchBarView: View {
     var placeholder: String
     @Binding var searchText: String
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     @FocusState private var isFocused: Bool
     
@@ -36,7 +36,7 @@ struct SearchBarView: View {
                 .resizable()
                 .renderingMode(.template)
                 .frame(width: 20, height: 20)
-                .foregroundStyle(isSearching ? themeManager.theme.color : TKDesignSystem.Colors.Background.Theme.bg500)
+                .foregroundStyle(isSearching ? theme.color : TKDesignSystem.Colors.Background.Theme.bg500)
             
             TextField(placeholder, text: $searchText)
                 .focused($isFocused)
@@ -76,5 +76,4 @@ struct SearchBarView: View {
     SearchBarView("kn", searchText: .constant("kn"))
         .padding()
         .background(Color.blue)
-        .environmentObject(ThemeManager.shared)
 }

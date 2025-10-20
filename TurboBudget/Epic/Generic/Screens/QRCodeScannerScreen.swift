@@ -12,7 +12,7 @@ import Core
 struct QRCodeScannerScreen: View {
     
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     @State private var identityToken: String = ""
         
@@ -32,7 +32,7 @@ struct QRCodeScannerScreen: View {
                         .blendMode(.destinationOut)
                         .overlay {
                             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                .stroke(themeManager.theme.color, lineWidth: 4)
+                                .stroke(theme.color, lineWidth: 4)
                         }
                     
                     Text("TBL Scan QR Code")

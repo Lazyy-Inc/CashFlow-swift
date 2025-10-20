@@ -14,7 +14,7 @@ struct ThemeCell: View {
     var type: Appearance
     
     @EnvironmentObject var csManager: AppearanceManager
-    @EnvironmentObject private var themeManager: ThemeManager
+    @StateObject private var themeManager: ThemeManager = .shared
     
     // MARK: -
     var body: some View {
@@ -79,6 +79,5 @@ struct ThemeCell: View {
         ThemeCell(type: .dark)
     }
     .environmentObject(AppearanceManager())
-    .environmentObject(ThemeManager())
     .padding()
 }

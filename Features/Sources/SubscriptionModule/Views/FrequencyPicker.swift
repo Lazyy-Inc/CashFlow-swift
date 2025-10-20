@@ -15,7 +15,7 @@ struct FrequencyPicker: View {
     
     @Binding var selected: SubscriptionFrequency
         
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     // MARK: -
     var body: some View {
@@ -33,7 +33,7 @@ struct FrequencyPicker: View {
                 } label: {
                     Text(selected.name)
                 }
-                .tint(themeManager.theme.color)
+                .tint(theme.color)
                 .padding(8)
             }
             .roundedRectangleBorder(

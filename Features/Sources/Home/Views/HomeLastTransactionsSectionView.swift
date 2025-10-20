@@ -17,6 +17,8 @@ struct HomeLastTransactionsSectionView: View {
     // MARK: Dependencies
     @Dependency(\.transactionStore) private var transactionStore
     
+    @EnvironmentObject private var router: Router<AppDestination>
+    
     var lastTransactions: [TransactionModel] {
         let sortedTransactions = transactionStore.getTransactions(in: Date())
             .sorted { $0.date > $1.date }

@@ -14,7 +14,7 @@ public struct PageControl: View {
     var maxPages: Int
     var currentPage: Int
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     public init(maxPages: Int, currentPage: Int) {
         self.maxPages = maxPages
@@ -27,7 +27,7 @@ public struct PageControl: View {
             ForEach(0...(min(1, maxPages)), id: \.self) { index in
                 Circle()
                     .frame(width: 10, height: 10)
-                    .foregroundStyle(index == currentPage ? themeManager.theme.color : Color.Background.bg100)
+                    .foregroundStyle(index == currentPage ? theme.color : Color.Background.bg100)
             }
         }
     }

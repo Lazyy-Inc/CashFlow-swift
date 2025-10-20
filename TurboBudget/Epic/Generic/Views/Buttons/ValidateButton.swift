@@ -14,16 +14,16 @@ struct ValidateButton: View {
     var action: () -> Void
     var validate: Bool
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
 
     // MARK: -
     var body: some View {
         Button(action: action, label: {
             ZStack {
                 Capsule()
-                    .foregroundStyle(themeManager.theme.color)
+                    .foregroundStyle(theme.color)
                     .frame(height: UIDevice.isLittleIphone ? 50 : 60)
-                    .shadow(color: validate ? themeManager.theme.color : Color.clear, radius: validate ? 8 : 0)
+                    .shadow(color: validate ? theme.color : Color.clear, radius: validate ? 8 : 0)
                 HStack {
                     Spacer()
                     Text("word_validate".localized)

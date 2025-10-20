@@ -17,7 +17,7 @@ struct CreateButton: View {
     var isActive: Bool
     var action: () async -> Void
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
 
     // MARK: -
     var body: some View {
@@ -31,7 +31,7 @@ struct CreateButton: View {
                 .padding()
                 .background {
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(themeManager.theme.color)
+                        .fill(theme.color)
                 }
         })
         .disabled(!isActive)

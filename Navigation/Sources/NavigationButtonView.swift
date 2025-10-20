@@ -15,6 +15,7 @@ public struct NavigationButtonView<Label: View>: View {
     let destination: AppDestination
     let onDismiss: (() -> Void)?
     let onNavigate: (() -> Void)?
+    let withZoomTransition: Bool
     let label: () -> Label
 
     // MARK: Init
@@ -23,12 +24,14 @@ public struct NavigationButtonView<Label: View>: View {
         destination: AppDestination,
         onDismiss: (() -> Void)? = nil,
         onNavigate: (() -> Void)? = nil,
+        withZoomTransition: Bool = false,
         @ViewBuilder label: @escaping () -> Label
     ) {
         self.route = route
         self.destination = destination
         self.onDismiss = onDismiss
         self.onNavigate = onNavigate
+        self.withZoomTransition = withZoomTransition
         self.label = label
     }
 
@@ -39,6 +42,7 @@ public struct NavigationButtonView<Label: View>: View {
             destination: destination,
             onDismiss: onDismiss,
             onNavigate: onNavigate,
+            withZoomTransition: withZoomTransition,
             label: { label() }
         )
     }

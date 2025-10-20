@@ -5,8 +5,6 @@
 //  Created by Theo Sementa on 09/08/2025.
 //
 
-// TODO: Replace @EnvironmentObject private var themeManager: ThemeManager by @Environment(\.theme)
-
 import SwiftUI
 
 public final class ThemeManager: ObservableObject {

@@ -21,10 +21,10 @@ public struct SavingsPlanDetailScreen: View {
     // Builder
     var savingsPlan: SavingsPlanModel
     
-    // Environement
+    // Environement`
+    @Environment(\.theme) private var theme
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var store: PurchasesManager
-    @EnvironmentObject private var themeManager: ThemeManager
     
     @Dependency(\.savingsPlanStore) private var savingsPlanStore
     @Dependency(\.contributionStore) private var contributionStore
@@ -59,8 +59,8 @@ public struct SavingsPlanDetailScreen: View {
                 .overlay {
                     Circle()
                         .frame(width: 80, height: 80)
-                        .foregroundStyle(themeManager.theme.color)
-                        .shadow(color: themeManager.theme.color, radius: 4, y: 2)
+                        .foregroundStyle(theme.color)
+                        .shadow(color: theme.color, radius: 4, y: 2)
                         .overlay {
                             Text(currentSavingsPlan.emoji ?? "")
                                 .font(.system(size: 32, weight: .semibold, design: .rounded))

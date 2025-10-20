@@ -16,7 +16,7 @@ public struct ToolbarValidationButtonView: ToolbarContent {
     var isActive: Bool
     var action: () async -> Void
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     @State private var isLoading: Bool = false
     
@@ -45,7 +45,7 @@ public struct ToolbarValidationButtonView: ToolbarContent {
                 } else {
                     Text(type == .creation ? Word.Classic.create : Word.Classic.edit)
                         .font(.boldText16())
-                        .foregroundStyle(themeManager.theme.color)
+                        .foregroundStyle(theme.color)
                 }
             })
             .disabled(!isActive || isLoading)

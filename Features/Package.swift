@@ -36,7 +36,7 @@ let package = Package(
         .package(path: "../Navigation"),
         
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
-        .package(url: "https://github.com/theosementa/NavigationKit", branch: "2.0.3"),
+        .package(url: "https://github.com/theosementa/NavigationKit", branch: "2.0.6"),
         .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.4"),
         .package(url: "https://github.com/theosementa/NotificationKit", branch: "1.0.6"),
         .package(url: "https://github.com/theosementa/TheoKit", branch: "1.1.5"),

@@ -11,14 +11,14 @@ import Stores
 
 public struct EmptyCategoryData: View {
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     public init() {}
     
     // MARK: -
     public var body: some View {
         VStack(spacing: 16) {
-            Image("NoSpend\(themeManager.theme.nameNotLocalized)")
+            Image("NoSpend\(theme.nameNotLocalized)")
                 .resizable()
                 .scaledToFit()
                 .padding(.horizontal, 64)

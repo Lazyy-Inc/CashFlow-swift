@@ -20,7 +20,6 @@ import Stores
 public struct SavingsAccountDetailScreen: View {
     
     // Builder    
-    @EnvironmentObject private var themeManager: ThemeManager
     @EnvironmentObject private var transferStore: TransferStore
     @Dependency(\.accountStore) var accountStore: AccountStore
     @Dependency(\.savingsAccountStore) private var savingsAccountStore
@@ -143,6 +142,5 @@ public struct SavingsAccountDetailScreen: View {
 // MARK: - Preview
 #Preview {
     SavingsAccountDetailScreen()
-        .environmentObject(ThemeManager.shared)
         .environmentObject(TransferStore.shared)
 }

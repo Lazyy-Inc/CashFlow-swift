@@ -12,8 +12,8 @@ public struct ToolbarDismissButtonView: ToolbarContent {
     
     // Builder
     var action: () -> Void
-    
-    @EnvironmentObject private var themeManager: ThemeManager
+     
+    @Environment(\.theme) private var theme
     
     public init(action: @escaping () -> Void) {
         self.action = action
@@ -25,7 +25,7 @@ public struct ToolbarDismissButtonView: ToolbarContent {
             Button(action: action, label: {
                 Text("word_cancel".localized)
                     .font(.regularText16())
-                    .foregroundStyle(themeManager.theme.color)
+                    .foregroundStyle(theme.color)
             })
         }
     } // End body

@@ -18,9 +18,10 @@ struct CreationMenuView: View {
     @EnvironmentObject private var creditCardStore: CreditCardStore
     
     @EnvironmentObject private var store: PurchasesManager
-    @EnvironmentObject private var themeManager: ThemeManager
     @EnvironmentObject private var alertManager: AlertManager
     @EnvironmentObject private var appManager: AppManager
+    
+    @Environment(\.theme) private var theme
 
     @State private var isPresented: Bool = false
     
@@ -152,7 +153,7 @@ struct CreationMenuView: View {
                 }
             } label: {
                 Circle()
-                    .foregroundStyle(themeManager.theme.color)
+                    .foregroundStyle(theme.color)
                     .frame(width: 80)
                     .overlay {
                         Image(systemName: "xmark")

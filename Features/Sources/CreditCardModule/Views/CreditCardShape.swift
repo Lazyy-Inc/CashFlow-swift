@@ -10,12 +10,12 @@ import Core
 
 struct CreditCardShape: View {
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.theme) private var theme
     
     // MARK: -
     var body: some View {
         RoundedRectangle(cornerRadius: 16, style: .continuous)
-            .fill(themeManager.theme.color)
+            .fill(theme.color)
             .aspectRatio(1.58, contentMode: .fit)
             .overlay(alignment: .leading) {
                 GeometryReader { geo in
@@ -26,7 +26,7 @@ struct CreditCardShape: View {
                         topTrailingRadius: 200,
                         style: .continuous
                     )
-                    .fill(themeManager.theme.color.darker(by: 10))
+                    .fill(theme.color.darker(by: 10))
                     .frame(width: geo.size.width * 0.85)
                 }
             }
@@ -39,7 +39,7 @@ struct CreditCardShape: View {
                         topTrailingRadius: 200,
                         style: .continuous
                     )
-                    .fill(themeManager.theme.color.darker(by: 20))
+                    .fill(theme.color.darker(by: 20))
                     .frame(width: geo.size.width * 0.65)
                 }
             }
@@ -49,6 +49,5 @@ struct CreditCardShape: View {
 // MARK: - Preview
 #Preview {
     CreditCardShape()
-        .environmentObject(ThemeManager.shared)
         .padding()
 }

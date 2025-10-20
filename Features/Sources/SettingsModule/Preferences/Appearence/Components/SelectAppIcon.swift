@@ -10,7 +10,7 @@ import Core
 
 struct SelectAppIcon: View {
     
-    @EnvironmentObject private var themeManager: ThemeManager
+    @StateObject private var themeManager: ThemeManager = .shared
     
     @State private var selectedPeople: People = .serenaDeAraujo
     @State private var selectedIcon: Icon = Icon.findByImage(image: UIApplication.shared.alternateIconName) ?? .walletGreenLight
@@ -100,5 +100,4 @@ struct SelectAppIcon: View {
             .padding()
     }
     .background(Color.Background.bg50)
-    .environmentObject(ThemeManager())
 }
