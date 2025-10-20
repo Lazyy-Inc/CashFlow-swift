@@ -17,6 +17,7 @@ public struct SubscriptionDTO: Codable, Sendable {
     public var categoryID: Int?
     public var subcategoryID: Int?
     public var firstSubscriptionDate: String?
+    public var lastSubscriptionDate: String?
     public var transactions: [TransactionDTO]?
 
     // Initialiseur
@@ -30,6 +31,7 @@ public struct SubscriptionDTO: Codable, Sendable {
         categoryID: Int? = nil,
         subcategoryID: Int? = nil,
         firstSubscriptionDate: String? = nil,
+        lastSubscriptionDate: String? = nil,
         transactions: [TransactionDTO]? = nil
     ) {
         self.id = id
@@ -41,6 +43,7 @@ public struct SubscriptionDTO: Codable, Sendable {
         self.categoryID = categoryID
         self.subcategoryID = subcategoryID
         self.firstSubscriptionDate = firstSubscriptionDate
+        self.lastSubscriptionDate = lastSubscriptionDate
         self.transactions = transactions
     }
     
@@ -69,5 +72,6 @@ public struct SubscriptionDTO: Codable, Sendable {
         case typeNum = "type"
         case frequencyNum = "frequency"
         case firstSubscriptionDate
+        case lastSubscriptionDate
     }
 }

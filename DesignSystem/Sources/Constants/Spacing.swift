@@ -20,4 +20,6 @@ public struct Spacing {
     public static let large: CGFloat = 24
     /// `Value = 32`
     public static let extraLarge: CGFloat = 32
+    /// `Value = 120`
+    public static let tabbar: CGFloat = 120
 }

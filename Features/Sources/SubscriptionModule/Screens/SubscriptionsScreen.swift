@@ -8,6 +8,7 @@
 import SwiftUI
 import DesignSystem
 import Navigation
+import TransactionModule
 
 public struct SubscriptionsScreen: View {
     
@@ -25,24 +26,49 @@ public struct SubscriptionsScreen: View {
                     rightItem: .init(value: viewModel.totalMonthly.toCurrency(), text: "subscription_total_monthly".localized)
                 )
                 
+                NavigationButtonView(
+                    route: .push,
+                    destination: .subscription(.list)
+                ) {
+                    ClassicRowView(text: "subscription_list_of_subscriptions".localized)
+                }
+                
                 if !viewModel.subtitleToPay.isEmpty {
                     SubscriptionSectionView(
                         title: "subscription_coming_soon".localized,
-                        subtitle: viewModel.subtitleToPay,
-                        subscriptions: viewModel.subscriptionsToPay
-                    )
+                        subtitle: viewModel.subtitleToPay
+                    ) {
+                        ForEach(viewModel.subscriptionsToPay) { subscription in
+                            NavigationButtonView(
+                                route: .push,
+                                destination: .subscription(.detail(subscriptionId: subscription.id))
+                            ) {
+                                SubscriptionRowView(subscription: subscription)
+                            }
+                        }
+                    }
                 }
                 
                 if !viewModel.subtitlePaid.isEmpty {
                     SubscriptionSectionView(
                         title: "subscription_past".localized,
-                        subtitle: viewModel.subtitlePaid,
-                        subscriptions: viewModel.subscriptionsPaid
-                    )
+                        subtitle: viewModel.subtitlePaid
+                    ) {
+                        ForEach(viewModel.transactionsPaidBySubscriptions) { transaction in
+                            NavigationButtonView(
+                                route: .push,
+                                destination: .transaction(.detail(transaction: transaction))
+                            ) {
+                                TransactionRowView(transaction: transaction)
+                            }
+                        }
+                    }
                 }
             }
             .padding(Spacing.large)
         }
+        .scrollIndicators(.hidden)
+        .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
         .background(Color.Background.bg50)
     }
     

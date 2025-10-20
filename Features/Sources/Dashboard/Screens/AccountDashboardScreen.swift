@@ -106,43 +106,7 @@ public struct AccountDashboardScreen: View {
                                     alertManager.showPaywall(router: router)
                                 }
                             }
-                            
-                            NavigationButtonView(route: .push, destination: .savingsAccount(.list)) {
-                                DashboardRowView(
-                                    config: .init(
-                                        icon: "iconLandmark",
-                                        text: Word.Main.savingsAccounts
-                                    )
-                                )
-                            }
-                            
-                            NavigationButtonView(route: .push, destination: .transaction(.list)) {
-                                DashboardRowView(
-                                    config: .init(
-                                        icon: "iconWallet",
-                                        text: Word.Main.transactions
-                                    )
-                                )
-                            }
-                            
-                            NavigationButtonView(route: .push, destination: .subscription(.list)) {
-                                DashboardRowView(
-                                    config: .init(
-                                        icon: "iconClockRepeat",
-                                        text: Word.Main.subscriptions
-                                    )
-                                )
-                            }
-                            
-                            NavigationButtonView(route: .push, destination: .savingsPlan(.list)) {
-                                DashboardRowView(
-                                    config: .init(
-                                        icon: "iconPiggyBank",
-                                        text: Word.Main.savingsPlans
-                                    )
-                                )
-                            }
-                            
+
                             NavigationButtonView(route: .push, destination: .budget(.list)) {
                                 DashboardRowView(
                                     config: .init(

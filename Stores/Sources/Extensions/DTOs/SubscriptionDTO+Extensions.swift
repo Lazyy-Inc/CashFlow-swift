@@ -38,6 +38,7 @@ public extension SubscriptionDTO {
             categoryID: categoryID,
             subcategoryID: subcategoryID,
             firstSubscriptionDate: firstSubscriptionDate?.toDate(),
+            lastSubscriptionDate: lastSubscriptionDate?.toDate(),
             transactions: transactionModels
         )
     }

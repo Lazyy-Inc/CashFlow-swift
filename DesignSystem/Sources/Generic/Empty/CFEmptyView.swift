@@ -41,6 +41,7 @@ public struct CFEmptyView: View {
                 }
                 
                 Text(type.buttonTitle.localized)
+                    .fontWithLineHeight(.Label.large)
                     .foregroundStyle(Color.white)
                     .padding(.horizontal, Spacing.medium)
                     .padding(.vertical, Spacing.small)

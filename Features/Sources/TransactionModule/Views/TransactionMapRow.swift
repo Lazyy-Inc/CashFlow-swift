@@ -13,7 +13,6 @@ import DesignSystem
 import Models
 import Mocks
 
-@available(iOS 17.0, *)
 struct TransactionMapRow: View {
     
     // dependencies
@@ -41,6 +40,7 @@ struct TransactionMapRow: View {
         Map(initialPosition: cameraPosition) {
             Annotation(transaction.nameDisplayed, coordinate: coordinates) {
                 IconSVG(icon: systemImage, value: .standard)
+                    .foregroundStyle(Color.white)
                     .padding(6)
                     .background {
                         Circle()
@@ -50,16 +50,13 @@ struct TransactionMapRow: View {
         }
         .mapStyle(.standard(elevation: .realistic))
         .frame(height: 200)
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .clipShape(.rect(cornerRadius: CornerRadius.standard, style: .continuous))
+        .disabled(true)
     } // body
 } // struct
 
 // MARK: - Preview
 #Preview {
-    if #available(iOS 17.0, *) {
-        TransactionMapRow(transaction: .mockClassicTransaction)
-            .padding()
-    } else {
-        // Fallback on earlier versions
-    }
+    TransactionMapRow(transaction: .mockClassicTransaction)
+        .padding()
 }

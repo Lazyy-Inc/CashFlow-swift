@@ -16,7 +16,7 @@ final class CoreDataStack {
     
     private init() {
         persistentContainer = NSPersistentContainer(name: "CashFlow")
-        persistentContainer.loadPersistentStores { description, error in
+        persistentContainer.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Unable to load persistent stores: \(error)")
             }

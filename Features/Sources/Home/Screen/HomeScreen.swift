@@ -42,14 +42,12 @@ public struct HomeScreen: View {
                 )
                 
                 HomeTopExpensesSectionView()
+                
                 HomeLastTransactionsSectionView()
             }
             .padding(.horizontal, Spacing.large)
-            
-            Rectangle()
-                .frame(height: 120)
-                .opacity(0)
         }
+        .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
         .navigationBarTitleDisplayMode(.inline)
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
         .onAppear {

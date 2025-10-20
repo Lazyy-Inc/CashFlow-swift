@@ -23,15 +23,15 @@ public struct SavingsScreen: View {
     var columns: [GridItem] {
         if UIDevice.isIpad {
             return [
-                GridItem(spacing: Spacing.medium),
-                GridItem(spacing: Spacing.medium),
-                GridItem(spacing: Spacing.medium),
-                GridItem(spacing: Spacing.medium)
+                GridItem(spacing: Spacing.standard),
+                GridItem(spacing: Spacing.standard),
+                GridItem(spacing: Spacing.standard),
+                GridItem(spacing: Spacing.standard)
             ]
         } else {
             return [
-                GridItem(spacing: Spacing.medium),
-                GridItem(spacing: Spacing.medium)
+                GridItem(spacing: Spacing.standard),
+                GridItem(spacing: Spacing.standard)
             ]
         }
     }
@@ -42,8 +42,8 @@ public struct SavingsScreen: View {
     // MARK: - View
     public var body: some View {
         ScrollView {
-            VStack(spacing: Spacing.large) {
-                VStack(spacing: Spacing.medium) {
+            VStack(spacing: Spacing.extraLarge) {
+                VStack(spacing: Spacing.standard) {
                     Text("savings_screen_savings_account_title".localized + " - " + accountStore.savingsAmount.toCurrency())
                         .fontWithLineHeight(.Title.medium)
                         .fullWidth(.leading)
@@ -59,8 +59,11 @@ public struct SavingsScreen: View {
                         }
                     }
                 }
+                .emptyState(condition: accountStore.savingsAccounts.isEmpty) {
+                    CFEmptyView(type: .noSavingsAccounts)
+                }
                 
-                VStack(spacing: Spacing.medium) {
+                VStack(spacing: Spacing.standard) {
                     Text("savings_screen_financial_goals_title".localized + " - " + savingsPlanStore.savingsAmount.toCurrency())
                         .fontWithLineHeight(.Title.medium)
                         .fullWidth(.leading)
@@ -73,10 +76,15 @@ public struct SavingsScreen: View {
                         )
                     }
                 }
+                .emptyState(condition: savingsPlanStore.savingsPlans.isEmpty) {
+                    CFEmptyView(type: .noFinancialGoals)
+                }
             }
             .padding(Spacing.large)
         }
         .background(Color.Background.bg50)
+        .scrollIndicators(.hidden)
+        .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
     }
 }
 

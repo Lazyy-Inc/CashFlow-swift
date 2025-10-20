@@ -35,7 +35,7 @@ public struct SavingsPlanRowView: View {
             HStack(spacing: Spacing.small) {
                 Rectangle()
                     .frame(width: 40, height: 40)
-                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg200)
+                    .foregroundStyle(Color.Background.bg200)
                     .clipShape(RoundedRectangle(cornerRadius: CornerRadius.small, style: .continuous))
                     .overlay {
                         Text(currentSavingsPlan.emoji ?? "")
@@ -50,7 +50,7 @@ public struct SavingsPlanRowView: View {
                                 
                 Image("iconArrowRight")
                     .renderingMode(.template)
-                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                    .foregroundStyle(Color.Background.bg600)
             }
             
             VStack(spacing: Spacing.extraSmall) {
@@ -79,10 +79,10 @@ public struct SavingsPlanRowView: View {
         .fullWidth()
         .padding(Padding.standard)
         .roundedRectangleBorder(
-            TKDesignSystem.Colors.Background.Theme.bg100,
+            Color.Background.bg100,
             radius: CornerRadius.standard,
             lineWidth: 1,
-            strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
+            strokeColor: Color.Background.bg200
         )
     } // body
 } // struct

@@ -18,8 +18,9 @@ import Models
 
 public struct SubscriptionRowView: View {
     
-    // Builder
+    // MARK: Dependencies
     var subscription: SubscriptionModel
+    let isLastDateToDisplay: Bool
     
     @EnvironmentObject private var router: Router<AppDestination>
     @Dependency(\.subscriptionStore) private var subscriptionStore
@@ -28,8 +29,17 @@ public struct SubscriptionRowView: View {
         return subscriptionStore.subscriptions.first { $0.id == subscription.id } ?? subscription
     }
     
-    public init(subscription: SubscriptionModel) {
+    public init(subscription: SubscriptionModel, isLastDateToDisplay: Bool = false) {
         self.subscription = subscription
+        self.isLastDateToDisplay = isLastDateToDisplay
+    }
+    
+    var dateToDisplay: String {
+        if isLastDateToDisplay, let lastDate = subscription.lastSubscriptionDate {
+            lastDate.withTemporality
+        } else {
+            subscription.frequencyDate.withTemporality
+        }
     }
     
     // MARK: -
@@ -60,7 +70,7 @@ public struct SubscriptionRowView: View {
                             .foregroundStyle(subscription.color)
                             .lineLimit(1)
                         
-                        Text(subscription.frequencyDate.withTemporality)
+                        Text(dateToDisplay)
                             .font(TKDesignSystem.Fonts.Body.small)
                             .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
                             .lineLimit(1)

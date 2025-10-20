@@ -18,6 +18,8 @@ extension SubscriptionsScreen {
         @ObservationIgnored
         @Dependency(\.subscriptionStore) var subscriptionStore
         
+        @ObservationIgnored
+        @Dependency(\.transactionStore) var transactionStore
     }
     
 }
@@ -30,11 +32,10 @@ extension SubscriptionsScreen.ViewModel {
             .filter { $0.frequencyDate > Date() }
     }
     
-    var subscriptionsPaid: [SubscriptionModel] {
-        let subscriptionsOfTheMonth = subscriptionStore.getSubscriptions(in: .now)
-        return subscriptionsOfTheMonth
-            .filter { $0.lastSubscriptionDate != nil }
-            .filter { Date() > $0.lastSubscriptionDate! }
+    var transactionsPaidBySubscriptions: [TransactionModel] {
+        let transactionsOfTheMonth = transactionStore.getTransactions(in: Date())
+        return transactionsOfTheMonth
+            .filter { $0.isFromSubscription == true }
     }
     
     var totalAnnualy: Double {
@@ -95,8 +96,8 @@ extension SubscriptionsScreen.ViewModel {
     }
     
     var subtitlePaid: String {
-        let incomes = subscriptionsPaid.filter({ $0.type == .income })
-        let expenses = subscriptionsPaid.filter({ $0.type == .expense })
+        let incomes = transactionsPaidBySubscriptions.filter({ $0.type == .income })
+        let expenses = transactionsPaidBySubscriptions.filter({ $0.type == .expense })
         
         let incomesReceived = incomes.map(\.amount).reduce(0, +)
         let expensesPaid = expenses.map(\.amount).reduce(0, +)

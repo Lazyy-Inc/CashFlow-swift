@@ -10,12 +10,18 @@ import DesignSystem
 import Models
 import Navigation
 
-struct SubscriptionSectionView: View {
+struct SubscriptionSectionView<Content: View>: View {
     
     // MARK: Dependencies
     let title: String
     let subtitle: String
-    let subscriptions: [SubscriptionModel]
+    let content: () -> Content
+    
+    init(title: String, subtitle: String, content: @escaping () -> Content) {
+        self.title = title
+        self.subtitle = subtitle
+        self.content = content
+    }
     
     // MARK: - View
     var body: some View {
@@ -30,14 +36,7 @@ struct SubscriptionSectionView: View {
             }
             
             VStack(spacing: Spacing.small) {
-                ForEach(subscriptions) { subscription in
-                    NavigationButtonView(
-                        route: .push,
-                        destination: .subscription(.detail(subscriptionId: subscription.id))
-                    ) {
-                        SubscriptionRowView(subscription: subscription)
-                    }
-                }
+                content()
             }
         }
     }
@@ -47,7 +46,18 @@ struct SubscriptionSectionView: View {
 #Preview {
     SubscriptionSectionView(
         title: "A venir",
-        subtitle: "Il te reste 36,23 € à payer",
-        subscriptions: [.mockClassicSubscriptionExpense]
-    )
+        subtitle: "Il te reste 36,23 € à payer"
+    ) {
+        Group {
+            let subscriptions = [SubscriptionModel.mockClassicSubscriptionExpense]
+            ForEach(subscriptions) { subscription in
+                NavigationButtonView(
+                    route: .push,
+                    destination: .subscription(.detail(subscriptionId: subscription.id))
+                ) {
+                    SubscriptionRowView(subscription: subscription)
+                }
+            }
+        }
+    }
 }

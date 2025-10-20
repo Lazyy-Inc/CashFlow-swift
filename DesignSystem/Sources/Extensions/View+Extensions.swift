@@ -19,4 +19,13 @@ public extension View {
         }
     }
     
+    @ViewBuilder
+    func emptyState<T: View>(condition: Bool, content: @escaping () -> T) -> some View {
+        if condition {
+            content()
+        } else {
+            self
+        }
+    }
+    
 }

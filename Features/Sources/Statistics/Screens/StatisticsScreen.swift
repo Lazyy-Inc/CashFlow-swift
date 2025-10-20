@@ -89,11 +89,9 @@ public struct StatisticsScreen: View {
                         
                     }
                     .padding(Padding.large)
-                    
-                    Rectangle()
-                        .frame(height: 120)
-                        .opacity(0)
                 }
+                .scrollIndicators(.hidden)
+                .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
             } else {
                 CustomEmptyView(
                     type: .empty(.analytics),
