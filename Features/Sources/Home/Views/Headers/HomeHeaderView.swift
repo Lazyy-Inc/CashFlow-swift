@@ -86,12 +86,6 @@ extension HomeHeaderView {
                 .fontWithLineHeight(.Body.large)
                 .foregroundStyle(theme.color)
             }
-            .onChange(of: accountStore.selectedAccount?.id) {
-                if appManager.isStartDataLoaded {
-                    appManager.resetAllStoresData()
-                    Task { await appManager.loadStartData() }
-                }
-            }
         }
     }
     

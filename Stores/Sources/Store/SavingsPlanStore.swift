@@ -34,7 +34,7 @@ public extension SavingsPlanStore {
   func fetchSavingsPlans(accountID: Int) async {
       do {
           self.savingsPlans = try await SavingsPlanService.fetchAll(for: accountID)
-      } catch { NetworkService.handleError(error: error) }
+      } catch { await NetworkService.handleError(error: error) }
   }
   
   @discardableResult
@@ -46,7 +46,7 @@ public extension SavingsPlanStore {
           EventService.sendEvent(key: EventKeys.sacingsPlanCreated)
           return savingsPlan
       } catch {
-          NetworkService.handleError(error: error)
+          await NetworkService.handleError(error: error)
           return nil
       }
   }
@@ -59,7 +59,7 @@ public extension SavingsPlanStore {
               self.savingsPlans[index] = savingsPlan
               EventService.sendEvent(key: EventKeys.savingsPlanUpdated)
           }
-      } catch { NetworkService.handleError(error: error) }
+      } catch { await NetworkService.handleError(error: error) }
   }
   
   @MainActor
@@ -70,7 +70,7 @@ public extension SavingsPlanStore {
               self.savingsPlans.remove(at: index)
               EventService.sendEvent(key: EventKeys.savingsPlanDeleted)
           }
-      } catch { NetworkService.handleError(error: error) }
+      } catch { await NetworkService.handleError(error: error) }
   }
   
 }

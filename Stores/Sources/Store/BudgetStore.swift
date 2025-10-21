@@ -32,7 +32,7 @@ public extension BudgetStore {
     func fetchBudgets(accountID: Int) async {
         do {
             self.budgets = try await BudgetService.fetchAll(for: accountID)
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
     
     @discardableResult
@@ -44,7 +44,7 @@ public extension BudgetStore {
             EventService.sendEvent(key: EventKeys.budgetCreated)
             return budget
         } catch {
-            NetworkService.handleError(error: error)
+            await NetworkService.handleError(error: error)
             return nil
         }
     }
@@ -57,7 +57,7 @@ public extension BudgetStore {
                 self.budgets[index] = budget
                 EventService.sendEvent(key: EventKeys.budgetUpdated)
             }
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
     
     @MainActor
@@ -68,7 +68,7 @@ public extension BudgetStore {
                 self.budgets.remove(at: index)
                 EventService.sendEvent(key: EventKeys.budgetDeleted)
             }
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
 }
 

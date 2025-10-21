@@ -29,7 +29,7 @@ public extension ContributionStore {
           )
           self.contributions = contributions
           sortContributionsByDate()
-      } catch { NetworkService.handleError(error: error) }
+      } catch { await NetworkService.handleError(error: error) }
   }
   
   @discardableResult
@@ -50,7 +50,7 @@ public extension ContributionStore {
           
           return nil
       } catch {
-          NetworkService.handleError(error: error)
+          await NetworkService.handleError(error: error)
           return nil
       }
   }
@@ -70,7 +70,7 @@ public extension ContributionStore {
                   EventService.sendEvent(key: EventKeys.contributionUpdated)
               }
           }
-      } catch { NetworkService.handleError(error: error) }
+      } catch { await NetworkService.handleError(error: error) }
   }
   
   @MainActor
@@ -85,7 +85,7 @@ public extension ContributionStore {
           }
           self.contributions.removeAll(where: { $0.id == contributionID })
           EventService.sendEvent(key: EventKeys.contributionDeleted)
-      } catch { NetworkService.handleError(error: error) }
+      } catch { await NetworkService.handleError(error: error) }
   }
   
 }

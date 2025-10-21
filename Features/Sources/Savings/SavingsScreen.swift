@@ -85,6 +85,10 @@ public struct SavingsScreen: View {
         .background(Color.Background.bg50)
         .scrollIndicators(.hidden)
         .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
+        .onAppear {
+            print("🔥 COUCOU")
+            // TODO: Faire le fetch SavingsPlans
+        }
     }
 }
 

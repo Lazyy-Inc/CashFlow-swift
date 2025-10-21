@@ -21,7 +21,9 @@ public struct HomeScreen: View {
     @EnvironmentObject private var router: Router<AppDestination>
     @EnvironmentObject private var purchasesManager: PurchasesManager
     @Dependency(\.transactionStore) private var transactionStore
+    @Dependency(\.accountStore) private var accountStore
     
+    @State private var viewModel: ViewModel = .init()
     @StateObject private var preferencesGeneral: PreferencesGeneral = .shared
     
     // Environment
@@ -37,8 +39,16 @@ public struct HomeScreen: View {
         } content: { _ in
             VStack(spacing: Spacing.large) {
                 TwoStatisticsRowView(
-                    leftItem: .init(value: incomesThisMonth, text: "home_incomes_of_month".localized, color: .primary500),
-                    rightItem: .init(value: expensesTshisMonth, text: "home_expenses_of_month".localized, color: .red)
+                    leftItem: .init(
+                        value: viewModel.incomesThisMonth,
+                        text: "home_incomes_of_month".localized,
+                        color: .primary500
+                    ),
+                    rightItem: .init(
+                        value: viewModel.expensesTshisMonth,
+                        text: "home_expenses_of_month".localized,
+                        color: .red
+                    )
                 )
                 
                 HomeTopExpensesSectionView()
@@ -50,6 +60,12 @@ public struct HomeScreen: View {
         .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
         .navigationBarTitleDisplayMode(.inline)
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .onChangeAsync(of: accountStore.selectedAccount) { _ in
+            await viewModel.loadHomeScreen()
+        }
+        .onViewDidLoad {
+            await viewModel.loadHomeScreen()
+        }
         .onAppear {
             preferencesGeneral.numberOfOpenings += 1
             if (preferencesGeneral.numberOfOpenings % 6 == 0) && !preferencesGeneral.isApplePayEnabled {
@@ -70,27 +86,6 @@ public struct HomeScreen: View {
         }
     } // body
 } // struct
-
-// MARK: - Utils
-extension HomeScreen {
-    
-    var incomesThisMonth: String {
-        let incomes = transactionStore.getIncomes(in: .now)
-            .map(\.amount)
-            .reduce(0, +)
-        
-        return "+" + incomes.toCurrency()
-    }
-    
-    var expensesTshisMonth: String {
-        let expenses = transactionStore.getExpenses(in: .now)
-            .map(\.amount)
-            .reduce(0, +)
-        
-        return "-" + expenses.toCurrency()
-    }
-    
-}
 
 // MARK: - Preview
 #Preview {

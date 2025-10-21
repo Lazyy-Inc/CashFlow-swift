@@ -90,7 +90,7 @@ public extension AccountStore {
                 self.selectedAccount = self.accounts.sorted { $0.createdAt ?? .now < $1.createdAt ?? .now }.first
                 AccountPreferences.shared.mainAccountId = self.selectedAccount?._id ?? 0
             }
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
     
     @discardableResult
@@ -117,7 +117,7 @@ public extension AccountStore {
             }
             return account
         } catch {
-            NetworkService.handleError(error: error)
+            await NetworkService.handleError(error: error)
             return nil
         }
     }
@@ -140,7 +140,7 @@ public extension AccountStore {
                     self.savingsAccounts[index] = account
                 }
             }
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
     
     @MainActor
@@ -164,21 +164,21 @@ public extension AccountStore {
                 BudgetStore.shared.reset()
                 selectedAccount = nil
             }
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
     
     @MainActor
     func fetchCashFlow(accountID: Int, year: Int) async {
         do {
             self.cashflow = try await AccountService.fetchCashFlow(id: accountID, year: year)
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
     
     @MainActor
     func fetchStats(accountID: Int, withSavings: Bool) async {
         do {
             self.stats = try await AccountService.fetchStats(id: accountID, withSavings: withSavings)
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
   
 }

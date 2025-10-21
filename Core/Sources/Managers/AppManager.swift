@@ -26,89 +26,56 @@ public final class AppManager: ObservableObject {
 }
 
 public extension AppManager {
- 
+    
     @MainActor
     func loadStartData() async {
-        let accountStore: AccountStore = .shared
+        if isStartDataLoaded == false {
+            @Dependency(\.accountStore) var accountStore
+            @Dependency(\.categoryStore) var categoryStore
+            
+            async let accountTask: () = accountStore.fetchAccounts()
+            async let categoryTask: () = categoryStore.fetchCategories()
+            
+            _ = await (accountTask, categoryTask)
+            
+            isStartDataLoaded = true
+        }
+    }
+    
+    func createTransactionsFromApplePay() async {
         @Dependency(\.transactionStore) var transactionStore: TransactionStore
-        let subscriptionStore: SubscriptionStore = .shared
-        let savingsPlanStore: SavingsPlanStore = .shared
-        @Dependency(\.budgetStore) var budgetStore
-        let creditCardStore: CreditCardStore = .shared
-        @Dependency(\.categoryStore) var categoryStore
         
-        let preferencesSubscription: SubscriptionPreferences = .shared
+        let transactionsFromApplePay = UserDefaultsManager.getArrayCodable(
+            key: .transactionFromApplePay,
+            as: TransactionDTO.self
+        )
         
-        await categoryStore.fetchCategories()
-        if let selectedAccount = accountStore.selectedAccount, let accountID = selectedAccount._id {
-            await transactionStore.fetchTransactionsOfCurrentMonth(accountID: accountID)
-            await subscriptionStore.fetchSubscriptions(accountID: accountID)
-            await savingsPlanStore.fetchSavingsPlans(accountID: accountID)
-            await budgetStore.fetchBudgets(accountID: accountID)
-            await creditCardStore.fetchCreditCards(accountID: accountID)
-                      
-            if preferencesSubscription.isNotificationsEnabled {
-                for subscription in subscriptionStore.subscriptions {
-                    await NotificationsManager.shared.scheduleNotification(
-                        for: .init(
-                            id: "\(subscription.id)",
-                            title: "CashFlow",
-                            message: NotificationsManager.notifMessage(for: subscription),
-                            date: NotificationsManager.dateNotif(for: subscription)
-                        ),
-                        daysBefore: preferencesSubscription.dayBeforeReceiveNotification
-                    )
+        guard !transactionsFromApplePay.isEmpty else { return }
+        
+        await withTaskGroup(of: Void.self) { group in
+            for transaction in transactionsFromApplePay {
+                guard let accountID = transaction.accountId else { continue }
+                
+                group.addTask {
+                    await transactionStore.createTransaction(accountId: accountID, body: transaction)
                 }
-                
-                await NotificationsManager.shared.removePendingNotification(for: "notification-oneWeekLater")
-                await NotificationsManager.shared.removePendingNotification(for: "notification-twoWeekLater")
-                
-                await NotificationsManager.shared.scheduleNotification(
-                    for: .init(
-                        id: "notification-oneWeekLater",
-                        title: "CashFlow",
-                        message: "notification_one_week_later_message".localized,
-                        date: Date().oneWeekLater
-                    ),
-                    daysBefore: 0
-                )
-                
-                await NotificationsManager.shared.scheduleNotification(
-                    for: .init(
-                        id: "notification-twoWeekLater",
-                        title: "CashFlow",
-                        message: "notification_two_week_later_message".localized,
-                        date: Date().twoWeekLater
-                    ),
-                    daysBefore: 0
-                )
             }
+            
+            await group.waitForAll()
+            UserDefaultsManager.delete(key: .transactionFromApplePay)
         }
     }
-  
-  func createTransactionsFromApplePay() async {
-    @Dependency(\.transactionStore) var transactionStore: TransactionStore
     
-    let transactionsFromApplePay = UserDefaultsManager.getArrayCodable(
-      key: .transactionFromApplePay,
-      as: TransactionDTO.self
-    )
+    @MainActor
+    func resetAllAccountData() {
+        @Dependency(\.transactionStore) var transactionStore
+        @Dependency(\.budgetStore) var budgetStore
+        @Dependency(\.subscriptionStore) var subscriptionStore
         
-    guard !transactionsFromApplePay.isEmpty else { return }
-    
-    await withTaskGroup(of: Void.self) { group in
-      for transaction in transactionsFromApplePay {
-        guard let accountID = transaction.accountId else { continue }
-        
-        group.addTask {
-          await transactionStore.createTransaction(accountId: accountID, body: transaction)
-        }
-      }
-      
-      await group.waitForAll()
-      UserDefaultsManager.delete(key: .transactionFromApplePay)
+        transactionStore.reset()
+        subscriptionStore.reset()
+        budgetStore.reset()
     }
-  }
     
     @MainActor
     func resetAllStoresData() {
@@ -125,7 +92,7 @@ public extension AppManager {
         budgetStore.reset()
         creditCardStore.reset()
         categoryStore.reset()
-      
+        
         NotificationsManager.shared.removeAllPendingNotifications()
     }
     

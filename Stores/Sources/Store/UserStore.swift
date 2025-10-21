@@ -36,7 +36,7 @@ public extension UserStore {
             self.currentUser = user
         } catch {
             self.currentUser = nil
-            NetworkService.handleError(error: error)
+            await NetworkService.handleError(error: error)
         }
     }
     
@@ -51,7 +51,7 @@ public extension UserStore {
         do {
             let updatedUser = try await UserService.update(body: body)
             self.currentUser = updatedUser
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
     
     @MainActor
@@ -62,6 +62,6 @@ public extension UserStore {
             )
             TokenManager.shared.setTokenAndRefreshToken(token: "", refreshToken: "")
             self.currentUser = nil
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
 }

@@ -24,7 +24,7 @@ public extension SubscriptionStore {
     do {
       self.subscriptions = try await SubscriptionService.fetchAll(for: accountID).map { try $0.toModel() }
       sortSubscriptionsByDate()
-    } catch { NetworkService.handleError(error: error) }
+    } catch { await NetworkService.handleError(error: error) }
   }
   
   @discardableResult
@@ -37,7 +37,7 @@ public extension SubscriptionStore {
       EventService.sendEvent(key: EventKeys.subscriptionCreated)
       return shouldReturn ? subscription : nil
     } catch {
-      NetworkService.handleError(error: error)
+      await NetworkService.handleError(error: error)
       return nil
     }
   }
@@ -54,7 +54,7 @@ public extension SubscriptionStore {
       }
       return subscription
     } catch {
-      NetworkService.handleError(error: error)
+      await NetworkService.handleError(error: error)
       return nil
     }
   }
@@ -67,7 +67,7 @@ public extension SubscriptionStore {
         self.subscriptions.remove(at: index)
         EventService.sendEvent(key: EventKeys.subscriptionDeleted)
       }
-    } catch { NetworkService.handleError(error: error) }
+    } catch { await NetworkService.handleError(error: error) }
   }
 }
 

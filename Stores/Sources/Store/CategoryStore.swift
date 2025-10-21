@@ -30,7 +30,7 @@ public extension CategoryStore {
         self.categories[index].subcategories = category.subcategories?.filter { $0.isVisible }
       }
       self.subcategories = categories.flatMap { $0.subcategories ?? [] }
-    } catch { NetworkService.handleError(error: error) }
+    } catch { await NetworkService.handleError(error: error) }
   }
   
 }

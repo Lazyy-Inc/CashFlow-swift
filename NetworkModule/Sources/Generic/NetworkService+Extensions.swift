@@ -10,10 +10,11 @@ import Banners
 
 public extension NetworkService {
     
-    @MainActor
-    static func handleError(error: Error) {
-        if let error = error as? NetworkError {
-            BannerManager.shared.banner = error.banner
+    static func handleError(error: Error) async {
+        await MainActor.run {
+            if let error = error as? NetworkError {
+                BannerManager.shared.banner = error.banner
+            }
         }
     }
     

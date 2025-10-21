@@ -31,7 +31,7 @@ public extension CreditCardStore {
           self.creditCards.append(creditCard)
         }
       }
-    } catch { NetworkService.handleError(error: error) }
+    } catch { await NetworkService.handleError(error: error) }
   }
   
   @MainActor
@@ -43,7 +43,7 @@ public extension CreditCardStore {
       )
       self.uuids.append(uuid)
       EventService.sendEvent(key: EventKeys.creditcardCreated)
-    } catch { NetworkService.handleError(error: error) }
+    } catch { await NetworkService.handleError(error: error) }
   }
   
   @MainActor
@@ -56,7 +56,7 @@ public extension CreditCardStore {
       self.creditCards.removeAll(where: { $0.uuid == cardID })
       KeychainManager.shared.deleteItemFromKeychain(id: cardID.uuidString)
       EventService.sendEvent(key: EventKeys.creditcardDeleted)
-    } catch { NetworkService.handleError(error: error) }
+    } catch { await NetworkService.handleError(error: error) }
   }
 }
 

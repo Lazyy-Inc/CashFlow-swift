@@ -79,11 +79,7 @@ struct TurboBudgetApp: App {
                             }
                         }
                         .task {
-                            if !appManager.isStartDataLoaded {
-                                await accountStore.fetchAccounts()
-                                await appManager.loadStartData()
-                                appManager.isStartDataLoaded = true
-                            }
+                            await appManager.loadStartData()
                         }
                     case .needLogin:
                         LoginBackScreen()

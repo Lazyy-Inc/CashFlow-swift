@@ -41,7 +41,7 @@ public extension TransferStore {
             ).map { try $0.toModel() }
             self.transfers += transfers
             sortTransfersByDate()
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
     
     @discardableResult
@@ -67,7 +67,7 @@ public extension TransferStore {
             EventService.sendEvent(key: EventKeys.transferCreated)
             return transfer
         } catch {
-            NetworkService.handleError(error: error)
+            await NetworkService.handleError(error: error)
             return nil
         }
     }
@@ -89,7 +89,7 @@ public extension TransferStore {
                 self.transfers.remove(at: index)
                 EventService.sendEvent(key: EventKeys.transferDeleted)
             }
-        } catch { NetworkService.handleError(error: error) }
+        } catch { await NetworkService.handleError(error: error) }
     }
     
 }
