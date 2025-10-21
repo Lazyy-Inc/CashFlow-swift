@@ -68,7 +68,7 @@ extension EmptyViewType {
     func action(router: Router<AppDestination>) {
         switch self {
         case .noAccounts:
-            router.present(route: .sheet, .account(.create))
+            router.push(.account(.create))
         case .noTransactions:
             router.push(.transaction(.create))
         case .noBudgets:

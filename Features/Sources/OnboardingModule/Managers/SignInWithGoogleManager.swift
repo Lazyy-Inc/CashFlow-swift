@@ -37,7 +37,7 @@ class SignInWithGoogleManager {
           apiBuilder: AuthAPIRequester.google(body: .init(identityToken: googleToken.tokenString)),
           responseModel: UserModel.self
         )
-        
+                  
         if let token = user.token, let refreshToken = user.refreshToken {
           TokenManager.shared.setTokenAndRefreshToken(token: token, refreshToken: refreshToken)
           UserStore.shared.currentUser = user

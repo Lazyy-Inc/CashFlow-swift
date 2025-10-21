@@ -18,7 +18,13 @@ extension HomeScreen {
     final class ViewModel {
         
         @ObservationIgnored
+        @Dependency(\.accountStore) var accountStore
+        
+        @ObservationIgnored
         @Dependency(\.transactionStore) var transactionStore
+        
+        var incomesThisMonth: String = "+" + 0.toCurrency()
+        var expensesThisMonth: String = "-" + 0.toCurrency()
         
     }
     
@@ -26,20 +32,20 @@ extension HomeScreen {
 
 extension HomeScreen.ViewModel {
     
-    var incomesThisMonth: String {
+    func getIncomesThisMonth() {
         let incomes = transactionStore.getIncomes(in: .now)
             .map(\.amount)
             .reduce(0, +)
         
-        return "+" + incomes.toCurrency()
+        self.incomesThisMonth =  "+" + incomes.toCurrency()
     }
     
-    var expensesTshisMonth: String {
+    func getExpensesThisMonth() {
         let expenses = transactionStore.getExpenses(in: .now)
             .map(\.amount)
             .reduce(0, +)
         
-        return "-" + expenses.toCurrency()
+        self.expensesThisMonth = "-" + expenses.toCurrency()
     }
     
 }
@@ -63,6 +69,9 @@ extension HomeScreen.ViewModel {
             _ = await (transactionsTask, budgetsTask, subscriptionsTask)
             
             await scheduleNotificationsOfSubscriptions()
+            
+            getExpensesThisMonth()
+            getIncomesThisMonth()
         }
     }
     

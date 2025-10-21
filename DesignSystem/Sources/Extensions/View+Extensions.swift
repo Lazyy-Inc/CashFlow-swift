@@ -10,21 +10,25 @@ import SwiftUI
 
 public extension View {
     
-    @ViewBuilder
-    func overlay<T: View>(_ alignment: Alignment = .center, condition: Bool, content: @escaping () -> T) -> some View {
-        if condition {
-            self.overlay(alignment: alignment, content: content)
-        } else {
-            self
+    func overlay<T: View>(
+        _ alignment: Alignment = .center,
+        condition: Bool,
+        @ViewBuilder content: () -> T
+    ) -> some View {
+        self.overlay(alignment: alignment) {
+            if condition { content() }
         }
     }
     
-    @ViewBuilder
-    func emptyState<T: View>(condition: Bool, content: @escaping () -> T) -> some View {
-        if condition {
-            content()
-        } else {
+    func emptyState<T: View>(
+        condition: Bool,
+        @ViewBuilder content: @escaping () -> T
+    ) -> some View {
+        ZStack {
             self
+            if condition {
+                content()
+            }
         }
     }
     

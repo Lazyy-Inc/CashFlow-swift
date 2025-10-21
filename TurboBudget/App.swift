@@ -43,7 +43,7 @@ struct TurboBudgetApp: App {
     @StateObject private var preferencesSecurity: PreferencesSecurity = .shared
     @StateObject private var preferencesGeneral: PreferencesGeneral = .shared
     @StateObject private var preferencesSubscription: SubscriptionPreferences = .shared
-        
+    
     // MARK: Init
     init() {
         SentrySDK.start { options in
@@ -55,91 +55,91 @@ struct TurboBudgetApp: App {
     // MARK: - View
     var body: some Scene {
         WindowGroup {
-            Group {
-                if !preferencesGeneral.isAlreadyOpen {
-                    OnboardingScreen()
-                } else {
-                    switch appManager.appState {
-                    case .idle:
-                        SplashScreenView()
-                    case .loading:
-                        SplashScreenView()
-                    case .success:
-                        Group {
-                            if preferencesSecurity.isSecurityReinforced {
-                                if scenePhase == .active {
-                                    RootScreen()
-                                } else {
-                                    Image("LaunchScreen")
-                                        .resizable()
-                                        .edgesIgnoringSafeArea([.bottom, .top])
-                                }
-                            } else {
-                                RootScreen()
-                            }
-                        }
-                        .task {
-                            await appManager.loadStartData()
-                        }
-                    case .needLogin:
-                        LoginBackScreen()
-                    case .noInternet:
-                        NoInternetView()
-                    }
+            appContentView()
+                .overlay(alignment: .bottom) {
+                    SuccessfullCreationView()
+                        .environmentObject(successfullModalManager)
                 }
-            }
-            .overlay(alignment: .bottom) {
-                SuccessfullCreationView()
-                    .environmentObject(successfullModalManager)
-            }
-            .environmentObject(appManager)
-            .environmentObject(appearanceManager)
-            .environmentObject(purchasesManager)
-            .environmentObject(alertManager)
-            .environmentObject(filterManager)
-            .environmentObject(successfullModalManager)
+                .environmentObject(appManager)
+                .environmentObject(appearanceManager)
+                .environmentObject(purchasesManager)
+                .environmentObject(alertManager)
+                .environmentObject(filterManager)
+                .environmentObject(successfullModalManager)
             
-            .environmentObject(userStore)
-            .environmentObject(transferStore)
-            .environmentObject(creditCardStore)
+                .environmentObject(userStore)
+                .environmentObject(transferStore)
+                .environmentObject(creditCardStore)
             
-            .preferredColorScheme(appearanceManager.appearance.colorScheme)
-            .alert(alertManager)
-            .task {
-                if !networkMonitor.isConnected {
-                    appManager.appState = .noInternet
-                    return
-                }
-                
-                await purchasesManager.loadProducts()
-                
-                do {
-                    try await userStore.loginWithToken()
-                    if let user = userStore.currentUser, user.isPremium == false, purchasesManager.isCashFlowPro {
-                        await UserStore.shared.update(body: .init(isPremium: true))
-                    }
-                    appManager.appState = .success
-                } catch {
-                    appManager.appState = .needLogin
-                }
-            }
-            .onChange(of: networkMonitor.isConnected) { _, newValue in
-                Task {
-                    if newValue {
-                        try await userStore.loginWithToken()
-                        appManager.appState = .success
-                    } else {
+                .preferredColorScheme(appearanceManager.appearance.colorScheme)
+                .alert(alertManager)
+                .task {
+                    if !networkMonitor.isConnected {
                         appManager.appState = .noInternet
+                        return
+                    }
+                    
+                    await purchasesManager.loadProducts()
+                    
+                    do {
+                        try await userStore.loginWithToken()
+                        if let user = userStore.currentUser, user.isPremium == false, purchasesManager.isCashFlowPro {
+                            await UserStore.shared.update(body: .init(isPremium: true))
+                        }
+                        appManager.appState = .success
+                    } catch {
+                        appManager.appState = .needLogin
                     }
                 }
-            }
-            .onAppear {
-                TKDesignSystem.fontBold = "Satoshi-Bold"
-                TKDesignSystem.fontMedium = "Satoshi-Medium"
-                TKDesignSystem.fontRegular = "Satoshi-Regular"
-                
-                EventService.initialize(projectName: "CashFlow", platform: "iOS")
-            }
+                .onChange(of: networkMonitor.isConnected) { _, newValue in
+                    Task {
+                        if newValue {
+                            try await userStore.loginWithToken()
+                            appManager.appState = .success
+                        } else {
+                            appManager.appState = .noInternet
+                        }
+                    }
+                }
+                .onAppear {
+                    TKDesignSystem.fontBold = "Satoshi-Bold"
+                    TKDesignSystem.fontMedium = "Satoshi-Medium"
+                    TKDesignSystem.fontRegular = "Satoshi-Regular"
+                    
+                    EventService.initialize(projectName: "CashFlow", platform: "iOS")
+                }
         }
     } // body
 } // struct
+
+extension TurboBudgetApp {
+    
+    @ViewBuilder
+    func appContentView() -> some View {
+        if !preferencesGeneral.isAlreadyOpen {
+            OnboardingScreen()
+        } else {
+            switch appManager.appState {
+            case .idle:
+                SplashScreenView()
+            case .loading:
+                SplashScreenView()
+            case .success:
+                RootScreen()
+                    .overlay(condition: preferencesSecurity.isSecurityReinforced && scenePhase != .active) {
+                        Image("LaunchScreen")
+                            .resizable()
+                            .edgesIgnoringSafeArea([.bottom, .top])
+                    }
+                    .task {
+                        await appManager.loadStartData()
+                    }
+            case .needLogin:
+                LoginBackScreen()
+            case .noInternet:
+                NoInternetView()
+            }
+        }
+    }
+    
+}

@@ -42,15 +42,7 @@ public extension TransactionStore {
     }
     
     func getExpenses(in month: Date? = nil) -> [TransactionModel] {
-        let startDate = Date()
-        let expenses = filterTransactions(filter: .init(month: month, type: .expense))
-        
-        defer {
-            let diff = Date().timeIntervalSince(startDate) * 1000
-            NSLog("🤖 getExpenses took \(diff) ms")
-        }
-        
-        return expenses
+        filterTransactions(filter: .init(month: month, type: .expense))
     }
     
     func getExpenses(for category: CategoryModel, in month: Date? = nil) -> [TransactionModel] {

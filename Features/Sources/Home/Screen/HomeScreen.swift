@@ -20,8 +20,6 @@ public struct HomeScreen: View {
         
     @EnvironmentObject private var router: Router<AppDestination>
     @EnvironmentObject private var purchasesManager: PurchasesManager
-    @Dependency(\.transactionStore) private var transactionStore
-    @Dependency(\.accountStore) private var accountStore
     
     @State private var viewModel: ViewModel = .init()
     @StateObject private var preferencesGeneral: PreferencesGeneral = .shared
@@ -45,7 +43,7 @@ public struct HomeScreen: View {
                         color: .primary500
                     ),
                     rightItem: .init(
-                        value: viewModel.expensesTshisMonth,
+                        value: viewModel.expensesThisMonth,
                         text: "home_expenses_of_month".localized,
                         color: .red
                     )
@@ -59,8 +57,12 @@ public struct HomeScreen: View {
         }
         .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
         .navigationBarTitleDisplayMode(.inline)
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
-        .onChangeAsync(of: accountStore.selectedAccount) { _ in
+        .background(Color.Background.bg50)
+        .onChange(of: viewModel.transactionStore.transactions) {
+            viewModel.getExpensesThisMonth()
+            viewModel.getIncomesThisMonth()
+        }
+        .onChangeAsync(of: viewModel.accountStore.selectedAccount?.id) { _ in
             await viewModel.loadHomeScreen()
         }
         .onViewDidLoad {

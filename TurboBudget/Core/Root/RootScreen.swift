@@ -52,63 +52,13 @@ struct RootScreen: View {
             if viewModel.isUnlocked {
                 ZStack(alignment: .bottom) {
                     if accountStore.selectedAccount != nil {
-                        TabView(selection: $appManager.selectedTab) {
-                            NavigationStackView(
-                                router: homeRouter,
-                                destinationContent: { AppDestination.content(for: $0) },
-                                initialContent: { HomeScreen() }
-                            )
-                            .tag(AppTabs.home)
-                            .toolbar(.hidden, for: .tabBar)
-                            
-                            NavigationStackView(
-                                router: subscriptionRouter,
-                                destinationContent: { AppDestination.content(for: $0) },
-                                initialContent: { SubscriptionsScreen() }
-                            )
-                            .tag(AppTabs.subscriptions)
-                            .toolbar(.hidden, for: .tabBar)
-                            
-                            NavigationStackView(
-                                router: savingsRouter,
-                                destinationContent: { AppDestination.content(for: $0) },
-                                initialContent: { SavingsScreen() }
-                            )
-                            .tag(AppTabs.savings)
-                            .toolbar(.hidden, for: .tabBar)
-                            
-                            NavigationStackView(
-                                router: analysisRouter,
-                                destinationContent: { AppDestination.content(for: $0) },
-                                initialContent: { StatisticsScreen() }
-                            )
-                            .tag(AppTabs.analysis)
-                            .toolbar(.hidden, for: .tabBar)
-
-                            NavigationStackView(
-                                router: accountRouter,
-                                destinationContent: { AppDestination.content(for: $0) },
-                                initialContent: { SettingsScreen() }
-                            )
-                            .tag(AppTabs.account)
-                            .toolbar(.hidden, for: .tabBar)
-                        }
-                        .onAppear {
-                            if !appManager.isRoutersRegistered {
-                                routerManager.resetRouters()
-                                routerManager.register(router: homeRouter, for: .home)
-                                routerManager.register(router: subscriptionRouter, for: .subscriptions)
-                                routerManager.register(router: savingsRouter, for: .savings)
-                                routerManager.register(router: analysisRouter, for: .analysis)
-                                routerManager.register(router: accountRouter, for: .account)
-                                appManager.isRoutersRegistered = true
-                            }
-                        }
+                        appContentView()
                     } else {
-                        CFEmptyView(type: .noAccounts)
+                        appContentWithBankAccountView()
                             .onAppear {
                                 if !appManager.isRoutersRegistered {
                                     routerManager.register(router: homeRouter, for: .home)
+                                    routerManager.register(router: accountRouter, for: .account)
                                 }
                             }
                     }
@@ -168,6 +118,89 @@ struct RootScreen: View {
         }
     } // body
 } // struct
+
+// MARK: - Subviews
+extension RootScreen {
+    
+    @ViewBuilder
+    func appContentView() -> some View {
+        TabView(selection: $appManager.selectedTab) {
+            NavigationStackView(
+                router: homeRouter,
+                destinationContent: { AppDestination.content(for: $0) },
+                initialContent: { HomeScreen() }
+            )
+            .tag(AppTabs.home)
+            .toolbar(.hidden, for: .tabBar)
+            
+            NavigationStackView(
+                router: subscriptionRouter,
+                destinationContent: { AppDestination.content(for: $0) },
+                initialContent: { SubscriptionsScreen() }
+            )
+            .tag(AppTabs.subscriptions)
+            .toolbar(.hidden, for: .tabBar)
+            
+            NavigationStackView(
+                router: savingsRouter,
+                destinationContent: { AppDestination.content(for: $0) },
+                initialContent: { SavingsScreen() }
+            )
+            .tag(AppTabs.savings)
+            .toolbar(.hidden, for: .tabBar)
+            
+            NavigationStackView(
+                router: analysisRouter,
+                destinationContent: { AppDestination.content(for: $0) },
+                initialContent: { StatisticsScreen() }
+            )
+            .tag(AppTabs.analysis)
+            .toolbar(.hidden, for: .tabBar)
+
+            NavigationStackView(
+                router: accountRouter,
+                destinationContent: { AppDestination.content(for: $0) },
+                initialContent: { SettingsScreen() }
+            )
+            .tag(AppTabs.account)
+            .toolbar(.hidden, for: .tabBar)
+        }
+        .onAppear {
+            if !appManager.isRoutersRegistered {
+                routerManager.resetRouters()
+                routerManager.register(router: homeRouter, for: .home)
+                routerManager.register(router: subscriptionRouter, for: .subscriptions)
+                routerManager.register(router: savingsRouter, for: .savings)
+                routerManager.register(router: analysisRouter, for: .analysis)
+                routerManager.register(router: accountRouter, for: .account)
+                appManager.isRoutersRegistered = true
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func appContentWithBankAccountView() -> some View {
+        if appManager.selectedTab == .account {
+            NavigationStackView(
+                router: accountRouter,
+                destinationContent: { AppDestination.content(for: $0) },
+                initialContent: { SettingsScreen() }
+            )
+        } else {
+            NavigationStackView(
+                router: homeRouter,
+                destinationContent: { AppDestination.content(for: $0) },
+                initialContent: {
+                    CFEmptyView(type: .noAccounts)
+                        .padding()
+                        .fullSize()
+                        .background(Color.Background.bg50)
+                }
+            )
+        }
+    }
+    
+}
 
 // MARK: - Preview
 #Preview {

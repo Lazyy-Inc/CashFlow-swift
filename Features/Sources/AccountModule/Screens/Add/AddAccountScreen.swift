@@ -61,7 +61,7 @@ public struct AddAccountScreen: View {
                     }
                 }
             )
-        } content: { _ in
+        } content: { _ in // TODO: Revoir les traductions
             VStack(spacing: 24) {
                 CustomTextField(
                     text: $viewModel.name,
