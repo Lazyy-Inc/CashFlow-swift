@@ -39,8 +39,7 @@ struct CreationMenuButton: View {
     var body: some View {
         Button {
             onPress()
-            AppManager.shared.selectedTab = .home
-            AppRouterManager.shared.router(for: .home)?.push(action.destination)
+            AppRouterManager.shared.router(for: AppManager.shared.selectedTab)?.push(action.destination)
         } label: {
             Label {
                 Text(action.title)

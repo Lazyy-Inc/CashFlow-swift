@@ -22,8 +22,13 @@ public struct SubscriptionsScreen: View {
         ScrollView {
             VStack(spacing: Spacing.large) {
                 TwoStatisticsRowView(
-                    leftItem: .init(value: viewModel.totalAnnualy.toCurrency(), text: "subscription_total_yearly".localized),
-                    rightItem: .init(value: viewModel.totalMonthly.toCurrency(), text: "subscription_total_monthly".localized)
+                    leftItem: .init(
+                        value: viewModel.totalAnnualy.toCurrency(),
+                        text: "subscription_total_yearly".localized),
+                    rightItem: .init(
+                        value: viewModel.totalMonthly.toCurrency(),
+                        text: "subscription_total_monthly".localized
+                    )
                 )
                 
                 NavigationButtonView(
@@ -70,6 +75,10 @@ public struct SubscriptionsScreen: View {
         .scrollIndicators(.hidden)
         .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
         .background(Color.Background.bg50)
+        .onLoadOrChange(of: viewModel.subscriptionStore.subscriptions) { _ in
+            viewModel.getTotalAnnualy()
+            viewModel.getTotalMonthly()
+        }
     }
     
 }

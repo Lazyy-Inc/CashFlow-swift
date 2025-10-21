@@ -58,15 +58,12 @@ public struct HomeScreen: View {
         .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
         .navigationBarTitleDisplayMode(.inline)
         .background(Color.Background.bg50)
-        .onChange(of: viewModel.transactionStore.transactions) {
+        .onLoadOrChange(of: viewModel.accountStore.selectedAccount?.id) { _ in
+            await viewModel.loadHomeScreen()
+        }
+        .onLoadOrChange(of: viewModel.transactionStore.transactions) { _ in
             viewModel.getExpensesThisMonth()
             viewModel.getIncomesThisMonth()
-        }
-        .onChangeAsync(of: viewModel.accountStore.selectedAccount?.id) { _ in
-            await viewModel.loadHomeScreen()
-        }
-        .onViewDidLoad {
-            await viewModel.loadHomeScreen()
         }
         .onAppear {
             preferencesGeneral.numberOfOpenings += 1

@@ -20,6 +20,9 @@ extension SubscriptionsScreen {
         
         @ObservationIgnored
         @Dependency(\.transactionStore) var transactionStore
+        
+        var totalAnnualy: Double = 0
+        var totalMonthly: Double = 0
     }
     
 }
@@ -38,7 +41,7 @@ extension SubscriptionsScreen.ViewModel {
             .filter { $0.isFromSubscription == true }
     }
     
-    var totalAnnualy: Double {
+    func getTotalAnnualy() {
         var amount: Double = 0
         for subscription in subscriptionStore.subscriptions {
             switch subscription.frequency {
@@ -50,10 +53,11 @@ extension SubscriptionsScreen.ViewModel {
                 amount += subscription.amount
             }
         }
-        return amount
+        
+        self.totalAnnualy = amount
     }
     
-    var totalMonthly: Double {
+    func getTotalMonthly() {
         var amount: Double = 0
         for subscription in subscriptionStore.subscriptions {
             switch subscription.frequency {
@@ -65,7 +69,7 @@ extension SubscriptionsScreen.ViewModel {
                 continue
             }
         }
-        return amount
+        self.totalMonthly = amount
     }
     
     var subtitleToPay: String {

@@ -32,4 +32,17 @@ public extension View {
         }
     }
     
+    func onLoadOrChange<T: Equatable>(
+        of value: T,
+        perform action: @escaping (_ newValue: T) async -> Void
+    ) -> some View {
+        self
+            .onViewDidLoad {
+                await action(value)
+            }
+            .onChangeAsync(of: value) { newValue in
+                await action(newValue)
+            }
+    }
+
 }

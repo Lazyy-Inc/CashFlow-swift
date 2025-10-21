@@ -69,9 +69,6 @@ extension HomeScreen.ViewModel {
             _ = await (transactionsTask, budgetsTask, subscriptionsTask)
             
             await scheduleNotificationsOfSubscriptions()
-            
-            getExpensesThisMonth()
-            getIncomesThisMonth()
         }
     }
     
