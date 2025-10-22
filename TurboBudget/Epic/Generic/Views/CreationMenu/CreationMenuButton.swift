@@ -8,6 +8,7 @@
 import SwiftUI
 import Navigation
 import Core
+import DesignSystem
 
 struct CreationMenuAction: Identifiable {
     let id = UUID()
@@ -49,6 +50,14 @@ struct CreationMenuButton: View {
                     .renderingMode(.template)
             }
             .foregroundStyle(Color.label)
+            .padding(.horizontal, Spacing.standard)
+            .padding(.vertical, Spacing.medium)
+            .roundedRectangleBorder(
+                Color.Background.bg100,
+                radius: CornerRadius.medium,
+                lineWidth: 1,
+                strokeColor: Color.Background.bg200
+            )
         }
         .disabled(action.isDisabled)
         .onTapGesture {

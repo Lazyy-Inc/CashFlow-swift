@@ -22,29 +22,56 @@ struct CreationMenuView: View {
     @EnvironmentObject private var appManager: AppManager
     
     @Environment(\.theme) private var theme
-
+    
     @State private var isPresented: Bool = false
     
     var router: Router<AppDestination>? {
         return AppRouterManager.shared.router(for: .home)
     }
     
+    // MARK: -
+    var body: some View {
+        VStack(alignment: .leading, spacing: 24) {
+            ForEach(Array(menuActions.enumerated()), id: \.offset) { index, action in
+                CreationMenuButton(action: action) {
+                    appManager.isMenuPresented = false
+                    VibrationManager.vibration()
+                }
+                .fullWidth(.leading)
+                .offset(y: isPresented ? 0 : 50)
+                .opacity(isPresented ? 1 : 0)
+                .animation(
+                    .spring(response: 0.3)
+                    .delay(Double(index) * 0.1),
+                    value: isPresented
+                )
+            }
+        }
+        .foregroundStyle(Color.label)
+        .padding()
+        .padding([.top, .leading])
+        .fullSize(alignment: .top)
+        .background(
+            Color.label.opacity(0.1)
+                .ignoresSafeArea()
+                .blur(radius: 10)
+                .onTapGesture {
+                    withAnimation {
+                        appManager.isMenuPresented = false
+                    }
+                }
+        )
+        .onAppear {
+            isPresented = true
+        }
+    } // body
+} // struct
+
+extension CreationMenuView {
+    
     private var menuActions: [CreationMenuAction] {
         if let router, accountStore.selectedAccount != nil {
             var actions: [CreationMenuAction] = [
-                CreationMenuAction(
-                    title: Word.Main.creditCard,
-                    icon: .iconCreditCard,
-                    destination: .creditCard(.create),
-                    isDisabled: !store.isCashFlowPro || !creditCardStore.creditCards.isEmpty,
-                    onTapAction: {
-                        if !store.isCashFlowPro {
-                            alertManager.showPaywall(router: router)
-                        } else if !creditCardStore.creditCards.isEmpty {
-                            alertManager.onlyOneCreditCardByAccount()
-                        }
-                    }
-                ),
                 CreationMenuAction(
                     title: Word.Main.savingsAccount,
                     icon: .iconLandmark,
@@ -100,15 +127,15 @@ struct CreationMenuView: View {
                 )
             ]
             
-            #if DEBUG
-            actions.append(
-                CreationMenuAction(
-                    title: "TBL Scan QRCode",
-                    icon: .iconPeage,
-                    destination: .shared(.qrCodeScanner)
-                )
-            )
-            #endif
+//#if DEBUG
+//            actions.append(
+//                CreationMenuAction(
+//                    title: "TBL Scan QRCode",
+//                    icon: .iconPeage,
+//                    destination: .shared(.qrCodeScanner)
+//                )
+//            )
+//#endif
             
             return actions
         } else {
@@ -122,58 +149,7 @@ struct CreationMenuView: View {
         }
     }
     
-    // MARK: -
-    var body: some View {
-        VStack {
-            VStack(alignment: .leading, spacing: 40) {
-                ForEach(Array(menuActions.enumerated()), id: \.offset) { index, action in
-                    CreationMenuButton(action: action) {
-                        appManager.isMenuPresented = false
-                        VibrationManager.vibration()
-                    }
-                    .offset(y: isPresented ? 0 : 50)
-                    .opacity(isPresented ? 1 : 0)
-                    .animation(
-                        .spring(response: 0.3)
-                        .delay(Double(index) * 0.1),
-                        value: isPresented
-                    )
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .foregroundStyle(Color.text)
-            .padding()
-            .padding([.top, .leading])
-            
-            Spacer()
-            
-            Button {
-                withAnimation(.smooth) {
-                    appManager.isMenuPresented = false
-                }
-            } label: {
-                Circle()
-                    .foregroundStyle(theme.color)
-                    .frame(width: 80)
-                    .overlay {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 30, weight: .medium, design: .rounded))
-                            .foregroundStyle(Color.textReversed)
-                    }
-            }
-            .padding(.bottom, 32)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(
-            Color.white
-                .opacity(0.1)
-                .blur(radius: 10)
-        )
-        .onAppear {
-            isPresented = true
-        }
-    } // body
-} // struct
+}
 
 // MARK: - Preview
 #Preview {
