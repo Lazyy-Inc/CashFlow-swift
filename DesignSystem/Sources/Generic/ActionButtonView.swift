@@ -10,6 +10,7 @@ import Core
 
 public enum ActionButtonStyle {
     case plain
+    case disabled
     
     public var backgroundColor: AnyShapeStyle {
         switch self {
@@ -19,6 +20,12 @@ public enum ActionButtonStyle {
                 startPoint: .top,
                 endPoint: .bottom
             ))
+        case .disabled:
+            return AnyShapeStyle(LinearGradient(
+                colors: [Color.primary500, Color.primary500.darker(by: 15)],
+                startPoint: .top,
+                endPoint: .bottom
+            ).opacity(0.3))
         }
     }
 }
@@ -61,4 +68,5 @@ public struct ActionButtonView: View {
 // MARK: - Preview
 #Preview {
     ActionButtonView(style: .plain, title: "Preview") { }
+    ActionButtonView(style: .disabled, title: "Preview") { }
 }

@@ -31,17 +31,17 @@ public extension SavingsPlanStore {
 public extension SavingsPlanStore {
   
   @MainActor
-  func fetchSavingsPlans(accountID: Int) async {
+  func fetchSavingsPlans() async {
       do {
-          self.savingsPlans = try await SavingsPlanService.fetchAll(for: accountID)
+          self.savingsPlans = try await SavingsPlanService.fetchAll()
       } catch { await NetworkService.handleError(error: error) }
   }
   
   @discardableResult
   @MainActor
-  func createSavingsPlan(accountID: Int, body: SavingsPlanModel) async -> SavingsPlanModel? {
+  func createSavingsPlan(body: SavingsPlanModel) async -> SavingsPlanModel? {
       do {
-          let savingsPlan = try await SavingsPlanService.create(accountID: accountID, body: body)
+          let savingsPlan = try await SavingsPlanService.create(body: body)
           self.savingsPlans.append(savingsPlan)
           EventService.sendEvent(key: EventKeys.sacingsPlanCreated)
           return savingsPlan

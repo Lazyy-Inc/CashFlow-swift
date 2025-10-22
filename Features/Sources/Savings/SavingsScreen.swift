@@ -48,7 +48,7 @@ public struct SavingsScreen: View {
                         .fontWithLineHeight(.Title.medium)
                         .fullWidth(.leading)
                     
-                    LazyVGrid(columns: columns, spacing: Spacing.medium) {
+                    LazyVGrid(columns: columns, spacing: Spacing.standard) {
                         ForEach(accountStore.savingsAccounts) { account in
                             NavigationButtonView(
                                 route: .push,
@@ -85,9 +85,8 @@ public struct SavingsScreen: View {
         .background(Color.Background.bg50)
         .scrollIndicators(.hidden)
         .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
-        .onAppear {
-            print("🔥 COUCOU")
-            // TODO: Faire le fetch SavingsPlans
+        .onViewDidLoad {
+            await savingsPlanStore.fetchSavingsPlans()
         }
     }
 }

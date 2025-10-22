@@ -11,16 +11,16 @@ import Models
 
 public struct SavingsPlanService {
   
-  public static func fetchAll(for accountID: Int) async throws -> [SavingsPlanModel] {
+  public static func fetchAll() async throws -> [SavingsPlanModel] {
     return try await NetworkService.sendRequest(
-      apiBuilder: SavingsPlanAPIRequester.fetch(accountID: accountID),
+      apiBuilder: SavingsPlanAPIRequester.fetch,
       responseModel: [SavingsPlanModel].self
     )
   }
   
-  public static func create(accountID: Int, body: SavingsPlanModel) async throws -> SavingsPlanModel {
+  public static func create(body: SavingsPlanModel) async throws -> SavingsPlanModel {
     return try await NetworkService.sendRequest(
-      apiBuilder: SavingsPlanAPIRequester.create(accountID: accountID, body: body),
+      apiBuilder: SavingsPlanAPIRequester.create(body: body),
       responseModel: SavingsPlanModel.self
     )
   }

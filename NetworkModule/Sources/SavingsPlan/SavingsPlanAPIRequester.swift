@@ -10,8 +10,8 @@ import NetworkKit
 import Models
 
 enum SavingsPlanAPIRequester: APIRequestBuilder {
-  case fetch(accountID: Int)
-  case create(accountID: Int, body: SavingsPlanModel)
+  case fetch
+  case create(body: SavingsPlanModel)
   case update(savingsplanID: Int, body: SavingsPlanModel)
   case delete(savingsplanID: Int)
 }
@@ -19,10 +19,14 @@ enum SavingsPlanAPIRequester: APIRequestBuilder {
 extension SavingsPlanAPIRequester {
   var path: String {
     switch self {
-    case .fetch(let accountID):             return NetworkPath.SavingsPlan.base(accountID: accountID)
-    case .create(let accountID, _):         return NetworkPath.SavingsPlan.base(accountID: accountID)
-    case .update(let savingsplanID, _):     return NetworkPath.SavingsPlan.update(id: savingsplanID)
-    case .delete(let savingsplanID):        return NetworkPath.SavingsPlan.delete(id: savingsplanID)
+    case .fetch:
+        return NetworkPath.SavingsPlan.base
+    case .create:
+        return NetworkPath.SavingsPlan.base
+    case .update(let savingsplanID, _):
+        return NetworkPath.SavingsPlan.update(id: savingsplanID)
+    case .delete(let savingsplanID):
+        return NetworkPath.SavingsPlan.delete(id: savingsplanID)
     }
   }
   
@@ -46,7 +50,7 @@ extension SavingsPlanAPIRequester {
   var body: Data? {
     switch self {
     case .fetch:                return nil
-    case .create(_, let body):  return try? JSONEncoder().encode(body)
+    case .create(let body):  return try? JSONEncoder().encode(body)
     case .update(_, let body):  return try? JSONEncoder().encode(body)
     case .delete:               return nil
     }

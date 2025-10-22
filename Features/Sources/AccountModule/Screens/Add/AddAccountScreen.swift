@@ -18,96 +18,85 @@ import Dependencies
 
 public struct AddAccountScreen: View {
     
-    // Builder
-    var type: AccountType
-    var account: AccountModel?
+    // MARK: States
+    @State private var viewModel: ViewModel
     
-    @StateObject private var viewModel: ViewModel
-    @Dependency(\.accountStore) var accountStore: AccountStore
-    
-    // Environment
+    // MARK: Environments
     @Environment(\.dismiss) private var dismiss
     
-    // init
+    // MARK: Init
     public init(type: AccountType, account: AccountModel? = nil) {
-        self.type = type
-        self.account = account
-        self._viewModel = StateObject(wrappedValue: .init(type: type, account: account))
+        self._viewModel = State(wrappedValue: .init(type: type, account: account))
     }
     
     // MARK: -
     public var body: some View {        
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
-                title: account == nil ? Word.Title.Account.new : Word.Title.Account.update,
-                actionButton: .init(
-                    title: account == nil ? Word.Classic.create : Word.Classic.edit,
-                    action: {
-                        NetworkService.cancelAllTasks()
-                        VibrationManager.vibration()
-                        if account == nil {
-                            await viewModel.createAccount(dismiss: dismiss)
-                        } else {
-                            await viewModel.updateAccount(dismiss: dismiss)
-                        }
-                    },
-                    isDisabled: !viewModel.isAccountValid()
-                ),
-                dismissAction: {
-                    if viewModel.isAccountInCreation() {
-                        viewModel.presentingConfirmationDialog.toggle()
-                    } else {
-                        dismiss()
-                    }
-                }
+                title: viewModel.navigationTitle,
+                dismissAction: { viewModel.dismissAction(dismiss: dismiss) }
             )
-        } content: { _ in // TODO: Revoir les traductions
+        } content: { _ in
             VStack(spacing: 24) {
                 CustomTextField(
                     text: $viewModel.name,
                     config: .init(
-                        title: "account_name".localized,
-                        placeholder: "account_placeholder_name".localized
+                        title: "create_account_field_name_title".localized,
+                        placeholder: viewModel.accountPlaceholder.localized
                     )
                 )
                 
-                if account == nil {
+                if viewModel.account == nil {
                     CustomTextField(
                         text: $viewModel.balance,
                         config: .init(
-                            title: "account_balance".localized,
-                            placeholder: "account_placeholder_balance".localized,
+                            title: "create_account_field_current_amount_title".localized,
+                            placeholder: viewModel.balancePlaceholder,
                             style: .amount
                         )
                     )
                 }
                 
-                if type == .savings {
+                if viewModel.type == .savings {
                     CustomTextField(
                         text: $viewModel.maxAmount,
                         config: .init(
                             title: Word.Classic.maxAmount,
-                            placeholder: "account_placeholder_maxAmount".localized,
+                            placeholder: viewModel.maxAmountPlaceholder,
                             style: .amount
                         )
                     )
                 }
             }
-            .padding(.horizontal, 24)
+            .padding(.horizontal, Spacing.large)
         }
-        .toolbar {
-            ToolbarDismissKeyboardButtonView()
+        .overlay(alignment: .bottom) {
+            ActionButtonView(
+                style: viewModel.isAccountValid() ? .plain : .disabled,
+                title: viewModel.actionButtonTitle
+            ) {
+                await viewModel.accountAction(dismiss: dismiss)
+            }
+            .padding(Spacing.large)
         }
-        .confirmationDialog("", isPresented: $viewModel.presentingConfirmationDialog) {
-            Button("word_cancel_changes".localized, role: .destructive, action: { dismiss() })
-            Button("word_return".localized, role: .cancel, action: { })
-        }
-        .background(TKDesignSystem.Colors.Background.Theme.bg50.ignoresSafeArea(.all))
+        .scrollDismissesKeyboard(.interactively)
+        .alert(
+            "confirmation_leave_form_title".localized,
+            isPresented: $viewModel.presentingConfirmationDialog,
+            actions: {
+                Button("confirmation_leave_form_destructive_button".localized, role: .destructive, action: { dismiss() })
+                Button("confirmation_leave_form_cancel_button".localized, role: .cancel, action: {})
+            },
+            message: {
+                Text("confirmation_leave_form_message".localized)
+            }
+        )
+        .background(Color.Background.bg50.ignoresSafeArea(.all))
         .navigationBarBackButtonHidden(true)
-    } // body
-} // struct
+    }
+}
 
 // MARK: - Preview
 #Preview {
-    AddAccountScreen(type: .savings)
+    AddAccountScreen(type: .classic)
 }

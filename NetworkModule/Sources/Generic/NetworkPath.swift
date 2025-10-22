@@ -92,9 +92,7 @@ public struct NetworkPath {
     }
     
     public struct SavingsPlan {
-        public static func base(accountID: Int) -> String {
-            return "/savingsplan/\(accountID)"
-        }
+        public static let base: String = "/savingsplan"
         public static func update(id: Int) -> String {
             return "/savingsplan/\(id)"
         }

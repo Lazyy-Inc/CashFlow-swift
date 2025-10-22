@@ -62,15 +62,11 @@ extension SavingPlansAddScreen.ViewModel {
     }
     
     func createSavingsPlan(dismiss: DismissAction) async {
-        let accountStore: AccountStore = .shared
         @Dependency(\.savingsPlanStore) var savingsPlanStore
         @Dependency(\.contributionStore) var contributionStore
         let successfullModalManager: SuccessfullModalManager = .shared
         
-        guard let account = accountStore.selectedAccount else { return }
-        guard let accountID = account._id else { return }
-        
-        if let savingsPlan = await savingsPlanStore.createSavingsPlan(accountID: accountID, body: bodyForCreation()) {
+        if let savingsPlan = await savingsPlanStore.createSavingsPlan(body: bodyForCreation()) {
             if let savingsPlanID = savingsPlan.id, savingPlanAmountOfStart.toDouble() != 0 {
                 await contributionStore.createContribution(
                     savingsplanID: savingsPlanID,
