@@ -74,7 +74,7 @@ public struct SavingsAccountDetailScreen: View {
 //                                if Calendar.current.isDate(transfer.date, equalTo: month, toGranularity: .month) {
                                     NavigationButtonView(
                                         route: .push,
-                                        destination: AppDestination.transaction(.detail(transaction: transfer))
+                                        destination: AppDestination.transaction(.detail(transactionId: transfer.id))
                                     ) {
                                         if transfer.type == .transfer {
                                             TransferRowView(transfer: transfer)

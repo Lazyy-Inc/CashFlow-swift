@@ -14,36 +14,32 @@ import Dependencies
 
 extension TransactionDetailsScreen {
     
-    class ViewModel: ObservableObject {
-        @Published var selectedCategory: CategoryModel?
-        @Published var selectedSubcategory: SubcategoryModel?
+    @Observable
+    class ViewModel {
+        var transactionId: Int
+        var transaction: TransactionModel?
         
-        @Published var bestCategory: CategoryModel?
-        @Published var bestSubcategory: SubcategoryModel?
+        var selectedCategory: CategoryModel?
+        var selectedSubcategory: SubcategoryModel?
         
-        @Published var note: String = ""
-      
+        var bestCategory: CategoryModel?
+        var bestSubcategory: SubcategoryModel?
+        
+        var currentReparitionType: RepartitionType = .notDefined
+        
+        @ObservationIgnored
+        @Dependency(\.accountStore) private var accountStore
+        
+        @ObservationIgnored
         @Dependency(\.categoryStore) private var categoryStore
-    }
-    
-}
-
-extension TransactionDetailsScreen.ViewModel {
-    
-    func updateTransaction(transactionID: Int?) {
-        guard let transactionID else { return }
         
-        let transactionStore: TransactionStore = .shared
-        let accountReposiotry: AccountStore = .shared
+        @ObservationIgnored
+        @Dependency(\.transactionStore) private var transactionStore
         
-        guard let account = accountReposiotry.selectedAccount, let accountID = account._id else { return }
-        
-        Task {
-            await transactionStore.updateTransaction(
-                accountId: accountID,
-                transactionId: transactionID,
-                body: .init(note: note)
-            )
+        init(transactionId: Int) {
+            self.transactionId = transactionId
+            self.transaction = transactionStore.transactions.first { $0.id == transactionId }
+            self.currentReparitionType = transaction?.repartitionType ?? .notDefined
         }
     }
     
@@ -51,11 +47,23 @@ extension TransactionDetailsScreen.ViewModel {
 
 // MARK: - Utils
 extension TransactionDetailsScreen.ViewModel {
-
+    
+    func updateRepartion(_ value: RepartitionType) {
+        guard let account = accountStore.selectedAccount, let accountID = account._id else { return }
+        
+        let body: TransactionDTO = .init(repartitionType: value.rawValue)
+        
+        Task {
+            await transactionStore.updateTransaction(
+                accountId: accountID,
+                transactionId: transactionId,
+                body: body
+            )
+        }
+    }
+    
     @MainActor
     func updateCategory(transactionID: Int) {
-        let accountStore: AccountStore = .shared
-        let transactionStore: TransactionStore = .shared
         guard let account = accountStore.selectedAccount, let accountID = account._id else { return }
         
         var body: TransactionDTO = .init()

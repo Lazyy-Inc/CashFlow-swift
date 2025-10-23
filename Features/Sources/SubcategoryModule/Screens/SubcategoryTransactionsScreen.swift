@@ -54,7 +54,7 @@ public struct SubcategoryTransactionsScreen: View {
                         ForEach(transactionsFiltered) { transaction in
                             NavigationButtonView(
                                 route: .push,
-                                destination: AppDestination.transaction(.detail(transaction: transaction))
+                                destination: AppDestination.transaction(.detail(transactionId: transaction.id))
                             ) {
                                 TransactionRowView(transaction: transaction)
                             }

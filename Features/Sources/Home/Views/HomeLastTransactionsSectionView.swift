@@ -37,7 +37,7 @@ struct HomeLastTransactionsSectionView: View {
                 ForEach(lastTransactions) { transaction in
                     NavigationButtonView(
                         route: .push,
-                        destination: .transaction(.detail(transaction: transaction))
+                        destination: .transaction(.detail(transactionId: transaction.id))
                     ) {
                         TransactionRowView(transaction: transaction)
                     }

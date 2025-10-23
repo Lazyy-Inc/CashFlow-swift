@@ -14,5 +14,5 @@ public enum TransactionDestination: DestinationItem {
     case specificList(month: Date, type: TransactionType)
     case create
     case update(transaction: TransactionModel)
-    case detail(transaction: TransactionModel)
+    case detail(transactionId: Int)
 }

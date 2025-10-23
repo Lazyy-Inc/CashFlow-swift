@@ -62,7 +62,7 @@ public struct SubscriptionsScreen: View {
                         ForEach(viewModel.transactionsPaidBySubscriptions) { transaction in
                             NavigationButtonView(
                                 route: .push,
-                                destination: .transaction(.detail(transaction: transaction))
+                                destination: .transaction(.detail(transactionId: transaction.id))
                             ) {
                                 TransactionRowView(transaction: transaction)
                             }

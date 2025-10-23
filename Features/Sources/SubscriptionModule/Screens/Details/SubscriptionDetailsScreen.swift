@@ -135,7 +135,7 @@ public struct SubscriptionDetailsScreen: View {
                                     ForEach(transactions.sorted(by: { $0.date > $1.date })) { transaction in
                                         NavigationButtonView(
                                             route: .push,
-                                            destination: AppDestination.transaction(.detail(transaction: transaction))
+                                            destination: AppDestination.transaction(.detail(transactionId: transaction.id))
                                         ) {
                                             TransactionRowView(transaction: transaction)
                                                 .padding(.bottom, Padding.medium)

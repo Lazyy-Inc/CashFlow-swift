@@ -107,8 +107,8 @@ extension AppDestination {
             AnyView(AddTransactionScreen())
         case .update(let transaction):
             AnyView(AddTransactionScreen(transaction: transaction))
-        case .detail(let transaction):
-            AnyView(TransactionDetailsScreen(transaction: transaction))
+        case .detail(let transactionId):
+            AnyView(TransactionDetailsScreen(transactionId: transactionId))
         }
     }
     
