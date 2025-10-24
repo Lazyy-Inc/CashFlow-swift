@@ -53,10 +53,10 @@ extension TransactionDetailsScreen.ViewModel {
         
         let body: TransactionDTO = .init(repartitionType: value.rawValue)
         
-        Task {
-            await transactionStore.updateTransaction(
+        Task.detached {
+            await self.transactionStore.updateTransaction(
                 accountId: accountID,
-                transactionId: transactionId,
+                transactionId: self.transactionId,
                 body: body
             )
         }

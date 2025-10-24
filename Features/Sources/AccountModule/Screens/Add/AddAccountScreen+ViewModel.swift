@@ -81,7 +81,7 @@ extension AddAccountScreen.ViewModel {
         }
     }
     
-    func accountAction(dismiss: DismissAction) async {
+    func validationAction(dismiss: DismissAction) async {
         NetworkService.cancelAllTasks()
         VibrationManager.vibration()
         if account == nil {

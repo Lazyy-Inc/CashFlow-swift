@@ -44,27 +44,8 @@ public struct AddTransactionScreen: View {
     public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
-                title: transaction == nil ? Word.Title.Transaction.new : Word.Title.Transaction.update,
-                actionButton: .init(
-                    title: transaction == nil ? Word.Classic.create : Word.Classic.edit,
-                    action: {
-                        NetworkService.cancelAllTasks()
-                        VibrationManager.vibration()
-                        if transaction == nil {
-                            await viewModel.createTransaction(dismiss: dismiss)
-                        } else {
-                            await viewModel.updateTransaction(dismiss: dismiss)
-                        }
-                    },
-                    isDisabled: !viewModel.validateTrasaction()
-                ),
-                dismissAction: {
-                    if viewModel.isTransactionInCreation() {
-                        viewModel.presentingConfirmationDialog.toggle()
-                    } else {
-                        dismissAction()
-                    }
-                }
+                title: viewModel.navigationTitle,
+                dismissAction: { viewModel.dismissAction(dismiss: dismiss) }
             )
         } content: { _ in
             VStack(spacing: 24) {
@@ -118,25 +99,23 @@ public struct AddTransactionScreen: View {
                 )
               }
             }
-            .padding(.horizontal, 24)
+            .padding(.horizontal, Spacing.large)
         }
-        .confirmationDialog("", isPresented: $viewModel.presentingConfirmationDialog) {
-            Button("word_cancel_changes".localized, role: .destructive, action: { dismissAction() })
-            Button("word_return".localized, role: .cancel, action: { })
+        .scrollDismissesKeyboard(.interactively)
+        .overlay(alignment: .bottom) {
+            ActionButtonView(
+                style: viewModel.isModelValid ? .plain : .disabled,
+                title: viewModel.actionButtonTitle
+            ) {
+                await viewModel.validationAction(dismiss: dismiss)
+            }
+            .padding(Spacing.large)
         }
-        .background(TKDesignSystem.Colors.Background.Theme.bg50.ignoresSafeArea(.all))
+        .ignoresSafeArea(.keyboard)
+        .alertLeaveForm(isPresented: $viewModel.isAlertLeavePresented)
+        .background(Color.Background.bg50.ignoresSafeArea(.all))
         .navigationBarBackButtonHidden(true)
-    }
-    
-    func dismissAction() {
-        if viewModel.isEditing {
-            EventService.sendEvent(key: EventKeys.transactionUpdateCanceled)
-        } else {
-            EventService.sendEvent(key: EventKeys.transactionCreationCanceled)
-        }
-        dismiss()
-    }
-    
+    }    
 }
 
 // MARK: - Preview

@@ -79,6 +79,7 @@ extension CreateTransactionForSavingsAccountScreen.ViewModel {
         if let transaction = await transactionStore.updateTransaction(
             accountId: accountID,
             transactionId: transactionID,
+            sortTransaction: true,
             body: bodyForCreation()
         ) {
             dismiss()

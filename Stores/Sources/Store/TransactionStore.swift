@@ -86,17 +86,23 @@ public extension TransactionStore {
     
     /// Create transaction and optionally return it
     @discardableResult
-    @MainActor
-    func updateTransaction(accountId: Int, transactionId: Int, body: TransactionDTO) async -> TransactionModel? {
+    func updateTransaction(
+        accountId: Int,
+        transactionId: Int,
+        sortTransaction: Bool = false,
+        body: TransactionDTO
+    ) async -> TransactionModel? {
         do {
             let response = try await TransactionService.update(transactionID: transactionId, body: body)
             
             if let transaction = try response.transaction?.toModel(), let newBalance = response.newBalance {
                 if let index = self.transactions.map(\.id).firstIndex(of: transaction.id) {
-                    self.transactions[index] = transaction
-                    sortTransactionsByDate()
-                    AccountStore.shared.setNewBalance(accountID: accountId, newBalance: newBalance)
-                    EventService.sendEvent(key: EventKeys.transactionUpdated)
+                    await MainActor.run {
+                        self.transactions[index] = transaction
+                        if sortTransaction { sortTransactionsByDate() }
+                        AccountStore.shared.setNewBalance(accountID: accountId, newBalance: newBalance)
+                        EventService.sendEvent(key: EventKeys.transactionUpdated)
+                    }
                     return transaction
                 }
             }

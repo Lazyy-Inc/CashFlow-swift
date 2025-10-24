@@ -75,7 +75,7 @@ public struct AddAccountScreen: View {
                 style: viewModel.isAccountValid() ? .plain : .disabled,
                 title: viewModel.actionButtonTitle
             ) {
-                await viewModel.accountAction(dismiss: dismiss)
+                await viewModel.validationAction(dismiss: dismiss)
             }
             .padding(Spacing.large)
         }

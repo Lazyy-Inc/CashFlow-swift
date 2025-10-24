@@ -11,10 +11,11 @@ import Core
 import Dependencies
 import Models
 import Stores
+import NetworkKit
 
 extension AddTransactionScreen {
     
-    final class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject, AddViewModel {
         
         var transaction: TransactionModel?
         
@@ -25,7 +26,7 @@ extension AddTransactionScreen {
         @Published var selectedSubcategory: SubcategoryModel?
         @Published var repartitionType: RepartitionType = .notDefined
         
-        @Published var presentingConfirmationDialog: Bool = false
+        @Published var isAlertLeavePresented: Bool = false
         
         let accountStore: AccountStore = .shared
         @Dependency(\.transactionStore) private var transactionStore: TransactionStore
@@ -81,6 +82,7 @@ extension AddTransactionScreen {
             if let transaction = await transactionStore.updateTransaction(
                 accountId: accountID,
                 transactionId: transactionID,
+                sortTransaction: true,
                 body: bodyForCreation()
             ) {
                 await dismiss()
@@ -88,6 +90,42 @@ extension AddTransactionScreen {
             }
         }
         
+    }
+    
+}
+
+// MARK: - Computed variables
+extension AddTransactionScreen.ViewModel {
+    
+    var navigationTitle: String {
+        return transaction == nil ? Word.Title.Transaction.new : Word.Title.Transaction.update
+    }
+    
+    var actionButtonTitle: String {
+        return transaction == nil ? Word.Classic.create : Word.Classic.edit
+    }
+    
+}
+
+// MARK: - Public functions
+extension AddTransactionScreen.ViewModel {
+    
+    func validationAction(dismiss: DismissAction) async {
+        NetworkService.cancelAllTasks()
+        VibrationManager.vibration()
+        if transaction == nil {
+            await createTransaction(dismiss: dismiss)
+        } else {
+            await updateTransaction(dismiss: dismiss)
+        }
+    }
+    
+    func dismissAction(dismiss: DismissAction) {
+        if isModelInCreation {
+            isAlertLeavePresented.toggle()
+        } else {
+            dismiss()
+        }
     }
     
 }
@@ -108,17 +146,18 @@ extension AddTransactionScreen.ViewModel {
 // MARK: - Verification
 extension AddTransactionScreen.ViewModel {
     
-    func isTransactionInCreation() -> Bool {
+    var isModelInCreation: Bool {
         if selectedCategory != nil || selectedSubcategory != nil || !transactionTitle.isEmpty || transactionAmount.toDouble() != 0 {
             return true
         }
         return false
     }
     
-    func validateTrasaction() -> Bool {
+    var isModelValid: Bool {
         if !transactionTitle.isBlank && transactionAmount.toDouble() != 0.0 && selectedCategory != nil {
             return true
         }
         return false
     }
+    
 }
