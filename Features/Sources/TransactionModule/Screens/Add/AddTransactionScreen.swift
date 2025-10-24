@@ -21,26 +21,26 @@ public struct AddTransactionScreen: View {
     // MARK: Dependencies
     var transaction: TransactionModel?
     
-    @StateObject private var viewModel: ViewModel
-    
+    // MARK: Environments
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var purchasesManager: PurchasesManager
     
-    @Dependency(\.accountStore) var accountStore: AccountStore
-    
+    // MARK: States
+    @State private var viewModel: ViewModel
+        
     // Enum
     enum Field: CaseIterable {
         case amount, title
     }
     @FocusState var focusedField: Field?
     
-    // init
+    // MARK: Init
     public init(transaction: TransactionModel? = nil) {
         self.transaction = transaction
-        self._viewModel = StateObject(wrappedValue: ViewModel(transaction: transaction))
+        self._viewModel = State(wrappedValue: ViewModel(transaction: transaction))
     }
     
-    // MARK: -
+    // MARK: - View
     public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
@@ -53,7 +53,7 @@ public struct AddTransactionScreen: View {
                     text: $viewModel.transactionTitle,
                     config: .init(
                         title: Word.Classic.name,
-                        placeholder: "category11_subcategory3_name".localized
+                        placeholder: viewModel.namePlaceholder.localized
                     )
                 )
                 .focused($focusedField, equals: .title)
@@ -64,7 +64,7 @@ public struct AddTransactionScreen: View {
                     text: $viewModel.transactionAmount,
                     config: .init(
                         title: Word.Classic.price,
-                        placeholder: "64,87",
+                        placeholder: viewModel.amountPlaceholder,
                         style: .amount
                     )
                 )
@@ -91,13 +91,22 @@ public struct AddTransactionScreen: View {
                     date: $viewModel.transactionDate
                 )
               
-              if purchasesManager.isCashFlowPro {
-                GenericPickerView(
-                  title: "repartition_picker_title".localized,
-                  selectedItem: $viewModel.repartitionType,
-                  items: RepartitionType.allCases
-                )
-              }
+                if purchasesManager.isCashFlowPro {
+                    GenericPickerView(
+                        title: "repartition_picker_title".localized,
+                        selectedItem: $viewModel.repartitionType,
+                        items: RepartitionType.allCases
+                    )
+                }
+                
+                if let selectedAccount = viewModel.accountStore.selectedAccount,
+                   let amountAfterTransaction = viewModel.amountAfterTransaction {
+                    AmountAfterView(
+                        title: "create_transaction_amount_after_transaction".localized,
+                        leftText: selectedAccount.name,
+                        leftValue: amountAfterTransaction
+                    )
+                }
             }
             .padding(.horizontal, Spacing.large)
         }

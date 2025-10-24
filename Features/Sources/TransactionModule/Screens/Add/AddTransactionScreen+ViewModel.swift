@@ -15,26 +15,32 @@ import NetworkKit
 
 extension AddTransactionScreen {
     
-    final class ViewModel: ObservableObject, AddViewModel {
+    @Observable
+    final class ViewModel: AddViewModel {
         
         var transaction: TransactionModel?
         
-        @Published var transactionTitle: String = ""
-        @Published var transactionAmount: String = ""
-        @Published var transactionDate: Date = Date()
-        @Published var selectedCategory: CategoryModel?
-        @Published var selectedSubcategory: SubcategoryModel?
-        @Published var repartitionType: RepartitionType = .notDefined
+        var transactionTitle: String = ""
+        var transactionAmount: String = ""
+        var transactionDate: Date = Date()
+        var selectedCategory: CategoryModel?
+        var selectedSubcategory: SubcategoryModel?
+        var repartitionType: RepartitionType = .notDefined
         
-        @Published var isAlertLeavePresented: Bool = false
+        var isAlertLeavePresented: Bool = false
         
-        let accountStore: AccountStore = .shared
-        @Dependency(\.transactionStore) private var transactionStore: TransactionStore
         let successfullModalManager: SuccessfullModalManager = .shared
         
-        var isEditing: Bool {
-            return transaction != nil
-        }
+        var isEditing: Bool { return transaction != nil }
+        
+        var namePlaceholder: String = ""
+        var amountPlaceholder: String = ""
+        
+        @ObservationIgnored
+        @Dependency(\.accountStore) var accountStore
+        
+        @ObservationIgnored
+        @Dependency(\.transactionStore) private var transactionStore: TransactionStore
         
         // init
         init(transaction: TransactionModel? = nil) {
@@ -47,47 +53,9 @@ extension AddTransactionScreen {
                 self.selectedSubcategory = transaction.subcategory
                 self.repartitionType = transaction.repartitionType ?? .notDefined
             }
-        }
-        
-        func bodyForCreation() -> TransactionDTO {
-            return TransactionDTO.body(
-                name: transactionTitle.trimmingCharacters(in: .whitespaces),
-                amount: transactionAmount.toDouble(),
-                type: selectedCategory?.isIncome == true ? TransactionType.income.rawValue : TransactionType.expense.rawValue,
-                dateISO: transactionDate.toISO(),
-                categoryID: selectedCategory?.id,
-                subcategoryID: selectedSubcategory?.id,
-                repartitionType: repartitionType.rawValue
-            )
-        }
-        
-        func createTransaction(dismiss: DismissAction) async {
-            guard let account = accountStore.selectedAccount else { return }
-            guard let accountID = account._id else { return }
             
-            if let transaction = await transactionStore.createTransaction(
-                accountId: accountID,
-                body: bodyForCreation()
-            ) {
-                await dismiss()
-                await successfullModalManager.showSuccessfulTransaction(type: .new, transaction: transaction)
-            }
-        }
-        
-        func updateTransaction(dismiss: DismissAction) async {
-            guard let account = accountStore.selectedAccount else { return }
-            guard let accountID = account._id else { return }
-            guard let transactionID = transaction?.id else { return }
-            
-            if let transaction = await transactionStore.updateTransaction(
-                accountId: accountID,
-                transactionId: transactionID,
-                sortTransaction: true,
-                body: bodyForCreation()
-            ) {
-                await dismiss()
-                await successfullModalManager.showSuccessfulTransaction(type: .update, transaction: transaction)
-            }
+            randomNamePlaceholder()
+            randomAmountPlaceholder()
         }
         
     }
@@ -103,6 +71,32 @@ extension AddTransactionScreen.ViewModel {
     
     var actionButtonTitle: String {
         return transaction == nil ? Word.Classic.create : Word.Classic.edit
+    }
+    
+    var isModelInCreation: Bool {
+        if selectedCategory != nil || selectedSubcategory != nil || !transactionTitle.isEmpty || transactionAmount.toDouble() != 0 {
+            return true
+        }
+        return false
+    }
+    
+    var isModelValid: Bool {
+        if !transactionTitle.isBlank && transactionAmount.toDouble() != 0.0 && selectedCategory != nil {
+            return true
+        }
+        return false
+    }
+    
+    var amountAfterTransaction: String? {
+        if let selectedAccount = accountStore.selectedAccount, let selectedCategory, let revenue = CategoryModel.revenue {
+            if selectedCategory != revenue {
+                return (selectedAccount.balance - transactionAmount.toDouble()).toCurrency()
+            } else {
+                return (selectedAccount.balance + transactionAmount.toDouble()).toCurrency()
+            }
+        }
+        
+        return nil
     }
     
 }
@@ -127,6 +121,51 @@ extension AddTransactionScreen.ViewModel {
             dismiss()
         }
     }
+}
+
+// MARK: - Private functions
+extension AddTransactionScreen.ViewModel {
+    
+    func bodyForCreation() -> TransactionDTO {
+        return TransactionDTO.body(
+            name: transactionTitle.trimmingCharacters(in: .whitespaces),
+            amount: transactionAmount.toDouble(),
+            type: selectedCategory?.isIncome == true ? TransactionType.income.rawValue : TransactionType.expense.rawValue,
+            dateISO: transactionDate.toISO(),
+            categoryID: selectedCategory?.id,
+            subcategoryID: selectedSubcategory?.id,
+            repartitionType: repartitionType.rawValue
+        )
+    }
+    
+    func createTransaction(dismiss: DismissAction) async {
+        guard let account = accountStore.selectedAccount else { return }
+        guard let accountID = account._id else { return }
+        
+        if let transaction = await transactionStore.createTransaction(
+            accountId: accountID,
+            body: bodyForCreation()
+        ) {
+            await dismiss()
+            await successfullModalManager.showSuccessfulTransaction(type: .new, transaction: transaction)
+        }
+    }
+    
+    func updateTransaction(dismiss: DismissAction) async {
+        guard let account = accountStore.selectedAccount else { return }
+        guard let accountID = account._id else { return }
+        guard let transactionID = transaction?.id else { return }
+        
+        if let transaction = await transactionStore.updateTransaction(
+            accountId: accountID,
+            transactionId: transactionID,
+            sortTransaction: true,
+            body: bodyForCreation()
+        ) {
+            await dismiss()
+            await successfullModalManager.showSuccessfulTransaction(type: .update, transaction: transaction)
+        }
+    }
     
 }
 
@@ -143,21 +182,28 @@ extension AddTransactionScreen.ViewModel {
     
 }
 
-// MARK: - Verification
+// MARK: - Private functions UI
 extension AddTransactionScreen.ViewModel {
     
-    var isModelInCreation: Bool {
-        if selectedCategory != nil || selectedSubcategory != nil || !transactionTitle.isEmpty || transactionAmount.toDouble() != 0 {
-            return true
-        }
-        return false
+    private func randomNamePlaceholder() {
+        let placeholdersAvailable: [String] = [
+            "create_transaction_field_name_placeholder_one",
+            "create_transaction_field_name_placeholder_two",
+            "create_transaction_field_name_placeholder_three",
+            "create_transaction_field_name_placeholder_four",
+            "create_transaction_field_name_placeholder_five",
+            "create_transaction_field_name_placeholder_six",
+            "create_transaction_field_name_placeholder_seven",
+            "create_transaction_field_name_placeholder_eight",
+            "create_transaction_field_name_placeholder_nine",
+            "create_transaction_field_name_placeholder_ten"
+        ]
+        
+        self.namePlaceholder = placeholdersAvailable.randomElement() ?? ""
     }
     
-    var isModelValid: Bool {
-        if !transactionTitle.isBlank && transactionAmount.toDouble() != 0.0 && selectedCategory != nil {
-            return true
-        }
-        return false
+    private func randomAmountPlaceholder() {
+        self.amountPlaceholder = Double.random(in: 20.0...500.0).toString()
     }
     
 }

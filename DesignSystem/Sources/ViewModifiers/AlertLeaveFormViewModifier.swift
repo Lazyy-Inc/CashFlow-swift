@@ -40,6 +40,7 @@ struct AlertLeaveForm: ViewModifier {
     }
 }
 
+// MARK: - Extension View
 public extension View {
     func alertLeaveForm(isPresented: Binding<Bool>) -> some View {
         return modifier(AlertLeaveForm(isPresented: isPresented))
