@@ -16,13 +16,20 @@ public struct GenericPickerView<T: Nameable>: View {
     let title: String
     @Binding var selectedItem: T
     let items: [T]
+    var alignment: Alignment
     
     @Environment(\.theme) private var theme
     
-    public init(title: String, selectedItem: Binding<T>, items: [T]) {
+    public init(
+        title: String,
+        selectedItem: Binding<T>,
+        items: [T],
+        alignment: Alignment = .trailing
+    ) {
         self.title = title
         self._selectedItem = selectedItem
         self.items = items
+        self.alignment = alignment
     }
     
     // MARK: -
@@ -32,18 +39,16 @@ public struct GenericPickerView<T: Nameable>: View {
                 .padding(.leading, 8)
                 .font(.system(size: 12, weight: .regular))
             
-            HStack(spacing: 0) {
-                Spacer()
-                Picker(selection: $selectedItem) {
-                    ForEach(items, id: \.self) { item in
-                        Text(item.name).tag(item)
-                    }
-                } label: {
-                    Text(selectedItem.name)
+            Picker(selection: $selectedItem) {
+                ForEach(items, id: \.self) { item in
+                    Text(item.name).tag(item)
                 }
-                .tint(theme.color)
-                .padding(8)
+            } label: {
+                Text(selectedItem.name)
             }
+            .tint(theme.color)
+            .fullWidth(alignment)
+            .padding(8)
             .roundedRectangleBorder(
                 TKDesignSystem.Colors.Background.Theme.bg100,
                 radius: CornerRadius.medium,

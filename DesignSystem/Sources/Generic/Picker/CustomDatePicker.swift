@@ -15,8 +15,8 @@ public struct CustomDatePicker: View {
     var title: String
     @Binding var date: Date
     var onlyFutureDates: Bool = false
+    var isFullWidth: Bool = false
     
-    @State private var isDatePickerShowing: Bool = false
     let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
     
     @Environment(\.theme) private var theme
@@ -24,11 +24,13 @@ public struct CustomDatePicker: View {
     public init(
         title: String,
         date: Binding<Date>,
-        onlyFutureDates: Bool = false
+        onlyFutureDates: Bool = false,
+        isFullWidth: Bool = false
     ) {
         self.title = title
         self._date = date
         self.onlyFutureDates = onlyFutureDates
+        self.isFullWidth = isFullWidth
     }
     
     // MARK: -
@@ -39,34 +41,18 @@ public struct CustomDatePicker: View {
                 .font(.system(size: 12, weight: .regular))
             
             VStack(alignment: .trailing, spacing: 0) {
-                Button(action: {
-                    withAnimation { isDatePickerShowing.toggle() }
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                }, label: {
-                    Text(date.formatted(Date.FormatStyle().day().month(.abbreviated).year()))
-                        .contentTransition(.numericText())
-                        .foregroundStyle(Color.label)
-                        .fontWithLineHeight(.Body.medium)
-                        .padding(Padding.medium)
-                        .roundedRectangleBorder(
-                            TKDesignSystem.Colors.Background.Theme.bg200,
-                            radius: CornerRadius.small
-                        )
-                })
-                .padding(Padding.extraSmall)
-                .animation(.smooth, value: date)
-                
-                if isDatePickerShowing {
-                    if onlyFutureDates {
-                        DatePicker("", selection: $date, in: tomorrow..., displayedComponents: [.date])
-                            .datePickerStyle(.graphical)
-                            .tint(theme.color)
-                    } else {
-                        DatePicker("", selection: $date, displayedComponents: [.date])
-                            .datePickerStyle(.graphical)
-                            .tint(theme.color)
-                    }
-                }
+                Text(date.formatted(.dateTime.day().month(.abbreviated).year()))
+                    .contentTransition(.numericText())
+                    .foregroundStyle(Color.label)
+                    .fontWithLineHeight(.Body.medium)
+                    .padding(Padding.medium)
+                    .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .center)
+                    .roundedRectangleBorder(
+                        TKDesignSystem.Colors.Background.Theme.bg200,
+                        radius: CornerRadius.small
+                    )
+                    .padding(Padding.extraSmall)
+                    .animation(.smooth, value: date)
             }
             .fullWidth(.trailing)
             .roundedRectangleBorder(
@@ -75,6 +61,20 @@ public struct CustomDatePicker: View {
                 lineWidth: 1,
                 strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
             )
+            .overlay {
+                HStack(spacing: 0) {
+                    ForEach(0..<3) { _ in
+                        if onlyFutureDates {
+                            DatePicker("", selection: $date, in: tomorrow..., displayedComponents: [.date])
+                        } else {
+                            DatePicker("", selection: $date, displayedComponents: [.date])
+                        }
+                    }
+                    .tint(theme.color)
+                    .labelsHidden()
+                    .colorMultiply(Color.clear)
+                }
+            }
         }
         .fullWidth(.leading)
         .onAppear {

@@ -86,17 +86,21 @@ public struct AddTransactionScreen: View {
                 }
                 .animation(.smooth, value: viewModel.transactionTitle)
                 
-                CustomDatePicker(
-                    title: Word.Classic.date,
-                    date: $viewModel.transactionDate
-                )
-              
-                if purchasesManager.isCashFlowPro {
-                    GenericPickerView(
-                        title: "repartition_picker_title".localized,
-                        selectedItem: $viewModel.repartitionType,
-                        items: RepartitionType.allCases
+                HStack(spacing: Spacing.small) {
+                    CustomDatePicker(
+                        title: Word.Classic.date,
+                        date: $viewModel.transactionDate,
+                        isFullWidth: purchasesManager.isCashFlowPro
                     )
+                  
+                    if purchasesManager.isCashFlowPro {
+                        GenericPickerView(
+                            title: "repartition_picker_title".localized,
+                            selectedItem: $viewModel.repartitionType,
+                            items: RepartitionType.allCases,
+                            alignment: .center
+                        )
+                    }
                 }
                 
                 if let selectedAccount = viewModel.accountStore.selectedAccount,
