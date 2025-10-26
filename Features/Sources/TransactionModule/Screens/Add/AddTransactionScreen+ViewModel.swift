@@ -203,7 +203,7 @@ extension AddTransactionScreen.ViewModel {
     }
     
     private func randomAmountPlaceholder() {
-        self.amountPlaceholder = Double.random(in: 20.0...500.0).toString()
+        self.amountPlaceholder = Double.random(in: 20.0...300.0).toString()
     }
     
 }

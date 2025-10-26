@@ -42,6 +42,7 @@ public struct TwoStatisticsRowView: View {
             Rectangle()
                 .fill(Color.Background.bg200)
                 .frame(width: 1)
+                .frame(maxHeight: .infinity)
             
             itemRowView(item: rightItem)
         }
@@ -52,8 +53,6 @@ public struct TwoStatisticsRowView: View {
             lineWidth: 1,
             strokeColor: Color.Background.bg200
         )
-        .getSize { componentHeight = $0.height }
-        .frame(height: componentHeight)
     }
 }
 
