@@ -67,42 +67,6 @@ jobs:
             echo "SARIF file not found!"
           fi
 
-      # Periphery avec fichier de configuration
-      - name: Install Periphery
-        run: brew install peripheryapp/periphery/periphery
-
-      - name: List available simulators
-        run: xcrun simctl list devices
-
-      - name: Select Xcode 16.2
-        #  run: sudo xcode-select -s /Applications/Xcode_16.2.app         old path
-        run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
-
-      - name: Print Xcode version
-        run: xcodebuild -version
-
-      - name: Download iOS Platform
-        run: xcodebuild -downloadPlatform iOS
-        timeout-minutes: 10
-
-      - name: Run Periphery with configuration file
-        run: |
-          echo "Running Periphery with periphery.yml configuration..."
-          git config --list | grep url.https || echo "No Git URL rewrite found"
-          
-          # Lancer Periphery avec le fichier de config
-          periphery scan --config periphery.yml
-          
-          # Afficher le résumé si un rapport JSON a été généré
-          if [ -f "periphery-report.json" ]; then
-            echo ""
-            echo "📊 Periphery Analysis Summary:"
-            echo "Total issues found: $(cat periphery-report.json | jq length 2>/dev/null || echo 'Unable to parse')"
-          fi
-        env:
-          GIT_TERMINAL_PROMPT: 0
-        continue-on-error: true
-
       # SonarQube
       - uses: sonarsource/sonarqube-scan-action@master
         env:
