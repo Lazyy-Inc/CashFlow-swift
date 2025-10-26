@@ -183,6 +183,16 @@ public extension AccountStore {
   
 }
 
+extension AccountStore {
+    
+    public func reset() {
+        self.accounts.removeAll()
+        self.savingsAccounts.removeAll()
+        self.classicAccounts.removeAll()
+    }
+    
+}
+
 // MARK: - Dependencies
 extension AccountStore: DependencyKey {
     public static var liveValue: AccountStore = .shared

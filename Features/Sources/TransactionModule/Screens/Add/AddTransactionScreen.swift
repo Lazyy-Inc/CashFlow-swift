@@ -114,6 +114,7 @@ public struct AddTransactionScreen: View {
             }
             .padding(.horizontal, Spacing.large)
         }
+        .toolbar { ToolbarDismissKeyboardButtonView() }
         .scrollDismissesKeyboard(.interactively)
         .overlay(alignment: .bottom) {
             ActionButtonView(

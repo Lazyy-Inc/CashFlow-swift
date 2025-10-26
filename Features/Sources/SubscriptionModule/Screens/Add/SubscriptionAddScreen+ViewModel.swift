@@ -10,26 +10,38 @@ import SwiftUI
 import Core
 import Models
 import Stores
+import Events
+import Dependencies
 
+// MARK: - Stored variables
 extension AddSubscriptionScreen {
     
-    final class ViewModel: ObservableObject {
-        let successfullModalManager: SuccessfullModalManager = .shared
-        
+    @Observable
+    final class ViewModel: AddViewModel {
+    
         var subscription: SubscriptionModel?
         
-        @Published var name: String = ""
-        @Published var amount: String = ""
-        @Published var frequencyDate: Date = .now
-        @Published var frequency: SubscriptionFrequency = .monthly
-        @Published var selectedCategory: CategoryModel?
-        @Published var selectedSubcategory: SubcategoryModel?
+        var name: String = ""
+        var amount: String = ""
+        var frequencyDate: Date = .now
+        var frequency: SubscriptionFrequency = .monthly
+        var selectedCategory: CategoryModel?
+        var selectedSubcategory: SubcategoryModel?
         
-        @Published var presentingConfirmationDialog: Bool = false
+        var isAlertLeavePresented: Bool = false
         
-        var isEditing: Bool {
-            return subscription != nil
-        }
+        let successfullModalManager: SuccessfullModalManager = .shared
+
+        var isEditing: Bool { return subscription != nil }
+        
+        var namePlaceholder: String = ""
+        var amountPlaceholder: String = ""
+        
+        @ObservationIgnored
+        @Dependency(\.accountStore) var accountStore
+        
+        @ObservationIgnored
+        @Dependency(\.subscriptionStore) private var subscriptionStore
         
         init(subscription: SubscriptionModel? = nil) {
             self.subscription = subscription
@@ -41,25 +53,71 @@ extension AddSubscriptionScreen {
                 self.selectedCategory = subscription.category
                 self.selectedSubcategory = subscription.subcategory
             }
+            
+            randomNamePlaceholder()
+            randomAmountPlaceholder()
         }
-        
+    }
+    
+}
+
+// MARK: - Computed variables
+extension AddSubscriptionScreen.ViewModel {
+    
+    var navigationTitle: String {
+        return subscription == nil ? Word.Title.Subscription.new : Word.Title.Subscription.update
+    }
+    
+    var actionButtonTitle: String {
+        return subscription == nil ? Word.Classic.create : Word.Classic.edit
+    }
+    
+    var isModelInCreation: Bool {
+        if selectedCategory != nil || selectedSubcategory != nil || !name.isBlank || amount.toDouble() != 0 {
+            return true
+        }
+        return false
+    }
+    
+    var isModelValid: Bool {
+        if !name.isBlank && amount.toDouble() != 0.0 && selectedCategory != nil {
+            return true
+        }
+        return false
+    }
+    
+}
+
+// MARK: - Public functions
+extension AddSubscriptionScreen.ViewModel {
+    
+    func validationAction(dismiss: DismissAction) async {
+        VibrationManager.vibration()
+        if subscription != nil {
+            await updateSubscription(dismiss: dismiss)
+        } else {
+            await createNewSubscription(dismiss: dismiss)
+        }
+    }
+    
+    func dismissAction(dismiss: DismissAction) {
+        if isModelInCreation {
+            isAlertLeavePresented.toggle()
+        } else {
+            if isEditing {
+                EventService.sendEvent(key: EventKeys.subscriptionUpdateCanceled)
+            } else {
+                EventService.sendEvent(key: EventKeys.subscriptionCreationCanceled)
+            }
+            dismiss()
+        }
     }
     
 }
 
 extension AddSubscriptionScreen.ViewModel {
     
-    func onChangeType(newValue: TransactionType) {
-        if newValue == .income {
-            selectedCategory = CategoryModel.revenue
-            selectedSubcategory = nil
-        } else if newValue == .expense && selectedCategory == CategoryModel.revenue {
-            selectedCategory = nil
-            selectedSubcategory = nil
-        }
-    }
-    
-    func bodyForCreation() -> SubscriptionDTO {
+    private func bodyForCreation() -> SubscriptionDTO {
         return .init(
             name: name,
             amount: amount.toDouble(),
@@ -71,11 +129,7 @@ extension AddSubscriptionScreen.ViewModel {
         )
     }
     
-    func createNewSubscription(dismiss: DismissAction) async {
-        let accountStore: AccountStore = .shared
-        let subscriptionStore: SubscriptionStore = .shared
-        let successfullModalManager: SuccessfullModalManager = .shared
-        
+    private func createNewSubscription(dismiss: DismissAction) async {        
         guard let account = accountStore.selectedAccount else { return }
         guard let accountID = account._id else { return }
         
@@ -92,9 +146,7 @@ extension AddSubscriptionScreen.ViewModel {
         }
     }
     
-    func updateSubscription(dismiss: DismissAction) async {
-        let subscriptionStore: SubscriptionStore = .shared
-        
+    private func updateSubscription(dismiss: DismissAction) async {
         if let subscription {
             if let updatedSubscription = await subscriptionStore.updateSubscription(
                 subscriptionID: subscription.id,
@@ -111,20 +163,28 @@ extension AddSubscriptionScreen.ViewModel {
     
 }
 
-// MARK: - Verification
+// MARK: - Private functions UI
 extension AddSubscriptionScreen.ViewModel {
-
-    func isAutomationInCreation() -> Bool {
-        if selectedCategory != nil || selectedSubcategory != nil || !name.isBlank || amount.toDouble() != 0 {
-            return true
-        }
-        return false
+    
+    private func randomNamePlaceholder() {
+        let placeholdersAvailable: [String] = [
+            "create_subscription_field_name_placeholder_one",
+            "create_subscription_field_name_placeholder_two",
+            "create_subscription_field_name_placeholder_three",
+            "create_subscription_field_name_placeholder_four",
+            "create_subscription_field_name_placeholder_five",
+            "create_subscription_field_name_placeholder_six",
+            "create_subscription_field_name_placeholder_seven",
+            "create_subscription_field_name_placeholder_eight",
+            "create_subscription_field_name_placeholder_nine",
+            "create_subscription_field_name_placeholder_ten"
+        ]
+        
+        self.namePlaceholder = placeholdersAvailable.randomElement() ?? ""
     }
     
-    func validateAutomation() -> Bool {
-        if !name.isBlank && amount.toDouble() != 0.0 && selectedCategory != nil {
-            return true
-        }
-        return false
+    private func randomAmountPlaceholder() {
+        self.amountPlaceholder = Double.random(in: 2.0...30.0).toString()
     }
+    
 }

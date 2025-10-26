@@ -16,12 +16,13 @@ import Models
 
 public struct AddSubscriptionScreen: View {
     
-    // builder
+    // MARK: Dependencies
     var subscription: SubscriptionModel?
     
-    @StateObject private var viewModel: ViewModel
+    // MARK: States
+    @State private var viewModel: ViewModel
     
-    // Environment
+    // MARK: Environment
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var store: PurchasesManager
     
@@ -31,36 +32,18 @@ public struct AddSubscriptionScreen: View {
     }
     @FocusState private var focusedField: Field?
     
-    // init
+    // MARK: Init
     public init(subscription: SubscriptionModel? = nil) {
         self.subscription = subscription
-        self._viewModel = StateObject(wrappedValue: ViewModel(subscription: subscription))
+        self._viewModel = State(wrappedValue: ViewModel(subscription: subscription))
     }
     
     // MARK: -
     public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
-                title: subscription == nil ? Word.Title.Subscription.new : Word.Title.Subscription.update,
-                actionButton: .init(
-                    title: subscription == nil ? Word.Classic.create : Word.Classic.edit,
-                    action: {
-                        VibrationManager.vibration()
-                        if subscription != nil {
-                            await viewModel.updateSubscription(dismiss: dismiss)
-                        } else {
-                            await viewModel.createNewSubscription(dismiss: dismiss)
-                        }
-                    },
-                    isDisabled: !viewModel.validateAutomation()
-                ),
-                dismissAction: {
-                    if viewModel.isAutomationInCreation() {
-                        viewModel.presentingConfirmationDialog.toggle()
-                    } else {
-                        dismissAction()
-                    }
-                }
+                title: viewModel.navigationTitle,
+                dismissAction: { viewModel.dismissAction(dismiss: dismiss) }
             )
         } content: { _ in
             VStack(spacing: 24) {
@@ -68,20 +51,18 @@ public struct AddSubscriptionScreen: View {
                     text: $viewModel.name,
                     config: .init(
                         title: Word.Classic.name,
-                        placeholder: "Netflix"
+                        placeholder: viewModel.namePlaceholder.localized
                     )
                 )
                 .focused($focusedField, equals: .title)
                 .submitLabel(.next)
-                .onSubmit {
-                    focusedField = .amount
-                }
+                .onSubmit { focusedField = .amount }
                 
                 CustomTextField(
                     text: $viewModel.amount,
                     config: .init(
                         title: Word.Classic.price,
-                        placeholder: "14,99",
+                        placeholder: viewModel.amountPlaceholder,
                         style: .amount
                     )
                 )
@@ -103,55 +84,43 @@ public struct AddSubscriptionScreen: View {
                 }
                 .animation(.smooth, value: viewModel.name)
                 
-                CustomDatePicker(
-                    title: Word.Classic.subscriptionFuturDate,
-                    date: $viewModel.frequencyDate,
-                    onlyFutureDates: true
-                )
-                
-                FrequencyPicker(selected: $viewModel.frequency)
+                HStack(spacing: Spacing.small) {
+                    CustomDatePicker(
+                        title: "create_subscription_field_next_payement_title".localized,
+                        date: $viewModel.frequencyDate,
+                        onlyFutureDates: true,
+                        isFullWidth: true
+                    )
+                    
+                    GenericPickerView(
+                        title: Word.Classic.frequency,
+                        selectedItem: $viewModel.frequency,
+                        items: SubscriptionFrequency.allCases,
+                        alignment: .center
+                    )
+                }
             }
-            .padding(.horizontal, 24)
+            .padding(.horizontal, Spacing.large)
         }
-        .confirmationDialog("", isPresented: $viewModel.presentingConfirmationDialog) {
-            Button("word_cancel_changes".localized, role: .destructive, action: { dismissAction() })
-            Button("word_return".localized, role: .cancel, action: { })
+        .toolbar { ToolbarDismissKeyboardButtonView() }
+        .scrollDismissesKeyboard(.interactively)
+        .overlay(alignment: .bottom) {
+            ActionButtonView(
+                style: viewModel.isModelValid ? .plain : .disabled,
+                title: viewModel.actionButtonTitle
+            ) {
+                await viewModel.validationAction(dismiss: dismiss)
+            }
+            .padding(Spacing.large)
         }
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .ignoresSafeArea(.keyboard)
+        .alertLeaveForm(isPresented: $viewModel.isAlertLeavePresented)
+        .background(Color.Background.bg50)
         .navigationBarBackButtonHidden(true)
-    } // body
-    
-    func dismissAction() {
-        if viewModel.isEditing {
-            EventService.sendEvent(key: EventKeys.subscriptionUpdateCanceled)
-        } else {
-            EventService.sendEvent(key: EventKeys.subscriptionCreationCanceled)
-        }
-        dismiss()
     }
-    
-} // struct
+}
 
 // MARK: - Preview
 #Preview {
     AddSubscriptionScreen()
-}
-
-struct OnTapDismissKeyboardModifier2: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .contentShape(Rectangle()) // Define the tappable area
-            .simultaneousGesture(
-                TapGesture()
-                    .onEnded { _ in
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                    }
-            )
-    }
-}
-
-extension View {
-    public func onTapDismissKeyboard2() -> some View {
-        return modifier(OnTapDismissKeyboardModifier2())
-    }
 }

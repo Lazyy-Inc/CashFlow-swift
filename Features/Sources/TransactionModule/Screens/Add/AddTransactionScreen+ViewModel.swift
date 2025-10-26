@@ -11,6 +11,7 @@ import Core
 import Dependencies
 import Models
 import Stores
+import Events
 import NetworkKit
 
 extension AddTransactionScreen {
@@ -40,7 +41,7 @@ extension AddTransactionScreen {
         @Dependency(\.accountStore) var accountStore
         
         @ObservationIgnored
-        @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+        @Dependency(\.transactionStore) private var transactionStore
         
         // init
         init(transaction: TransactionModel? = nil) {
@@ -118,6 +119,11 @@ extension AddTransactionScreen.ViewModel {
         if isModelInCreation {
             isAlertLeavePresented.toggle()
         } else {
+            if isEditing {
+                EventService.sendEvent(key: EventKeys.transactionUpdateCanceled)
+            } else {
+                EventService.sendEvent(key: EventKeys.transactionCreationCanceled)
+            }
             dismiss()
         }
     }

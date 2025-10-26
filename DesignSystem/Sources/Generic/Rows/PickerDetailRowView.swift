@@ -55,12 +55,12 @@ public struct PickerDetailRowView<T: Nameable>: View {
             Menu {
                 Picker("", selection: $selectedItem) {
                     ForEach(items, id: \.self) { item in
-                        Text(item.name).tag(item)
+                        Text(item.name.localized).tag(item)
                     }
                 }
             } label: {
                 HStack(spacing: Spacing.extraSmall) {
-                    Text(selectedItem.name)
+                    Text(selectedItem.name.localized)
                         .lineLimit(1)
                     
                     IconSVG(icon: "iconChevronUpDown", value: .medium)

@@ -70,27 +70,18 @@ public struct AddAccountScreen: View {
             }
             .padding(.horizontal, Spacing.large)
         }
+        .scrollDismissesKeyboard(.interactively)
+        .toolbar { ToolbarDismissKeyboardButtonView() }
         .overlay(alignment: .bottom) {
             ActionButtonView(
-                style: viewModel.isAccountValid() ? .plain : .disabled,
+                style: viewModel.isModelValid ? .plain : .disabled,
                 title: viewModel.actionButtonTitle
             ) {
                 await viewModel.validationAction(dismiss: dismiss)
             }
             .padding(Spacing.large)
         }
-        .scrollDismissesKeyboard(.interactively)
-        .alert(
-            "confirmation_leave_form_title".localized,
-            isPresented: $viewModel.presentingConfirmationDialog,
-            actions: {
-                Button("confirmation_leave_form_destructive_button".localized, role: .destructive, action: { dismiss() })
-                Button("confirmation_leave_form_cancel_button".localized, role: .cancel, action: {})
-            },
-            message: {
-                Text("confirmation_leave_form_message".localized)
-            }
-        )
+        .alertLeaveForm(isPresented: $viewModel.isAlertLeavePresented)
         .background(Color.Background.bg50.ignoresSafeArea(.all))
         .navigationBarBackButtonHidden(true)
     }

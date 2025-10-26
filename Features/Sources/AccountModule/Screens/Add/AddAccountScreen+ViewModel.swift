@@ -17,12 +17,10 @@ import Dependencies
 extension AddAccountScreen {
     
     @Observable
-    final class ViewModel {
+    final class ViewModel: AddViewModel {
         
         var type: AccountType
         var account: AccountModel?
-        @ObservationIgnored
-        @Dependency(\.accountStore) var accountStore
         
         var name: String = ""
         var balance: String = ""
@@ -32,7 +30,10 @@ extension AddAccountScreen {
         var balancePlaceholder: String = ""
         var maxAmountPlaceholder: String = ""
         
-        var presentingConfirmationDialog: Bool = false
+        var isAlertLeavePresented: Bool = false
+        
+        @ObservationIgnored
+        @Dependency(\.accountStore) var accountStore
 
         // init
         init(type: AccountType, account: AccountModel?) {
@@ -62,20 +63,27 @@ extension AddAccountScreen.ViewModel {
         return account == nil ? Word.Classic.create : Word.Classic.edit
     }
     
-}
-
-extension AddAccountScreen.ViewModel {
+    var isModelInCreation: Bool {
+        if !name.isBlank || balance.toDouble() != 0 || !maxAmount.isBlank {
+            return true
+        }
+        return false
+    }
     
-    func isAccountValid() -> Bool {
+    var isModelValid: Bool {
         if !name.isBlank {
             return true
         }
         return false
     }
     
+}
+
+extension AddAccountScreen.ViewModel {
+    
     func dismissAction(dismiss: DismissAction) {
-        if isAccountInCreation() {
-            presentingConfirmationDialog.toggle()
+        if isModelInCreation {
+            isAlertLeavePresented.toggle()
         } else {
             dismiss()
         }
@@ -139,13 +147,6 @@ extension AddAccountScreen.ViewModel {
 
 // MARK: - Private functions UI
 extension AddAccountScreen.ViewModel {
-    
-    private func isAccountInCreation() -> Bool {
-        if !name.isBlank || balance.toDouble() != 0 || !maxAmount.isBlank {
-            return true
-        }
-        return false
-    }
     
     private func randomAccountPlaceholder() {
         let placeholdersAvailable: [String] = [

@@ -41,7 +41,7 @@ public struct GenericPickerView<T: Nameable>: View {
             
             Picker(selection: $selectedItem) {
                 ForEach(items, id: \.self) { item in
-                    Text(item.name).tag(item)
+                    Text(item.name.localized).tag(item)
                 }
             } label: {
                 Text(selectedItem.name)

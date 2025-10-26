@@ -71,7 +71,7 @@ extension CreationMenuView {
     
     private var menuActions: [CreationMenuAction] {
         if let router, accountStore.selectedAccount != nil {
-            var actions: [CreationMenuAction] = [
+            let actions: [CreationMenuAction] = [
                 CreationMenuAction(
                     title: Word.Main.savingsAccount,
                     icon: .iconLandmark,
@@ -127,7 +127,7 @@ extension CreationMenuView {
                 )
             ]
             
-//#if DEBUG
+// #if DEBUG
 //            actions.append(
 //                CreationMenuAction(
 //                    title: "TBL Scan QRCode",
@@ -135,7 +135,7 @@ extension CreationMenuView {
 //                    destination: .shared(.qrCodeScanner)
 //                )
 //            )
-//#endif
+// #endif
             
             return actions
         } else {

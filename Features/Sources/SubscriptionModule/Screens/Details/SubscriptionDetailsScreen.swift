@@ -73,7 +73,7 @@ public struct SubscriptionDetailsScreen: View {
                                 DetailRow(
                                     icon: "iconClockRepeat",
                                     text: Word.Classic.frequency,
-                                    value: subscription.frequency.name
+                                    value: subscription.frequency.name.localized
                                 )
                                 
                                 DetailRow(
