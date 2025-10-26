@@ -93,7 +93,7 @@ extension AppDestination {
     static private func destinationTransfer(_ transfer: TransferDestination) -> some View {
         switch transfer {
         case .create(let receiverAccount):
-            AnyView(TransferAddScreen(receiverAccount: receiverAccount))
+            AnyView(AddTransferScreen(receiverAccount: receiverAccount))
         }
     }
     
