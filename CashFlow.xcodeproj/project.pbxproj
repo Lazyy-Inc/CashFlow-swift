@@ -21,10 +21,10 @@
 		D9084F432E609E7C0077F9C5 /* Events in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F422E609E7C0077F9C5 /* Events */; };
 		D9084F452E615DF80077F9C5 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F442E615DF80077F9C5 /* Home */; };
 		D9084F472E61690F0077F9C5 /* Dashboard in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F462E61690F0077F9C5 /* Dashboard */; };
+		D954F8D02EAE2BC700745E89 /* FinancialGoalModule in Frameworks */ = {isa = PBXBuildFile; productRef = D954F8CF2EAE2BC700745E89 /* FinancialGoalModule */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
 		D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D968BB2C2E4F2579006BB17A /* Sentry */; };
 		D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968BF5A2E4F29A7006BB17A /* SubscriptionModule */; };
-		D968C1772E4F4A6A006BB17A /* SavingsPlanModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1762E4F4A6A006BB17A /* SavingsPlanModule */; };
 		D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1782E4F5E59006BB17A /* ContributionModule */; };
 		D968C1B02E50651E006BB17A /* AccountModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1AF2E50651E006BB17A /* AccountModule */; };
 		D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1C62E51BCF6006BB17A /* BudgetModule */; };
@@ -92,7 +92,6 @@
 				D968C2472E54F6F8006BB17A /* SettingsModule in Frameworks */,
 				D9887FE22AA457A400AFC915 /* StoreKit.framework in Frameworks */,
 				D968C1E42E51C6AA006BB17A /* CategoryModule in Frameworks */,
-				D968C1772E4F4A6A006BB17A /* SavingsPlanModule in Frameworks */,
 				8129E7512A483A7400FF23E5 /* ConfettiSwiftUI in Frameworks */,
 				D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */,
 				D9084DA42E6068DB0077F9C5 /* NetworkModule in Frameworks */,
@@ -109,6 +108,7 @@
 				D968C1B02E50651E006BB17A /* AccountModule in Frameworks */,
 				D9DDD89E2EA509100015E0FB /* Savings in Frameworks */,
 				D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */,
+				D954F8D02EAE2BC700745E89 /* FinancialGoalModule in Frameworks */,
 				D968C2322E54F3CA006BB17A /* SubcategoryModule in Frameworks */,
 				D9B2F4812E929CB400CF5ABC /* Repositories in Frameworks */,
 				D9B2F4832E929CB800CF5ABC /* Persistence in Frameworks */,
@@ -197,7 +197,6 @@
 				D9564CD02E467A8B00F2341E /* TransactionModule */,
 				D968BB2C2E4F2579006BB17A /* Sentry */,
 				D968BF5A2E4F29A7006BB17A /* SubscriptionModule */,
-				D968C1762E4F4A6A006BB17A /* SavingsPlanModule */,
 				D968C1782E4F5E59006BB17A /* ContributionModule */,
 				D968C1AF2E50651E006BB17A /* AccountModule */,
 				D968C1C62E51BCF6006BB17A /* BudgetModule */,
@@ -222,6 +221,7 @@
 				D9B2F4802E929CB400CF5ABC /* Repositories */,
 				D9B2F4822E929CB800CF5ABC /* Persistence */,
 				D9DDD89D2EA509100015E0FB /* Savings */,
+				D954F8CF2EAE2BC700745E89 /* FinancialGoalModule */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -665,6 +665,10 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Dashboard;
 		};
+		D954F8CF2EAE2BC700745E89 /* FinancialGoalModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FinancialGoalModule;
+		};
 		D9564CD02E467A8B00F2341E /* TransactionModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TransactionModule;
@@ -677,10 +681,6 @@
 		D968BF5A2E4F29A7006BB17A /* SubscriptionModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SubscriptionModule;
-		};
-		D968C1762E4F4A6A006BB17A /* SavingsPlanModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SavingsPlanModule;
 		};
 		D968C1782E4F5E59006BB17A /* ContributionModule */ = {
 			isa = XCSwiftPackageProductDependency;

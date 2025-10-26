@@ -69,7 +69,7 @@ extension AddSubscriptionScreen.ViewModel {
     }
     
     var actionButtonTitle: String {
-        return subscription == nil ? Word.Classic.create : Word.Classic.edit
+        return subscription == nil ? "create_subscription_validation_button" : "edit_subscription_validation_button"
     }
     
     var isModelInCreation: Bool {

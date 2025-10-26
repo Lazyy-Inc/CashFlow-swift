@@ -47,7 +47,7 @@ extension AddTransferScreen.ViewModel {
     }
     
     var actionButtonTitle: String {
-        return Word.Classic.create
+        return "create_transfer_validation_button"
     }
     
     var isModelInCreation: Bool {

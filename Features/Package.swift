@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "PaywallModule", targets: ["PaywallModule"]),
         .library(name: "TransactionModule", targets: ["TransactionModule"]),
         .library(name: "SubscriptionModule", targets: ["SubscriptionModule"]),
-        .library(name: "SavingsPlanModule", targets: ["SavingsPlanModule"]),
+        .library(name: "FinancialGoalModule", targets: ["FinancialGoalModule"]),
         .library(name: "ContributionModule", targets: ["ContributionModule"]),
         .library(name: "AccountModule", targets: ["AccountModule"]),
         .library(name: "BudgetModule", targets: ["BudgetModule"]),
@@ -73,7 +73,7 @@ let package = Package(
             "Stores",
             "Navigation",
             "TransactionModule",
-            "SavingsPlanModule",
+            "FinancialGoalModule",
             "SubscriptionModule",
             "CategoryModule"
           ],
@@ -90,7 +90,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
-                "SavingsPlanModule",
+                "FinancialGoalModule",
                 "SavingsAccountModule"
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -174,7 +174,7 @@ let package = Package(
         .testTarget(name: "SubscriptionModuleTests", dependencies: ["SubscriptionModule"]),
         
         .target(
-            name: "SavingsPlanModule",
+            name: "FinancialGoalModule",
             dependencies: [
                 "DesignSystem",
                 "Core",
@@ -189,7 +189,7 @@ let package = Package(
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        .testTarget(name: "SavingsPlanModuleTests", dependencies: ["SavingsPlanModule"]),
+        .testTarget(name: "FinancialGoalModuleTests", dependencies: ["FinancialGoalModule"]),
         
         .target(
             name: "ContributionModule",

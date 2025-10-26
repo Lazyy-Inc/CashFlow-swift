@@ -60,7 +60,7 @@ extension AddAccountScreen.ViewModel {
     }
     
     var actionButtonTitle: String {
-        return account == nil ? Word.Classic.create : Word.Classic.edit
+        return account == nil ? "create_account_validation_button" : "edit_account_validation_button"
     }
     
     var isModelInCreation: Bool {

@@ -1,5 +1,5 @@
 //
-//  SavingPlansAddScreen.swift
+//  AddFinancialGoalScreen.swift
 //  TurboBudget
 //
 //  Created by Théo Sementa on 20/06/2023.
@@ -16,11 +16,11 @@ import Dependencies
 import Models
 import Stores
 
-public struct SavingPlansAddScreen: View {
+public struct AddFinancialGoalScreen: View {
     
     // builder
     var savingsPlan: SavingsPlanModel?
-    @StateObject private var viewModel: ViewModel
+    @State private var viewModel: ViewModel
     
     // Custom
     @Dependency(\.accountStore) var accountStore: AccountStore
@@ -39,36 +39,18 @@ public struct SavingPlansAddScreen: View {
     // init
     public init(savingsPlan: SavingsPlanModel? = nil) {
         self.savingsPlan = savingsPlan
-        self._viewModel = StateObject(wrappedValue: ViewModel(savingsPlan: savingsPlan))
+        self._viewModel = State(wrappedValue: ViewModel(savingsPlan: savingsPlan))
     }
     
     // MARK: -
     public var body: some View {
         BetterScrollView(maxBlurRadius: Blur.topbar) {
             NavigationBar(
-                title: savingsPlan == nil ? Word.Title.SavingsPlan.new : Word.Title.SavingsPlan.update,
-                actionButton: .init(
-                    title: savingsPlan == nil ? Word.Classic.create : Word.Classic.edit,
-                    action: {
-                        VibrationManager.vibration()
-                        if savingsPlan == nil {
-                            await viewModel.createSavingsPlan(dismiss: dismiss)
-                        } else {
-                            await viewModel.updateSavingsPlan(dismiss: dismiss)
-                        }
-                    },
-                    isDisabled: !viewModel.validateSavingPlan()
-                ),
-                dismissAction: {
-                    if viewModel.isSavingPlansInCreation() {
-                        viewModel.presentingConfirmationDialog.toggle()
-                    } else {
-                        dismissAction()
-                    }
-                }
+                title: viewModel.navigationTitle,
+                dismissAction: { viewModel.dismissAction(dismiss: dismiss) }
             )
         } content: { _ in
-            VStack(spacing: 24) {
+            VStack(spacing: Spacing.large) {
                 HStack(alignment: .bottom, spacing: 8) {
                     CustomTextField(
                         text: $viewModel.name,
@@ -79,19 +61,19 @@ public struct SavingPlansAddScreen: View {
                     )
                     .focused($focusedField, equals: .title)
                     .submitLabel(.next)
-                    .onSubmit {
-                        focusedField = .amountOfStart
-                    }
+                    .onSubmit { focusedField = .amountOfStart }
                     
-                    Button(action: { viewModel.showEmojiPicker.toggle() }, label: {
+                    Button { viewModel.showEmojiPicker.toggle() } label: {
                         Text(viewModel.emoji)
                             .font(.system(size: 16))
-                            .padding(15)
-                            .background {
-                                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                    .fill(Color.Background.bg200)
-                            }
-                    })
+                            .padding()
+                            .roundedRectangleBorder(
+                                Color.Background.bg100,
+                                radius: CornerRadius.medium,
+                                lineWidth: 1,
+                                strokeColor: Color.Background.bg200
+                            )
+                    }
                     .emojiPicker(
                         isPresented: $viewModel.showEmojiPicker,
                         selectedEmoji: $viewModel.emoji
@@ -109,9 +91,7 @@ public struct SavingPlansAddScreen: View {
                     )
                     .focused($focusedField, equals: .amountOfStart)
                     .submitLabel(.next)
-                    .onSubmit {
-                        focusedField = .amountOfEnd
-                    }
+                    .onSubmit { focusedField = .amountOfEnd }
                 }
                 
                 CustomTextField(
@@ -138,32 +118,27 @@ public struct SavingPlansAddScreen: View {
                     withRange: true
                 )
             }
-            .padding(.horizontal, 24)
-            .padding(.top)
+            .padding(.horizontal, Spacing.large)
         }
-        .toolbar {
-            ToolbarDismissKeyboardButtonView()
+        .toolbar { ToolbarDismissKeyboardButtonView() }
+        .scrollDismissesKeyboard(.interactively)
+        .overlay(alignment: .bottom) {
+            ActionButtonView(
+                style: viewModel.isModelValid ? .plain : .disabled,
+                title: viewModel.actionButtonTitle.localized
+            ) {
+                await viewModel.validationAction(dismiss: dismiss)
+            }
+            .padding(Spacing.large)
         }
-        .confirmationDialog("", isPresented: $viewModel.presentingConfirmationDialog) {
-            Button("word_cancel_changes".localized, role: .destructive, action: { dismissAction() })
-            Button("word_return".localized, role: .cancel, action: { })
-        }
-        .background(TKDesignSystem.Colors.Background.Theme.bg50.ignoresSafeArea(.all))
+        .ignoresSafeArea(.keyboard)
+        .alertLeaveForm(isPresented: $viewModel.isAlertLeavePresented)
+        .background(Color.Background.bg50.ignoresSafeArea(.all))
         .navigationBarBackButtonHidden(true)
-    } // End body
-    
-    func dismissAction() {
-        if viewModel.isEditing {
-            EventService.sendEvent(key: EventKeys.savingsplanUpdateCanceled)
-        } else {
-            EventService.sendEvent(key: EventKeys.savingsplanCreationCanceled)
-        }
-        dismiss()
     }
-    
-} // End struct
+}
 
 // MARK: - Preview
 #Preview {
-    SavingPlansAddScreen()
+    AddFinancialGoalScreen()
 }

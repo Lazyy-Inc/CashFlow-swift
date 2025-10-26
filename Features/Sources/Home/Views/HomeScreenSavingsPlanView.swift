@@ -13,7 +13,7 @@ import Preferences
 import Core
 import DesignSystem
 import Dependencies
-import SavingsPlanModule
+import FinancialGoalModule
 
 struct HomeScreenSavingsPlanView: View {
         

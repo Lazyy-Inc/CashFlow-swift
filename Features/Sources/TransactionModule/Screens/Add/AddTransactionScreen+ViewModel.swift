@@ -71,7 +71,7 @@ extension AddTransactionScreen.ViewModel {
     }
     
     var actionButtonTitle: String {
-        return transaction == nil ? Word.Classic.create : Word.Classic.edit
+        return transaction == nil ? "create_transaction_validation_button" : "create_transaction_validation_button"
     }
     
     var isModelInCreation: Bool {

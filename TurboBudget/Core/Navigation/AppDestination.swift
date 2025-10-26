@@ -11,7 +11,7 @@ import Navigation
 import PaywallModule
 import TransactionModule
 import SubscriptionModule
-import SavingsPlanModule
+import FinancialGoalModule
 import ContributionModule
 import AccountModule
 import BudgetModule
@@ -130,9 +130,9 @@ extension AppDestination {
         case .list:
             AnyView(SavingsPlanListScreen())
         case .create:
-            AnyView(SavingPlansAddScreen())
+            AnyView(AddFinancialGoalScreen())
         case .update(let savingsPlan):
-            AnyView(SavingPlansAddScreen(savingsPlan: savingsPlan))
+            AnyView(AddFinancialGoalScreen(savingsPlan: savingsPlan))
         case .detail(let savingsPlan):
             AnyView(SavingsPlanDetailScreen(savingsPlan: savingsPlan))
         }

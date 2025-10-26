@@ -10,7 +10,7 @@ import DesignSystem
 import Dependencies
 import Navigation
 import SavingsAccountModule
-import SavingsPlanModule
+import FinancialGoalModule
 
 public struct SavingsScreen: View {
     

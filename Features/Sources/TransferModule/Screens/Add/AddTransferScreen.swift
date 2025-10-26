@@ -80,7 +80,7 @@ public struct AddTransferScreen: View {
         .overlay(alignment: .bottom) {
             ActionButtonView(
                 style: viewModel.isModelValid ? .plain : .disabled,
-                title: viewModel.actionButtonTitle
+                title: viewModel.actionButtonTitle.localized
             ) {
                 await viewModel.validationAction(dismiss: dismiss)
             }
