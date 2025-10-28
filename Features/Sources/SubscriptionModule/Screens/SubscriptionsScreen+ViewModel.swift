@@ -43,7 +43,9 @@ extension SubscriptionsScreen.ViewModel {
     
     func getTotalAnnualy() {
         var amount: Double = 0
-        for subscription in subscriptionStore.subscriptions {
+        let subscriptions = subscriptionStore.subscriptions
+            .filter { $0.type == .expense }
+        for subscription in subscriptions {
             switch subscription.frequency {
             case .weekly:
                 amount += subscription.amount * 52
@@ -59,7 +61,9 @@ extension SubscriptionsScreen.ViewModel {
     
     func getTotalMonthly() {
         var amount: Double = 0
-        for subscription in subscriptionStore.subscriptions {
+        let subscriptions = subscriptionStore.subscriptions
+            .filter { $0.type == .expense }
+        for subscription in subscriptions {
             switch subscription.frequency {
             case .weekly:
                 amount += subscription.amount * 4
