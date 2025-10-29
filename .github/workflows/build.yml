@@ -51,9 +51,110 @@ jobs:
       - name: Run SwiftLint on entire project
         run: |
           echo "Running SwiftLint on entire project..."
-          swiftlint lint --quiet --reporter json .
+          swiftlint lint --quiet --reporter json > sonarqube-swiftlint.json
         continue-on-error: true
-        
+
+      # Installation de xcpretty pour formater les résultats xcodebuild
+      - name: Install xcpretty
+        run: gem install xcpretty
+
+      # Exécution des tests avec couverture de code
+      - name: Run Unit Tests with Coverage
+        run: |
+          echo "Running tests for main app target..."
+          xcodebuild test \
+            -project CashFlow.xcodeproj \
+            -scheme CashFlow \
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+            -enableCodeCoverage YES \
+            -derivedDataPath ./DerivedData \
+            | xcpretty --report json-compilation-database --output compile_commands.json
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      # Exécution des tests pour chaque module contenant un dossier Tests
+      - name: Run Module Tests
+        run: |
+          echo "Discovering modules with Tests directories..."
+          
+          # Recherche automatique des modules avec dossier Tests
+          for test_dir in $(find . -type d -name "Tests" -not -path "*/DerivedData/*" -not -path "*/Build/*" -not -path "*/.build/*" -not -path "*/Pods/*"); do
+            # Remonte au dossier parent (le module)
+            module_dir=$(dirname "$test_dir")
+            module_name=$(basename "$module_dir")
+            
+            echo "Found Tests in module: $module_name at $module_dir"
+            
+            # Vérifie si un scheme existe pour ce module
+            if xcodebuild -list -project CashFlow.xcodeproj 2>/dev/null | grep -q "$module_name"; then
+              echo "Running tests for scheme: $module_name"
+              xcodebuild test \
+                -project CashFlow.xcodeproj \
+                -scheme "$module_name" \
+                -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+                -enableCodeCoverage YES \
+                -derivedDataPath ./DerivedData \
+                2>&1 | xcpretty || echo "Tests failed or no tests found for $module_name"
+            else
+              echo "No scheme found for $module_name, skipping..."
+            fi
+          done
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      # Conversion de la couverture de code au format SonarQube
+      - name: Convert coverage to SonarQube format
+        run: |
+          echo "Converting Xcode coverage to SonarQube format..."
+          
+          # Recherche du fichier de couverture
+          COVERAGE_FILE=$(find DerivedData -name "*.xccovarchive" | head -n 1)
+          
+          if [ -z "$COVERAGE_FILE" ]; then
+            echo "No coverage file found"
+            exit 0
+          fi
+          
+          echo "Found coverage file: $COVERAGE_FILE"
+          
+          # Extraction de la couverture en JSON
+          xcrun xccov view --report --json "$COVERAGE_FILE" > coverage.json
+          
+          # Conversion au format SonarQube generic coverage
+          python3 << 'EOF'
+          import json
+          import xml.etree.ElementTree as ET
+          
+          with open('coverage.json', 'r') as f:
+              data = json.load(f)
+          
+          root = ET.Element('coverage', version="1")
+          
+          for target in data.get('targets', []):
+              for file_data in target.get('files', []):
+                  file_path = file_data.get('path', '')
+                  if not file_path or '/Tests/' in file_path:
+                      continue
+                  
+                  file_elem = ET.SubElement(root, 'file', path=file_path)
+                  
+                  for func in file_data.get('functions', []):
+                      for line_data in func.get('executableLines', []):
+                          line_num = line_data.get('line', 0)
+                          exec_count = line_data.get('executionCount', 0)
+                          ET.SubElement(file_elem, 'lineToCover', 
+                                      lineNumber=str(line_num),
+                                      covered=str(exec_count > 0).lower())
+          
+          tree = ET.ElementTree(root)
+          ET.indent(tree, space="  ")
+          tree.write('sonarqube-coverage.xml', encoding='utf-8', xml_declaration=True)
+          print("Coverage converted successfully")
+          EOF
+        continue-on-error: true
+
       # Mobsfscan en SARIF
       - name: mobsfscan
         run: |
@@ -67,10 +168,22 @@ jobs:
             echo "SARIF file not found!"
           fi
 
+      # Debug: Vérifier les fichiers générés
+      - name: List generated reports
+        run: |
+          echo "=== Generated reports ==="
+          ls -lh *.json *.xml *.sarif 2>/dev/null || echo "No report files found"
+          
+          if [ -f "sonarqube-coverage.xml" ]; then
+            echo "=== Coverage XML preview ==="
+            head -30 sonarqube-coverage.xml
+          fi
+
       # SonarQube
       - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           args: -X
