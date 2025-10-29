@@ -29,7 +29,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:CashFlowTestPlan.xctestplan">
+            reference = "container:CashFlowTestPlan.xctestplan"
+            default = "YES">
          </TestPlanReference>
       </TestPlans>
    </TestAction>
