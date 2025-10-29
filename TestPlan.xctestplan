@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "B8756218-B397-4B07-9827-595ADCDA81D0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Features",
+        "identifier" : "TransactionModuleTests",
+        "name" : "TransactionModuleTests"
+      }
+    }
+  ],
+  "version" : 1
+}

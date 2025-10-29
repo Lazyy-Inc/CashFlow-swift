@@ -58,48 +58,18 @@ jobs:
       - name: Install xcpretty
         run: gem install xcpretty
 
-      # Exécution des tests avec couverture de code
-      - name: Run Unit Tests with Coverage
+      # Exécution des tests avec le Test Plan
+      - name: Run All Tests with Test Plan
         run: |
-          echo "Running tests for main app target..."
+          echo "Running tests with TestPlan.xctestplan..."
           xcodebuild test \
             -project CashFlow.xcodeproj \
             -scheme CashFlow \
+            -testPlan TestPlan \
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
             -enableCodeCoverage YES \
             -derivedDataPath ./DerivedData \
             | xcpretty --report json-compilation-database --output compile_commands.json
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      # Exécution des tests pour chaque module contenant un dossier Tests
-      - name: Run Module Tests
-        run: |
-          echo "Discovering modules with Tests directories..."
-          
-          # Recherche automatique des modules avec dossier Tests
-          for test_dir in $(find . -type d -name "Tests" -not -path "*/DerivedData/*" -not -path "*/Build/*" -not -path "*/.build/*" -not -path "*/Pods/*"); do
-            # Remonte au dossier parent (le module)
-            module_dir=$(dirname "$test_dir")
-            module_name=$(basename "$module_dir")
-            
-            echo "Found Tests in module: $module_name at $module_dir"
-            
-            # Vérifie si un scheme existe pour ce module
-            if xcodebuild -list -project CashFlow.xcodeproj 2>/dev/null | grep -q "$module_name"; then
-              echo "Running tests for scheme: $module_name"
-              xcodebuild test \
-                -project CashFlow.xcodeproj \
-                -scheme "$module_name" \
-                -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
-                -enableCodeCoverage YES \
-                -derivedDataPath ./DerivedData \
-                2>&1 | xcpretty || echo "Tests failed or no tests found for $module_name"
-            else
-              echo "No scheme found for $module_name, skipping..."
-            fi
-          done
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
