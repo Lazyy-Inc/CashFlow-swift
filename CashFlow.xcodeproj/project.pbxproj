@@ -57,7 +57,7 @@
 		D9084F3E2E609BA10077F9C5 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
 		D9084F412E609E330077F9C5 /* Events */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Events; sourceTree = "<group>"; };
 		D922E9A92E46688200B94AF7 /* Features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Features; sourceTree = "<group>"; };
-		D942D6542EB2518C00DD7372 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		D942D6542EB2518C00DD7372 /* CashFlowTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CashFlowTestPlan.xctestplan; sourceTree = "<group>"; };
 		D9887FE12AA457A400AFC915 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D9B2F47E2E929B6800CF5ABC /* Repositories */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Repositories; sourceTree = "<group>"; };
 		D9B2F47F2E929BEF00CF5ABC /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Persistence; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		81A7077A2A3B6B4C00BEB0BF = {
 			isa = PBXGroup;
 			children = (
-				D942D6542EB2518C00DD7372 /* TestPlan.xctestplan */,
+				D942D6542EB2518C00DD7372 /* CashFlowTestPlan.xctestplan */,
 				D9084F412E609E330077F9C5 /* Events */,
 				D9084F3B2E6093AB0077F9C5 /* Core */,
 				D9084DA52E606BA00077F9C5 /* Banners */,
