@@ -50,33 +50,98 @@ jobs:
           xcodebuild test \
             -project CashFlow.xcodeproj \
             -scheme CashFlow \
-            -testPlan TestPlan.xctestplan \
+            -testPlan TestPlan \
             -destination 'platform=iOS Simulator,name=iPhone 16' \
             -enableCodeCoverage YES \
             -derivedDataPath ./DerivedData \
-            -resultBundlePath TestResults.xcresult \
+            -resultBundlePath ./TestResults.xcresult \
             2>&1 | xcpretty --report json-compilation-database --output compile_commands.json
+        
+          echo "=== Test execution completed ==="
+            echo ""
+            echo "=== Contents of compile_commands.json ==="
+            if [ -f "compile_commands.json" ]; then
+              cat compile_commands.json
+            else
+              echo "compile_commands.json not found"
+            fi
+            
+            echo ""
+            echo "=== Checking TestResults.xcresult ==="
+            if [ -d "TestResults.xcresult" ]; then
+              echo "TestResults.xcresult exists"
+              ls -lh TestResults.xcresult
+            else
+              echo "TestResults.xcresult not found"
+            fi
+            
+            echo ""
+            echo "=== Checking DerivedData for coverage ==="
+            find DerivedData -name "*.xccovarchive" -o -name "*.profdata" 2>/dev/null || echo "No coverage files found yet"
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: Convert .xcresult to JUnit report
+      # Conversion de la couverture de code au format SonarQube
+      - name: Convert coverage to SonarQube format
         run: |
-          mkdir -p reports
-          xchtmlreport -r TestResults.xcresult -o reports/html
-          xcresulttool get --path TestResults.xcresult --format json > reports/result.json
-          xcpretty -r junit --no-color --output reports/junit.xml < reports/result.json || true
-
-      - name: Convert coverage to lcov
-        run: |
-          gem install slather
-          slather coverage \
-            --input-format profdata \
-            --scheme CashFlow \
-            --output-directory reports/coverage \
-            --html \
-            --lcov \
-            CashFlow.xcodeproj
+          echo "Converting Xcode coverage to SonarQube format..."
+          
+          # Recherche du fichier de couverture dans DerivedData
+          COVERAGE_FILE=$(find DerivedData -name "*.xccovarchive" | head -n 1)
+          
+          if [ -z "$COVERAGE_FILE" ]; then
+            echo "No coverage file found in DerivedData, checking xcresult..."
+            # Essayer d'extraire depuis le xcresult
+            if [ -d "TestResults.xcresult" ]; then
+              xcrun xccov view --report --json TestResults.xcresult > coverage.json
+            else
+              echo "No coverage data found"
+              exit 0
+            fi
+          else
+            echo "Found coverage file: $COVERAGE_FILE"
+            xcrun xccov view --report --json "$COVERAGE_FILE" > coverage.json
+          fi
+          
+          # Conversion au format SonarQube generic coverage
+          python3 << 'EOF'
+          import json
+          import xml.etree.ElementTree as ET
+          import os
+          
+          # Vérifier que le fichier coverage.json existe
+          if not os.path.exists('coverage.json'):
+              print("No coverage.json file found")
+              exit(0)
+          
+          with open('coverage.json', 'r') as f:
+              data = json.load(f)
+          
+          root = ET.Element('coverage', version="1")
+          
+          for target in data.get('targets', []):
+              for file_data in target.get('files', []):
+                  file_path = file_data.get('path', '')
+                  # Ignorer les fichiers de test et les dépendances
+                  if not file_path or '/Tests/' in file_path or '/Test/' in file_path or '/Pods/' in file_path or '/.build/' in file_path:
+                      continue
+                  
+                  file_elem = ET.SubElement(root, 'file', path=file_path)
+                  
+                  for func in file_data.get('functions', []):
+                      for line_data in func.get('executableLines', []):
+                          line_num = line_data.get('line', 0)
+                          exec_count = line_data.get('executionCount', 0)
+                          ET.SubElement(file_elem, 'lineToCover', 
+                                      lineNumber=str(line_num),
+                                      covered=str(exec_count > 0).lower())
+          
+          tree = ET.ElementTree(root)
+          ET.indent(tree, space="  ")
+          tree.write('sonarqube-coverage.xml', encoding='utf-8', xml_declaration=True)
+          print("Coverage converted successfully to sonarqube-coverage.xml")
+          EOF
         continue-on-error: true
 
       # Mobsfscan en SARIF
