@@ -2,64 +2,74 @@ name: Quality Phase
 
 on:
   push:
-    branches: [ main, develop ]
+    branches:
+      - main
+      - develop
 
 jobs:
   build:
     name: Build & Analysis
     runs-on: macos-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5.3.0
         with:
           python-version: '3.12'
 
+      # Configuration Git GLOBALE pour tous les outils
       - name: Configure git authentication globally
-        run: |
-          git config --global url."https://${GH_TOKEN}@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
+        run: git config --global url."https://${GH_TOKEN}@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
+      # Résolution des dépendances
       - name: Resolve Swift Package dependencies
         run: xcodebuild -resolvePackageDependencies -verbose
+        timeout-minutes: 8
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: Install dependencies
-        run: |
-          brew install swiftlint xchtmlreport sonar-scanner
-          gem install xcpretty slather
-
-      - name: Run SwiftLint on entire project
-        run: |
+      # SwiftLint sur tout le projet
+      - name: Install and Run SwiftLint
+        run: | 
+          brew install swiftlint
           swiftlint lint --quiet --reporter json > sonarqube-swiftlint.json
         continue-on-error: true
+
+      # Installation de xcpretty pour formater les résultats xcodebuild
+      - name: Install xcpretty
+        run: gem install xcpretty
 
       - name: Run All Tests with Test Plan
         run: |
           echo "Running tests with TestPlan.xctestplan..."
+          
           xcodebuild test \
             -project CashFlow.xcodeproj \
             -scheme CashFlow \
-            -testPlan TestPlan \
+            -testPlan TestPlan.xctestplan \
             -destination 'platform=iOS Simulator,name=iPhone 16' \
             -enableCodeCoverage YES \
             -derivedDataPath ./DerivedData \
             -resultBundlePath TestResults.xcresult \
-            2>&1 | xcpretty -r junit --output reports/junit.xml
+            2>&1 | xcpretty --report json-compilation-database --output compile_commands.json
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: Generate HTML Test Report
+      - name: Convert .xcresult to JUnit report
         run: |
           mkdir -p reports
           xchtmlreport -r TestResults.xcresult -o reports/html
+          xcresulttool get --path TestResults.xcresult --format json > reports/result.json
+          xcpretty -r junit --no-color --output reports/junit.xml < reports/result.json || true
 
       - name: Convert coverage to lcov
         run: |
+          gem install slather
           slather coverage \
             --input-format profdata \
             --scheme CashFlow \
@@ -69,18 +79,32 @@ jobs:
             CashFlow.xcodeproj
         continue-on-error: true
 
+      # Mobsfscan en SARIF
       - name: mobsfscan
         run: |
           pip install mobsfscan
           mobsfscan . --sarif > mobsfscan-report.sarif
+          echo "Mobsfscan SARIF completed, checking output..."
+          if [ -f "mobsfscan-report.sarif" ]; then
+            echo "SARIF file created successfully"
+            head -20 mobsfscan-report.sarif
+          else
+            echo "SARIF file not found!"
+          fi
 
+      # Debug: Vérifier les fichiers générés
       - name: List generated reports
         run: |
           echo "=== Generated reports ==="
-          ls -lh reports || true
-          ls -lh *.json *.xml *.sarif 2>/dev/null || true
+          ls -lh *.json *.xml *.sarif 2>/dev/null || echo "No report files found"
+          
+          if [ -f "sonarqube-coverage.xml" ]; then
+            echo "=== Coverage XML preview ==="
+            head -30 sonarqube-coverage.xml
+          fi
 
-      - uses: sonarsource/sonarqube-scan-action@v2
+      # SonarQube
+      - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
