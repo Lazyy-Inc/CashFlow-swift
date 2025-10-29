@@ -30,6 +30,9 @@ extension AddFinancialGoalScreen {
         var isEndDate: Bool = false
         var showEmojiPicker: Bool = false
         
+        var namePlaceholder: String = ""
+        var goalAmountPlaceholder: String = ""
+        
         var isAlertLeavePresented: Bool = false
         
         var isEditing: Bool { return savingsPlan != nil }
@@ -44,11 +47,14 @@ extension AddFinancialGoalScreen {
                 self.savingsPlan = savingsPlan
                 self.name = savingsPlan.name ?? ""
                 self.emoji = savingsPlan.emoji ?? "💻"
-                self.goalAmount = "\(savingsPlan.goalAmount?.toString(maxDigits: 0) ?? "")"
+                self.goalAmount = savingsPlan.goalAmount?.toString(maxDigits: 0) ?? ""
                 self.startDate = savingsPlan.startDate
                 self.endDate = savingsPlan.endDate ?? .now
                 self.isEndDate = savingsPlan.endDateString != nil
             }
+            
+            randomNamePlaceholder()
+            randomGoalAmountPlaceholder()
         }
         
     }
@@ -152,6 +158,26 @@ extension AddFinancialGoalScreen.ViewModel {
         
         await dismiss()
         await successfullModalManager.showSuccessfulSavingsPlan(type: .update, savingsPlan: savingsPlan)
+    }
+    
+    private func randomNamePlaceholder() {
+        let placeholdersAvailable: [String] = [
+            "create_financial_goal_field_name_placeholder_one",
+            "create_financial_goal_field_name_placeholder_two",
+            "create_financial_goal_field_name_placeholder_three",
+            "create_financial_goal_field_name_placeholder_four",
+            "create_financial_goal_field_name_placeholder_five"
+        ]
+        
+        self.namePlaceholder = placeholdersAvailable.randomElement() ?? ""
+    }
+    
+    private func randomGoalAmountPlaceholder() {
+        let placeholdersAvailables: [Int] = [
+            1000, 2000, 5000, 10000, 30000
+        ]
+        
+        self.goalAmountPlaceholder = placeholdersAvailables.randomElement()?.formatted() ?? ""
     }
     
 }

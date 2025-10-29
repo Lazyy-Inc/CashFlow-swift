@@ -10,20 +10,22 @@ import SwiftUI
 import Core
 import Models
 import Stores
+import Events
 
-extension ContributionAddScreen {
+extension AddContributionScreen {
     
-    final class ViewModel: ObservableObject {
+    @Observable
+    final class ViewModel: AddViewModel {
         
         // MARK: Dependencies
         var savingsPlan: SavingsPlanModel
         
-        @Published var name: String = ""
-        @Published var amount: String = ""
-        @Published var type: ContributionType = .addition
-        @Published var date: Date = Date()
+        var name: String = ""
+        var amount: String = ""
+        var type: ContributionType = .addition
+        var date: Date = Date()
         
-        @Published var presentingConfirmationDialog: Bool = false
+        var isAlertLeavePresented: Bool = false
         
         init(savingsPlan: SavingsPlanModel) {
             self.savingsPlan = savingsPlan
@@ -32,14 +34,56 @@ extension ContributionAddScreen {
     
 }
 
-extension ContributionAddScreen.ViewModel {
+extension AddContributionScreen.ViewModel {
     
-    func isContributionValid() -> Bool {
+    var navigationTitle: String {
+        return "create_contribution_title".localized
+    }
+    
+    var actionButtonTitle: String {
+        return "create_contribution_validation_button".localized
+    }
+    
+    var isModelInCreation: Bool {
+        if amount.toDouble() != 0 {
+            return true
+        }
+        return false
+    }
+    
+    var isModelValid: Bool {
         guard amount.toDouble() != 0 else { return false }
         if type == .withdrawal && ((savingsPlan.currentAmount ?? 0) - amount.toDouble() < 0) {
             return false
         }
         return true
+    }
+    
+    var valueAfterContribution: Double {
+        let currentAmount = savingsPlan.currentAmount ?? 0
+       
+        if type == .addition {
+            return currentAmount + amount.toDouble()
+        } else {
+            return currentAmount - amount.toDouble()
+        }        
+    }
+    
+}
+
+extension AddContributionScreen.ViewModel {
+    
+    func validationAction(dismiss: DismissAction) async {
+        await createContribution(dismiss: dismiss)
+    }
+    
+    func dismissAction(dismiss: DismissAction) {
+        if isModelInCreation {
+            isAlertLeavePresented.toggle()
+        } else {
+            EventService.sendEvent(key: EventKeys.contributionCreationCanceled)
+            dismiss()
+        }
     }
     
     func createContribution(dismiss: DismissAction) async {
@@ -63,13 +107,6 @@ extension ContributionAddScreen.ViewModel {
                 contribution: contribution
             )
         }
-    }
-    
-    func isContributionInCreation() -> Bool {
-        if amount.toDouble() != 0 {
-            return true
-        }
-        return false
     }
     
 }

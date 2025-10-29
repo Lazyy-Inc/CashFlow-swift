@@ -169,8 +169,8 @@ public struct SavingsPlanDetailScreen: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         NavigationButtonView(
-                            route: .sheet,
-                            destination: AppDestination.contribution(.create(savingsPlan: currentSavingsPlan))
+                            route: .push,
+                            destination: .contribution(.create(savingsPlan: currentSavingsPlan))
                         ) {
                             Image(systemName: "plus")
                                 .font(.system(size: 22, weight: .medium, design: .rounded))
@@ -222,14 +222,14 @@ public struct SavingsPlanDetailScreen: View {
                 Menu {
                     NavigationButtonView(
                         route: .push,
-                        destination: AppDestination.savingsPlan(.update(savingsPlan: currentSavingsPlan))
+                        destination: .savingsPlan(.update(savingsPlan: currentSavingsPlan))
                     ) {
                         Label(Word.Classic.edit.localized, systemImage: "pencil")
                     }
                     
                     NavigationButtonView(
-                        route: .sheet,
-                        destination: AppDestination.contribution(.create(savingsPlan: currentSavingsPlan))
+                        route: .push,
+                        destination: .contribution(.create(savingsPlan: currentSavingsPlan))
                     ) {
                         Label("savingsplan_detail_add_contribution".localized, systemImage: "plus")
                     }
@@ -249,6 +249,7 @@ public struct SavingsPlanDetailScreen: View {
             ToolbarDismissKeyboardButtonView()
         }
         .background(Color.Background.bg50.edgesIgnoringSafeArea(.all))
+        // TODO: Fetch contributions
     } // body
 } // struct
 

@@ -21,15 +21,19 @@ public struct SubscriptionsScreen: View {
     public var body: some View {
         ScrollView {
             VStack(spacing: Spacing.large) {
-                TwoStatisticsRowView(
-                    leftItem: .init(
-                        value: viewModel.totalAnnualy.toCurrency(),
-                        text: "subscription_total_yearly".localized),
-                    rightItem: .init(
-                        value: viewModel.totalMonthly.toCurrency(),
-                        text: "subscription_total_monthly".localized
+                VStack(spacing: Spacing.medium) {
+                    TwoStatisticsRowView(
+                        leftItem: .init(
+                            value: viewModel.totalAnnualy.toCurrency(),
+                            text: "subscription_total_yearly".localized),
+                        rightItem: .init(
+                            value: viewModel.totalMonthly.toCurrency(),
+                            text: "subscription_total_monthly".localized
+                        )
                     )
-                )
+                    
+                    
+                }
                 
                 NavigationButtonView(
                     route: .push,
