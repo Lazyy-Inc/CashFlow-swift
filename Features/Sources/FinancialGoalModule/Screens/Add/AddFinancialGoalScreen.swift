@@ -56,7 +56,7 @@ public struct AddFinancialGoalScreen: View {
                         text: $viewModel.name,
                         config: .init(
                             title: Word.Classic.name,
-                            placeholder: "MacBook Pro"
+                            placeholder: viewModel.namePlaceholder.localized
                         )
                     )
                     .focused($focusedField, equals: .title)
@@ -98,7 +98,7 @@ public struct AddFinancialGoalScreen: View {
                     text: $viewModel.goalAmount,
                     config: .init(
                         title: Word.Classic.amountToReach,
-                        placeholder: "1 000",
+                        placeholder: viewModel.goalAmountPlaceholder,
                         style: .amount
                     )
                 )

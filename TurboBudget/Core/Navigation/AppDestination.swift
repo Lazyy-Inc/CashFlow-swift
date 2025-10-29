@@ -141,7 +141,7 @@ extension AppDestination {
     static private func destinationContribution(_ contribution: ContributionDestination) -> some View {
         switch contribution {
         case .create(let savingsPlan):
-            AnyView(ContributionAddScreen(savingsPlan: savingsPlan))
+            AnyView(AddContributionScreen(savingsPlan: savingsPlan))
         }
     }
     
