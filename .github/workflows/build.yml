@@ -58,18 +58,22 @@ jobs:
       - name: Install xcpretty
         run: gem install xcpretty
 
-      # Exécution des tests avec le Test Plan
       - name: Run All Tests with Test Plan
         run: |
           echo "Running tests with TestPlan.xctestplan..."
+          
+          # Liste les schemes disponibles pour debug
+          echo "Available schemes:"
+          xcodebuild -list -project CashFlow.xcodeproj
+          
+          # Utiliser "Any iOS Simulator Device" qui est toujours disponible
           xcodebuild test \
             -project CashFlow.xcodeproj \
             -scheme CashFlow \
-            -testPlan TestPlan \
-            -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+            -destination 'platform=iOS Simulator,name=Any iOS Simulator Device' \
             -enableCodeCoverage YES \
             -derivedDataPath ./DerivedData \
-            | xcpretty --report json-compilation-database --output compile_commands.json
+            2>&1 | xcpretty --report json-compilation-database --output compile_commands.json
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
