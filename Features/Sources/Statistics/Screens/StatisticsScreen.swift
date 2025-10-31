@@ -68,7 +68,7 @@ public struct StatisticsScreen: View {
                         }
                         
                         GenericBarChart(
-                            title: "cashflowchart_title".localized,
+                            title: "statistics_cashflow_chart_title".localized,
                             selectedDate: $viewModel.selectedDate,
                             values: accountStore.cashflow,
                             amount: viewModel.amount

@@ -19,77 +19,50 @@ struct SubscriptionCalendarView: View {
     @State private var selectedMonth: Date = .now
     @State private var selectedDate: Date = .now
     
-    // Dictionnaire groupant les transactions par date
-    let transactions: [Date: [TransactionModel]]
+    @State private var transactions: [Date: [TransactionModel]] = [:]
+    
+    var weekdays: [String] {
+        var weekdaySymbols = Calendar.current.shortWeekdaySymbols
+        weekdaySymbols.append(weekdaySymbols.removeFirst())
+        return weekdaySymbols
+    }
     
     // MARK: - View
     var body: some View {
-        VStack(spacing: 16) {
-            // Header avec navigation
-            HStack {
-                Button(action: previousMonth) {
-                    Image(systemName: "chevron.left")
-                        .font(.title2)
-                        .foregroundColor(.primary)
+        VStack(spacing: Spacing.standard) {
+            VStack(spacing: Spacing.extraSmall) {
+                HStack(spacing: 0) {
+                    ForEach(weekdays, id: \.self) { day in
+                        Text(day.uppercased())
+                            .fontWithLineHeight(.Label.small)
+                            .foregroundColor(Color.Background.bg300)
+                            .fullWidth()
+                    }
                 }
                 
-                Spacer()
-                
-                Text(monthFormatter.string(from: selectedMonth).capitalized)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                
-                Spacer()
-                
-                Button(action: nextMonth) {
-                    Image(systemName: "chevron.right")
-                        .font(.title2)
-                        .foregroundColor(.primary)
-                }
-            }
-            .padding(.horizontal)
-            
-            // Jours de la semaine
-            HStack(spacing: 8) {
-                ForEach(["LUN", "MAR", "MER", "JEU", "VEN", "SAM", "DIM"], id: \.self) { day in
-                    Text(day)
-                        .font(.caption)
-                        .fontWeight(.medium)
-                        .foregroundColor(.secondary)
-                        .frame(maxWidth: .infinity)
-                }
-            }
-            
-            // Grille du calendrier
-            LazyVGrid(
-                columns: Array(
-                    repeating: GridItem(.flexible(), spacing: 2), count: 7
-                ), spacing: 2
-            ) {
-                ForEach(0..<daysInMonth.count, id: \.self) { index in
-                    CalendarDayCell(
-                        date: daysInMonth[index],
-                        dayNumber: dayNumber(for: daysInMonth[index]),
-                        transactions: transactions(for: daysInMonth[index]),
-                        isSelected: isSelected(daysInMonth[index])
-                    )
-                    .onTapGesture {
-                        if let date = daysInMonth[index] {
-                            selectedDate = date
-                        }
+                LazyVGrid(
+                    columns: Array(
+                        repeating: GridItem(.flexible(), spacing: 2), count: 7
+                    ), spacing: 2
+                ) {
+                    ForEach(0..<daysInMonth.count, id: \.self) { index in
+                        CalendarDayCell(
+                            date: daysInMonth[index],
+                            dayNumber: dayNumber(for: daysInMonth[index]),
+                            transactions: transactions(for: daysInMonth[index]),
+                            isSelected: isSelected(daysInMonth[index])
+                        )
+//                        .onTapGesture {
+//                            if let date = daysInMonth[index] {
+//                                selectedDate = date
+//                            }
+//                        }
                     }
                 }
             }
+            
+            MonthPickerView(selectedMonth: $selectedMonth)
         }
-        .padding(16)
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color(.systemBackground))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color(.systemGray5), lineWidth: 1)
-                )
-        )
         .padding(Spacing.medium)
         .roundedRectangleBorder(
             Color.Background.bg100,
@@ -97,15 +70,9 @@ struct SubscriptionCalendarView: View {
             lineWidth: 1,
             strokeColor: Color.Background.bg200
         )
-    }
-    
-    // MARK: - Actions
-    private func previousMonth() {
-        selectedMonth = calendar.date(byAdding: .month, value: -1, to: selectedMonth) ?? selectedMonth
-    }
-    
-    private func nextMonth() {
-        selectedMonth = calendar.date(byAdding: .month, value: 1, to: selectedMonth) ?? selectedMonth
+        .task(id: selectedMonth) {
+            self.transactions = subscriptionStore.getTransactionsWithDate(for: selectedMonth)
+        }
     }
 }
 
@@ -148,9 +115,7 @@ extension SubscriptionCalendarView {
     }
     
     private func transactions(for date: Date?) -> [TransactionModel] {
-        guard let date = date,
-              let normalizedDate = calendar.startOfDay(for: date) as Date?,
-              let trans = transactions[normalizedDate] else {
+        guard let date, let normalizedDate = calendar.startOfDay(for: date) as Date?, let trans = transactions[normalizedDate] else {
             return []
         }
         return trans
@@ -190,13 +155,15 @@ struct CalendarDayCell: View {
                     VStack {
                         if let firstTransaction = transactions.first {
                             Circle()
-                                .fill(firstTransaction.color)
+                                .fill(firstTransaction.categoryColor)
                                 .frame(width: 20, height: 20)
                                 .overlay {
                                     if let subcategory = firstTransaction.subcategory {
-                                        IconSVG(icon: subcategory.icon, value: .small)
+                                        IconSVG(icon: subcategory.icon, value: .extraSmall)
+                                            .foregroundStyle(Color.white)
                                     } else if let category = firstTransaction.category {
-                                        IconSVG(icon: category.icon, value: .small)
+                                        IconSVG(icon: category.icon, value: .extraSmall)
+                                            .foregroundStyle(Color.white)
                                     }
                                 }
                                 .overlay {
@@ -229,7 +196,9 @@ struct CalendarDayCell: View {
 
 // MARK: - Preveiw
 #Preview {
-    SubscriptionCalendarView(transactions: SubscriptionCalendarView.sampleTransactions())
+    SubscriptionCalendarView()
+        .padding()
+        .background(Color.Background.bg50)
 }
 
 extension SubscriptionCalendarView {

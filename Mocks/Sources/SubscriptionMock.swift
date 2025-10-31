@@ -17,8 +17,8 @@ public extension SubscriptionModel {
         type: TransactionType.expense,
         frequency: SubscriptionFrequency.monthly,
         frequencyDate: Date(),
-        categoryID: 2,
-        subcategoryID: 1
+        category: .mock,
+        subcategory: .mock
     )
     
 }

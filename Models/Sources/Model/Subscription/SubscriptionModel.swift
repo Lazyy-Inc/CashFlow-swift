@@ -15,8 +15,8 @@ public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
     public var type: TransactionType
     public var frequency: SubscriptionFrequency
     public var frequencyDate: Date
-    public var categoryID: Int
-    public var subcategoryID: Int?
+    public var category: CategoryModel?
+    public var subcategory: SubcategoryModel?
     public var firstSubscriptionDate: Date?
     public var lastSubscriptionDate: Date?
     public var transactions: [TransactionModel]?
@@ -29,8 +29,8 @@ public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
         type: TransactionType,
         frequency: SubscriptionFrequency,
         frequencyDate: Date,
-        categoryID: Int,
-        subcategoryID: Int? = nil,
+        category: CategoryModel?,
+        subcategory: SubcategoryModel?,
         firstSubscriptionDate: Date? = nil,
         lastSubscriptionDate: Date? = nil,
         transactions: [TransactionModel]? = nil
@@ -41,11 +41,28 @@ public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
         self.type = type
         self.frequency = frequency
         self.frequencyDate = frequencyDate
-        self.categoryID = categoryID
-        self.subcategoryID = subcategoryID
+        self.category = category
+        self.subcategory = subcategory
         self.firstSubscriptionDate = firstSubscriptionDate
         self.lastSubscriptionDate = lastSubscriptionDate
         self.transactions = transactions
+    }
+    
+}
+
+public extension SubscriptionModel {
+    
+    func toTransactionModel() -> TransactionModel {
+        return TransactionModel(
+            id: UUID().hashValue,
+            name: self.name,
+            amount: self.amount,
+            date: self.frequencyDate,
+            category: self.category,
+            subcategory: self.subcategory,
+            isFromSubscription: true,
+            isFromApplePay: false
+        )
     }
     
 }

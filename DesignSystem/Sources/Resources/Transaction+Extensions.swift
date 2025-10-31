@@ -24,4 +24,8 @@ public extension TransactionModel {
         }
     }
     
+    var categoryColor: Color {
+        return self.category?.color ?? .red
+    }
+    
 }

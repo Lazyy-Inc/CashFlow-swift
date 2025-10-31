@@ -32,7 +32,7 @@ public struct SubscriptionsScreen: View {
                         )
                     )
                     
-                    
+                    SubscriptionCalendarView()
                 }
                 
                 NavigationButtonView(

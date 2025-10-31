@@ -8,6 +8,7 @@
 import Foundation
 import Models
 import NetworkModule
+import Dependencies
 
 public extension SubscriptionDTO {
  
@@ -28,6 +29,11 @@ public extension SubscriptionDTO {
         
         let transactionModels = try? transactions?.map { try $0.toModel() }
         
+        @Dependency(\.categoryStore) var categoryStore
+        
+        let category = categoryStore.findCategoryById(categoryID)
+        let subcategory = categoryStore.findSubcategoryById(subcategoryID)
+        
         return SubscriptionModel(
             id: id,
             name: name,
@@ -35,8 +41,8 @@ public extension SubscriptionDTO {
             type: type,
             frequency: frequency,
             frequencyDate: date,
-            categoryID: categoryID,
-            subcategoryID: subcategoryID,
+            category: category,
+            subcategory: subcategory,
             firstSubscriptionDate: firstSubscriptionDate?.toDate(),
             lastSubscriptionDate: lastSubscriptionDate?.toDate(),
             transactions: transactionModels

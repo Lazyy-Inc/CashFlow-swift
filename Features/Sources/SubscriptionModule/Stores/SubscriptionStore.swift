@@ -35,16 +35,6 @@ public extension SubscriptionStore {
 }
 
 public extension SubscriptionModel {
-    
-    var category: CategoryModel? {
-      @Dependency(\.categoryStore) var categoryStore
-      return categoryStore.findCategoryById(categoryID)
-    }
-    
-    var subcategory: SubcategoryModel? {
-      @Dependency(\.categoryStore) var categoryStore
-      return categoryStore.findSubcategoryById(subcategoryID)
-    }
 
     var symbol: String {
         switch type {

@@ -42,12 +42,12 @@ public struct SubscriptionDetailsScreen: View {
         if let subscription {
             VStack(spacing: Spacing.extraLarge) {
                 NavigationBarWithMenu {
-                    NavigationButtonView(
-                        route: .push,
-                        destination: AppDestination.subscription(.update(subscription: subscription))
-                    ) {
+                    Button {
+                        router.push(.subscription(.update(subscription: subscription)))
+                    } label: {
                         Label(Word.Classic.edit, systemImage: "pencil")
                     }
+
                     Button(
                         role: .destructive,
                         action: { AlertManager.shared.deleteSubscription(subscription: subscription, dismissAction: dismiss) },
