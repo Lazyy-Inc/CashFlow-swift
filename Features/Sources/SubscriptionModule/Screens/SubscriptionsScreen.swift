@@ -21,58 +21,9 @@ public struct SubscriptionsScreen: View {
     public var body: some View {
         ScrollView {
             VStack(spacing: Spacing.large) {
-                VStack(spacing: Spacing.medium) {
-                    TwoStatisticsRowView(
-                        leftItem: .init(
-                            value: viewModel.totalAnnualy.toCurrency(),
-                            text: "subscription_total_yearly".localized),
-                        rightItem: .init(
-                            value: viewModel.totalMonthly.toCurrency(),
-                            text: "subscription_total_monthly".localized
-                        )
-                    )
-                    
-                    SubscriptionCalendarView()
-                }
-                
-                NavigationButtonView(
-                    route: .push,
-                    destination: .subscription(.list)
-                ) {
-                    ClassicRowView(text: "subscription_list_of_subscriptions".localized)
-                }
-                
-                if !viewModel.subtitleToPay.isEmpty {
-                    SubscriptionSectionView(
-                        title: "subscription_coming_soon".localized,
-                        subtitle: viewModel.subtitleToPay
-                    ) {
-                        ForEach(viewModel.subscriptionsToPay) { subscription in
-                            NavigationButtonView(
-                                route: .push,
-                                destination: .subscription(.detail(subscriptionId: subscription.id))
-                            ) {
-                                SubscriptionRowView(subscription: subscription)
-                            }
-                        }
-                    }
-                }
-                
-                if !viewModel.subtitlePaid.isEmpty {
-                    SubscriptionSectionView(
-                        title: "subscription_past".localized,
-                        subtitle: viewModel.subtitlePaid
-                    ) {
-                        ForEach(viewModel.transactionsPaidBySubscriptions) { transaction in
-                            NavigationButtonView(
-                                route: .push,
-                                destination: .transaction(.detail(transactionId: transaction.id))
-                            ) {
-                                TransactionRowView(transaction: transaction)
-                            }
-                        }
-                    }
-                }
+                calendarView
+                commingSubscriptionsView
+                pastSubscriptionsView
             }
             .padding(Spacing.large)
         }
@@ -83,6 +34,67 @@ public struct SubscriptionsScreen: View {
             viewModel.getTotalAnnualy()
             viewModel.getTotalMonthly()
         }
+    }
+    
+}
+
+fileprivate extension SubscriptionsScreen {
+    
+    var calendarView: some View {
+        VStack(spacing: Spacing.medium) {
+            TwoStatisticsRowView(
+                leftItem: .init(
+                    value: viewModel.totalAnnualy.toCurrency(),
+                    text: "subscription_total_yearly".localized),
+                rightItem: .init(
+                    value: viewModel.totalMonthly.toCurrency(),
+                    text: "subscription_total_monthly".localized
+                )
+            )
+            
+            SubscriptionCalendarView()
+            
+            NavigationButtonView(
+                route: .push,
+                destination: .subscription(.list)
+            ) {
+                ClassicRowView(text: "subscription_list_of_subscriptions".localized)
+            }
+        }
+    }
+    
+    var commingSubscriptionsView: some View {
+        SubscriptionSectionView(
+            title: "subscription_coming_soon".localized,
+            subtitle: viewModel.subtitleToPay
+        ) {
+            ForEach(viewModel.subscriptionsToPay) { subscription in
+                NavigationButtonView(
+                    route: .push,
+                    destination: .subscription(.detail(subscriptionId: subscription.id))
+                ) {
+                    SubscriptionRowView(subscription: subscription)
+                }
+            }
+        }
+        .isDisplayed(!viewModel.subtitleToPay.isEmpty)
+    }
+    
+    var pastSubscriptionsView: some View {
+        SubscriptionSectionView(
+            title: "subscription_past".localized,
+            subtitle: viewModel.subtitlePaid
+        ) {
+            ForEach(viewModel.transactionsPaidBySubscriptions) { transaction in
+                NavigationButtonView(
+                    route: .push,
+                    destination: .transaction(.detail(transactionId: transaction.id))
+                ) {
+                    TransactionRowView(transaction: transaction)
+                }
+            }
+        }
+        .isDisplayed(!viewModel.subtitlePaid.isEmpty)
     }
     
 }

@@ -152,7 +152,7 @@ extension RootScreen {
             NavigationStackView(
                 router: analysisRouter,
                 destinationContent: { AppDestination.content(for: $0) },
-                initialContent: { StatisticsScreen() }
+                initialContent: { AnalysisScreen() }
             )
             .tag(AppTabs.analysis)
             .toolbar(.hidden, for: .tabBar)

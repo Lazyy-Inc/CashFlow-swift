@@ -43,42 +43,8 @@ public struct SavingsScreen: View {
     public var body: some View {
         ScrollView {
             VStack(spacing: Spacing.extraLarge) {
-                VStack(spacing: Spacing.standard) {
-                    Text("savings_screen_savings_account_title".localized + " - " + accountStore.savingsAmount.toCurrency())
-                        .fontWithLineHeight(.Title.medium)
-                        .fullWidth(.leading)
-                    
-                    LazyVGrid(columns: columns, spacing: Spacing.standard) {
-                        ForEach(accountStore.savingsAccounts) { account in
-                            NavigationButtonView(
-                                route: .push,
-                                destination: AppDestination.savingsAccount(.detail(savingsAccount: account)),
-                                onNavigate: { savingsAccountStore.currentAccount = account },
-                                label: { SavingsAccountRowView(savingsAccount: account) }
-                            )
-                        }
-                    }
-                }
-                .emptyState(condition: accountStore.savingsAccounts.isEmpty) {
-                    CFEmptyView(type: .noSavingsAccounts)
-                }
-                
-                VStack(spacing: Spacing.standard) {
-                    Text("savings_screen_financial_goals_title".localized + " - " + savingsPlanStore.savingsAmount.toCurrency())
-                        .fontWithLineHeight(.Title.medium)
-                        .fullWidth(.leading)
-                    
-                    ForEach(savingsPlanStore.savingsPlans) { plan in
-                        NavigationButtonView(
-                            route: .push,
-                            destination: AppDestination.savingsPlan(.detail(savingsPlan: plan)),
-                            label: { SavingsPlanRowView(savingsPlan: plan) }
-                        )
-                    }
-                }
-                .emptyState(condition: savingsPlanStore.savingsPlans.isEmpty) {
-                    CFEmptyView(type: .noFinancialGoals)
-                }
+                savingsAccountsView
+                financialGoalsView
             }
             .padding(Spacing.large)
         }
@@ -89,6 +55,51 @@ public struct SavingsScreen: View {
             await savingsPlanStore.fetchSavingsPlans()
         }
     }
+}
+
+fileprivate extension SavingsScreen {
+    
+    var savingsAccountsView: some View {
+        VStack(spacing: Spacing.standard) {
+            Text("savings_screen_savings_account_title".localized + " - " + accountStore.savingsAmount.toCurrency())
+                .fontWithLineHeight(.Title.medium)
+                .fullWidth(.leading)
+            
+            LazyVGrid(columns: columns, spacing: Spacing.standard) {
+                ForEach(accountStore.savingsAccounts) { account in
+                    NavigationButtonView(
+                        route: .push,
+                        destination: AppDestination.savingsAccount(.detail(savingsAccount: account)),
+                        onNavigate: { savingsAccountStore.currentAccount = account },
+                        label: { SavingsAccountRowView(savingsAccount: account) }
+                    )
+                }
+            }
+        }
+        .emptyState(condition: accountStore.savingsAccounts.isEmpty) {
+            CFEmptyView(type: .noSavingsAccounts)
+        }
+    }
+    
+    var financialGoalsView: some View {
+        VStack(spacing: Spacing.standard) {
+            Text("savings_screen_financial_goals_title".localized + " - " + savingsPlanStore.savingsAmount.toCurrency())
+                .fontWithLineHeight(.Title.medium)
+                .fullWidth(.leading)
+            
+            ForEach(savingsPlanStore.savingsPlans) { plan in
+                NavigationButtonView(
+                    route: .push,
+                    destination: AppDestination.savingsPlan(.detail(savingsPlan: plan)),
+                    label: { SavingsPlanRowView(savingsPlan: plan) }
+                )
+            }
+        }
+        .emptyState(condition: savingsPlanStore.savingsPlans.isEmpty) {
+            CFEmptyView(type: .noFinancialGoals)
+        }
+    }
+    
 }
 
 // MARK: - Preview

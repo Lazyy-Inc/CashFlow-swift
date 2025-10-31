@@ -1,5 +1,5 @@
 //
-//  StatisticsScreen+ViewModel.swift
+//  AnalysisScreen+ViewModel.swift
 //  Features
 //
 //  Created by Theo Sementa on 03/09/2025.
@@ -12,7 +12,7 @@ import DesignSystem
 import SwiftUI
 
 // MARK: - Stored variables
-extension StatisticsScreen {
+extension AnalysisScreen {
   
   @Observable
   final class ViewModel {
@@ -28,7 +28,7 @@ extension StatisticsScreen {
 }
 
 // MARK: - Computed variables
-extension StatisticsScreen.ViewModel {
+extension AnalysisScreen.ViewModel {
   
   var expensesOfTheMonth: Double {
     return transactionStore.getTransactions(in: repartitionDate, type: .expense)
@@ -87,7 +87,7 @@ extension StatisticsScreen.ViewModel {
 }
 
 // MARK: - Public functions
-extension StatisticsScreen.ViewModel {
+extension AnalysisScreen.ViewModel {
     
   func fetchTransactions(for date: Date) async {
 //    let transactionStore: TransactionStore = .shared
