@@ -220,8 +220,6 @@ extension AppDestination {
             AnyView(QRCodeScannerScreen())
         case .home:
             AnyView(HomeScreen())
-        case .analytics:
-            AnyView(AnalyticsScreen())
         case .releaseNoteDetail(let releaseNote):
             AnyView(ReleaseNoteDetailView(releaseNote: releaseNote))
         }

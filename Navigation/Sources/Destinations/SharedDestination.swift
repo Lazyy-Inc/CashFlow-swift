@@ -15,5 +15,4 @@ public enum SharedDestination: DestinationItem {
     case releaseNoteDetail(releaseNote: ReleaseNoteModel)
     
     case home
-    case analytics
 }

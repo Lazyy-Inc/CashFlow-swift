@@ -20,9 +20,17 @@ struct HomeLastTransactionsSectionView: View {
     @EnvironmentObject private var router: Router<AppDestination>
     
     var lastTransactions: [TransactionModel] {
-        let sortedTransactions = transactionStore.getTransactions(in: Date())
-            .sorted { $0.date > $1.date }
-        return Array(sortedTransactions.prefix(5))
+        var transactions: [TransactionModel]
+        let transactionsOfTheMonth = transactionStore.getTransactions(in: .now)
+        
+        if transactionsOfTheMonth.isEmpty {
+            transactions = transactionStore.getTransactions(in: .now.oneMonthAgo)
+        } else {
+            transactions = transactionsOfTheMonth
+        }
+    
+        transactions.sort { $0.date > $1.date }
+        return Array(transactions.prefix(5))
     }
     
     // MARK: - View
