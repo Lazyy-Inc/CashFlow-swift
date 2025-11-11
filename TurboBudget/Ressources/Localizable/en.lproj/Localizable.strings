@@ -141,30 +141,6 @@
 
 "ascending_order_word" = "Ascending order";
 
-"automation_monthly" = "Monthly";
-
-"automation_new" = "New automation";
-
-"automation_placeholder_amount" = "0";
-
-"automation_recurrence" = "Recurrence";
-
-"automation_successful" = "Automation created";
-
-"automation_successful_date" = "Date & Time";
-
-"automation_successful_desc" = "Your automation has been processed";
-
-"automation_title" = "Title";
-
-"automation_yearly" = "Annual";
-
-"automations_for_home_no_auto" = "Add your first automation by pressing the + button.";
-
-"automations_for_home_title" = "My automations";
-
-"automations_home_no_auto" = "Create your first automation !";
-
 "budget_cell_actual" = "Actual";
 
 "budget_cell_max" = "Max";
@@ -218,6 +194,21 @@
 "cashflowchart_alert_desc" = "This chart is the result of adding up all the income and expenditure for each month.";
 
 "cashflowchart_alert_title" = "CashFlow Chart";
+
+/*  */
+"category00_name" = "To categorize";
+
+"category10_name" = "Health";
+
+"category10_subcategory1_name" = "Doctor";
+
+"category10_subcategory2_name" = "Mutual insurance";
+
+"category10_subcategory3_name" = "Opique";
+
+"category10_subcategory4_name" = "Pharmacy";
+
+"category10_subcategory5_name" = "Other";
 
 "category11_name" = "Transport";
 
@@ -361,18 +352,6 @@
 
 /*  */
 "category_family_children" = "Family life & Children";
-
-"category_health" = "Health";
-
-"category_health_subcategory_doctor" = "Doctor";
-
-"category_health_subcategory_mutual_insurance" = "Mutual insurance";
-
-"category_health_subcategory_opique" = "Opique";
-
-"category_health_subcategory_others" = "Other";
-
-"category_health_subcategory_pharmacy" = "Pharmacy";
 
 /*  */
 "category_projects_events" = "Projects & Events";
@@ -1641,6 +1620,9 @@ Simple, fast, secure - your financial peace of mind starts here.";
 
 /*  */
 "subscription_first_subscription" = "First subscription";
+
+/*  */
+"subscription_list_of_subscriptions" = "List of subscriptions";
 
 /*  */
 "subscription_number_of_transactions" = "Number of transactions";

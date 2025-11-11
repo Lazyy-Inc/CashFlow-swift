@@ -141,30 +141,6 @@
 
 "ascending_order_word" = "Ordre croissant";
 
-"automation_monthly" = "Mensuelle";
-
-"automation_new" = "Nouvelle automatisation";
-
-"automation_placeholder_amount" = "0";
-
-"automation_recurrence" = "Récurrence";
-
-"automation_successful" = "Automatisation créée";
-
-"automation_successful_date" = "Date & Heure";
-
-"automation_successful_desc" = "Votre automatisation a été traitée";
-
-"automation_title" = "Titre";
-
-"automation_yearly" = "Annuelle";
-
-"automations_for_home_no_auto" = "Ajoutez votre première automatisation en appuyant sur le bouton +.";
-
-"automations_for_home_title" = "Mes automatisations";
-
-"automations_home_no_auto" = "Créez votre première automatisation !";
-
 "budget_cell_actual" = "Actuel";
 
 "budget_cell_max" = "Maximum";
@@ -218,6 +194,21 @@
 "cashflowchart_alert_desc" = "Ce graphique est le résultat de l'addition de tous les revenus et dépenses pour chaque mois.";
 
 "cashflowchart_alert_title" = "CashFlow graphique";
+
+/*  */
+"category00_name" = "A catégoriser";
+
+"category10_name" = "Santé";
+
+"category10_subcategory1_name" = "Médecin";
+
+"category10_subcategory2_name" = "Assurance mutuelle";
+
+"category10_subcategory3_name" = "Optique";
+
+"category10_subcategory4_name" = "Pharmacie";
+
+"category10_subcategory5_name" = "Autres";
 
 "category11_name" = "Transport";
 
@@ -362,18 +353,6 @@
 /*  */
 "category_family_children" = "Vie familiale et enfants";
 
-"category_health" = "Santé";
-
-"category_health_subcategory_doctor" = "Médecin";
-
-"category_health_subcategory_mutual_insurance" = "Assurance mutuelle";
-
-"category_health_subcategory_opique" = "Optique";
-
-"category_health_subcategory_others" = "Autres";
-
-"category_health_subcategory_pharmacy" = "Pharmacie";
-
 /*  */
 "category_projects_events" = "Projets et événements";
 
@@ -392,6 +371,18 @@
 "chart_expenses_expenses_in" = "Dépenses en";
 
 "chart_incomes_incomes_in" = "Revenus en";
+
+/*  */
+"confirmation_leave_form_cancel_button" = "Continuer";
+
+/*  */
+"confirmation_leave_form_destructive_button" = "Quitter sans enregistrer";
+
+/*  */
+"confirmation_leave_form_message" = "Tu as apporté des changements. Si tu quittes maintenant, ils seront perdus.";
+
+/*  */
+"confirmation_leave_form_title" = "Modifications non enregistrées";
 
 "contribution_add" = "Ajouter";
 
@@ -684,6 +675,18 @@
 "delete_transaction_title" = "Supprimer une transaction";
 
 "descending_order_word" = "Ordre décroissant";
+
+/*  */
+"edit_account_validation_button" = "Modifier le compte";
+
+/*  */
+"edit_financial_validation_button" = "Modifier l'objectif financier";
+
+/*  */
+"edit_subscription_validation_button" = "Modifier l'abonnement";
+
+/*  */
+"edit_transaction_validation_button" = "Modifier la transaction";
 
 /*  */
 "empty_account_list_description" = "Créez votre premier compte en cliquant sur le bouton + en bas de l’écran";
@@ -1641,6 +1644,9 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 
 /*  */
 "subscription_first_subscription" = "Première souscription";
+
+/*  */
+"subscription_list_of_subscriptions" = "Liste des abonnements";
 
 /*  */
 "subscription_number_of_transactions" = "Nombre de transactions";
