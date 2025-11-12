@@ -34,6 +34,7 @@ let package = Package(
         .package(path: "../Models"),
         .package(path: "../Stores"),
         .package(path: "../Navigation"),
+        .package(path: "../Utilities"),
         
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
         .package(url: "https://github.com/theosementa/NavigationKit", branch: "2.0.6"),
@@ -248,6 +249,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
+                "Utilities",
                 .product(name: "Dependencies", package: "swift-dependencies"),
                 .product(name: "SwipeActions", package: "SwipeActions")
             ],

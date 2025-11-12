@@ -21,6 +21,7 @@
 		D9084F432E609E7C0077F9C5 /* Events in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F422E609E7C0077F9C5 /* Events */; };
 		D9084F452E615DF80077F9C5 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F442E615DF80077F9C5 /* Home */; };
 		D9084F472E61690F0077F9C5 /* Dashboard in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F462E61690F0077F9C5 /* Dashboard */; };
+		D950AF012EC4D96A007B1157 /* Utilities in Frameworks */ = {isa = PBXBuildFile; productRef = D950AF002EC4D96A007B1157 /* Utilities */; };
 		D954F8D02EAE2BC700745E89 /* FinancialGoalModule in Frameworks */ = {isa = PBXBuildFile; productRef = D954F8CF2EAE2BC700745E89 /* FinancialGoalModule */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
 		D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D968BB2C2E4F2579006BB17A /* Sentry */; };
@@ -58,6 +59,7 @@
 		D9084F412E609E330077F9C5 /* Events */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Events; sourceTree = "<group>"; };
 		D922E9A92E46688200B94AF7 /* Features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Features; sourceTree = "<group>"; };
 		D942D6542EB2518C00DD7372 /* CashFlowTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CashFlowTestPlan.xctestplan; sourceTree = "<group>"; };
+		D950AEFF2EC4D914007B1157 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utilities; sourceTree = "<group>"; };
 		D9887FE12AA457A400AFC915 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D9B2F47E2E929B6800CF5ABC /* Repositories */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Repositories; sourceTree = "<group>"; };
 		D9B2F47F2E929BEF00CF5ABC /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Persistence; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				D9084F452E615DF80077F9C5 /* Home in Frameworks */,
 				D968C1B02E50651E006BB17A /* AccountModule in Frameworks */,
 				D9DDD89E2EA509100015E0FB /* Savings in Frameworks */,
+				D950AF012EC4D96A007B1157 /* Utilities in Frameworks */,
 				D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */,
 				D954F8D02EAE2BC700745E89 /* FinancialGoalModule in Frameworks */,
 				D968C2322E54F3CA006BB17A /* SubcategoryModule in Frameworks */,
@@ -147,6 +150,7 @@
 				D9084F382E6091D60077F9C5 /* Preferences */,
 				D9B2F47E2E929B6800CF5ABC /* Repositories */,
 				D9084D9C2E5F73B50077F9C5 /* Stores */,
+				D950AEFF2EC4D914007B1157 /* Utilities */,
 				D9F5C2212DB39458008267F5 /* README.md */,
 				D9F0E45F2CE525390054E305 /* TurboBudget */,
 				81A707842A3B6B4C00BEB0BF /* Products */,
@@ -224,6 +228,7 @@
 				D9B2F4822E929CB800CF5ABC /* Persistence */,
 				D9DDD89D2EA509100015E0FB /* Savings */,
 				D954F8CF2EAE2BC700745E89 /* FinancialGoalModule */,
+				D950AF002EC4D96A007B1157 /* Utilities */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -449,7 +454,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = TurboBudget/TurboBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20251006;
+				CURRENT_PROJECT_VERSION = 20251111;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_APP_SANDBOX = YES;
@@ -481,7 +486,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.0.8;
+				MARKETING_VERSION = 2.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Sementa.CashFlow;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -504,7 +509,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = TurboBudget/TurboBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20251006;
+				CURRENT_PROJECT_VERSION = 20251111;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_APP_SANDBOX = YES;
@@ -536,7 +541,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.0.8;
+				MARKETING_VERSION = 2.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Sementa.CashFlow;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -666,6 +671,10 @@
 		D9084F462E61690F0077F9C5 /* Dashboard */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Dashboard;
+		};
+		D950AF002EC4D96A007B1157 /* Utilities */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Utilities;
 		};
 		D954F8CF2EAE2BC700745E89 /* FinancialGoalModule */ = {
 			isa = XCSwiftPackageProductDependency;

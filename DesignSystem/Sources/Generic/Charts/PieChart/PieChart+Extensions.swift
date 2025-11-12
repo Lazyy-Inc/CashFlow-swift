@@ -19,6 +19,8 @@ extension PieChart {
         let newTotal = adjustedValues.reduce(0, +)
         
         // Normaliser les valeurs pour que leur somme soit toujours égale à 100%
-        return adjustedValues.map { $0 / newTotal * total }
+        return adjustedValues
+            .map { $0 / newTotal * total }
+            .filter { !$0.isNaN }
     }
 }
