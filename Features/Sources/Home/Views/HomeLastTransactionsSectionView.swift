@@ -20,13 +20,13 @@ struct HomeLastTransactionsSectionView: View {
     @EnvironmentObject private var router: Router<AppDestination>
     
     var lastTransactions: [TransactionModel] {
-        var transactions: [TransactionModel]
+        var transactions: [TransactionModel] = []
         let transactionsOfTheMonth = transactionStore.getTransactions(in: .now)
+        transactions += transactionsOfTheMonth
         
-        if transactionsOfTheMonth.isEmpty {
-            transactions = transactionStore.getTransactions(in: .now.oneMonthAgo)
-        } else {
-            transactions = transactionsOfTheMonth
+        if transactionsOfTheMonth.count < 5 {
+            let transactionsOfLastMonth = transactionStore.getTransactions(in: .now.oneMonthAgo)
+            transactions += transactionsOfLastMonth
         }
     
         transactions.sort { $0.date > $1.date }

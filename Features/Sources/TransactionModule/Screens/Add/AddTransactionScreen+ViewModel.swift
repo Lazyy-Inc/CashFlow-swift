@@ -71,7 +71,7 @@ extension AddTransactionScreen.ViewModel {
     }
     
     var actionButtonTitle: String {
-        return transaction == nil ? "create_transaction_validation_button" : "create_transaction_validation_button"
+        return transaction == nil ? "create_transaction_validation_button" : "edit_transaction_validation_button"
     }
     
     var isModelInCreation: Bool {

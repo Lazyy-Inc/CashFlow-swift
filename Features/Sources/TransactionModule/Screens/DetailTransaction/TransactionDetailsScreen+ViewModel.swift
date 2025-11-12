@@ -17,7 +17,6 @@ extension TransactionDetailsScreen {
     @Observable
     class ViewModel {
         var transactionId: Int
-        var transaction: TransactionModel?
         
         var selectedCategory: CategoryModel?
         var selectedSubcategory: SubcategoryModel?
@@ -38,9 +37,16 @@ extension TransactionDetailsScreen {
         
         init(transactionId: Int) {
             self.transactionId = transactionId
-            self.transaction = transactionStore.transactions.first { $0.id == transactionId }
             self.currentReparitionType = transaction?.repartitionType ?? .notDefined
         }
+    }
+    
+}
+
+extension TransactionDetailsScreen.ViewModel {
+    
+    var transaction: TransactionModel? {
+        return transactionStore.transactions.first { $0.id == transactionId }
     }
     
 }

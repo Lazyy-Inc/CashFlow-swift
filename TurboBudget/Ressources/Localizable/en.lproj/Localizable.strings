@@ -372,6 +372,18 @@
 
 "chart_incomes_incomes_in" = "Incomes in";
 
+/*  */
+"confirmation_leave_form_cancel_button" = "Continue";
+
+/*  */
+"confirmation_leave_form_destructive_button" = "Exit without saving";
+
+/*  */
+"confirmation_leave_form_message" = "You've made changes. If you leave now, they'll be lost.";
+
+/*  */
+"confirmation_leave_form_title" = "Unsaved changes";
+
 "contribution_add" = "Add";
 
 "contribution_alert_for_finish" = "to complete the savings plan.";
@@ -663,6 +675,18 @@
 "delete_transaction_title" = "Delete a transaction";
 
 "descending_order_word" = "Descending order";
+
+/*  */
+"edit_account_validation_button" = "Edit account";
+
+/*  */
+"edit_financial_validation_button" = "Edit the financial objective";
+
+/*  */
+"edit_subscription_validation_button" = "Edit the subscription";
+
+/*  */
+"edit_transaction_validation_button" = "Edit the transaction";
 
 /*  */
 "empty_account_list_description" = "Create your first account by clicking on the + button at the bottom of the screen";
@@ -1823,6 +1847,15 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "transaction_successful_date" = "Date & Time";
 
 "transaction_successful_desc" = "Your transaction has been processed";
+
+/*  */
+"transaction_swipe_action_delete" = "Delete";
+
+/*  */
+"transaction_swipe_action_duplicate" = "Duplicate";
+
+/*  */
+"transaction_swipe_action_edit" = "Edit";
 
 "transaction_title" = "Title";
 

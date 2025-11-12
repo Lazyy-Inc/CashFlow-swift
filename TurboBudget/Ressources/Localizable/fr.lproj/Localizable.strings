@@ -376,7 +376,7 @@
 "confirmation_leave_form_cancel_button" = "Continuer";
 
 /*  */
-"confirmation_leave_form_destructive_button" = "Quitter sans enregistrer";
+"confirmation_leave_form_destructive_button" = "Quitter sans sauvegarder";
 
 /*  */
 "confirmation_leave_form_message" = "Tu as apporté des changements. Si tu quittes maintenant, ils seront perdus.";
@@ -1847,6 +1847,15 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "transaction_successful_date" = "Date & Heure";
 
 "transaction_successful_desc" = "Votre transaction a été traitée";
+
+/*  */
+"transaction_swipe_action_delete" = "Supprimer";
+
+/*  */
+"transaction_swipe_action_duplicate" = "Dupliquer";
+
+/*  */
+"transaction_swipe_action_edit" = "Modifier";
 
 "transaction_title" = "Titre";
 

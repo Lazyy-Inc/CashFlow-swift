@@ -87,3 +87,24 @@ public extension TransactionModel {
     }
     
 }
+
+public extension TransactionModel {
+    
+    func toDTO() -> TransactionDTO {
+        return .init(
+            name: self.name,
+            amount: self.amount,
+            type: self.type.rawValue,
+            dateISO: self.date.ISO8601Format(),
+            categoryID: self.category?.id,
+            subcategoryID: self.subcategory?.id,
+            repartitionType: self.repartitionType?.rawValue,
+            senderAccountID: Int(self.senderAccount?.id ?? ""),
+            receiverAccountID: Int(self.receiverAccount?.id ?? ""),
+            address: self.address,
+            lat: self.lat,
+            long: self.long
+        )
+    }
+    
+}
