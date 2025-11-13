@@ -14,6 +14,7 @@ import Stores
 import Repositories
 import NotificationKit
 import UserNotifications
+import Utilities
 
 struct AddTransactionIntent: AppIntent {
     
@@ -48,10 +49,11 @@ struct AddTransactionIntent: AppIntent {
             let allowedCharacters = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: ".,"))
             let filtered = input.components(separatedBy: allowedCharacters.inverted).joined()
             let normalized = filtered.replacingOccurrences(of: ",", with: ".")
-            return Double(normalized) ?? 0.0
+            return normalized.toDouble()
         }
           
         let finalNumber = extractAmount(from: amount)
+        let stringNumber = finalNumber.toString(minDigits: 2)
             
         var body: TransactionDTO = .init(
             name: title,
@@ -79,12 +81,12 @@ struct AddTransactionIntent: AppIntent {
         let notificationData = NotificationData(
           id: UUID().uuidString,
           title: "CashFlow",
-          message: String(format: "notification_apple_pay_payed".localized, "\(finalNumber)\(UserCurrency.symbol)", title)
+          message: String(format: "notification_apple_pay_payed".localized, "\(stringNumber)\(UserCurrency.symbol)", title)
         )
         await NotificationsManager.shared.scheduleNotification(for: notificationData, in: 10)
               
         let formatString = "shortcut_result_label".localized
-        let formattedText = String(format: formatString, finalNumber.toString(), UserCurrency.symbol, title)
+        let formattedText = String(format: formatString, stringNumber, UserCurrency.symbol, title)
         
         return .result(dialog: IntentDialog(stringLiteral: formattedText))
     }

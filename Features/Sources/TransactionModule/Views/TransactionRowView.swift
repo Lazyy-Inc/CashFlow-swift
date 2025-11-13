@@ -7,7 +7,6 @@
 // Localizations 01/10/2023
 
 import SwiftUI
-import SwipeActions
 import AlertKit
 import Navigation
 import TheoKit
@@ -40,73 +39,55 @@ public struct TransactionRowView: View {
     
     // MARK: -
     public var body: some View {
-        SwipeView(
-            label: {
-                HStack(spacing: Spacing.medium) {
-                    CircleCategory(
-                        category: currentTransaction.category,
-                        subcategory: currentTransaction.subcategory,
-                        transaction: currentTransaction
-                    )
-                    
-                    transactionTypeWithName(transaction)
-                    transactionAmountWithDate(transaction)
+        HStack(spacing: Spacing.medium) {
+            CircleCategory(
+                category: currentTransaction.category,
+                subcategory: currentTransaction.subcategory,
+                transaction: currentTransaction
+            )
+            
+            transactionTypeWithName(transaction)
+            transactionAmountWithDate(transaction)
+        }
+        .geometryGroup()
+        .padding(Padding.medium)
+        .roundedRectangleBorder(
+            TKDesignSystem.Colors.Background.Theme.bg100,
+            radius: CornerRadius.standard,
+            lineWidth: 1,
+            strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
+        )
+        .contentShape(.contextMenuPreview, .rect(cornerRadius: CornerRadius.standard))
+        .contextMenu {
+            AsyncButton {
+                if let accountId = accountStore.selectedAccount?._id {
+                    await transactionStore.createTransaction(accountId: accountId, body: transaction.toDTO())
                 }
-                .geometryGroup()
-                .padding(Padding.medium)
-                .roundedRectangleBorder(
-                    TKDesignSystem.Colors.Background.Theme.bg100,
-                    radius: 16,
-                    lineWidth: 1,
-                    strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-                )
-            },
-            leadingActions: { context in
-                SwipeAction {
-                    Task {
-                        if let accountId = accountStore.selectedAccount?._id {
-                            await transactionStore.createTransaction(accountId: accountId, body: transaction.toDTO())
-                        }
-                        context.state.wrappedValue = .closed
-                    }
-                        
-                } label: { _ in
-                    swipeActionLabel(icon: "plus.square.on.square", text: "transaction_swipe_action_duplicate".localized)
-                } background: { _ in
-                    Color.blue
+            } label: {
+                Label("transaction_swipe_action_duplicate".localized, systemImage: "plus.square.on.square")
+            }
+            
+            Button {
+                router.push(.transaction(.update(transaction: currentTransaction)))
+            } label: {
+                Label("transaction_swipe_action_edit".localized, systemImage: "pencil")
+            }
+            
+            Button(role: .destructive) {
+                if transaction.type == .transfer {
+                    AlertManager.shared.deleteTransfer(transfer: currentTransaction)
+                } else {
+                    AlertManager.shared.deleteTransaction(transaction: currentTransaction)
                 }
-            },
-            trailingActions: { context in
-                if isEditable {
-                    SwipeAction(action: {
-                        router.push(.transaction(.update(transaction: currentTransaction)))
-                        context.state.wrappedValue = .closed
-                    }, label: { _ in
-                        swipeActionLabel(icon: "pencil", text: "transaction_swipe_action_edit".localized)
-                    }, background: { _ in
-                        Color.blue
-                    })
-                }
-                
-                SwipeAction(action: {
-                    if transaction.type == .transfer {
-                        AlertManager.shared.deleteTransfer(transfer: currentTransaction)
-                    } else {
-                        AlertManager.shared.deleteTransaction(transaction: currentTransaction)
-                    }
-                    context.state.wrappedValue = .closed
-                }, label: { _ in
-                    swipeActionLabel(icon: "trash", text: "transaction_swipe_action_delete".localized)
-                }, background: { _ in
-                    Color.Error.error400
-                })
-            })
-        .swipeActionsStyle(.cascade)
-        .swipeActionWidth(90)
-        .swipeActionCornerRadius(16)
-        .swipeMinimumDistance(40)
-    } // body
-} // struct
+            } label: {
+                Label("transaction_swipe_action_delete".localized, systemImage: "trash")
+            }
+        } preview: {
+            self
+                .frame(width: UIScreen.main.bounds.width - 32)
+        }
+    }
+}
 
 // MARK: - Subviews
 extension TransactionRowView {
@@ -139,18 +120,6 @@ extension TransactionRowView {
                 .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
                 .lineLimit(1)
         }
-    }
-    
-    @ViewBuilder
-    private func swipeActionLabel(icon: String, text: String) -> some View {
-        VStack(spacing: 4) {
-            Image(systemName: icon)
-                .font(.system(size: 20, weight: .semibold, design: .rounded))
-            
-            Text(text)
-                .fontWithLineHeight(.Label.large)
-        }
-        .foregroundStyle(Color.white)
     }
     
 }

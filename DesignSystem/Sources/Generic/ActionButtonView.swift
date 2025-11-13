@@ -37,6 +37,8 @@ public struct ActionButtonView: View {
     let title: String
     let action: () async -> Void
     
+    @State private var isLoading: Bool = false
+    
     // MARK: Init
     public init(
         style: ActionButtonStyle = .plain,
@@ -52,16 +54,26 @@ public struct ActionButtonView: View {
     public var body: some View {
         Button {
             Task {
+                isLoading = true
                 await action()
+                isLoading = false
             }
         } label: {
-            Text(title)
-                .fontWithLineHeight(.Body.mediumBold)
-                .foregroundStyle(Color.white)
-                .frame(maxWidth: .infinity)
-                .padding(Padding.standard)
-                .background(style.backgroundColor, in: .rect(cornerRadius: CornerRadius.large, style: .continuous))
+            Group {
+                if isLoading {
+                    ProgressView()
+                } else {
+                    Text(title)
+                        .fontWithLineHeight(.Body.mediumBold)
+                        .foregroundStyle(Color.white)
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .padding(Padding.standard)
+            .background(style.backgroundColor, in: .rect(cornerRadius: CornerRadius.large, style: .continuous))
+            .animation(.smooth, value: isLoading)
         }
+        .disabled(isLoading)
     }
 }
 

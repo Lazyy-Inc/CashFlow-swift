@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-import SwipeActions
 import Core
 import Dependencies
 import Models
 import Stores
+import DesignSystem
 
 public enum TransferRowLocation {
     case successfulSheet, savingsAccount
@@ -21,15 +21,24 @@ public struct TransferRowView: View {
     // MARK: Dependencies
     var transfer: TransactionModel
     var location: TransferRowLocation = .savingsAccount
-    
-    // MARK: Environments
     @Dependency(\.savingsAccountStore) private var savingsAccountStore
     @Dependency(\.accountStore) var accountStore: AccountStore
+    
+    // MARK: Environments
     @EnvironmentObject private var transferStore: TransferStore
         
     // MARK: States
     @State private var isDeleting: Bool = false
     @State private var cancelDeleting: Bool = false
+
+    // MARK: Init
+    public init(
+        transfer: TransactionModel,
+        location: TransferRowLocation = .savingsAccount
+    ) {
+        self.transfer = transfer
+        self.location = location
+    }
     
     var isSender: Bool {
         switch location {
@@ -39,85 +48,64 @@ public struct TransferRowView: View {
             return savingsAccountStore.currentAccount?._id == transfer.senderAccount?._id
         }
     }
-
-    public init(
-        transfer: TransactionModel,
-        location: TransferRowLocation = .savingsAccount
-    ) {
-        self.transfer = transfer
-        self.location = location
-    }
     
     // MARK: - View
     public var body: some View {
-        SwipeView(label: {
-            HStack {
-                Circle()
-                    .foregroundStyle(Color.Background.bg200)
-                    .frame(width: 50)
-                    .overlay {
-                        Circle()
-                            .foregroundStyle(isSender ? Color.Error.error400 : Color.primary500)
-                            .shadow(radius: 4, y: 4)
-                            .frame(width: 34)
-                        
-                        Image(systemName: isSender ? "antenna.radiowaves.left.and.right" : "tray.fill")
-                            .font(.system(size: 14, weight: .semibold, design: .rounded))
-                            .foregroundStyle(Color(uiColor: .systemBackground))
-                    }
-                
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(Word.Main.transfer)
-                        .foregroundStyle(Color.customGray)
-                        .font(Font.mediumSmall())
-                    Text(isSender ? Word.Classic.sent : Word.Classic.received)
-                        .font(.semiBoldText18())
-                        .foregroundStyle(Color.text)
-                        .lineLimit(1)
-                }
-                
-                Spacer()
-                
-                VStack(alignment: .trailing, spacing: 5) {
-                    Text("\(isSender ? "-" : "+") \((transfer.amount).toCurrency())")
-                        .font(.semiBoldText16())
+        HStack {
+            Circle()
+                .foregroundStyle(Color.Background.bg200)
+                .frame(width: 50)
+                .overlay {
+                    Circle()
                         .foregroundStyle(isSender ? Color.Error.error400 : Color.primary500)
-                        .lineLimit(1)
-                    Text(transfer.date.formatted(date: .numeric, time: .omitted))
-                        .font(Font.mediumSmall())
-                        .foregroundStyle(Color.customGray)
-                        .lineLimit(1)
+                        .shadow(radius: 4, y: 4)
+                        .frame(width: 34)
+                    
+                    Image(systemName: isSender ? "antenna.radiowaves.left.and.right" : "tray.fill")
+                        .font(.system(size: 14, weight: .semibold, design: .rounded))
+                        .foregroundStyle(Color(uiColor: .systemBackground))
                 }
+            
+            VStack(alignment: .leading, spacing: 5) {
+                Text(Word.Main.transfer)
+                    .foregroundStyle(Color.customGray)
+                    .font(Font.mediumSmall())
+                Text(isSender ? Word.Classic.sent : Word.Classic.received)
+                    .font(.semiBoldText18())
+                    .foregroundStyle(Color.text)
+                    .lineLimit(1)
             }
-            .geometryGroup()
-            .padding(12)
-            .background {
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(Color.Background.bg100)
+            
+            Spacer()
+            
+            VStack(alignment: .trailing, spacing: 5) {
+                Text("\(isSender ? "-" : "+") \((transfer.amount).toCurrency())")
+                    .font(.semiBoldText16())
+                    .foregroundStyle(isSender ? Color.Error.error400 : Color.primary500)
+                    .lineLimit(1)
+                Text(transfer.date.formatted(date: .numeric, time: .omitted))
+                    .font(Font.mediumSmall())
+                    .foregroundStyle(Color.customGray)
+                    .lineLimit(1)
             }
-        }, trailingActions: { context in
-            SwipeAction(action: {
+        }
+        .geometryGroup()
+        .padding(12)
+        .background {
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(Color.Background.bg100)
+        }
+        .contentShape(.contextMenuPreview, .rect(cornerRadius: CornerRadius.standard))
+        .contextMenu {
+            Button(role: .destructive) {
                 withAnimation { isDeleting.toggle() }
-            }, label: { _ in
-                VStack(spacing: 5) {
-                    Image(systemName: "trash")
-                        .font(.system(size: 20, weight: .semibold, design: .rounded))
-                    Text(Word.Classic.delete)
-                        .font(.semiBoldCustom(size: 10))
-                }
-                .foregroundStyle(Color(uiColor: .systemBackground))
-            }, background: { _ in
-                Rectangle()
-                    .foregroundStyle(Color.Error.error400)
-            })
-            .onChange(of: cancelDeleting) {
-                context.state.wrappedValue = .closed
+            } label: {
+                Label(Word.Classic.delete, systemImage: "trash")
             }
-        })
-        .swipeActionsStyle(.cascade)
-        .swipeActionWidth(90)
-        .swipeActionCornerRadius(15)
-        .swipeMinimumDistance(30)
+        } preview: {
+            self
+                .frame(width: UIScreen.main.bounds.width - 32)
+        }
         .alert("transfer_detail_delete_transac".localized, isPresented: $isDeleting, actions: {
             Button(role: .cancel, action: { cancelDeleting.toggle(); return }, label: { Text("word_cancel".localized) })
             Button(role: .destructive, action: {

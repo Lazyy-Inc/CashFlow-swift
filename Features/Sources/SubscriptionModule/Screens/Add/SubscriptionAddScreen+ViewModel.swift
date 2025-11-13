@@ -49,9 +49,11 @@ extension AddSubscriptionScreen {
                 self.name = subscription.name
                 self.amount = subscription.amount.formatted()
                 self.frequency = subscription.frequency
-                self.frequencyDate = subscription.frequencyDate
                 self.selectedCategory = subscription.category
                 self.selectedSubcategory = subscription.subcategory
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.frequencyDate = subscription.frequencyDate
+                }
             }
             
             randomNamePlaceholder()

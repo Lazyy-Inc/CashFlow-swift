@@ -54,7 +54,7 @@ public extension TransactionStore {
                 currentDateForFetch = period.startDate
                 self.dateFetched.append(currentDateForFetch)
                 
-                self.transactions += transactions
+                addUniqueTransactions(transactions)
                 sortTransactionsByDate()
             }
             
@@ -70,7 +70,7 @@ public extension TransactionStore {
             
             if let transaction = try response.transaction?.toModel(), let newBalance = response.newBalance {
                 if shouldStore {
-                    self.transactions.append(transaction)
+                    addUniqueTransactions([transaction])
                     sortTransactionsByDate()
                 }
                 AccountStore.shared.setNewBalance(accountID: accountId, newBalance: newBalance)
@@ -194,9 +194,21 @@ public extension TransactionStore {
         }
     }
     
+}
+
+// MARK: - Utils
+public extension TransactionStore {
+    
     func sortTransactionsByDate() {
         self.transactions.sort { $0.date > $1.date }
     }
+    
+    func addUniqueTransactions(_ newTransactions: [TransactionModel]) {
+        let existingIDs = Set(transactions.map(\.id))
+        let uniqueTransactions = newTransactions.filter { !existingIDs.contains($0.id) }
+        transactions.append(contentsOf: uniqueTransactions)
+    }
+
     
 }
 

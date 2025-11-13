@@ -7,7 +7,6 @@
 // Localizations 01/10/2023
 
 import SwiftUI
-import SwipeActions
 import AlertKit
 import Navigation
 import TheoKit
@@ -21,17 +20,19 @@ public struct SubscriptionRowView: View {
     // MARK: Dependencies
     var subscription: SubscriptionModel
     let isLastDateToDisplay: Bool
-    
-    @EnvironmentObject private var router: Router<AppDestination>
     @Dependency(\.subscriptionStore) private var subscriptionStore
     
-    var currentSubscription: SubscriptionModel {
-        return subscriptionStore.subscriptions.first { $0.id == subscription.id } ?? subscription
-    }
+    // MARK: Enviroments
+    @EnvironmentObject private var router: Router<AppDestination>
     
+    // MARK: Init
     public init(subscription: SubscriptionModel, isLastDateToDisplay: Bool = false) {
         self.subscription = subscription
         self.isLastDateToDisplay = isLastDateToDisplay
+    }
+    
+    var currentSubscription: SubscriptionModel {
+        return subscriptionStore.subscriptions.first { $0.id == subscription.id } ?? subscription
     }
     
     var dateToDisplay: String {
@@ -44,86 +45,63 @@ public struct SubscriptionRowView: View {
     
     // MARK: -
     public var body: some View {
-        SwipeView(
-            label: {
-                HStack(spacing: Spacing.medium) {
-                    CircleCategory(
-                        category: subscription.category,
-                        subcategory: subscription.subcategory
-                    )
-                    
-                    VStack(alignment: .leading, spacing: Spacing.extraSmall) {
-                        Text(Word.Main.subscription)
-                            .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
-                            .font(TKDesignSystem.Fonts.Body.small)
-                        
-                        Text(subscription.name)
-                            .font(TKDesignSystem.Fonts.Body.medium)
-                            .foregroundStyle(Color.text)
-                            .lineLimit(1)
-                    }
-                    .fullWidth(.leading)
-                                        
-                    VStack(alignment: .trailing, spacing: Spacing.extraSmall) {
-                        Text("\(subscription.symbol) \(subscription.amount.toCurrency())")
-                            .font(TKDesignSystem.Fonts.Body.mediumBold)
-                            .foregroundStyle(subscription.color)
-                            .lineLimit(1)
-                        
-                        Text(dateToDisplay)
-                            .font(TKDesignSystem.Fonts.Body.small)
-                            .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
-                            .lineLimit(1)
-                    }
-                }
-                .geometryGroup()
-                .padding(Padding.medium)
-                .roundedRectangleBorder(
-                    TKDesignSystem.Colors.Background.Theme.bg100,
-                    radius: 16,
-                    lineWidth: 1,
-                    strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-                )
-            },
-            trailingActions: { context in
-                SwipeAction(action: {
-                    router.push(.subscription(.update(subscription: subscription)))
-                    context.state.wrappedValue = .closed
-                }, label: { _ in
-                    VStack(spacing: 5) {
-                        Image(systemName: "pencil")
-                            .font(.system(size: 20, weight: .semibold, design: .rounded))
-                        Text(Word.Classic.edit)
-                            .font(.semiBoldCustom(size: 10))
-                    }
-                    .foregroundStyle(Color.textReversed)
-                }, background: { _ in
-                    Rectangle()
-                        .foregroundStyle(.blue)
-                })
-                SwipeAction(action: {
-                    AlertManager.shared.deleteSubscription(subscription: subscription)
-                    context.state.wrappedValue = .closed
-                }, label: { _ in
-                    VStack(spacing: 5) {
-                        Image(systemName: "trash")
-                            .font(.system(size: 20, weight: .semibold, design: .rounded))
-                        Text(Word.Classic.delete)
-                            .font(.semiBoldCustom(size: 10))
-                    }
-                    .foregroundStyle(Color.textReversed)
-                }, background: { _ in
-                    Rectangle()
-                        .foregroundStyle(Color.Error.error400)
-                })
+        HStack(spacing: Spacing.medium) {
+            CircleCategory(
+                category: subscription.category,
+                subcategory: subscription.subcategory
+            )
+            
+            VStack(alignment: .leading, spacing: Spacing.extraSmall) {
+                Text(Word.Main.subscription)
+                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                    .font(TKDesignSystem.Fonts.Body.small)
+                
+                Text(subscription.name)
+                    .font(TKDesignSystem.Fonts.Body.medium)
+                    .foregroundStyle(Color.text)
+                    .lineLimit(1)
             }
+            .fullWidth(.leading)
+                                
+            VStack(alignment: .trailing, spacing: Spacing.extraSmall) {
+                Text("\(subscription.symbol) \(subscription.amount.toCurrency())")
+                    .font(TKDesignSystem.Fonts.Body.mediumBold)
+                    .foregroundStyle(subscription.color)
+                    .lineLimit(1)
+                
+                Text(dateToDisplay)
+                    .font(TKDesignSystem.Fonts.Body.small)
+                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                    .lineLimit(1)
+            }
+        }
+        .geometryGroup()
+        .padding(Padding.medium)
+        .roundedRectangleBorder(
+            TKDesignSystem.Colors.Background.Theme.bg100,
+            radius: 16,
+            lineWidth: 1,
+            strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
         )
-        .swipeActionsStyle(.cascade)
-        .swipeActionWidth(90)
-        .swipeActionCornerRadius(16)
-        .swipeMinimumDistance(30)
-    } // body
-} // struct
+        .contentShape(.contextMenuPreview, .rect(cornerRadius: CornerRadius.standard))
+        .contextMenu {
+            Button {
+                router.push(.subscription(.update(subscription: subscription)))
+            } label: {
+                Label(Word.Classic.edit, systemImage: "pencil")
+            }
+            
+            Button(role: .destructive) {
+                AlertManager.shared.deleteSubscription(subscription: subscription)
+            } label: {
+                Label(Word.Classic.delete, systemImage: "trash")
+            }
+        } preview: {
+            self
+                .frame(width: UIScreen.main.bounds.width - 32)
+        }
+    }
+}
 
 // MARK: - Preview
 #Preview {
