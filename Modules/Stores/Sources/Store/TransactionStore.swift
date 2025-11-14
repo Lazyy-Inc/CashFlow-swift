@@ -209,7 +209,6 @@ public extension TransactionStore {
         transactions.append(contentsOf: uniqueTransactions)
     }
 
-    
 }
 
 extension Date {

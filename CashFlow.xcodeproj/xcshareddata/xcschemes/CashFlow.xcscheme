@@ -62,7 +62,7 @@
          </EnvironmentVariable>
       </EnvironmentVariables>
       <StoreKitConfigurationFileReference
-         identifier = "../../TurboBudget/Core/InAppConfiguration/MainStoreKitConfiguration.storekit">
+         identifier = "../../CashFlow/Core/InAppConfiguration/MainStoreKitConfiguration.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
