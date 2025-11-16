@@ -18,7 +18,7 @@ import Models
 import Mocks
 import Stores
 
-public struct TransactionDetailsScreen: View {
+public struct TransactionDetailsScreen: View { // TODO: Replace with financialItem
     
     // MARK: Dependencies
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore

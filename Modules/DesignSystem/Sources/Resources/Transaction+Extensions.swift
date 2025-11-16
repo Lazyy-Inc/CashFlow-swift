@@ -11,7 +11,7 @@ import SwiftUI
 import TheoKit
 import Models
 
-public extension TransactionModel {
+public extension TransactionModel { // TODO: Can be removed ?
     
     var color: Color {
         switch type {
