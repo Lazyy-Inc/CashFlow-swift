@@ -14,7 +14,7 @@ public struct TransactionService: TransactionServiceProtocol {
     public static func fetchTransactionsByPeriod(
         accountID: Int,
         period: PeriodDateModel,
-        type: TransactionType? = nil
+        type: FinancialItemType? = nil
     ) async throws -> [TransactionDTO] {
         return try await NetworkService.sendRequest(
             apiBuilder: TransactionAPIRequester.fetchByPeriod(

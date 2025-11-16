@@ -21,7 +21,7 @@ public extension SubscriptionDTO {
               let frequencyDate,
               let categoryID else { throw NetworkError.unknown }
         
-        guard let type = TransactionType(rawValue: typeNum),
+        guard let type = FinancialItemType(rawValue: typeNum),
               let frequency = SubscriptionFrequency(rawValue: frequencyNum),
               let date = frequencyDate.toDate() else {
             throw NetworkError.unknown

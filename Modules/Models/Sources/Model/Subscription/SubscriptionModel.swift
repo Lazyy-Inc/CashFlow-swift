@@ -12,7 +12,7 @@ public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
     public var id: Int
     public var name: String
     public var amount: Double
-    public var type: TransactionType
+    public var type: FinancialItemType
     public var frequency: SubscriptionFrequency
     public var frequencyDate: Date
     public var category: CategoryModel?
@@ -26,7 +26,7 @@ public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
         id: Int,
         name: String,
         amount: Double,
-        type: TransactionType,
+        type: FinancialItemType,
         frequency: SubscriptionFrequency,
         frequencyDate: Date,
         category: CategoryModel?,
@@ -48,6 +48,12 @@ public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
         self.transactions = transactions
     }
     
+}
+
+extension SubscriptionModel: FinancialItemProtocol {
+    public var date: Date {
+        return frequencyDate
+    }
 }
 
 public extension SubscriptionModel {

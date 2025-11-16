@@ -12,7 +12,7 @@ import Models
 public extension EventService {
     
     @MainActor
-    private static func sendTransactionTypeEvent(type: TransactionType) {
+    private static func sendFinancialItemTypeEvent(type: FinancialItemType) {
         if type == .expense {
             EventService.sendEvent(key: EventKeys.transactionExpenseCreated)
         } else if type == .income {
@@ -30,7 +30,7 @@ public extension EventService {
     @MainActor
     static func sendForTransactionCreated(transaction: TransactionModel) {
         EventService.sendEvent(key: EventKeys.transactionCreated)
-        EventService.sendTransactionTypeEvent(type: transaction.type)
+        EventService.sendFinancialItemTypeEvent(type: FinancialItemType(rawValue: transaction.type.rawValue) ?? .expense)
         EventService.sendApplePayEvent(isFromApplePay: transaction.isFromApplePay)
     }
     

@@ -123,7 +123,7 @@ extension AddSubscriptionScreen.ViewModel {
         return .init(
             name: name,
             amount: amount.toDouble(),
-            type: selectedCategory?.isIncome == true ? TransactionType.income : TransactionType.expense,
+            type: selectedCategory?.isIncome == true ? FinancialItemType.income : FinancialItemType.expense,
             frequency: frequency,
             frequencyDate: frequencyDate.toISO(),
             categoryID: selectedCategory?.id ?? 0,

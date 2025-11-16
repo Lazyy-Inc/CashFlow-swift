@@ -46,7 +46,7 @@ public struct TransactionRowView: View {
                 transaction: currentTransaction
             )
             
-            transactionTypeWithName(transaction)
+            FinancialItemTypeWithName(transaction)
             transactionAmountWithDate(transaction)
         }
         .geometryGroup()
@@ -93,9 +93,9 @@ public struct TransactionRowView: View {
 extension TransactionRowView {
     
     @ViewBuilder
-    private func transactionTypeWithName(_ transaction: TransactionModel) -> some View {
+    private func FinancialItemTypeWithName(_ transaction: TransactionModel) -> some View {
         VStack(alignment: .leading, spacing: Spacing.extraSmall) {
-            Text(transactionTypeString)
+            Text(FinancialItemTypeString)
                 .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
                 .fontWithLineHeight(.Body.small)
             
@@ -126,7 +126,7 @@ extension TransactionRowView {
 
 extension TransactionRowView {
     
-    var transactionTypeString: String {
+    var FinancialItemTypeString: String {
         if currentTransaction.isFromSubscription == true {
             return Word.Main.subscription
         } else {

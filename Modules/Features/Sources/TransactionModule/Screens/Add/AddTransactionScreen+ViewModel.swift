@@ -136,7 +136,7 @@ extension AddTransactionScreen.ViewModel {
         return TransactionDTO.body(
             name: transactionTitle.trimmingCharacters(in: .whitespaces),
             amount: transactionAmount.toDouble(),
-            type: selectedCategory?.isIncome == true ? TransactionType.income.rawValue : TransactionType.expense.rawValue,
+            type: selectedCategory?.isIncome == true ? FinancialItemType.income.rawValue : FinancialItemType.expense.rawValue,
             dateISO: transactionDate.toISO(),
             categoryID: selectedCategory?.id,
             subcategoryID: selectedSubcategory?.id,

@@ -17,13 +17,13 @@ public struct TransactionsForMonthScreen: View {
     
     // MARK: Dependencies
     var selectedDate: Date
-    var type: TransactionType
+    var type: FinancialItemType
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     
     // String variables
     @State private var searchText: String = ""
     
-    public init(selectedDate: Date, type: TransactionType) {
+    public init(selectedDate: Date, type: FinancialItemType) {
         self.selectedDate = selectedDate
         self.type = type
     }

@@ -31,7 +31,6 @@ struct AddTransactionIntent: AppIntent {
     @Parameter(
         title: "shortcut_parameter_amount_title",
         description: "shortcut_parameter_amount_description",
-        inputOptions: .init(keyboardType: .numberPad),
         requestValueDialog: "shortcut_parameter_amount_dialog"
     )
     var amount: String
@@ -46,10 +45,18 @@ struct AddTransactionIntent: AppIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog {
               
         func extractAmount(from input: String) -> Double {
-            let allowedCharacters = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: ".,"))
-            let filtered = input.components(separatedBy: allowedCharacters.inverted).joined()
-            let normalized = filtered.replacingOccurrences(of: ",", with: ".")
-            return normalized.toDouble()
+            let cleanedInput = input.replacingOccurrences(of: " ", with: "")
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.locale = Locale.current
+
+            if let number = formatter.number(from: cleanedInput) {
+                let amount = number.decimalValue
+                let doubleValue = (amount as NSDecimalNumber).doubleValue
+                return doubleValue
+            } else {
+                return 0
+            }
         }
           
         let finalNumber = extractAmount(from: amount)
@@ -58,7 +65,7 @@ struct AddTransactionIntent: AppIntent {
         var body: TransactionDTO = .init(
             name: title,
             amount: finalNumber,
-            type: TransactionType.expense.rawValue,
+            type: FinancialItemType.expense.rawValue,
             dateISO: Date().toISO(),
             categoryID: 0, // Saw with Remi it's 0 for uncategorized
             isFromApplePay: true,

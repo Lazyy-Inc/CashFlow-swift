@@ -11,7 +11,7 @@ import Models
 
 public enum TransactionDestination: DestinationItem {
     case list
-    case specificList(month: Date, type: TransactionType)
+    case specificList(month: Date, type: FinancialItemType)
     case create
     case update(transaction: TransactionModel)
     case detail(transactionId: Int)

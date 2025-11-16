@@ -39,7 +39,7 @@ extension TransactionStore {
     // MARK: - Private Methods
     
     private func filterTransactions(
-        byType type: TransactionType,
+        byType type: FinancialItemType,
         additionalFilter: ((TransactionModel) -> Bool)? = nil
     ) -> [TransactionModel] {
         return transactionsActualMonth.filter { transaction in
@@ -99,7 +99,7 @@ public extension TransactionStore {
 
 public extension TransactionStore {
     
-    func dailyTransactions(for month: Date, type: TransactionType) -> [AmountByDay] {
+    func dailyTransactions(for month: Date, type: FinancialItemType) -> [AmountByDay] {
         let dates = month.allDateOfMonth
         var amountsByDate = Dictionary(uniqueKeysWithValues: dates.map { ($0, 0.0) })
         
@@ -116,7 +116,7 @@ public extension TransactionStore {
         return result
     }
     
-    func dailySubscriptions(for month: Date, type: TransactionType) -> [AmountByDay] {
+    func dailySubscriptions(for month: Date, type: FinancialItemType) -> [AmountByDay] {
         let dates = month.allDateOfMonth
         var amountsByDate: [Date: Double] = [:]
         

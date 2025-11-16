@@ -11,13 +11,13 @@ public struct TransactionFilterModel {
   public var category: CategoryModel?
   public var subcategory: SubcategoryModel?
   public var month: Date?
-  public var type: TransactionType?
+  public var type: FinancialItemType?
   
   public init(
     category: CategoryModel? = nil,
     subcategory: SubcategoryModel? = nil,
     month: Date? = nil,
-    type: TransactionType? = nil
+    type: FinancialItemType? = nil
   ) {
     self.category = category
     self.subcategory = subcategory

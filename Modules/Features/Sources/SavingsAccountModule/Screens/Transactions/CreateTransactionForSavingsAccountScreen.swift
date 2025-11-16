@@ -80,7 +80,7 @@ public struct CreateTransactionForSavingsAccountScreen: View {
                 )
                 .focused($focusedField, equals: .amount)
                 
-                TransactionTypePickerView(selected: .constant(.income))
+                FinancialItemTypePickerView(selected: .constant(.income))
                 
                 CustomDatePicker(
                     title: Word.Classic.date,

@@ -12,7 +12,7 @@ public protocol TransactionServiceProtocol {
   static func fetchTransactionsByPeriod(
     accountID: Int,
     period: PeriodDateModel,
-    type: TransactionType?
+    type: FinancialItemType?
   ) async throws -> [TransactionDTO]
   
   static func create(

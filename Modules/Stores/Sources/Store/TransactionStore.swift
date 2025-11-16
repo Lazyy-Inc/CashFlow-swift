@@ -40,7 +40,7 @@ public extension TransactionStore {
 
 public extension TransactionStore {
     
-    func fetchTransactionsByPeriod(accountId: Int, period: PeriodDateModel, type: TransactionType? = nil) async {
+    func fetchTransactionsByPeriod(accountId: Int, period: PeriodDateModel, type: FinancialItemType? = nil) async {
         guard dateFetched.filter({ Calendar.current.isDate($0, equalTo: period.startDate, toGranularity: .month) }).isEmpty else { return }
         
         do {
@@ -155,7 +155,7 @@ public extension TransactionStore {
         }
     }
     
-    func getTransactions(in month: Date? = nil, type: TransactionType? = nil) -> [TransactionModel] {
+    func getTransactions(in month: Date? = nil, type: FinancialItemType? = nil) -> [TransactionModel] {
         return filterTransactions(filter: .init(month: month, type: type))
     }
     
@@ -232,7 +232,7 @@ public extension DependencyValues {
 public extension EventService {
     
     @MainActor
-    private static func sendTransactionTypeEvent(type: TransactionType) {
+    private static func sendFinancialItemTypeEvent(type: FinancialItemType) {
         if type == .expense {
             EventService.sendEvent(key: EventKeys.transactionExpenseCreated)
         } else if type == .income {
@@ -250,7 +250,7 @@ public extension EventService {
     @MainActor
     static func sendForTransactionCreated(transaction: TransactionModel) {
         EventService.sendEvent(key: EventKeys.transactionCreated)
-        EventService.sendTransactionTypeEvent(type: transaction.type)
+        EventService.sendFinancialItemTypeEvent(type: transaction.type)
         EventService.sendApplePayEvent(isFromApplePay: transaction.isFromApplePay)
     }
     

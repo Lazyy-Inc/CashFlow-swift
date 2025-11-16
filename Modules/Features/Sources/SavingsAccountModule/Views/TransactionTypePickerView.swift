@@ -1,5 +1,5 @@
 //
-//  TransactionTypePickerView.swift
+//  FinancialItemTypePickerView.swift
 //  CashFlow
 //
 //  Created by Theo Sementa on 19/11/2024.
@@ -9,10 +9,10 @@ import SwiftUI
 import Core
 import Models
 
-struct TransactionTypePickerView: View {
+struct FinancialItemTypePickerView: View {
     
     // builder
-    @Binding var selected: TransactionType
+    @Binding var selected: FinancialItemType
     
     @Environment(\.theme) private var theme
     
@@ -24,7 +24,7 @@ struct TransactionTypePickerView: View {
                 .font(.system(size: 12, weight: .regular))
             
             HStack(spacing: 0) {
-                ForEach([TransactionType.expense, TransactionType.income], id: \.self) { type in
+                ForEach([FinancialItemType.expense, FinancialItemType.income], id: \.self) { type in
                     Button {
                         withAnimation { selected = type }
                     } label: {
@@ -56,5 +56,5 @@ struct TransactionTypePickerView: View {
 
 // MARK: - Preview
 #Preview {
-    TransactionTypePickerView(selected: .constant(.expense))
+    FinancialItemTypePickerView(selected: .constant(.expense))
 }

@@ -51,7 +51,7 @@ public struct SubscriptionDTO: Codable, Sendable {
     public init(
         name: String,
         amount: Double,
-        type: TransactionType,
+        type: FinancialItemType,
         frequency: SubscriptionFrequency,
         frequencyDate: String,
         categoryID: Int,

@@ -14,7 +14,7 @@ public extension SubscriptionModel {
         id: 1,
         name: "Mock Subscription Expense",
         amount: 45,
-        type: TransactionType.expense,
+        type: FinancialItemType.expense,
         frequency: SubscriptionFrequency.monthly,
         frequencyDate: Date(),
         category: .mock,
