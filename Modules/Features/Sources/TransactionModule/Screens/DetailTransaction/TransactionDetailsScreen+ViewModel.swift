@@ -35,6 +35,9 @@ extension TransactionDetailsScreen {
         @ObservationIgnored
         @Dependency(\.transactionStore) private var transactionStore
         
+        @ObservationIgnored
+        @Dependency(\.transferStore) private var transferStore
+        
         init(transactionId: Int) {
             self.transactionId = transactionId
             self.currentReparitionType = transaction?.repartitionType ?? .notDefined
@@ -46,7 +49,13 @@ extension TransactionDetailsScreen {
 extension TransactionDetailsScreen.ViewModel {
     
     var transaction: TransactionModel? {
-        return transactionStore.transactions.first { $0.id == transactionId }
+        if let transaction = transactionStore.transactions.first(where: { $0.id == transactionId }) {
+            return transaction
+        } else if let transfer = transferStore.transfers.first(where: { $0.id == transactionId }) {
+            return transfer
+        } else {
+            return nil
+        }
     }
     
 }

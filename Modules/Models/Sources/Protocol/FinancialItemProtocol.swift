@@ -7,11 +7,15 @@
 
 import Foundation
 
-public protocol FinancialItemProtocol {
+public protocol FinancialItemProtocol: Searchable {
     var name: String { get set }
     var amount: Double { get set }
     var type: FinancialItemType { get }
     var date: Date { get }
+    
     var category: CategoryModel? { get }
     var subcategory: SubcategoryModel? { get }
+    
+    var senderAccount: AccountModel? { get }
+    var receiverAccount: AccountModel? { get }
 }

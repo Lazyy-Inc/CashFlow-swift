@@ -181,7 +181,7 @@ extension SubscriptionDetailsScreen {
                             route: .push,
                             destination: AppDestination.transaction(.detail(transactionId: transaction.id))
                         ) {
-                            TransactionRowView(transaction: transaction)
+                            FinancialItemRowView(financialItem: transaction)
                                 .padding(.bottom, Padding.medium)
                         }
                     }

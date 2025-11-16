@@ -51,7 +51,7 @@ public struct CategoryTransactionsScreen: View {
                                     route: .push,
                                     destination: AppDestination.transaction(.detail(transactionId: transaction.id))
                                 ) {
-                                    TransactionRowView(transaction: transaction)
+                                    FinancialItemRowView(financialItem: transaction)
                                 }
                             }
                             .noDefaultStyle()

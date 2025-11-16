@@ -47,7 +47,7 @@ public struct SubscriptionsListScreen: View {
                                 route: .push,
                                 destination: AppDestination.subscription(.detail(subscriptionId: subscription.id))
                             ) {
-                                SubscriptionRowView(subscription: subscription)
+                                FinancialItemRowView(financialItem: subscription)
                             }
                             .padding(.bottom, Padding.medium)
                             .padding(.horizontal, Padding.large)

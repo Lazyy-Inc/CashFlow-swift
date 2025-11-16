@@ -74,6 +74,10 @@ public struct TransactionModel: Identifiable, Equatable, Hashable, Sendable {
 
 extension TransactionModel: FinancialItemProtocol {
     
+    public var searchableText: String {
+        return name
+    }
+    
     public var type: FinancialItemType {
         if self.senderAccount != nil && self.receiverAccount != nil {
             return .transfer

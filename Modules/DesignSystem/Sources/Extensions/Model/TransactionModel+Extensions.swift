@@ -10,12 +10,6 @@ import Models
 import Stores
 import Core
 
-extension TransactionModel: @retroactive Searchable {
-    public var searchableText: String {
-        return nameDisplayed
-    }
-}
-
 public extension TransactionModel {
   
   var isSender: Bool {

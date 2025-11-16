@@ -40,8 +40,8 @@ public struct TransactionsForMonthScreen: View {
                         ForEach(transactionsFiltered) { transaction in
                             NavigationButtonView(
                                 route: .push,
-                                destination: AppDestination.transaction(.detail(transactionId: transaction.id))) {
-                                    TransactionRowView(transaction: transaction)
+                                destination: .transaction(.detail(transactionId: transaction.id))) {
+                                    FinancialItemRowView(financialItem: transaction)
                                 }
                         }
                         .padding(.horizontal)

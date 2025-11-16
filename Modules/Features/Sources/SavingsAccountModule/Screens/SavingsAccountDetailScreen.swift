@@ -19,9 +19,9 @@ import Stores
 
 public struct SavingsAccountDetailScreen: View {
     
-    // Builder    
-    @EnvironmentObject private var transferStore: TransferStore
+    // MARK: Dependencies
     @Dependency(\.accountStore) var accountStore: AccountStore
+    @Dependency(\.transferStore) var transferStore: TransferStore
     @Dependency(\.savingsAccountStore) private var savingsAccountStore
     
     @Environment(\.dismiss) private var dismiss
@@ -71,21 +71,17 @@ public struct SavingsAccountDetailScreen: View {
                     ForEach(transferStore.monthsOfTransfers, id: \.self) { month in
                         Section {
                             ForEach(transferStore.transfers) { transfer in
-//                                if Calendar.current.isDate(transfer.date, equalTo: month, toGranularity: .month) {
+                                if Calendar.current.isDate(transfer.date, equalTo: month, toGranularity: .month) {
                                     NavigationButtonView(
                                         route: .push,
-                                        destination: AppDestination.transaction(.detail(transactionId: transfer.id))
+                                        destination: .transaction(.detail(transactionId: transfer.id))
                                     ) {
-                                        if transfer.type == .transfer {
-                                            TransferRowView(transfer: transfer)
-                                        } else {
-                                            TransactionRowView(transaction: transfer, isEditable: false)
-                                        }
-                                        EmptyView()
+                                        FinancialItemRowView(financialItem: transfer, isTransfer: true, isEditable: false)
                                     }
+                                    .buttonStyle(.plain)
                                     .padding(.bottom, Padding.medium)
                                     .padding(.horizontal, Padding.large)
-//                                }
+                                }
                             }
                             .noDefaultStyle()
                         } header: {
@@ -142,5 +138,4 @@ public struct SavingsAccountDetailScreen: View {
 // MARK: - Preview
 #Preview {
     SavingsAccountDetailScreen()
-        .environmentObject(TransferStore.shared)
 }

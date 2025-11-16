@@ -33,7 +33,7 @@ struct TurboBudgetApp: App {
     // MARK: Stores
     @StateObject private var userStore: UserStore = .shared
     @Dependency(\.accountStore) var accountStore: AccountStore
-    @StateObject private var transferStore: TransferStore = .shared
+    @Dependency(\.transferStore) var transferStore: TransferStore
     @StateObject private var creditCardStore: CreditCardStore = .shared
     
     // MARK: Environments
@@ -68,7 +68,6 @@ struct TurboBudgetApp: App {
                 .environmentObject(successfullModalManager)
             
                 .environmentObject(userStore)
-                .environmentObject(transferStore)
                 .environmentObject(creditCardStore)
             
                 .preferredColorScheme(appearanceManager.appearance.colorScheme)

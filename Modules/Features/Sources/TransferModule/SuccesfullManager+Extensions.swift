@@ -9,6 +9,7 @@ import Foundation
 import Core
 import SwiftUI
 import Models
+import DesignSystem
 
 public extension SuccessfullModalManager {
     
@@ -16,8 +17,7 @@ public extension SuccessfullModalManager {
     func showSuccessfulTransfer(type: SuccessfulType, transfer: TransactionModel) {
         self.title = Word.Successful.Transfer.title(type: type)
         self.subtitle = Word.Successful.Transfer.description(type: type)
-        self.content = AnyView(TransferRowView(transfer: transfer, location: .successfulSheet).disabled(true))
-            
+        self.content = AnyView(FinancialItemRowView(financialItem: transfer, isTransfer: true).disabled(true))
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.isPresenting = true
         }

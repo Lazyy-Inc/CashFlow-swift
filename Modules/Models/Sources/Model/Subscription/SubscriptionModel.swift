@@ -51,8 +51,17 @@ public struct SubscriptionModel: Identifiable, Equatable, Hashable, Sendable {
 }
 
 extension SubscriptionModel: FinancialItemProtocol {
+    public var senderAccount: AccountModel? { return nil }
+    public var receiverAccount: AccountModel? { return nil}
+    
     public var date: Date {
         return frequencyDate
+    }
+}
+
+extension SubscriptionModel: Searchable {
+    public var searchableText: String {
+        return name
     }
 }
 

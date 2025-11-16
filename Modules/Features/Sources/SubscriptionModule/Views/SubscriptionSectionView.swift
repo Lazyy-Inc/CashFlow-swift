@@ -55,7 +55,7 @@ struct SubscriptionSectionView<Content: View>: View {
                     route: .push,
                     destination: .subscription(.detail(subscriptionId: subscription.id))
                 ) {
-                    SubscriptionRowView(subscription: subscription)
+                    FinancialItemRowView(financialItem: subscription)
                 }
             }
         }

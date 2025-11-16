@@ -29,9 +29,9 @@ struct TransactionsListScreen: View {
                 ForEach(transactions) { transaction in
                     NavigationButtonView(
                         route: .push,
-                        destination: AppDestination.transaction(.detail(transactionId: transaction.id))
+                        destination: .transaction(.detail(transactionId: transaction.id))
                     ) {
-                        TransactionRowView(transaction: transaction)
+                        FinancialItemRowView(financialItem: transaction)
                     }
                     .id(transaction.id)
                     .padding(.bottom, Padding.medium)

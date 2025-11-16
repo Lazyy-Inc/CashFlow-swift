@@ -18,7 +18,7 @@ extension SuccessfullModalManager {
     func showSuccessfulTransaction(type: SuccessfulType, transaction: TransactionModel) {
         self.title = Word.Successful.Transaction.title(type: type)
         self.subtitle = Word.Successful.Transaction.description(type: type)
-        self.content = AnyView(TransactionRowView(transaction: transaction).disabled(true))
+        self.content = AnyView(FinancialItemRowView(financialItem: transaction, isEditable: false).disabled(true))
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.isPresenting = true

@@ -47,7 +47,7 @@ struct HomeLastTransactionsSectionView: View {
                         route: .push,
                         destination: .transaction(.detail(transactionId: transaction.id))
                     ) {
-                        TransactionRowView(transaction: transaction)
+                        FinancialItemRowView(financialItem: transaction)
                     }
                 }
             }

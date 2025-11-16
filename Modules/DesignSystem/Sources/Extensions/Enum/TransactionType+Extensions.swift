@@ -24,15 +24,4 @@ public extension FinancialItemType {
         }
     }
     
-    func color(isSender: Bool = false) -> Color {
-        switch self {
-        case .expense:
-            return TKDesignSystem.Colors.Error.c500
-        case .income:
-            return .primary500
-        case .transfer:
-            return isSender ? TKDesignSystem.Colors.Error.c500 : .primary500
-        }
-    }
-    
 }

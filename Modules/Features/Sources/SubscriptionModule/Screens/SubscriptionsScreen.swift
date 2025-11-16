@@ -73,7 +73,7 @@ fileprivate extension SubscriptionsScreen {
                     route: .push,
                     destination: .subscription(.detail(subscriptionId: subscription.id))
                 ) {
-                    SubscriptionRowView(subscription: subscription)
+                    FinancialItemRowView(financialItem: subscription)
                 }
             }
         }
@@ -90,7 +90,7 @@ fileprivate extension SubscriptionsScreen {
                     route: .push,
                     destination: .transaction(.detail(transactionId: transaction.id))
                 ) {
-                    TransactionRowView(transaction: transaction)
+                    FinancialItemRowView(financialItem: transaction)
                 }
             }
         }

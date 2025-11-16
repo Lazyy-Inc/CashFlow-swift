@@ -9,11 +9,13 @@ import Foundation
 import Models
 import NetworkModule
 import Events
+import Dependencies
 
-public final class TransferStore: ObservableObject {
+@Observable
+public final class TransferStore {
     public static let shared = TransferStore()
     
-    @Published public var transfers: [TransactionModel] = []
+    public var transfers: [TransactionModel] = []
     
     public var monthsOfTransfers: [Date] {
         let calendar = Calendar.current
@@ -77,17 +79,28 @@ public extension TransferStore {
         do {
             let response = try await TransferService.delete(id: transferID)
             
-            guard let transfer = transfers.first(where: { $0.id == transferID }) else { return }
-            guard let senderAccountID = transfer.senderAccount?._id, let receiverAccountID = transfer.receiverAccount?._id else { return }
+            var transfer: TransactionModel?
             
+            if let transaction = TransactionStore.shared.transactions.first(where: { $0.id == transferID }) {
+                transfer = transaction
+            } else if let transferModel = transfers.first(where: { $0.id == transferID }) {
+                transfer = transferModel
+            }
+            
+            guard let transfer else { return }
+            guard let senderAccountID = transfer.senderAccount?._id, let receiverAccountID = transfer.receiverAccount?._id else { return }
+                        
             if let senderNewBalance = response.senderNewBalance, let receiverNewBalance = response.receiverNewBalance {
                 AccountStore.shared.setNewBalance(accountID: senderAccountID, newBalance: senderNewBalance)
                 AccountStore.shared.setNewBalance(accountID: receiverAccountID, newBalance: receiverNewBalance)
             }
-            
+                        
             if let index = self.transfers.firstIndex(where: { $0.id == transferID }) {
                 self.transfers.remove(at: index)
                 EventService.sendEvent(key: EventKeys.transferDeleted)
+            }
+            if let index = TransactionStore.shared.transactions.firstIndex(where: { $0.id == transferID }) {
+                TransactionStore.shared.transactions.remove(at: index)
             }
         } catch { await NetworkService.handleError(error: error) }
     }
@@ -97,5 +110,17 @@ public extension TransferStore {
 public extension TransferStore {
     func sortTransfersByDate() {
         self.transfers.sort { $0.date > $1.date }
+    }
+}
+
+// MARK: - Dependencies
+extension TransferStore: DependencyKey {
+    public static var liveValue: TransferStore = .shared
+}
+
+public extension DependencyValues {
+    var transferStore: TransferStore {
+        get { self[TransferStore.self] }
+        set { self[TransferStore.self] = newValue }
     }
 }
