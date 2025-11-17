@@ -30,11 +30,7 @@ public struct CustomEmptyView: View {
                 return style == .home ? true : false
             case .savingsPlan(let style):
                 return style == .home ? true : false
-            case .savingsAccount:
-                return false
-            case .analytics:
-                return false
-            case .repartitionStatistics:
+            case .savingsAccount, .analytics, .repartitionStatistics, .emptyCategory:
                 return false
             }
         case .noResults:
@@ -143,6 +139,7 @@ public enum CustomEmptyViewSituation: Equatable {
     case savingsAccount
     case analytics
     case repartitionStatistics
+    case emptyCategory
     
     public var icon: String {
         switch self {
@@ -162,6 +159,8 @@ public enum CustomEmptyViewSituation: Equatable {
             return "iconLineChart"
         case .repartitionStatistics:
             return "iconLineChart"
+        case .emptyCategory:
+            return "iconPieChart"
         }
     }
     
@@ -181,6 +180,8 @@ public enum CustomEmptyViewSituation: Equatable {
             return "empty_stats_title"
         case .repartitionStatistics:
             return "statistics_charts_lock_title"
+        case .emptyCategory:
+            return "error_message_no_data_month"
         }
     }
     
@@ -200,6 +201,8 @@ public enum CustomEmptyViewSituation: Equatable {
             return "empty_stats_list_description"
         case .repartitionStatistics:
             return "statistics_charts_lock_desc"
+        case .emptyCategory:
+            return ""
         }
     }
     
@@ -219,6 +222,8 @@ public enum CustomEmptyViewSituation: Equatable {
             router.push(.transaction(.create))
         case .repartitionStatistics:
            return
+        case .emptyCategory:
+            return
         }
     }
 }

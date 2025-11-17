@@ -88,7 +88,7 @@ extension CategoriesListScreen {
     func categoriesChartView() -> some View {
         VStack(spacing: 24) {
             if !viewModel.isChartDisplayed {
-                EmptyCategoryData()
+                CustomEmptyView(type: .empty(.emptyCategory), isDisplayed: true)
                     .padding(8)
                     .noDefaultStyle()
             } else if viewModel.searchText.isEmpty {

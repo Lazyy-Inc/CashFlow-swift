@@ -57,9 +57,9 @@ public struct SubcategoryListScreen: View {
         } content: {
           VStack(spacing: 24) {
             if !viewModel.isDisplayChart(category: category) {
-              EmptyCategoryData()
-                .padding(8)
-                .noDefaultStyle()
+                CustomEmptyView(type: .empty(.emptyCategory), isDisplayed: true)
+                    .padding(8)
+                    .noDefaultStyle()
             } else if viewModel.searchText.isEmpty {
               PieChart(
                 month: selectedDate,

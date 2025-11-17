@@ -11,6 +11,7 @@ import SwiftUI
 import Core
 import Models
 import Stores
+import DesignSystem
 
 public struct SelectCategoryScreen: View {
     
@@ -82,24 +83,10 @@ public struct SelectCategoryScreen: View {
                 
                 Spacer()
             }
+            .background(Color.Background.bg50)
             .scrollIndicators(.hidden)
             .overlay(condition: !viewModel.searchText.isEmpty && viewModel.categoriesFiltered.isEmpty) {
-                VStack(spacing: 20) {
-                    Image("NoResults\(theme.nameNotLocalized.capitalized)")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .shadow(radius: 4, y: 4)
-                        .frame(width: UIDevice.isIpad
-                               ? UIScreen.main.bounds.width / 3
-                               : UIScreen.main.bounds.width / 1.5
-                        )
-                    
-                    Text("word_no_results".localized + " '\(viewModel.searchText)'")
-                        .font(.semiBoldText16())
-                        .multilineTextAlignment(.center)
-                }
-                .offset(y: -20)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                CFEmptyView(type: .noResults(viewModel.searchText), isPlain: true)
             }
             .navigationTitle("what_category_title".localized)
             .navigationBarTitleDisplayMode(.large)

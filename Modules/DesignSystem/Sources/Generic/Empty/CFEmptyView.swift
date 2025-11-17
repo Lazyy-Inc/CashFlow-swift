@@ -13,13 +13,15 @@ public struct CFEmptyView: View {
     
     // MARK: Dependencies
     var type: EmptyViewType
+    var isPlain: Bool
     
     // MARK: Environments
     @EnvironmentObject private var router: Router<AppDestination>
     
     // MARK: Init
-    public init(type: EmptyViewType) {
+    public init(type: EmptyViewType, isPlain: Bool = false) {
         self.type = type
+        self.isPlain = isPlain
     }
     
     // MARK: - View
@@ -40,23 +42,25 @@ public struct CFEmptyView: View {
                         .foregroundStyle(Color.Background.bg500)
                 }
                 
-                Text(type.buttonTitle.localized)
-                    .fontWithLineHeight(.Label.large)
-                    .foregroundStyle(Color.white)
-                    .padding(.horizontal, Spacing.medium)
-                    .padding(.vertical, Spacing.small)
-                    .background(
-                        LinearGradient.main,
-                        in: .rect(cornerRadius: CornerRadius.medium, style: .continuous)
-                    )
+                if !type.buttonTitle.isEmpty {
+                    Text(type.buttonTitle.localized)
+                        .fontWithLineHeight(.Label.large)
+                        .foregroundStyle(Color.white)
+                        .padding(.horizontal, Spacing.medium)
+                        .padding(.vertical, Spacing.small)
+                        .background(
+                            LinearGradient.main,
+                            in: .rect(cornerRadius: CornerRadius.medium, style: .continuous)
+                        )
+                }
             }
             .fullWidth()
             .padding(Spacing.large)
             .roundedRectangleBorder(
-                Color.Background.bg100,
+                isPlain ? Color.clear : Color.Background.bg100,
                 radius: CornerRadius.large,
                 lineWidth: 1,
-                strokeColor: Color.Background.bg200
+                strokeColor: isPlain ? Color.clear : Color.Background.bg200
             )
         }
 
@@ -79,6 +83,8 @@ extension EmptyViewType {
             router.push(.savingsPlan(.create))
         case .noSavingsAccounts:
             router.push(.savingsAccount(.create))
+        case .noResults:
+            return
         }
     }
     
