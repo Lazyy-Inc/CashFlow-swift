@@ -34,33 +34,29 @@ public struct DetailOfExpensesAndIncomesByMonth: View {
 
     // MARK: - Body
     public var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(month.formatted(.monthAndYear).capitalized)
-                    .font(.mediumCustom(size: 22))
-                    .foregroundStyle(Color.text)
-                
-                if store.isCashFlowPro {
-                    HStack {
-                        if amountOfExpenses != 0 {
-                            Text("word_expenses".localized + " : " + amountOfExpenses.toCurrency())
-                                .lineLimit(1)
-                        }
-                        if amountOfExpenses != 0 && amountOfIncomes != 0 {
-                            Text("|")
-                        }
-                        if amountOfIncomes != 0 {
-                            Text("word_incomes".localized + " : " + amountOfIncomes.toCurrency())
-                                .lineLimit(1)
-                        }
-                        Spacer()
+        VStack(alignment: .leading, spacing: Spacing.extraSmall) {
+            Text(month.formatted(.monthAndYear).capitalized)
+                .font(.Title.medium)
+            
+            if store.isCashFlowPro {
+                HStack {
+                    if amountOfExpenses != 0 {
+                        Text("word_expenses".localized + " : " + amountOfExpenses.toCurrency())
+                            .lineLimit(1)
                     }
-                    .foregroundStyle(Color.customGray)
-                    .font(.semiBoldSmall())
+                    if amountOfExpenses != 0 && amountOfIncomes != 0 {
+                        Text("|")
+                    }
+                    if amountOfIncomes != 0 {
+                        Text("word_incomes".localized + " : " + amountOfIncomes.toCurrency())
+                            .lineLimit(1)
+                    }
+                    Spacer()
                 }
+                .font(.Body.small, color: .customGray)
             }
-            Spacer()
         }
+        .fullWidth(.leading)
         .padding(.vertical, 8)
         .background {
             if isPinned {

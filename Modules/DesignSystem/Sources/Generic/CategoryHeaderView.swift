@@ -23,7 +23,7 @@ public struct CategoryHeaderView: View {
     public var body: some View {
         HStack(spacing: 8) {
             Text(category.name)
-                .font(.mediumCustom(size: 22))
+                .font(.Title.medium)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             Circle()

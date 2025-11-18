@@ -36,8 +36,7 @@ public struct ProgressCircle: View {
                 .foregroundStyle(color)
                 .rotationEffect(.degrees(-90))
             Text(String(format: "%.1f", percentage) + "%")
-                .font(.semiBoldSmall())
-                .foregroundStyle(Color.text)
+                .font(.Body.small)
         }
     }
 }

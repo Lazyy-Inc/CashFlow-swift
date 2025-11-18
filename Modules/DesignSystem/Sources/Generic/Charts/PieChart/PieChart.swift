@@ -102,7 +102,7 @@ public struct PieChart: View {
                         .fill(config.backgroundColor)
                         .frame(width: radius * 2 * config.holeSizeRatio, height: radius * 2 * config.holeSizeRatio)
                         .overlay {
-                            VStack(spacing: 8) {
+                            VStack(spacing: Spacing.extraSmall) {
                                 Group {
                                     if let activeSlice {
                                         Text(activeSlice.title)
@@ -110,15 +110,13 @@ public struct PieChart: View {
                                         Text(month.formatted(Date.FormatStyle().month(.wide).year()).capitalized)
                                     }
                                 }
-                                .font(Font.semiBoldSmall())
+                                .font(.Body.small, color: .gray)
                                 .multilineTextAlignment(.center)
                                 .lineLimit(2)
-                                .foregroundStyle(Color.gray)
                                 .isDisplayed(config.isInteractive)
                                 
                                 Text((self.activeSlice == nil ? valuesAmount.toCurrency() : activeSlice?.value.toCurrency()) ?? "")
-                                    .foregroundStyle(Color.text)
-                                    .font(.semiBoldCustom(size: 20))
+                                    .font(.Body.large)
                                 
                                 if activeSlice != nil {
                                     Text(percentage.toString() + "%")

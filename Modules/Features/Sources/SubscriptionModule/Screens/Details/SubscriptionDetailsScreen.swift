@@ -172,8 +172,8 @@ extension SubscriptionDetailsScreen {
             VStack(spacing: 16) {
                 let transactionsAmount = transactions.map(\.amount).reduce(0, +).toCurrency()
                 Text("word_transactions".localized + " (\(transactions.count) - \(transactionsAmount))")
+                    .font(.Title.medium)
                     .fullWidth(.leading)
-                    .font(.mediumCustom(size: 20))
                 
                 VStack(spacing: 0) {
                     ForEach(transactions.sorted(by: { $0.date > $1.date })) { transaction in

@@ -39,8 +39,7 @@ struct ThemeCell: View {
                         }
                     }
                 Text(type.name)
-                    .font(.semiBoldText16())
-                    .foregroundStyle(Color.text)
+                    .font(.Body.medium)
             }
         })
     } // body

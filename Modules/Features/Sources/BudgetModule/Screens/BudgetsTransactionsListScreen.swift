@@ -54,7 +54,7 @@ public struct BudgetsTransactionsListScreen: View {
                         .listRowSeparator(.hidden)
                     } header: {
                         Text(subcategory.expenses.sorted { $0.amount < $1.amount }.compactMap(\.amount).reduce(0, +).toCurrency())
-                            .font(.mediumCustom(size: 22))
+                            .font(.Title.medium)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.vertical, 8)
                     }

@@ -75,13 +75,13 @@ public struct CreditCardAddScreen: View {
                     .font(.system(size: UIDevice.isLittleIphone ? 16 : 18, weight: .medium))
             }
             
-            ToolbarValidationButtonView(
-                type: .creation,
-                isActive: viewModel.isCreditCardValid()
-            ) {
-                VibrationManager.vibration()
-                await viewModel.createCreditCard(dismiss: dismiss)
-            }
+//            ToolbarValidationButtonView(
+//                type: .creation,
+//                isActive: viewModel.isCreditCardValid()
+//            ) {
+//                VibrationManager.vibration()
+//                await viewModel.createCreditCard(dismiss: dismiss)
+//            }
             
             ToolbarDismissKeyboardButtonView()
         }

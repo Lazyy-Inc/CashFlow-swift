@@ -50,8 +50,7 @@ struct PredictedCategoryRowView: View {
                 }
                 
                 Text(text)
-                    .font(.semiBoldText16())
-                    .foregroundStyle(Color.white)
+                    .font(.Body.medium, color: .white)
             }
             .padding()
             .background {

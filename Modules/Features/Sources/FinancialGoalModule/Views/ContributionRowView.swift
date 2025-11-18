@@ -12,7 +12,7 @@ import AlertKit
 import Core
 import Models
 
-struct ContributionRowView: View {
+struct ContributionRowView: View { // TODO: Change with contextMenu
 
     // Builder
     var savingsPlan: SavingsPlanModel
@@ -34,9 +34,8 @@ struct ContributionRowView: View {
                     .font(.Body.medium)
                 Spacer()
                 VStack(alignment: .trailing, spacing: 3) {
-                    Text("\(contribution.symbol) \(contribution.amount?.toCurrency() ?? "")")
-                        .font(.semiBoldText16())
-                        .foregroundStyle(contribution.type == .withdrawal ? Color.Error.error400 : Color.primary500)
+                    Text("\(contribution.symbol) \(contribution.amount?.toCurrency() ?? "")") 
+                        .font(.Body.medium, color: contribution.type == .withdrawal ? Color.Error.error400 : Color.primary500)
                     
                     Text(contribution.date.formatted(date: .numeric, time: .omitted))
                         .font(.Body.small, color: .customGray)
@@ -60,7 +59,7 @@ struct ContributionRowView: View {
                     Image(systemName: "trash")
                         .font(.system(size: 20, weight: .semibold, design: .rounded))
                     Text("word_delete".localized)
-                        .font(.semiBoldCustom(size: 10))
+//                        .font(.semiBoldCustom(size: 10))
                 }
                 .foregroundStyle(Color(uiColor: .systemBackground))
             }, background: { _ in

@@ -22,8 +22,7 @@ struct LicenseRow: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("setting_credits_licences_title".localized)
-                    .font(.semiBoldText18())
-                    .foregroundStyle(Color.text)
+                    .font(.Body.large)
                 Text("setting_credits_licences_desc".localized)
                     .font(.Body.small, color: .Secondary.secondary300)
             }

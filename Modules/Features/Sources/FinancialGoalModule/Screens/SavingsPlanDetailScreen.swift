@@ -69,9 +69,10 @@ public struct SavingsPlanDetailScreen: View {
                 }
             
             Text(currentSavingsPlan.name ?? "")
-//                .titleAdjustSize()
+                .font(.Title.large)
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
+                .padding(.bottom)
                      
             VStack(spacing: 40) {
                 let amountContributed = contributionStore.getAmountOfContributions()
@@ -165,7 +166,7 @@ public struct SavingsPlanDetailScreen: View {
                 VStack(spacing: 8) {
                     HStack {
                         Text("word_contributions".localized)
-                            .font(.semiBoldCustom(size: 22))
+                            .font(.Title.large)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         NavigationButtonView(

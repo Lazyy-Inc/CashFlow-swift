@@ -40,8 +40,7 @@ public struct GenericBarChart: View {
                         .font(.Body.small, color: .customGray)
                     
                     Text(amount.toCurrency())
-                        .foregroundStyle(Color.text)
-                        .font(.semiBoldH3())
+                        .font(.Title.large)
                         .animation(.smooth, value: amount)
                         .contentTransition(.numericText())
                 }
