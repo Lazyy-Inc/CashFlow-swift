@@ -77,7 +77,7 @@ fileprivate extension SavingsScreen {
             }
         }
         .emptyState(condition: accountStore.savingsAccounts.isEmpty) {
-            CFEmptyView(type: .noSavingsAccounts)
+            CustomEmptyView(type: .noSavingsAccounts)
         }
     }
     
@@ -96,7 +96,7 @@ fileprivate extension SavingsScreen {
             }
         }
         .emptyState(condition: savingsPlanStore.savingsPlans.isEmpty) {
-            CFEmptyView(type: .noFinancialGoals)
+            CustomEmptyView(type: .noFinancialGoals)
         }
     }
     

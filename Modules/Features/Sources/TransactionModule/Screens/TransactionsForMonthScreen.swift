@@ -33,46 +33,43 @@ public struct TransactionsForMonthScreen: View {
         let transactions = transactionStore.getTransactions(in: selectedDate).filter { $0.type == type }
         let transactionsFiltered = transactions.search(searchText)
         
-        VStack {
-            if transactionsFiltered.isNotEmpty {
-                List {
-                    Section(content: {
-                        ForEach(transactionsFiltered) { transaction in
-                            NavigationButtonView(
-                                route: .push,
-                                destination: .transaction(.detail(transactionId: transaction.id))) {
-                                    FinancialItemRowView(financialItem: transaction)
-                                }
+        List {
+            Section(content: {
+                ForEach(transactionsFiltered) { transaction in
+                    NavigationButtonView(
+                        route: .push,
+                        destination: .transaction(.detail(transactionId: transaction.id))) {
+                            FinancialItemRowView(financialItem: transaction)
                         }
-                        .padding(.horizontal)
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(.init(top: 4, leading: 0, bottom: 4, trailing: 0))
-                        .listRowBackground(Color.Background.bg50.edgesIgnoringSafeArea(.all))
-                    }, header: {
-                        DetailOfExpensesAndIncomesByMonth(
-                            month: selectedDate,
-                            amountOfExpenses: transactionStore.getExpenses(transactions: transactions)
-                                .compactMap(\.amount)
-                                .reduce(0, +),
-                            amountOfIncomes: transactionStore.getIncomes(transactions: transactions)
-                                .compactMap(\.amount)
-                                .reduce(0, +)
-                        )
-                        .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
-                    })
-                    .foregroundStyle(Color.text)
                 }
-                .listStyle(.plain)
-                .scrollContentBackground(.hidden)
-                .scrollIndicators(.hidden)
-                .background(Color.Background.bg50.edgesIgnoringSafeArea(.all))
-                .animation(.smooth, value: transactionsFiltered.count)
-            } else {
-                CustomEmptyView(
-                    type: transactionsFiltered.isEmpty && !searchText.isEmpty ? .noResults(searchText) : .empty(.transactions(.list)),
-                    isDisplayed: transactionsFiltered.isEmpty
+                .padding(.horizontal)
+                .listRowSeparator(.hidden)
+                .listRowInsets(.init(top: 4, leading: 0, bottom: 4, trailing: 0))
+                .listRowBackground(Color.Background.bg50.edgesIgnoringSafeArea(.all))
+            }, header: {
+                DetailOfExpensesAndIncomesByMonth(
+                    month: selectedDate,
+                    amountOfExpenses: transactionStore.getExpenses(transactions: transactions)
+                        .compactMap(\.amount)
+                        .reduce(0, +),
+                    amountOfIncomes: transactionStore.getIncomes(transactions: transactions)
+                        .compactMap(\.amount)
+                        .reduce(0, +)
                 )
-            }
+                .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
+            })
+            .foregroundStyle(Color.text)
+        }
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
+        .scrollIndicators(.hidden)
+        .background(Color.Background.bg50.edgesIgnoringSafeArea(.all))
+        .animation(.smooth, value: transactionsFiltered.count)
+        .emptyState(condition: transactionsFiltered.isEmpty) {
+            CustomEmptyView(
+                type: transactionsFiltered.isEmpty && !searchText.isEmpty ? .noResults(searchText) : .noTransactions,
+                isPlain: true
+            )
         }
         .background(Color.Background.bg50.edgesIgnoringSafeArea(.all))
         .navigationTitle(Word.Main.transactions)

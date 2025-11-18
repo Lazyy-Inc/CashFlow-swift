@@ -41,42 +41,39 @@ public struct CategoryTransactionsScreen: View {
         let transactions = transactionStore.getTransactions(for: category, in: selectedDate)
         let transactionsFiltered = transactions.search(searchText)
         
-        VStack {
-            if transactionsFiltered.isNotEmpty {
-                List {
-                    Section(
-                        content: {
-                            ForEach(transactionsFiltered) { transaction in
-                                NavigationButtonView(
-                                    route: .push,
-                                    destination: AppDestination.transaction(.detail(transactionId: transaction.id))
-                                ) {
-                                    FinancialItemRowView(financialItem: transaction)
-                                }
-                            }
-                            .noDefaultStyle()
-                            .padding(.bottom, Padding.medium)
-                        },
-                        header: {
-                            DetailOfExpensesAndIncomesByMonth(
-                                month: selectedDate,
-                                amountOfExpenses: amountExpense,
-                                amountOfIncomes: amountIncome
-                            )
+        List {
+            Section(
+                content: {
+                    ForEach(transactionsFiltered) { transaction in
+                        NavigationButtonView(
+                            route: .push,
+                            destination: AppDestination.transaction(.detail(transactionId: transaction.id))
+                        ) {
+                            FinancialItemRowView(financialItem: transaction)
                         }
+                    }
+                    .noDefaultStyle()
+                    .padding(.bottom, Padding.medium)
+                },
+                header: {
+                    DetailOfExpensesAndIncomesByMonth(
+                        month: selectedDate,
+                        amountOfExpenses: amountExpense,
+                        amountOfIncomes: amountIncome
                     )
-                    .padding(.horizontal, Padding.large)
                 }
-                .listStyle(.plain)
-                .scrollContentBackground(.hidden)
-                .scrollIndicators(.hidden)
-                .animation(.smooth, value: transactionsFiltered.count)
-            } else {
-                CustomEmptyView(
-                    type: transactionsFiltered.isEmpty && !searchText.isEmpty ? .noResults(searchText) : .empty(.transactions(.list)),
-                    isDisplayed: transactionsFiltered.isEmpty
-                )
-            }
+            )
+            .padding(.horizontal, Padding.large)
+        }
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
+        .scrollIndicators(.hidden)
+        .animation(.smooth, value: transactionsFiltered.count)
+        .emptyState(condition: transactionsFiltered.isEmpty) {
+            CustomEmptyView(
+                type: transactionsFiltered.isEmpty && !searchText.isEmpty ? .noResults(searchText) : .noTransactions,
+                isPlain: true
+            )
         }
         .navigationTitle(Word.Main.transactions)
         .navigationBarTitleDisplayMode(.large)

@@ -38,10 +38,7 @@ public struct AnalysisScreen: View {
                 .scrollIndicators(.hidden)
                 .contentMargins(.bottom, Spacing.tabbar, for: .scrollContent)
             } else {
-                CustomEmptyView(
-                    type: .empty(.analytics),
-                    isDisplayed: transactionStore.transactions.isEmpty
-                )
+                CustomEmptyView(type: .noAnalysis, isPlain: true)
             }
         } // VStack
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
@@ -85,11 +82,8 @@ fileprivate extension AnalysisScreen {
                 .scaledToFit()
                 .blur(radius: 10)
                 .overlay {
-                    CustomEmptyView(
-                        type: .empty(.repartitionStatistics),
-                        isDisplayed: !purchasesManager.isCashFlowPro
-                    )
-                    .shadow(radius: 10)
+                    CustomEmptyView(type: .noRepartitionStats, isPlain: true)
+                        .shadow(radius: 10)
                 }
                 .overlay(alignment: .bottom) {
                     AsyncButton {

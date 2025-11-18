@@ -48,7 +48,6 @@ public struct SubcategoryTransactionsScreen: View {
                 searchText: $searchText
             )
          
-            if transactionsFiltered.isNotEmpty {
                 List {
                     Section {
                         ForEach(transactionsFiltered) { transaction in
@@ -74,12 +73,12 @@ public struct SubcategoryTransactionsScreen: View {
                 .scrollContentBackground(.hidden)
                 .scrollIndicators(.hidden)
                 .animation(.smooth, value: transactionsFiltered.count)
-            } else {
-                CustomEmptyView(
-                    type: transactionsFiltered.isEmpty && !searchText.isEmpty ? .noResults(searchText) : .empty(.transactions(.list)),
-                    isDisplayed: transactionsFiltered.isEmpty
-                )
-            }
+                .emptyState(condition: transactionsFiltered.isEmpty) {
+                    CustomEmptyView(
+                        type: transactionsFiltered.isEmpty && !searchText.isEmpty ? .noResults(searchText) : .noTransactions,
+                        isPlain: true
+                    )
+                }
         }
         .scrollDismissesKeyboard(.interactively)
         .navigationBarBackButtonHidden(true)

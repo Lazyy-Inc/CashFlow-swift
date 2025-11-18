@@ -25,6 +25,12 @@ public extension EmptyViewType {
             "empty_financial_goal_title"
         case .noSavingsAccounts:
             "empty_savings_account_title"
+        case .noCategoryData:
+            "error_message_no_data_month"
+        case .noRepartitionStats:
+            "statistics_charts_lock_title"
+        case .noAnalysis:
+            "empty_stats_title"
         case .noResults(let searchText):
             "word_no_results".localized + " " + "\"\(searchText)\""
         }
@@ -44,8 +50,15 @@ public extension EmptyViewType {
             "empty_financial_goal_desc"
         case .noSavingsAccounts:
             "empty_savings_account_desc"
+        case .noCategoryData:
+            ""
+        case .noRepartitionStats:
+            "statistics_charts_lock_desc"
+        case .noAnalysis:
+            "empty_stats_list_description"
         case .noResults:
             "empty_search_description"
+        
         }
     }
     
@@ -63,6 +76,12 @@ public extension EmptyViewType {
             "empty_financial_goal_button"
         case .noSavingsAccounts:
             "empty_savings_account_button"
+        case .noRepartitionStats:
+            ""
+        case .noAnalysis:
+            "empty_transaction_button"
+        case .noCategoryData:
+            ""
         case .noResults:
             ""
         }
@@ -82,6 +101,12 @@ public extension EmptyViewType {
             "iconPiggyBank"
         case .noSavingsAccounts:
             "iconLandmark"
+        case .noCategoryData:
+            "iconPieChart"
+        case .noRepartitionStats:
+            "iconLineChart"
+        case .noAnalysis:
+            "iconLineChart"
         case .noResults:
             "iconSearch"
         }
