@@ -18,11 +18,11 @@ struct StatisticsRowView: View {
     var body: some View {
         HStack(spacing: 8) {
             Text(text)
-                .font(.regularSmall())
+                .font(.Body.small)
                 .lineLimit(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Text(value)
-                .font(.semiBoldText16())
+                .font(.Body.mediumBold)
                 .fixedSize(horizontal: false, vertical: false)
         }
     } // body

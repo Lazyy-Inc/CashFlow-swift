@@ -70,14 +70,6 @@ public struct CreditCardAddScreen: View {
         .scrollDismissesKeyboard(.immediately)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarDismissButtonView {
-                if viewModel.isCreditCardInCreation() {
-                    viewModel.presentingConfirmationDialog.toggle()
-                } else {
-                    dismissAction()
-                }
-            }
-            
             ToolbarItem(placement: .principal) {
                 Text(Word.Title.CreditCard.new)
                     .font(.system(size: UIDevice.isLittleIphone ? 16 : 18, weight: .medium))

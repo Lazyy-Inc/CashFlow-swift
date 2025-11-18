@@ -25,8 +25,7 @@ struct LicenseRow: View {
                     .font(.semiBoldText18())
                     .foregroundStyle(Color.text)
                 Text("setting_credits_licences_desc".localized)
-                    .font(Font.mediumSmall())
-                    .foregroundStyle(Color.Secondary.secondary300)
+                    .font(.Body.small, color: .Secondary.secondary300)
             }
             Spacer()
             Image(systemName: "chevron.right")

@@ -39,8 +39,7 @@ struct ContributionRowView: View {
                         .foregroundStyle(contribution.type == .withdrawal ? Color.Error.error400 : Color.primary500)
                     
                     Text(contribution.date.formatted(date: .numeric, time: .omitted))
-                        .font(Font.mediumSmall())
-                        .foregroundStyle(Color.customGray)
+                        .font(.Body.small, color: .customGray)
                 }
             }
             .padding(12)

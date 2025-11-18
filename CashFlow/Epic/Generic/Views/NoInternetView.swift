@@ -24,7 +24,7 @@ struct NoInternetView: View {
                 .font(.mediumText18())
             
             Text("no_internet_description".localized)
-                .font(.mediumSmall())
+                .font(.Body.small)
                 .multilineTextAlignment(.center)
         }
     } // body

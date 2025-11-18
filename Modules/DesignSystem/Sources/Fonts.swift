@@ -67,51 +67,9 @@ let nameFontSemiBold: String = "PlusJakartaSans-SemiBold"
 let nameFontMedium: String = "PlusJakartaSans-Medium"
 let nameFontRegular: String = "PlusJakartaSans-Regular"
 
-// Regular
-public extension Font {
-    /// `This font is in "Regular 12"`
-    static func regularVerySmall() -> Font {
-        return Font.custom(nameFontRegular, size: 12)
-    }
-    /// `This font is in "Regular 14"`
-    static func regularSmall() -> Font {
-        return Font.custom(nameFontRegular, size: 14)
-    }
-    /// `This font is in "Regular 16"`
-    static func regularText16() -> Font {
-        return Font.custom(nameFontRegular, size: 16)
-    }
-    /// `This font is in "Regular 18"`
-    static func regularText18() -> Font {
-        return Font.custom(nameFontRegular, size: 18)
-    }
-    /// `This font is in "Regular 24"`
-    static func regularH3() -> Font {
-        return Font.custom(nameFontRegular, size: 24)
-    }
-    /// `This font is in "Regular 32"`
-    static func regularH2() -> Font {
-        return Font.custom(nameFontRegular, size: 32)
-    }
-    /// `This font is in "Regular 36"`
-    static func regularH1() -> Font {
-        return Font.custom(nameFontRegular, size: 36)
-    }
-    static func regularCustom(size: CGFloat) -> Font {
-        return Font.custom(nameFontRegular, size: size)
-    }
-}
-
 // Medium
 public extension Font {
-    /// `This font is in "Medium 12"`
-    static func mediumVerySmall() -> Font {
-        return Font.custom(nameFontMedium, size: 12)
-    }
-    /// `This font is in "Medium 14"`
-    static func mediumSmall() -> Font {
-        return Font.custom(nameFontMedium, size: 14)
-    }
+    
     /// `This font is in "Medium 16"`
     static func mediumText16() -> Font {
         return Font.custom(nameFontMedium, size: 16)

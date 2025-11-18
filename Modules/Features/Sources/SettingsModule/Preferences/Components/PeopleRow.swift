@@ -29,8 +29,7 @@ struct PeopleRow: View {
                         .font(.semiBoldText18())
                         .foregroundStyle(Color.text)
                     Text(people.job)
-                        .font(Font.mediumSmall())
-                        .foregroundStyle(Color.customGray)
+                        .font(.Body.small, color: .customGray)
                 }
                 
                 Spacer()
