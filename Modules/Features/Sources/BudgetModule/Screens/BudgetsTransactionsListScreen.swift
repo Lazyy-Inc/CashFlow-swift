@@ -62,10 +62,7 @@ public struct BudgetsTransactionsListScreen: View {
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
             } else { // No Transaction
-                CustomEmptyView(
-                    type: .empty(.transactions(.list)),
-                    isDisplayed: subcategory.transactions.isEmpty
-                )
+                CustomEmptyView(type: .noBudgets, isPlain: true)
             }
         }
         .background(Color.Background.bg50.edgesIgnoringSafeArea(.all))

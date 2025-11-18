@@ -52,7 +52,7 @@ struct HomeLastTransactionsSectionView: View {
                 }
             }
         } else {
-            CFEmptyView(type: .noTransactions)
+            CustomEmptyView(type: .noTransactions)
         }
     }
     

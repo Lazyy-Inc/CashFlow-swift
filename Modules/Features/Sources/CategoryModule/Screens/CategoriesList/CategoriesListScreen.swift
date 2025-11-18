@@ -52,11 +52,8 @@ public struct CategoriesListScreen: View {
                         .opacity(0)
                         .noDefaultStyle()
                 } else {
-                    CustomEmptyView(
-                        type: .noResults(viewModel.searchText),
-                        isDisplayed: viewModel.categoriesFiltered.isEmpty && !viewModel.searchText.isEmpty
-                    )
-                    .noDefaultStyle()
+                    CustomEmptyView(type: .noResults(viewModel.searchText), isPlain: true)
+                        .noDefaultStyle()
                 }
             }
         }
@@ -88,7 +85,7 @@ extension CategoriesListScreen {
     func categoriesChartView() -> some View {
         VStack(spacing: 24) {
             if !viewModel.isChartDisplayed {
-                CustomEmptyView(type: .empty(.emptyCategory), isDisplayed: true)
+                CustomEmptyView(type: .noCategoryData)
                     .padding(8)
                     .noDefaultStyle()
             } else if viewModel.searchText.isEmpty {

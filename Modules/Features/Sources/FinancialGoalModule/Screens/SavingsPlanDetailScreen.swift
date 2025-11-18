@@ -184,11 +184,8 @@ public struct SavingsPlanDetailScreen: View {
                         }
                     } else {
                         // TODO: !Reactive and test
-//                        CustomEmptyView(
-//                            type: .empty(.contributions),
-//                            isDisplayed: contributionStore.contributions.isEmpty
-//                        )
-//                        .padding(.top)
+//                        CFEmptyView(type: .noContributions)
+//                            .padding(.top)
                     }
                 }
                 .padding(.bottom)

@@ -86,7 +86,7 @@ public struct SelectCategoryScreen: View {
             .background(Color.Background.bg50)
             .scrollIndicators(.hidden)
             .overlay(condition: !viewModel.searchText.isEmpty && viewModel.categoriesFiltered.isEmpty) {
-                CFEmptyView(type: .noResults(viewModel.searchText), isPlain: true)
+                CustomEmptyView(type: .noResults(viewModel.searchText), isPlain: true)
             }
             .navigationTitle("what_category_title".localized)
             .navigationBarTitleDisplayMode(.large)

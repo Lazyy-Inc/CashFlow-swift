@@ -1,237 +1,104 @@
 //
-//  CustomEmptyView.swift
-//  CashFlow
+//  SwiftUIView.swift
+//  DesignSystem
 //
-//  Created by Theo Sementa on 22/10/2024.
+//  Created by Theo Sementa on 19/10/2025.
 //
 
 import SwiftUI
 import Navigation
-import TheoKit
-import Core
+import Models
 
 public struct CustomEmptyView: View {
     
-    // builder
-    var type: CustomEmptyViewType
-    var isDisplayed: Bool
+    // MARK: Dependencies
+    var type: EmptyViewType
+    var isPlain: Bool
     
+    // MARK: Environments
     @EnvironmentObject private var router: Router<AppDestination>
     
-    var isHomeSituation: Bool {
-        switch type {
-        case .empty(let situation):
-            switch situation {
-            case .account:
-                return false
-            case .transactions(let style):
-                return style == .home ? true : false
-            case .subscriptions(let style):
-                return style == .home ? true : false
-            case .savingsPlan(let style):
-                return style == .home ? true : false
-            case .savingsAccount, .analytics, .repartitionStatistics, .emptyCategory:
-                return false
-            }
-        case .noResults:
-            return false
-        }
-    }
-    
-    public init(
-        type: CustomEmptyViewType,
-        isDisplayed: Bool
-    ) {
+    // MARK: Init
+    public init(type: EmptyViewType, isPlain: Bool = false) {
         self.type = type
-        self.isDisplayed = isDisplayed
+        self.isPlain = isPlain
     }
     
-    // MARK: -
+    // MARK: - View
     public var body: some View {
-        VStack(spacing: Spacing.small) {
-            Image(emptyIcon)
-                .resizable()
-                .renderingMode(.template)
-                .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
-                .frame(width: 32, height: 32)
-            
-            VStack(spacing: Spacing.extraSmall) {
-                Text(emptyTitle)
-                    .fontWithLineHeight(.Body.large)
-                    .foregroundStyle(Color.label)
+        Button { type.action(router: router) } label: {
+            VStack(spacing: Spacing.small) {
+                IconSVG(icon: type.icon, value: .extraLarge)
+                    .foregroundStyle(Color.Background.bg600)
+                
+                VStack(spacing: Spacing.extraSmall) {
+                    Text(type.title.localized)
+                        .fontWithLineHeight(.Body.large)
+                        .foregroundStyle(Color.label)
                     
-                Text(emptyDescription)
-                    .fontWithLineHeight(.Body.small)
-                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg500)
-                    .multilineTextAlignment(.center)
+                    Text(type.description.localized)
+                        .fontWithLineHeight(.Body.small)
+                        .multilineTextAlignment(.center)
+                        .foregroundStyle(Color.Background.bg500)
+                }
+                
+                if !type.buttonTitle.isEmpty {
+                    Text(type.buttonTitle.localized)
+                        .fontWithLineHeight(.Label.large)
+                        .foregroundStyle(Color.white)
+                        .padding(.horizontal, Spacing.medium)
+                        .padding(.vertical, Spacing.small)
+                        .background(
+                            LinearGradient.main,
+                            in: .rect(cornerRadius: CornerRadius.medium, style: .continuous)
+                        )
+                }
             }
+            .fullWidth()
+            .padding(Spacing.large)
+            .roundedRectangleBorder(
+                isPlain ? Color.clear : Color.Background.bg100,
+                radius: CornerRadius.large,
+                lineWidth: 1,
+                strokeColor: isPlain ? Color.clear : Color.Background.bg200
+            )
         }
-        .padding(Padding.large)
-        .frame(maxWidth: .infinity, maxHeight: isHomeSituation ? nil : .infinity)
-        .roundedRectangleBorder(
-            isHomeSituation ? TKDesignSystem.Colors.Background.Theme.bg100 : .clear,
-            radius: CornerRadius.standard,
-            lineWidth: isHomeSituation ? 0.5 : 0,
-            strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-        )
-        .isDisplayed(isDisplayed)
-        .onTapGesture {
-            if isHomeSituation {
-                action()
-            }
-        }
-    }
-    
-    var emptyIcon: String {
-        switch type {
-        case .empty(let situation):
-            return situation.icon
-        case .noResults:
-            return "iconSearch"
-        }
-    }
-    
-    var emptyDescription: String {
-        switch type {
-        case .empty(let situation):
-            return situation.description.localized
-        case .noResults:
-            return "empty_search_description".localized
-        }
-    }
-    
-    var emptyTitle: String {
-        switch type {
-        case .empty(let situation):
-            return situation.title.localized
-        case .noResults(let searchText):
-            return "word_no_results".localized + " " + "\"\(searchText)\""
-        }
-    }
 
-    private func action() {
-        switch type {
-        case .empty(let situation):
-            situation.action(router: router)
-        case .noResults:
-            break
-        }
     }
-} // struct
-
-// MARK: - Utils
-public enum CustomEmptyViewType: Equatable {
-    case empty(_ situation: CustomEmptyViewSituation)
-    case noResults(_ searchText: String)
 }
 
-public enum CustomEmptyViewSituationStyle: Equatable {
-    case home
-    case list
-}
-
-public enum CustomEmptyViewSituation: Equatable {
-    case account
-    case transactions(CustomEmptyViewSituationStyle)
-    case subscriptions(CustomEmptyViewSituationStyle)
-    case savingsPlan(CustomEmptyViewSituationStyle)
-//    case contributions
-    case savingsAccount
-    case analytics
-    case repartitionStatistics
-    case emptyCategory
+extension EmptyViewType {
     
-    public var icon: String {
+    func action(router: Router<AppDestination>) {
         switch self {
-        case .account:
-            return "iconPerson"
-        case .transactions:
-            return "iconBanknote"
-        case .subscriptions:
-            return "iconClockRepeat"
-        case .savingsPlan:
-            return "iconPiggyBank"
-//        case .contributions:
-//            return "iconHandCoins"
-        case .savingsAccount:
-            return "iconLandmark"
-        case .analytics:
-            return "iconLineChart"
-        case .repartitionStatistics:
-            return "iconLineChart"
-        case .emptyCategory:
-            return "iconPieChart"
-        }
-    }
-    
-    public var title: String {
-        switch self {
-        case .account:
-            return "empty_account_title"
-        case .transactions:
-            return "empty_transactions_title"
-        case .subscriptions:
-            return "empty_subscriptions_title"
-        case .savingsPlan:
-            return "empty_savingsplan_title"
-        case .savingsAccount:
-            return "empty_savingsaccount_title"
-        case .analytics:
-            return "empty_stats_title"
-        case .repartitionStatistics:
-            return "statistics_charts_lock_title"
-        case .emptyCategory:
-            return "error_message_no_data_month"
-        }
-    }
-    
-    public var description: String {
-        switch self {
-        case .account:
-            return "empty_account_list_description"
-        case .transactions(let style):
-            return style == .list ? "empty_transactions_list_description" : "empty_transactions_home_description"
-        case .subscriptions(let style):
-            return style == .list ? "empty_subscriptions_list_description" : "empty_subscription_home_description"
-        case .savingsPlan(let style):
-            return style == .list ? "empty_savingsplan_list_description" : "empty_savingsplan_home_description"
-        case .savingsAccount:
-            return "empty_savingsaccount_list_description"
-        case .analytics:
-            return "empty_stats_list_description"
-        case .repartitionStatistics:
-            return "statistics_charts_lock_desc"
-        case .emptyCategory:
-            return ""
-        }
-    }
-    
-    public func action(router: Router<AppDestination>) {
-        switch self {
-        case .account:
-            router.present(route: .sheet, .account(.create))
-        case .transactions:
+        case .noAccounts:
+            router.push(.account(.create))
+        case .noTransactions:
             router.push(.transaction(.create))
-        case .subscriptions:
+        case .noBudgets:
+            router.push(.budget(.create))
+        case .noSubscriptions:
             router.push(.subscription(.create))
-        case .savingsPlan:
+        case .noFinancialGoals:
             router.push(.savingsPlan(.create))
-        case .savingsAccount:
+        case .noSavingsAccounts:
             router.push(.savingsAccount(.create))
-        case .analytics:
+        case .noCategoryData:
+            return
+        case .noRepartitionStats:
+            return
+        case .noAnalysis:
             router.push(.transaction(.create))
-        case .repartitionStatistics:
-           return
-        case .emptyCategory:
+        case .noResults:
             return
         }
     }
+    
 }
 
 // MARK: - Preview
 #Preview {
-    CustomEmptyView(
-        type: .empty(.account),
-        isDisplayed: true
-    )
+    CustomEmptyView(type: .noTransactions)
+        .padding()
+        .background(Color.Background.bg50)
 }

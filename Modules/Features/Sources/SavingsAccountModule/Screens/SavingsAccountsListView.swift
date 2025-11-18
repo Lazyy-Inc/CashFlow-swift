@@ -68,35 +68,31 @@ public struct SavingsAccountsListView: View {
                 searchText: $searchText.animation()
             )
         } content: { _ in
-            if !accountStore.savingsAccounts.isEmpty {
-                VStack(spacing: 32) {
-                    VStack(spacing: 0) {
-                        Text(totalSavings.toCurrency())
-                            .fontWithLineHeight(.Display.extraLarge)
-                            .foregroundStyle(Color.label)
-                        
-                        Text(Word.SavingsAccount.totalSavings)
-                            .fontWithLineHeight(.Body.medium)
-                            .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
-                    }
+            VStack(spacing: 32) {
+                VStack(spacing: 0) {
+                    Text(totalSavings.toCurrency())
+                        .fontWithLineHeight(.Display.extraLarge)
+                        .foregroundStyle(Color.label)
                     
-                    LazyVGrid(columns: columns, spacing: 16, content: {
-                        ForEach(savingsAccountsFiltered) { account in
-                            NavigationButtonView(
-                                route: .push,
-                                destination: AppDestination.savingsAccount(.detail(savingsAccount: account)),
-                                onNavigate: { savingsAccountStore.currentAccount = account },
-                                label: { SavingsAccountRowView(savingsAccount: account) }
-                            )
-                        }
-                    })
-                    .padding(.horizontal, Padding.large)
+                    Text(Word.SavingsAccount.totalSavings)
+                        .fontWithLineHeight(.Body.medium)
+                        .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
                 }
-            } else {
-                CustomEmptyView(
-                    type: .empty(.savingsAccount),
-                    isDisplayed: true
-                )
+                
+                LazyVGrid(columns: columns, spacing: 16, content: {
+                    ForEach(savingsAccountsFiltered) { account in
+                        NavigationButtonView(
+                            route: .push,
+                            destination: AppDestination.savingsAccount(.detail(savingsAccount: account)),
+                            onNavigate: { savingsAccountStore.currentAccount = account },
+                            label: { SavingsAccountRowView(savingsAccount: account) }
+                        )
+                    }
+                })
+                .padding(.horizontal, Padding.large)
+            }
+            .emptyState(condition: accountStore.savingsAccounts.isEmpty) {
+                CustomEmptyView(type: .noSavingsAccounts, isPlain: true)
             }
         }
         .navigationBarBackButtonHidden(true)

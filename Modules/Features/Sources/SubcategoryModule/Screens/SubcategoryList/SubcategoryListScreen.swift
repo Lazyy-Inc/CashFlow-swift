@@ -57,7 +57,7 @@ public struct SubcategoryListScreen: View {
         } content: {
           VStack(spacing: 24) {
             if !viewModel.isDisplayChart(category: category) {
-                CustomEmptyView(type: .empty(.emptyCategory), isDisplayed: true)
+                CustomEmptyView(type: .noCategoryData)
                     .padding(8)
                     .noDefaultStyle()
             } else if viewModel.searchText.isEmpty {

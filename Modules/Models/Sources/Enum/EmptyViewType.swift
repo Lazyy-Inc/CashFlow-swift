@@ -14,5 +14,8 @@ public enum EmptyViewType {
     case noSubscriptions
     case noFinancialGoals
     case noSavingsAccounts
+    case noCategoryData
+    case noRepartitionStats
+    case noAnalysis
     case noResults(_ searchText: String)
 }

@@ -70,10 +70,10 @@ public struct SavingsPlanListScreen: View {
             }
             .padding(.horizontal, Padding.large)
         }
-        .overlay {
+        .emptyState(condition: savingsPlanStore.savingsPlans.isEmpty || (searchResults.isEmpty && !searchText.isEmpty)) {
             CustomEmptyView(
-                type: (searchResults.isEmpty && !searchText.isEmpty) ? .noResults(searchText) : .empty(.savingsPlan(.list)),
-                isDisplayed: savingsPlanStore.savingsPlans.isEmpty || (searchResults.isEmpty && !searchText.isEmpty)
+                type: (searchResults.isEmpty && !searchText.isEmpty) ? .noResults(searchText) : .noFinancialGoals,
+                isPlain: true
             )
         }
         .navigationBarBackButtonHidden(true)

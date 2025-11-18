@@ -69,11 +69,8 @@ public struct SubscriptionsListScreen: View {
         }
         .background(TKDesignSystem.Colors.Background.Theme.bg50.ignoresSafeArea(.all))
         .animation(.smooth, value: subscriptionStore.subscriptions.count)
-        .overlay {
-            CustomEmptyView(
-                type: .empty(.subscriptions(.list)),
-                isDisplayed: subscriptionStore.subscriptions.isEmpty
-            )
+        .emptyState(condition: subscriptionStore.subscriptions.isEmpty) {
+            CustomEmptyView(type: .noSubscriptions, isPlain: true)
         }
         .navigationBarBackButtonHidden(true)
         .background(Color.Background.bg50.edgesIgnoringSafeArea(.all))

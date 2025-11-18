@@ -191,7 +191,7 @@ extension RootScreen {
                 router: homeRouter,
                 destinationContent: { AppDestination.content(for: $0) },
                 initialContent: {
-                    CFEmptyView(type: .noAccounts)
+                    CustomEmptyView(type: .noAccounts)
                         .padding()
                         .fullSize()
                         .background(Color.Background.bg50)

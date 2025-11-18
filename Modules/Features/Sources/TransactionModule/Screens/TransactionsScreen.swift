@@ -37,11 +37,8 @@ public struct TransactionsScreen: View {
                 )
             )
             TransactionsListScreen()
-                .overlay {
-                    CustomEmptyView(
-                        type: .empty(.transactions(.list)),
-                        isDisplayed: transactionStore.transactions.isEmpty
-                    )
+                .emptyState(condition: transactionStore.transactions.isEmpty) {
+                    CustomEmptyView(type: .noTransactions, isPlain: true)
                 }
         }
         .navigationBarBackButtonHidden(true)
