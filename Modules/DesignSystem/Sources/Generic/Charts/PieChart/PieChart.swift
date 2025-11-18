@@ -122,8 +122,7 @@ public struct PieChart: View {
                                 
                                 if activeSlice != nil {
                                     Text(percentage.toString() + "%")
-                                        .foregroundStyle(Color.text)
-                                        .font(Font.mediumText16())
+                                        .font(.Body.medium)
                                 }
                             }
                         }

@@ -29,8 +29,7 @@ public struct TransactionDetailNoteRowView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 8) {
                 Text(Word.Classic.note)
-                    .font(.mediumText16())
-                    .foregroundStyle(Color.text)
+                    .font(.Body.medium)
                 
                 Spacer()
             }
@@ -39,13 +38,13 @@ public struct TransactionDetailNoteRowView: View {
                 TextEditor(text: $note)
                     .focused($focusedField, equals: .note)
                     .scrollContentBackground(.hidden)
-                    .font(Font.mediumText16())
+                    .font(.Body.medium)
                 
                 if note.isEmpty {
                     HStack {
                         Text("transaction_detail_note".localized)
-                            .foregroundStyle(Color.customGray)
-                            .font(Font.mediumText16())
+                            .font(.Body.medium, color: .customGray)
+                        
                         Spacer()
                     }
                     .padding([.leading, .top], 8)

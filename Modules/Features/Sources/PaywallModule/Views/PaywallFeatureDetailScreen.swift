@@ -22,7 +22,7 @@ struct PaywallFeatureDetailScreen: View {
                 .font(.semiBoldH3())
             
             Text(desc)
-                .font(.mediumText16())
+                .font(.Body.medium)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 8)
                 .padding(.bottom, 8)

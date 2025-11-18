@@ -74,7 +74,7 @@ struct BudgetRowView: View {
                         .clipShape(RoundedRectangle(cornerRadius: CornerRadius.medium, style: .continuous))
                     }
                 }
-                .font(Font.mediumText16())
+                .font(.Body.medium)
                 .padding(8)
             }
         }

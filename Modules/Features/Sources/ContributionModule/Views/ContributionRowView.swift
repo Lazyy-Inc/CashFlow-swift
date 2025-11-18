@@ -32,7 +32,7 @@ struct ContributionRowView: View {
         SwipeView(label: {
             HStack {
                 Text(contributionName)
-                    .font(Font.mediumText16())
+                    .font(.Body.medium)
                 Spacer()
                 VStack(alignment: .trailing, spacing: 3) {
                     Text("\(contribution.symbol) \(contribution.amount?.toCurrency() ?? "")")
