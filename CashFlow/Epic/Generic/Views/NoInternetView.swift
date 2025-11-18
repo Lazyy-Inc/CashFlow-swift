@@ -21,10 +21,10 @@ struct NoInternetView: View {
                 .frame(width: UIScreen.main.bounds.width / (UIDevice.isIpad ? 3 : 1.5))
             
             Text("OOPS...")
-                .font(.mediumText18())
+                .font(.Title.medium)
             
             Text("no_internet_description".localized)
-                .font(.mediumSmall())
+                .font(.Body.small)
                 .multilineTextAlignment(.center)
         }
     } // body

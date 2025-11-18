@@ -35,8 +35,7 @@ struct CategorySelectableRowView: View {
                     }
                 
                 Text(category.name)
-                    .font(.semiBoldSmall())
-                    .foregroundStyle(Color.text)
+                    .font(.Body.small)
                     .lineLimit(1)
                 
                 Spacer()

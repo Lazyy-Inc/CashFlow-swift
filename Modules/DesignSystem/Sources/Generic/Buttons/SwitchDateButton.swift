@@ -40,7 +40,7 @@ public struct SwitchDateButton: View {
             }
 
             Text(dateDisplayed())
-                .font(.semiBoldText16())
+                .font(.Body.medium)
                 .frame(maxWidth: .infinity)
                 .animation(.smooth, value: date)
             

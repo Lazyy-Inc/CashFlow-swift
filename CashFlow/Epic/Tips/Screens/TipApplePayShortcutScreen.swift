@@ -24,11 +24,11 @@ struct TipApplePayShortcutScreen: View {
                 .padding(.horizontal)
             
             Text(Word.Tips.ApplePay.descOne)
-                .font(.mediumText18())
+                .font(.Title.medium)
                 .multilineTextAlignment(.center)
             
             Text(Word.Tips.ApplePay.descTwo)
-                .font(.mediumText18())
+                .font(.Title.medium)
                 .multilineTextAlignment(.center)
             
             VStack(spacing: 16) {

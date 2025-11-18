@@ -30,9 +30,10 @@ public struct DetailOfTransferByMonth: View {
 
     // MARK: -
     public var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: Spacing.extraSmall) {
             Text(month.formatted(.monthAndYear).capitalized)
-                .font(.mediumCustom(size: 22))
+                .font(.Title.medium)
+            
             if store.isCashFlowPro {
                 HStack {
                     if amountOfSavings != 0 {
@@ -48,8 +49,7 @@ public struct DetailOfTransferByMonth: View {
                     }
                     Spacer()
                 }
-                .foregroundStyle(Color.customGray)
-                .font(.semiBoldSmall())
+                .font(.Body.small, color: .customGray)
             }
         }
         .fullWidth(.leading)

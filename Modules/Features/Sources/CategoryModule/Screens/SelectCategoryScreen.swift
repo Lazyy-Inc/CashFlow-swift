@@ -42,7 +42,7 @@ public struct SelectCategoryScreen: View {
                 ForEach(viewModel.categoriesFiltered) { category in
                     VStack {
                         Text(category.name)
-                            .font(.mediumCustom(size: 22))
+                            .font(.Title.medium)
                             .fullWidth(.leading)
                             .padding([.horizontal, .top])
                         

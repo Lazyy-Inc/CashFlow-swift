@@ -26,11 +26,9 @@ struct PeopleRow: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(people.name)
-                        .font(.semiBoldText18())
-                        .foregroundStyle(Color.text)
+                        .font(.Body.large)
                     Text(people.job)
-                        .font(Font.mediumSmall())
-                        .foregroundStyle(Color.customGray)
+                        .font(.Body.small, color: .customGray)
                 }
                 
                 Spacer()

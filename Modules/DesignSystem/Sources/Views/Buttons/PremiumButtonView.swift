@@ -23,7 +23,7 @@ public struct PremiumButtonView: View {
         ) {
             HStack(spacing: 4) {
                 Text("Pro")
-                    .font(.semiBoldText16())
+                    .font(.Body.medium)
                 Image(systemName: "crown.fill")
                     .font(.system(size: 14))
             }

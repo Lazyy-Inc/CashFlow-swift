@@ -8,7 +8,7 @@
 import SwiftUI
 import Core
 
-struct CashFlowButton: View {
+struct CashFlowButton: View { // TODO: Delete
     
     // Builder
     var config: Configuration
@@ -28,7 +28,7 @@ struct CashFlowButton: View {
                     Image(systemName: "arrow.up.right")
                 }
             }
-            .font(.semiBoldText18())
+            .font(.Body.large)
             .foregroundStyle(Color.white)
             .padding()
             .background {

@@ -17,7 +17,7 @@ struct StatisticsSectionView<Content: View>: View {
     var body: some View {
         VStack(spacing: 8) {
             Text(title)
-                .font(.semiBoldH3())
+                .font(.Title.large)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 8)
             

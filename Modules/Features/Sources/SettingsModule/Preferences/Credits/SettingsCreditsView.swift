@@ -47,8 +47,7 @@ public struct SettingsCreditsView: View {
                                             .foregroundStyle(.white)
                                     }
                                 Text(license.name)
-                                    .font(Font.mediumText16())
-                                    .foregroundStyle(Color.text)
+                                    .font(.Body.medium)
                                 Spacer()
                                 Image(systemName: "arrow.up.forward")
                                     .foregroundStyle(Color.Secondary.secondary300)
@@ -72,8 +71,7 @@ public struct SettingsCreditsView: View {
     func titleForCellCredit(text: String) -> some View {
         HStack {
             Text(text)
-                .font(Font.mediumText16())
-                .foregroundStyle(Color.customGray)
+                .font(.Body.medium, color: .customGray)
             Spacer()
         }
         .padding(.leading)

@@ -44,15 +44,13 @@ struct PredictedCategoryRowView: View {
                                 .fill(Color.Background.bg300)
                         }
                     Text("transaction_recommended_category".localized)
-                        .font(.mediumText16())
-                        .foregroundStyle(Color.white)
+                        .font(.Body.medium, color: .white)
                     
                     Spacer()
                 }
                 
                 Text(text)
-                    .font(.semiBoldText16())
-                    .foregroundStyle(Color.white)
+                    .font(.Body.medium, color: .white)
             }
             .padding()
             .background {

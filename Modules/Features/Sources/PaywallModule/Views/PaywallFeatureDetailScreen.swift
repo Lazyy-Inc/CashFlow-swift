@@ -19,10 +19,10 @@ struct PaywallFeatureDetailScreen: View {
     var body: some View {
         ScrollView {
             Text(title)
-                .font(.semiBoldH3())
+                .font(.Title.large)
             
             Text(desc)
-                .font(.mediumText16())
+                .font(.Body.medium)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 8)
                 .padding(.bottom, 8)
@@ -32,7 +32,7 @@ struct PaywallFeatureDetailScreen: View {
                 if !imageWithout.isEmpty {
                     VStack {
                         Text("Without CashFlow Pro")
-                            .font(.semiBoldText16())
+                            .font(.Body.medium)
                             .lineLimit(1)
                         ForEach(imageWithout, id: \.self) { image in
                             Image(image)
@@ -44,7 +44,7 @@ struct PaywallFeatureDetailScreen: View {
                 }
                 VStack {
                     Text("With CashFlow Pro")
-                        .font(.semiBoldText16())
+                        .font(.Body.medium)
                         .lineLimit(1)
                     ForEach(imageWith, id: \.self) { image in
                         Image(image)

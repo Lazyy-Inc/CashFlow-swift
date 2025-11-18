@@ -29,7 +29,7 @@ struct BudgetRowView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(currentBudget.name)
-                .font(.mediumCustom(size: 20))
+                .font(.Title.medium)
             
             HStack(alignment: .center) {
                 let value = budget.currentAmount / budget.amount
@@ -74,7 +74,7 @@ struct BudgetRowView: View {
                         .clipShape(RoundedRectangle(cornerRadius: CornerRadius.medium, style: .continuous))
                     }
                 }
-                .font(Font.mediumText16())
+                .font(.Body.medium)
                 .padding(8)
             }
         }

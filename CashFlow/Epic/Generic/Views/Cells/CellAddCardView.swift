@@ -26,14 +26,14 @@ struct CellAddCardView: View {
                     .frame(height: 50)
                 
                 Text(textHeader)
-                    .font(Font.mediumText16())
+                    .font(.Body.medium)
                     .padding(.horizontal, 8)
                     .background(colorScheme == .light ? Color.primary0 : Color.secondary500)
                     .offset(x: 20, y: -12)
             }
             
             TextField(placeholder, text: $text)
-                .font(Font.mediumText16())
+                .font(.Body.medium)
                 .offset(x: 20)
                 .padding(.horizontal, 8)
         }

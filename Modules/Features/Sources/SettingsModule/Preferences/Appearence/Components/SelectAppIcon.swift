@@ -20,8 +20,7 @@ struct SelectAppIcon: View {
         VStack {
             VStack(spacing: 8) {
                 Text(Word.Setting.Appearance.appIcons)
-                    .font(Font.mediumText16())
-                    .foregroundStyle(Color.customGray)
+                    .font(.Body.medium, color: .customGray)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
                 
@@ -30,8 +29,7 @@ struct SelectAppIcon: View {
                         ForEach(People.designers) { people in
                             Button(action: { withAnimation { selectedPeople = people } }, label: {
                                 Text(people.name)
-                                    .foregroundStyle(Color.text)
-                                    .font(Font.mediumText16())
+                                    .font(.Body.medium)
                                     .padding()
                                     .background {
                                         RoundedRectangle(cornerRadius: 16, style: .continuous)

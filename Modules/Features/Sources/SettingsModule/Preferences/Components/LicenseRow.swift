@@ -22,11 +22,9 @@ struct LicenseRow: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("setting_credits_licences_title".localized)
-                    .font(.semiBoldText18())
-                    .foregroundStyle(Color.text)
+                    .font(.Body.large)
                 Text("setting_credits_licences_desc".localized)
-                    .font(Font.mediumSmall())
-                    .foregroundStyle(Color.Secondary.secondary300)
+                    .font(.Body.small, color: .Secondary.secondary300)
             }
             Spacer()
             Image(systemName: "chevron.right")

@@ -68,7 +68,7 @@ public struct TransactionDetailsScreen: View { // TODO: Replace with financialIt
                         }
                         if currentTransaction.isFromSubscription == true {
                             Text("transaction_detail_automatically_created".localized)
-                                .font(.mediumText16())
+                                .font(.Body.medium)
                         }
                     }
                     

@@ -17,10 +17,6 @@
 	<string>180383956528-k9g94a4ii4p8mk94jgg7rrk52fucbi9f.apps.googleusercontent.com</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>PlusJakartaSans-Regular.ttf</string>
-		<string>PlusJakartaSans-Medium.ttf</string>
-		<string>PlusJakartaSans-SemiBold.ttf</string>
-		<string>PlusJakartaSans-Bold.ttf</string>
 		<string>Satoshi-Black.otf</string>
 		<string>Satoshi-Bold.otf</string>
 		<string>Satoshi-Medium.otf</string>

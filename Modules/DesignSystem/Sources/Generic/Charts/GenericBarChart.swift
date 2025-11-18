@@ -37,12 +37,10 @@ public struct GenericBarChart: View {
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
                     Text(title)
-                        .foregroundStyle(Color.customGray)
-                        .font(Font.mediumSmall())
+                        .font(.Body.small, color: .customGray)
                     
                     Text(amount.toCurrency())
-                        .foregroundStyle(Color.text)
-                        .font(.semiBoldH3())
+                        .font(.Title.large)
                         .animation(.smooth, value: amount)
                         .contentTransition(.numericText())
                 }
