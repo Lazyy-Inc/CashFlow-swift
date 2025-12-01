@@ -1,5 +1,5 @@
 {
-  "originHash" : "6e263517bda851e22ce2c8d680bbd005c6a5e3a8e3778a32f0c50961be3cd709",
+  "originHash" : "70d0c95523e1318791662bd9a42d01ca1ca117ffff129da9a0e540c7139b50eb",
   "pins" : [
     {
       "identity" : "alertkit",
@@ -186,8 +186,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/aheze/SwipeActions",
       "state" : {
-        "branch" : "1.1.0",
-        "revision" : "41e6f6dce02d8cfa164f8c5461a41340850ca3ab"
+        "revision" : "41e6f6dce02d8cfa164f8c5461a41340850ca3ab",
+        "version" : "1.1.0"
       }
     },
     {

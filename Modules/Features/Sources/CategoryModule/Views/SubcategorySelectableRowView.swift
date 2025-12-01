@@ -45,7 +45,7 @@ public struct SubcategorySelectableRowView: View {
                     }
                 
                 Text(subcategory.name)
-                    .font(.Body.small)
+                    .font(.Body.medium)
                     .lineLimit(1)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }

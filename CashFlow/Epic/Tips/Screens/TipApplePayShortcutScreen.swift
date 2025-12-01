@@ -8,6 +8,7 @@
 import SwiftUI
 import Core
 import Preferences
+import DesignSystem
 
 struct TipApplePayShortcutScreen: View {
     
@@ -32,14 +33,14 @@ struct TipApplePayShortcutScreen: View {
                 .multilineTextAlignment(.center)
             
             VStack(spacing: 16) {
-                CashFlowButton(
-                    config: .init(text: Word.Tips.howToDo, externalLink: true),
-                    action: {
-                        preferencesGeneral.isApplePayEnabled = true
-                        dismiss()
-                        URLManager.openURL(url: URLManager.PredefinedURL.Tutos.importFromApplePay.rawValue)
-                    }
-                )
+                ActionButtonView(
+                    style: .plain,
+                    title: Word.Tips.howToDo
+                ) {
+                    preferencesGeneral.isApplePayEnabled = true
+                    dismiss()
+                    URLManager.openURL(url: URLManager.PredefinedURL.Tutos.importFromApplePay.rawValue)
+                }
                 
                 Button {
                     preferencesGeneral.isApplePayEnabled = true

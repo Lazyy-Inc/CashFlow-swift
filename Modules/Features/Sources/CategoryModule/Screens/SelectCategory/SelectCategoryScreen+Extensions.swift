@@ -58,7 +58,7 @@ extension SelectCategoryScreen.ViewModel {
         guard let subcategories = category.subcategories else { return [] }
         if searchText.isEmpty {
             return subcategories
-                .sorted { $0.name > $1.name }
+                .sorted { $0.name < $1.name }
         } else {
             return subcategories
                 .sorted { lhs, rhs in

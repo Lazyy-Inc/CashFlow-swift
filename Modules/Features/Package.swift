@@ -45,8 +45,7 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.9.3"),
         .package(url: "https://github.com/google/GoogleSignIn-iOS", exact: "9.0.0"),
         .package(url: "https://github.com/simibac/ConfettiSwiftUI", branch: "1.0.0"),
-        .package(url: "https://github.com/izyumkin/MCEmojiPicker", branch: "1.2.3"),
-        .package(url: "https://github.com/aheze/SwipeActions", branch: "1.1.0")
+        .package(url: "https://github.com/izyumkin/MCEmojiPicker", branch: "1.2.3")
     ],
     targets: [
         .target(
@@ -150,8 +149,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
-                .product(name: "Dependencies", package: "swift-dependencies"),
-                .product(name: "SwipeActions", package: "SwipeActions")
+                .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
@@ -167,8 +165,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
-                .product(name: "Dependencies", package: "swift-dependencies"),
-                .product(name: "SwipeActions", package: "SwipeActions")
+                .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
@@ -201,8 +198,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
-                .product(name: "Dependencies", package: "swift-dependencies"),
-                .product(name: "SwipeActions", package: "SwipeActions")
+                .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
@@ -250,8 +246,7 @@ let package = Package(
                 "Stores",
                 "Navigation",
                 "Utilities",
-                .product(name: "Dependencies", package: "swift-dependencies"),
-                .product(name: "SwipeActions", package: "SwipeActions")
+                .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
@@ -267,8 +262,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
-                .product(name: "Dependencies", package: "swift-dependencies"),
-                .product(name: "SwipeActions", package: "SwipeActions")
+                .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
@@ -302,8 +296,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
-                .product(name: "Dependencies", package: "swift-dependencies"),
-                .product(name: "SwipeActions", package: "SwipeActions")
+                .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),

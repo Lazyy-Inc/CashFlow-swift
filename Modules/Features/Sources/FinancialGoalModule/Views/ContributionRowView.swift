@@ -7,13 +7,13 @@
 // Localizations 01/10/2023
 
 import SwiftUI
-import SwipeActions
 import AlertKit
 import Core
 import Models
+import DesignSystem
 
-struct ContributionRowView: View { // TODO: Change with contextMenu
-
+struct ContributionRowView: View {
+    
     // Builder
     var savingsPlan: SavingsPlanModel
     var contribution: ContributionModel
@@ -28,52 +28,53 @@ struct ContributionRowView: View { // TODO: Change with contextMenu
     
     // MARK: -
     var body: some View {
-        SwipeView(label: {
-            HStack {
-                Text(contributionName)
-                    .font(.Body.medium)
-                Spacer()
-                VStack(alignment: .trailing, spacing: 3) {
-                    Text("\(contribution.symbol) \(contribution.amount?.toCurrency() ?? "")") 
-                        .font(.Body.medium, color: contribution.type == .withdrawal ? Color.Error.error400 : Color.primary500)
-                    
-                    Text(contribution.date.formatted(date: .numeric, time: .omitted))
-                        .font(.Body.small, color: .customGray)
-                }
+        HStack {
+            Text(contributionName)
+                .font(.Body.medium)
+                .fullWidth(.leading)
+            
+            VStack(alignment: .trailing, spacing: 3) {
+                Text("\(contribution.symbol) \(contribution.amount?.toCurrency() ?? "")")
+                    .font(.Body.medium, color: contribution.type == .withdrawal ? Color.Error.error400 : Color.primary500)
+                
+                Text(contribution.date.formatted(date: .numeric, time: .omitted))
+                    .font(.Body.small, color: .customGray)
             }
-            .padding(12)
-            .padding(.horizontal, 4)
-            .background {
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(Color.Background.bg100)
-            }
-        }, trailingActions: { context in
-            SwipeAction(action: {
-                AlertManager.shared.deleteContribution(
-                    savingsPlan: savingsPlan,
-                    contribution: contribution
-                )
-                context.state.wrappedValue = .closed
-            }, label: { _ in
-                VStack(spacing: 5) {
-                    Image(systemName: "trash")
-                        .font(.system(size: 20, weight: .semibold, design: .rounded))
-                    Text("word_delete".localized)
-//                        .font(.semiBoldCustom(size: 10))
-                }
-                .foregroundStyle(Color(uiColor: .systemBackground))
-            }, background: { _ in
-                Rectangle()
-                    .foregroundStyle(Color.Error.error400)
-            })
-            .allowSwipeToTrigger()
-        })
-        .swipeActionsStyle(.cascade)
-        .swipeActionCornerRadius(15)
-        .swipeMinimumDistance(30)
+        }
+        .padding(12)
+        .padding(.horizontal, 4)
+        .roundedRectangleBorder(
+            Color.Background.bg100,
+            radius: CornerRadius.standard,
+            lineWidth: 1,
+            strokeColor: Color.Background.bg200
+        )
         .padding(.vertical, 2)
+        .contentShape(.contextMenuPreview, .rect(cornerRadius: CornerRadius.standard))
+        .contextMenu {
+            contextMenuView
+        } preview: {
+            self
+                .frame(width: UIScreen.main.bounds.width - 32)
+        }
     } // body
 } // struct
+
+// MARK: - Subviews
+extension ContributionRowView {
+    
+    private var contextMenuView: some View {
+        Button(role: .destructive) {
+            AlertManager.shared.deleteContribution(
+                savingsPlan: savingsPlan,
+                contribution: contribution
+            )
+        } label: {
+            Label("word_delete".localized, systemImage: "trash")
+        }
+    }
+    
+}
 
 // MARK: - Preview
 #Preview {

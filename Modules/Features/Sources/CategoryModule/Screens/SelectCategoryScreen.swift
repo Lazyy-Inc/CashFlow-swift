@@ -20,7 +20,6 @@ public struct SelectCategoryScreen: View {
     @Binding var selectedSubcategory: SubcategoryModel?
     
     // MARK: Environments
-    @Environment(\.theme) private var theme
     @Environment(\.dismiss) private var dismiss
     
     // MARK: States
@@ -39,50 +38,13 @@ public struct SelectCategoryScreen: View {
     public var body: some View {
         NavigationStack {
             ScrollView {
-                ForEach(viewModel.categoriesFiltered) { category in
-                    VStack {
-                        Text(category.name)
-                            .font(.Title.medium)
-                            .fullWidth(.leading)
-                            .padding([.horizontal, .top])
-                        
-                        if category.subcategories == nil || category.subcategories?.isEmpty == true {
-                            CategorySelectableRowView(
-                                category: category,
-                                isSelected: selectedCategory == category
-                            ) {
-                                withAnimation {
-                                    selectedSubcategory = nil
-                                    selectedCategory = category
-                                    dismiss()
-                                }
-                            }
-                        } else {
-                            VStack {
-                                ForEach(viewModel.subcategoriesFiltered(for: category)) { subcategory in
-                                    SubcategorySelectableRowView(
-                                        subcategory: subcategory,
-                                        isSelected: selectedSubcategory == subcategory
-                                    ) {
-                                        withAnimation {
-                                            selectedCategory = category
-                                            selectedSubcategory = subcategory
-                                            dismiss()
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                VStack(spacing: Spacing.extraLarge) {
+                    ForEach(viewModel.categoriesFiltered) { category in
+                        categorySectionView(for: category)
                     }
-                    .padding()
                 }
-                
-                Rectangle()
-                    .frame(height: 60)
-                    .opacity(0)
-                
-                Spacer()
             }
+            .contentMargins(.all, Spacing.large, for: .scrollContent)
             .background(Color.Background.bg50)
             .scrollIndicators(.hidden)
             .overlay(condition: !viewModel.searchText.isEmpty && viewModel.categoriesFiltered.isEmpty) {
@@ -99,14 +61,63 @@ public struct SelectCategoryScreen: View {
                     })
                 }
             }
-        } // Navigation Stack
+        }
         .searchable(
             text: $viewModel.searchText.animation(),
             placement: .navigationBarDrawer(displayMode: .always),
             prompt: "word_search".localized
         )
-    } // body
-} // struct
+    }
+}
+
+// MARK: - Subviews
+extension SelectCategoryScreen {
+    
+    private func categorySectionView(for category: CategoryModel) -> some View {
+        VStack(spacing: Spacing.standard) {
+            Text(category.name)
+                .font(.Title.medium)
+                .fullWidth(.leading)
+            
+            if category.subcategories == nil || category.subcategories?.isEmpty == true {
+                categoryView(for: category)
+            } else {
+                subcategoriesView(for: category)
+            }
+        }
+    }
+    
+    private func categoryView(for category: CategoryModel) -> some View {
+        CategorySelectableRowView(
+            category: category,
+            isSelected: selectedCategory == category
+        ) {
+            withAnimation {
+                selectedSubcategory = nil
+                selectedCategory = category
+                dismiss()
+            }
+        }
+    }
+    
+    private func subcategoriesView(for category: CategoryModel) -> some View {
+        VStack(spacing: Spacing.small) {
+            ForEach(viewModel.subcategoriesFiltered(for: category)) { subcategory in
+                SubcategorySelectableRowView(
+                    subcategory: subcategory,
+                    isSelected: selectedSubcategory == subcategory
+                ) {
+                    withAnimation {
+                        selectedCategory = category
+                        selectedSubcategory = subcategory
+                        dismiss()
+                    }
+                }
+            }
+        }
+    }
+    
+}
 
 // MARK: - Preview
 // struct WhatCategoryView_Previews: PreviewProvider {

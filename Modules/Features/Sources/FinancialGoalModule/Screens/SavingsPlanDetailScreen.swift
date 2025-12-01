@@ -247,7 +247,11 @@ public struct SavingsPlanDetailScreen: View {
             ToolbarDismissKeyboardButtonView()
         }
         .background(Color.Background.bg50.edgesIgnoringSafeArea(.all))
-        // TODO: Fetch contributions
+        .task {
+            if let savingsPlanId = currentSavingsPlan.id {
+                await contributionStore.fetchContributions(savingsplanID: savingsPlanId)
+            }
+        }
     } // body
 } // struct
 
