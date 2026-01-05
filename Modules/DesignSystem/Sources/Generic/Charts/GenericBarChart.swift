@@ -92,18 +92,17 @@ public struct GenericBarChart: View {
             }
             .frame(height: 200)
             
-            VStack(spacing: 8) {
-                SwitchDateButton(date: $selectedDate, type: .month)
-                SwitchDateButton(date: $selectedDate, type: .year)
-            }
+//            MonthPickerView(selectedMonth: $selectedDate)
+//                .padding(Spacing.medium)
         }
-        .padding(12)
-        .background {
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color.Background.bg100)
-        }
-    } // body
-} // struct
+        .padding(Padding.medium)
+        .roundedBackground(
+            color: Color.Background.bg100,
+            radius: CornerRadius.large,
+            strokeColor: Color.Background.bg200
+        )
+    }
+}
 
 // MARK: - Preview
 #Preview {

@@ -15,21 +15,34 @@ import Core
 
 public struct AnalysisScreen: View {
     
-    @State private var viewModel: ViewModel = .init()
-    
+    // MARK: Dependencies
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @Dependency(\.accountStore) var accountStore: AccountStore
+    
+    // MARK: States
+    @State private var viewModel: ViewModel = .init()
+    
+    // MARK: Environments
     @EnvironmentObject private var router: Router<AppDestination>
     @EnvironmentObject private var purchasesManager: PurchasesManager
     
+    // MARK: Init
     public init() { }
     
-    // MARK: -
+    // MARK: - View
     public var body: some View {
         VStack(spacing: 0) {
             if !transactionStore.transactions.isEmpty {
                 ScrollView {
                     VStack(spacing: Spacing.large) {
+                        MonthPickerView(selectedMonth: $viewModel.repartitionDate)
+                            .padding(Spacing.standard)
+                            .roundedBackground(
+                                color: Color.Background.bg100,
+                                radius: CornerRadius.large,
+                                strokeColor: Color.Background.bg200
+                            )
+                        
                         repartitionChartView()
                         cashflowChartView                        
                     }
@@ -40,7 +53,7 @@ public struct AnalysisScreen: View {
             } else {
                 CustomEmptyView(type: .noAnalysis, isPlain: true)
             }
-        } // VStack
+        }
         .background(TKDesignSystem.Colors.Background.Theme.bg50)
         //    .onChange(of: selectedDate) {
         //      if let account = accountStore.selectedAccount, let accountID = account._id {
@@ -109,22 +122,22 @@ fileprivate extension AnalysisScreen {
     var cashflowChartView: some View {
         GenericBarChart(
             title: "statistics_cashflow_chart_title".localized,
-            selectedDate: $viewModel.selectedDate,
+            selectedDate: $viewModel.repartitionDate,
             values: accountStore.cashflow,
             amount: viewModel.amount
         )
-        .onChange(of: viewModel.selectedDate) { // TODO: Refacto
+        .onChange(of: viewModel.repartitionDate) { // TODO: Refacto
             Task {
                 if viewModel.selectedDate.year != viewModel.selectedYear {
-                    viewModel.selectedYear = viewModel.selectedDate.year
+                    viewModel.selectedYear = viewModel.repartitionDate.year
                     await fetchCashFlow()
                 }
-                viewModel.amount = accountStore.cashFlowAmount(for: viewModel.selectedDate)
+                viewModel.amount = accountStore.cashFlowAmount(for: viewModel.repartitionDate)
             }
         }
         .task {
             await fetchCashFlow()
-            viewModel.amount = accountStore.cashFlowAmount(for: viewModel.selectedDate)
+            viewModel.amount = accountStore.cashFlowAmount(for: viewModel.repartitionDate)
         }
     }
 }

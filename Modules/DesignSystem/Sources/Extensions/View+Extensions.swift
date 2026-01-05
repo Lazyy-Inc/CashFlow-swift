@@ -44,5 +44,18 @@ public extension View {
                 await action(newValue)
             }
     }
+    
+    func roundedBackground(
+        color: Color,
+        radius: CGFloat,
+        strokeColor: Color? = nil,
+    ) -> some View {
+        return self
+            .background(
+                RoundedRectangle(cornerRadius: radius, style: .continuous)
+                    .fill(color)
+                    .strokeBorder(strokeColor ?? .clear, lineWidth: 1)
+            )
+    }
 
 }

@@ -160,9 +160,7 @@ public struct SavingsPlanDetailScreen: View {
                         )
                     }
                 }
-              
-                TransactionDetailNoteRowView(note: $savingPlanNote)
-                
+                              
                 VStack(spacing: 8) {
                     HStack {
                         Text("word_contributions".localized)

@@ -54,7 +54,7 @@ struct RepartitionStatisticsCellView: View {
                             "\(repartitionRule.savedPercentage)"
                         )
                     )
-                    .fontWithLineHeight(.Label.large)
+                    .fontWithLineHeight(.Body.small)
                     .foregroundStyle(Color.Background.bg600)
                 }
                 .fullWidth(.leading)
@@ -84,9 +84,9 @@ struct RepartitionStatisticsCellView: View {
             }
         }
         .padding(Padding.large)
-        .roundedRectangleBorder(
-            Color.Background.bg100,
-            radius: CornerRadius.standard,
+        .roundedBackground(
+            color: Color.Background.bg100,
+            radius: CornerRadius.large,
             strokeColor: Color.Background.bg200
         )
     }
