@@ -44,6 +44,7 @@ public struct SelectCategoryScreen: View {
                     }
                 }
             }
+            .fullSize()
             .contentMargins(.all, Spacing.large, for: .scrollContent)
             .background(Color.Background.bg50)
             .scrollIndicators(.hidden)

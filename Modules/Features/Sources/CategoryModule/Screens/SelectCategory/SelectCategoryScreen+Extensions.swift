@@ -57,8 +57,18 @@ extension SelectCategoryScreen.ViewModel {
     func subcategoriesFiltered(for category: CategoryModel) -> [SubcategoryModel] {
         guard let subcategories = category.subcategories else { return [] }
         if searchText.isEmpty {
-            return subcategories
+            let otherSubcategory = subcategories.first(where: { $0.name == "word_others".localized })
+
+            var filteredSubcategories = subcategories
                 .sorted { $0.name < $1.name }
+            
+            filteredSubcategories.removeAll(where: { ($0.id == otherSubcategory?.id ?? -1) })
+            
+            if let otherSubcategory {
+                filteredSubcategories.append(otherSubcategory)
+            }
+            
+            return filteredSubcategories
         } else {
             return subcategories
                 .sorted { lhs, rhs in

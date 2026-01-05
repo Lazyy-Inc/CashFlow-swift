@@ -80,7 +80,7 @@ public struct NavigationBar: View {
                                     .foregroundStyle(theme.color)
                             }
                         }
-                        .glassButtonEffect()
+//                        .glassButtonEffect()
                         .fullWidth(.trailing)
                         .disabled(actionButton.isDisabled)
                         .opacity(actionButton.isDisabled ? 0.5 : 1)

@@ -55,6 +55,7 @@ struct TransactionsListScreen: View {
                 )
                 .padding(.horizontal, Padding.large)
             } // Section
+            .listRowInsets(EdgeInsets())
         } // List
         .listStyle(.plain)
         .scrollContentBackground(.hidden)

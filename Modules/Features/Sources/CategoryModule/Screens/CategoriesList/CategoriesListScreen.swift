@@ -83,9 +83,9 @@ extension CategoriesListScreen {
     
     @ViewBuilder
     func categoriesChartView() -> some View {
-        VStack(spacing: 24) {
+        VStack(spacing: Spacing.medium) {
             if !viewModel.isChartDisplayed {
-                CustomEmptyView(type: .noCategoryData)
+                CustomEmptyView(type: .noCategoryData, isPlain: true)
                     .padding(8)
                     .noDefaultStyle()
             } else if viewModel.searchText.isEmpty {
@@ -104,13 +104,10 @@ extension CategoriesListScreen {
                 .noDefaultStyle()
             }
             
-            VStack(spacing: 8) {
-                SwitchDateButton(date: $viewModel.selectedDate, type: .month)
-                    .buttonStyle(PlainButtonStyle())
-                SwitchDateButton(date: $viewModel.selectedDate, type: .year)
-                    .buttonStyle(PlainButtonStyle())
-            }
-            .noDefaultStyle()
+            MonthPickerView(selectedMonth: $viewModel.selectedDate)
+                .buttonStyle(PlainButtonStyle())
+                .padding(Spacing.medium)
+                .noDefaultStyle()
         }
         .noDefaultStyle()
         .padding(8)
