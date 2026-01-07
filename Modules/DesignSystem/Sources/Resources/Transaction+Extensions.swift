@@ -8,7 +8,6 @@
 import Foundation
 import Core
 import SwiftUI
-import TheoKit
 import Models
 
 public extension TransactionModel {
@@ -16,11 +15,11 @@ public extension TransactionModel {
     var color: Color {
         switch type {
         case .expense:
-            return TKDesignSystem.Colors.Error.c500
+            return Color.Red.red500
         case .income:
             return .primary500
         case .transfer:
-            return isSender ? TKDesignSystem.Colors.Error.c500 : .primary500
+            return isSender ? Color.Red.red500 : .primary500
         }
     }
     

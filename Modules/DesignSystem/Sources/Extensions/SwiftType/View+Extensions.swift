@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Models
 
 public extension View {
     
@@ -45,16 +46,20 @@ public extension View {
             }
     }
     
-    func roundedBackground(
-        color: Color,
-        radius: CGFloat,
-        strokeColor: Color? = nil,
-    ) -> some View {
+    func roundedBackground(_ style: RoundedBackgroundType) -> some View {
         return self
             .background(
-                RoundedRectangle(cornerRadius: radius, style: .continuous)
-                    .fill(color)
-                    .strokeBorder(strokeColor ?? .clear, lineWidth: 1)
+                RoundedRectangle(cornerRadius: style.radius, style: .continuous)
+                    .fill(style.color)
+                    .strokeBorder(style.strokeColor ?? .clear, lineWidth: style.lineWidth)
+            )
+    }
+    
+    func blurredBackground(blur: CGFloat = Blur.topbar, direction: VariableBlurDirection = .blurredBottomClearTop) -> some View {
+        return self
+            .background(
+                VariableBlurView(maxBlurRadius: blur, direction: direction)
+                    .ignoresSafeArea(.all, edges: .bottom)
             )
     }
 

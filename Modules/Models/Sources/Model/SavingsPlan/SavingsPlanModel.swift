@@ -109,4 +109,8 @@ public extension SavingsPlanModel {
         return self.endDateString?.toDate()
     }
     
+    var hasAnEndDate: Bool {
+        return endDate != nil
+    }
+    
 }

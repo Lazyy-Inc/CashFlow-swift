@@ -8,7 +8,6 @@
 import SwiftUI
 import AlertKit
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Dependencies
@@ -71,12 +70,12 @@ public struct SavingsAccountsListView: View {
             VStack(spacing: 32) {
                 VStack(spacing: 0) {
                     Text(totalSavings.toCurrency())
-                        .fontWithLineHeight(.Display.extraLarge)
+                        .font(.Display.extraLarge)
                         .foregroundStyle(Color.label)
                     
                     Text(Word.SavingsAccount.totalSavings)
-                        .fontWithLineHeight(.Body.medium)
-                        .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                        .font(.Body.medium)
+                        .foregroundStyle(Color.Background.bg600)
                 }
                 
                 LazyVGrid(columns: columns, spacing: 16, content: {
@@ -96,7 +95,7 @@ public struct SavingsAccountsListView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .background(Color.Background.bg50)
     } // body
 } // struct
 

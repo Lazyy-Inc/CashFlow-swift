@@ -8,7 +8,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Events

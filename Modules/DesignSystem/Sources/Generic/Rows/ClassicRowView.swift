@@ -21,7 +21,7 @@ public struct ClassicRowView: View {
     public var body: some View {
         HStack {
             Text(text)
-                .fontWithLineHeight(.Body.medium)
+                .font(.Body.medium)
                 .foregroundStyle(Color.label)
                 .fullWidth(.leading)
             

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import DesignSystem
 import Core
 import Dependencies
@@ -44,13 +43,13 @@ struct SubcategoryRowView: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 Text(subcategory.name)
-                    .fontWithLineHeight(.Body.mediumBold)
+                    .font(.Body.mediumBold)
                     .foregroundStyle(Color.label)
                     .lineLimit(1)
                 
                 Text(stringAmount)
-                    .fontWithLineHeight(.Body.small)
-                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                    .font(.Body.small)
+                    .foregroundStyle(Color.Background.bg600)
                     .lineLimit(1)
             }
             .fullWidth(.leading)
@@ -59,14 +58,9 @@ struct SubcategoryRowView: View {
                 .foregroundStyle(Color.label)
         }
         .padding(Padding.medium)
-        .roundedRectangleBorder(
-            TKDesignSystem.Colors.Background.Theme.bg100,
-            radius: CornerRadius.standard,
-            lineWidth: 1,
-            strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-        )
-    } // body
-} // struct
+        .roundedBackground(.classic)
+    }
+}
 
 // MARK: - Preview
 #Preview {

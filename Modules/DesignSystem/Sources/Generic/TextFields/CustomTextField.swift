@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import Core
 
 public enum CustomTextFieldStyle {
@@ -19,9 +18,7 @@ public struct CustomTextField: View {
     // Builder
     @Binding var text: String
     var config: Configuration
-    
-    @FocusState private var isFocused: Bool
-    
+        
     public init(text: Binding<String>, config: Configuration) {
         self._text = text
         self.config = config
@@ -34,13 +31,12 @@ public struct CustomTextField: View {
                 .padding(.leading, Spacing.small)
                 .font(.system(size: 12, weight: .regular))
             
-            HStack(spacing: 0) {
+            HStack(spacing: .zero) {
                 TextField(config.placeholder, text: $text)
-                    .focused($isFocused)
                     .keyboardType(config.style == .amount ? .decimalPad : .default)
-                    .fontWithLineHeight(.Body.medium)
+                    .font(.Body.medium)
                     .padding([.vertical, .leading], Padding.regular)
-                    .padding(.trailing, config.style == .amount ? 8 : Padding.regular)
+                    .padding(.trailing, config.style == .amount ? .small : Padding.regular)
                 
                 if config.style == .amount {
                     Text(UserCurrency.symbol)
@@ -48,19 +44,12 @@ public struct CustomTextField: View {
                         .padding(.trailing)
                 }
             }
-            .roundedRectangleBorder(
-                TKDesignSystem.Colors.Background.Theme.bg100,
-                radius: CornerRadius.medium,
-                lineWidth: 1,
-                strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-            )
+            .roundedBackground(.field)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .onTapGesture {
-            isFocused.toggle()
-        }
-    } // End body
-} // End struct
+        .focusOnTap()
+    }
+}
 
 public extension CustomTextField {
     struct Configuration {

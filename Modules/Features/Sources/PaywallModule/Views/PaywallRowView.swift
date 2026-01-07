@@ -34,12 +34,12 @@ struct PaywallRowView: View {
       
       VStack(alignment: .leading, spacing: 0) {
         Text(title)
-          .fontWithLineHeight(.Body.medium)
+          .font(.Body.medium)
           .lineLimit(1)
           .foregroundStyle(Color.text)
         
         Text(text)
-          .fontWithLineHeight(.Body.small)
+          .font(.Body.small)
           .multilineTextAlignment(.leading)
           .lineLimit(3)
           .foregroundStyle(Color.Background.bg600)

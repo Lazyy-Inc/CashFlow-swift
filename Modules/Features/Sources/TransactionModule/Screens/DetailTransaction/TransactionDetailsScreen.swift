@@ -9,7 +9,6 @@
 import SwiftUI
 import AlertKit
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Dependencies
@@ -58,11 +57,11 @@ public struct TransactionDetailsScreen: View { // TODO: Replace with financialIt
                     VStack(spacing: Spacing.small) {
                         VStack(spacing: Spacing.extraSmall) {
                             Text("\(currentTransaction.symbol) \(currentTransaction.amount.toCurrency())")
-                                .fontWithLineHeight(.Display.huge)
+                                .font(.Display.huge)
                                 .foregroundColor(currentTransaction.color)
                             
                             Text(currentTransaction.nameDisplayed)
-                                .fontWithLineHeight(.Display.small)
+                                .font(.Display.small)
                                 .multilineTextAlignment(.center)
                                 .lineLimit(2)
                         }
@@ -177,7 +176,7 @@ public struct TransactionDetailsScreen: View { // TODO: Replace with financialIt
             .navigationBarBackButtonHidden(true)
             .toolbarBackground(Color.clear, for: .navigationBar)
             .toolbar(.hidden, for: .navigationBar)
-            .background(TKDesignSystem.Colors.Background.Theme.bg50)
+            .background(Color.Background.bg50)
         }
     } // body
 } // struct

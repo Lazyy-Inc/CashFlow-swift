@@ -9,14 +9,13 @@
 import SwiftUI
 import AlertKit
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import CreditCardModule
 import Stores
 import Dependencies
 
-public struct AccountDashboardScreen: View {
+public struct AccountDashboardScreen: View { // TODO: To delete
     
     // EnvironmentObject
     @EnvironmentObject private var router: Router<AppDestination>
@@ -93,12 +92,7 @@ public struct AccountDashboardScreen: View {
                     VStack(spacing: 16) {
                         LazyVGrid(columns: viewModel.columns, spacing: 16, content: {
                             NavigationButtonView(route: .push, destination: .account(.statistics)) {
-                                DashboardRowView(
-                                    config: .init(
-                                        icon: "iconLineChart",
-                                        text: Word.Classic.statistics
-                                    )
-                                )
+                                Text("Stats")
                             }
                             .disabled(!store.isCashFlowPro)
                             .onTapGesture {
@@ -108,13 +102,7 @@ public struct AccountDashboardScreen: View {
                             }
 
                             NavigationButtonView(route: .push, destination: .budget(.list)) {
-                                DashboardRowView(
-                                    config: .init(
-                                        icon: "iconPieChart",
-                                        text: "word_budgets".localized,
-                                        isLocked: !store.isCashFlowPro
-                                    )
-                                )
+                                Text("Budgets")
                             }
                             .disabled(!store.isCashFlowPro)
                             .onTapGesture {
@@ -137,7 +125,7 @@ public struct AccountDashboardScreen: View {
             .scrollIndicators(.hidden)
         }
         .padding(Padding.large)
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .background(Color.Background.bg50)
         .alert("account_detail_rename".localized, isPresented: $viewModel.isEditingAccountName, actions: {
             TextField("account_detail_new_name".localized, text: $viewModel.accountName)
             Button(action: { return }, label: { Text("word_cancel".localized) })

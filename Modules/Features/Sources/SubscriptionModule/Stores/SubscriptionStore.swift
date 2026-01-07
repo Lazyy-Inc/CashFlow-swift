@@ -9,7 +9,6 @@ import Foundation
 import NetworkKit
 import Core
 import SwiftUI
-import TheoKit
 import Events
 import Preferences
 import DesignSystem
@@ -47,7 +46,7 @@ public extension SubscriptionModel {
     var color: Color {
         switch type {
         case .expense:
-            return TKDesignSystem.Colors.Error.c500
+            return Color.Red.red500
         case .income:
             return .primary500
         default:

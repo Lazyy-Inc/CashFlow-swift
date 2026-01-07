@@ -21,7 +21,7 @@ public struct MonthPickerView: View {
             buttonView(icon: "iconArrowLeft", action: previousMonth)
             
             Text(selectedMonth.formatted(.dateTime.month(.wide).year()).capitalized)
-                .fontWithLineHeight(.Body.medium)
+                .font(.Body.medium)
                 .foregroundStyle(Color.label)
                 .contentTransition(.numericText())
                 .fullWidth()

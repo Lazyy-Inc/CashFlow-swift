@@ -15,6 +15,7 @@ import Events
 public final class ContributionStore {
     public static let shared = ContributionStore()
     
+    /// Contributions of current `FinancialGoal`
     public var contributions: [ContributionModel] = []
 }
 

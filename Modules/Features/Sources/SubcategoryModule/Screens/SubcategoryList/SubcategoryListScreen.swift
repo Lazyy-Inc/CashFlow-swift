@@ -8,7 +8,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Dependencies
@@ -106,7 +105,7 @@ public struct SubcategoryListScreen: View {
           .noDefaultStyle()
         }
         .navigationBarBackButtonHidden(true)
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .background(Color.Background.bg50)
     }
 }
 

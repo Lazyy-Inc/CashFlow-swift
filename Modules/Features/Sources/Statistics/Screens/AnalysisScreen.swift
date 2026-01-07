@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import DesignSystem
 import Stores
 import Navigation
@@ -37,11 +36,7 @@ public struct AnalysisScreen: View {
                     VStack(spacing: Spacing.large) {
                         MonthPickerView(selectedMonth: $viewModel.repartitionDate)
                             .padding(Spacing.standard)
-                            .roundedBackground(
-                                color: Color.Background.bg100,
-                                radius: CornerRadius.large,
-                                strokeColor: Color.Background.bg200
-                            )
+                            .roundedBackground(.classic)
                         
                         repartitionChartView()
                         cashflowChartView                        
@@ -54,7 +49,7 @@ public struct AnalysisScreen: View {
                 CustomEmptyView(type: .noAnalysis, isPlain: true)
             }
         }
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .background(Color.Background.bg50)
         //    .onChange(of: selectedDate) {
         //      if let account = accountStore.selectedAccount, let accountID = account._id {
         //        Task {
@@ -105,7 +100,7 @@ fileprivate extension AnalysisScreen {
                         }
                     } label: {
                         Text("paywall_start_trial".localized)
-                            .fontWithLineHeight(.Body.large)
+                            .font(.Body.large)
                             .foregroundStyle(Color.white)
                             .fullWidth()
                             .padding(Padding.standard)

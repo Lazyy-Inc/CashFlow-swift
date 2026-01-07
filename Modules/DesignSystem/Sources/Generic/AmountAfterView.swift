@@ -40,16 +40,16 @@ public struct AmountAfterView: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: Spacing.medium) {
             Text(title)
-                .fontWithLineHeight(.Title.medium)
+                .font(.Title.medium)
                 .fullWidth(.leading)
             
             HStack(spacing: Spacing.standard) {
                 VStack(alignment: .leading, spacing: Spacing.extraSmall) {
                     Text(leftText)
-                        .fontWithLineHeight(.Body.medium)
+                        .font(.Body.medium)
                         .foregroundStyle(theme.color)
                     Text(leftValue)
-                        .fontWithLineHeight(.Body.large)
+                        .font(.Body.large)
                         .contentTransition(.numericText())
                 }
                 .fullWidth(.leading)
@@ -60,10 +60,10 @@ public struct AmountAfterView: View {
                     
                     VStack(alignment: .leading, spacing: Spacing.extraSmall) {
                         Text(rightText)
-                            .fontWithLineHeight(.Body.medium)
+                            .font(.Body.medium)
                             .foregroundStyle(theme.color)
                         Text(rightValue)
-                            .fontWithLineHeight(.Body.large)
+                            .font(.Body.large)
                             .contentTransition(.numericText())
                     }
                     .fullWidth(.leading)

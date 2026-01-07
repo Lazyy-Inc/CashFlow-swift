@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AlertKit
-import TheoKit
 import DesignSystem
 import Core
 import Stores
@@ -55,7 +54,7 @@ public struct SettingsScreen: View {
             ForEach(settingsFiltered) { section in
                 VStack(spacing: Spacing.standard) {
                     Text(section.title)
-                        .fontWithLineHeight(.Title.medium)
+                        .font(.Title.medium)
                         .foregroundStyle(Color.label)
                         .fullWidth(.leading)
                         
@@ -73,7 +72,7 @@ public struct SettingsScreen: View {
             .padding(.horizontal, Padding.large)
             
             Text("v\(Bundle.main.releaseVersionNumber ?? "")")
-                .fontWithLineHeight(.Body.mediumBold)
+                .font(.Body.mediumBold)
                 .foregroundStyle(Color.label)
                 .padding(.bottom, Spacing.extraLarge)
             
@@ -81,7 +80,7 @@ public struct SettingsScreen: View {
                 .foregroundStyle(Color.clear)
                 .frame(height: 60)
         }
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .background(Color.Background.bg50)
         .navigationBarBackButtonHidden(true)
     }
 }

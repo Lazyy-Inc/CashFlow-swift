@@ -11,7 +11,6 @@ import Core
 import DesignSystem
 import Events
 import Models
-import TheoKit
 
 public struct AddContributionScreen: View {
     
@@ -83,6 +82,7 @@ public struct AddContributionScreen: View {
                 await viewModel.validationAction(dismiss: dismiss)
             }
             .padding(Spacing.large)
+            .blurredBackground()
         }
         .ignoresSafeArea(.keyboard)
         .alertLeaveForm(isPresented: $viewModel.isAlertLeavePresented)

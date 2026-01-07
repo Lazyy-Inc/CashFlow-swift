@@ -44,7 +44,7 @@ struct CreationMenuButton: View {
         } label: {
             Label {
                 Text(action.title)
-                    .fontWithLineHeight(.Title.medium)
+                    .font(.Title.medium)
             } icon: {
                 Image(action.icon)
                     .renderingMode(.template)

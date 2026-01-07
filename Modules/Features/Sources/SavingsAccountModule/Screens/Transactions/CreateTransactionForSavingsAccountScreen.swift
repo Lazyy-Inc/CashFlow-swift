@@ -8,7 +8,6 @@
 import SwiftUI
 import Core
 import DesignSystem
-import TheoKit
 import NetworkKit
 import Models
 import Mocks
@@ -96,7 +95,7 @@ public struct CreateTransactionForSavingsAccountScreen: View {
             Button("word_cancel_changes".localized, role: .destructive, action: { dismiss() })
             Button("word_return".localized, role: .cancel, action: { })
         }
-        .background(TKDesignSystem.Colors.Background.Theme.bg50.ignoresSafeArea(.all))
+        .background(Color.Background.bg50.ignoresSafeArea(.all))
         .navigationBarBackButtonHidden(true)
     } // body
 } // struct

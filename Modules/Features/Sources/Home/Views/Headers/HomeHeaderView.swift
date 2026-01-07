@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import Core
 import Dependencies
 import Stores
@@ -35,14 +34,14 @@ struct HomeHeaderView: View {
             VStack(alignment: .leading, spacing: 0) {
                 if let account = accountStore.selectedAccount {
                     Text(account.balance.toCurrency())
-                        .fontWithLineHeight(.Title.large)
+                        .font(.Title.large)
                         .contentTransition(.numericText())
                         .animation(.smooth, value: account.balance)
                 }
                 
                 Text("home_screen_available_balance".localized)
-                    .fontWithLineHeight(.Body.small)
-                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                    .font(.Body.small)
+                    .foregroundStyle(Color.Background.bg600)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
@@ -83,7 +82,7 @@ extension HomeHeaderView {
                     
                     IconSVG(icon: "iconChevronUpDown", value: .medium)
                 }
-                .fontWithLineHeight(.Body.large)
+                .font(.Body.large)
                 .foregroundStyle(theme.color)
             }
         }

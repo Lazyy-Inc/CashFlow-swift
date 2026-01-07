@@ -29,7 +29,7 @@ struct PaywallPayementButtonView: View {
       }
     } label: {
       Text(purchasesManager.isCashFlowPro ? "paywall_thanks".localized : "paywall_start_trial".localized)
-        .fontWithLineHeight(.Body.large)
+        .font(.Body.large)
         .foregroundStyle(Color.white)
         .fullWidth()
         .padding(Padding.standard)

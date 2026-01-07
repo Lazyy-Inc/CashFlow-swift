@@ -62,7 +62,7 @@ fileprivate extension SavingsScreen {
     var savingsAccountsView: some View {
         VStack(spacing: Spacing.standard) {
             Text("savings_screen_savings_account_title".localized + " - " + accountStore.savingsAmount.toCurrency())
-                .fontWithLineHeight(.Title.medium)
+                .font(.Title.medium)
                 .fullWidth(.leading)
             
             LazyVGrid(columns: columns, spacing: Spacing.standard) {
@@ -84,7 +84,7 @@ fileprivate extension SavingsScreen {
     var financialGoalsView: some View {
         VStack(spacing: Spacing.standard) {
             Text("savings_screen_financial_goals_title".localized + " - " + savingsPlanStore.savingsAmount.toCurrency())
-                .fontWithLineHeight(.Title.medium)
+                .font(.Title.medium)
                 .fullWidth(.leading)
             
             ForEach(savingsPlanStore.savingsPlans) { plan in

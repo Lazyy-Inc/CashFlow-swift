@@ -134,7 +134,7 @@ extension AppDestination {
         case .update(let savingsPlan):
             AnyView(AddFinancialGoalScreen(savingsPlan: savingsPlan))
         case .detail(let savingsPlan):
-            AnyView(SavingsPlanDetailScreen(savingsPlan: savingsPlan))
+            AnyView(FinancialGoalDetailsScreen(savingsPlan: savingsPlan))
         }
     }
     

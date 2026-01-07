@@ -44,7 +44,7 @@ public struct RecommendedCategoryButton: View {
         let subcategoryFound = bestSubcategory
         HStack(spacing: 8) {
           Text(Word.Classic.recommended + " : ")
-            .fontWithLineHeight(.Label.large)
+            .font(.Label.large)
           
           HStack(spacing: 4) {
             Image(bestCategory.icon)
@@ -52,7 +52,7 @@ public struct RecommendedCategoryButton: View {
               .renderingMode(.template)
               .frame(width: 20, height: 20)
             Text("\(bestSubcategory != nil ? (bestSubcategory!.name) : (bestCategory.name))")
-              .fontWithLineHeight(.Body.small)
+              .font(.Body.small)
           }
           .fullWidth(.trailing)
           .foregroundStyle(bestCategory.color)

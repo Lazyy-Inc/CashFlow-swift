@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import DesignSystem
 import Core
 import Dependencies
@@ -43,7 +42,7 @@ public struct SavingsPlanRowView: View {
                     }
                 
                 Text(savingsPlan.name ?? "")
-                    .fontWithLineHeight(.Body.medium)
+                    .font(.Body.medium)
                     .foregroundStyle(Color.label)
                     .lineLimit(1)
                     .fullWidth(.leading)
@@ -56,12 +55,12 @@ public struct SavingsPlanRowView: View {
             VStack(spacing: Spacing.extraSmall) {
                 HStack(spacing: 0) {
                     Text("\((savingsPlan.currentAmount ?? 0).toCurrency())")
-                        .fontWithLineHeight(.Body.small)
+                        .font(.Body.small)
                         .foregroundStyle(Color.label)
                         .fullWidth(.leading)
                     
                     Text("/ \((savingsPlan.goalAmount ?? 0).toCurrency())")
-                        .fontWithLineHeight(.Body.small)
+                        .font(.Body.small)
                         .foregroundStyle(Color.Background.bg600)
                         .fullWidth(.trailing)
                 }
@@ -78,12 +77,7 @@ public struct SavingsPlanRowView: View {
         }
         .fullWidth()
         .padding(Padding.standard)
-        .roundedRectangleBorder(
-            Color.Background.bg100,
-            radius: CornerRadius.standard,
-            lineWidth: 1,
-            strokeColor: Color.Background.bg200
-        )
+        .roundedBackground(.classic)
     } // body
 } // struct
 

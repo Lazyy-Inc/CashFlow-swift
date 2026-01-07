@@ -63,13 +63,13 @@ extension TwoStatisticsRowView {
     func itemRowView(item: StatisticsItem) -> some View {
         VStack(spacing: 0) {
             Text(item.value)
-                .fontWithLineHeight(.Title.large)
+                .font(.Title.large)
                 .foregroundStyle(item.color ?? Color.label)
                 .contentTransition(.numericText())
                 .animation(.smooth, value: item.value)
             
             Text(item.text)
-                .fontWithLineHeight(.Body.small)
+                .font(.Body.small)
                 .foregroundStyle(Color.Background.bg600)
         }
         .fullWidth()

@@ -38,7 +38,7 @@ struct GenericOnboardingScreen: View {
                     .clipShape(RoundedRectangle(cornerRadius: CornerRadius.small, style: .continuous))
                 
                 Text("CashFlow")
-                    .fontWithLineHeight(.Title.medium)
+                    .font(.Title.medium)
                     .foregroundStyle(Color.text)
             }
             
@@ -50,11 +50,11 @@ struct GenericOnboardingScreen: View {
                 
                 VStack(spacing: Spacing.small) {
                     Text(item.title)
-                        .fontWithLineHeight(.Title.large)
+                        .font(.Title.large)
                         .multilineTextAlignment(.center)
                         
                     Text(item.description)
-                        .fontWithLineHeight(.Body.medium)
+                        .font(.Body.medium)
                         .multilineTextAlignment(.center)
                 }
             }
@@ -80,7 +80,7 @@ struct GenericOnboardingScreen: View {
                         )
                     }
                     Text("onboarding_page_three_extra_label".localized)
-                        .fontWithLineHeight(.Body.small)
+                        .font(.Body.small)
                         .foregroundStyle(Color.Background.bg600)
                 }
             } else {

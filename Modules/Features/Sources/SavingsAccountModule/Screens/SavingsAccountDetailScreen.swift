@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import TransactionModule
@@ -101,7 +100,7 @@ public struct SavingsAccountDetailScreen: View {
                 .padding(.top, Padding.large)
             }
             .navigationBarBackButtonHidden(true)
-            .background(TKDesignSystem.Colors.Background.Theme.bg50)
+            .background(Color.Background.bg50)
             .alert(
                 "account_detail_delete_account".localized,
                 isPresented: $isDeleting,

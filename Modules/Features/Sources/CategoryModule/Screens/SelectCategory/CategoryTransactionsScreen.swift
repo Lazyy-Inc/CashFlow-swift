@@ -9,7 +9,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import TransactionModule
@@ -78,7 +77,7 @@ public struct CategoryTransactionsScreen: View {
         .navigationTitle(Word.Main.transactions)
         .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(true)
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .background(Color.Background.bg50)
         .toolbar {
             ToolbarDismissPushButton()
         }

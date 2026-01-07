@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import DesignSystem
 import Core
 import Models
@@ -43,12 +42,7 @@ struct AccountPicker: View {
             .fullWidth(.trailing)
             .tint(theme.color)
             .padding(8)
-            .roundedRectangleBorder(
-                TKDesignSystem.Colors.Background.Theme.bg100,
-                radius: CornerRadius.medium,
-                lineWidth: 1,
-                strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-            )
+            .roundedBackground(.field)
         }
     } // body
 } // struct

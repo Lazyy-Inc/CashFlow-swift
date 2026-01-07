@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import DesignSystem
 import Core
 import Models
@@ -29,7 +28,7 @@ public struct SavingsAccountRowView: View {
             HStack {
                 Rectangle()
                     .frame(width: 40, height: 40)
-                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg200)
+                    .foregroundStyle(Color.Background.bg200)
                     .clipShape(RoundedRectangle(cornerRadius: CornerRadius.small, style: .continuous))
                     .overlay {
                         Image("iconLandmark")
@@ -41,29 +40,24 @@ public struct SavingsAccountRowView: View {
                 
                 Image("iconArrowRight")
                     .renderingMode(.template)
-                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                    .foregroundStyle(Color.Background.bg600)
             }
             
             Text(savingsAccount.balance.toCurrency())
-                .fontWithLineHeight(.Title.large)
+                .font(.Title.large)
                 .lineLimit(1)
                 .frame(maxHeight: .infinity)
                 .foregroundStyle(Color.label)
             
             Text(savingsAccount.name)
-                .fontWithLineHeight(.Body.medium)
+                .font(.Body.medium)
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)
                 .foregroundStyle(Color.label)
         }
         .padding(Padding.standard)
         .aspectRatio(1, contentMode: .fit)
-        .roundedRectangleBorder(
-            TKDesignSystem.Colors.Background.Theme.bg100,
-            radius: CornerRadius.standard,
-            lineWidth: 1,
-            strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-        )
+        .roundedBackground(.classic)
     } // body
 } // struct
 

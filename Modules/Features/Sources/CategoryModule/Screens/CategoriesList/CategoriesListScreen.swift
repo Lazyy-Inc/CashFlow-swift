@@ -9,7 +9,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Dependencies
@@ -17,11 +16,10 @@ import Stores
 
 public struct CategoriesListScreen: View {
     
-    // MARK: EnvironmentObject
+    // MARK: Dependencies
     @Dependency(\.accountStore) private var accountStore: AccountStore
     @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     @Dependency(\.categoryStore) var categoryStore
-    @EnvironmentObject private var router: Router<AppDestination>
     
     // MARK: StateObject
     @StateObject private var viewModel: ViewModel = .init()
@@ -30,7 +28,6 @@ public struct CategoriesListScreen: View {
     
     // MARK: -
     public var body: some View {
-        VStack(spacing: 0) {
             ListWithBluredHeader(maxBlurRadius: Blur.topbar) {
                 NavigationBar(
                     title: "word_categories".localized,
@@ -56,7 +53,7 @@ public struct CategoriesListScreen: View {
                         .noDefaultStyle()
                 }
             }
-        }
+        
         .navigationBarBackButtonHidden(true)
         .background(Color.Background.bg50)
         .refreshable {

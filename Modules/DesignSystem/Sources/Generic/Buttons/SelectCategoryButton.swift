@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import Core
 import Models
 
@@ -56,15 +55,17 @@ public struct SelectCategoryButton: View {
                         Text(Word.Create.addCategory)
                     }
                 }
-                .fontWithLineHeight(.Body.medium)
+                .font(.Body.medium)
                 .foregroundStyle(selectedCategory == nil ? Color.text : Color.white)
                 .padding(Padding.regular)
                 .fullWidth(.leading)
-                .roundedRectangleBorder(
-                    selectedCategory?.color ?? TKDesignSystem.Colors.Background.Theme.bg100,
-                    radius: CornerRadius.medium,
-                    lineWidth: selectedCategory == nil ? 1 : 0,
-                    strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
+                .roundedBackground(
+                    .custom(
+                        color: selectedCategory?.color ?? .Background.bg100,
+                        radius: .medium,
+                        lineWidth: selectedCategory == nil ? 1 : 0,
+                        strokeColor: .Background.bg200
+                    )
                 )
             }
         }

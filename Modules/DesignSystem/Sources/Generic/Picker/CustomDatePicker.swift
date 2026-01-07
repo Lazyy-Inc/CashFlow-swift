@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import Core
 
 public struct CustomDatePicker: View {
@@ -44,11 +43,11 @@ public struct CustomDatePicker: View {
                 Text(date.formatted(.dateTime.day().month(.abbreviated).year()))
                     .contentTransition(.numericText())
                     .foregroundStyle(Color.label)
-                    .fontWithLineHeight(.Body.medium)
+                    .font(.Body.medium)
                     .padding(Padding.medium)
                     .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .center)
                     .roundedRectangleBorder(
-                        TKDesignSystem.Colors.Background.Theme.bg200,
+                        Color.Background.bg200,
                         radius: CornerRadius.small
                     )
                     .padding(Padding.extraSmall)
@@ -56,10 +55,10 @@ public struct CustomDatePicker: View {
             }
             .fullWidth(.trailing)
             .roundedRectangleBorder(
-                TKDesignSystem.Colors.Background.Theme.bg100,
+                Color.Background.bg100,
                 radius: CornerRadius.medium,
                 lineWidth: 1,
-                strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
+                strokeColor: Color.Background.bg200
             )
             .overlay {
                 HStack(spacing: 0) {

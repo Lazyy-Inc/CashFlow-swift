@@ -9,7 +9,6 @@ import Foundation
 import Models
 import Core
 import SwiftUI
-import TheoKit
 
 public extension FinancialItemType {
   

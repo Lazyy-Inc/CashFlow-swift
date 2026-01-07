@@ -9,7 +9,6 @@
 
 import SwiftUI
 import Core
-import TheoKit
 import DesignSystem
 import NetworkKit
 import Models

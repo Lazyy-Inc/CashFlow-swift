@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 
 public struct NavigationBarWithMenu<Content: View>: View {
     
@@ -44,15 +43,15 @@ public struct NavigationBarWithMenu<Content: View>: View {
                             .renderingMode(.template)
                             .frame(width: 20, height: 20)
                         Text("word_return".localized)
-                            .fontWithLineHeight(.Body.medium)
+                            .font(.Body.medium)
                     }
 //                    .glassButtonEffect()
                 }
-                .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                .foregroundStyle(Color.Background.bg600)
                 
                 if let title {
                     Text(title)
-                        .fontWithLineHeight(.Title.large)
+                        .font(.Title.large)
                         .foregroundStyle(Color.label)
                 }
             }

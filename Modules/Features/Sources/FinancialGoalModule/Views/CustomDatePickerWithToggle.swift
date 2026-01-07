@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import DesignSystem
 import Core
 
@@ -56,12 +55,9 @@ struct CustomDatePickerWithToggle: View {
                         Text(date.formatted(Date.FormatStyle().day().month(.abbreviated).year()))
                             .contentTransition(.numericText())
                             .foregroundStyle(Color.label)
-                            .fontWithLineHeight(.Body.medium)
+                            .font(.Body.medium)
                             .padding(Padding.medium)
-                            .roundedRectangleBorder(
-                                TKDesignSystem.Colors.Background.Theme.bg200,
-                                radius: CornerRadius.small
-                            )
+                            .roundedBackground(.custom(color: .Background.bg200, radius: .small))
                     }
                     .opacity(isEnabled ? 1 : 0.6)
                     .getSize { size in
@@ -83,13 +79,8 @@ struct CustomDatePickerWithToggle: View {
                     }
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .trailing)
-            .roundedRectangleBorder(
-                TKDesignSystem.Colors.Background.Theme.bg100,
-                radius: CornerRadius.medium,
-                lineWidth: 1,
-                strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-            )
+            .fullWidth(.trailing)
+            .roundedBackground(.field)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .onChange(of: isEnabled) { _, newValue in

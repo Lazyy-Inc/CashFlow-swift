@@ -9,7 +9,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import Core
 import DesignSystem
 import Dependencies
@@ -42,7 +41,7 @@ public struct TransactionsScreen: View {
                 }
         }
         .navigationBarBackButtonHidden(true)
-        .background(TKDesignSystem.Colors.Background.Theme.bg50.ignoresSafeArea(.all))
+        .background(Color.Background.bg50)
     } // body
 } // struct
 

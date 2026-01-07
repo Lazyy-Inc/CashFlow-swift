@@ -9,7 +9,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Dependencies
@@ -54,7 +53,7 @@ public struct BudgetsListScreen: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .background(TKDesignSystem.Colors.Background.Theme.bg50.edgesIgnoringSafeArea(.all))
+        .background(Color.Background.bg50.ignoresSafeArea(.all))
     } // body
 } // struct
 

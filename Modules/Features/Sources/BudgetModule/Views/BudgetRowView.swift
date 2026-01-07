@@ -7,7 +7,6 @@
 // Localizations 01/10/2023
 
 import SwiftUI
-import TheoKit
 import DesignSystem
 import Core
 import Dependencies
@@ -80,12 +79,7 @@ struct BudgetRowView: View {
         }
         .foregroundStyle(Color.label)
         .padding()
-        .roundedRectangleBorder(
-            TKDesignSystem.Colors.Background.Theme.bg100,
-            radius: CornerRadius.standard,
-            lineWidth: 1,
-            strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-        )
+        .roundedBackground(.classic)
     } // body
 } // struct
 

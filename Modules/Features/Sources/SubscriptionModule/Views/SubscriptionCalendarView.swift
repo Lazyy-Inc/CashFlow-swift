@@ -34,7 +34,7 @@ struct SubscriptionCalendarView: View {
                 HStack(spacing: 0) {
                     ForEach(weekdays, id: \.self) { day in
                         Text(day.uppercased())
-                            .fontWithLineHeight(.Label.small)
+                            .font(.Label.small)
                             .foregroundColor(Color.Background.bg300)
                             .fullWidth()
                     }
@@ -169,7 +169,7 @@ struct CalendarDayCell: View {
                                 .overlay {
                                     if transactionCount > 1 {
                                         Text("+\(transactionCount - 1)")
-                                            .fontWithLineHeight(.Label.small)
+                                            .font(.Label.small)
                                             .foregroundColor(Color.Background.bg600)
                                             .frame(width: 22, height: 22)
                                             .roundedRectangleBorder(
@@ -185,7 +185,7 @@ struct CalendarDayCell: View {
                         }
                         
                         Text("\(dayNumber)")
-                            .fontWithLineHeight(.Label.small)
+                            .font(.Label.small)
                             .foregroundColor(Color.Background.bg600)
                     }
                     .padding(.vertical, Spacing.small)

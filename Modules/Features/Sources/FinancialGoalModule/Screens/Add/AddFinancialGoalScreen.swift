@@ -8,7 +8,6 @@
 
 import SwiftUI
 import MCEmojiPicker
-import TheoKit
 import DesignSystem
 import Core
 import Events
@@ -122,6 +121,7 @@ public struct AddFinancialGoalScreen: View {
         }
         .toolbar { ToolbarDismissKeyboardButtonView() }
         .scrollDismissesKeyboard(.interactively)
+        .contentMargins(.bottom, 128, for: .scrollContent)
         .overlay(alignment: .bottom) {
             ActionButtonView(
                 style: viewModel.isModelValid ? .plain : .disabled,
@@ -130,6 +130,7 @@ public struct AddFinancialGoalScreen: View {
                 await viewModel.validationAction(dismiss: dismiss)
             }
             .padding(Spacing.large)
+            .blurredBackground()
         }
         .ignoresSafeArea(.keyboard)
         .alertLeaveForm(isPresented: $viewModel.isAlertLeavePresented)

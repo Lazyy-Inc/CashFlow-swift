@@ -64,7 +64,7 @@ public struct ActionButtonView: View {
                     ProgressView()
                 } else {
                     Text(title)
-                        .fontWithLineHeight(.Body.mediumBold)
+                        .font(.Body.mediumBold)
                         .foregroundStyle(Color.white)
                 }
             }

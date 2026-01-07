@@ -16,6 +16,7 @@ public struct GenericBarChart: View {
     @Binding var selectedDate: Date
     var values: [Double]
     var amount: Double
+    var withMonthSelection: Bool
     
     @Environment(\.theme) private var theme
     
@@ -23,12 +24,14 @@ public struct GenericBarChart: View {
         title: String,
         selectedDate: Binding<Date>,
         values: [Double],
-        amount: Double
+        amount: Double,
+        withMonthSelection: Bool = false
     ) {
         self.title = title
         self._selectedDate = selectedDate
         self.values = values
         self.amount = amount
+        self.withMonthSelection = withMonthSelection
     }
     
     // MARK: -
@@ -96,11 +99,7 @@ public struct GenericBarChart: View {
 //                .padding(Spacing.medium)
         }
         .padding(Padding.medium)
-        .roundedBackground(
-            color: Color.Background.bg100,
-            radius: CornerRadius.large,
-            strokeColor: Color.Background.bg200
-        )
+        .roundedBackground(.classic)
     }
 }
 

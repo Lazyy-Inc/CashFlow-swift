@@ -8,7 +8,6 @@
 
 import SwiftUI
 import Charts
-import TheoKit
 import DesignSystem
 import Core
 import Dependencies

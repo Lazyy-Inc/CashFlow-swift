@@ -24,7 +24,7 @@ struct RepartitionStatisticsCellView: View {
         VStack(spacing: Spacing.extraLarge) {
             if statisticsPreferences.salary == 0 {
                 Text("statistics_chart_salary_missing".localized)
-                    .fontWithLineHeight(.Body.medium)
+                    .font(.Body.medium)
                     .foregroundStyle(Color.Error.error600)
             }
             
@@ -42,7 +42,7 @@ struct RepartitionStatisticsCellView: View {
             if let repartitionRule = statisticsPreferences.repartitionRule.toRepartitionRule() {
                 VStack(alignment: .leading, spacing: 0) {
                     Text(statisticsPreferences.repartitionRule)
-                        .fontWithLineHeight(.Body.large)
+                        .font(.Body.large)
                         .foregroundStyle(Color.text)
                     
                     Text(
@@ -54,7 +54,7 @@ struct RepartitionStatisticsCellView: View {
                             "\(repartitionRule.savedPercentage)"
                         )
                     )
-                    .fontWithLineHeight(.Body.small)
+                    .font(.Body.small)
                     .foregroundStyle(Color.Background.bg600)
                 }
                 .fullWidth(.leading)
@@ -84,11 +84,7 @@ struct RepartitionStatisticsCellView: View {
             }
         }
         .padding(Padding.large)
-        .roundedBackground(
-            color: Color.Background.bg100,
-            radius: CornerRadius.large,
-            strokeColor: Color.Background.bg200
-        )
+        .roundedBackground(.classic)
     }
     
 }

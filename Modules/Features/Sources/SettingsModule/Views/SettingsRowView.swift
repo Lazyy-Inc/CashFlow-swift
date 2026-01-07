@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import Navigation
 import AlertKit
 import DesignSystem
@@ -37,22 +36,17 @@ struct SettingsRowView: View {
                 )
             
             Text(item.title)
-                .fontWithLineHeight(.Body.medium)
+                .font(.Body.medium)
                 .foregroundStyle(Color.label)
                 .fullWidth(.leading)
             
             Image(item.isPush == true ? "iconArrowRight" : "iconArrowUpRight")
                 .renderingMode(.template)
-                .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                .foregroundStyle(Color.Background.bg600)
                 
         }
         .padding(Padding.medium)
-        .roundedRectangleBorder(
-            TKDesignSystem.Colors.Background.Theme.bg100,
-            radius: CornerRadius.standard,
-            lineWidth: 1,
-            strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-        )
+        .roundedBackground(.classic)
         .onTapGesture {
             item.action(router: router, alertManager: alertManager, dismiss: dismiss)
         }

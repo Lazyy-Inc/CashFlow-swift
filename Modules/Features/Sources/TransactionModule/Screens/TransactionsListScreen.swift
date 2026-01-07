@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Dependencies
@@ -59,7 +58,7 @@ struct TransactionsListScreen: View {
         } // List
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .background(Color.Background.bg50)
         .overlay(.bottom, condition: isLoading) {
             CashFlowLoader()
         }

@@ -8,7 +8,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import TransactionModule
@@ -82,7 +81,7 @@ public struct SubcategoryTransactionsScreen: View {
         }
         .scrollDismissesKeyboard(.interactively)
         .navigationBarBackButtonHidden(true)
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .background(Color.Background.bg50)
     } // body
 } // struct
 

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import DesignSystem
 import Core
 import Models
@@ -22,6 +21,7 @@ public struct SubcategorySelectableRowView: View {
     // MARK: Environments
     @Environment(\.theme) private var theme
     
+    // MARK: Init
     public init(
         subcategory: SubcategoryModel,
         isSelected: Bool,
@@ -50,9 +50,12 @@ public struct SubcategorySelectableRowView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(Padding.standard)
-            .roundedRectangleBorder(
-                TKDesignSystem.Colors.Background.Theme.bg200,
-                radius: CornerRadius.standard
+            .roundedBackground(
+                .custom(
+                    color: .Background.bg200,
+                    radius: .standard,
+                    strokeColor: nil
+                )
             )
             .overlay(.topTrailing, condition: isSelected) {
                 ZStack {

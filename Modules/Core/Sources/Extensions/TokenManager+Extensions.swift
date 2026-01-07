@@ -13,7 +13,7 @@ import Stores
 import Sentry
 
 public extension TokenManager {
-
+    
     @MainActor
     func refreshToken() async throws {
         if let refreshTokenInKeychain = KeychainManager.shared.retrieveItemFromKeychain(
@@ -37,8 +37,11 @@ public extension TokenManager {
                     throw NetworkError.refreshTokenFailed
                 }
             } catch {
-              SentrySDK.capture(error: error)
-              SentrySDK.capture(message: "Refresh token failed from API, logging out user")
+                SentrySDK.capture(error: error)
+                SentrySDK.capture(message: "Refresh token failed from API, logging out user")
+                UserStore.shared.currentUser = nil
+                TokenManager.shared.setTokenAndRefreshToken(token: "", refreshToken: "")
+                throw NetworkError.refreshTokenFailed
             }
         } else {
             SentrySDK.capture(message: "No refresh token found, logging out user")

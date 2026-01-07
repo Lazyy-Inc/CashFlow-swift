@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 
 public struct DetailRow: View {
     
@@ -50,25 +49,20 @@ public struct DetailRow: View {
                     }
                 if let text {
                     Text(text)
-                        .fontWithLineHeight(.Body.small)
+                        .font(.Body.small)
                         .foregroundStyle(Color.label)
                         .lineLimit(1)
                         .fixedSize(horizontal: true, vertical: true)
                 }
                 
                 Text(value)
-                    .fontWithLineHeight(.Body.medium)
+                    .font(.Body.medium)
                     .foregroundStyle(Color.label)
                     .multilineTextAlignment(.trailing)
                     .fullWidth(.trailing)
             }
-            .padding()
-            .roundedRectangleBorder(
-                TKDesignSystem.Colors.Background.Theme.bg100,
-                radius: CornerRadius.standard,
-                lineWidth: 1,
-                strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-            )
+            .padding(.standard)
+            .roundedBackground(.classic)
         }
     }
 }

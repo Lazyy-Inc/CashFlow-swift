@@ -25,10 +25,10 @@ public struct ReleaseNoteDetailView: View {
                 VStack(spacing: Spacing.large) {
                     VStack(alignment: .leading, spacing: Spacing.extraSmall) {
                         Text("\("release_note_title".localized) \(releaseNote.version)")
-                            .fontWithLineHeight(.Title.large)
+                            .font(.Title.large)
                         
                         Text(releaseNote.date)
-                            .fontWithLineHeight(.Body.medium)
+                            .font(.Body.medium)
                             .foregroundStyle(Color(UIColor.lightGray))
                     }
                     .fullWidth(.leading)
@@ -36,13 +36,13 @@ public struct ReleaseNoteDetailView: View {
                     if let newFeatures = releaseNote.newFeatures, newFeatures.isEmpty == false {
                         VStack(alignment: .leading, spacing: Spacing.standard) {
                             Text("release_note_new_features".localized)
-                                .fontWithLineHeight(.Title.medium)
+                                .font(.Title.medium)
                                 .foregroundStyle(Color.primary500)
                                 .fullWidth(.leading)
                             
                             ForEach(newFeatures, id: \.self) { feature in
                                 Text("- \(feature)")
-                                    .fontWithLineHeight(.Body.medium)
+                                    .font(.Body.medium)
                             }
                         }
                     }
@@ -50,13 +50,13 @@ public struct ReleaseNoteDetailView: View {
                     if let newFeaturesPro = releaseNote.newFeaturesPro, newFeaturesPro.isEmpty == false {
                         VStack(alignment: .leading, spacing: Spacing.standard) {
                             Text("release_note_new_features_pro".localized)
-                                .fontWithLineHeight(.Title.medium)
+                                .font(.Title.medium)
                                 .foregroundStyle(Color.primary500)
                                 .fullWidth(.leading)
                             
                             ForEach(newFeaturesPro, id: \.self) { feature in
                                 Text("- \(feature)")
-                                    .fontWithLineHeight(.Body.medium)
+                                    .font(.Body.medium)
                             }
                         }
                     }
@@ -64,13 +64,13 @@ public struct ReleaseNoteDetailView: View {
                     if let bugfixes = releaseNote.bugfixes, bugfixes.isEmpty == false {
                         VStack(alignment: .leading, spacing: Spacing.standard) {
                             Text("release_note_bugfixes".localized)
-                                .fontWithLineHeight(.Title.medium)
+                                .font(.Title.medium)
                                 .foregroundStyle(Color.primary500)
                                 .fullWidth(.leading)
                             
                             ForEach(bugfixes, id: \.self) { bug in
                                 Text("- \(bug)")
-                                    .fontWithLineHeight(.Body.medium)
+                                    .font(.Body.medium)
                             }
                         }
                     }

@@ -101,10 +101,6 @@ struct TurboBudgetApp: App {
                     }
                 }
                 .onAppear {
-                    TKDesignSystem.fontBold = "Satoshi-Bold"
-                    TKDesignSystem.fontMedium = "Satoshi-Medium"
-                    TKDesignSystem.fontRegular = "Satoshi-Regular"
-                    
                     EventService.initialize(projectName: "CashFlow", platform: "iOS")
                 }
         }

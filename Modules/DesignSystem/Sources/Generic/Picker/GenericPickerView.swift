@@ -8,7 +8,6 @@
 import SwiftUI
 import Core
 import Models
-import TheoKit
 
 public struct GenericPickerView<T: Nameable>: View {
     
@@ -48,13 +47,8 @@ public struct GenericPickerView<T: Nameable>: View {
             }
             .tint(theme.color)
             .fullWidth(alignment)
-            .padding(8)
-            .roundedRectangleBorder(
-                TKDesignSystem.Colors.Background.Theme.bg100,
-                radius: CornerRadius.medium,
-                lineWidth: 1,
-                strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-            )
+            .padding(.small)
+            .roundedBackground(.field)
         }
     }
 }

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Models
-import TheoKit
 import Core
 import Navigation
 import AlertKit
@@ -54,12 +53,7 @@ public struct FinancialItemRowView: View {
         }
         .geometryGroup()
         .padding(Padding.medium)
-        .roundedRectangleBorder(
-            Color.Background.bg100,
-            radius: CornerRadius.standard,
-            lineWidth: 1,
-            strokeColor: Color.Background.bg200
-        )
+        .roundedBackground(.classic)
         .contentShape(.contextMenuPreview, .rect(cornerRadius: CornerRadius.standard))
         .contextMenu {
             contextMenuButtonsView
@@ -128,11 +122,11 @@ extension FinancialItemRowView {
     private var financialColor: Color {
         switch financialItem.type {
         case .expense:
-            return TKDesignSystem.Colors.Error.c500
+            return Color.Red.red500
         case .income:
             return .primary500
         case .transfer:
-            return isSender ? TKDesignSystem.Colors.Error.c500 : .primary500
+            return isSender ? Color.Red.red500 : .primary500
         }
     }
     
@@ -141,7 +135,7 @@ extension FinancialItemRowView {
         case .expense, .income:
             return financialItem.category?.color ?? .gray
         case .transfer:
-            return isSender ? TKDesignSystem.Colors.Error.c500 : .primary500
+            return isSender ? Color.Red.red500 : .primary500
         }
     }
     
@@ -170,10 +164,10 @@ extension FinancialItemRowView {
         VStack(alignment: .leading, spacing: Spacing.extraSmall) {
             Text(financialItem.type.name)
                 .foregroundStyle(Color.Background.bg600)
-                .fontWithLineHeight(.Body.small)
+                .font(.Body.small)
             
             Text(nameDisplayed)
-                .fontWithLineHeight(.Body.medium)
+                .font(.Body.medium)
                 .foregroundStyle(Color.text)
                 .lineLimit(1)
         }
@@ -184,12 +178,12 @@ extension FinancialItemRowView {
     private var financialItemAmountWithDateView: some View {
         VStack(alignment: .trailing, spacing: Spacing.extraSmall) {
             Text("\(financialSymbol) \(financialItem.amount.toCurrency())")
-                .fontWithLineHeight(.Body.mediumBold)
+                .font(.Body.mediumBold)
                 .foregroundStyle(financialColor)
                 .lineLimit(1)
             
             Text(financialDate.withTemporality)
-                .fontWithLineHeight(.Body.small)
+                .font(.Body.small)
                 .foregroundStyle(Color.Background.bg600)
                 .lineLimit(1)
         }

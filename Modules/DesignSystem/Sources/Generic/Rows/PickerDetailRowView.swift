@@ -46,7 +46,7 @@ public struct PickerDetailRowView<T: Nameable>: View {
             
             if let text {
                 Text(text)
-                    .fontWithLineHeight(.Body.small)
+                    .font(.Body.small)
                     .foregroundStyle(Color.label)
                     .lineLimit(1)
                     .fixedSize(horizontal: true, vertical: true)
@@ -65,7 +65,7 @@ public struct PickerDetailRowView<T: Nameable>: View {
                     
                     IconSVG(icon: "iconChevronUpDown", value: .medium)
                 }
-                .fontWithLineHeight(.Body.medium)
+                .font(.Body.medium)
                 .foregroundStyle(theme.color)
                 .fullWidth(.trailing)
             }

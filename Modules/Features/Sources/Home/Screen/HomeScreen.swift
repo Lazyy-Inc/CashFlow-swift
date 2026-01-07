@@ -10,7 +10,6 @@
 import SwiftUI
 import StoreKit
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Preferences

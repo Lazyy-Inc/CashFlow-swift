@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import DesignSystem
 import Core
 import Models
@@ -39,15 +38,15 @@ public struct CategoryRowView: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 Text(category.name)
-                    .fontWithLineHeight(.Body.medium)
+                    .font(.Body.medium)
                     .foregroundStyle(Color.label)
                     .lineLimit(1)
                 
                 Text(amount.toCurrency())
-                    .fontWithLineHeight(.Body.small)
+                    .font(.Body.small)
                     .animation(.smooth, value: amount)
                     .contentTransition(.numericText())
-                    .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                    .foregroundStyle(Color.Background.bg600)
                     .lineLimit(1)
             }
             .fullWidth(.leading)
@@ -56,12 +55,7 @@ public struct CategoryRowView: View {
                 .foregroundStyle(Color.Background.bg600)
         }
         .padding(Padding.medium)
-        .roundedRectangleBorder(
-            TKDesignSystem.Colors.Background.Theme.bg100,
-            radius: CornerRadius.standard,
-            lineWidth: 1,
-            strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-        )
+        .roundedBackground(.classic)
     }
 }
 

@@ -33,18 +33,18 @@ public struct CustomEmptyView: View {
                 
                 VStack(spacing: Spacing.extraSmall) {
                     Text(type.title.localized)
-                        .fontWithLineHeight(.Body.large)
+                        .font(.Body.large)
                         .foregroundStyle(Color.label)
                     
                     Text(type.description.localized)
-                        .fontWithLineHeight(.Body.small)
+                        .font(.Body.small)
                         .multilineTextAlignment(.center)
                         .foregroundStyle(Color.Background.bg500)
                 }
                 
                 if !type.buttonTitle.isEmpty {
                     Text(type.buttonTitle.localized)
-                        .fontWithLineHeight(.Label.large)
+                        .font(.Label.large)
                         .foregroundStyle(Color.white)
                         .padding(.horizontal, Spacing.medium)
                         .padding(.vertical, Spacing.small)

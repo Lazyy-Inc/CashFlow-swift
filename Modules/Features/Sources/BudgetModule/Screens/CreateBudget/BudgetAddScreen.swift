@@ -8,7 +8,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Events
@@ -70,7 +69,7 @@ public struct BudgetAddScreen: View {
             Button("word_cancel_changes".localized, role: .destructive, action: { dismissAction() })
             Button("word_return".localized, role: .cancel, action: { })
         }
-        .background(TKDesignSystem.Colors.Background.Theme.bg50.ignoresSafeArea(.all))
+        .background(Color.Background.bg50.ignoresSafeArea(.all))
         .navigationBarBackButtonHidden(true)
     } // End body
     

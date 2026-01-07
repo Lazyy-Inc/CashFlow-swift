@@ -8,41 +8,20 @@ on:
 
 jobs:
   build:
-    name: Build & Analysis
-    runs-on: macos-latest
+    name: Build and analyze
+    runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - uses: actions/setup-python@v5.3.0
-        with:
-          python-version: '3.12'
-
-      # Configuration Git GLOBALE pour tous les outils
-      - name: Configure git authentication globally
-        run: git config --global url."https://${GH_TOKEN}@github.com/theosementa/".insteadOf "https://github.com/theosementa/"
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      # Résolution des dépendances
-      - name: Resolve Swift Package dependencies
-        run: xcodebuild -resolvePackageDependencies -verbose
-        timeout-minutes: 8
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      # SwiftLint sur tout le projet
-      - name: Install and Run SwiftLint
-        run: | 
-          brew install swiftlint
-          swiftlint lint --quiet --reporter json > sonarqube-swiftlint.json
-        continue-on-error: true
-
-      # SonarQube
-      - uses: sonarsource/sonarqube-scan-action@master
+      - uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        with:
-          args: -X
+      # If you wish to fail your job when the Quality Gate is red, uncomment the
+      # following lines. This would typically be used to fail a deployment.
+      # - uses: SonarSource/sonarqube-quality-gate-action@v1
+      #   timeout-minutes: 5
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

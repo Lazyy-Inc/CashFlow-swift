@@ -19,7 +19,7 @@ struct HomeSectionHeaderView: View {
     var body: some View {
         HStack(spacing: Spacing.extraSmall) {
             Text(title)
-                .fontWithLineHeight(.Title.medium)
+                .font(.Title.medium)
                 .fullWidth(.leading)
             
             NavigationButtonView(
@@ -27,7 +27,7 @@ struct HomeSectionHeaderView: View {
                 destination: destination
             ) {
                 Text("home_see_all".localized)
-                    .fontWithLineHeight(.Body.small)
+                    .font(.Body.small)
                     .foregroundStyle(Color.text)
                     .underline(true)
             }

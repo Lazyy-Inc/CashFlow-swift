@@ -8,7 +8,6 @@
 import SwiftUI
 import AlertKit
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Events
@@ -61,7 +60,7 @@ public struct SubscriptionDetailsScreen: View {
                 .scrollIndicators(.hidden)
             }
             .navigationBarBackButtonHidden(true)
-            .background(TKDesignSystem.Colors.Background.Theme.bg50)
+            .background(Color.Background.bg50)
             .onAppear {
                 EventService.sendEvent(key: EventKeys.subscriptionDetailPage)
             }
@@ -93,11 +92,11 @@ extension SubscriptionDetailsScreen {
     private func amountWithNameView(_ subscription: SubscriptionModel) -> some View {
         VStack(spacing: Spacing.extraSmall) {
             Text("\(subscription.symbol) \(subscription.amount.toCurrency())")
-                .fontWithLineHeight(.Display.huge)
+                .font(.Display.huge)
                 .foregroundColor(subscription.color)
             
             Text(subscription.name)
-                .fontWithLineHeight(.Display.small)
+                .font(.Display.small)
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
         }

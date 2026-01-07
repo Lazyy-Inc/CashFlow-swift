@@ -23,11 +23,11 @@ struct RepartitionProgressView: View {
     VStack(spacing: Spacing.extraSmall) {
       HStack {
         Text(title)
-          .fontWithLineHeight(.Body.small)
+          .font(.Body.small)
           .fullWidth(.leading)
         
         Text("\(value.toCurrency()) / \(maxValue.toCurrency())")
-          .fontWithLineHeight(.Body.mediumBold)
+          .font(.Body.mediumBold)
       }
       
       RoundedRectangle(cornerRadius: CornerRadius.extraSmall, style: .continuous)

@@ -53,10 +53,10 @@ struct PaywallSubscriptionButtonView: View {
     } label: {
       VStack(alignment: .leading, spacing: Spacing.extraSmall) {
         Text(style.title)
-          .fontWithLineHeight(.Body.large)
+          .font(.Body.large)
         
         Text(style.subtitle(price: price))
-          .fontWithLineHeight(.Body.small)
+          .font(.Body.small)
       }
       .foregroundStyle(Color.white)
       .fullWidth(.leading)

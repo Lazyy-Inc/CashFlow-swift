@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import Core
 
 struct SearchBarView: View {
@@ -16,9 +15,7 @@ struct SearchBarView: View {
     @Binding var searchText: String
     
     @Environment(\.theme) private var theme
-    
-    @FocusState private var isFocused: Bool
-    
+        
     // MARK: init
     public init(_ placeholder: String, searchText: Binding<String>) {
         self.placeholder = placeholder
@@ -36,15 +33,12 @@ struct SearchBarView: View {
                 .resizable()
                 .renderingMode(.template)
                 .frame(width: 20, height: 20)
-                .foregroundStyle(isSearching ? theme.color : TKDesignSystem.Colors.Background.Theme.bg500)
+                .foregroundStyle(isSearching ? theme.color : Color.Background.bg500)
             
             TextField(placeholder, text: $searchText)
-                .focused($isFocused)
-                .fontWithLineHeight(.Body.medium)
+                .font(.Body.medium)
                 .foregroundStyle(Color.label)
-                .toolbar {
-                    ToolbarDismissKeyboardButtonView()
-                }
+                .toolbar { ToolbarDismissKeyboardButtonView() }
             
             if isSearching {
                 Button {
@@ -59,15 +53,8 @@ struct SearchBarView: View {
             }
         }
         .padding(Padding.regular)
-        .roundedRectangleBorder(
-            TKDesignSystem.Colors.Background.Theme.bg100,
-            radius: CornerRadius.medium,
-            lineWidth: 1,
-            strokeColor: TKDesignSystem.Colors.Background.Theme.bg200
-        )
-        .onTapGesture {
-            isFocused = true
-        }
+        .roundedBackground(.field)
+        .focusOnTap()
     }
 }
 

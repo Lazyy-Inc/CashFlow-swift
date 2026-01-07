@@ -8,7 +8,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Events
@@ -77,7 +76,7 @@ public struct SavingsPlanListScreen: View {
             )
         }
         .navigationBarBackButtonHidden(true)
-        .background(TKDesignSystem.Colors.Background.Theme.bg50)
+        .background(Color.Background.bg50)
         .onAppear {
             EventService.sendEvent(key: EventKeys.savingsplanListPage)
         }

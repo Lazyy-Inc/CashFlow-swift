@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TheoKit
 import Core
 
 public struct NavigationBar: View {
@@ -57,11 +56,11 @@ public struct NavigationBar: View {
                                     .renderingMode(.template)
                                     .frame(width: 20, height: 20)
                                 Text("word_return".localized)
-                                    .fontWithLineHeight(.Body.medium)
+                                    .font(.Body.medium)
                             }
 //                            .glassButtonEffect()
                         }
-                        .foregroundStyle(TKDesignSystem.Colors.Background.Theme.bg600)
+                        .foregroundStyle(Color.Background.bg600)
                     }
                     
                     if let actionButton {
@@ -76,7 +75,7 @@ public struct NavigationBar: View {
                                     .foregroundStyle(Color.label)
                             } else if let title = actionButton.title {
                                 Text(title)
-                                    .fontWithLineHeight(.Body.large)
+                                    .font(.Body.large)
                                     .foregroundStyle(theme.color)
                             }
                         }
@@ -89,7 +88,7 @@ public struct NavigationBar: View {
                 
                 if let title {
                     Text(title)
-                        .fontWithLineHeight(.Title.large)
+                        .font(.Title.large)
                         .foregroundStyle(Color.label)
                 }
             }

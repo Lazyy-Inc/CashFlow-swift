@@ -45,7 +45,7 @@ struct PaywallHeaderView: View {
       
       Text("paywall_title".localized)
         .multilineTextAlignment(.center)
-        .fontWithLineHeight(.Title.medium)
+        .font(.Title.medium)
     }
     .onReceive(timer) { _ in
       seconds += 1

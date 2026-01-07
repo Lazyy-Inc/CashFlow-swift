@@ -9,7 +9,6 @@
 
 import SwiftUI
 import Navigation
-import TheoKit
 import DesignSystem
 import Core
 import Events
@@ -67,7 +66,7 @@ public struct SubscriptionsListScreen: View {
             .scrollContentBackground(.hidden)
             .scrollIndicators(.hidden)
         }
-        .background(TKDesignSystem.Colors.Background.Theme.bg50.ignoresSafeArea(.all))
+        .background(Color.Background.bg50.ignoresSafeArea(.all))
         .animation(.smooth, value: subscriptionStore.subscriptions.count)
         .emptyState(condition: subscriptionStore.subscriptions.isEmpty) {
             CustomEmptyView(type: .noSubscriptions, isPlain: true)
