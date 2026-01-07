@@ -7,7 +7,7 @@
 
 import Foundation
 import Models
-import NetworkModule
+import Networking
 import SwiftUI
 
 public extension CategoryDTO {

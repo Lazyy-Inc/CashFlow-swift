@@ -11,7 +11,7 @@ import Core
 import Events
 import Stores
 import Models
-import NetworkModule
+import Networking
 
 public extension TransactionStore {
     

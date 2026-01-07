@@ -13,7 +13,6 @@
 		D9084D9A2E5F72D70077F9C5 /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = D9084D992E5F72D70077F9C5 /* Navigation */; };
 		D9084D9F2E5F82230077F9C5 /* Mocks in Frameworks */ = {isa = PBXBuildFile; productRef = D9084D9E2E5F82230077F9C5 /* Mocks */; };
 		D9084DA12E5F823C0077F9C5 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA02E5F823C0077F9C5 /* Models */; };
-		D9084DA42E6068DB0077F9C5 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA32E6068DB0077F9C5 /* NetworkModule */; };
 		D9084DA72E606BEB0077F9C5 /* Banners in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA62E606BEB0077F9C5 /* Banners */; };
 		D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F392E6091E60077F9C5 /* Preferences */; };
 		D9084F3D2E6093FB0077F9C5 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F3C2E6093FB0077F9C5 /* Core */; };
@@ -24,6 +23,7 @@
 		D950AF012EC4D96A007B1157 /* Utilities in Frameworks */ = {isa = PBXBuildFile; productRef = D950AF002EC4D96A007B1157 /* Utilities */; };
 		D954F8D02EAE2BC700745E89 /* FinancialGoalModule in Frameworks */ = {isa = PBXBuildFile; productRef = D954F8CF2EAE2BC700745E89 /* FinancialGoalModule */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
+		D95B7CDF2F0EB1A800413D00 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = D95B7CDE2F0EB1A800413D00 /* Networking */; };
 		D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D968BB2C2E4F2579006BB17A /* Sentry */; };
 		D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968BF5A2E4F29A7006BB17A /* SubscriptionModule */; };
 		D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1782E4F5E59006BB17A /* ContributionModule */; };
@@ -88,7 +88,6 @@
 				D968C1E42E51C6AA006BB17A /* CategoryModule in Frameworks */,
 				8129E7512A483A7400FF23E5 /* ConfettiSwiftUI in Frameworks */,
 				D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */,
-				D9084DA42E6068DB0077F9C5 /* NetworkModule in Frameworks */,
 				D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */,
 				D9084D9F2E5F82230077F9C5 /* Mocks in Frameworks */,
 				D9084DA12E5F823C0077F9C5 /* Models in Frameworks */,
@@ -117,6 +116,7 @@
 				D9084F432E609E7C0077F9C5 /* Events in Frameworks */,
 				D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */,
 				D9084F3D2E6093FB0077F9C5 /* Core in Frameworks */,
+				D95B7CDF2F0EB1A800413D00 /* Networking in Frameworks */,
 				D968BB2D2E4F2579006BB17A /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,7 +193,6 @@
 				D9084D992E5F72D70077F9C5 /* Navigation */,
 				D9084D9E2E5F82230077F9C5 /* Mocks */,
 				D9084DA02E5F823C0077F9C5 /* Models */,
-				D9084DA32E6068DB0077F9C5 /* NetworkModule */,
 				D9084DA62E606BEB0077F9C5 /* Banners */,
 				D9084F392E6091E60077F9C5 /* Preferences */,
 				D9084F3C2E6093FB0077F9C5 /* Core */,
@@ -207,6 +206,7 @@
 				D9DDD89D2EA509100015E0FB /* Savings */,
 				D954F8CF2EAE2BC700745E89 /* FinancialGoalModule */,
 				D950AF002EC4D96A007B1157 /* Utilities */,
+				D95B7CDE2F0EB1A800413D00 /* Networking */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -620,10 +620,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Models;
 		};
-		D9084DA32E6068DB0077F9C5 /* NetworkModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NetworkModule;
-		};
 		D9084DA62E606BEB0077F9C5 /* Banners */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Banners;
@@ -663,6 +659,10 @@
 		D9564CD02E467A8B00F2341E /* TransactionModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TransactionModule;
+		};
+		D95B7CDE2F0EB1A800413D00 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
 		};
 		D968BB2C2E4F2579006BB17A /* Sentry */ = {
 			isa = XCSwiftPackageProductDependency;

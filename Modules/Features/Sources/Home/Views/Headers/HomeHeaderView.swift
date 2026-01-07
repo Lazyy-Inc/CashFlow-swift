@@ -78,12 +78,12 @@ extension HomeHeaderView {
             } label: {
                 HStack(spacing: Spacing.extraSmall) {
                     Text(selectedAccount.name)
+                        .font(.Body.large, color: theme.color)
                         .lineLimit(1)
                     
                     IconSVG(icon: "iconChevronUpDown", value: .medium)
+                        .foregroundStyle(theme.color)
                 }
-                .font(.Body.large)
-                .foregroundStyle(theme.color)
             }
         }
     }

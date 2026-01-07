@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Models
+import DesignSystem
 
 struct StatisticsSectionView<Content: View>: View {
     
@@ -27,7 +28,7 @@ struct StatisticsSectionView<Content: View>: View {
             .padding()
             .background {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(Color.background100)
+                    .fill(Color.Background.bg100)
             }
         }
     } // body

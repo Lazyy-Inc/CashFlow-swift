@@ -7,7 +7,7 @@
 
 import Foundation
 import Stores
-import NetworkModule
+import Networking
 
 public extension UserStore {
     

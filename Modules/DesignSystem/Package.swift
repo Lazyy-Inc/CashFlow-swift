@@ -9,7 +9,8 @@ let isPreview = ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"
 var resources: [Resource] {
     if isPreview {
         return [
-            .process("Resources/PreviewAssets.xcassets")
+            .process("./Resources/Assets/Colors.xcassets"),
+//            .process("Resources/PreviewAssets.xcassets")
         ]
     } else {
         return []

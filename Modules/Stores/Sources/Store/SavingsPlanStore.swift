@@ -8,7 +8,7 @@
 import Foundation
 import Dependencies
 import Models
-import NetworkModule
+import Networking
 import Events
 
 @Observable

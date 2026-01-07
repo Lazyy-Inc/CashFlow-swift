@@ -13,6 +13,6 @@ struct BundleHelper {
     }
     
     static var bundle: Bundle {
-        return isPreview ? Bundle.module : Bundle.main
+        return Bundle.module 
     }
 }

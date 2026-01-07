@@ -7,7 +7,7 @@
 
 import Foundation
 import NetworkKit
-import NetworkModule
+import Networking
 import Models
 import Stores
 import Sentry

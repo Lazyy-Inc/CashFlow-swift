@@ -47,12 +47,7 @@ public struct TwoStatisticsRowView: View {
             itemRowView(item: rightItem)
         }
         .padding(Spacing.large)
-        .roundedRectangleBorder(
-            Color.Background.bg100,
-            radius: CornerRadius.large,
-            lineWidth: 1,
-            strokeColor: Color.Background.bg200
-        )
+        .roundedBackground(.classic)
     }
 }
 
@@ -63,14 +58,12 @@ extension TwoStatisticsRowView {
     func itemRowView(item: StatisticsItem) -> some View {
         VStack(spacing: 0) {
             Text(item.value)
-                .font(.Title.large)
-                .foregroundStyle(item.color ?? Color.label)
+                .font(.Title.large, color: item.color)
                 .contentTransition(.numericText())
                 .animation(.smooth, value: item.value)
             
             Text(item.text)
-                .font(.Body.small)
-                .foregroundStyle(Color.Background.bg600)
+                .font(.Body.small, color: .Background.bg600)
         }
         .fullWidth()
     }

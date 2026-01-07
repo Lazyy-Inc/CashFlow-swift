@@ -12,7 +12,7 @@ import GoogleSignIn
 import Core
 import Preferences
 import Events
-import NetworkModule
+import Networking
 import Models
 import Stores
 

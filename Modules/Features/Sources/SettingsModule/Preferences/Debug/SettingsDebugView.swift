@@ -8,7 +8,7 @@
 import SwiftUI
 import Navigation
 import Core
-import NetworkModule
+import Networking
 
 public struct SettingsDebugView: View {
     

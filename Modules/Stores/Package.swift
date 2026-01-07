@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
       .package(path: "../Models"),
-      .package(path: "../NetworkModule"),
+      .package(path: "../Networking"),
       .package(path: "../Preferences"),
       .package(path: "../Events"),
       .package(path: "../Repositories"),
@@ -24,7 +24,7 @@ let package = Package(
             name: "Stores",
             dependencies: [
               "Models",
-              "NetworkModule",
+              "Networking",
               "Preferences",
               "Events",
               "Repositories",

@@ -10,12 +10,14 @@ import SwiftUI
 import Core
 
 extension ThemeColor {
+    
     public var color: Color {
         switch self {
-        case .green: return Color.primary500
+        case .green: return .primary500
         case .blue: return .blue
         case .purple: return .purple
         case .red: return .red
         }
     }
+    
 }

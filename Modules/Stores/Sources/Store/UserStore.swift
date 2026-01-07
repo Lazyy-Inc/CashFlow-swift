@@ -7,7 +7,7 @@
 
 import Foundation
 import Models
-import NetworkModule
+import Networking
 
 public final class UserStore: ObservableObject {
     public static let shared = UserStore()

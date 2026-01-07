@@ -60,37 +60,37 @@ public extension Color {
     
     struct Settings {
         public static var settingsBlue: Color {
-            return Color("settingsBlue", bundle: BundleHelper.bundle)
+            return Color("settingsBlue", bundle: .module)
         }
         public static var settingsDarkBlue: Color {
-            return Color("settingsDarkBlue", bundle: BundleHelper.bundle)
+            return Color("settingsDarkBlue", bundle: .module)
         }
         public static var settingsDarkPurple: Color {
-            return Color("settingsDarkPurple", bundle: BundleHelper.bundle)
+            return Color("settingsDarkPurple", bundle: .module)
         }
         public static var settingsGray: Color {
-            return Color("settingsGray", bundle: BundleHelper.bundle)
+            return Color("settingsGray", bundle: .module)
         }
         public static var settingsGreen: Color {
-            return Color("settingsGreen", bundle: BundleHelper.bundle)
+            return Color("settingsGreen", bundle: .module)
         }
         public static var settingsOrange: Color {
-            return Color("settingsOrange", bundle: BundleHelper.bundle)
+            return Color("settingsOrange", bundle: .module)
         }
         public static var settingsPurple: Color {
-            return Color("settingsPurple", bundle: BundleHelper.bundle)
+            return Color("settingsPurple", bundle: .module)
         }
         public static var settingsRed: Color {
-            return Color("settingsRed", bundle: BundleHelper.bundle)
+            return Color("settingsRed", bundle: .module)
         }
         public static var settingsTurquoise: Color {
-            return Color("settingsTurquoise", bundle: BundleHelper.bundle)
+            return Color("settingsTurquoise", bundle: .module)
         }
     }
     
     struct Red {
         public static var red500: Color {
-            return Color("red500", bundle: BundleHelper.bundle)
+            return Color("red500", bundle: .module)
         }
     }
     

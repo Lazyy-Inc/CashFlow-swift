@@ -14,7 +14,7 @@ let package = Package(
         .package(path: "../Events"),
         .package(path: "../Stores"),
         .package(path: "../Models"),
-        .package(path: "../NetworkModule"),
+        .package(path: "../Networking"),
         .package(path: "../Navigation"),
         
         .package(url: "https://github.com/theosementa/TheoKit", exact: "1.1.5"),
@@ -30,7 +30,7 @@ let package = Package(
                 "Events",
                 "Stores",
                 "Models",
-                "NetworkModule",
+                "Networking",
                 "Navigation",
                 .product(name: "TheoKit", package: "TheoKit"),
                 .product(name: "Dependencies", package: "swift-dependencies"),

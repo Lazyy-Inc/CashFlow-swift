@@ -10,7 +10,7 @@ import AuthenticationServices
 import Core
 import Preferences
 import Events
-import NetworkModule
+import Networking
 import Models
 import Stores
 

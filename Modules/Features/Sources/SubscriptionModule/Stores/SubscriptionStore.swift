@@ -14,7 +14,7 @@ import Preferences
 import DesignSystem
 import Models
 import Stores
-import NetworkModule
+import Networking
 import Dependencies
 
 public extension SubscriptionStore {

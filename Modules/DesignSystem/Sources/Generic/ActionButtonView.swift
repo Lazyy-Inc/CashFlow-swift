@@ -64,8 +64,7 @@ public struct ActionButtonView: View {
                     ProgressView()
                 } else {
                     Text(title)
-                        .font(.Body.mediumBold)
-                        .foregroundStyle(Color.white)
+                        .font(.Body.mediumBold, color: .white)
                 }
             }
             .frame(maxWidth: .infinity)

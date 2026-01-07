@@ -178,13 +178,11 @@ extension FinancialItemRowView {
     private var financialItemAmountWithDateView: some View {
         VStack(alignment: .trailing, spacing: Spacing.extraSmall) {
             Text("\(financialSymbol) \(financialItem.amount.toCurrency())")
-                .font(.Body.mediumBold)
-                .foregroundStyle(financialColor)
+                .font(.Body.mediumBold, color: financialColor)
                 .lineLimit(1)
             
             Text(financialDate.withTemporality)
-                .font(.Body.small)
-                .foregroundStyle(Color.Background.bg600)
+                .font(.Body.small, color: .Background.bg600)
                 .lineLimit(1)
         }
     }

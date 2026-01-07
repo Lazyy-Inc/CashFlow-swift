@@ -46,8 +46,8 @@ public struct AmountAfterView: View {
             HStack(spacing: Spacing.standard) {
                 VStack(alignment: .leading, spacing: Spacing.extraSmall) {
                     Text(leftText)
-                        .font(.Body.medium)
-                        .foregroundStyle(theme.color)
+                        .font(.Body.large, color: theme.color)
+                    
                     Text(leftValue)
                         .font(.Body.large)
                         .contentTransition(.numericText())
