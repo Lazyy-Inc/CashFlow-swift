@@ -41,7 +41,7 @@ public extension BudgetStore {
         do {
             let budget = try await BudgetService.create(accountID: accountID, body: body)
             self.budgets.append(budget)
-            EventService.sendEvent(key: EventKeys.budgetCreated)
+            // EventService.sendEvent(key: EventKeys.budgetCreated)
             return budget
         } catch {
             await NetworkService.handleError(error: error)
@@ -55,7 +55,7 @@ public extension BudgetStore {
             let budget = try await BudgetService.update(budgetID: budgetID, body: body)
             if let index = self.budgets.firstIndex(where: { $0.id == budgetID }) {
                 self.budgets[index] = budget
-                EventService.sendEvent(key: EventKeys.budgetUpdated)
+                // EventService.sendEvent(key: EventKeys.budgetUpdated)
             }
         } catch { await NetworkService.handleError(error: error) }
     }
@@ -66,7 +66,7 @@ public extension BudgetStore {
             try await BudgetService.delete(budgetID: budgetID)
             if let index = self.budgets.firstIndex(where: { $0.id == budgetID }) {
                 self.budgets.remove(at: index)
-                EventService.sendEvent(key: EventKeys.budgetDeleted)
+                // EventService.sendEvent(key: EventKeys.budgetDeleted)
             }
         } catch { await NetworkService.handleError(error: error) }
     }

@@ -81,7 +81,7 @@ extension AddContributionScreen.ViewModel {
         if isModelInCreation {
             isAlertLeavePresented.toggle()
         } else {
-            EventService.sendEvent(key: EventKeys.contributionCreationCanceled)
+            // EventService.sendEvent(key: EventKeys.contributionCreationCanceled)
             dismiss()
         }
     }

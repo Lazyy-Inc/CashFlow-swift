@@ -24,7 +24,7 @@ extension AlertManager {
                 await UserStore.shared.signOut()
                 AppManager.shared.appState = .needLogin
                 AppManager.shared.resetAllStoresData()
-                EventService.sendEvent(key: EventKeys.userLogout)
+                // EventService.sendEvent(key: EventKeys.userLogout)
                 dismiss()
             }
         )
@@ -40,7 +40,7 @@ extension AlertManager {
                 await UserStore.shared.deleteAccount()
                 AppManager.shared.appState = .needLogin
                 AppManager.shared.resetAllStoresData()
-                EventService.sendEvent(key: EventKeys.userDeleted)
+                // EventService.sendEvent(key: EventKeys.userDeleted)
                 dismiss()
             }
         )

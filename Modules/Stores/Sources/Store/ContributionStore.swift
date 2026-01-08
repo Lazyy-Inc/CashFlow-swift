@@ -45,7 +45,7 @@ public extension ContributionStore {
               self.contributions.append(contribution)
               sortContributionsByDate()
               SavingsPlanStore.shared.setNewAmount(savingsPlanID: savingsplanID, newAmount: newAmount)
-              EventService.sendEvent(key: EventKeys.contributionCreated)
+              // EventService.sendEvent(key: EventKeys.contributionCreated)
               return contribution
           }
           
@@ -68,7 +68,7 @@ public extension ContributionStore {
                   self.contributions[index] = contribution
                   sortContributionsByDate()
                   SavingsPlanStore.shared.setNewAmount(savingsPlanID: savingsplanID, newAmount: newAmount)
-                  EventService.sendEvent(key: EventKeys.contributionUpdated)
+                  // EventService.sendEvent(key: EventKeys.contributionUpdated)
               }
           }
       } catch { await NetworkService.handleError(error: error) }
@@ -85,7 +85,7 @@ public extension ContributionStore {
               SavingsPlanStore.shared.setNewAmount(savingsPlanID: savingsplanID, newAmount: newAmount)
           }
           self.contributions.removeAll(where: { $0.id == contributionID })
-          EventService.sendEvent(key: EventKeys.contributionDeleted)
+          // EventService.sendEvent(key: EventKeys.contributionDeleted)
       } catch { await NetworkService.handleError(error: error) }
   }
   

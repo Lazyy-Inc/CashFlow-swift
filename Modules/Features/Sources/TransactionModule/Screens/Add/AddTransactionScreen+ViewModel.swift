@@ -120,9 +120,9 @@ extension AddTransactionScreen.ViewModel {
             isAlertLeavePresented.toggle()
         } else {
             if isEditing {
-                EventService.sendEvent(key: EventKeys.transactionUpdateCanceled)
+                // EventService.sendEvent(key: EventKeys.transactionUpdateCanceled)
             } else {
-                EventService.sendEvent(key: EventKeys.transactionCreationCanceled)
+                // EventService.sendEvent(key: EventKeys.transactionCreationCanceled)
             }
             dismiss()
         }

@@ -107,9 +107,9 @@ extension AddSubscriptionScreen.ViewModel {
             isAlertLeavePresented.toggle()
         } else {
             if isEditing {
-                EventService.sendEvent(key: EventKeys.subscriptionUpdateCanceled)
+                // EventService.sendEvent(key: EventKeys.subscriptionUpdateCanceled)
             } else {
-                EventService.sendEvent(key: EventKeys.subscriptionCreationCanceled)
+                // EventService.sendEvent(key: EventKeys.subscriptionCreationCanceled)
             }
             dismiss()
         }

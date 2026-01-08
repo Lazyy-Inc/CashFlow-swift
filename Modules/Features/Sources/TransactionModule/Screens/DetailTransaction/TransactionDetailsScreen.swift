@@ -151,9 +151,9 @@ public struct TransactionDetailsScreen: View { // TODO: Replace with financialIt
             } // Content ScrollView
             .onAppear {
                 if currentTransaction.type == .transfer {
-                    EventService.sendEvent(key: EventKeys.transferDetailPage)
+                    // EventService.sendEvent(key: EventKeys.transferDetailPage)
                 } else {
-                    EventService.sendEvent(key: EventKeys.transactionDetailPage)
+                    // EventService.sendEvent(key: EventKeys.transactionDetailPage)
                 }
             }
             .task {

@@ -62,7 +62,7 @@ public struct SubscriptionDetailsScreen: View {
             .navigationBarBackButtonHidden(true)
             .background(Color.Background.bg50)
             .onAppear {
-                EventService.sendEvent(key: EventKeys.subscriptionDetailPage)
+                // EventService.sendEvent(key: EventKeys.subscriptionDetailPage)
             }
         }
     }

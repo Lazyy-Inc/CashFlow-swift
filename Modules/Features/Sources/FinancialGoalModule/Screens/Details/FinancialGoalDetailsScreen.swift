@@ -79,7 +79,7 @@ public struct FinancialGoalDetailsScreen: View {
             .padding(.horizontal)
             .scrollIndicators(.hidden)
             .onAppear {
-                EventService.sendEvent(key: EventKeys.savingsplanDetailPage)
+                // EventService.sendEvent(key: EventKeys.savingsplanDetailPage)
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)

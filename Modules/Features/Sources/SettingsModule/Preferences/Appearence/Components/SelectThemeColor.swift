@@ -47,7 +47,7 @@ struct SelectThemeColor: View {
                         .padding(4)
                         .onTapGesture {
                             themeManager.theme = theme
-                            EventService.sendEvent(key: EventKeys.preferenceAppearanceTint)
+                            // EventService.sendEvent(key: EventKeys.preferenceAppearanceTint)
                         }
                     }
                 }

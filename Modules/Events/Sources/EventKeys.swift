@@ -8,37 +8,154 @@
 import Foundation
 import StatsKit
 
-public enum EventKeys: String, AppEvent {
+public struct AnalyticsEvent: AppEvent, Sendable {
+    public var name: String
+    public var path: String
+    public var data: [String : String]?
     
-    case appSession = "app_session"
-    case appPaywall = "app_paywall"
+    public init(name: String, path: String, data: [String : String]? = nil) {
+        self.name = name
+        self.path = path
+        self.data = data
+    }
+}
+
+public extension AnalyticsEvent {
     
-    case userRegisterApple = "user_register_apple"
-    case userRegisterGoogle = "user_register_google"
-    case userPremium = "user_premium"
-    case userLogout = "user_logout"
-    case userDeleted = "user_deleted"
+    static let appSession: AnalyticsEvent = .init(
+        name: "app_session",
+        path: "/"
+    )
     
-    case paywallDetailPrediction = "paywall_detail_prediction"
-    case paywallDetailBudgets = "paywall_detail_budgets"
+    static let appPaywall: AnalyticsEvent = .init(
+        name: "app_paywall",
+        path: "/paywall"
+    )
     
-    case preferenceSecurityBiometrie = "preference_security_biometrie"
-    case preferenceSecurityReinforced = "preference_security_reinforced"
-    case preferenceAppearanceTint = "preference_appearance_tint"
-    case preferenceSubscriptionNotifications = "preference_subscription_notifications"
-    case preferenceApplePayAutocat = "preference_applepay_autocat"
-    case preferenceApplePayPosition = "preference_applepay_position"
+}
+
+public extension AnalyticsEvent {
     
-    case settingsPage = "settingsPage"
+    static let userRegisterApple: AnalyticsEvent = .init(
+        name: "user_register_apple",
+        path: "/login"
+    )
     
-    case accountClassicCreated = "account_classic_created"
-    case accountClassicDeleted = "account_classic_deleted"
-    case accountSavingsCreated = "account_savings_created"
-    case accountSavingsDetailPage = "account_savings_detail_page"
-    case accountSavingsDeleted = "account_savings_deleted"
+    static let userRegisterGoogle: AnalyticsEvent = .init(
+        name: "user_register_google",
+        path: "/login"
+    )
     
-    case autocatSuggestionAccepeted = "autocat_suggestion_accepted"
- 
+    static let userLogout: AnalyticsEvent = .init(
+        name: "user_logout",
+        path: "/settings"
+    )
+    
+    static let userDeleted: AnalyticsEvent = .init(
+        name: "user_deleted",
+        path: "/settings"
+    )
+    
+}
+
+public extension AnalyticsEvent {
+    
+    static let preferenceSecurityBiometrie: AnalyticsEvent = .init(
+        name: "preference_security_biometrie",
+        path: "/settings/security"
+    )
+    
+    static let settingsPage: AnalyticsEvent = .init(
+        name: "settings_page",
+        path: "/settings"
+    )
+    
+    static let preferenceSecurityReinforced: AnalyticsEvent = .init(
+        name: "preference_security_reinforced",
+        path: "/settings/security"
+    )
+    
+    static let preferenceAppearanceTint: AnalyticsEvent = .init(
+        name: "preference_appearance_tint",
+        path: "/settings/appearance"
+    )
+    
+    static let preferenceSubscriptionNotifications: AnalyticsEvent = .init(
+        name: "preference_subscription_notifications",
+        path: "/settings/subscriptions"
+    )
+    
+    static let preferenceApplePayAutocat: AnalyticsEvent = .init(
+        name: "preference_applepay_autocat",
+        path: "/settings/applepay"
+    )
+    
+    static let preferenceApplePayPosition: AnalyticsEvent = .init(
+        name: "preference_applepay_position",
+        path: "/settings/applepay"
+    )
+    
+}
+
+public extension AnalyticsEvent {
+    
+//    static let accountClassicCreated: AnalyticsEvent = .init(
+//        name: "account_classic_created",
+//        path: "/add-account"
+//    )
+//    
+//    static let accountClassicDeleted: AnalyticsEvent = .init(
+//        name: "account_classic_deleted",
+//        path: "/account" // TODO: TODO
+//    )
+//    
+//    static let accountSavingsCreated: AnalyticsEvent = .init(
+//        name: "account_savings_created",
+//        path: "/add-account"
+//    )
+//    
+//    static let accountSavingsDetailPage: AnalyticsEvent = .init(
+//        name: "account_savings_detail_page",
+//        path: "/account-details"
+//    )
+//    
+//    static func accountSavingsDeleted(isFromDetails: Bool) -> AnalyticsEvent {
+//        return .init(
+//            name: "account_savings_deleted",
+//            path: isFromDetails ? "/account-details" : "/account-list"
+//        )
+//    }
+    
+}
+
+public extension AnalyticsEvent {
+    
+    static func autocatSuggestionAccepted(isFromDetails: Bool) -> AnalyticsEvent { // TODO: Enable in transaction details
+        return .init(
+            name: "autocat_suggestion_accepted",
+            path: isFromDetails ? "/transaction-details" : "/add-transaction"
+        )
+    }
+    
+}
+
+public extension AnalyticsEvent {
+    
+    static let transactionCreated: AnalyticsEvent = .init(
+        name: "transaction_created",
+        path: "/add-transaction"
+    )
+    
+}
+
+public enum EventKeys: String {
+    
+//    case userPremium = "user_premium"
+//    
+//    case paywallDetailPrediction = "paywall_detail_prediction"
+//    case paywallDetailBudgets = "paywall_detail_budgets"
+    
+     
     case transactionCreated = "transaction_created"
     case transactionExpenseCreated = "transaction_expense_created"
     case transactionIncomeCreated = "transaction_income_created"
@@ -87,4 +204,5 @@ public enum EventKeys: String, AppEvent {
     case transferDeleted = "transfer_deleted"
     case transferDetailPage = "transfer_detail_page"
     case transferCreationCanceled = "transfer_creation_canceled"
+    
 }

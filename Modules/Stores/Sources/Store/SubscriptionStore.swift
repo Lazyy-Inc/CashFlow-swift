@@ -37,7 +37,7 @@ public extension SubscriptionStore {
             let subscription = try await SubscriptionService.create(accountID: accountID, body: body).toModel()
             self.subscriptions.append(subscription)
             sortSubscriptionsByDate()
-            EventService.sendEvent(key: EventKeys.subscriptionCreated)
+            // EventService.sendEvent(key: EventKeys.subscriptionCreated)
             return shouldReturn ? subscription : nil
         } catch {
             await NetworkService.handleError(error: error)
@@ -53,7 +53,7 @@ public extension SubscriptionStore {
             if let index = self.subscriptions.firstIndex(where: { $0.id == subscriptionID }) {
                 self.subscriptions[index] = subscription
                 sortSubscriptionsByDate()
-                EventService.sendEvent(key: EventKeys.subscriptionUpdated)
+                // EventService.sendEvent(key: EventKeys.subscriptionUpdated)
             }
             return subscription
         } catch {
@@ -68,7 +68,7 @@ public extension SubscriptionStore {
             try await SubscriptionService.delete(subscriptionID: subscriptionID)
             if let index = self.subscriptions.firstIndex(where: { $0.id == subscriptionID }) {
                 self.subscriptions.remove(at: index)
-                EventService.sendEvent(key: EventKeys.subscriptionDeleted)
+                // EventService.sendEvent(key: EventKeys.subscriptionDeleted)
             }
         } catch { await NetworkService.handleError(error: error) }
     }

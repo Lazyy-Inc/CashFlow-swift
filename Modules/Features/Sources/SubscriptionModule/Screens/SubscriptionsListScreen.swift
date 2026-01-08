@@ -75,7 +75,7 @@ public struct SubscriptionsListScreen: View {
         .background(Color.Background.bg50.edgesIgnoringSafeArea(.all))
         .onAppear {
             getOrientationOnAppear()
-            EventService.sendEvent(key: EventKeys.subscriptionDetailPage)
+            // EventService.sendEvent(key: EventKeys.subscriptionDetailPage)
         }
     } // End body
     

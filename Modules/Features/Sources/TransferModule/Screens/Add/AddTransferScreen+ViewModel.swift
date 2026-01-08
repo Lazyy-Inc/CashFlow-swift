@@ -77,7 +77,7 @@ extension AddTransferScreen.ViewModel {
         if isModelInCreation {
             isAlertLeavePresented.toggle()
         } else {
-            EventService.sendEvent(key: EventKeys.transferCreationCanceled)
+            // EventService.sendEvent(key: EventKeys.transferCreationCanceled)
             dismiss()
         }
     }

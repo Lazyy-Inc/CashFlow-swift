@@ -74,7 +74,7 @@ public struct BudgetAddScreen: View {
     } // End body
     
     func dismissAction() {
-        EventService.sendEvent(key: EventKeys.budgetCreationCanceled)
+        // EventService.sendEvent(key: EventKeys.budgetCreationCanceled)
         dismiss()
     }
     

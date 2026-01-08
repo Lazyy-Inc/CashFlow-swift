@@ -43,7 +43,7 @@ public extension SavingsPlanStore {
       do {
           let savingsPlan = try await SavingsPlanService.create(body: body)
           self.savingsPlans.append(savingsPlan)
-          EventService.sendEvent(key: EventKeys.sacingsPlanCreated)
+          // EventService.sendEvent(key: EventKeys.sacingsPlanCreated)
           return savingsPlan
       } catch {
           await NetworkService.handleError(error: error)
@@ -57,7 +57,7 @@ public extension SavingsPlanStore {
           let savingsPlan = try await SavingsPlanService.update(savingsPlanID: savingsPlanID, body: body)
           if let index = self.savingsPlans.firstIndex(where: { $0.id == savingsPlan.id }) {
               self.savingsPlans[index] = savingsPlan
-              EventService.sendEvent(key: EventKeys.savingsPlanUpdated)
+              // EventService.sendEvent(key: EventKeys.savingsPlanUpdated)
           }
       } catch { await NetworkService.handleError(error: error) }
   }
@@ -68,7 +68,7 @@ public extension SavingsPlanStore {
           try await SavingsPlanService.delete(savingsPlanID: savingsPlanID)
           if let index = self.savingsPlans.firstIndex(where: { $0.id == savingsPlanID }) {
               self.savingsPlans.remove(at: index)
-              EventService.sendEvent(key: EventKeys.savingsPlanDeleted)
+              // EventService.sendEvent(key: EventKeys.savingsPlanDeleted)
           }
       } catch { await NetworkService.handleError(error: error) }
   }

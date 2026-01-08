@@ -48,7 +48,7 @@ extension SignInWithAppleManager: ASAuthorizationControllerDelegate, ASAuthoriza
                     PreferencesGeneral.shared.isAlreadyOpen = true
                     AppManager.shared.appState = .success
 
-                    EventService.sendEvent(key: EventKeys.userRegisterApple)
+                    // EventService.sendEvent(key: EventKeys.userRegisterApple)
                 }
             }
         }

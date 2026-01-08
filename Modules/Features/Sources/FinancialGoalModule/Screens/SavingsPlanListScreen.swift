@@ -78,7 +78,7 @@ public struct SavingsPlanListScreen: View {
         .navigationBarBackButtonHidden(true)
         .background(Color.Background.bg50)
         .onAppear {
-            EventService.sendEvent(key: EventKeys.savingsplanListPage)
+            // EventService.sendEvent(key: EventKeys.savingsplanListPage)
         }
     } // body
 } // struct

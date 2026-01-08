@@ -43,7 +43,7 @@ class SignInWithGoogleManager {
           UserStore.shared.currentUser = user
           PreferencesGeneral.shared.isAlreadyOpen = true
           await MainActor.run { AppManager.shared.appState = .success }
-          EventService.sendEvent(key: EventKeys.userRegisterGoogle)
+          // EventService.sendEvent(key: EventKeys.userRegisterGoogle)
         }
       }
     }

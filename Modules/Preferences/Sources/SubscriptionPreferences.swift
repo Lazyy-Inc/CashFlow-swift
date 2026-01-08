@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Events
 
-public final class SubscriptionPreferences: ObservableObject {
+public final class SubscriptionPreferences: ObservableObject { // TODO: 
     public static let shared = SubscriptionPreferences()
     
     public let objectWillChange = PassthroughSubject<Void, Never>()
@@ -17,7 +17,7 @@ public final class SubscriptionPreferences: ObservableObject {
     @UserDefault("PreferencesSubscription_isNotificationsEnabled", defaultValue: false) // Notifiaction sent at 10h00
     public var isNotificationsEnabled: Bool {
         willSet {
-            if newValue { EventService.sendEvent(key: EventKeys.preferenceSubscriptionNotifications) }
+//            if newValue { // EventService.sendEvent(key: EventKeys.preferenceSubscriptionNotifications) }
             objectWillChange.send()
         }
     }

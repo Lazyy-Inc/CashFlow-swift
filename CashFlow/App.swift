@@ -101,7 +101,7 @@ struct TurboBudgetApp: App {
                     }
                 }
                 .onAppear {
-                    EventService.initialize(projectName: "CashFlow", platform: "iOS")
+//                    EventService.configure(sessionId: <#T##String#>, hostname: <#T##String#>, projectId: <#T##String#>)
                 }
         }
     } // body

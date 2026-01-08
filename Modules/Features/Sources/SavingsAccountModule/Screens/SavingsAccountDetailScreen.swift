@@ -126,7 +126,7 @@ public struct SavingsAccountDetailScreen: View {
                 }
             }
             .onAppear {
-                EventService.sendEvent(key: EventKeys.accountSavingsDetailPage)
+                // EventService.sendEvent(key: EventKeys.accountSavingsDetailPage)
             }
         } else {
             EmptyView()

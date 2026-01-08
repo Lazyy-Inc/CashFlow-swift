@@ -10,7 +10,7 @@ let package = Package(
     .library(name: "Events", targets: ["Events"])
   ],
   dependencies: [
-    .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.9")
+    .package(url: "https://github.com/theosementa/StatsKit", exact: "1.1.2")
   ],
   targets: [
     .target(

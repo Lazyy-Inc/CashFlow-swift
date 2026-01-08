@@ -110,10 +110,10 @@ public extension AccountStore {
                     }
                 }
                 
-                EventService.sendEvent(key: EventKeys.accountClassicCreated)
+                // EventService.sendEvent(key: EventKeys.accountClassicCreated)
             } else if account.type == AccountType.savings {
                 self.savingsAccounts.append(account)
-                EventService.sendEvent(key: EventKeys.accountSavingsCreated)
+                // EventService.sendEvent(key: EventKeys.accountSavingsCreated)
             }
             return account
         } catch {
@@ -149,9 +149,9 @@ public extension AccountStore {
             try await AccountService.delete(id: accountID)
             
             if accounts.contains(where: { $0._id == accountID }) {
-                EventService.sendEvent(key: EventKeys.accountClassicDeleted)
+                // EventService.sendEvent(key: EventKeys.accountClassicDeleted)
             } else if savingsAccounts.contains(where: { $0._id == accountID }) {
-                EventService.sendEvent(key: EventKeys.accountSavingsDeleted)
+                // EventService.sendEvent(key: EventKeys.accountSavingsDeleted)
             }
             
             self.accounts.removeAll { $0._id == accountID }

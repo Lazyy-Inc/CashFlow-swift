@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Events
 
-public final class PreferencesApplePay: ObservableObject {
+public final class PreferencesApplePay: ObservableObject { // TODO:
     public static let shared = PreferencesApplePay()
     
     public let objectWillChange = PassthroughSubject<Void, Never>()
@@ -17,7 +17,7 @@ public final class PreferencesApplePay: ObservableObject {
     @UserDefault("PreferencesApplePay_isAddCategoryAutomaticallyEnabled", defaultValue: false)
     public var isAddCategoryAutomaticallyEnabled: Bool {
         willSet {
-            if newValue { EventService.sendEvent(key: EventKeys.preferenceApplePayAutocat) }
+//            if newValue { // EventService.sendEvent(key: EventKeys.preferenceApplePayAutocat) }
             objectWillChange.send()
         }
     }
@@ -25,7 +25,7 @@ public final class PreferencesApplePay: ObservableObject {
     @UserDefault("PreferencesApplePay_isAddAddressAutomaticallyEnabled", defaultValue: false)
     public var isAddAddressAutomaticallyEnabled: Bool {
         willSet {
-            if newValue { EventService.sendEvent(key: EventKeys.preferenceApplePayPosition) }
+//            if newValue { // EventService.sendEvent(key: EventKeys.preferenceApplePayPosition) }
             objectWillChange.send()
         }
     }

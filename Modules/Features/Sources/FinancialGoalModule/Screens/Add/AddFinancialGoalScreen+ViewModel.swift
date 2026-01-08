@@ -105,9 +105,9 @@ extension AddFinancialGoalScreen.ViewModel {
             isAlertLeavePresented.toggle()
         } else {
             if isEditing {
-                EventService.sendEvent(key: EventKeys.savingsplanUpdateCanceled)
+                // EventService.sendEvent(key: EventKeys.savingsplanUpdateCanceled)
             } else {
-                EventService.sendEvent(key: EventKeys.savingsplanCreationCanceled)
+                // EventService.sendEvent(key: EventKeys.savingsplanCreationCanceled)
             }
             dismiss()
         }

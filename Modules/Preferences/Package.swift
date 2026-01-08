@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
       .package(path: "../Events"),
-      .package(url: "https://github.com/theosementa/StatsKit", exact: "1.0.9")
+      .package(url: "https://github.com/theosementa/StatsKit", exact: "1.1.2")
     ],
     targets: [
         .target(

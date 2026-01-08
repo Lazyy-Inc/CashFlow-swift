@@ -114,7 +114,7 @@ struct RootScreen: View {
           }
         }
         .onAppear {
-            EventService.sendEvent(key: EventKeys.appSession)
+            // EventService.sendEvent(key: EventKeys.appSession)
         }
     } // body
 } // struct

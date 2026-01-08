@@ -58,7 +58,7 @@ public extension TransactionStore {
                 sortTransactionsByDate()
             }
             
-            EventService.sendEvent(key: EventKeys.transactionListPagination)
+            // EventService.sendEvent(key: EventKeys.transactionListPagination)
         } catch { await NetworkService.handleError(error: error) }
     }
     
@@ -101,7 +101,7 @@ public extension TransactionStore {
                         self.transactions[index] = transaction
                         if sortTransaction { sortTransactionsByDate() }
                         AccountStore.shared.setNewBalance(accountID: accountId, newBalance: newBalance)
-                        EventService.sendEvent(key: EventKeys.transactionUpdated)
+                        // EventService.sendEvent(key: EventKeys.transactionUpdated)
                     }
                     return transaction
                 }
@@ -138,7 +138,7 @@ public extension TransactionStore {
                 AccountStore.shared.setNewBalance(accountID: accountID, newBalance: newBalance)
             }
             
-            EventService.sendEvent(key: EventKeys.transactionDeleted)
+            // EventService.sendEvent(key: EventKeys.transactionDeleted)
         } catch { await NetworkService.handleError(error: error) }
     }
 }
@@ -234,22 +234,22 @@ public extension EventService {
     @MainActor
     private static func sendFinancialItemTypeEvent(type: FinancialItemType) {
         if type == .expense {
-            EventService.sendEvent(key: EventKeys.transactionExpenseCreated)
+            // EventService.sendEvent(key: EventKeys.transactionExpenseCreated)
         } else if type == .income {
-            EventService.sendEvent(key: EventKeys.transactionIncomeCreated)
+            // EventService.sendEvent(key: EventKeys.transactionIncomeCreated)
         }
     }
     
     @MainActor
     private static func sendApplePayEvent(isFromApplePay: Bool) {
         if isFromApplePay {
-            EventService.sendEvent(key: EventKeys.transactionCreatedApplePay)
+            // EventService.sendEvent(key: EventKeys.transactionCreatedApplePay)
         }
     }
     
     @MainActor
     static func sendForTransactionCreated(transaction: TransactionModel) {
-        EventService.sendEvent(key: EventKeys.transactionCreated)
+        // EventService.sendEvent(key: EventKeys.transactionCreated)
         EventService.sendFinancialItemTypeEvent(type: transaction.type)
         EventService.sendApplePayEvent(isFromApplePay: transaction.isFromApplePay)
     }
