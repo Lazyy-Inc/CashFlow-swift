@@ -10,6 +10,7 @@ import Models
 import Dependencies
 import Stores
 
+// MARK: - Protocol
 protocol FinancialGoalService {
     func remainingAmount(for goal: SavingsPlanModel) -> Double
     func monthlyTarget(for goal: SavingsPlanModel) -> Double
@@ -17,11 +18,12 @@ protocol FinancialGoalService {
     func contributionsAmount(for period: PeriodType) -> Double
 }
 
+// MARK: - Default implementation
 final class DefaultFinancialGoalService: FinancialGoalService {
     
 }
 
-// MARK: - Monthly
+// MARK: Monthly
 extension FinancialGoalService {
     
     func remainingAmount(for goal: SavingsPlanModel) -> Double {

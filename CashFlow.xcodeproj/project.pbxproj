@@ -38,6 +38,7 @@
 		D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */ = {isa = PBXBuildFile; productRef = D96F97ED2E32B924006B0596 /* OnboardingModule */; };
 		D976E44E2E689FB800D16DBE /* Statistics in Frameworks */ = {isa = PBXBuildFile; productRef = D976E44D2E689FB800D16DBE /* Statistics */; };
 		D9887FE22AA457A400AFC915 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9887FE12AA457A400AFC915 /* StoreKit.framework */; };
+		D9AE5FEA2F0FE6450006E9DF /* Paywall in Frameworks */ = {isa = PBXBuildFile; productRef = D9AE5FE92F0FE6450006E9DF /* Paywall */; };
 		D9B2F4812E929CB400CF5ABC /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = D9B2F4802E929CB400CF5ABC /* Repositories */; };
 		D9B2F4832E929CB800CF5ABC /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D9B2F4822E929CB800CF5ABC /* Persistence */; };
 		D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9D208042E315D5800FEE9FD /* PaywallModule */; };
@@ -104,6 +105,7 @@
 				D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */,
 				D954F8D02EAE2BC700745E89 /* FinancialGoalModule in Frameworks */,
 				D968C2322E54F3CA006BB17A /* SubcategoryModule in Frameworks */,
+				D9AE5FEA2F0FE6450006E9DF /* Paywall in Frameworks */,
 				D9B2F4812E929CB400CF5ABC /* Repositories in Frameworks */,
 				D9B2F4832E929CB800CF5ABC /* Persistence in Frameworks */,
 				D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */,
@@ -207,6 +209,7 @@
 				D954F8CF2EAE2BC700745E89 /* FinancialGoalModule */,
 				D950AF002EC4D96A007B1157 /* Utilities */,
 				D95B7CDE2F0EB1A800413D00 /* Networking */,
+				D9AE5FE92F0FE6450006E9DF /* Paywall */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -717,6 +720,10 @@
 		D976E44D2E689FB800D16DBE /* Statistics */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Statistics;
+		};
+		D9AE5FE92F0FE6450006E9DF /* Paywall */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Paywall;
 		};
 		D9B2F4802E929CB400CF5ABC /* Repositories */ = {
 			isa = XCSwiftPackageProductDependency;

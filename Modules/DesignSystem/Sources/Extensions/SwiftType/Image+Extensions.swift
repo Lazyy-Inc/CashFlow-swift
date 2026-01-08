@@ -2,13 +2,17 @@
 //  File.swift
 //  DesignSystem
 //
-//  Created by Theo Sementa on 24/07/2025.
+//  Created by Theo Sementa on 08/01/2026.
 //
 
-import Foundation
 import SwiftUI
+import Models
 
 public extension Image {
+
+    init(asset: ImageType) {
+        self.init(asset.rawValue, bundle: .module)
+    }
     
     static var logoCashFlow: Image {
         return Image("LogoWalletCashFlow", bundle: BundleHelper.bundle)
@@ -41,5 +45,5 @@ public extension Image {
         }
         
     }
-    
+
 }

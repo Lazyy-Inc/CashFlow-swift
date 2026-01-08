@@ -8,6 +8,7 @@
 import SwiftUI
 import Core
 import Navigation
+import DesignSystem
 import PaywallModule
 import TransactionModule
 import SubscriptionModule
@@ -25,6 +26,7 @@ import CreditCardModule
 
 import Home
 import Dashboard
+import Paywall
 
 extension AppDestination {
     
@@ -210,18 +212,21 @@ extension AppDestination {
         }
     }
     
+    @ViewBuilder
     static private func destinationShared(_ shared: SharedDestination) -> some View {
         switch shared {
+        case .sfSafari(let url):
+            SFSafariScreen(url: url)
         case .paywall:
-            AnyView(PaywallScreen())
+            PaywallScreen()
         case .whatsNew:
-            AnyView(WhatsNewScreen())
+            WhatsNewScreen()
         case .qrCodeScanner:
-            AnyView(QRCodeScannerScreen())
+            QRCodeScannerScreen()
         case .home:
-            AnyView(HomeScreen())
+            HomeScreen()
         case .releaseNoteDetail(let releaseNote):
-            AnyView(ReleaseNoteDetailView(releaseNote: releaseNote))
+            ReleaseNoteDetailView(releaseNote: releaseNote)
         }
     }
     

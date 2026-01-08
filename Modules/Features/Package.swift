@@ -25,7 +25,10 @@ let package = Package(
         .library(name: "Home", targets: ["Home"]),
         .library(name: "Savings", targets: ["Savings"]),
         .library(name: "Dashboard", targets: ["Dashboard"]),
-        .library(name: "Statistics", targets: ["Statistics"])
+        .library(name: "Statistics", targets: ["Statistics"]),
+        
+        // New clean packages
+        .library(name: "Paywall", targets: ["Paywall"])
     ],
     dependencies: [
         .package(path: "../DesignSystem"),
@@ -48,6 +51,19 @@ let package = Package(
         .package(url: "https://github.com/izyumkin/MCEmojiPicker", branch: "1.2.3")
     ],
     targets: [
+        .target(
+            name: "Paywall",
+            dependencies: [
+                "DesignSystem",
+                "Core",
+                "Mocks",
+                "Models",
+                "Stores",
+                "Navigation"
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        
         .target(
             name: "OnboardingModule",
             dependencies: [
