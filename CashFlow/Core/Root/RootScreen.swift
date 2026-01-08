@@ -107,11 +107,11 @@ struct RootScreen: View {
             }
         }
         .task(id: scenePhase) {
-          if scenePhase != .active {
-              UserDefaults.standard.set(false, forKey: "appIsOpen")
-          } else {
-            await appManager.createTransactionsFromApplePay()
-          }
+            if scenePhase != .active {
+                UserDefaults.standard.set(false, forKey: "appIsOpen")
+            } else {
+                await appManager.createTransactionsFromApplePay()
+            }
         }
         .onAppear {
             // EventService.sendEvent(key: EventKeys.appSession)
@@ -156,7 +156,7 @@ extension RootScreen {
             )
             .tag(AppTabs.analysis)
             .toolbar(.hidden, for: .tabBar)
-
+            
             NavigationStackView(
                 router: accountRouter,
                 destinationContent: { AppDestination.content(for: $0) },

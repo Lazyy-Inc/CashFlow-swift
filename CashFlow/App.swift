@@ -24,7 +24,7 @@ struct TurboBudgetApp: App {
     // MARK: Managers
     @StateObject private var appManager: AppManager = .shared
     @StateObject private var appearanceManager = AppearanceManager()
-    @StateObject private var purchasesManager = PurchasesManager()
+    @StateObject private var purchasesManager: PurchasesManager = .shared
     @StateObject private var alertManager: AlertManager = .shared
     @StateObject private var filterManager: FilterManager = .shared
     @StateObject private var successfullModalManager: SuccessfullModalManager = .shared

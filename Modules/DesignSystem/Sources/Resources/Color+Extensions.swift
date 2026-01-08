@@ -98,6 +98,9 @@ public extension Color {
     }
     
     struct Red {
+        public static var red100: Color {
+            return Color("red100", bundle: .module)
+        }
         public static var red500: Color {
             return Color("red500", bundle: .module)
         }

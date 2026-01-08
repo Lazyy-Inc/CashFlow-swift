@@ -12,6 +12,8 @@ import Stores
 
 @MainActor
 public class PurchasesManager: NSObject, ObservableObject {
+    public static let shared = PurchasesManager()
+    
     let productIDs: [String] = ["com.Sementa.CashFlow.lifetime", "cashflow_plus_299_1m"]
     var purchasedProductIDs: Set<String> = []
     

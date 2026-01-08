@@ -50,7 +50,7 @@ public extension RoundedBackgroundType {
             return 1
         case .field:
             return 1
-        case .custom(let color, let radius, let lineWidth, let strokeColor):
+        case .custom(_, _, let lineWidth, _):
             return lineWidth
         }
     }

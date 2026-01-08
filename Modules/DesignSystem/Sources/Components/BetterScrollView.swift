@@ -5,7 +5,6 @@
 //  Created by Theo Sementa on 07/01/2026.
 //
 
-
 import SwiftUI
 
 public struct BetterScrollView<Header: View, Content: View>: View {
@@ -92,4 +91,5 @@ public struct BetterScrollView<Header: View, Content: View>: View {
             view
         }
     }
+    
 }

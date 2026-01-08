@@ -47,11 +47,18 @@ public struct PaywallScreen: View {
                     PaywallComparisonSectionView(comparisons: viewModel.comparisons)
                     
                     PaywallLinksView()
+                    
+                    Color.clear.frame(height: 200)
                 }
             }
+            .scrollIndicators(.hidden)
             .contentMargins(.all, .standard, for: .scrollContent)
             .fullSize()
             .background(LinearGradient.main)
+            .overlay(alignment: .bottom) {
+                PaywallPaymentButtonView()
+            }
+            .ignoresSafeArea(.all, edges: .bottom)
 //        }
     }
     

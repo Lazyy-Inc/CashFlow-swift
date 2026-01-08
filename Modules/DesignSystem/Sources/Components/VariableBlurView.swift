@@ -5,7 +5,6 @@
 //  Created by Theo Sementa on 07/01/2026.
 //
 
-
 import SwiftUI
 import UIKit
 import CoreImage.CIFilterBuiltins
@@ -54,7 +53,8 @@ public class VariableBlurUIView: UIVisualEffectView {
             print("[VariableBlur] Error: Can't find CAFilter class")
             return
         }
-        guard let variableBlur = CAFilter.self.perform(NSSelectorFromString("filterWithType:"), with: "variableBlur").takeUnretainedValue() as? NSObject else {
+        guard let variableBlur = CAFilter.self.perform(
+            NSSelectorFromString("filterWithType:"), with: "variableBlur").takeUnretainedValue() as? NSObject else {
             print("[VariableBlur] Error: CAFilter can't create filterWithType: variableBlur")
             return
         }
