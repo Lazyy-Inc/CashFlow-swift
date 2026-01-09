@@ -2148,3 +2148,90 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 
 "word_yes" = "Oui";
 
+/*  */
+"generic_continue" = "Continuer";
+
+/*  */
+"paywall_advanced_analytics_description" = "Accédez à des analyses complètes de vos dépenses et revenus";
+
+/*  */
+"paywall_advanced_analytics_title" = "Statistiques avancées";
+
+/*  */
+"paywall_apple_pay_description" = "Ajoutez automatiquement les transactions effectuées avec Apple Pay dans CashFlow. Cette fonctionnalité est à activer";
+
+/*  */
+"paywall_apple_pay_title" = "Récupération avec Apple Pay";
+
+/*  */
+"paywall_budget_description" = "Suivi d’un budget avec la règle 50-30-20, d’autres règles sont sélectionnables ou création d’une règle personnalisée";
+
+/*  */
+"paywall_budget_title" = "Création d’un budget";
+
+/*  */
+"paywall_comparison_free" = "Gratuit";
+
+/*  */
+"paywall_comparison_max" = "Max";
+
+/*  */
+"paywall_comparison_title" = "Comparaison";
+
+/*  */
+"paywall_footer_sentence" = "Payez une fois et profitez pour toujours";
+
+/*  */
+"paywall_header" = "L’achat de CashFlow Max permet d’économiser environ 1 200 € par an en moyenne";
+
+/*  */
+"paywall_illimited_bank_account_description" = "Créez autant de comptes que vous le souhaitez, pour tout suivre au même endroit";
+
+/*  */
+"paywall_illimited_bank_account_title" = "Comptes bancaires illimités";
+
+/*  */
+"paywall_illimited_financial_goals_description" = "Créez autant d’objectifs financiers que nécessaire pour réaliser vos projets";
+
+/*  */
+"paywall_illimited_financial_goals_title" = "Objectifs financiers illimités";
+
+/*  */
+"paywall_illimited_savings_account_description" = "Gérez toutes vos économies sans restriction";
+
+/*  */
+"paywall_illimited_savings_account_title" = "Comptes d’épargne illimités";
+
+/*  */
+"paywall_lifetime" = "À vie";
+
+/*  */
+"paywall_link_conditions" = "Conditions d’utilisation";
+
+/*  */
+"paywall_link_restore_purchase" = "Restaurer l’achat";
+
+/*  */
+"paywall_monthly_report_description" = "Bilans mensuels et annuels clairs des dépenses et revenus";
+
+/*  */
+"paywall_monthly_report_title" = "Rapports mensuels";
+
+/*  */
+"paywall_purchased" = "Tu possèdes déjà CashFlow Max ! Merci !";
+
+/*  */
+"paywall_reminder_description" = "Recevez une notification avant le renouvellement de l’un de vos abonnements";
+
+/*  */
+"paywall_reminder_title" = "Rappel de renouvellement";
+
+/*  */
+"paywall_save_money_description" = "L’achat de CashFlow Max permet d’avoir 78% plus de chances d’économiser de l’argent";
+
+/*  */
+"paywall_save_money_title" = "Économisez de l’argent";
+
+/*  */
+"paywall_support_developer_title" = "Soutenir le développeur indépendant";
+

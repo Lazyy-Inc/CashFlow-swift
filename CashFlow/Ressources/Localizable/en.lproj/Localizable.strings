@@ -2148,3 +2148,90 @@ Simple, fast, secure - your financial peace of mind starts here.";
 
 "word_yes" = "Yes";
 
+/*  */
+"generic_continue" = "Continue";
+
+/*  */
+"paywall_advanced_analytics_description" = "Access detailed analytics of your expenses and income";
+
+/*  */
+"paywall_advanced_analytics_title" = "Advanced statistics";
+
+/*  */
+"paywall_apple_pay_description" = "Automatically add transactions made with Apple Pay to CashFlow. This feature must be enabled";
+
+/*  */
+"paywall_apple_pay_title" = "Apple Pay import";
+
+/*  */
+"paywall_budget_description" = "Track a budget using the 50-30-20 rule; other rules are available, or create a custom rule";
+
+/*  */
+"paywall_budget_title" = "Budget creation";
+
+/*  */
+"paywall_comparison_free" = "Free";
+
+/*  */
+"paywall_comparison_max" = "Max";
+
+/*  */
+"paywall_comparison_title" = "Comparison";
+
+/*  */
+"paywall_footer_sentence" = "Pay once and enjoy forever";
+
+/*  */
+"paywall_header" = "Purchasing CashFlow Max helps save an average of €1,200 per year";
+
+/*  */
+"paywall_illimited_bank_account_description" = "Create as many accounts as you want to keep everything in one place";
+
+/*  */
+"paywall_illimited_bank_account_title" = "Unlimited bank accounts";
+
+/*  */
+"paywall_illimited_financial_goals_description" = "Create as many financial goals as needed to achieve your projects";
+
+/*  */
+"paywall_illimited_financial_goals_title" = "Unlimited financial goals";
+
+/*  */
+"paywall_illimited_savings_account_description" = "Manage all your savings without limitations";
+
+/*  */
+"paywall_illimited_savings_account_title" = "Unlimited savings accounts";
+
+/*  */
+"paywall_lifetime" = "Lifetime";
+
+/*  */
+"paywall_link_conditions" = "Terms of use";
+
+/*  */
+"paywall_link_restore_purchase" = "Restore purchase";
+
+/*  */
+"paywall_monthly_report_description" = "Clear monthly and yearly reports of expenses and income";
+
+/*  */
+"paywall_monthly_report_title" = "Monthly reports";
+
+/*  */
+"paywall_purchased" = "You already own CashFlow Max! Thank you!";
+
+/*  */
+"paywall_reminder_description" = "Receive a notification before one of your subscriptions renews";
+
+/*  */
+"paywall_reminder_title" = "Renewal reminder";
+
+/*  */
+"paywall_save_money_description" = "Purchasing CashFlow Max gives you a 78% higher chance of saving money";
+
+/*  */
+"paywall_save_money_title" = "Save money";
+
+/*  */
+"paywall_support_developer_title" = "Support the indie developer";
+

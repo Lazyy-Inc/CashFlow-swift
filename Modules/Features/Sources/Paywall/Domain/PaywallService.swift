@@ -15,7 +15,7 @@ protocol PaywallService {
 
 final class DefaultPaywallService: PaywallService {
     
-    func listOfFeatures() -> [PaywallUIModel] { // TODO: TBL
+    func listOfFeatures() -> [PaywallUIModel] {
         
         let budgetFeature: PaywallUIModel = PaywallUIModel(
             icon: .iconPieChart,
@@ -84,7 +84,7 @@ final class DefaultPaywallService: PaywallService {
         ]
     }
     
-    func listOfComparisons() -> [PaywallComparisonUIModel] { // TODO: TBL
+    func listOfComparisons() -> [PaywallComparisonUIModel] {
         
         let illimitedBankAccount: PaywallComparisonUIModel = PaywallComparisonUIModel(
             title: "paywall_illimited_bank_account_title",

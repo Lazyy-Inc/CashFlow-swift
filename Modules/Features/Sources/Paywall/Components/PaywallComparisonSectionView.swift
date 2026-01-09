@@ -37,18 +37,18 @@ struct PaywallComparisonSectionView: View {
 extension PaywallComparisonSectionView {
     
     var headerView: some View {
-        HStack(spacing: .small) { // TODO: TBL
+        HStack(spacing: .small) {
             Text("paywall_comparison_title".localized)
-                .font(.Body.mediumBold, color: .Base.black)
+                .font(.Body.large, color: .Base.black)
                 .fullWidth(.leading)
             
             Text("paywall_comparison_free".localized)
-                .font(.Body.mediumBold, color: .Secondary.secondary300)
+                .font(.Body.large, color: .Secondary.secondary300)
                 .getSize { freeLabelSize = $0.width }
                 .frame(width: freeLabelSize != 0 ? freeLabelSize : nil)
             
             Text("paywall_comparison_max".localized)
-                .font(.Body.mediumBold, color: .Base.black)
+                .font(.Body.large, color: .Base.black)
                 .frame(width: freeLabelSize != 0 ? freeLabelSize : nil)
         }
     }
@@ -56,7 +56,7 @@ extension PaywallComparisonSectionView {
     func comparisonRowView(_ comparison: PaywallComparisonUIModel) -> some View {
         HStack(spacing: .small) {
             Text(comparison.title.localized)
-                .font(.Body.small, color: .Base.black)
+                .font(.Body.medium, color: .Base.black)
                 .fullWidth(.leading)
             
             comparisonValueView(comparison.free, isMax: false)

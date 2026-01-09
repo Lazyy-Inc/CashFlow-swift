@@ -21,8 +21,8 @@ struct PaywallLinksView: View {
             Button {
                 
             } label: {
-                Label(title: { // TODO: TBL
-                    Text("Restaurer l’achat".localized)
+                Label(title: {
+                    Text("paywall_link_restore_purchase".localized)
                         .font(.Body.mediumBold, color: .Base.white)
                 }, icon: {
                     IconView(asset: .iconArrowRotation, color: .Base.white)
@@ -34,8 +34,8 @@ struct PaywallLinksView: View {
                     route: .sheet,
                     destination: .shared(.sfSafari(url: url))
                 ) {
-                    Label(title: { // TODO: TBL
-                        Text("Conditions d’utilisation".localized)
+                    Label(title: {
+                        Text("paywall_link_conditions".localized)
                             .font(.Body.mediumBold, color: .Base.white)
                     }, icon: {
                         IconView(asset: .iconFileText, color: .Base.white)

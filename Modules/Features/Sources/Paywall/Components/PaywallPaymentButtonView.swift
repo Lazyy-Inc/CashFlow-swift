@@ -11,6 +11,8 @@ import Core
 
 struct PaywallPaymentButtonView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     @StateObject private var purchasesManager: PurchasesManager = .shared
     
     // MARK: - View
@@ -19,36 +21,38 @@ struct PaywallPaymentButtonView: View {
             VStack(spacing: .medium) {
                 if purchasesManager.isCashFlowPro {
                     ActionButtonView(
-                        title: "Tu possèdes déjà CashFlow Max ! Merci !".localized // TODO: TBL
-                    ) { }
+                        title: "paywall_purchased".localized
+                    ) {
+                        dismiss()
+                    }
                 } else {
                     VStack(spacing: .small) {
                         HStack(spacing: .small) {
-                            Text("À vie") // TODO: TBL
-                                .font(.Body.small, color: .Base.black)
+                            Text("paywall_lifetime".localized)
+                                .font(.Body.medium, color: .Base.black)
                             
                             promotionCapsuleView
                             
                             Spacer()
                             
                             Text((lifetime.price*2).toCurrency())
-                                .font(.Body.small, color: .Secondary.secondary400)
+                                .font(.Body.medium, color: .Secondary.secondary400)
                                 .strikethrough()
                             
                             Text(lifetime.displayPrice)
-                                .font(.Body.small, color: .Base.black)
+                                .font(.Body.medium, color: .Base.black)
                         }
                         .padding(.standard)
                         .roundedBackground(.classic)
                         
                         ActionButtonView(
-                            title: "generic_continue".localized // TODO: TBL
+                            title: "generic_continue".localized
                         ) {
                             await purchasesManager.buyProduct(lifetime)
                         }
                     }
                     
-                    Text("Payez une fois et profitez pour toujours") // TODO: TBL
+                    Text("paywall_footer_sentence".localized)
                         .font(.Body.small, color: .Secondary.secondary400)
                 }
             }

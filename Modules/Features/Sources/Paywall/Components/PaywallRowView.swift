@@ -20,11 +20,11 @@ struct PaywallRowView: View {
             IconView(asset: item.icon, color: .Base.white)
                 .padding(.small)
             
-            VStack(alignment: .leading, spacing: .zero) {
+            VStack(alignment: .leading, spacing: .tiny) {
                 Text(item.title.localized)
-                    .font(.Body.mediumBold, color: .Base.white)
+                    .font(.Body.large, color: .Base.white)
                 Text(item.description.localized)
-                    .font(.Body.small, color: .Base.white)
+                    .font(.Body.medium, color: .Base.white)
             }
             .fullWidth(.leading)
         }

@@ -34,11 +34,11 @@ public struct PaywallScreen: View {
                             .fullWidth(.trailing)
                     }
                     
-                    Text("paywall_header".localized) // TODO: TBL
+                    Text("paywall_header".localized)
                         .font(.Title.large, color: .Base.white)
                         .multilineTextAlignment(.center)
                     
-                    VStack(spacing: .standard) {
+                    VStack(spacing: .large) {
                         ForEach(viewModel.listOfFeatures) { feature in
                             PaywallRowView(item: feature)
                         }
