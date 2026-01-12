@@ -11,9 +11,9 @@ import StatsKit
 public struct AnalyticsEvent: AppEvent, Sendable {
     public var name: String
     public var path: String
-    public var data: [String : String]?
+    public var data: [String: String]?
     
-    public init(name: String, path: String, data: [String : String]? = nil) {
+    public init(name: String, path: String, data: [String: String]? = nil) {
         self.name = name
         self.path = path
         self.data = data

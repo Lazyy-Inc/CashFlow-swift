@@ -69,7 +69,7 @@ struct PaywallPaymentButtonView: View {
 extension PaywallPaymentButtonView {
     
     private var promotionCapsuleView: some View {
-        Text("Promotion -50 %") // TODO: TBL
+        Text("paywall_promotion".localized)
             .font(.Label.large, color: .Red.red500)
             .padding(.horizontal, .small)
             .padding(.vertical, 4)

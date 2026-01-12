@@ -70,7 +70,7 @@ struct BannerModifier: ViewModifier {
 } // End struct Modifier
 
 extension View {
-    func bannerView(banner: Binding<Banner?>) -> some View {
+    public func bannerView(banner: Binding<Banner?>) -> some View {
         self.modifier(BannerModifier(banner: banner))
     }
 }
