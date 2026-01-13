@@ -19,7 +19,7 @@ public struct ToolbarDismissPushButton: ToolbarContent {
             Button(action: { dismiss() }, label: {
                 Image(systemName: "chevron.left")
                     .font(.system(size: 18, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.text)
+                    .foregroundStyle(Color.Text.primary)
             })
         }
     } // End body

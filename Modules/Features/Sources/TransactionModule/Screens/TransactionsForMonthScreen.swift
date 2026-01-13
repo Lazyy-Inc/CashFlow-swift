@@ -58,7 +58,7 @@ public struct TransactionsForMonthScreen: View {
                 )
                 .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
             })
-            .foregroundStyle(Color.text)
+            .foregroundStyle(Color.Text.primary)
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)

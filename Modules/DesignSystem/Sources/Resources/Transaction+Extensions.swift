@@ -15,11 +15,11 @@ public extension TransactionModel {
     var color: Color {
         switch type {
         case .expense:
-            return Color.Red.red500
+            return Color.Red.r500
         case .income:
-            return .primary500
+            return Color.Primary.p500
         case .transfer:
-            return isSender ? Color.Red.red500 : .primary500
+            return isSender ? Color.Red.r500 : Color.Primary.p500
         }
     }
     

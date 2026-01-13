@@ -42,8 +42,7 @@ struct RepartitionStatisticsCellView: View {
             if let repartitionRule = statisticsPreferences.repartitionRule.toRepartitionRule() {
                 VStack(alignment: .leading, spacing: 0) {
                     Text(statisticsPreferences.repartitionRule)
-                        .font(.Body.large)
-                        .foregroundStyle(Color.text)
+                        .font(.Body.large, color: .Text.primary)
                     
                     Text(
                         String(

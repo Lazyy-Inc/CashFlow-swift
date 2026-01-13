@@ -36,7 +36,7 @@ public struct SwitchDateButton: View {
                 Image(systemName: "chevron.left")
                     .frame(width: 16, height: 16)
                     .font(.system(size: 16, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.text)
+                    .foregroundStyle(Color.Text.primary)
             }
 
             Text(dateDisplayed())
@@ -51,7 +51,7 @@ public struct SwitchDateButton: View {
                 Image(systemName: "chevron.right")
                     .frame(width: 16, height: 16)
                     .font(.system(size: 16, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.text)
+                    .foregroundStyle(Color.Text.primary)
             }
         }
         .padding(12)

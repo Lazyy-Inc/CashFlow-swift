@@ -35,7 +35,7 @@ struct PaywallHeaderView: View {
               .overlay {
                 Image(systemName: "xmark")
                   .font(.system(size: 12, weight: .bold))
-                  .foregroundStyle(Color.text)
+                  .foregroundStyle(Color.Text.primary)
               }
           }
           .frame(width: 26, height: 26)

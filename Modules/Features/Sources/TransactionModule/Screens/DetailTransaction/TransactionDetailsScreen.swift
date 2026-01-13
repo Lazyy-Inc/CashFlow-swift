@@ -57,8 +57,7 @@ public struct TransactionDetailsScreen: View { // TODO: Replace with financialIt
                     VStack(spacing: Spacing.small) {
                         VStack(spacing: Spacing.extraSmall) {
                             Text("\(currentTransaction.symbol) \(currentTransaction.amount.toCurrency())")
-                                .font(.Display.huge)
-                                .foregroundColor(currentTransaction.color)
+                                .font(.Display.huge, color: currentTransaction.color)
                             
                             Text(currentTransaction.nameDisplayed)
                                 .font(.Display.small)

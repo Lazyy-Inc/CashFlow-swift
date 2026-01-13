@@ -38,7 +38,7 @@ public struct PickerDetailRowView<T: Nameable>: View {
     public var body: some View {
         HStack(spacing: 8) {
             IconSVG(icon: icon, value: .small)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.Text.primary)
                 .padding(6)
                 .background {
                     Circle().fill(iconBackgroundColor)
@@ -46,8 +46,7 @@ public struct PickerDetailRowView<T: Nameable>: View {
             
             if let text {
                 Text(text)
-                    .font(.Body.small)
-                    .foregroundStyle(Color.label)
+                    .font(.Body.small, color: .Text.primary)
                     .lineLimit(1)
                     .fixedSize(horizontal: true, vertical: true)
             }
@@ -65,8 +64,7 @@ public struct PickerDetailRowView<T: Nameable>: View {
                     
                     IconSVG(icon: "iconChevronUpDown", value: .medium)
                 }
-                .font(.Body.medium)
-                .foregroundStyle(theme.color)
+                .font(.Body.medium, color: theme.color)
                 .fullWidth(.trailing)
             }
             .labelsHidden()

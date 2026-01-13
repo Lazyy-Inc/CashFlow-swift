@@ -46,7 +46,7 @@ struct CarouselOfChartsView: View {
                     values: dailyIncomes,
                     config: .init(
                         title: "carousel_charts_incomes_current_month".localized,
-                        mainColor: Color.primary500
+                        mainColor: Color.Primary.p500
                     )
                 )
                 .padding(.horizontal, Padding.large)

@@ -37,7 +37,7 @@ struct AuraModifier: ViewModifier {
 // MARK: - View extension
 public extension View {
     func auraEffect(
-        color: Color = .primary500,
+        color: Color = .Primary.p500,
         radius: CGFloat = 140,
         alignment: Alignment = .top,
         offsetY: CGFloat = 20,

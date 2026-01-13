@@ -41,7 +41,7 @@ public struct DetailRow: View {
         } label: {
             HStack(spacing: 8) {
                 IconSVG(icon: icon, value: .small)
-                    .foregroundStyle(isCategory ? Color.white : Color.text)
+                    .foregroundStyle(isCategory ? Color.Base.white : Color.Text.primary)
                     .padding(6)
                     .background {
                         Circle()
@@ -49,15 +49,13 @@ public struct DetailRow: View {
                     }
                 if let text {
                     Text(text)
-                        .font(.Body.small)
-                        .foregroundStyle(Color.label)
+                        .font(.Body.small, color: .Text.primary)
                         .lineLimit(1)
                         .fixedSize(horizontal: true, vertical: true)
                 }
                 
                 Text(value)
-                    .font(.Body.medium)
-                    .foregroundStyle(Color.label)
+                    .font(.Body.medium, color: .Text.primary)
                     .multilineTextAlignment(.trailing)
                     .fullWidth(.trailing)
             }

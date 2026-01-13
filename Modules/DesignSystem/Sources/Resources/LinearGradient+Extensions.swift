@@ -9,16 +9,16 @@ import Foundation
 import SwiftUI
 
 public extension LinearGradient {
-  
-  static var main: LinearGradient {
-    return LinearGradient(
-      colors: [
-        .primary500,
-        Color(hex: "1A836B")
-      ],
-      startPoint: .top,
-      endPoint: .bottom
-    )
-  }
-  
+    
+    static var main: LinearGradient {
+        return LinearGradient(
+            colors: [
+                .Primary.p500,
+                Color(hex: "1A836B")
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+    }
+    
 }

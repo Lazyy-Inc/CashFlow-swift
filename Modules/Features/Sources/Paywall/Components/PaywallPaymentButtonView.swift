@@ -70,10 +70,10 @@ extension PaywallPaymentButtonView {
     
     private var promotionCapsuleView: some View {
         Text("paywall_promotion".localized)
-            .font(.Label.large, color: .Red.red500)
+            .font(.Label.large, color: .Red.r500)
             .padding(.horizontal, .small)
             .padding(.vertical, 4)
-            .background(Color.Red.red100, in: Capsule())
+            .background(Color.Red.r100, in: Capsule())
     }
     
 }

@@ -21,7 +21,7 @@ struct TabbarItemView: View {
             Text(text.localized)
                 .font(.Label.medium)
         }
-        .foregroundStyle(isSelected ? Color.primary500 : Color.text)
+        .foregroundStyle(isSelected ? Color.Primary.p500 : Color.Text.primary)
     }
     
 }

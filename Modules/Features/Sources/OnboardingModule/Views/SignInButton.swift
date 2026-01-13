@@ -20,15 +20,14 @@ struct SignInButton: View {
             HStack(spacing: Spacing.small) {
                 config.icon
                 Text(config.title)
-                    .font(.Body.mediumBold)
-                    .foregroundStyle(Color.label) // TODO: test if display
+                    .font(.Body.mediumBold, color: .Text.primary)
             }
             .frame(maxWidth: .infinity)
             .padding(.horizontal)
             .padding(.vertical, 12)
             .background {
                 RoundedRectangle(cornerRadius: CornerRadius.standard, style: .continuous)
-                    .fill(Color.text)
+                    .fill(Color.Text.primary) // TODO: Test
             }
         }
     } // body

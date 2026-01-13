@@ -73,8 +73,8 @@ extension TwoStatisticsRowView {
 // MARK: - Preview
 #Preview {
     TwoStatisticsRowView(
-        leftItem: .init(value: "+4 234,5 €", text: "Revenus du mois", color: Color.primary500),
-        rightItem: .init(value: "-126,8 €", text: "Dépenses du mois", color: Color.red)
+        leftItem: .init(value: "+4 234,5 €", text: "Revenus du mois", color: Color.Primary.p500),
+        rightItem: .init(value: "-126,8 €", text: "Dépenses du mois", color: Color.Red.r500)
     )
     .padding()
     .background(Color.Background.bg50)

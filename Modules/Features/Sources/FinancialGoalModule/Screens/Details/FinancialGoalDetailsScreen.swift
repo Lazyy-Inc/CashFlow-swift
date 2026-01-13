@@ -109,7 +109,7 @@ public struct FinancialGoalDetailsScreen: View {
                         )
                     } label: {
                         Image(systemName: "ellipsis")
-                            .foregroundStyle(Color.text)
+                            .foregroundStyle(Color.Text.primary)
                             .font(.system(size: 18, weight: .medium, design: .rounded))
                     }
                 }
@@ -233,7 +233,7 @@ extension FinancialGoalDetailsScreen {
                 ) {
                     Image(systemName: "plus")
                         .font(.system(size: 22, weight: .medium, design: .rounded))
-                        .foregroundStyle(Color.text)
+                        .foregroundStyle(Color.Text.primary)
                 }
             }
             

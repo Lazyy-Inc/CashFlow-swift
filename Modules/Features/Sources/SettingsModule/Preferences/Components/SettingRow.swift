@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct SettingRow: View {
     
@@ -27,7 +28,7 @@ struct SettingRow: View {
                 .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
             
             Text(text)
-                .foregroundStyle(Color.text)
+                .foregroundStyle(Color.Text.primary)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .leading)
             

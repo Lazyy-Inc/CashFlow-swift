@@ -22,7 +22,7 @@ struct FontViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(Font(uiFont))
-            .foregroundStyle(color ?? .label)
+            .foregroundStyle(color ?? .Text.primary)
             .lineSpacing(font.lineHeight - uiFont.lineHeight)
             .padding(.vertical, (font.lineHeight - uiFont.lineHeight) / 2)
     }

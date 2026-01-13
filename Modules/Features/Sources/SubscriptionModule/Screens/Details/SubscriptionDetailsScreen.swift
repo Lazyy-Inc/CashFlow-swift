@@ -92,8 +92,7 @@ extension SubscriptionDetailsScreen {
     private func amountWithNameView(_ subscription: SubscriptionModel) -> some View {
         VStack(spacing: Spacing.extraSmall) {
             Text("\(subscription.symbol) \(subscription.amount.toCurrency())")
-                .font(.Display.huge)
-                .foregroundColor(subscription.color)
+                .font(.Display.huge, color: subscription.color)
             
             Text(subscription.name)
                 .font(.Display.small)
