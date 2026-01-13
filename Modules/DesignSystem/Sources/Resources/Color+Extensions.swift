@@ -55,16 +55,6 @@ public extension Color {
         public static let bg600: Color = dynamicColor(light: 0x8E8E93, dark: 0x8E8E93)
     }
     
-    struct Secondary {
-        public static var secondary300: Color {
-            return Color("Secondary300", bundle: .module)
-        }
-        
-        public static var secondary400: Color {
-            return Color("Secondary400", bundle: .module)
-        }
-    }
-    
 }
 
 public extension Color {
@@ -98,39 +88,10 @@ public extension Color {
         public static let turquoise: Color = Color(hex: 0x00796B)
     }
     
-}
-
-public extension Color {
-    
-    struct Error {
-        public static var error400: Color {
-            return Color("Error400", bundle: .module)
-        }
-        public static var error600: Color {
-            return Color("Error600", bundle: .module)
-        }
-    }
-    
     struct Category {
-        public static var categoryLeisure: Color {
-            return Color("categoryLeisure", bundle: .module)
-        }
-        
-        public static var categorySavings: Color {
-            return Color("categorySavings", bundle: .module)
-        }
-        
-        public static var categoryHealth: Color {
-            return Color("categoryHealth", bundle: .module)
-        }
-    }
-    
-}
-
-public extension Color {
-    
-    static var customGray: Color {
-        return Color("customGray", bundle: .module)
+        public static let categoryLeisure: Color = Color(hex: 0xF4511E)
+        public static let categorySavings: Color = Color(hex: 0x0277BD)
+        public static let categoryHealth: Color = Color(hex: 0x00796B)
     }
     
 }

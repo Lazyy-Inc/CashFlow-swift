@@ -49,7 +49,7 @@ public struct DetailOfTransferByMonth: View {
                     }
                     Spacer()
                 }
-                .font(.Body.small, color: .customGray)
+                .font(.Body.small, color: .Text.secondary)
             }
         }
         .fullWidth(.leading)

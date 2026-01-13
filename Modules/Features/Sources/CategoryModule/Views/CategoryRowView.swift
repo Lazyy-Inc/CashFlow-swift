@@ -39,7 +39,7 @@ public struct CategoryRowView: View {
             VStack(alignment: .leading, spacing: 0) {
                 Text(category.name)
                     .font(.Body.medium)
-                    .foregroundStyle(Color.label)
+                    .foregroundStyle(Color.Text.primary)
                     .lineLimit(1)
                 
                 Text(amount.toCurrency())

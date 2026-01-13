@@ -155,7 +155,6 @@ public enum EventKeys: String {
 //    case paywallDetailPrediction = "paywall_detail_prediction"
 //    case paywallDetailBudgets = "paywall_detail_budgets"
     
-     
     case transactionCreated = "transaction_created"
     case transactionExpenseCreated = "transaction_expense_created"
     case transactionIncomeCreated = "transaction_income_created"

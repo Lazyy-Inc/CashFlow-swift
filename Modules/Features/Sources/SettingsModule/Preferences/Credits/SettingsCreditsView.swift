@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Core
+import DesignSystem
 
 public struct SettingsCreditsView: View {
     
@@ -50,7 +51,7 @@ public struct SettingsCreditsView: View {
                                     .font(.Body.medium)
                                 Spacer()
                                 Image(systemName: "arrow.up.forward")
-                                    .foregroundStyle(Color.Secondary.secondary300)
+                                    .foregroundStyle(Color.Text.secondary)
                             }
                         })
                     }
@@ -71,7 +72,7 @@ public struct SettingsCreditsView: View {
     func titleForCellCredit(text: String) -> some View {
         HStack {
             Text(text)
-                .font(.Body.medium, color: .customGray)
+                .font(.Body.medium, color: .Text.secondary)
             Spacer()
         }
         .padding(.leading)

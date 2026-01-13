@@ -44,7 +44,7 @@ struct SubcategoryRowView: View {
             VStack(alignment: .leading, spacing: 0) {
                 Text(subcategory.name)
                     .font(.Body.mediumBold)
-                    .foregroundStyle(Color.label)
+                    .foregroundStyle(Color.Text.primary)
                     .lineLimit(1)
                 
                 Text(stringAmount)
@@ -55,7 +55,7 @@ struct SubcategoryRowView: View {
             .fullWidth(.leading)
             
             IconSVG(icon: "iconArrowRight", value: .large)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.Text.primary)
         }
         .padding(Padding.medium)
         .roundedBackground(.classic)

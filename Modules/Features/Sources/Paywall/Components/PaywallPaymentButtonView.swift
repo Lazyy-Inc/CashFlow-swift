@@ -36,7 +36,7 @@ struct PaywallPaymentButtonView: View {
                             Spacer()
                             
                             Text((lifetime.price*2).toCurrency())
-                                .font(.Body.medium, color: .Secondary.secondary400)
+                                .font(.Body.medium, color: .Text.secondary)
                                 .strikethrough()
                             
                             Text(lifetime.displayPrice)
@@ -53,7 +53,7 @@ struct PaywallPaymentButtonView: View {
                     }
                     
                     Text("paywall_footer_sentence".localized)
-                        .font(.Body.small, color: .Secondary.secondary400)
+                        .font(.Body.small, color: .Text.secondary)
                 }
             }
             .padding(.horizontal, .standard)

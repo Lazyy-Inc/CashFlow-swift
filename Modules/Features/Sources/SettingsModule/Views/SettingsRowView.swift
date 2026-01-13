@@ -37,7 +37,7 @@ struct SettingsRowView: View {
             
             Text(item.title)
                 .font(.Body.medium)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.Text.primary)
                 .fullWidth(.leading)
             
             Image(item.isPush == true ? "iconArrowRight" : "iconArrowUpRight")

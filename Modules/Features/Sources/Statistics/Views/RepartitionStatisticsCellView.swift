@@ -25,7 +25,7 @@ struct RepartitionStatisticsCellView: View {
             if statisticsPreferences.salary == 0 {
                 Text("statistics_chart_salary_missing".localized)
                     .font(.Body.medium)
-                    .foregroundStyle(Color.Error.error600)
+                    .foregroundStyle(Color.Red.r500)
             }
             
             PieChart(

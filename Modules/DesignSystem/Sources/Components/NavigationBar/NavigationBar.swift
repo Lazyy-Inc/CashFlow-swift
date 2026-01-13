@@ -72,7 +72,7 @@ public struct NavigationBar: View {
                             if let icon = actionButton.icon {
                                 Image(icon)
                                     .renderingMode(.template)
-                                    .foregroundStyle(Color.label)
+                                    .foregroundStyle(Color.Text.primary)
                             } else if let title = actionButton.title {
                                 Text(title)
                                     .font(.Body.large)
@@ -89,7 +89,7 @@ public struct NavigationBar: View {
                 if let title {
                     Text(title)
                         .font(.Title.large)
-                        .foregroundStyle(Color.label)
+                        .foregroundStyle(Color.Text.primary)
                 }
             }
             

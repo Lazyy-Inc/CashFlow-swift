@@ -35,10 +35,10 @@ struct ContributionRowView: View {
             
             VStack(alignment: .trailing, spacing: 3) {
                 Text("\(contribution.symbol) \(contribution.amount?.toCurrency() ?? "")")
-                    .font(.Body.medium, color: contribution.type == .withdrawal ? Color.Error.error400 : Color.Primary.p500)
+                    .font(.Body.medium, color: contribution.type == .withdrawal ? Color.Red.r500 : Color.Primary.p500)
                 
                 Text(contribution.date.formatted(date: .numeric, time: .omitted))
-                    .font(.Body.small, color: .customGray)
+                    .font(.Body.small, color: .Text.secondary)
             }
         }
         .padding(12)

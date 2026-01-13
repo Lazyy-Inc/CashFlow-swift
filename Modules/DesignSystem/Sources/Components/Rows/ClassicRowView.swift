@@ -22,7 +22,7 @@ public struct ClassicRowView: View {
         HStack {
             Text(text)
                 .font(.Body.medium)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.Text.primary)
                 .fullWidth(.leading)
             
             IconSVG(icon: "iconArrowRight", value: .large)

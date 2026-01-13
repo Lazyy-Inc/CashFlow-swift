@@ -45,7 +45,7 @@ public struct SuccessfullCreationView: View {
                             .font(.Display.small, color: .Text.primary)
                         
                         Text(succesfullModalManager.subtitle)
-                            .font(.Body.small, color: .Secondary.secondary400)
+                            .font(.Body.small, color: .Text.secondary)
                             .multilineTextAlignment(.center)
                     }
 

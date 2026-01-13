@@ -37,7 +37,7 @@ struct SearchBarView: View {
             
             TextField(placeholder, text: $searchText)
                 .font(.Body.medium)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.Text.primary)
                 .toolbar { ToolbarDismissKeyboardButtonView() }
             
             if isSearching {
@@ -48,7 +48,7 @@ struct SearchBarView: View {
                         .resizable()
                         .renderingMode(.template)
                         .frame(width: 16, height: 16)
-                        .foregroundStyle(Color.label)
+                        .foregroundStyle(Color.Text.primary)
                 }
             }
         }

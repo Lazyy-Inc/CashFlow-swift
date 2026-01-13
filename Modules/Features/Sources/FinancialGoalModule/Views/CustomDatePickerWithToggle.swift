@@ -36,7 +36,7 @@ struct CustomDatePickerWithToggle: View {
                     } label: {
                         Image("iconCheck")
                             .renderingMode(.template)
-                            .foregroundStyle(Color.label)
+                            .foregroundStyle(Color.Text.primary)
                             .padding(8)
                             .frame(width: self.datePickerHeight, height: self.datePickerHeight)
                             .roundedRectangleBorder(
@@ -54,7 +54,7 @@ struct CustomDatePickerWithToggle: View {
                     } label: {
                         Text(date.formatted(Date.FormatStyle().day().month(.abbreviated).year()))
                             .contentTransition(.numericText())
-                            .foregroundStyle(Color.label)
+                            .foregroundStyle(Color.Text.primary)
                             .font(.Body.medium)
                             .padding(Padding.medium)
                             .roundedBackground(.custom(color: .Background.bg200, radius: .small))

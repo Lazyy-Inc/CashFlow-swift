@@ -55,7 +55,7 @@ public struct SettingsScreen: View {
                 VStack(spacing: Spacing.standard) {
                     Text(section.title)
                         .font(.Title.medium)
-                        .foregroundStyle(Color.label)
+                        .foregroundStyle(Color.Text.primary)
                         .fullWidth(.leading)
                         
                     VStack(spacing: Spacing.medium) {
@@ -73,7 +73,7 @@ public struct SettingsScreen: View {
             
             Text("v\(Bundle.main.releaseVersionNumber ?? "")")
                 .font(.Body.mediumBold)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.Text.primary)
                 .padding(.bottom, Spacing.extraLarge)
             
             Rectangle()

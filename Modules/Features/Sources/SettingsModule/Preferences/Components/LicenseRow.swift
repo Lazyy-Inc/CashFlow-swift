@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct LicenseRow: View {
     
@@ -24,11 +25,11 @@ struct LicenseRow: View {
                 Text("setting_credits_licences_title".localized)
                     .font(.Body.large)
                 Text("setting_credits_licences_desc".localized)
-                    .font(.Body.small, color: .Secondary.secondary300)
+                    .font(.Body.small, color: .Text.secondary)
             }
             Spacer()
             Image(systemName: "chevron.right")
-                .foregroundStyle(Color.Secondary.secondary300)
+                .foregroundStyle(Color.Text.secondary)
         }
         .padding(12)
         .padding(.horizontal, 4)

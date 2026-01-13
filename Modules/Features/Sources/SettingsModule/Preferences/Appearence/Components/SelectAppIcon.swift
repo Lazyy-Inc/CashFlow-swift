@@ -20,7 +20,7 @@ struct SelectAppIcon: View {
         VStack {
             VStack(spacing: 8) {
                 Text(Word.Setting.Appearance.appIcons)
-                    .font(.Body.medium, color: .customGray)
+                    .font(.Body.medium, color: .Text.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
                 

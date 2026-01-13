@@ -47,12 +47,12 @@ struct CreationMenuView: View {
                 )
             }
         }
-        .foregroundStyle(Color.label)
+        .foregroundStyle(Color.Text.primary)
         .padding()
         .padding([.top, .leading])
         .fullSize(alignment: .top)
         .background(
-            Color.label.opacity(0.1)
+            Color.Text.primary.opacity(0.1)
                 .ignoresSafeArea()
                 .blur(radius: 10)
                 .onTapGesture {
