@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 import Core
-import Dependencies
 import Models
 import Stores
 import Events

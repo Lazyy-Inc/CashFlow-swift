@@ -11,10 +11,8 @@ import AlertKit
 import Navigation
 import DesignSystem
 import Core
-import Dependencies
 import Events
 import Models
-import Mocks
 import Stores
 
 public struct TransactionDetailsScreen: View { // TODO: Replace with financialItem

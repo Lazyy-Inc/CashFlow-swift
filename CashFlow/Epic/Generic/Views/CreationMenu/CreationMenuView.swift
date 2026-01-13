@@ -10,7 +10,6 @@ import AlertKit
 import Navigation
 import Core
 import Stores
-import Dependencies
 
 struct CreationMenuView: View {
     

@@ -9,7 +9,6 @@ let isPreview = ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"
 var resources: [Resource] {
     if isPreview {
         return [
-            .process("./Resources/Assets/Colors.xcassets"),
             .process("./Resources/Assets/Icons.xcassets")
         ]
     } else {
@@ -25,7 +24,6 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Core"),
-        .package(path: "../Mocks"),
         .package(path: "../Models"),
         .package(path: "../Stores"),
         .package(path: "../Banners"),
@@ -40,7 +38,6 @@ let package = Package(
           dependencies: [
               "Core",
               "Models",
-              "Mocks",
               "Stores",
               "Banners",
               "Navigation",

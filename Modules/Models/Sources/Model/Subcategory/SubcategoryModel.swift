@@ -23,3 +23,13 @@ public struct SubcategoryModel: Identifiable, Equatable, Hashable, Sendable {
         self.isVisible = isVisible
     }
 }
+
+public extension SubcategoryModel {
+    static let mock = SubcategoryModel(
+        id: 1,
+        name: "category1_subcategory1_name".localized,
+        icon: "iconDumbbell",
+        color: .red,
+        isVisible: true
+    )
+}

@@ -13,7 +13,6 @@ import TransactionModule
 import Events
 import TransferModule
 import AccountModule
-import Dependencies
 import Stores
 
 public struct SavingsAccountDetailScreen: View {

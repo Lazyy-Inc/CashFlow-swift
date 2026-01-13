@@ -33,7 +33,6 @@ let package = Package(
     dependencies: [
         .package(path: "../DesignSystem"),
         .package(path: "../Core"),
-        .package(path: "../Mocks"),
         .package(path: "../Models"),
         .package(path: "../Stores"),
         .package(path: "../Navigation"),
@@ -56,7 +55,6 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Core",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation"
@@ -69,7 +67,6 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Core",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -84,7 +81,6 @@ let package = Package(
           dependencies: [
             "DesignSystem",
             "Core",
-            "Mocks",
             "Models",
             "Stores",
             "Navigation",
@@ -102,7 +98,6 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Core",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -118,7 +113,6 @@ let package = Package(
           dependencies: [
             "DesignSystem",
             "Core",
-            "Mocks",
             "Models",
             "Stores",
             "Navigation",
@@ -133,7 +127,6 @@ let package = Package(
           dependencies: [
             "DesignSystem",
             "Core",
-            "Mocks",
             "Models",
             "Stores",
             "Navigation"
@@ -147,7 +140,6 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Core",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation"
@@ -161,7 +153,6 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Core",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -177,7 +168,6 @@ let package = Package(
                 "DesignSystem",
                 "Core",
                 "TransactionModule",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -194,7 +184,6 @@ let package = Package(
                 "Core",
                 "ContributionModule",
                 "TransactionModule",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -210,7 +199,6 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Core",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -225,7 +213,6 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Core",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -241,7 +228,6 @@ let package = Package(
                 "DesignSystem",
                 "Core",
                 "TransactionModule",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -257,7 +243,6 @@ let package = Package(
                 "DesignSystem",
                 "Core",
                 "TransactionModule",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -274,7 +259,6 @@ let package = Package(
                 "DesignSystem",
                 "Core",
                 "TransactionModule",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -291,7 +275,6 @@ let package = Package(
                 "Core",
                 "TransferModule",
                 "AccountModule",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -308,7 +291,6 @@ let package = Package(
                 "DesignSystem",
                 "Core",
                 "TransactionModule",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -325,7 +307,6 @@ let package = Package(
                 "Core",
                 "AccountModule",
                 "SubscriptionModule",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",
@@ -340,7 +321,6 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Core",
-                "Mocks",
                 "Models",
                 "Stores",
                 "Navigation",

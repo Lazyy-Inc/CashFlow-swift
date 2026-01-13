@@ -11,7 +11,6 @@ import SwiftUI
 import Navigation
 import DesignSystem
 import Core
-import Dependencies
 import Stores
 
 public struct CategoriesListScreen: View {

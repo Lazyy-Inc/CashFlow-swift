@@ -81,3 +81,18 @@ public extension SubscriptionModel {
     }
     
 }
+
+public extension SubscriptionModel {
+    
+    static let mockClassicSubscriptionExpense: SubscriptionModel = .init(
+        id: 1,
+        name: "Mock Subscription Expense",
+        amount: 45,
+        type: FinancialItemType.expense,
+        frequency: SubscriptionFrequency.monthly,
+        frequencyDate: Date(),
+        category: .mock,
+        subcategory: .mock
+    )
+    
+}

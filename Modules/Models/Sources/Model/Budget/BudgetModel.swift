@@ -52,3 +52,14 @@ public extension BudgetModel {
     }
     
 }
+
+public extension BudgetModel {
+    
+    static let mock: BudgetModel = .init(
+        id: 1,
+        amount: 300,
+        categoryID: 2,
+        subcategoryID: 1
+    )
+    
+}

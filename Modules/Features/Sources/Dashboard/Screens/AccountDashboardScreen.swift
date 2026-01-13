@@ -13,7 +13,6 @@ import DesignSystem
 import Core
 import CreditCardModule
 import Stores
-import Dependencies
 
 public struct AccountDashboardScreen: View { // TODO: To delete
     

@@ -11,7 +11,6 @@ import Navigation
 import DesignSystem
 import Core
 import TransactionModule
-import Dependencies
 import Models
 import Stores
 

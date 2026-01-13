@@ -11,7 +11,6 @@ import MCEmojiPicker
 import DesignSystem
 import Core
 import Events
-import Dependencies
 import Models
 import Stores
 

@@ -8,7 +8,6 @@
 import Foundation
 import Preferences
 import Stores
-import Dependencies
 import NotificationKit
 import Core
 

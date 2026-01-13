@@ -10,7 +10,6 @@ import SwiftUI
 import Navigation
 import DesignSystem
 import Core
-import Dependencies
 import Models
 import Stores
 

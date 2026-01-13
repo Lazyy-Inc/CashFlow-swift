@@ -9,7 +9,6 @@ import SwiftUI
 import Core
 import DesignSystem
 import Stores
-import Dependencies
 
 struct AccountStatisticsScreen: View {
     

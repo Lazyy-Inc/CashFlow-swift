@@ -11,7 +11,6 @@ import Core
 import Models
 import Stores
 import NetworkKit
-import Dependencies
 
 // MARK: - Stored variables
 extension AddAccountScreen {

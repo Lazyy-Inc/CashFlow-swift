@@ -74,3 +74,15 @@ public extension CategoryModel {
 //    }
 //        
 // }
+
+public extension CategoryModel {
+    static let mock = CategoryModel(
+        id: 1,
+        name: "category1_name",
+        icon: "iconCart",
+        color: Color.red,
+        subcategories: [
+            SubcategoryModel.mock
+        ]
+    )
+}

@@ -11,7 +11,6 @@ import Core
 import Models
 import Stores
 import Events
-import Dependencies
 
 // MARK: - Stored variables
 extension AddSubscriptionScreen {

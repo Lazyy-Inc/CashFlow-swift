@@ -9,7 +9,6 @@ import Foundation
 import Core
 import Models
 import Stores
-import Dependencies
 
 extension SubscriptionDetailsScreen {
     

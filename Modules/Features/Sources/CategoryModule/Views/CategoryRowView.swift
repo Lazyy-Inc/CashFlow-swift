@@ -9,9 +9,7 @@ import SwiftUI
 import DesignSystem
 import Core
 import Models
-import Mocks
 import Stores
-import Dependencies
 
 public struct CategoryRowView: View {
     

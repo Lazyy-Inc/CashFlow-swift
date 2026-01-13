@@ -10,7 +10,6 @@ import Core
 import DesignSystem
 import NetworkKit
 import Models
-import Mocks
 
 public struct CreateTransactionForSavingsAccountScreen: View {
     

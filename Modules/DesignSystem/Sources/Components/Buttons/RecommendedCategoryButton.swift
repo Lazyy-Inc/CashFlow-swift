@@ -9,9 +9,7 @@ import SwiftUI
 import Core
 import Events
 import Models
-import Mocks
 import Stores
-import Dependencies
 
 public struct RecommendedCategoryButton: View {
   

@@ -11,7 +11,6 @@ import SwiftUI
 import Navigation
 import Core
 import DesignSystem
-import Dependencies
 import Stores
 
 public struct TransactionsScreen: View {

@@ -9,7 +9,6 @@ import Foundation
 import Models
 import Core
 import Stores
-import Dependencies
 
 extension CategoryModel: @retroactive Searchable {
     public var searchableText: String {

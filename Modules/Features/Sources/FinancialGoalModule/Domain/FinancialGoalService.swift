@@ -7,7 +7,6 @@
 
 import Foundation
 import Models
-import Dependencies
 import Stores
 
 // MARK: - Protocol

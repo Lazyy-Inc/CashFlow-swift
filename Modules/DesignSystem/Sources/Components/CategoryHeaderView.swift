@@ -8,7 +8,6 @@
 import SwiftUI
 import Core
 import Models
-import Mocks
 
 public struct CategoryHeaderView: View {
     

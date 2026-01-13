@@ -10,7 +10,6 @@ import Core
 import Preferences
 import AccountModule
 import Stores
-import Dependencies
 
 public struct SettingsAccountScreen: View {
     

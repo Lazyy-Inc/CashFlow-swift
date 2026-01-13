@@ -9,7 +9,6 @@ import SwiftUI
 import Core
 import DesignSystem
 import Models
-import Mocks
 
 struct SavingsAccountInfosView: View {
     

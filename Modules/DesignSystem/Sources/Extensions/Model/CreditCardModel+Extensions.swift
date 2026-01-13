@@ -8,7 +8,6 @@
 import Foundation
 import Models
 import Stores
-import Dependencies
 
 public extension CreditCardModel {
     

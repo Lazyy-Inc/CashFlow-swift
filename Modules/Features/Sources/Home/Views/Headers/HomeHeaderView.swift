@@ -8,7 +8,6 @@
 import SwiftUI
 import Navigation
 import Core
-import Dependencies
 import Stores
 import DesignSystem
 import AlertKit

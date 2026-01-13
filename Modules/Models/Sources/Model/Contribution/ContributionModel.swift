@@ -61,3 +61,12 @@ public extension ContributionModel {
     }
     
 }
+
+public extension ContributionModel {
+    
+    static let mockContribution: ContributionModel = .init(
+        amount: 100,
+        dateString: Date().ISO8601Format()
+    )
+    
+}

@@ -13,7 +13,6 @@ import Core
 import Events
 import Models
 import Stores
-import Dependencies
 
 public struct AddTransactionScreen: View {
     

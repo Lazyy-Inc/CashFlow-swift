@@ -9,7 +9,6 @@ import Foundation
 import Core
 import Stores
 import Models
-import Dependencies
 
 public extension TransactionStore {
     

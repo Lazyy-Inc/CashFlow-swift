@@ -9,7 +9,6 @@ import SwiftUI
 import Core
 import Models
 import Stores
-import Dependencies
 
 public struct CircleCategory: View {
     

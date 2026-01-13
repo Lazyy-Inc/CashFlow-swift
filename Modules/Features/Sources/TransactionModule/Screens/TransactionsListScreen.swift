@@ -9,7 +9,6 @@ import SwiftUI
 import Navigation
 import DesignSystem
 import Core
-import Dependencies
 import Events
 import Stores
 

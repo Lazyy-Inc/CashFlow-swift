@@ -11,7 +11,6 @@
 		81D990B42A49F03000EF13A3 /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 81D990B32A49F03000EF13A3 /* SwipeActions */; };
 		D9083BF22E5878CE0077F9C5 /* CreditCardModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9083BF12E5878CE0077F9C5 /* CreditCardModule */; };
 		D9084D9A2E5F72D70077F9C5 /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = D9084D992E5F72D70077F9C5 /* Navigation */; };
-		D9084D9F2E5F82230077F9C5 /* Mocks in Frameworks */ = {isa = PBXBuildFile; productRef = D9084D9E2E5F82230077F9C5 /* Mocks */; };
 		D9084DA12E5F823C0077F9C5 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA02E5F823C0077F9C5 /* Models */; };
 		D9084DA72E606BEB0077F9C5 /* Banners in Frameworks */ = {isa = PBXBuildFile; productRef = D9084DA62E606BEB0077F9C5 /* Banners */; };
 		D9084F3A2E6091E60077F9C5 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F392E6091E60077F9C5 /* Preferences */; };
@@ -90,7 +89,6 @@
 				8129E7512A483A7400FF23E5 /* ConfettiSwiftUI in Frameworks */,
 				D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */,
 				D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */,
-				D9084D9F2E5F82230077F9C5 /* Mocks in Frameworks */,
 				D9084DA12E5F823C0077F9C5 /* Models in Frameworks */,
 				D968C2052E54D055006BB17A /* SavingsAccountModule in Frameworks */,
 				D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */,
@@ -193,7 +191,6 @@
 				D968C2462E54F6F8006BB17A /* SettingsModule */,
 				D9083BF12E5878CE0077F9C5 /* CreditCardModule */,
 				D9084D992E5F72D70077F9C5 /* Navigation */,
-				D9084D9E2E5F82230077F9C5 /* Mocks */,
 				D9084DA02E5F823C0077F9C5 /* Models */,
 				D9084DA62E606BEB0077F9C5 /* Banners */,
 				D9084F392E6091E60077F9C5 /* Preferences */,
@@ -614,10 +611,6 @@
 		D9084D992E5F72D70077F9C5 /* Navigation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Navigation;
-		};
-		D9084D9E2E5F82230077F9C5 /* Mocks */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Mocks;
 		};
 		D9084DA02E5F823C0077F9C5 /* Models */ = {
 			isa = XCSwiftPackageProductDependency;

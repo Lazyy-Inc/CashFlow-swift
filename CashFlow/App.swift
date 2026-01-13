@@ -16,7 +16,6 @@ import DesignSystem
 import Sentry
 import Stores
 import Events
-import Dependencies
 
 @main
 struct TurboBudgetApp: App {

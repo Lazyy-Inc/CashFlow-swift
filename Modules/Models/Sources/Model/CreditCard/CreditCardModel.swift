@@ -56,3 +56,16 @@ public struct CreditCardModel: Codable, Identifiable, Equatable, Hashable, Senda
         try container.encode(limitByMonth, forKey: .limitByMonth)
     }
 }
+
+public extension CreditCardModel {
+  
+  static let mock: CreditCardModel = .init(
+    uuid: UUID(),
+    holder: "Test Holder",
+    number: "1234 5678 9012 3456",
+    cvc: "123",
+    expirateDate: Date().ISO8601Format(),
+    limitByMonth: 1500
+  )
+  
+}

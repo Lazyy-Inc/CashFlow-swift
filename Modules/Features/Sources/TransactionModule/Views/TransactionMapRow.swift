@@ -11,7 +11,6 @@ import MapKit
 import Core
 import DesignSystem
 import Models
-import Mocks
 
 struct TransactionMapRow: View {
     
