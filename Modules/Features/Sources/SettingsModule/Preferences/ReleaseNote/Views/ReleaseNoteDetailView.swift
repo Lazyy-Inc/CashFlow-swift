@@ -37,7 +37,7 @@ public struct ReleaseNoteDetailView: View {
                         VStack(alignment: .leading, spacing: Spacing.standard) {
                             Text("release_note_new_features".localized)
                                 .font(.Title.medium)
-                                .foregroundStyle(Color.primary500)
+                                .foregroundStyle(Color.Primary.p500)
                                 .fullWidth(.leading)
                             
                             ForEach(newFeatures, id: \.self) { feature in
@@ -51,7 +51,7 @@ public struct ReleaseNoteDetailView: View {
                         VStack(alignment: .leading, spacing: Spacing.standard) {
                             Text("release_note_new_features_pro".localized)
                                 .font(.Title.medium)
-                                .foregroundStyle(Color.primary500)
+                                .foregroundStyle(Color.Primary.p500)
                                 .fullWidth(.leading)
                             
                             ForEach(newFeaturesPro, id: \.self) { feature in
@@ -65,7 +65,7 @@ public struct ReleaseNoteDetailView: View {
                         VStack(alignment: .leading, spacing: Spacing.standard) {
                             Text("release_note_bugfixes".localized)
                                 .font(.Title.medium)
-                                .foregroundStyle(Color.primary500)
+                                .foregroundStyle(Color.Primary.p500)
                                 .fullWidth(.leading)
                             
                             ForEach(bugfixes, id: \.self) { bug in

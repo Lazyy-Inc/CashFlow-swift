@@ -122,11 +122,11 @@ extension FinancialItemRowView {
     private var financialColor: Color {
         switch financialItem.type {
         case .expense:
-            return Color.Red.red500
+            return .Red.r500
         case .income:
-            return .primary500
+            return .Primary.p500
         case .transfer:
-            return isSender ? Color.Red.red500 : .primary500
+            return isSender ? .Red.r500 : .Primary.p500
         }
     }
     
@@ -135,7 +135,7 @@ extension FinancialItemRowView {
         case .expense, .income:
             return financialItem.category?.color ?? .gray
         case .transfer:
-            return isSender ? Color.Red.red500 : .primary500
+            return isSender ? .Red.r500 : .Primary.p500
         }
     }
     
@@ -167,8 +167,7 @@ extension FinancialItemRowView {
                 .font(.Body.small)
             
             Text(nameDisplayed)
-                .font(.Body.medium)
-                .foregroundStyle(Color.text)
+                .font(.Body.medium, color: .Text.primary)
                 .lineLimit(1)
         }
         .fullWidth(.leading)

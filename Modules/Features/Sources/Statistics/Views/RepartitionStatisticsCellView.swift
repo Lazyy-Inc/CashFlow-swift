@@ -25,7 +25,7 @@ struct RepartitionStatisticsCellView: View {
             if statisticsPreferences.salary == 0 {
                 Text("statistics_chart_salary_missing".localized)
                     .font(.Body.medium)
-                    .foregroundStyle(Color.Error.error600)
+                    .foregroundStyle(Color.Red.r500)
             }
             
             PieChart(
@@ -42,8 +42,7 @@ struct RepartitionStatisticsCellView: View {
             if let repartitionRule = statisticsPreferences.repartitionRule.toRepartitionRule() {
                 VStack(alignment: .leading, spacing: 0) {
                     Text(statisticsPreferences.repartitionRule)
-                        .font(.Body.large)
-                        .foregroundStyle(Color.text)
+                        .font(.Body.large, color: .Text.primary)
                     
                     Text(
                         String(

@@ -28,8 +28,7 @@ struct SubscriptionSectionView<Content: View>: View {
         VStack(alignment: .leading, spacing: Spacing.medium) {
             VStack(alignment: .leading, spacing: 0) {
                 Text(title)
-                    .font(.Body.large)
-                    .foregroundStyle(Color.text)
+                    .font(.Body.large, color: .Text.primary)
                 Text(subtitle)
                     .font(.Body.small)
                     .foregroundStyle(Color.Background.bg600)

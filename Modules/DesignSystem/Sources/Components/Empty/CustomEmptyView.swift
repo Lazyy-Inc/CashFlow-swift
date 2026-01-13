@@ -34,7 +34,7 @@ public struct CustomEmptyView: View {
                 VStack(spacing: Spacing.extraSmall) {
                     Text(type.title.localized)
                         .font(.Body.large)
-                        .foregroundStyle(Color.label)
+                        .foregroundStyle(Color.Text.primary)
                     
                     Text(type.description.localized)
                         .font(.Body.small)

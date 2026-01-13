@@ -34,9 +34,8 @@ struct PaywallRowView: View {
       
       VStack(alignment: .leading, spacing: 0) {
         Text(title)
-          .font(.Body.medium)
-          .lineLimit(1)
-          .foregroundStyle(Color.text)
+              .font(.Body.medium, color: .Text.primary)
+              .lineLimit(1)
         
         Text(text)
           .font(.Body.small)
@@ -48,7 +47,7 @@ struct PaywallRowView: View {
       
       if isDetailed {
         Image(systemName: "chevron.right")
-          .foregroundStyle(Color.text)
+          .foregroundStyle(Color.Text.primary)
       }
     }
   }

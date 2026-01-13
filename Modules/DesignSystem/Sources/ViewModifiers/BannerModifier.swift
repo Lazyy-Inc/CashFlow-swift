@@ -70,7 +70,7 @@ struct BannerModifier: ViewModifier {
 } // End struct Modifier
 
 extension View {
-    func bannerView(banner: Binding<Banner?>) -> some View {
+    public func bannerView(banner: Binding<Banner?>) -> some View {
         self.modifier(BannerModifier(banner: banner))
     }
 }
@@ -86,7 +86,7 @@ struct BannerView: View {
             .font(.Body.medium, color: style == .error ? Color.white : Color(uiColor: .systemBackground))
             .padding(24)
             .frame(maxWidth: .infinity)
-            .background(style == .error ? Color.red : Color.text)
+            .background(style == .error ? Color.Red.r500 : Color.Text.primary)
             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
             .onTapGesture {
                 onCancelTapped()

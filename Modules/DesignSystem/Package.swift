@@ -11,7 +11,6 @@ var resources: [Resource] {
         return [
             .process("./Resources/Assets/Colors.xcassets"),
             .process("./Resources/Assets/Icons.xcassets")
-//            .process("Resources/PreviewAssets.xcassets")
         ]
     } else {
         return []

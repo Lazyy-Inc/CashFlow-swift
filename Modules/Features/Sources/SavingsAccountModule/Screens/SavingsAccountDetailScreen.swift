@@ -91,7 +91,7 @@ public struct SavingsAccountDetailScreen: View {
                             )
                             .padding(.horizontal, Padding.large)
                         }
-                        .foregroundStyle(Color.label)
+                        .foregroundStyle(Color.Text.primary)
                     }
                 } // End List
                 .listStyle(.plain)

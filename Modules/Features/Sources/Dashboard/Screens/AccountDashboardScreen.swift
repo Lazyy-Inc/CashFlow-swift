@@ -70,7 +70,7 @@ public struct AccountDashboardScreen: View { // TODO: To delete
                     },
                     label: {
                         Image(systemName: "ellipsis")
-                            .foregroundStyle(Color.text)
+                            .foregroundStyle(Color.Text.primary)
                             .font(.system(size: 18, weight: .medium, design: .rounded))
                     })
                 
@@ -83,7 +83,7 @@ public struct AccountDashboardScreen: View { // TODO: To delete
                 NavigationButtonView(route: .push, destination: .settings(.home)) {
                     Image("iconGear")
                         .renderingMode(.template)
-                        .foregroundStyle(Color.text)
+                        .foregroundStyle(Color.Text.primary)
                 }
             }
             

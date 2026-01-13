@@ -28,13 +28,13 @@ struct PeopleRow: View {
                     Text(people.name)
                         .font(.Body.large)
                     Text(people.job)
-                        .font(.Body.small, color: .customGray)
+                        .font(.Body.small, color: .Text.secondary)
                 }
                 
                 Spacer()
                 
                 Image(systemName: "chevron.right")
-                    .foregroundStyle(Color.customGray)
+                    .foregroundStyle(Color.Text.secondary)
             }
             .padding(12)
             .padding(.horizontal, 4)

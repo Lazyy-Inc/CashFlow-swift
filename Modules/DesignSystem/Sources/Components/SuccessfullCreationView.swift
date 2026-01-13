@@ -42,11 +42,10 @@ public struct SuccessfullCreationView: View {
                     
                     VStack(spacing: 16) {
                         Text(succesfullModalManager.title)
-                            .font(.Display.small)
-                            .foregroundStyle(Color.text)
+                            .font(.Display.small, color: .Text.primary)
                         
                         Text(succesfullModalManager.subtitle)
-                            .font(.Body.small, color: .Secondary.secondary400)
+                            .font(.Body.small, color: .Text.secondary)
                             .multilineTextAlignment(.center)
                     }
 

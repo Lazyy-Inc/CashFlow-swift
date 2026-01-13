@@ -22,7 +22,7 @@ public struct MonthPickerView: View {
             
             Text(selectedMonth.formatted(.dateTime.month(.wide).year()).capitalized)
                 .font(.Body.medium)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.Text.primary)
                 .contentTransition(.numericText())
                 .fullWidth()
                 .animation(.smooth, value: selectedMonth)
@@ -41,7 +41,7 @@ extension MonthPickerView {
     ) -> some View {
         Button(action: action) {
             IconSVG(icon: icon, value: .large)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.Text.primary)
                 .padding(Spacing.small)
                 .roundedRectangleBorder(
                     Color.Background.bg200,

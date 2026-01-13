@@ -42,7 +42,7 @@ public struct CustomDatePicker: View {
             VStack(alignment: .trailing, spacing: 0) {
                 Text(date.formatted(.dateTime.day().month(.abbreviated).year()))
                     .contentTransition(.numericText())
-                    .foregroundStyle(Color.label)
+                    .foregroundStyle(Color.Text.primary)
                     .font(.Body.medium)
                     .padding(Padding.medium)
                     .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .center)

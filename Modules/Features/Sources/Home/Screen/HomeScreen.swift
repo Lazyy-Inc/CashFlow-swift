@@ -39,12 +39,12 @@ public struct HomeScreen: View {
                     leftItem: .init(
                         value: viewModel.incomesThisMonth,
                         text: "home_incomes_of_month".localized,
-                        color: .primary500
+                        color: .Primary.p500
                     ),
                     rightItem: .init(
                         value: viewModel.expensesThisMonth,
                         text: "home_expenses_of_month".localized,
-                        color: .red
+                        color: .Red.r500
                     )
                 )
                 

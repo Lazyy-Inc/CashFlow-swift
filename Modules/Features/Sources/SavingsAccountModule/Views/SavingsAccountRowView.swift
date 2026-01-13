@@ -33,7 +33,7 @@ public struct SavingsAccountRowView: View {
                     .overlay {
                         Image("iconLandmark")
                             .renderingMode(.template)
-                            .foregroundStyle(Color.label)
+                            .foregroundStyle(Color.Text.primary)
                     }
                 
                 Spacer()
@@ -47,13 +47,13 @@ public struct SavingsAccountRowView: View {
                 .font(.Title.large)
                 .lineLimit(1)
                 .frame(maxHeight: .infinity)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.Text.primary)
             
             Text(savingsAccount.name)
                 .font(.Body.medium)
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.Text.primary)
         }
         .padding(Padding.standard)
         .aspectRatio(1, contentMode: .fit)

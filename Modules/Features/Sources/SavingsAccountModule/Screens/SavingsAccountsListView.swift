@@ -71,7 +71,7 @@ public struct SavingsAccountsListView: View {
                 VStack(spacing: 0) {
                     Text(totalSavings.toCurrency())
                         .font(.Display.extraLarge)
-                        .foregroundStyle(Color.label)
+                        .foregroundStyle(Color.Text.primary)
                     
                     Text(Word.SavingsAccount.totalSavings)
                         .font(.Body.medium)

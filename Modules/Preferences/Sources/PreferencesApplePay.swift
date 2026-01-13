@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Events
 
-public final class PreferencesApplePay: ObservableObject { // TODO:
+public final class PreferencesApplePay: ObservableObject { // TODO: 
     public static let shared = PreferencesApplePay()
     
     public let objectWillChange = PassthroughSubject<Void, Never>()

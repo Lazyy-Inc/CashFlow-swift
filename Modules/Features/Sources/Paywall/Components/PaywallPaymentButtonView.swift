@@ -36,7 +36,7 @@ struct PaywallPaymentButtonView: View {
                             Spacer()
                             
                             Text((lifetime.price*2).toCurrency())
-                                .font(.Body.medium, color: .Secondary.secondary400)
+                                .font(.Body.medium, color: .Text.secondary)
                                 .strikethrough()
                             
                             Text(lifetime.displayPrice)
@@ -53,7 +53,7 @@ struct PaywallPaymentButtonView: View {
                     }
                     
                     Text("paywall_footer_sentence".localized)
-                        .font(.Body.small, color: .Secondary.secondary400)
+                        .font(.Body.small, color: .Text.secondary)
                 }
             }
             .padding(.horizontal, .standard)
@@ -69,11 +69,11 @@ struct PaywallPaymentButtonView: View {
 extension PaywallPaymentButtonView {
     
     private var promotionCapsuleView: some View {
-        Text("Promotion -50 %") // TODO: TBL
-            .font(.Label.large, color: .Red.red500)
+        Text("paywall_promotion".localized)
+            .font(.Label.large, color: .Red.r500)
             .padding(.horizontal, .small)
             .padding(.vertical, 4)
-            .background(Color.Red.red100, in: Capsule())
+            .background(Color.Red.r100, in: Capsule())
     }
     
 }

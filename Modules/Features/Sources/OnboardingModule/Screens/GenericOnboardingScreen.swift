@@ -38,8 +38,7 @@ struct GenericOnboardingScreen: View {
                     .clipShape(RoundedRectangle(cornerRadius: CornerRadius.small, style: .continuous))
                 
                 Text("CashFlow")
-                    .font(.Title.medium)
-                    .foregroundStyle(Color.text)
+                    .font(.Title.medium, color: .Text.primary)
             }
             
             VStack(spacing: 32) {

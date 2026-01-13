@@ -41,7 +41,7 @@ public struct GenericLineChartView: View {
                     .font(.Body.small)
                 
                 Text(amounts.reduce(0, +).toCurrency())
-                    .foregroundStyle(Color.label)
+                    .foregroundStyle(Color.Text.primary)
                     .font(.Title.medium)
             }
             .fullWidth(.leading)
@@ -118,7 +118,7 @@ extension GenericLineChartView {
         values: [.mockToday, .mockTomorrow],
         config: .init(
             title: "Preview chart",
-            mainColor: Color.Error.error400
+            mainColor: Color.Red.r500
         )
     )
 }

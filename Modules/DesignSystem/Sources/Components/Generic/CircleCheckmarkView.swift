@@ -25,7 +25,7 @@ public struct CircleCheckmarkView: View {
     }
 
     var backgroundColor: AnyShapeStyle {
-        return isColored ? AnyShapeStyle(LinearGradient.main) : AnyShapeStyle(Color.Secondary.secondary300)
+        return isColored ? AnyShapeStyle(LinearGradient.main) : AnyShapeStyle(Color.Text.secondary)
     }
 }
 

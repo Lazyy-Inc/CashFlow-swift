@@ -49,7 +49,7 @@ struct CreationMenuButton: View {
                 Image(action.icon)
                     .renderingMode(.template)
             }
-            .foregroundStyle(Color.label)
+            .foregroundStyle(Color.Text.primary)
             .padding(.horizontal, Spacing.standard)
             .padding(.vertical, Spacing.medium)
             .roundedRectangleBorder(

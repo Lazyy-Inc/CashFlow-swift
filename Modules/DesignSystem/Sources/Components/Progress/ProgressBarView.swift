@@ -38,8 +38,7 @@ public struct ProgressBarView: View {
                         .frame(width: isAnimated ? progressWidth : 0)
                         .overlay(alignment: .trailing) {
                             Text(percentageString)
-                                .font(.Body.mediumBold)
-                                .foregroundStyle(Color.textReversed)
+                                .font(.Body.mediumBold, color: .Text.primaryReversed)
                                 .opacity(isAnimated ? 1 : 0)
                                 .padding(.horizontal, 12)
                                 .fixedSize(horizontal: true, vertical: false)

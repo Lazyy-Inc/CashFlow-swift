@@ -36,7 +36,7 @@ public struct SettingsStatisticsScreen: View {
             HStack {
               Text("settings_statistics_salary".localized)
                 .fullWidth(.leading)
-                .foregroundStyle(Color.text)
+                .foregroundStyle(Color.Text.primary)
               
               Text(statisticsPreferences.salary.toCurrency())
             }

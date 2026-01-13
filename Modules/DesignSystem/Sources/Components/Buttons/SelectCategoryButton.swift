@@ -55,7 +55,7 @@ public struct SelectCategoryButton: View {
                         Text(Word.Create.addCategory)
                     }
                 }
-                .font(.Body.medium, color: selectedCategory == nil ? Color.text : Color.white)
+                .font(.Body.medium, color: selectedCategory == nil ? Color.Text.primary : Color.Base.white)
                 .padding(Padding.regular)
                 .fullWidth(.leading)
                 .roundedBackground(

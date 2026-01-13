@@ -30,7 +30,7 @@ struct ContributionTypePickerView: View {
                     } label: {
                         Text(type.name)
                             .lineLimit(1)
-                            .foregroundStyle(Color.text)
+                            .foregroundStyle(Color.Text.primary)
                     }
                     .padding(.vertical)
                     .frame(maxWidth: .infinity)

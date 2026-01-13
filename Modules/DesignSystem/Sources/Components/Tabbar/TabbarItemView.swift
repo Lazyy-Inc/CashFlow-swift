@@ -19,9 +19,9 @@ struct TabbarItemView: View {
         VStack(spacing: Spacing.extraSmall) {
             IconSVG(icon: icon, value: .large)
             Text(text.localized)
-                .font(.Label.medium)
+                .font(.Label.medium, color: isSelected ? Color.Primary.p500 : Color.Text.primary)
         }
-        .foregroundStyle(isSelected ? Color.primary500 : Color.text)
+        .foregroundStyle(isSelected ? Color.Primary.p500 : Color.Text.primary)
     }
     
 }

@@ -38,30 +38,23 @@ public struct NavigationBarWithMenu<Content: View>: View {
                             dismiss()
                         }
                     } label: {
-                        Image("iconArrowLeft")
-                            .resizable()
-                            .renderingMode(.template)
-                            .frame(width: 20, height: 20)
+                        IconView(asset: .iconArrowLeft, size: .medium, color: .Text.secondary)
                         Text("word_return".localized)
-                            .font(.Body.medium)
+                            .font(.Body.medium, color: .Text.secondary)
                     }
 //                    .glassButtonEffect()
                 }
-                .foregroundStyle(Color.Background.bg600)
                 
                 if let title {
                     Text(title)
-                        .font(.Title.large)
-                        .foregroundStyle(Color.label)
+                        .font(.Title.large, color: .Text.primary)
                 }
             }
             
             Spacer()
             
             Menu(content: content) {
-                Image("iconEllipsis")
-                    .renderingMode(.template)
-                    .foregroundStyle(Color.label)
+                IconView(asset: .iconEllipsis, color: .Text.primary)
             }
 //            .glassButtonEffect()
         }

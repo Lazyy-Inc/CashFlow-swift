@@ -22,6 +22,7 @@ import Dashboard
 import Statistics
 import SubscriptionModule
 import SettingsModule
+import Banners
 
 struct RootScreen: View {
     
@@ -35,6 +36,7 @@ struct RootScreen: View {
     @StateObject private var analysisRouter: Router<AppDestination> = .init()
     @StateObject private var accountRouter: Router<AppDestination> = .init()
     @StateObject private var routerManager: AppRouterManager = .shared
+    @StateObject private var bannerManager: BannerManager = .shared
     
     @StateObject private var viewModel: ViewModel = .init()
     
@@ -81,6 +83,7 @@ struct RootScreen: View {
                 .ignoresSafeArea(.keyboard)
             } // End if unlocked
         }
+        .bannerView(banner: $bannerManager.banner)
         .padding(viewModel.isUnlocked ? 0 : 0)
         .onChange(of: viewModel.launchScreenEnd) { _, newValue in
             if accountStore.selectedAccount != nil && !preferencesGeneral.isAlreadyOpen {
@@ -191,10 +194,19 @@ extension RootScreen {
                 router: homeRouter,
                 destinationContent: { AppDestination.content(for: $0) },
                 initialContent: {
-                    CustomEmptyView(type: .noAccounts)
-                        .padding()
-                        .fullSize()
-                        .background(Color.Background.bg50)
+                    VStack(spacing: .large) {
+                        CustomEmptyView(type: .noAccounts)
+                            .padding()
+                            .fullSize()
+                            .background(Color.Background.bg50)
+                        
+                        AsyncButton {
+                            appManager.isStartDataLoaded = false
+                            await appManager.loadStartData()
+                        } label: {
+                            Text("Reload data")
+                        }
+                    }
                 }
             )
         }

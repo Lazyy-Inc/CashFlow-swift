@@ -53,7 +53,7 @@ public struct DetailOfExpensesAndIncomesByMonth: View {
                     }
                     Spacer()
                 }
-                .font(.Body.small, color: .customGray)
+                .font(.Body.small, color: .Text.secondary)
             }
         }
         .fullWidth(.leading)

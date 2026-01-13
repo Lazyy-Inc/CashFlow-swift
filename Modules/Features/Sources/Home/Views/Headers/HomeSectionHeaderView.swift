@@ -27,8 +27,7 @@ struct HomeSectionHeaderView: View {
                 destination: destination
             ) {
                 Text("home_see_all".localized)
-                    .font(.Body.small)
-                    .foregroundStyle(Color.text)
+                    .font(.Body.small, color: .Text.primary)
                     .underline(true)
             }
         }

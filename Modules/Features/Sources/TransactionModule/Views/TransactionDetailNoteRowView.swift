@@ -43,7 +43,7 @@ public struct TransactionDetailNoteRowView: View {
                 if note.isEmpty {
                     HStack {
                         Text("transaction_detail_note".localized)
-                            .font(.Body.medium, color: .customGray)
+                            .font(.Body.medium, color: .Text.secondary)
                         
                         Spacer()
                     }

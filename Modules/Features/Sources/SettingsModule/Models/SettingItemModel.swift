@@ -98,27 +98,27 @@ enum SettingItemModel: Identifiable {
     
     var color: Color {
         switch self {
-        case .cashFlowPro: return Color.primary500
-        case .general:     return Color.Settings.settingsGray
-        case .security:    return Color.Settings.settingsGreen
-        case .appearance:  return Color.Settings.settingsDarkPurple
-        case .display:     return Color.Settings.settingsBlue
-        case .account:     return Color.primary500
-        case .subscription: return Color.Settings.settingsRed
-        case .statistics:  return Color.Settings.settingsOrange
-        case .applePay:    return Color.Settings.settingsPurple
-        case .shortcutApplePay: return Color.Settings.settingsPurple
-        case .faq:         return Color.Settings.settingsGreen
-        case .writeReview: return Color.Settings.settingsOrange
-        case .reportBug:   return Color.Settings.settingsRed
-        case .suggestFeature: return Color.Settings.settingsPurple
-        case .shareApp:    return Color.Settings.settingsBlue
-        case .credits:     return Color.Settings.settingsTurquoise
-        case .moreOfThisDeveloper: return Color.Settings.settingsGreen
-        case .logout:      return Color.Settings.settingsRed
-        case .deleteAccount: return Color.Settings.settingsRed
-        case .conditionsOfUse: return Color.Settings.settingsDarkBlue
-        case .confidentialityPolicy: return Color.Settings.settingsDarkBlue
+        case .cashFlowPro: return Color.Primary.p500
+        case .general:     return Color.Settings.gray
+        case .security:    return Color.Settings.green
+        case .appearance:  return Color.Settings.darkPurple
+        case .display:     return Color.Settings.blue
+        case .account:     return Color.Primary.p500
+        case .subscription: return Color.Settings.red
+        case .statistics:  return Color.Settings.orange
+        case .applePay:    return Color.Settings.purple
+        case .shortcutApplePay: return Color.Settings.purple
+        case .faq:         return Color.Settings.green
+        case .writeReview: return Color.Settings.orange
+        case .reportBug:   return Color.Settings.red
+        case .suggestFeature: return Color.Settings.purple
+        case .shareApp:    return Color.Settings.blue
+        case .credits:     return Color.Settings.turquoise
+        case .moreOfThisDeveloper: return Color.Settings.green
+        case .logout:      return Color.Settings.red
+        case .deleteAccount: return Color.Settings.red
+        case .conditionsOfUse: return Color.Settings.darkBlue
+        case .confidentialityPolicy: return Color.Settings.darkBlue
         }
     }
     

@@ -17,7 +17,7 @@ struct SelectThemeColor: View {
     var body: some View {
         VStack(spacing: 8) {
             Text(Word.Setting.Appearance.tintColor)
-                .font(.Body.medium, color: .customGray)
+                .font(.Body.medium, color: .Text.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading)
             
@@ -29,7 +29,7 @@ struct SelectThemeColor: View {
                                 .frame(width: 30)
                                 .foregroundStyle(theme.color)
                             Text(theme.name)
-                                .font(.Body.medium, color: .customGray)
+                                .font(.Body.medium, color: .Text.secondary)
                         }
                         .padding()
                         .frame(width: 90, height: 90)

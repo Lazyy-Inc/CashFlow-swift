@@ -11,9 +11,9 @@ import StatsKit
 public struct AnalyticsEvent: AppEvent, Sendable {
     public var name: String
     public var path: String
-    public var data: [String : String]?
+    public var data: [String: String]?
     
-    public init(name: String, path: String, data: [String : String]? = nil) {
+    public init(name: String, path: String, data: [String: String]? = nil) {
         self.name = name
         self.path = path
         self.data = data
@@ -155,7 +155,6 @@ public enum EventKeys: String {
 //    case paywallDetailPrediction = "paywall_detail_prediction"
 //    case paywallDetailBudgets = "paywall_detail_budgets"
     
-     
     case transactionCreated = "transaction_created"
     case transactionExpenseCreated = "transaction_expense_created"
     case transactionIncomeCreated = "transaction_income_created"

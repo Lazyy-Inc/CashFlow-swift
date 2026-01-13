@@ -34,14 +34,13 @@ struct HomeHeaderView: View {
             VStack(alignment: .leading, spacing: 0) {
                 if let account = accountStore.selectedAccount {
                     Text(account.balance.toCurrency())
-                        .font(.Title.large)
+                        .font(.Title.large, color: .Text.primary)
                         .contentTransition(.numericText())
                         .animation(.smooth, value: account.balance)
                 }
                 
                 Text("home_screen_available_balance".localized)
-                    .font(.Body.small)
-                    .foregroundStyle(Color.Background.bg600)
+                    .font(.Body.small, color: .Text.secondary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             

@@ -16,13 +16,13 @@ public enum ActionButtonStyle {
         switch self {
         case .plain:
             return AnyShapeStyle(LinearGradient(
-                colors: [Color.primary500, Color.primary500.darker(by: 15)],
+                colors: [Color.Primary.p500, Color.Primary.p500.darker(by: 15)],
                 startPoint: .top,
                 endPoint: .bottom
             ))
         case .disabled:
             return AnyShapeStyle(LinearGradient(
-                colors: [Color.primary500, Color.primary500.darker(by: 15)],
+                colors: [Color.Primary.p500, Color.Primary.p500.darker(by: 15)],
                 startPoint: .top,
                 endPoint: .bottom
             ).opacity(0.3))

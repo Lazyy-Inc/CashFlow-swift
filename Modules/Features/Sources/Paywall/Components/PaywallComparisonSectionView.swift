@@ -43,7 +43,7 @@ extension PaywallComparisonSectionView {
                 .fullWidth(.leading)
             
             Text("paywall_comparison_free".localized)
-                .font(.Body.large, color: .Secondary.secondary300)
+                .font(.Body.large, color: .Text.secondary)
                 .getSize { freeLabelSize = $0.width }
                 .frame(width: freeLabelSize != 0 ? freeLabelSize : nil)
             
@@ -79,7 +79,7 @@ extension PaywallComparisonSectionView {
                 Text(value?.formatted() ?? "-")
             }
         }
-        .font(.Body.mediumBold, color: .Secondary.secondary300)
+        .font(.Body.mediumBold, color: .Text.secondary)
     }
     
 }

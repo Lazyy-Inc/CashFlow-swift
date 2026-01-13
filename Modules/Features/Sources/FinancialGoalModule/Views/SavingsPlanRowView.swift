@@ -43,7 +43,7 @@ public struct SavingsPlanRowView: View {
                 
                 Text(savingsPlan.name ?? "")
                     .font(.Body.medium)
-                    .foregroundStyle(Color.label)
+                    .foregroundStyle(Color.Text.primary)
                     .lineLimit(1)
                     .fullWidth(.leading)
                                 
@@ -56,7 +56,7 @@ public struct SavingsPlanRowView: View {
                 HStack(spacing: 0) {
                     Text("\((savingsPlan.currentAmount ?? 0).toCurrency())")
                         .font(.Body.small)
-                        .foregroundStyle(Color.label)
+                        .foregroundStyle(Color.Text.primary)
                         .fullWidth(.leading)
                     
                     Text("/ \((savingsPlan.goalAmount ?? 0).toCurrency())")

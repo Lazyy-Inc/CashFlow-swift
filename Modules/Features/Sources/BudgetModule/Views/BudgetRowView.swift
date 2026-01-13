@@ -77,7 +77,7 @@ struct BudgetRowView: View {
                 .padding(8)
             }
         }
-        .foregroundStyle(Color.label)
+        .foregroundStyle(Color.Text.primary)
         .padding()
         .roundedBackground(.classic)
     } // body
