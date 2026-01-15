@@ -41,7 +41,7 @@ public extension SubcategoryModel {
     
     var transactionsFiltered: [TransactionModel] {
         return self.transactions
-            .filter { Calendar.current.isDate($0.date, equalTo: FilterManager.shared.date, toGranularity: .month) }
+            .filter { Calendar.current.isDate($0.date, equalTo: Date(), toGranularity: .month) }
     }
     
 }

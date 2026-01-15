@@ -8,7 +8,7 @@
 import Foundation
 
 public struct FinancialGoalUIModel: UIModel {
-    public var id: Int
+    public let id: Int
     public var name: String
     public var emoji: String
     public var startDate: Date

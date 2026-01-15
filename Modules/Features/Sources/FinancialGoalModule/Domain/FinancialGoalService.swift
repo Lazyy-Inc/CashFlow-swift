@@ -18,9 +18,7 @@ protocol FinancialGoalService {
 }
 
 // MARK: - Default implementation
-final class DefaultFinancialGoalService: FinancialGoalService {
-    
-}
+final class DefaultFinancialGoalService: FinancialGoalService { }
 
 // MARK: Monthly
 extension FinancialGoalService {

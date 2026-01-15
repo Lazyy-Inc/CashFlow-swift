@@ -17,7 +17,6 @@ import Stores
 
 import Home
 import Savings
-import Dashboard
 import Statistics
 import SubscriptionModule
 import SettingsModule

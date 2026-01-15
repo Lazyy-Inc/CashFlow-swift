@@ -8,11 +8,13 @@
 import Foundation
 import Models
 
+// MARK: - Protocol
 protocol PaywallService {
     func listOfFeatures() -> [PaywallUIModel]
     func listOfComparisons() -> [PaywallComparisonUIModel]
 }
 
+// MARK: - Default implementation
 final class DefaultPaywallService: PaywallService {
     
     func listOfFeatures() -> [PaywallUIModel] {

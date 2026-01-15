@@ -8,7 +8,6 @@ let package = Package(
     platforms: [.iOS(.v17)],
     products: [
         .library(name: "OnboardingModule", targets: ["OnboardingModule"]),
-        .library(name: "PaywallModule", targets: ["PaywallModule"]),
         .library(name: "TransactionModule", targets: ["TransactionModule"]),
         .library(name: "SubscriptionModule", targets: ["SubscriptionModule"]),
         .library(name: "FinancialGoalModule", targets: ["FinancialGoalModule"]),
@@ -24,7 +23,6 @@ let package = Package(
         
         .library(name: "Home", targets: ["Home"]),
         .library(name: "Savings", targets: ["Savings"]),
-        .library(name: "Dashboard", targets: ["Dashboard"]),
         .library(name: "Statistics", targets: ["Statistics"]),
         
         // New clean packages
@@ -109,20 +107,6 @@ let package = Package(
         .testTarget(name: "SavingsTests", dependencies: ["Savings"]),
         
         .target(
-          name: "Dashboard",
-          dependencies: [
-            "DesignSystem",
-            "Core",
-            "Models",
-            "Stores",
-            "Navigation",
-            "CreditCardModule"
-          ],
-          swiftSettings: [.swiftLanguageMode(.v5)]
-        ),
-        .testTarget(name: "DashboardTests", dependencies: ["Dashboard"]),
-        
-        .target(
           name: "Statistics",
           dependencies: [
             "DesignSystem",
@@ -134,19 +118,6 @@ let package = Package(
           swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "StatisticsTests", dependencies: ["Statistics"]),
-        
-        .target(
-            name: "PaywallModule",
-            dependencies: [
-                "DesignSystem",
-                "Core",
-                "Models",
-                "Stores",
-                "Navigation"
-            ],
-            swiftSettings: [.swiftLanguageMode(.v5)]
-        ),
-        .testTarget(name: "PaywallModuleTests", dependencies: ["PaywallModule"]),
         
         .target(
             name: "TransactionModule",

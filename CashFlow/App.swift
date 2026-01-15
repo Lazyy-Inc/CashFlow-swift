@@ -25,7 +25,6 @@ struct TurboBudgetApp: App {
     @StateObject private var appearanceManager = AppearanceManager()
     @StateObject private var purchasesManager: PurchasesManager = .shared
     @StateObject private var alertManager: AlertManager = .shared
-    @StateObject private var filterManager: FilterManager = .shared
     @StateObject private var successfullModalManager: SuccessfullModalManager = .shared
     @StateObject private var networkMonitor = NetworkMonitor()
     
@@ -41,7 +40,6 @@ struct TurboBudgetApp: App {
     // MARK: Preferences
     @StateObject private var preferencesSecurity: PreferencesSecurity = .shared
     @StateObject private var preferencesGeneral: PreferencesGeneral = .shared
-    @StateObject private var preferencesSubscription: SubscriptionPreferences = .shared
     
     // MARK: Init
     init() {
@@ -63,7 +61,6 @@ struct TurboBudgetApp: App {
                 .environmentObject(appearanceManager)
                 .environmentObject(purchasesManager)
                 .environmentObject(alertManager)
-                .environmentObject(filterManager)
                 .environmentObject(successfullModalManager)
             
                 .environmentObject(userStore)

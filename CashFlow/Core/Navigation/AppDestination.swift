@@ -9,7 +9,6 @@ import SwiftUI
 import Core
 import Navigation
 import DesignSystem
-import PaywallModule
 import TransactionModule
 import SubscriptionModule
 import FinancialGoalModule
@@ -25,7 +24,6 @@ import SettingsModule
 import CreditCardModule
 
 import Home
-import Dashboard
 import Paywall
 
 extension AppDestination {
@@ -64,151 +62,163 @@ extension AppDestination {
         }
     }
     
+    @ViewBuilder
     static private func destiantionAccount(_ account: AccountDestination) -> some View {
         switch account {
         case .create:
-            AnyView(AddAccountScreen(type: .classic))
+            AddAccountScreen(type: .classic)
         case .update(let account):
-            AnyView(AddAccountScreen(type: .classic, account: account))
+            AddAccountScreen(type: .classic, account: account)
         case .dashboard:
-            AnyView(AccountDashboardScreen())
+            EmptyView()
         case .statistics:
-            AnyView(AccountStatisticsScreen())
+            AccountStatisticsScreen()
         }
     }
     
+    @ViewBuilder
     static private func destinationSavingsAccount(_ savingsAccount: SavingsAccountDestination) -> some View {
         switch savingsAccount {
         case .create:
-            AnyView(AddAccountScreen(type: .savings))
+            AddAccountScreen(type: .savings)
         case .update(let account):
-            AnyView(AddAccountScreen(type: .savings, account: account))
+            AddAccountScreen(type: .savings, account: account)
         case .list:
-            AnyView(SavingsAccountsListView())
+            SavingsAccountsListView()
         case .detail:
-            AnyView(SavingsAccountDetailScreen())
+            SavingsAccountDetailScreen()
         case .createTransaction(let savingsAccount, let transaction):
-            AnyView(CreateTransactionForSavingsAccountScreen(savingsAccount: savingsAccount, transaction: transaction))
+            CreateTransactionForSavingsAccountScreen(savingsAccount: savingsAccount, transaction: transaction)
         }
     }
     
+    @ViewBuilder
     static private func destinationTransfer(_ transfer: TransferDestination) -> some View {
         switch transfer {
         case .create(let receiverAccount):
-            AnyView(AddTransferScreen(receiverAccount: receiverAccount))
+            AddTransferScreen(receiverAccount: receiverAccount)
         }
     }
     
+    @ViewBuilder
     static private func destinationTransaction(_ transaction: TransactionDestination) -> some View {
         switch transaction {
         case .list:
-            AnyView(TransactionsScreen())
+            TransactionsScreen()
         case .specificList(let month, let type):
-            AnyView(TransactionsForMonthScreen(selectedDate: month, type: type))
+            TransactionsForMonthScreen(selectedDate: month, type: type)
         case .create:
-            AnyView(AddTransactionScreen())
+            AddTransactionScreen()
         case .update(let transaction):
-            AnyView(AddTransactionScreen(transaction: transaction))
+            AddTransactionScreen(transaction: transaction)
         case .detail(let transactionId):
-            AnyView(TransactionDetailsScreen(transactionId: transactionId))
+            TransactionDetailsScreen(transactionId: transactionId)
         }
     }
     
+    @ViewBuilder
     static private func destinationSubscription(_ subscription: SubscriptionDestination) -> some View {
         switch subscription {
         case .list:
-            AnyView(SubscriptionsListScreen())
+            SubscriptionsListScreen()
         case .create:
-            AnyView(AddSubscriptionScreen())
+            AddSubscriptionScreen()
         case .update(let subscription):
-            AnyView(AddSubscriptionScreen(subscription: subscription))
+            AddSubscriptionScreen(subscription: subscription)
         case .detail(let subscriptionId):
-            AnyView(SubscriptionDetailsScreen(subscriptionId: subscriptionId))
+            SubscriptionDetailsScreen(subscriptionId: subscriptionId)
         }
     }
     
+    @ViewBuilder
     static private func destinationSavingsPlan(_ savingsPlan: SavingsPlanDestination) -> some View {
         switch savingsPlan {
         case .list:
-            AnyView(SavingsPlanListScreen())
+            SavingsPlanListScreen()
         case .create:
-            AnyView(AddFinancialGoalScreen())
+            AddFinancialGoalScreen()
         case .update(let savingsPlan):
-            AnyView(AddFinancialGoalScreen(savingsPlan: savingsPlan))
+            AddFinancialGoalScreen(savingsPlan: savingsPlan)
         case .detail(let savingsPlan):
-            AnyView(FinancialGoalDetailsScreen(savingsPlan: savingsPlan))
+            FinancialGoalDetailsScreen(savingsPlan: savingsPlan)
         }
     }
     
+    @ViewBuilder
     static private func destinationContribution(_ contribution: ContributionDestination) -> some View {
         switch contribution {
         case .create(let savingsPlan):
-            AnyView(AddContributionScreen(savingsPlan: savingsPlan))
+            AddContributionScreen(savingsPlan: savingsPlan)
         }
     }
     
+    @ViewBuilder
     static private func destinationBudget(_ budget: BudgetsDestination) -> some View {
         switch budget {
         case .list:
-            AnyView(BudgetsListScreen())
+            BudgetsListScreen()
         case .create:
-            AnyView(BudgetAddScreen())
+            BudgetAddScreen()
         case .transactions(let subcategory):
-            AnyView(BudgetsTransactionsListScreen(subcategory: subcategory))
+            BudgetsTransactionsListScreen(subcategory: subcategory)
         }
     }
     
+    @ViewBuilder
     static private func destinationCreditCard(_ creditCard: CreditCardDestination) -> some View {
         switch creditCard {
         case .create:
-            AnyView(CreditCardAddScreen())
+            CreditCardAddScreen()
         }
     }
     
+    @ViewBuilder
     static private func destinationCategory(_ category: CategoryDestination) -> some View {
         switch category {
         case .list:
-            AnyView(CategoriesListScreen())
+            CategoriesListScreen()
         case .transactions(let category, let selectedDate):
-            AnyView(CategoryTransactionsScreen(category: category, selectedDate: selectedDate))
+            CategoryTransactionsScreen(category: category, selectedDate: selectedDate)
         case .select(let selectedCategory, let selectedSubcategory):
-            AnyView(SelectCategoryScreen(selectedCategory: selectedCategory, selectedSubcategory: selectedSubcategory))
+            SelectCategoryScreen(selectedCategory: selectedCategory, selectedSubcategory: selectedSubcategory)
         }
     }
     
+    @ViewBuilder
     static private func destinationSubcategory(_ subcategory: SubcategoryDestination) -> some View {
         switch subcategory {
         case .list(let category, let selectedDate):
-            AnyView(SubcategoryListScreen(category: category, selectedDate: selectedDate))
+            SubcategoryListScreen(category: category, selectedDate: selectedDate)
         case .transactions(let subcategory, let selectedDate):
-            AnyView(SubcategoryTransactionsScreen(subcategory: subcategory, selectedDate: selectedDate))
+            SubcategoryTransactionsScreen(subcategory: subcategory, selectedDate: selectedDate)
         }
     }
     
+    @ViewBuilder
     static private func destinationSettings(_ setting: SettingsDestination) -> some View {
         switch setting {
         case .home:
-            AnyView(SettingsScreen())
+            SettingsScreen()
         case .debug:
-            AnyView(SettingsDebugView())
+            SettingsDebugView()
         case .general:
-            AnyView(SettingsGeneralView())
+            SettingsGeneralView()
         case .security:
-            AnyView(SettingsSecurityView())
+            SettingsSecurityView()
         case .appearance:
-            AnyView(SettingsAppearenceView())
+            SettingsAppearenceView()
         case .display:
-            AnyView(SettingsDisplayView())
+            SettingsDisplayView()
         case .account:
-            AnyView(SettingsAccountScreen())
+            SettingsAccountScreen()
         case .subscription:
-            AnyView(SettingsSubscriptionScreen())
+            SettingsSubscriptionScreen()
         case .statistics:
-            AnyView(SettingsStatisticsScreen())
+            SettingsStatisticsScreen()
         case .credits:
-            AnyView(SettingsCreditsView())
+            SettingsCreditsView()
         case .applePay:
-            AnyView(SettingsApplePayView())
+            SettingsApplePayView()
         }
     }
     
@@ -230,10 +240,11 @@ extension AppDestination {
         }
     }
     
+    @ViewBuilder
     static private func destinationTips(_ tips: TipsDestination) -> some View {
         switch tips {
         case .applePayShortcut:
-            AnyView(TipApplePayShortcutScreen())
+            TipApplePayShortcutScreen()
         }
     }
     

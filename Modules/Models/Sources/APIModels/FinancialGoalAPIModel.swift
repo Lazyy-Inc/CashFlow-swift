@@ -8,14 +8,14 @@
 import Foundation
 
 public struct FinancialGoalAPIModel: APIModel {
-    public var id: Int?
-    public var name: String?
-    public var emoji: String?
-    public var startDate: String?
-    public var endDate: String?
-    public var currentAmount: Double?
-    public var goalAmount: Double?
-    public var isArchived: Bool?
+    public let id: Int?
+    public let name: String?
+    public let emoji: String?
+    public let startDate: String?
+    public let endDate: String?
+    public let currentAmount: Double?
+    public let goalAmount: Double?
+    public let isArchived: Bool?
     
     // MARK: Init
     public init(

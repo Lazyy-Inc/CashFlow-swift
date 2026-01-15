@@ -18,7 +18,6 @@
 		D9084F402E609BC70077F9C5 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F3F2E609BC70077F9C5 /* DesignSystem */; };
 		D9084F432E609E7C0077F9C5 /* Events in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F422E609E7C0077F9C5 /* Events */; };
 		D9084F452E615DF80077F9C5 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F442E615DF80077F9C5 /* Home */; };
-		D9084F472E61690F0077F9C5 /* Dashboard in Frameworks */ = {isa = PBXBuildFile; productRef = D9084F462E61690F0077F9C5 /* Dashboard */; };
 		D950AF012EC4D96A007B1157 /* Utilities in Frameworks */ = {isa = PBXBuildFile; productRef = D950AF002EC4D96A007B1157 /* Utilities */; };
 		D954F8D02EAE2BC700745E89 /* FinancialGoalModule in Frameworks */ = {isa = PBXBuildFile; productRef = D954F8CF2EAE2BC700745E89 /* FinancialGoalModule */; };
 		D9564CD12E467A8B00F2341E /* TransactionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9564CD02E467A8B00F2341E /* TransactionModule */; };
@@ -40,7 +39,6 @@
 		D9AE5FEA2F0FE6450006E9DF /* Paywall in Frameworks */ = {isa = PBXBuildFile; productRef = D9AE5FE92F0FE6450006E9DF /* Paywall */; };
 		D9B2F4812E929CB400CF5ABC /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = D9B2F4802E929CB400CF5ABC /* Repositories */; };
 		D9B2F4832E929CB800CF5ABC /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D9B2F4822E929CB800CF5ABC /* Persistence */; };
-		D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */ = {isa = PBXBuildFile; productRef = D9D208042E315D5800FEE9FD /* PaywallModule */; };
 		D9DDD89E2EA509100015E0FB /* Savings in Frameworks */ = {isa = PBXBuildFile; productRef = D9DDD89D2EA509100015E0FB /* Savings */; };
 		D9F5C2222DB39458008267F5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D9F5C2212DB39458008267F5 /* README.md */; };
 /* End PBXBuildFile section */
@@ -87,7 +85,6 @@
 				D9887FE22AA457A400AFC915 /* StoreKit.framework in Frameworks */,
 				D968C1E42E51C6AA006BB17A /* CategoryModule in Frameworks */,
 				8129E7512A483A7400FF23E5 /* ConfettiSwiftUI in Frameworks */,
-				D9D208052E315D5800FEE9FD /* PaywallModule in Frameworks */,
 				D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */,
 				D9084DA12E5F823C0077F9C5 /* Models in Frameworks */,
 				D968C2052E54D055006BB17A /* SavingsAccountModule in Frameworks */,
@@ -111,7 +108,6 @@
 				D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */,
 				D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */,
 				D9084D9A2E5F72D70077F9C5 /* Navigation in Frameworks */,
-				D9084F472E61690F0077F9C5 /* Dashboard in Frameworks */,
 				D9084F402E609BC70077F9C5 /* DesignSystem in Frameworks */,
 				D9084F432E609E7C0077F9C5 /* Events in Frameworks */,
 				D96F3C9C2CB2E3B800CBABB8 /* MCEmojiPicker in Frameworks */,
@@ -176,7 +172,6 @@
 				8129E7502A483A7400FF23E5 /* ConfettiSwiftUI */,
 				81D990B32A49F03000EF13A3 /* SwipeActions */,
 				D96F3C9B2CB2E3B800CBABB8 /* MCEmojiPicker */,
-				D9D208042E315D5800FEE9FD /* PaywallModule */,
 				D96F97ED2E32B924006B0596 /* OnboardingModule */,
 				D9564CD02E467A8B00F2341E /* TransactionModule */,
 				D968BB2C2E4F2579006BB17A /* Sentry */,
@@ -198,7 +193,6 @@
 				D9084F3F2E609BC70077F9C5 /* DesignSystem */,
 				D9084F422E609E7C0077F9C5 /* Events */,
 				D9084F442E615DF80077F9C5 /* Home */,
-				D9084F462E61690F0077F9C5 /* Dashboard */,
 				D976E44D2E689FB800D16DBE /* Statistics */,
 				D9B2F4802E929CB400CF5ABC /* Repositories */,
 				D9B2F4822E929CB800CF5ABC /* Persistence */,
@@ -640,10 +634,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Home;
 		};
-		D9084F462E61690F0077F9C5 /* Dashboard */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Dashboard;
-		};
 		D950AF002EC4D96A007B1157 /* Utilities */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Utilities;
@@ -725,10 +715,6 @@
 		D9B2F4822E929CB800CF5ABC /* Persistence */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Persistence;
-		};
-		D9D208042E315D5800FEE9FD /* PaywallModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PaywallModule;
 		};
 		D9DDD89D2EA509100015E0FB /* Savings */ = {
 			isa = XCSwiftPackageProductDependency;
