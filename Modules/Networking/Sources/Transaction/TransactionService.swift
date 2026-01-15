@@ -10,8 +10,9 @@ import NetworkKit
 import Models
 
 public struct TransactionService: TransactionServiceProtocol {
+    public static let shared = TransactionService()
     
-    public static func fetchTransactionsByPeriod(
+    public func fetchTransactionsByPeriod(
         accountID: Int,
         period: PeriodDateModel,
         type: FinancialItemType? = nil
@@ -27,21 +28,21 @@ public struct TransactionService: TransactionServiceProtocol {
         )
     }
     
-    public static func create(accountID: Int, body: TransactionDTO) async throws -> TransactionResponseWithBalance {
+    public func create(accountID: Int, body: TransactionDTO) async throws -> TransactionResponseWithBalance {
         return try await NetworkService.sendRequest(
             apiBuilder: TransactionAPIRequester.create(accountID: accountID, body: body),
             responseModel: TransactionResponseWithBalance.self
         )
     }
     
-    public static func update(transactionID: Int, body: TransactionDTO) async throws -> TransactionResponseWithBalance {
+    public func update(transactionID: Int, body: TransactionDTO) async throws -> TransactionResponseWithBalance {
         return try await NetworkService.sendRequest(
             apiBuilder: TransactionAPIRequester.update(id: transactionID, body: body),
             responseModel: TransactionResponseWithBalance.self
         )
     }
     
-    public static func delete(transactionID: Int) async throws -> TransactionResponseWithBalance {
+    public func delete(transactionID: Int) async throws -> TransactionResponseWithBalance {
         return try await NetworkService.sendRequest(
             apiBuilder: TransactionAPIRequester.delete(id: transactionID),
             responseModel: TransactionResponseWithBalance.self
@@ -53,7 +54,7 @@ public struct TransactionService: TransactionServiceProtocol {
 extension TransactionService {
     
     /// transactionID is for exclude one transaction of research
-    public static func fetchRecommendedCategory(name: String, transactionID: Int? = nil) async throws -> TransactionFetchCategoryResponse {
+    public func fetchRecommendedCategory(name: String, transactionID: Int? = nil) async throws -> TransactionFetchCategoryResponse {
         return try await NetworkService.sendRequest(
             apiBuilder: TransactionAPIRequester.fetchCategory(name: name, transactionID: transactionID),
             responseModel: TransactionFetchCategoryResponse.self

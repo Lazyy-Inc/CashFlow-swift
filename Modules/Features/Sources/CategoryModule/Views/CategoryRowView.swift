@@ -9,20 +9,26 @@ import SwiftUI
 import DesignSystem
 import Core
 import Models
-import Stores
+import DataSources
 
 public struct CategoryRowView: View {
     
     // MARK: Dependencies
     var category: CategoryModel
     var selectedDate: Date
-    
-    @Dependency(\.transactionStore) private var transactionStore
+        
+    // MARK: Constants
+    private let transactionDataSource: TransactionDataSource
     
     // MARK: Init
-    public init(category: CategoryModel, selectedDate: Date) {
+    public init(
+        category: CategoryModel,
+        selectedDate: Date,
+        transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared
+    ) {
         self.category = category
         self.selectedDate = selectedDate
+        self.transactionDataSource = transactionDataSource
     }
             
     // MARK: - View
@@ -61,7 +67,7 @@ public struct CategoryRowView: View {
 extension CategoryRowView {
     
     var amount: Double {
-        transactionStore.getTransactions(for: category, in: selectedDate)
+        return transactionDataSource.transactions(for: .category(category, month: selectedDate))
             .map(\.amount)
             .reduce(0, +)
     }

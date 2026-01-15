@@ -7,22 +7,28 @@
 
 import Foundation
 import Models
-import Stores
 import DesignSystem
 import SwiftUI
+import DataSources
 
 // MARK: - Stored variables
 extension AnalysisScreen {
     
     @Observable
     final class ViewModel {
-        let transactionStore: TransactionStore = .shared
-        
-        var repartitionDate: Date = Date()
-        
         var selectedDate: Date = Date()
+        
         var selectedYear: Int = Date().year
         var amount: Double = 0
+        
+        // MARK: Constants
+        private let transactionDataSource: TransactionDataSource
+        
+        // MARK: Init
+        init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+            self.transactionDataSource = transactionDataSource
+        }
+        
     }
     
 }
@@ -30,8 +36,12 @@ extension AnalysisScreen {
 // MARK: - Computed variables
 extension AnalysisScreen.ViewModel {
     
+    private var transactions: [TransactionModel] {
+        return transactionDataSource.transactions(for: .type(.expense, month: selectedDate))
+    }
+    
     var expensesOfTheMonth: Double {
-        return transactionStore.getTransactions(in: repartitionDate, type: .expense)
+        return transactions
             .reduce(0) { $0 + $1.amount }
     }
     
@@ -58,30 +68,33 @@ extension AnalysisScreen.ViewModel {
     }
     
     var neededTransactions: [TransactionModel] {
-        return transactionStore.getTransactions(in: repartitionDate, type: .expense)
+        return transactions
             .filter { $0.repartitionType == .needed }
     }
     
     var wantedTransactions: [TransactionModel] {
-        return transactionStore.getTransactions(in: repartitionDate, type: .expense)
+        return transactions
             .filter { $0.repartitionType == .wanted }
     }
     
     var savedTransactions: [TransactionModel] {
-        return transactionStore.getTransactions(in: repartitionDate, type: .expense)
+        return transactions
             .filter { $0.repartitionType == .saved }
     }
     
     var neededAmount: Double {
-        return neededTransactions.reduce(0) { $0 + $1.amount }
+        return neededTransactions
+            .reduce(0) { $0 + $1.amount }
     }
     
     var wantedAmount: Double {
-        return wantedTransactions.reduce(0) { $0 + $1.amount }
+        return wantedTransactions
+            .reduce(0) { $0 + $1.amount }
     }
     
     var savedAmount: Double {
-        return savedTransactions.reduce(0) { $0 + $1.amount }
+        return savedTransactions
+            .reduce(0) { $0 + $1.amount }
     }
     
 }

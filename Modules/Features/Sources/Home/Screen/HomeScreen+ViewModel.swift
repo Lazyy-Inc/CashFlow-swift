@@ -10,6 +10,7 @@ import Preferences
 import Stores
 import NotificationKit
 import Core
+import DataSources
 
 extension HomeScreen {
     
@@ -25,6 +26,12 @@ extension HomeScreen {
         var incomesThisMonth: String = "+" + 0.toCurrency()
         var expensesThisMonth: String = "-" + 0.toCurrency()
         
+        private let transactionDataSource: TransactionDataSource
+        
+        init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+            self.transactionDataSource = transactionDataSource
+        }
+        
     }
     
 }
@@ -32,7 +39,7 @@ extension HomeScreen {
 extension HomeScreen.ViewModel {
     
     func getIncomesThisMonth() {
-        let incomes = transactionStore.getIncomes(in: .now)
+        let incomes = transactionDataSource.transactions(for: .type(.income, month: .now))
             .map(\.amount)
             .reduce(0, +)
         
@@ -40,7 +47,7 @@ extension HomeScreen.ViewModel {
     }
     
     func getExpensesThisMonth() {
-        let expenses = transactionStore.getExpenses(in: .now)
+        let expenses = transactionDataSource.transactions(for: .type(.expense, month: .now))
             .map(\.amount)
             .reduce(0, +)
         
@@ -61,7 +68,7 @@ extension HomeScreen.ViewModel {
         await AppManager.shared.resetAllAccountData()
         
         if let selectedAccount = accountStore.selectedAccount, let accountID = selectedAccount._id {
-            async let transactionsTask: () = transactionStore.fetchTransactionsOfCurrentMonth(accountID: accountID)
+            async let transactionsTask: () = fetchMinimalTransactions(accountID: accountID)
             async let budgetsTask: () = budgetStore.fetchBudgets(accountID: accountID)
             async let subscriptionsTask: () = subscriptionStore.fetchSubscriptions(accountID: accountID)
             
@@ -75,6 +82,23 @@ extension HomeScreen.ViewModel {
 
 // MARK: - Private functions
 extension HomeScreen.ViewModel {
+    
+    func fetchMinimalTransactions(accountID: Int) async {
+        let startDate = Date().startOfMonth ?? .now
+        let endDate = Date().endOfMonth ?? .now
+        
+        await transactionStore.fetchTransactionsByPeriod(
+            accountId: accountID,
+            period: .init(startDate: startDate, endDate: endDate)
+        )
+        
+        if transactionStore.transactions.count < 5 {
+            await transactionStore.fetchTransactionsByPeriod(
+                accountId: accountID,
+                period: .init(startDate: startDate.oneMonthAgo, endDate: endDate.oneMonthAgo)
+            )
+        }
+    }
     
     @concurrent
     private func scheduleNotificationsOfSubscriptions() async {

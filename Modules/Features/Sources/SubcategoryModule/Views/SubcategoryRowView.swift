@@ -9,20 +9,31 @@ import SwiftUI
 import DesignSystem
 import Core
 import Models
-import Stores
+import DataSources
 
 struct SubcategoryRowView: View {
     
     // MARK: Dependencies
-    var subcategory: SubcategoryModel
-    var selectedDate: Date
+    private let subcategory: SubcategoryModel
+    private let selectedDate: Date
     
-    // MARK: Environments
-    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
+    // MARK: Constants
+    private let transactionDataSource: TransactionDataSource
     
-    // Computed var
-    var stringAmount: String {
-        return transactionStore.getExpenses(for: subcategory, in: selectedDate)
+    // MARK: Init
+    init(
+        subcategory: SubcategoryModel,
+        selectedDate: Date,
+        transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared
+    ) {
+        self.subcategory = subcategory
+        self.selectedDate = selectedDate
+        self.transactionDataSource = transactionDataSource
+    }
+    
+    // MARK: Computed variables
+    private var stringAmount: String {
+        return transactionDataSource.transactions(for: .subcategory(subcategory, month: selectedDate))
             .compactMap(\.amount)
             .reduce(0, +)
             .toCurrency()
@@ -41,13 +52,11 @@ struct SubcategoryRowView: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 Text(subcategory.name)
-                    .font(.Body.mediumBold)
-                    .foregroundStyle(Color.Text.primary)
+                    .font(.Body.medium, color: .Text.primary)
                     .lineLimit(1)
                 
                 Text(stringAmount)
-                    .font(.Body.small)
-                    .foregroundStyle(Color.Background.bg600)
+                    .font(.Body.small, color: .Text.secondary)
                     .lineLimit(1)
             }
             .fullWidth(.leading)

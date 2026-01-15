@@ -33,7 +33,7 @@ public struct AnalysisScreen: View {
             if !transactionStore.transactions.isEmpty {
                 ScrollView {
                     VStack(spacing: Spacing.large) {
-                        MonthPickerView(selectedMonth: $viewModel.repartitionDate)
+                        MonthPickerView(selectedMonth: $viewModel.selectedDate)
                             .padding(Spacing.standard)
                             .roundedBackground(.classic)
                         
@@ -49,21 +49,17 @@ public struct AnalysisScreen: View {
             }
         }
         .background(Color.Background.bg50)
-        //    .onChange(of: selectedDate) {
-        //      if let account = accountStore.selectedAccount, let accountID = account._id {
-        //        Task {
-        //          await transactionStore.fetchTransactionsByPeriod(
-        //            accountID: accountID,
-        //            startDate: selectedDate,
-        //            endDate: selectedDate.endOfMonth ?? .now
-        //          )
-        //          updateChartData()
-        //        }
-        //      }
-        //    }
-        //    .onAppear {
-        //      updateChartData()
-        //    }
+        .task(id: viewModel.selectedDate) {
+            if let account = accountStore.selectedAccount, let accountID = account._id {
+                await transactionStore.fetchTransactionsByPeriod(
+                    accountId: accountID,
+                    period: .init(
+                        startDate: viewModel.selectedDate.startOfMonth ?? .now,
+                        endDate: viewModel.selectedDate.endOfMonth ?? .now
+                    )
+                )
+            }
+        }
     }
     
     func fetchCashFlow() async {
@@ -80,7 +76,7 @@ fileprivate extension AnalysisScreen {
     func repartitionChartView() -> some View {
         if purchasesManager.isCashFlowPro {
             RepartitionStatisticsCellView(
-                date: $viewModel.repartitionDate,
+                date: $viewModel.selectedDate,
                 slices: viewModel.slices
             )
         } else {
@@ -116,22 +112,22 @@ fileprivate extension AnalysisScreen {
     var cashflowChartView: some View {
         GenericBarChart(
             title: "statistics_cashflow_chart_title".localized,
-            selectedDate: $viewModel.repartitionDate,
+            selectedDate: $viewModel.selectedDate,
             values: accountStore.cashflow,
             amount: viewModel.amount
         )
-        .onChange(of: viewModel.repartitionDate) { // TODO: Refacto
+        .onChange(of: viewModel.selectedDate) { // TODO: Refacto
             Task {
                 if viewModel.selectedDate.year != viewModel.selectedYear {
-                    viewModel.selectedYear = viewModel.repartitionDate.year
+                    viewModel.selectedYear = viewModel.selectedDate.year
                     await fetchCashFlow()
                 }
-                viewModel.amount = accountStore.cashFlowAmount(for: viewModel.repartitionDate)
+                viewModel.amount = accountStore.cashFlowAmount(for: viewModel.selectedDate)
             }
         }
         .task {
             await fetchCashFlow()
-            viewModel.amount = accountStore.cashFlowAmount(for: viewModel.repartitionDate)
+            viewModel.amount = accountStore.cashFlowAmount(for: viewModel.selectedDate)
         }
     }
 }

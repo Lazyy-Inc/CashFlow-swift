@@ -6,14 +6,54 @@
 //
 
 import Foundation
+import SwiftUI
 import LocalAuthentication
+import Stores
+import Preferences
 
 extension RootScreen {
     
-    final class ViewModel: ObservableObject {
-        @Published var showOnboarding: Bool = false
-        @Published var isUnlocked: Bool = false
-        @Published var launchScreenEnd: Bool = false
+    @Observable
+    final class ViewModel {
+        
+        @ObservationIgnored
+        @Dependency(\.accountStore) private var accountStore
+        
+        var showOnboarding: Bool = false
+        var isUnlocked: Bool = false
+        var launchScreenEnd: Bool = false
+        
+        private let preferencesGeneral: PreferencesGeneral = .shared
+        private let preferencesSecurity: PreferencesSecurity = .shared
+    }
+    
+}
+
+extension RootScreen.ViewModel {
+    
+    func launchApp(newValue: Bool) {
+        if accountStore.selectedAccount != nil && !preferencesGeneral.isAlreadyOpen {
+            showOnboarding = false
+            preferencesGeneral.isAlreadyOpen = true
+        } else if !preferencesGeneral.isAlreadyOpen {
+            showOnboarding = true
+        }
+        
+        // LaunchScreen ended
+        if newValue {
+            // Already open + app close
+            if !UserDefaults.standard.bool(forKey: "appIsOpen") && preferencesGeneral.isAlreadyOpen {
+                if preferencesSecurity.isBiometricEnabled {
+                    authenticate()
+                } else {
+                    withAnimation { isUnlocked = true }
+                    UserDefaults.standard.set(true, forKey: "appIsOpen")
+                }
+            } else {
+                withAnimation { isUnlocked = true }
+                UserDefaults.standard.set(true, forKey: "appIsOpen")
+            }
+        }
     }
     
 }

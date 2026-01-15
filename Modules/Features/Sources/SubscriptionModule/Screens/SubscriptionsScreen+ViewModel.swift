@@ -6,8 +6,9 @@
 //
 
 import Foundation
-import Dependencies
+import Stores
 import Models
+import DataSources
 
 // MARK: - Stored variables
 extension SubscriptionsScreen {
@@ -18,11 +19,16 @@ extension SubscriptionsScreen {
         @ObservationIgnored
         @Dependency(\.subscriptionStore) var subscriptionStore
         
-        @ObservationIgnored
-        @Dependency(\.transactionStore) var transactionStore
-        
         var totalAnnualy: Double = 0
         var totalMonthly: Double = 0
+        
+        // MARK: Constants
+        private let transactionDataSource: TransactionDataSource
+        
+        // MARK: Init
+        init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+            self.transactionDataSource = transactionDataSource
+        }
     }
     
 }
@@ -36,7 +42,7 @@ extension SubscriptionsScreen.ViewModel {
     }
     
     var transactionsPaidBySubscriptions: [TransactionModel] {
-        let transactionsOfTheMonth = transactionStore.getTransactions(in: Date())
+        let transactionsOfTheMonth = transactionDataSource.transactions(for: .all(month: .now))
         return transactionsOfTheMonth
             .filter { $0.isFromSubscription == true }
     }

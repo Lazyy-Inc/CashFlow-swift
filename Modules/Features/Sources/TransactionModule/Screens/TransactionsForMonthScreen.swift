@@ -29,7 +29,7 @@ public struct TransactionsForMonthScreen: View {
     
     // MARK: -
     public var body: some View {
-        let transactions = transactionStore.getTransactions(in: selectedDate).filter { $0.type == type }
+        let transactions: [TransactionModel] = [] // transactionStore.getTransactions(in: selectedDate).filter { $0.type == type }
         let transactionsFiltered = transactions.search(searchText)
         
         List {
@@ -48,12 +48,8 @@ public struct TransactionsForMonthScreen: View {
             }, header: {
                 DetailOfExpensesAndIncomesByMonth(
                     month: selectedDate,
-                    amountOfExpenses: transactionStore.getExpenses(transactions: transactions)
-                        .compactMap(\.amount)
-                        .reduce(0, +),
-                    amountOfIncomes: transactionStore.getIncomes(transactions: transactions)
-                        .compactMap(\.amount)
-                        .reduce(0, +)
+                    amountOfExpenses: 0,
+                    amountOfIncomes: 0
                 )
                 .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
             })

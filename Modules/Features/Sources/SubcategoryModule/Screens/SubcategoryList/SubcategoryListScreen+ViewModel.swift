@@ -9,13 +9,21 @@ import Foundation
 import Core
 import TransactionModule
 import Models
-import Stores
+import DataSources
 
 extension SubcategoryListScreen {
     
     final class ViewModel: ObservableObject {
         @Published var selectedSubcategory: SubcategoryModel?        
         @Published var searchText: String = ""
+        
+        // MARK: Constants
+        private let transactionDataSource: TransactionDataSource
+        
+        // MARK: Init
+        init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+            self.transactionDataSource = transactionDataSource
+        }
     }
     
 }
@@ -23,12 +31,10 @@ extension SubcategoryListScreen {
 extension SubcategoryListScreen.ViewModel {
     
     func isDisplayChart(category: CategoryModel) -> Bool {
-        let transactionStore: TransactionStore = .shared
-        
         if category.isToCategorized {
             return false
         } else {
-            return transactionStore.getExpenses(for: category, in: .now).isNotEmpty
+            return transactionDataSource.transactions(for: .category(category, month: .now)).isNotEmpty
         }
     }
     

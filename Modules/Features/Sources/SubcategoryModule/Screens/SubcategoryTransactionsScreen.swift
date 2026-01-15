@@ -12,31 +12,33 @@ import DesignSystem
 import Core
 import TransactionModule
 import Models
-import Stores
+import DataSources
 
 public struct SubcategoryTransactionsScreen: View {
     
     // MARK: Dependencies
     var subcategory: SubcategoryModel
     var selectedDate: Date
-    
-    // MARK: Environments
-    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
-        
+            
     // MARK: States
     @State private var searchText: String = ""
     
+    // MARK: Constants
+    private let transactionDataSource: TransactionDataSource
+    
     public init(
         subcategory: SubcategoryModel,
-        selectedDate: Date
+        selectedDate: Date,
+        transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared
     ) {
         self.subcategory = subcategory
         self.selectedDate = selectedDate
+        self.transactionDataSource = transactionDataSource
     }
     
     // MARK: -
     public var body: some View {
-        let transactionsExpenses = transactionStore.getExpenses(for: subcategory, in: selectedDate)
+        let transactionsExpenses = transactionDataSource.transactions(for: .subcategory(subcategory, month: selectedDate))
         let transactionsFiltered = transactionsExpenses.search(searchText)
         
         VStack(spacing: 0) {

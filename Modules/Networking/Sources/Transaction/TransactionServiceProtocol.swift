@@ -9,28 +9,28 @@ import Foundation
 import Models
 
 public protocol TransactionServiceProtocol {
-  static func fetchTransactionsByPeriod(
-    accountID: Int,
-    period: PeriodDateModel,
-    type: FinancialItemType?
-  ) async throws -> [TransactionDTO]
-  
-  static func create(
-    accountID: Int,
-    body: TransactionDTO
-  ) async throws -> TransactionResponseWithBalance
-
-  static func update(
-    transactionID: Int,
-    body: TransactionDTO
-  ) async throws -> TransactionResponseWithBalance
-  
-  static func delete(
-    transactionID: Int
-  ) async throws -> TransactionResponseWithBalance
-  
-  static func fetchRecommendedCategory(
-    name: String,
-    transactionID: Int?
-  ) async throws -> TransactionFetchCategoryResponse
+    func fetchTransactionsByPeriod(
+        accountID: Int,
+        period: PeriodDateModel,
+        type: FinancialItemType?
+    ) async throws -> [TransactionDTO]
+    
+    func create(
+        accountID: Int,
+        body: TransactionDTO
+    ) async throws -> TransactionResponseWithBalance
+    
+    func update(
+        transactionID: Int,
+        body: TransactionDTO
+    ) async throws -> TransactionResponseWithBalance
+    
+    func delete(
+        transactionID: Int
+    ) async throws -> TransactionResponseWithBalance
+    
+    func fetchRecommendedCategory(
+        name: String,
+        transactionID: Int?
+    ) async throws -> TransactionFetchCategoryResponse
 }

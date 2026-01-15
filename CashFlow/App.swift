@@ -89,8 +89,12 @@ struct TurboBudgetApp: App {
                 .onChange(of: networkMonitor.isConnected) { _, newValue in
                     Task {
                         if newValue {
-                            try await userStore.loginWithToken()
-                            appManager.appState = .success
+                            do {
+                                try await userStore.loginWithToken()
+                                appManager.appState = .success
+                            } catch {
+                                appManager.appState = .needLogin
+                            }
                         } else {
                             appManager.appState = .noInternet
                         }
@@ -111,9 +115,7 @@ extension TurboBudgetApp {
             OnboardingScreen()
         } else {
             switch appManager.appState {
-            case .idle:
-                SplashScreenView()
-            case .loading:
+            case .idle, .loading:
                 SplashScreenView()
             case .success:
                 RootScreen()

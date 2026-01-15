@@ -65,8 +65,8 @@ struct CarouselOfChartsView: View {
     } // body
     
     private func updateChartData() {
-        dailyExpenses = transactionStore.dailyTransactions(for: .now, type: .expense)
-        dailyIncomes = transactionStore.dailyTransactions(for: .now, type: .income)
+//        dailyExpenses = transactionStore.dailyTransactions(for: .now, type: .expense)
+//        dailyIncomes = transactionStore.dailyTransactions(for: .now, type: .income)
         totalExpenses = dailyExpenses.map(\.amount).reduce(0, +)
         totalIncomes = dailyIncomes.map(\.amount).reduce(0, +)
     }

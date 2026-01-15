@@ -12,13 +12,14 @@ import Stores
 public extension CreditCardModel {
     
     var balanceAvailable: Double? {
-        guard let limitByMonth else { return nil }
-        @Dependency(\.transactionStore) var transactionStore
-        let spent = transactionStore.expensesCurrentMonth
-            .compactMap(\.amount)
-            .reduce(0, +)
-
-        return limitByMonth - spent
+//        guard let limitByMonth else { return nil }
+//        @Dependency(\.transactionStore) var transactionStore
+//        let spent = transactionStore.expensesCurrentMonth
+//            .compactMap(\.amount)
+//            .reduce(0, +)
+//
+//        return limitByMonth - spent
+        return nil
     }
     
 }

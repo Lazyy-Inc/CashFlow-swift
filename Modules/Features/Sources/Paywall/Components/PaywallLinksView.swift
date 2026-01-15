@@ -14,12 +14,13 @@ import Core
 struct PaywallLinksView: View {
     
     @EnvironmentObject private var router: Router<AppDestination>
+    @EnvironmentObject private var purchasesManager: PurchasesManager
     
     // MARK: - View
     var body: some View {
         VStack(spacing: .large) {
-            Button {
-                
+            AsyncButton {
+                await purchasesManager.restorePurchases()
             } label: {
                 Label(title: {
                     Text("paywall_link_restore_purchase".localized)

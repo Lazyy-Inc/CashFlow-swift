@@ -35,6 +35,7 @@ let package = Package(
         .package(path: "../Stores"),
         .package(path: "../Navigation"),
         .package(path: "../Utilities"),
+        .package(path: "../DataSources"),
         
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
         .package(url: "https://github.com/theosementa/NavigationKit", branch: "2.0.6"),
@@ -59,7 +60,6 @@ let package = Package(
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
-        
         .target(
             name: "OnboardingModule",
             dependencies: [
@@ -73,24 +73,23 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "OnboardingModuleTests", dependencies: ["OnboardingModule"]),
-        
         .target(
-          name: "Home",
-          dependencies: [
-            "DesignSystem",
-            "Core",
-            "Models",
-            "Stores",
-            "Navigation",
-            "TransactionModule",
-            "FinancialGoalModule",
-            "SubscriptionModule",
-            "CategoryModule"
-          ],
-          swiftSettings: [.swiftLanguageMode(.v5)]
+            name: "Home",
+            dependencies: [
+                "DesignSystem",
+                "Core",
+                "Models",
+                "Stores",
+                "Navigation",
+                .product(name: "DataSources", package: "DataSources"),
+                "TransactionModule",
+                "FinancialGoalModule",
+                "SubscriptionModule",
+                "CategoryModule"
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "HomeTests", dependencies: ["Home"]),
-        
         .target(
             name: "Savings",
             dependencies: [
@@ -105,20 +104,19 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "SavingsTests", dependencies: ["Savings"]),
-        
         .target(
-          name: "Statistics",
-          dependencies: [
-            "DesignSystem",
-            "Core",
-            "Models",
-            "Stores",
-            "Navigation"
-          ],
-          swiftSettings: [.swiftLanguageMode(.v5)]
+            name: "Statistics",
+            dependencies: [
+                "DesignSystem",
+                "Core",
+                "Models",
+                "Stores",
+                "Navigation",
+                .product(name: "DataSources", package: "DataSources")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "StatisticsTests", dependencies: ["Statistics"]),
-        
         .target(
             name: "TransactionModule",
             dependencies: [
@@ -127,12 +125,12 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
+                .product(name: "DataSources", package: "DataSources"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "TransactionModuleTests", dependencies: ["TransactionModule"]),
-        
         .target(
             name: "SubscriptionModule",
             dependencies: [
@@ -142,12 +140,12 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
+                .product(name: "DataSources", package: "DataSources"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "SubscriptionModuleTests", dependencies: ["SubscriptionModule"]),
-        
         .target(
             name: "FinancialGoalModule",
             dependencies: [
@@ -164,7 +162,6 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "FinancialGoalModuleTests", dependencies: ["FinancialGoalModule"]),
-        
         .target(
             name: "ContributionModule",
             dependencies: [
@@ -178,7 +175,6 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "ContributionModuleTests", dependencies: ["ContributionModule"]),
-        
         .target(
             name: "AccountModule",
             dependencies: [
@@ -192,7 +188,6 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "AccountModuleTests", dependencies: ["AccountModule"]),
-        
         .target(
             name: "BudgetModule",
             dependencies: [
@@ -202,12 +197,12 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
+                .product(name: "DataSources", package: "DataSources"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "BudgetModuleTests", dependencies: ["BudgetModule"]),
-        
         .target(
             name: "CategoryModule",
             dependencies: [
@@ -218,12 +213,12 @@ let package = Package(
                 "Stores",
                 "Navigation",
                 "Utilities",
+                .product(name: "DataSources", package: "DataSources"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "CategoryModuleTests", dependencies: ["CategoryModule"]),
-        
         .target(
             name: "SubcategoryModule",
             dependencies: [
@@ -233,12 +228,12 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
+                .product(name: "DataSources", package: "DataSources"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "SubcategoryModuleTests", dependencies: ["SubcategoryModule"]),
-        
         .target(
             name: "SavingsAccountModule",
             dependencies: [
@@ -255,7 +250,6 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "SavingsAccountModuleTests", dependencies: ["SavingsAccountModule"]),
-        
         .target(
             name: "TransferModule",
             dependencies: [
@@ -270,7 +264,6 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "TransferModuleTests", dependencies: ["TransferModule"]),
-        
         .target(
             name: "SettingsModule",
             dependencies: [
@@ -286,7 +279,6 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "SettingsModuleTests", dependencies: ["SettingsModule"]),
-        
         .target(
             name: "CreditCardModule",
             dependencies: [

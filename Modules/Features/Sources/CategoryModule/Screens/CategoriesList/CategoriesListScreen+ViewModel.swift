@@ -9,6 +9,7 @@ import Foundation
 import Core
 import Models
 import Stores
+import DataSources
 
 extension CategoriesListScreen {
     
@@ -19,6 +20,14 @@ extension CategoriesListScreen {
         @Published var selectedDate: Date = Date()
       
         @Dependency(\.categoryStore) var categoryStore
+        
+        // MARK: Constants
+        private let transactionDataSource: TransactionDataSource
+        
+        init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+            self.transactionDataSource = transactionDataSource
+        }
+        
     }
     
 }
@@ -30,7 +39,7 @@ extension CategoriesListScreen.ViewModel {
     }
     
     var isChartDisplayed: Bool {
-        return !TransactionStore.shared.getExpenses(in: selectedDate).isEmpty
+        return !transactionDataSource.transactions(for: .type(.expense, month: selectedDate)).isEmpty
     }
     
     var categoriesFiltered: [CategoryModel] {
@@ -38,8 +47,7 @@ extension CategoriesListScreen.ViewModel {
     }
     
     func calculateAllAmounts(for date: Date) {
-        let transactionStore: TransactionStore = .shared
-        let groupedTransactions = Dictionary(grouping: transactionStore.transactions) { $0.category?.id }
+        let groupedTransactions = Dictionary(grouping: transactionDataSource.transactions) { $0.category?.id }
         
         var newAmounts: [Int?: CategoryAmount] = [:]
         

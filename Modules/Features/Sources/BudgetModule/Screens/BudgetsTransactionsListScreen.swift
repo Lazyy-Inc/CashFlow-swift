@@ -14,6 +14,7 @@ import Core
 import TransactionModule
 import Models
 import Stores
+import DataSources
 
 public struct BudgetsTransactionsListScreen: View {
 
@@ -37,15 +38,24 @@ public struct BudgetsTransactionsListScreen: View {
     @State private var showEditMaxAmount: Bool = false
     @State private var showDeleteBudget: Bool = false
     
-    public init(subcategory: SubcategoryModel) {
+    // MARK: Constants
+    private let transactionDataSource: TransactionDataSource
+    
+    // MARK: Init
+    public init(
+        subcategory: SubcategoryModel,
+        transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared
+    ) {
         self.subcategory = subcategory
+        self.transactionDataSource = transactionDataSource
     }
 
     // MARK: -
     public var body: some View {
         VStack {
             if subcategory.transactions.isNotEmpty {
-                List(transactionStore.getExpenses(for: subcategory, in: .now)) { transaction in
+                let transactions = transactionDataSource.transactions(for: .subcategory(subcategory, month: .now))
+                List(transactions) { transaction in
                     Section {
                         NavigationButtonView(route: .push, destination: .transaction(.detail(transactionId: transaction.id))) {
                             FinancialItemRowView(financialItem: transaction)

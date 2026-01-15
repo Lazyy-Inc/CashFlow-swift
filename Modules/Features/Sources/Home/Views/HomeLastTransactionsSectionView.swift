@@ -10,22 +10,27 @@ import DesignSystem
 import Models
 import Navigation
 import TransactionModule
-import Dependencies
+import DataSources
 
 struct HomeLastTransactionsSectionView: View {
-    
-    // MARK: Dependencies
-    @Dependency(\.transactionStore) private var transactionStore
-    
+        
     @EnvironmentObject private var router: Router<AppDestination>
+    
+    // MARK: Constants
+    private let transactionDataSource: TransactionDataSource
+    
+    // MARK: Init
+    init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+        self.transactionDataSource = transactionDataSource
+    }
     
     var lastTransactions: [TransactionModel] {
         var transactions: [TransactionModel] = []
-        let transactionsOfTheMonth = transactionStore.getTransactions(in: .now)
+        let transactionsOfTheMonth = transactionDataSource.transactions(for: .all(month: .now))
         transactions += transactionsOfTheMonth
         
         if transactionsOfTheMonth.count < 5 {
-            let transactionsOfLastMonth = transactionStore.getTransactions(in: .now.oneMonthAgo)
+            let transactionsOfLastMonth = transactionDataSource.transactions(for: .all(month: .now.oneMonthAgo))
             transactions += transactionsOfLastMonth
         }
     

@@ -10,16 +10,45 @@ import DesignSystem
 import Models
 import Navigation
 import CategoryModule
-import Dependencies
+import DataSources
 
 struct HomeTopExpensesSectionView: View {
     
     // MARK: Dependencies
-    @Dependency(\.transactionStore) private var transactionStore
+    let transactionDataSource: TransactionDataSource
     
-    // MARK: Computed variables
+    // MARK: Init
+    init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+        self.transactionDataSource = transactionDataSource
+    }
+    
+    // MARK: - View
+    var body: some View {
+        VStack(spacing: .medium) {
+            HomeSectionHeaderView(
+                title: "home_top_expenses_of_month".localized,
+                destination: .category(.list)
+            )
+            
+            ForEach(categories) { category in
+                NavigationButtonView(
+                    route: .push,
+                    destination: .subcategory(.list(category: category, selectedDate: .now))
+                ) {
+                    CategoryRowView(category: category, selectedDate: .now)
+                }
+            }
+        }
+        .isDisplayed(categories.isNotEmpty)
+    }
+    
+}
+
+// MARK: - UI variables
+extension HomeTopExpensesSectionView {
+    
     var categories: [CategoryModel] {
-        let transactions = transactionStore.getExpenses(in: Date())
+        let transactions = transactionDataSource.transactions(for: .type(.expense, month: .now))
         let groupedByCategory = Dictionary(grouping: transactions, by: { $0.category })
         let categoryTotals: [(category: CategoryModel?, total: Double)] = groupedByCategory.map { (category, transactions) in
             let total = transactions.reduce(0) { $0 + $1.amount }
@@ -30,26 +59,6 @@ struct HomeTopExpensesSectionView: View {
             .compactMap(\.category)
         
         return Array(sortedCategories.prefix(3))
-    }
-    
-    // MARK: - Views
-    var body: some View {
-        VStack(spacing: Spacing.medium) {
-            HomeSectionHeaderView(
-                title: "home_top_expenses_of_month".localized,
-                destination: .category(.list)
-            )
-            
-            ForEach(categories) { category in
-                NavigationButtonView(
-                    route: .push,
-                    destination: .subcategory(.list(category: category, selectedDate: Date()))
-                ) {
-                    CategoryRowView(category: category, selectedDate: Date())
-                }
-            }
-        }
-        .isDisplayed(categories.isNotEmpty)
     }
     
 }

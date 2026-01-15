@@ -56,11 +56,11 @@ public struct NavigationBar: View {
                                     .renderingMode(.template)
                                     .frame(width: 20, height: 20)
                                 Text("word_return".localized)
-                                    .font(.Body.medium)
+                                    .font(.Body.medium, color: .Text.secondary)
                             }
 //                            .glassButtonEffect()
                         }
-                        .foregroundStyle(Color.Background.bg600)
+                        .foregroundStyle(Color.Text.secondary)
                     }
                     
                     if let actionButton {
@@ -75,8 +75,7 @@ public struct NavigationBar: View {
                                     .foregroundStyle(Color.Text.primary)
                             } else if let title = actionButton.title {
                                 Text(title)
-                                    .font(.Body.large)
-                                    .foregroundStyle(theme.color)
+                                    .font(.Body.large, color: theme.color)
                             }
                         }
 //                        .glassButtonEffect()
@@ -88,8 +87,7 @@ public struct NavigationBar: View {
                 
                 if let title {
                     Text(title)
-                        .font(.Title.large)
-                        .foregroundStyle(Color.Text.primary)
+                        .font(.Title.large, color: .Text.primary)
                 }
             }
             

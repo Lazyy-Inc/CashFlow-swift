@@ -14,6 +14,7 @@ import Core
 import TransactionModule
 import Stores
 import Models
+import DataSources
 
 public struct CategoryTransactionsScreen: View {
     
@@ -29,14 +30,23 @@ public struct CategoryTransactionsScreen: View {
     @State private var amountExpense: Double = 0
     @State private var amountIncome: Double = 0
     
-    public init(category: CategoryModel, selectedDate: Date) {
+    // MARK: Constants
+    private let transactionDataSource: TransactionDataSource
+    
+    // MARK: Init
+    public init(
+        category: CategoryModel,
+        selectedDate: Date,
+        transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared
+    ) {
         self.category = category
         self.selectedDate = selectedDate
+        self.transactionDataSource = transactionDataSource
     }
     
     // MARK: - View
     public var body: some View {
-        let transactions = transactionStore.getTransactions(for: category, in: selectedDate)
+        let transactions = transactionDataSource.transactions(for: .category(category, month: selectedDate))
         let transactionsFiltered = transactions.search(searchText)
         
         List {

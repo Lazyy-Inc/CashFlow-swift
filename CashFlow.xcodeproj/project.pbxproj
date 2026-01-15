@@ -37,6 +37,7 @@
 		D976E44E2E689FB800D16DBE /* Statistics in Frameworks */ = {isa = PBXBuildFile; productRef = D976E44D2E689FB800D16DBE /* Statistics */; };
 		D9887FE22AA457A400AFC915 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9887FE12AA457A400AFC915 /* StoreKit.framework */; };
 		D9AE5FEA2F0FE6450006E9DF /* Paywall in Frameworks */ = {isa = PBXBuildFile; productRef = D9AE5FE92F0FE6450006E9DF /* Paywall */; };
+		D9AE61B02F191DB50006E9DF /* DataSources in Frameworks */ = {isa = PBXBuildFile; productRef = D9AE61AF2F191DB50006E9DF /* DataSources */; };
 		D9B2F4812E929CB400CF5ABC /* Repositories in Frameworks */ = {isa = PBXBuildFile; productRef = D9B2F4802E929CB400CF5ABC /* Repositories */; };
 		D9B2F4832E929CB800CF5ABC /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D9B2F4822E929CB800CF5ABC /* Persistence */; };
 		D9DDD89E2EA509100015E0FB /* Savings in Frameworks */ = {isa = PBXBuildFile; productRef = D9DDD89D2EA509100015E0FB /* Savings */; };
@@ -106,6 +107,7 @@
 				D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */,
 				D968C2072E54D2D3006BB17A /* TransferModule in Frameworks */,
 				D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */,
+				D9AE61B02F191DB50006E9DF /* DataSources in Frameworks */,
 				D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */,
 				D9084D9A2E5F72D70077F9C5 /* Navigation in Frameworks */,
 				D9084F402E609BC70077F9C5 /* DesignSystem in Frameworks */,
@@ -201,6 +203,7 @@
 				D950AF002EC4D96A007B1157 /* Utilities */,
 				D95B7CDE2F0EB1A800413D00 /* Networking */,
 				D9AE5FE92F0FE6450006E9DF /* Paywall */,
+				D9AE61AF2F191DB50006E9DF /* DataSources */,
 			);
 			productName = TurboBudget;
 			productReference = 81A707832A3B6B4C00BEB0BF /* CashFlow.app */;
@@ -707,6 +710,10 @@
 		D9AE5FE92F0FE6450006E9DF /* Paywall */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Paywall;
+		};
+		D9AE61AF2F191DB50006E9DF /* DataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DataSources;
 		};
 		D9B2F4802E929CB400CF5ABC /* Repositories */ = {
 			isa = XCSwiftPackageProductDependency;
