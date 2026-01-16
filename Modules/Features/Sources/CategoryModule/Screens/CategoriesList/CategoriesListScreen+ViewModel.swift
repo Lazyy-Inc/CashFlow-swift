@@ -35,7 +35,15 @@ extension CategoriesListScreen {
 extension CategoriesListScreen.ViewModel {
   
     var categories: [CategoryModel] {
-      return categoryStore.categories
+        return categoryStore.categories
+    }
+    
+    var transactionsByCategory: [CategoryModel: [TransactionModel]] {
+        var res = transactionDataSource.transactionsByCategories(for: selectedDate)
+        if let revenue = CategoryModel.revenue {
+            res.removeValue(forKey: revenue)
+        }
+        return res
     }
     
     var isChartDisplayed: Bool {

@@ -9,6 +9,10 @@ import Foundation
 
 public extension String {
     
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+    
     /// https://stackoverflow.com/a/54651172/19014464
     func levenshteinDistanceScore(to string: String, ignoreCase: Bool = true, trimWhiteSpacesAndNewLines: Bool = true) -> Double {
         

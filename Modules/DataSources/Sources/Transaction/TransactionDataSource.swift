@@ -30,6 +30,15 @@ public extension TransactionDataSource {
         transactionStore.transactions
     }
     
+    func transactionsByCategories(for selectedMonth: Date) -> [CategoryModel: [TransactionModel]] {
+        let transactions = transactions(for: .all(month: selectedMonth))
+        let groupedByCategory = Dictionary(grouping: transactions) { $0.category }
+        return Dictionary(uniqueKeysWithValues: groupedByCategory.compactMap { key, value in
+            guard let key else { return nil }
+            return (key, value)
+        })
+    }
+    
     var transactionsByMonth: [Date: [TransactionModel]] {
         let groupedByMonth = Dictionary(grouping: transactions) { transaction in
             let components = Calendar.current.dateComponents([.month, .year], from: transaction.date)

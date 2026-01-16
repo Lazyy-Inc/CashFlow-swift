@@ -42,15 +42,13 @@ public struct CategoryRowView: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 Text(category.name)
-                    .font(.Body.medium)
-                    .foregroundStyle(Color.Text.primary)
+                    .font(.Body.medium, color: .Text.primary)
                     .lineLimit(1)
                 
                 Text(amount.toCurrency())
-                    .font(.Body.small)
+                    .font(.Body.small, color: .Text.secondary)
                     .animation(.smooth, value: amount)
                     .contentTransition(.numericText())
-                    .foregroundStyle(Color.Background.bg600)
                     .lineLimit(1)
             }
             .fullWidth(.leading)

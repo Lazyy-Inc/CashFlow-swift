@@ -27,48 +27,46 @@ public struct CategoriesListScreen: View {
     
     // MARK: -
     public var body: some View {
-            ListWithBluredHeader(maxBlurRadius: Blur.topbar) {
-                NavigationBar(
-                    title: "word_categories".localized,
-                    withDismiss: true,
-                    placeholder: "word_search".localized,
-                    searchText: $viewModel.searchText.animation()
-                )
-            } content: {
-                if viewModel.categoriesFiltered.isNotEmpty {
-                    categoriesChartView()
-                        .padding(.horizontal, Padding.large)
-                        .padding(.bottom, Padding.large)
-                    
-                    categoriesListView()
-                        .padding(.horizontal, Padding.large)
-                    
-                    Rectangle()
-                        .frame(height: 100)
-                        .opacity(0)
-                        .noDefaultStyle()
-                } else {
-                    CustomEmptyView(type: .noResults(viewModel.searchText), isPlain: true)
-                        .noDefaultStyle()
-                }
+        ListWithBluredHeader(maxBlurRadius: Blur.topbar) {
+            NavigationBar(
+                title: "word_categories".localized,
+                withDismiss: true,
+                placeholder: "word_search".localized,
+                searchText: $viewModel.searchText.animation()
+            )
+        } content: {
+            if viewModel.categoriesFiltered.isNotEmpty {
+                categoriesChartView()
+                    .padding(.horizontal, Padding.large)
+                    .padding(.bottom, Padding.large)
+                
+                categoriesListView()
+                    .padding(.horizontal, Padding.large)
+                
+                Rectangle()
+                    .frame(height: 100)
+                    .opacity(0)
+                    .noDefaultStyle()
+            } else {
+                CustomEmptyView(type: .noResults(viewModel.searchText), isPlain: true)
+                    .noDefaultStyle()
             }
+        }
         
         .navigationBarBackButtonHidden(true)
         .background(Color.Background.bg50)
         .refreshable {
             await categoryStore.fetchCategories()
         }
-        .onChange(of: viewModel.selectedDate) {
+        .task(id: viewModel.selectedDate) {
             if let account = accountStore.selectedAccount, let accountID = account._id {
-                Task {
-                    await transactionStore.fetchTransactionsByPeriod(
-                        accountId: accountID,
-                        period: .init(
-                            startDate: viewModel.selectedDate,
-                            endDate: viewModel.selectedDate.endOfMonth ?? .now
-                        )
+                await transactionStore.fetchTransactionsByPeriod(
+                    accountId: accountID,
+                    period: .init(
+                        startDate: viewModel.selectedDate.startOfMonth ?? .now,
+                        endDate: viewModel.selectedDate.endOfMonth ?? .now
                     )
-                }
+                )
             }
         }
     }
@@ -79,41 +77,24 @@ extension CategoriesListScreen {
     
     @ViewBuilder
     func categoriesChartView() -> some View {
-        VStack(spacing: Spacing.medium) {
+        VStack(spacing: .standard) {
+            MonthPickerView(selectedMonth: $viewModel.selectedDate)
+                .buttonStyle(PlainButtonStyle())
+                .padding(.standard)
+                .roundedBackground(.classic)
+                .noDefaultStyle()
+            
             if !viewModel.isChartDisplayed {
                 CustomEmptyView(type: .noCategoryData, isPlain: true)
                     .padding(8)
                     .noDefaultStyle()
             } else if viewModel.searchText.isEmpty {
-                PieChart(
-                    month: viewModel.selectedDate,
-                    slices: categoryStore.categoriesSlices(for: viewModel.selectedDate),
-                    config: .init(
-                        style: .category,
-                        backgroundColor: Color.Background.bg100,
-                        space: 0.2,
-                        hole: 0.75
-                    )
-                )
-                .buttonStyle(PlainButtonStyle())
-                .padding(8)
-                .noDefaultStyle()
+                CategoryChartView(items: viewModel.transactionsByCategory)
+                    .noDefaultStyle()
             }
-            
-            MonthPickerView(selectedMonth: $viewModel.selectedDate)
-                .buttonStyle(PlainButtonStyle())
-                .padding(Spacing.medium)
-                .noDefaultStyle()
         }
         .noDefaultStyle()
-        .padding(8)
         .frame(maxWidth: .infinity)
-        .roundedRectangleBorder(
-            Color.Background.bg100,
-            radius: CornerRadius.standard,
-            lineWidth: 1,
-            strokeColor: Color.Background.bg200
-        )
     }
     
     @ViewBuilder
