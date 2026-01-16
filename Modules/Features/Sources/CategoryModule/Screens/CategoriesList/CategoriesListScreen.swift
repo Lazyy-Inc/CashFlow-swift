@@ -89,7 +89,7 @@ extension CategoriesListScreen {
                     .padding(8)
                     .noDefaultStyle()
             } else if viewModel.searchText.isEmpty {
-                CategoryChartView(items: viewModel.transactionsByCategory)
+                CategoryChartView(items: viewModel.transactionsByCategory, selectedMonth: viewModel.selectedDate)
                     .noDefaultStyle()
             }
         }

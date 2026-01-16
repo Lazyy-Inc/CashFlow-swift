@@ -7,15 +7,26 @@
 
 import SwiftUI
 import Models
+import DesignSystem
 
 struct CategoryChartView: View {
     
     // MARK: Dependencies
     let items: [CategoryModel: [TransactionModel]]
+    let selectedMonth: Date
     
     // MARK: - View
     var body: some View {
         VStack(spacing: .large) {
+            BigValueView(
+                style: .bad,
+                amount: -totalAmount,
+                text: "Dépenses de \(selectedMonth.formatted(Date.FormatStyle().month(.wide).year()))" // TODO: TBL
+            )
+            .fullWidth(.leading)
+            .contentTransition(.numericText())
+            .animation(.smooth, value: selectedMonth)
+            
             VStack(spacing: .medium) {
                 ForEach(chartItems, id: \.self) { item in
                     CategoryChartItemView(item: item, totalAmount: totalAmount)
@@ -50,6 +61,7 @@ extension CategoryChartView {
     CategoryChartView(
         items: [
             .mock: [.mockClassicTransaction, .mockClassicTransaction2]
-        ]
+        ],
+        selectedMonth: .now
     )
 }
