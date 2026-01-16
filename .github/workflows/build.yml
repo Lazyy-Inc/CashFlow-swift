@@ -15,8 +15,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: SonarSource/sonarqube-scan-action@v5
-        env:
+      - uses: sonarsource/sonarqube-scan-action@master
+      env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       # If you wish to fail your job when the Quality Gate is red, uncomment the
