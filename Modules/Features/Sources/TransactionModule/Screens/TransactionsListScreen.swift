@@ -44,7 +44,7 @@ struct TransactionsListScreen: View {
                     .padding(.bottom, Padding.medium)
                     .padding(.horizontal, Padding.large)
                     .onAppear {
-                        if transactionStore.transactions.last?.id == transaction.id && !isLoading {
+                        if transactionDataSource.transactions.last?.id == transaction.id && !isLoading {
                             self.isLoading = true
                         }
                     }
@@ -70,7 +70,7 @@ struct TransactionsListScreen: View {
         .overlay(.bottom, condition: isLoading) {
             CashFlowLoader()
         }
-        .animation(.smooth, value: transactionStore.transactions.count)
+        .animation(.smooth, value: transactionDataSource.transactions.count)
         .onChange(of: isLoading) { _, newValue in
             if newValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {

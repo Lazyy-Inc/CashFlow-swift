@@ -11,17 +11,20 @@ import SwiftUI
 import Navigation
 import Core
 import DesignSystem
-import Stores
+import DataSources
 
 public struct TransactionsScreen: View {
     
-    // MARK: Dependencies
-    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
-    
-    // Environement
+    // MARK: Environements
     @EnvironmentObject private var router: Router<AppDestination>
     
-    public init() { }
+    // MARK: Constants
+    private let transactionDataSource: TransactionDataSource
+    
+    // MARK: Init
+    public init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+        self.transactionDataSource = transactionDataSource
+    }
             
     // MARK: -
     public var body: some View {
@@ -34,8 +37,9 @@ public struct TransactionsScreen: View {
                     isDisabled: false
                 )
             )
+            
             TransactionsListScreen()
-                .emptyState(condition: transactionStore.transactions.isEmpty) {
+                .emptyState(condition: transactionDataSource.transactions.isEmpty) {
                     CustomEmptyView(type: .noTransactions, isPlain: true)
                 }
         }

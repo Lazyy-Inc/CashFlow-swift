@@ -10,22 +10,28 @@ import Core
 
 public enum ActionButtonStyle {
     case plain
+    case secondary
     case disabled
     
-    public var backgroundColor: AnyShapeStyle {
+    var foregroundColor: Color {
         switch self {
         case .plain:
-            return AnyShapeStyle(LinearGradient(
-                colors: [Color.Primary.p500, Color.Primary.p500.darker(by: 15)],
-                startPoint: .top,
-                endPoint: .bottom
-            ))
+            return .white
+        case .secondary:
+            return .Text.primary
         case .disabled:
-            return AnyShapeStyle(LinearGradient(
-                colors: [Color.Primary.p500, Color.Primary.p500.darker(by: 15)],
-                startPoint: .top,
-                endPoint: .bottom
-            ).opacity(0.3))
+            return .white.opacity(0.3)
+        }
+    }
+    
+    var backgroundColor: AnyShapeStyle {
+        switch self {
+        case .plain:
+            return AnyShapeStyle(LinearGradient.main)
+        case .secondary:
+            return AnyShapeStyle(Color.Background.bg200)
+        case .disabled:
+            return AnyShapeStyle(LinearGradient.main.opacity(0.3))
         }
     }
 }
@@ -37,6 +43,7 @@ public struct ActionButtonView: View {
     let title: String
     let action: () async -> Void
     
+    // MARK: States
     @State private var isLoading: Bool = false
     
     // MARK: Init
@@ -64,15 +71,15 @@ public struct ActionButtonView: View {
                     ProgressView()
                 } else {
                     Text(title)
-                        .font(.Body.mediumBold, color: .white)
+                        .font(.Body.mediumBold, color: style.foregroundColor)
                 }
             }
             .frame(maxWidth: .infinity)
             .padding(Padding.standard)
-            .background(style.backgroundColor, in: .rect(cornerRadius: CornerRadius.large, style: .continuous))
+            .background(style.backgroundColor, in: .rect(cornerRadius: CornerRadius.standard, style: .continuous))
             .animation(.smooth, value: isLoading)
         }
-        .disabled(isLoading)
+        .disabled(isLoading || style == .disabled)
     }
 }
 

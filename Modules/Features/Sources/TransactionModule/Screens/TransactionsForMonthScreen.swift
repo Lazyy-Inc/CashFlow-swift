@@ -10,26 +10,34 @@ import Navigation
 import Core
 import DesignSystem
 import Models
-import Stores
+import DataSources
 
 public struct TransactionsForMonthScreen: View {
     
     // MARK: Dependencies
     var selectedDate: Date
     var type: FinancialItemType
-    @Dependency(\.transactionStore) private var transactionStore: TransactionStore
     
-    // String variables
+    // MARK: States
     @State private var searchText: String = ""
     
-    public init(selectedDate: Date, type: FinancialItemType) {
+    // MARK: Constants
+    private let transactionDataSource: TransactionDataSource
+    
+    // MARK: Init
+    public init(
+        selectedDate: Date,
+        type: FinancialItemType,
+        transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared
+    ) {
         self.selectedDate = selectedDate
         self.type = type
+        self.transactionDataSource = transactionDataSource
     }
     
     // MARK: -
     public var body: some View {
-        let transactions: [TransactionModel] = [] // transactionStore.getTransactions(in: selectedDate).filter { $0.type == type }
+        let transactions: [TransactionModel] = transactionDataSource.transactions(for: .type(type, month: selectedDate))
         let transactionsFiltered = transactions.search(searchText)
         
         List {

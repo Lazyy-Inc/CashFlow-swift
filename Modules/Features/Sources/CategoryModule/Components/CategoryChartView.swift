@@ -32,6 +32,10 @@ struct CategoryChartView: View {
                     CategoryChartItemView(item: item, totalAmount: totalAmount)
                 }
             }
+            
+            ActionButtonView(style: .secondary, title: "Voir le détail") { // TODO: TBL
+                
+            }
         }
         .padding(.standard)
         .roundedBackground(.classic)
