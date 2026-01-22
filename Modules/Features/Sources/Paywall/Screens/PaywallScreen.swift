@@ -15,7 +15,7 @@ public struct PaywallScreen: View {
     
     @State private var viewModel: ViewModel = .init()
     
-    @StateObject private var router: Router<AppDestination> = .init()
+    @State private var router: Router<AppDestination> = .init()
     
     public init() { }
     

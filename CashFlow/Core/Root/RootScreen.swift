@@ -12,7 +12,6 @@ import Core
 import Preferences
 import DesignSystem
 import Events
-import CategoryModule
 import Stores
 
 import Home
@@ -22,18 +21,21 @@ import SubscriptionModule
 import SettingsModule
 import Banners
 
+import CategoryModule
+import TransactionModule
+
 struct RootScreen: View {
     
     // Environment
     @EnvironmentObject private var appManager: AppManager
     @Dependency(\.accountStore) var accountStore: AccountStore
     
-    @StateObject private var homeRouter: Router<AppDestination> = .init()
-    @StateObject private var subscriptionRouter: Router<AppDestination> = .init()
-    @StateObject private var savingsRouter: Router<AppDestination> = .init()
-    @StateObject private var analysisRouter: Router<AppDestination> = .init()
-    @StateObject private var accountRouter: Router<AppDestination> = .init()
-    @StateObject private var routerManager: AppRouterManager = .shared
+    @State private var homeRouter: Router<AppDestination> = .init()
+    @State private var subscriptionRouter: Router<AppDestination> = .init()
+    @State private var savingsRouter: Router<AppDestination> = .init()
+    @State private var analysisRouter: Router<AppDestination> = .init()
+    @State private var accountRouter: Router<AppDestination> = .init()
+    @State private var routerManager: AppRouterManager = .shared
     @StateObject private var bannerManager: BannerManager = .shared
     
     @State private var viewModel: ViewModel = .init()
@@ -54,12 +56,6 @@ struct RootScreen: View {
                         appContentView()
                     } else {
                         appContentWithBankAccountView()
-                            .onAppear {
-                                if !appManager.isRoutersRegistered {
-                                    routerManager.register(router: homeRouter, for: .home)
-                                    routerManager.register(router: accountRouter, for: .account)
-                                }
-                            }
                     }
                     
                     if !routerManager.isNavigationInProgress {
@@ -114,7 +110,8 @@ extension RootScreen {
         TabView(selection: $appManager.selectedTab) {
             NavigationStackView(
                 router: homeRouter,
-                destinationContent: { AppDestination.content(for: $0) },
+                routerManager: routerManager,
+                flow: AppFlow.home,
                 initialContent: { HomeScreen() }
             )
             .tag(AppTabs.home)
@@ -122,7 +119,8 @@ extension RootScreen {
             
             NavigationStackView(
                 router: subscriptionRouter,
-                destinationContent: { AppDestination.content(for: $0) },
+                routerManager: routerManager,
+                flow: AppFlow.subscriptions,
                 initialContent: { SubscriptionsScreen() }
             )
             .tag(AppTabs.subscriptions)
@@ -130,7 +128,8 @@ extension RootScreen {
             
             NavigationStackView(
                 router: savingsRouter,
-                destinationContent: { AppDestination.content(for: $0) },
+                routerManager: routerManager,
+                flow: AppFlow.savings,
                 initialContent: { SavingsScreen() }
             )
             .tag(AppTabs.savings)
@@ -138,7 +137,8 @@ extension RootScreen {
             
             NavigationStackView(
                 router: analysisRouter,
-                destinationContent: { AppDestination.content(for: $0) },
+                routerManager: routerManager,
+                flow: AppFlow.analysis,
                 initialContent: { AnalysisScreen() }
             )
             .tag(AppTabs.analysis)
@@ -146,22 +146,12 @@ extension RootScreen {
             
             NavigationStackView(
                 router: accountRouter,
-                destinationContent: { AppDestination.content(for: $0) },
+                routerManager: routerManager,
+                flow: AppFlow.account,
                 initialContent: { SettingsScreen() }
             )
             .tag(AppTabs.account)
             .toolbar(.hidden, for: .tabBar)
-        }
-        .onAppear {
-            if !appManager.isRoutersRegistered {
-                routerManager.resetRouters()
-                routerManager.register(router: homeRouter, for: .home)
-                routerManager.register(router: subscriptionRouter, for: .subscriptions)
-                routerManager.register(router: savingsRouter, for: .savings)
-                routerManager.register(router: analysisRouter, for: .analysis)
-                routerManager.register(router: accountRouter, for: .account)
-                appManager.isRoutersRegistered = true
-            }
         }
     }
     
@@ -170,13 +160,17 @@ extension RootScreen {
         if appManager.selectedTab == .account {
             NavigationStackView(
                 router: accountRouter,
-                destinationContent: { AppDestination.content(for: $0) },
+                routerManager: routerManager,
+                flow: AppFlow.account,
+                isTabPage: true,
                 initialContent: { SettingsScreen() }
             )
         } else {
             NavigationStackView(
                 router: homeRouter,
-                destinationContent: { AppDestination.content(for: $0) },
+                routerManager: routerManager,
+                flow: AppFlow.home,
+                isTabPage: true,
                 initialContent: {
                     VStack(spacing: .large) {
                         CustomEmptyView(type: .noAccounts)

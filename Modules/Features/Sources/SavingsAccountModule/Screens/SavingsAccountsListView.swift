@@ -16,7 +16,7 @@ import Stores
 public struct SavingsAccountsListView: View {
         
     // Environment
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     @EnvironmentObject private var alertManager: AlertManager
     @EnvironmentObject private var purchaseManager: PurchasesManager
     @Dependency(\.accountStore) var accountStore: AccountStore

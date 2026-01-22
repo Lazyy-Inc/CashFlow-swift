@@ -223,7 +223,7 @@ extension AppDestination {
     }
     
     @ViewBuilder
-    static private func destinationShared(_ shared: SharedDestination) -> some View {
+    static private func destinationShared(_ shared: SharedDestination) -> some View { // TODO: With registery
         switch shared {
         case .sfSafari(let url):
             SFSafariScreen(url: url)
@@ -241,7 +241,7 @@ extension AppDestination {
     }
     
     @ViewBuilder
-    static private func destinationTips(_ tips: TipsDestination) -> some View {
+    static private func destinationTips(_ tips: TipsDestination) -> some View { // TODO: With registery
         switch tips {
         case .applePayShortcut:
             TipApplePayShortcutScreen()

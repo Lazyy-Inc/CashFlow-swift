@@ -16,7 +16,7 @@ import Dependencies
 public struct BudgetsListScreen: View {
     
     // Environnement
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     @Dependency(\.budgetStore) private var budgetStore
     
     public init() { }

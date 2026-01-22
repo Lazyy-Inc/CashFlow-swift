@@ -21,7 +21,7 @@ public struct AnalysisScreen: View {
     @State private var viewModel: ViewModel = .init()
     
     // MARK: Environments
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     @EnvironmentObject private var purchasesManager: PurchasesManager
     
     // MARK: Init

@@ -19,7 +19,7 @@ extension AppRouterManager {
 //    }
     
     var isNavigationInProgress: Bool {
-        return routers.values.map(\.navigationPath.isNotEmpty).contains(true)
+        return currentRouter?.navigationPath.isNotEmpty == true
     }
     
 }

@@ -8,23 +8,12 @@
 import Foundation
 import NavigationKit
 
-public final class AppRouterManager: ObservableObject {
-    @MainActor public static let shared = AppRouterManager()
-    public var routers: [AppTabs: Router<AppDestination>] = [:]
-}
-
-public extension AppRouterManager {
-
-    func register(router: Router<AppDestination>, for tab: AppTabs) {
-        return routers[tab] = router
-    }
+@MainActor
+public final class AppRouterManager: RouterManager<AppFlow, AppDestination> {
+    public static let shared: AppRouterManager = .init()
     
-    func router(for tab: AppTabs) -> Router<AppDestination>? {
-        return routers[tab]
-    }
-    
-    func resetRouters() {
-        routers.removeAll()
+    init() {
+        super.init(selectedFlow: .home)
     }
     
 }

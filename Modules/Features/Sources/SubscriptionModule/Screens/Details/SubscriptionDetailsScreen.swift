@@ -26,7 +26,7 @@ public struct SubscriptionDetailsScreen: View {
     
     // MARK: Environement
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     
     var subscription: SubscriptionModel? {
         return subscriptionStore.subscriptions.first { $0.id == subscriptionId }
@@ -195,7 +195,7 @@ extension SubscriptionDetailsScreen {
     
     func presentChangeCategory() {
         router.present(
-            route: .sheet,
+            route: .sheet(style: .large),
             .category(.select(
                 selectedCategory: $viewModel.selectedCategory,
                 selectedSubcategory: $viewModel.selectedSubcategory

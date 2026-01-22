@@ -17,6 +17,18 @@ import Sentry
 import Stores
 import Events
 
+import Navigation
+import AccountModule
+import CategoryModule
+import ContributionModule
+import FinancialGoalModule
+import SavingsAccountModule
+import SettingsModule
+import SubcategoryModule
+import SubscriptionModule
+import TransactionModule
+import TransferModule
+
 @main
 struct TurboBudgetApp: App {
     
@@ -47,6 +59,17 @@ struct TurboBudgetApp: App {
             options.dsn = ProcessInfo.processInfo.environment["SENTRY_API_KEY"] ?? ""
             options.sendDefaultPii = true
         }
+        
+        NavigationRegistry.shared.registerAccountRoutes()
+        NavigationRegistry.shared.registerCategoryRoutes()
+        NavigationRegistry.shared.registerContributionRoutes()
+        NavigationRegistry.shared.registerFinancialGoalRoutes()
+        NavigationRegistry.shared.registerSavingsAccountRoutes()
+        NavigationRegistry.shared.registerSettingsRoutes()
+        NavigationRegistry.shared.registerSubcategoryRoutes()
+        NavigationRegistry.shared.registerSubscriptionRoutes()
+        NavigationRegistry.shared.registerTransactionRoutes()
+        NavigationRegistry.shared.registerTransferRoutes()
     }
     
     // MARK: - View

@@ -18,7 +18,7 @@ public struct SubscriptionsListScreen: View {
     
     // Environement
     @Dependency(\.subscriptionStore) private var subscriptionStore
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     @Environment(\.dismiss) private var dismiss
     
     // State or Binding Orientation

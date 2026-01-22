@@ -32,7 +32,7 @@ public struct SelectCategoryButton: View {
                 .font(.system(size: 12, weight: .regular))
             
             NavigationButtonView(
-                route: .sheet,
+                route: .sheet(style: .large),
                 destination: AppDestination.category(
                     .select(
                         selectedCategory: $selectedCategory,

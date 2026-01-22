@@ -21,7 +21,7 @@ extension AddTransactionScreen {
         var transaction: TransactionModel?
         
         var transactionTitle: String = ""
-        var transactionAmount: String = ""
+        var transactionAmount: String = "0"
         var transactionDate: Date = Date()
         var selectedCategory: CategoryModel?
         var selectedSubcategory: SubcategoryModel?

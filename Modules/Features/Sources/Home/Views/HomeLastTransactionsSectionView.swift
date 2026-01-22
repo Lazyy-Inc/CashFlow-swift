@@ -14,7 +14,7 @@ import DataSources
 
 struct HomeLastTransactionsSectionView: View {
         
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     
     // MARK: Constants
     private let transactionDataSource: TransactionDataSource

@@ -22,7 +22,7 @@ public struct TransactionDetailsScreen: View { // TODO: Replace with financialIt
     @Dependency(\.categoryStore) private var categoryStore
     
     // MARK: Environments
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     @EnvironmentObject var store: PurchasesManager
     @Environment(\.dismiss) private var dismiss
     
@@ -183,7 +183,7 @@ extension TransactionDetailsScreen {
     
     func presentChangeCategory(transactionId: Int) {
         router.present(
-            route: .sheet,
+            route: .sheet(style: .large),
             .category(.select(
                 selectedCategory: $viewModel.selectedCategory,
                 selectedSubcategory: $viewModel.selectedSubcategory

@@ -1,0 +1,38 @@
+//
+//  SwiftUIView.swift
+//  DesignSystem
+//
+//  Created by Theo Sementa on 21/01/2026.
+//
+
+import SwiftUI
+
+public struct DeleteNumberButtonView: View {
+    
+    // MARK: Dependencies
+    @Binding var amount: String
+    
+    // MARK: Init
+    public init(amount: Binding<String>) {
+        self._amount = amount
+    }
+    
+    // MARK: - View
+    public var body: some View {
+        Button {
+            if amount == "0" { return }
+            amount.removeLast()
+            if amount.isEmpty { amount = "0" }
+        } label: {
+            IconView(asset: .iconDelete, size: .medium, color: .Text.secondary)
+                .padding(6)
+                .background(Color.Background.bg100, in: .circle)
+        }
+    }
+}
+
+// MARK: - Preview
+#Preview {
+    @Previewable @State var amount: String = "252"
+    DeleteNumberButtonView(amount: $amount)
+}

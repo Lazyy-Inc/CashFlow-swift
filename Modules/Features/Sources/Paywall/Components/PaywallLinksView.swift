@@ -13,7 +13,7 @@ import Core
 
 struct PaywallLinksView: View {
     
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     @EnvironmentObject private var purchasesManager: PurchasesManager
     
     // MARK: - View
@@ -32,7 +32,7 @@ struct PaywallLinksView: View {
             
             if let url = URL(string: AppConstantType.appEULA) {
                 NavigationButtonView(
-                    route: .sheet,
+                    route: .sheet(style: .large),
                     destination: .shared(.sfSafari(url: url))
                 ) {
                     Label(title: {

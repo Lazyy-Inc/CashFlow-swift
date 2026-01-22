@@ -19,7 +19,7 @@ public struct SavingsPlanListScreen: View {
     // Environment
     @Dependency(\.savingsPlanStore) private var savingsPlanStore
     @Dependency(\.contributionStore) private var contributionStore
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
         
     // String variables
     @State private var searchText: String = ""

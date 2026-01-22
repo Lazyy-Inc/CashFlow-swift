@@ -13,7 +13,7 @@ import Networking
 public struct SettingsDebugView: View {
     
     @State private var showOnboarding: Bool = false
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     
     public init() { }
     
@@ -35,7 +35,7 @@ public struct SettingsDebugView: View {
                     Text("Show onboarding")
                 }
                 Button {
-                    router.present(route: .modalFitContent, .tips(.applePayShortcut))
+                    router.present(route: .sheet(style: .fitContent), .tips(.applePayShortcut))
                 } label: {
                     Text("Show tip Apple Pay")
                 }

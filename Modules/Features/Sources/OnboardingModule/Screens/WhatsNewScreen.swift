@@ -17,9 +17,9 @@ public struct WhatsNewScreen: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
     
-    var router: Router<AppDestination>? {
-        return AppRouterManager.shared.router(for: .home)
-    }
+//    var router: Router<AppDestination>? {
+//        return AppRouterManager.shared.router(for: .home)
+//    }
     
     public init() { }
     
@@ -38,7 +38,7 @@ public struct WhatsNewScreen: View {
             
             VStack(spacing: 24) {
                 Button {
-                    router?.push(.shared(.releaseNoteDetail(releaseNote: .version2_0_4)))
+//                    router?.push(.shared(.releaseNoteDetail(releaseNote: .version2_0_4)))
                     preferencesGeneral.isWhatsNewSeen = true
                     dismiss()
                 } label: {

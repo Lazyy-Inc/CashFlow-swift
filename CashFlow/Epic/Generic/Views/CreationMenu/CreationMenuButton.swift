@@ -40,7 +40,7 @@ struct CreationMenuButton: View {
     var body: some View {
         Button {
             onPress()
-            AppRouterManager.shared.router(for: AppManager.shared.selectedTab)?.push(action.destination)
+            AppRouterManager.shared.currentRouter?.present(route: .fullScreenCover, action.destination)
         } label: {
             Label {
                 Text(action.title)

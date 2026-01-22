@@ -24,7 +24,7 @@ public struct FinancialItemRowView: View {
     @Dependency(\.savingsAccountStore) private var savingsAccountStore
     
     // MARK: Environment
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     
     // MARK: Init
     public init(

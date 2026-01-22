@@ -16,7 +16,7 @@ import DataSources
 public struct TransactionsScreen: View {
     
     // MARK: Environements
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     
     // MARK: Constants
     private let transactionDataSource: TransactionDataSource

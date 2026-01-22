@@ -18,7 +18,7 @@ struct SettingsRowView: View {
     
     // MARK: Environment
     @EnvironmentObject private var alertManager: AlertManager
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     @Environment(\.dismiss) private var dismiss
     
     // MARK: - View

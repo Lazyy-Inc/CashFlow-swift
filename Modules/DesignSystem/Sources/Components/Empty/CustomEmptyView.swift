@@ -16,7 +16,7 @@ public struct CustomEmptyView: View {
     var isPlain: Bool
     
     // MARK: Environments
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     
     // MARK: Init
     public init(type: EmptyViewType, isPlain: Bool = false) {

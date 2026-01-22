@@ -17,7 +17,7 @@ import Dependencies
 
 public struct HomeScreen: View {
         
-    @EnvironmentObject private var router: Router<AppDestination>
+    @Environment(Router<AppDestination>.self) private var router
     @EnvironmentObject private var purchasesManager: PurchasesManager
     
     @State private var viewModel: ViewModel = .init()
@@ -66,21 +66,21 @@ public struct HomeScreen: View {
         }
         .onAppear {
             preferencesGeneral.numberOfOpenings += 1
-            if (preferencesGeneral.numberOfOpenings % 6 == 0) && !preferencesGeneral.isApplePayEnabled {
-                router.present(route: .modalFitContent, .tips(.applePayShortcut))
-            }
+//            if (preferencesGeneral.numberOfOpenings % 6 == 0) && !preferencesGeneral.isApplePayEnabled { // TODO: Need in registery before
+//                router.present(route: .sheet(style: .fitContent), .tips(.applePayShortcut))
+//            }
             if preferencesGeneral.numberOfOpenings > 8 && !preferencesGeneral.isReviewPopupPresented {
                 Task { @MainActor in
                     preferencesGeneral.isReviewPopupPresented = true
                     requestReview()
                 }
             }
-            if preferencesGeneral.numberOfOpenings % 12 == 0 && !purchasesManager.isCashFlowPro {
-                router.present(route: .fullScreenCover, .shared(.paywall))
-            }
-            if preferencesGeneral.isAlreadyOpen && !preferencesGeneral.isWhatsNewSeen {
-                router.present(route: .modalFitContent, .shared(.whatsNew))
-            }
+//            if preferencesGeneral.numberOfOpenings % 12 == 0 && !purchasesManager.isCashFlowPro { // TODO: Need in registery before
+//                router.present(route: .fullScreenCover, .shared(.paywall))
+//            }
+//            if preferencesGeneral.isAlreadyOpen && !preferencesGeneral.isWhatsNewSeen { // TODO: Need in registery before
+//                router.present(route: .sheet(style: .fitContent), .shared(.whatsNew))
+//            }
         }
     } // body
 } // struct

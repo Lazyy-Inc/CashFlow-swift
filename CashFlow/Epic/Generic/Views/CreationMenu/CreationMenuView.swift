@@ -25,7 +25,7 @@ struct CreationMenuView: View {
     @State private var isPresented: Bool = false
     
     var router: Router<AppDestination>? {
-        return AppRouterManager.shared.router(for: .home)
+        return AppRouterManager.shared.currentRouter
     }
     
     // MARK: -
