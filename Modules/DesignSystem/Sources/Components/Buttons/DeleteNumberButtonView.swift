@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Core
 
 public struct DeleteNumberButtonView: View {
     
@@ -23,6 +24,7 @@ public struct DeleteNumberButtonView: View {
             if amount == "0" { return }
             amount.removeLast()
             if amount.isEmpty { amount = "0" }
+            VibrationManager.vibration()
         } label: {
             IconView(asset: .iconDelete, size: .medium, color: .Text.secondary)
                 .padding(6)

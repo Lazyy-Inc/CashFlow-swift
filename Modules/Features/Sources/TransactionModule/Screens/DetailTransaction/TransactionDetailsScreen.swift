@@ -38,8 +38,8 @@ public struct TransactionDetailsScreen: View { // TODO: Replace with financialIt
             BetterScrollView(maxBlurRadius: Blur.topbar) {
                 NavigationBarWithMenu {
                     NavigationButtonView(
-                        route: .push,
-                        destination: AppDestination.transaction(.update(transaction: currentTransaction))
+                        route: .fullScreenCover,
+                        destination: .transaction(.update(transaction: currentTransaction))
                     ) {
                         Label(Word.Classic.edit, systemImage: "pencil")
                     }

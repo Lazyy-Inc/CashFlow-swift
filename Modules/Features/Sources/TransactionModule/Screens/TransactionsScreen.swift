@@ -33,7 +33,7 @@ public struct TransactionsScreen: View {
                 title: Word.Main.transactions,
                 actionButton: .init(
                     title: Word.Classic.create,
-                    action: { router.push(.transaction(.create)) },
+                    action: { router.present(route: .fullScreenCover, .transaction(.create)) },
                     isDisabled: false
                 )
             )

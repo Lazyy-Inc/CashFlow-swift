@@ -78,7 +78,6 @@ struct TurboBudgetApp: App {
             appContentView()
                 .overlay(alignment: .bottom) {
                     SuccessfullCreationView()
-                        .environmentObject(successfullModalManager)
                 }
                 .environmentObject(appManager)
                 .environmentObject(appearanceManager)

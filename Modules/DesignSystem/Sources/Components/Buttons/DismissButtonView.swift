@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Core
 
 public struct DismissButtonView: View {
     
@@ -19,6 +20,7 @@ public struct DismissButtonView: View {
     public var body: some View {
         Button {
             dismiss()
+            VibrationManager.vibration()
         } label: {
             IconView(asset: .iconXmark, size: .small, color: .Text.secondary)
                 .padding(6)

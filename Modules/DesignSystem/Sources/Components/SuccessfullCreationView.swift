@@ -8,11 +8,14 @@
 import SwiftUI
 import ConfettiSwiftUI
 import Core
+import Navigation
 
 public struct SuccessfullCreationView: View {
     
     // Environment
     @EnvironmentObject private var succesfullModalManager: SuccessfullModalManager
+    
+    @State private var fakeRouter: Router<AppDestination> = .init()
     
     // Number variables
     @State private var confettiCounter: Int = 0
@@ -62,6 +65,7 @@ public struct SuccessfullCreationView: View {
                 .padding(4)
             }
         }
+        .environment(fakeRouter)
         .animation(.smooth, value: succesfullModalManager.isPresenting)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()

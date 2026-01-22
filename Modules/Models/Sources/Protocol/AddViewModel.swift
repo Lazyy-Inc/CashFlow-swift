@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 public protocol AddViewModel {
     var navigationTitle: String { get }
     var actionButtonTitle: String { get }

@@ -12,11 +12,12 @@ import Models
 import Stores
 import Events
 import NetworkKit
+import Utilities
 
 extension AddTransactionScreen {
     
-    @Observable
-    final class ViewModel: AddViewModel {
+    @Observable @MainActor
+    final class ViewModel: BaseViewModel, AddViewModel {
         
         var transaction: TransactionModel?
         
@@ -151,8 +152,8 @@ extension AddTransactionScreen.ViewModel {
             accountId: accountID,
             body: bodyForCreation()
         ) {
-            await dismiss()
-            await successfullModalManager.showSuccessfulTransaction(type: .new, transaction: transaction)
+            dismiss()
+            successfullModalManager.showSuccessfulTransaction(type: .new, transaction: transaction)
         }
     }
     
@@ -167,8 +168,8 @@ extension AddTransactionScreen.ViewModel {
             sortTransaction: true,
             body: bodyForCreation()
         ) {
-            await dismiss()
-            await successfullModalManager.showSuccessfulTransaction(type: .update, transaction: transaction)
+            dismiss()
+            successfullModalManager.showSuccessfulTransaction(type: .update, transaction: transaction)
         }
     }
     

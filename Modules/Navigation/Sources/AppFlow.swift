@@ -16,4 +16,5 @@ public enum AppFlow: AppFlowProtocol {
     case account
     
     case addTransaction
+    case successfulModal
 }

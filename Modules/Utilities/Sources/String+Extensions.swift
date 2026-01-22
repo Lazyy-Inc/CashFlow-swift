@@ -13,6 +13,13 @@ public extension String {
         return NSLocalizedString(self, comment: "")
     }
     
+    func toDouble() -> Double {
+        let newVariable = NumberFormatter()
+        newVariable.numberStyle = .decimal
+        newVariable.locale = Locale.current
+        return newVariable.number(from: self) as? Double ?? Double(self) ?? 0
+    }
+    
     /// https://stackoverflow.com/a/54651172/19014464
     func levenshteinDistanceScore(to string: String, ignoreCase: Bool = true, trimWhiteSpacesAndNewLines: Bool = true) -> Double {
         

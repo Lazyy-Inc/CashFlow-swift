@@ -124,6 +124,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
+                "Utilities",
                 .product(name: "DataSources", package: "DataSources"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],

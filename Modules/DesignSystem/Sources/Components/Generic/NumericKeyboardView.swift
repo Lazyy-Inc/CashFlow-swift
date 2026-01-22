@@ -6,20 +6,24 @@
 //
 
 import SwiftUI
+import Core
 
 public struct NumericKeyboardView: View {
     
     // MARK: Dependencies
     @Binding private var value: String
-    private var validationAction: () -> Void
+    private var validationAction: () async -> Void
     
     // MARK: Environments
     @Environment(\.theme) private var theme
     
+    // MARK: States
+    @State private var isLoading: Bool = false
+    
     // MARK: Init
     public init(
         value: Binding<String>,
-        validationAction: @escaping () -> Void,
+        validationAction: @escaping () async -> Void,
     ) {
         self._value = value
         self.validationAction = validationAction
@@ -75,6 +79,7 @@ extension NumericKeyboardView {
                 }
                 value.append(character)
             }
+            VibrationManager.vibration()
         } label: {
             Text(character)
                 .font(.Display.small, color: .Text.primary)
@@ -87,13 +92,27 @@ extension NumericKeyboardView {
     @ViewBuilder
     private var validationButton: some View {
         Button {
-            validationAction()
+            VibrationManager.vibration()
+            Task {
+                isLoading = true
+                await validationAction()
+                isLoading = false
+            }
         } label: {
-            IconView(asset: .iconCheckmarkRounded, color: .Base.white)
-                .padding(.standard)
-                .fullSize()
-                .roundedBackground(.custom(color: theme.color, radius: .medium))
+            Group {
+                if isLoading {
+                    ProgressView()
+                        .foregroundStyle(Color.Base.white)
+                        .frame(width: 24, height: 24)
+                } else {
+                    IconView(asset: .iconCheckmarkRounded, color: .Base.white)
+                }
+            }
+            .padding(.standard)
+            .fullSize()
+            .roundedBackground(.custom(color: theme.color, radius: .medium))
         }
+        .disabled(isLoading)
     }
     
 }

@@ -138,6 +138,7 @@ public struct AddTransactionScreen: View {
     
     // MARK: Environments
     @Environment(\.safeAreaInsets) private var safeAreaInsets
+    @Environment(\.dismiss) private var dismiss
     
     // MARK: States
     @State private var viewModel: ViewModel
@@ -151,6 +152,7 @@ public struct AddTransactionScreen: View {
         self._viewModel = State(wrappedValue: ViewModel(transaction: transaction))
     }
     
+    // MARK: - View
     public var body: some View {
         NavigationStackView(
             router: router,
@@ -177,7 +179,7 @@ public struct AddTransactionScreen: View {
                     
                     VStack(spacing: .medium) {
                         HStack(spacing: .medium) {
-                            datePickerView
+                            DatePickerView(date: $viewModel.transactionDate)
                             repartitionPickerView
                         }
                         
@@ -186,7 +188,7 @@ public struct AddTransactionScreen: View {
                         } else {
                             NumericKeyboardView(
                                 value: $viewModel.transactionAmount,
-                                validationAction: { }
+                                validationAction: { await viewModel.validationAction(dismiss: dismiss) }
                             )
                         }
                     }
@@ -239,17 +241,6 @@ private extension AddTransactionScreen {
         }
     }
     
-    @ViewBuilder
-    var datePickerView: some View { // TODO: Make a component
-        SmallActionButtonView(
-            icon: .iconCalendar,
-            text: viewModel.transactionDate.formatted(.dateTime.day().month(.abbreviated).year()),
-            config: .init(isFullWidth: true)
-        ) {
-            
-        }
-    }
-    
     var repartitionPickerView: some View { // TODO: Make a component
         Menu {
             ForEach(RepartitionType.allCases, id: \.self) { item in
@@ -273,7 +264,7 @@ private extension AddTransactionScreen {
     AddTransactionScreen()
 }
 
-extension View {
+extension View { // TODO: move
     
     /// Only used for VStack
     func lockView() -> some View {
