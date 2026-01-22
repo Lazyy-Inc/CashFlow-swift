@@ -122,7 +122,7 @@ extension AddAccountScreen.ViewModel {
         }
         
         await accountStore.createAccount(body: body)
-        if let dismiss { await dismiss() }
+        if let dismiss { dismiss() }
     }
     
     private func updateAccount(dismiss: DismissAction) async {
@@ -140,7 +140,7 @@ extension AddAccountScreen.ViewModel {
         }
         
         await accountStore.updateAccount(accountID: accountID, body: body)
-        await dismiss()
+        dismiss()
     }
 }
 

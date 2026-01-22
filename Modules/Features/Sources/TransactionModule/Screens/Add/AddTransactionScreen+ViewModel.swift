@@ -13,6 +13,7 @@ import Stores
 import Events
 import NetworkKit
 import Utilities
+import ToastBannerKit
 
 extension AddTransactionScreen {
     
@@ -31,6 +32,7 @@ extension AddTransactionScreen {
         var isAlertLeavePresented: Bool = false
         
         let successfullModalManager: SuccessfullModalManager = .shared
+        var toastBannerService: ToastBannerService = .shared
         
         var isEditing: Bool { return transaction != nil }
         
@@ -66,11 +68,11 @@ extension AddTransactionScreen {
 // MARK: - Computed variables
 extension AddTransactionScreen.ViewModel {
     
-    var navigationTitle: String {
+    var navigationTitle: String { // TODO: TO Delete + Tolgee
         return transaction == nil ? Word.Title.Transaction.new : Word.Title.Transaction.update
     }
     
-    var actionButtonTitle: String {
+    var actionButtonTitle: String { // TODO: TO Delete + Tolgee
         return transaction == nil ? "create_transaction_validation_button" : "edit_transaction_validation_button"
     }
     
@@ -88,18 +90,6 @@ extension AddTransactionScreen.ViewModel {
         return false
     }
     
-    var amountAfterTransaction: String? {
-        if let selectedAccount = accountStore.selectedAccount, let selectedCategory, let revenue = CategoryModel.revenue {
-            if selectedCategory != revenue {
-                return (selectedAccount.balance - transactionAmount.toDouble()).toCurrency()
-            } else {
-                return (selectedAccount.balance + transactionAmount.toDouble()).toCurrency()
-            }
-        }
-        
-        return nil
-    }
-    
 }
 
 // MARK: - Public functions
@@ -107,12 +97,14 @@ extension AddTransactionScreen.ViewModel {
     
     func validationAction(dismiss: DismissAction) async {
         NetworkService.cancelAllTasks()
-        VibrationManager.vibration()
-        if transaction == nil {
-            await createTransaction(dismiss: dismiss)
-        } else {
-            await updateTransaction(dismiss: dismiss)
-        }
+        do {
+            try checkDatas()
+            if transaction == nil {
+                await createTransaction(dismiss: dismiss)
+            } else {
+                await updateTransaction(dismiss: dismiss)
+            }
+        } catch { }
     }
     
     func dismissAction(dismiss: DismissAction) {
@@ -127,12 +119,30 @@ extension AddTransactionScreen.ViewModel {
             dismiss()
         }
     }
+    
+    func onTapSelectCategory() {
+        router?.present(
+            route: .sheet(style: .large),
+            .category(
+                .select(
+                    selectedCategory: Binding(
+                        get: { self.selectedCategory },
+                        set: { self.selectedCategory = $0 }
+                    ),
+                    selectedSubcategory: Binding(
+                        get: { self.selectedSubcategory },
+                        set: { self.selectedSubcategory = $0 }
+                    )
+                )
+            )
+        )
+    }
 }
 
 // MARK: - Private functions
 extension AddTransactionScreen.ViewModel {
     
-    func bodyForCreation() -> TransactionDTO {
+    private func bodyForCreation() -> TransactionDTO {
         return TransactionDTO.body(
             name: transactionTitle.trimmingCharacters(in: .whitespaces),
             amount: transactionAmount.toDouble(),
@@ -144,7 +154,7 @@ extension AddTransactionScreen.ViewModel {
         )
     }
     
-    func createTransaction(dismiss: DismissAction) async {
+    private func createTransaction(dismiss: DismissAction) async {
         guard let account = accountStore.selectedAccount else { return }
         guard let accountID = account._id else { return }
         
@@ -157,7 +167,7 @@ extension AddTransactionScreen.ViewModel {
         }
     }
     
-    func updateTransaction(dismiss: DismissAction) async {
+    private func updateTransaction(dismiss: DismissAction) async {
         guard let account = accountStore.selectedAccount else { return }
         guard let accountID = account._id else { return }
         guard let transactionID = transaction?.id else { return }
@@ -170,6 +180,13 @@ extension AddTransactionScreen.ViewModel {
         ) {
             dismiss()
             successfullModalManager.showSuccessfulTransaction(type: .update, transaction: transaction)
+        }
+    }
+    
+    private func checkDatas() throws {
+        if transactionAmount.isEmpty || transactionAmount.toDouble() == 0 {
+            toastBannerService.send(.errorAmountMandatory)
+            throw NetworkError.fieldIsIncorrectlyFilled
         }
     }
     

@@ -1,5 +1,5 @@
 {
-  "originHash" : "b52ebf47eb5295e1d484d49881c7345a70211c4b3d7ac4c0ee9aea1b6a5c810b",
+  "originHash" : "dd8f97c57e3f9474f17ff011eb01ac5e9ac16fdcfdf0cb1aca977b50c1b96f04",
   "pins" : [
     {
       "identity" : "alertkit",
@@ -197,6 +197,15 @@
       "state" : {
         "branch" : "1.1.5",
         "revision" : "9df064ec1b2c8d618f40c8623cb89cd2ceb6c99e"
+      }
+    },
+    {
+      "identity" : "toastbannerkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/theosementa/ToastBannerKit.git",
+      "state" : {
+        "revision" : "f630a401bfeac0d56eca45009332f81498136e2b",
+        "version" : "1.0.2"
       }
     },
     {

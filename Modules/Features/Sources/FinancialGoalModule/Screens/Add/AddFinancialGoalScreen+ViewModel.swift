@@ -141,8 +141,8 @@ extension AddFinancialGoalScreen.ViewModel {
                 )
             }
             
-            await dismiss()
-            await successfullModalManager.showSuccessfulSavingsPlan(type: .new, savingsPlan: savingsPlan)
+            dismiss()
+            successfullModalManager.showSuccessfulSavingsPlan(type: .new, savingsPlan: savingsPlan)
         }
     }
     
@@ -155,8 +155,8 @@ extension AddFinancialGoalScreen.ViewModel {
             body: bodyForCreation()
         )
         
-        await dismiss()
-        await successfullModalManager.showSuccessfulSavingsPlan(type: .update, savingsPlan: savingsPlan)
+        dismiss()
+        successfullModalManager.showSuccessfulSavingsPlan(type: .update, savingsPlan: savingsPlan)
     }
     
     private func randomNamePlaceholder() {

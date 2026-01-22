@@ -102,8 +102,8 @@ extension AddTransferScreen.ViewModel {
                 date: date.toISO()
             )
         ) {
-            await dismiss()
-            await successfullModalManager.showSuccessfulTransfer(type: .new, transfer: transfer)
+            dismiss()
+            successfullModalManager.showSuccessfulTransfer(type: .new, transfer: transfer)
         }
     }
     

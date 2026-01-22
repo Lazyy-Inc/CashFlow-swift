@@ -10,17 +10,29 @@ import Core
 
 public struct DismissButtonView: View {
     
+    private let dismissAction: (() async -> Void)?
+    
     // MARK: Environments
     @Environment(\.dismiss) private var dismiss
     
     // MARK: Init
-    public init() { }
+    public init(
+        dismissAction: (() async -> Void)? = nil
+    ) {
+        self.dismissAction = dismissAction
+    }
     
     // MARK: - View
     public var body: some View {
         Button {
-            dismiss()
             VibrationManager.vibration()
+            if let dismissAction {
+                Task {
+                    await dismissAction()
+                }
+            } else {
+                dismiss()
+            }
         } label: {
             IconView(asset: .iconXmark, size: .small, color: .Text.secondary)
                 .padding(6)

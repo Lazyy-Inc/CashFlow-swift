@@ -9,24 +9,124 @@ import Foundation
 
 public enum ImageType: String {
     
+    case iconAlert
+    case iconAppleLogo
     case iconArrowLeft
+    case iconArrowRight
     case iconArrowRotation
+    case iconArrowUpRight
+    case iconBank
     case iconBanknote
     case iconBarChart
+    case iconBeef
     case iconBell
+    case iconBike
+    case iconBitcoin
+    case iconBook
+    case iconBus
+    case iconBusiness
     case iconCalendar
+    case iconCar
+    case iconCart
+    case iconCat
     case iconCheck
     case iconCheckmarkRounded
+    case iconChevronUpDown
+    case iconClapperBoard
+    case iconClock
+    case iconClockRepeat
+    case iconCoins
     case iconCreditCard
+    case iconCross
+    case iconCrown
     case iconDelete
+    case iconDoorLocked
+    case iconDroplet
+    case iconDumbbell
     case iconEllipsis
+    case iconEnergy
+    case iconFence
+    case iconFileLock
     case iconFileText
+    case iconFolderPlus
+    case iconFuel
+    case iconGear
+    case iconGem
+    case iconGift
+    case iconGlasses
+    case iconGraduationHat
     case iconHand
+    case iconHandCoins
+    case iconHeartPulse
+    case iconHospital
+    case iconHourGlass
+    case iconHouse
+    case iconHousePlug
+    case iconInbox
+    case iconKey
     case iconLandmark
+    case iconLaptop
     case iconLineChart
+    case iconLogout
+    case iconMenu
+    case iconMoneyBag
+    case iconMonitorSmartphone
+    case iconMovie
+    case iconNewspaper
+    case iconPackage
+    case iconPaintRoller
+    case iconParking
+    case iconParty
+    case iconPeage
+    case iconPerson
+    case iconPersonStanding
     case iconPieChart
     case iconPiggyBank
+    case iconPill
+    case iconPlane
+    case iconPlus
+    case iconPolice
+    case iconQuestionFile
+    case iconReceipe
+    case iconRestaurant
+    case iconSchool
+    case iconScissors
+    case iconSearch
+    case iconSend
+    case iconShare
+    case iconShirt
+    case iconShoppingBack
+    case iconSiren
+    case iconSmartphone
+    case iconSofa
+    case iconSoftware
+    case iconSparkles
+    case iconSquarePen
+    case iconStar
+    case iconStethoscope
+    case iconStock
+    case iconStore
+    case iconSun
     case iconTag
+    case iconTaxi
+    case iconToys
+    case iconTrain
+    case iconTransfert
+    case iconTrash
+    case iconTreePalm
+    case iconTvPlay
+    case iconUserround
+    case iconUstensils
+    case iconVital
+    case iconVolleyball
+    case iconWallet
+    case iconWarning
+    case iconWifi
+    case iconWine
+    case iconWithdraw
+    case iconWithdrawMoney
+    case iconWrench
     case iconXmark
+    case iconXmarkCircle
     
 }

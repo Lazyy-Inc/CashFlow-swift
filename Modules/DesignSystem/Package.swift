@@ -30,7 +30,8 @@ let package = Package(
         .package(path: "../Navigation"),
         
         .package(url: "https://github.com/theosementa/TheoKit", branch: "1.1.5"),
-        .package(url: "https://github.com/simibac/ConfettiSwiftUI", branch: "1.0.0")
+        .package(url: "https://github.com/simibac/ConfettiSwiftUI", branch: "1.0.0"),
+        .package(url: "https://github.com/theosementa/ToastBannerKit.git", exact: "1.0.2")
     ],
     targets: [
         .target(
@@ -41,6 +42,7 @@ let package = Package(
               "Stores",
               "Banners",
               "Navigation",
+              .product(name: "ToastBannerKit", package: "ToastBannerKit"),
               .product(name: "TheoKit", package: "TheoKit"),
               .product(name: "ConfettiSwiftUI", package: "ConfettiSwiftUI")
           ],

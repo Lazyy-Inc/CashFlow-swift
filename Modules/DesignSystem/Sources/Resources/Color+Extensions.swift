@@ -60,6 +60,7 @@ public extension Color {
 public extension Color {
     
     struct Primary {
+        public static let p100: Color = Color(hex: 0xD7FBDD)
         public static let p500: Color = Color(hex: 0x34B67F)
     }
     

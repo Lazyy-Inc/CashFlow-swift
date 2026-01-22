@@ -100,8 +100,8 @@ extension AddContributionScreen.ViewModel {
                 dateString: date.toISO()
             )
         ) {
-            await dismiss()
-            await successfullModalManager.showSuccessfulContribution(
+            dismiss()
+            successfullModalManager.showSuccessfulContribution(
                 type: .new,
                 savingsPlan: savingsPlan,
                 contribution: contribution
