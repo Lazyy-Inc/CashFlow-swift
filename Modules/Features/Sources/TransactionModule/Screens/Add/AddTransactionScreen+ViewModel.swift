@@ -18,26 +18,10 @@ import ToastBannerKit
 extension AddTransactionScreen {
     
     @Observable @MainActor
-    final class ViewModel: BaseViewModel, AddViewModel {
+    final class ViewModel: BaseViewModel {
         
+        // MARK: Dependencies
         var transaction: TransactionModel?
-        
-        var transactionTitle: String = ""
-        var transactionAmount: String = "0"
-        var transactionDate: Date = Date()
-        var selectedCategory: CategoryModel?
-        var selectedSubcategory: SubcategoryModel?
-        var repartitionType: RepartitionType = .notDefined
-        
-        var isAlertLeavePresented: Bool = false
-        
-        let successfullModalManager: SuccessfullModalManager = .shared
-        var toastBannerService: ToastBannerService = .shared
-        
-        var isEditing: Bool { return transaction != nil }
-        
-        var namePlaceholder: String = ""
-        var amountPlaceholder: String = ""
         
         @ObservationIgnored
         @Dependency(\.accountStore) var accountStore
@@ -45,20 +29,35 @@ extension AddTransactionScreen {
         @ObservationIgnored
         @Dependency(\.transactionStore) private var transactionStore
         
-        // init
+        // MARK: States
+        var title: String = ""
+        var amount: String = "0"
+        var date: Date = Date()
+        var selectedCategory: CategoryModel?
+        var selectedSubcategory: SubcategoryModel?
+        var repartitionType: RepartitionType = .notDefined
+        
+        // MARK: Services
+        let successfullModalManager: SuccessfullModalManager = .shared
+        var toastBannerService: ToastBannerService = .shared
+        
+        // MARK: UI Variables
+        var namePlaceholder: String = ""
+        var isAlertLeavePresented: Bool = false
+        
+        // MARK: Init
         init(transaction: TransactionModel? = nil) {
             if let transaction {
                 self.transaction = transaction
-                self.transactionTitle = transaction.nameDisplayed
-                self.transactionAmount = transaction.amount.toString()
-                self.transactionDate = transaction.date
+                self.title = transaction.nameDisplayed
+                self.amount = transaction.amount.toString()
+                self.date = transaction.date
                 self.selectedCategory = transaction.category
                 self.selectedSubcategory = transaction.subcategory
                 self.repartitionType = transaction.repartitionType ?? .notDefined
             }
             
             randomNamePlaceholder()
-            randomAmountPlaceholder()
         }
         
     }
@@ -68,28 +67,15 @@ extension AddTransactionScreen {
 // MARK: - Computed variables
 extension AddTransactionScreen.ViewModel {
     
-    var navigationTitle: String { // TODO: TO Delete + Tolgee
-        return transaction == nil ? Word.Title.Transaction.new : Word.Title.Transaction.update
-    }
-    
-    var actionButtonTitle: String { // TODO: TO Delete + Tolgee
-        return transaction == nil ? "create_transaction_validation_button" : "edit_transaction_validation_button"
-    }
-    
     var isModelInCreation: Bool {
-        if selectedCategory != nil || selectedSubcategory != nil || !transactionTitle.isEmpty || transactionAmount.toDouble() != 0 {
-            return true
-        }
-        return false
+        return selectedCategory.isNotNil
+        || selectedSubcategory.isNotNil
+        || title.isNotEmpty
+        || amount.toDouble() != 0
     }
     
-    var isModelValid: Bool {
-        if !transactionTitle.isBlank && transactionAmount.toDouble() != 0.0 && selectedCategory != nil {
-            return true
-        }
-        return false
-    }
-    
+    var isEditing: Bool { transaction != nil }
+
 }
 
 // MARK: - Public functions
@@ -144,10 +130,10 @@ extension AddTransactionScreen.ViewModel {
     
     private func bodyForCreation() -> TransactionDTO {
         return TransactionDTO.body(
-            name: transactionTitle.trimmingCharacters(in: .whitespaces),
-            amount: transactionAmount.toDouble(),
+            name: title.trimmingCharacters(in: .whitespaces),
+            amount: amount.toDouble(),
             type: selectedCategory?.isIncome == true ? FinancialItemType.income.rawValue : FinancialItemType.expense.rawValue,
-            dateISO: transactionDate.toISO(),
+            dateISO: date.toISO(),
             categoryID: selectedCategory?.id,
             subcategoryID: selectedSubcategory?.id,
             repartitionType: repartitionType.rawValue
@@ -184,7 +170,7 @@ extension AddTransactionScreen.ViewModel {
     }
     
     private func checkDatas() throws {
-        if transactionAmount.isEmpty || transactionAmount.toDouble() == 0 {
+        if amount.isReallyEmpty || amount.toDouble() == 0 {
             toastBannerService.send(.errorAmountMandatory)
             throw NetworkError.fieldIsIncorrectlyFilled
         }
@@ -192,20 +178,7 @@ extension AddTransactionScreen.ViewModel {
     
 }
 
-// MARK: - Utils
-extension AddTransactionScreen.ViewModel {
-    
-    func resetData() {
-        transactionTitle = ""
-        transactionAmount = ""
-        transactionDate = Date()
-        selectedCategory = nil
-        selectedSubcategory = nil
-    }
-    
-}
-
-// MARK: - Private functions UI
+// MARK: - Private UI functions
 extension AddTransactionScreen.ViewModel {
     
     private func randomNamePlaceholder() {
@@ -223,10 +196,6 @@ extension AddTransactionScreen.ViewModel {
         ]
         
         self.namePlaceholder = placeholdersAvailable.randomElement() ?? ""
-    }
-    
-    private func randomAmountPlaceholder() {
-        self.amountPlaceholder = Double.random(in: 20.0...300.0).toString()
     }
     
 }

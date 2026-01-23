@@ -38,6 +38,11 @@ public struct SelectCategoryScreen: View {
     public var body: some View {
         NavigationStack {
             ScrollView {
+                VStack(alignment: .leading, spacing: .small) {
+                    
+                    SearchBarView("Rechercher", searchText: $viewModel.searchText) // TODO: TBL
+                }
+                
                 VStack(spacing: Spacing.extraLarge) {
                     ForEach(viewModel.categoriesFiltered) { category in
                         categorySectionView(for: category)
@@ -55,19 +60,10 @@ public struct SelectCategoryScreen: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: { dismiss() }, label: {
-                        Image(systemName: "xmark")
-                            .foregroundStyle(Color.Text.primary)
-                            .font(.system(size: 18, weight: .semibold))
-                    })
+                    DismissButtonView()
                 }
             }
         }
-        .searchable(
-            text: $viewModel.searchText.animation(),
-            placement: .navigationBarDrawer(displayMode: .always),
-            prompt: "word_search".localized
-        )
     }
 }
 

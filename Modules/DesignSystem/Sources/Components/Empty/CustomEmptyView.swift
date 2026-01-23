@@ -44,8 +44,7 @@ public struct CustomEmptyView: View {
                 
                 if !type.buttonTitle.isEmpty {
                     Text(type.buttonTitle.localized)
-                        .font(.Label.large)
-                        .foregroundStyle(Color.white)
+                        .font(.Label.large, color: .Base.white)
                         .padding(.horizontal, Spacing.medium)
                         .padding(.vertical, Spacing.small)
                         .background(

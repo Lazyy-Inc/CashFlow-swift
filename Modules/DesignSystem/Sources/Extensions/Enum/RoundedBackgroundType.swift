@@ -13,9 +13,7 @@ public extension RoundedBackgroundType {
     
     var color: Color {
         switch self {
-        case .classic:
-            return Color.Background.bg100
-        case .field:
+        case .classic, .row, .field:
             return Color.Background.bg100
         case .custom(let color, _, _, _):
             return color
@@ -28,6 +26,8 @@ public extension RoundedBackgroundType {
             return .mediumLarge
         case .field:
             return .medium
+        case .row:
+            return .standard
         case .custom(_, let radius, _, _):
             return radius
         }
@@ -35,9 +35,7 @@ public extension RoundedBackgroundType {
     
     var strokeColor: Color? {
         switch self {
-        case .classic:
-            return Color.Background.bg200
-        case .field:
+        case .classic, .row, .field:
             return Color.Background.bg200
         case .custom(_, _, _, let strokeColor):
             return strokeColor
@@ -46,9 +44,7 @@ public extension RoundedBackgroundType {
     
     var lineWidth: CGFloat {
         switch self {
-        case .classic:
-            return 1
-        case .field:
+        case .classic, .row, .field:
             return 1
         case .custom(_, _, let lineWidth, _):
             return lineWidth

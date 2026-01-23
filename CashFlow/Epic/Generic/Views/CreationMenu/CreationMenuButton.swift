@@ -9,18 +9,19 @@ import SwiftUI
 import Navigation
 import Core
 import DesignSystem
+import Models
 
 struct CreationMenuAction: Identifiable {
     let id = UUID()
     let title: String
-    let icon: ImageResource
+    let icon: ImageType
     let destination: AppDestination
     let isDisabled: Bool
     let onTapAction: (() -> Void)?
     
     init(
         title: String,
-        icon: ImageResource,
+        icon: ImageType,
         destination: AppDestination,
         isDisabled: Bool = false,
         onTapAction: (() -> Void)? = nil
@@ -44,12 +45,10 @@ struct CreationMenuButton: View {
         } label: {
             Label {
                 Text(action.title)
-                    .font(.Title.medium)
+                    .font(.Title.medium, color: .Text.primary)
             } icon: {
-                Image(action.icon)
-                    .renderingMode(.template)
+                IconView(asset: action.icon, color: .Text.primary)
             }
-            .foregroundStyle(Color.Text.primary)
             .padding(.horizontal, Spacing.standard)
             .padding(.vertical, Spacing.medium)
             .roundedRectangleBorder(

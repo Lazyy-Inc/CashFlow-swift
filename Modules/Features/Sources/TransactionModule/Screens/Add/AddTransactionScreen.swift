@@ -58,8 +58,8 @@ public struct AddTransactionScreen: View {
                 
                 VStack(spacing: .zero) {
                     TextFieldView(
-                        text: $viewModel.transactionTitle,
-                        title: "Nom de la transaction", // TODO: TBL
+                        text: $viewModel.title,
+                        title: "add_transaction_field_name_title".localized,
                         placeholder: viewModel.namePlaceholder.localized
                     )
                     
@@ -71,7 +71,7 @@ public struct AddTransactionScreen: View {
                     
                     VStack(spacing: .medium) {
                         HStack(spacing: .medium) {
-                            DatePickerView(date: $viewModel.transactionDate)
+                            DatePickerView(date: $viewModel.date)
                             RepartitionPickerView(repartitionType: $viewModel.repartitionType)
                         }
                         
@@ -79,7 +79,7 @@ public struct AddTransactionScreen: View {
                             Color.clear.frame(height: keyboardManager.keyboardHeight - safeAreaInsets.bottom - .standard)
                         } else {
                             NumericKeyboardView(
-                                value: $viewModel.transactionAmount,
+                                value: $viewModel.amount,
                                 validationAction: { await viewModel.validationAction(dismiss: dismiss) }
                             )
                         }
@@ -109,15 +109,15 @@ private extension AddTransactionScreen {
         HStack(spacing: .tiny) {
             Text(UserCurrency.symbol)
                 .font(.Display.small, color: .Text.tertiary)
-            Text(viewModel.transactionAmount)
+            Text(viewModel.amount)
                 .contentTransition(.numericText())
                 .font(.Display.extraLarge)
         }
-        .animation(.smooth, value: viewModel.transactionAmount)
+        .animation(.smooth, value: viewModel.amount)
         .fullWidth()
         .overlay(alignment: .trailing) {
-            DeleteNumberButtonView(amount: $viewModel.transactionAmount)
-                .isDisplayed(viewModel.transactionAmount != "0")
+            DeleteNumberButtonView(amount: $viewModel.amount)
+                .isDisplayed(viewModel.amount != "0")
         }
     }
     
@@ -142,17 +142,4 @@ private extension AddTransactionScreen {
 // MARK: - Preview
 #Preview {
     AddTransactionScreen()
-}
-
-extension View { // TODO: move
-    
-    /// Only used for VStack
-    func lockView() -> some View {
-        GeometryReader { geometry in
-            self
-                .frame(width: geometry.size.width, height: geometry.size.height)
-        }
-        .ignoresSafeArea(.keyboard)
-    }
-    
 }

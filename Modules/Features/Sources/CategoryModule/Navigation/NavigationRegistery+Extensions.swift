@@ -25,6 +25,3 @@ public extension NavigationRegistry {
     }
     
 }
-
-
-

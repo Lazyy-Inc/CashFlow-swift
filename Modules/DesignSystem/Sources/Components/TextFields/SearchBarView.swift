@@ -8,7 +8,7 @@
 import SwiftUI
 import Core
 
-struct SearchBarView: View {
+public struct SearchBarView: View {
     
     // MARK: Dependencies
     var placeholder: String
@@ -27,7 +27,7 @@ struct SearchBarView: View {
     }
     
     // MARK: - View
-    var body: some View {
+    public var body: some View {
         HStack(spacing: 8) {
             Image("iconSearch")
                 .resizable()

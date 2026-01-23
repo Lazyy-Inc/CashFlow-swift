@@ -62,5 +62,14 @@ public extension View {
                     .ignoresSafeArea(.all, edges: .bottom)
             )
     }
+    
+    /// Only used for VStack
+    func lockView() -> some View {
+        GeometryReader { geometry in
+            self
+                .frame(width: geometry.size.width, height: geometry.size.height)
+        }
+        .ignoresSafeArea(.keyboard)
+    }
 
 }

@@ -34,38 +34,24 @@ public struct SubcategorySelectableRowView: View {
     // MARK: - View
     public var body: some View {
         Button(action: action) {
-            HStack {
-                Circle()
-                    .foregroundStyle(subcategory.color)
-                    .frame(width: 35, height: 35)
-                    .overlay {
-                        IconSVG(icon: subcategory.icon, value: .standard)
-                            .foregroundStyle(Color.white)
-                    }
+            HStack(spacing: .small) {
+                CircleColoredWithIconView(
+                    circleColor: subcategory.color,
+                    icon: subcategory.icon
+                )
                 
                 Text(subcategory.name)
                     .font(.Body.medium)
                     .lineLimit(1)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .fullWidth(.leading)
             }
-            .padding(Padding.standard)
-            .roundedBackground(
-                .custom(
-                    color: .Background.bg200,
-                    radius: .standard,
-                    strokeColor: nil
-                )
-            )
-            .overlay(.topTrailing, condition: isSelected) {
-                ZStack {
-                    Circle()
-                        .frame(width: 25, height: 25)
-                        .foregroundStyle(theme.color)
-                    Image(systemName: "checkmark")
-                        .font(.system(size: 12, weight: .heavy, design: .rounded))
-                        .foregroundStyle(.white)
-                }
-                .padding(8)
+            .padding(.medium)
+            .roundedBackground(.row)
+            .overlay(.trailing, condition: isSelected) {
+                IconView(asset: .iconCheck, size: .extraSmall, color: .Base.white)
+                    .padding(.small)
+                    .background(theme.color, in: .circle)
+                    .padding(8)
             }
         }
     } // body

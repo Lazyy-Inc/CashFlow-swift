@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Models
 
 public struct CircleColoredWithIconView: View {
     
@@ -15,7 +16,11 @@ public struct CircleColoredWithIconView: View {
     let iconColor: Color
     
     // MARK: Init
-    public init(circleColor: Color, icon: String, iconColor: Color) {
+    public init(
+        circleColor: Color,
+        icon: String,
+        iconColor: Color = .Base.white
+    ) {
         self.circleColor = circleColor
         self.icon = icon
         self.iconColor = iconColor
@@ -23,13 +28,9 @@ public struct CircleColoredWithIconView: View {
     
     // MARK: - View
     public var body: some View {
-        Circle()
-            .foregroundStyle(circleColor)
-            .frame(width: 36, height: 36)
-            .overlay {
-                IconSVG(icon: icon, value: .medium)
-                    .foregroundStyle(iconColor)
-            }
+        IconView(asset: ImageType(rawValue: icon) ?? .iconAlert, size: .medium, color: iconColor)
+            .padding(.small)
+            .background(circleColor, in: .circle)
     }
 }
 

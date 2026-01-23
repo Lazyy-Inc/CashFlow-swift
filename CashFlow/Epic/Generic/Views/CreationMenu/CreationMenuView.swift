@@ -73,7 +73,7 @@ extension CreationMenuView {
             let actions: [CreationMenuAction] = [
                 CreationMenuAction(
                     title: Word.Main.savingsAccount,
-                    icon: .iconLandmark,
+                    icon: .iconBank,
                     destination: .savingsAccount(.create),
                     isDisabled: !accountStore.savingsAccounts.isEmpty && !store.isCashFlowPro,
                     onTapAction: {
@@ -84,22 +84,11 @@ extension CreationMenuView {
                 ),
                 CreationMenuAction(
                     title: "word_account".localized,
-                    icon: .iconPerson,
+                    icon: .iconPersonStanding,
                     destination: .account(.create),
                     isDisabled: !accountStore.accounts.isEmpty && !store.isCashFlowPro,
                     onTapAction: {
                         if !accountStore.accounts.isEmpty && !store.isCashFlowPro {
-                            alertManager.showPaywall(router: router)
-                        }
-                    }
-                ),
-                CreationMenuAction(
-                    title: Word.Classic.budget,
-                    icon: .iconPieChart,
-                    destination: .budget(.create),
-                    isDisabled: !store.isCashFlowPro,
-                    onTapAction: {
-                        if !store.isCashFlowPro {
                             alertManager.showPaywall(router: router)
                         }
                     }

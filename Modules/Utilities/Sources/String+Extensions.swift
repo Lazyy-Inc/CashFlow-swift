@@ -13,6 +13,10 @@ public extension String {
         return NSLocalizedString(self, comment: "")
     }
     
+    var isReallyEmpty: Bool {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+    
     func toDouble() -> Double {
         let newVariable = NumberFormatter()
         newVariable.numberStyle = .decimal

@@ -36,8 +36,7 @@ public struct CategoryRowView: View {
         HStack(spacing: Spacing.small) {
             CircleColoredWithIconView(
                 circleColor: category.color,
-                icon: category.icon,
-                iconColor: Color.white
+                icon: category.icon
             )
             
             VStack(alignment: .leading, spacing: 0) {

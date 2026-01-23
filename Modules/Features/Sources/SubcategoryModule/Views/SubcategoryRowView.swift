@@ -42,13 +42,10 @@ struct SubcategoryRowView: View {
     // MARK: -
     var body: some View {
         HStack {
-            Circle()
-                .foregroundStyle(subcategory.color)
-                .frame(width: 36, height: 36)
-                .overlay {
-                    IconSVG(icon: subcategory.icon, value: .medium)
-                        .foregroundStyle(Color.white)
-                }
+            CircleColoredWithIconView(
+                circleColor: subcategory.color,
+                icon: subcategory.icon
+            )
             
             VStack(alignment: .leading, spacing: 0) {
                 Text(subcategory.name)
