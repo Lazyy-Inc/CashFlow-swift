@@ -17,13 +17,13 @@ struct TransactionMapRow: View {
     // dependencies
     var transaction: TransactionModel
   
-  var coordinates: CLLocationCoordinate2D {
-    let coordinates = CLLocationCoordinate2D(
-      latitude: transaction.lat ?? 0,
-      longitude: transaction.long ?? 0
-    )
-    return coordinates
-  }
+    var coordinates: CLLocationCoordinate2D {
+        let coordinates = CLLocationCoordinate2D(
+            latitude: transaction.lat ?? 0,
+            longitude: transaction.long ?? 0
+        )
+        return coordinates
+    }
         
     var cameraPosition: MapCameraPosition {
       return .region(.init(
@@ -35,22 +35,20 @@ struct TransactionMapRow: View {
     
     // MARK: -
     var body: some View {
-        let systemImage: String = transaction.subcategory?.icon ?? "iconQuestionFile"
+        let systemImage: String = transaction.subcategory?.icon ?? "iconTag"
         Map(initialPosition: cameraPosition) {
             Annotation(transaction.nameDisplayed, coordinate: coordinates) {
-                IconSVG(icon: systemImage, value: .standard)
-                    .foregroundStyle(Color.white)
+                IconView(asset: ImageType(rawValue: systemImage) ?? .iconTag, size: .small, color: .Base.white)
                     .padding(6)
                     .background {
                         Circle()
-                            .fill(transaction.category?.color ?? .blue)
+                            .fill(transaction.category?.color ?? .gray)
                     }
             }
         }
         .mapStyle(.standard(elevation: .realistic))
         .frame(height: 200)
         .clipShape(.rect(cornerRadius: CornerRadius.standard, style: .continuous))
-        .disabled(true)
     } // body
 } // struct
 

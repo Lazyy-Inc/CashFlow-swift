@@ -14,7 +14,7 @@ public extension RepartitionType {
     var color: Color {
         switch self {
         case .notDefined:
-            Color.clear
+            Color.Text.secondary
         case .needed:
             Color.Category.categoryHealth
         case .wanted:

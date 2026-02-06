@@ -54,7 +54,7 @@ public struct FinancialItemRowView: View {
         .geometryGroup()
         .padding(Padding.medium)
         .roundedBackground(.classic)
-        .contentShape(.contextMenuPreview, .rect(cornerRadius: CornerRadius.standard))
+        .contentShape(.contextMenuPreview, .rect(cornerRadius: .mediumLarge))
         .contextMenu {
             contextMenuButtonsView
         } preview: {

@@ -34,7 +34,7 @@ public struct TransactionDetailsScreen: View {
         self.viewModel = .init(transactionId: transactionId)
     }
     
-    // MARK: -
+    // MARK: - View
     public var body: some View {
         if let transaction = viewModel.transaction {
             NavigationStackView(
@@ -48,14 +48,8 @@ public struct TransactionDetailsScreen: View {
                         .padding(.horizontal, .large)
                         .padding(.vertical, .standard)
                 } content: { _ in
-                    VStack(spacing: .large) {
-                        amountView(for: transaction)
-                        
-                        dividerView
-                        
-                        dateRowView(for: transaction)
-                    }
-                    .padding(.large)
+                    contentView(for: transaction)
+                        .padding(.large)
                 }
                 .background(Color.Background.bg50)
                 .navigationBarBackButtonHidden(true)
@@ -74,150 +68,6 @@ public struct TransactionDetailsScreen: View {
             }
         }
     }
-    
-    //    public var body: some View {
-    //        if let currentTransaction = viewModel.transaction {
-    //            BetterScrollView(maxBlurRadius: Blur.topbar) {
-    //                NavigationBarWithMenu {
-    //                    NavigationButtonView(
-    //                        route: .fullScreenCover,
-    //                        destination: .transaction(.update(transaction: currentTransaction))
-    //                    ) {
-    //                        Label(Word.Classic.edit, systemImage: "pencil")
-    //                    }
-    //
-    //                    Button(
-    //                        role: .destructive,
-    //                        action: { AlertManager.shared.deleteTransaction(transaction: currentTransaction, dismissAction: dismiss) },
-    //                        label: { Label(Word.Classic.delete, systemImage: "trash.fill") }
-    //                    )
-    //                }
-    //            } content: { _ in
-    //                VStack(spacing: Spacing.extraLarge) {
-    //                    VStack(spacing: Spacing.small) {
-    //                        VStack(spacing: Spacing.extraSmall) {
-    //                            Text("\(currentTransaction.symbol) \(currentTransaction.amount.toCurrency())")
-    //                                .font(.Display.huge, color: currentTransaction.color)
-    //
-    //                            Text(currentTransaction.nameDisplayed)
-    //                                .font(.Display.small)
-    //                                .multilineTextAlignment(.center)
-    //                                .lineLimit(2)
-    //                        }
-    //                        if currentTransaction.isFromSubscription == true {
-    //                            Text("transaction_detail_automatically_created".localized)
-    //                                .font(.Body.medium)
-    //                        }
-    //                    }
-    //
-    //                    if let categoryFound = viewModel.bestCategory {
-    //                        let subcategoryFound = viewModel.bestSubcategory
-    //                        PredictedCategoryRowView(
-    //                            category: categoryFound,
-    //                            subcategory: subcategoryFound,
-    //                            action: {
-    //                                viewModel.selectedCategory = categoryFound
-    //                                if let subcategoryFound { viewModel.selectedSubcategory = subcategoryFound }
-    //                                viewModel.updateCategory(transactionID: currentTransaction.id)
-    //                            }
-    //                        )
-    //                    }
-    //
-    //                    VStack(spacing: Spacing.medium) {
-    //                        DetailRow(
-    //                            icon: "iconCalendar",
-    //                            text: "transaction_detail_date".localized,
-    //                            value: currentTransaction.date.formatted(
-    //                                date: .complete,
-    //                                time: currentTransaction.isFromApplePay == true ? .shortened : .omitted
-    //                            ).capitalized
-    //                        )
-    //
-    //                        if let category = currentTransaction.category {
-    //                            DetailRow(
-    //                                icon: category.icon,
-    //                                value: category.name,
-    //                                iconBackgroundColor: category.color,
-    //                                isCategory: true
-    //                            ) {
-    //                                presentChangeCategory(transactionId: currentTransaction.id)
-    //                            }
-    //
-    //                            if let subcategory = currentTransaction.subcategory {
-    //                                DetailRow(
-    //                                    icon: subcategory.icon,
-    //                                    value: subcategory.name,
-    //                                    iconBackgroundColor: subcategory.color,
-    //                                    isCategory: true
-    //                                ) {
-    //                                    presentChangeCategory(transactionId: currentTransaction.id)
-    //                                }
-    //                            }
-    //                        }
-    //
-    //                        PickerDetailRowView(
-    //                            icon: "iconPieChart",
-    //                            text: "repartition_picker_title".localized,
-    //                            selectedItem: $viewModel.currentReparitionType,
-    //                            items: RepartitionType.allCases
-    //                        )
-    //                        .onChange(of: viewModel.currentReparitionType) { _, newValue in
-    //                            viewModel.updateRepartion(newValue)
-    //                        }
-    //
-    //                        if let senderAccount = currentTransaction.senderAccount {
-    //                            DetailRow(
-    //                                icon: "iconSend",
-    //                                text: Word.Classic.senderAccount,
-    //                                value: senderAccount.name
-    //                            )
-    //                        }
-    //
-    //                        if let receiverAccount = currentTransaction.receiverAccount {
-    //                            DetailRow(
-    //                                icon: "iconInbox",
-    //                                text: Word.Classic.receiverAccount,
-    //                                value: receiverAccount.name
-    //                            )
-    //                        }
-    //
-    //                        if currentTransaction.lat != nil && currentTransaction.long != nil {
-    //                            TransactionMapRow(transaction: currentTransaction)
-    //                        }
-    //                    }
-    //                }
-    //                .padding(Padding.large)
-    //            } // Content ScrollView
-    //            .onAppear {
-    //                if currentTransaction.type == .transfer {
-    //                    // EventService.sendEvent(key: EventKeys.transferDetailPage)
-    //                } else {
-    //                    // EventService.sendEvent(key: EventKeys.transactionDetailPage)
-    //                }
-    //            }
-    //            .task {
-    //                if store.isCashFlowPro && currentTransaction.category?.id == 0 {
-    //                    guard !currentTransaction.nameDisplayed.isBlank else { return }
-    //                    let transactionID = currentTransaction.id
-    //                    if let response = await transactionStore.fetchRecommendedCategory(
-    //                        name: currentTransaction.nameDisplayed,
-    //                        transactionId: transactionID
-    //                    ) {
-    //                        if let cat = response.cat {
-    //                            viewModel.bestCategory = categoryStore.findCategoryById(cat)
-    //                        }
-    //                        if let sub = response.sub {
-    //                            viewModel.bestSubcategory = categoryStore.findSubcategoryById(sub)
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //            .navigationBarBackButtonHidden(true)
-    //            .toolbarBackground(Color.clear, for: .navigationBar)
-    //            .toolbar(.hidden, for: .navigationBar)
-    //            .background(Color.Background.bg50)
-    //        }
-    //    } // body
 } // struct
 
 struct Line: Shape {
@@ -231,6 +81,35 @@ struct Line: Shape {
 
 // MARK: - Subviews
 private extension TransactionDetailsScreen {
+    
+    @ViewBuilder
+    func contentView(for transaction: TransactionModel) -> some View {
+        VStack(spacing: .large) {
+            if transaction.type == .transfer {
+                amountView(for: transaction)
+                dividerView
+                dateRowView(for: transaction)
+                dividerView
+                transferInformationView(for: transaction)
+            } else {
+                amountView(for: transaction)
+                if viewModel.bestCategory != nil {
+                    dividerView
+                    recommendedRowView(for: transaction)
+                }
+                dividerView
+                dateRowView(for: transaction)
+                dividerView
+                categoriesView(for: transaction)
+                dividerView
+                repartitionView(for: transaction)
+                if transaction.lat != nil && transaction.long != nil {
+                    dividerView
+                    TransactionMapRow(transaction: transaction)
+                }
+            }
+        }
+    }
     
     @ViewBuilder
     func headerView(for transaction: TransactionModel) -> some View {
@@ -251,7 +130,7 @@ private extension TransactionDetailsScreen {
                     label: { Label(Word.Classic.delete, systemImage: "trash.fill") }
                 )
             } label: {
-                IconView(asset: .iconEllipsis, size: .small, color: .Text.secondary)
+                IconView(asset: .iconEllipsis, size: .small, color: .Text.primary)
                     .padding(6)
                     .background(Color.Background.bg100, in: .circle)
             }
@@ -276,30 +155,130 @@ private extension TransactionDetailsScreen {
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
             }
-            if transaction.isFromSubscription == true {
-                Text("transaction_detail_automatically_created".localized)
-                    .font(.Body.medium)
+            if transaction.isFromSubscription {
+                Text("transaction_detail_linked_to_subscription".localized) // TODO: TBL
+                    .font(.Body.medium, color: .Text.secondary)
+            }
+            if transaction.isFromApplePay {
+                Text("transaction_detail_linked_to_applepay".localized) // TODO: TBL
+                    .font(.Body.medium, color: .Text.secondary)
             }
         }
     }
     
     @ViewBuilder
     func dateRowView(for transaction: TransactionModel) -> some View {
-        HStack(spacing: .small) {
-            HStack(spacing: .small) {
-                IconView(asset: .iconCalendar, color: .Text.primary)
-                Text("generic_date".localized) // TODO: TBL
-                    .font(.Body.medium)
+        let fullDate = transaction.date.formatted(.dateTime.weekday(.wide).day(.defaultDigits).month(.abbreviated).year())
+        let time = ", \(transaction.date.formatted(.dateTime.hour().minute()))"
+        
+        DetailRowView(
+            icon: .iconCalendar,
+            text: "generic_date".localized,
+            value: fullDate + (transaction.isFromApplePay ? time : "")
+        )
+        // TODO: Add change date on tap
+    }
+    
+    @ViewBuilder
+    func categoriesView(for transaction: TransactionModel) -> some View {
+        let accentColor = transaction.categoryColor
+        
+        Button {
+            presentChangeCategory(transactionId: transaction.id)
+        } label: {
+            VStack(spacing: .medium) {
+                if let category = transaction.category {
+                    DetailRowView(
+                        icon: ImageType(rawValue: category.icon) ?? .iconAlert,
+                        iconColor: accentColor,
+                        value: category.name
+                    )
+                }
+                
+                if let subcategory = transaction.subcategory {
+                    DetailRowView(
+                        icon: ImageType(rawValue: subcategory.icon) ?? .iconAlert,
+                        iconColor: accentColor,
+                        value: subcategory.name
+                    )
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func repartitionView(for transaction: TransactionModel) -> some View {
+        DetailRowView(
+            icon: .iconCalendar,
+            text: "generic_repartion".localized,
+            value: viewModel.currentReparitionType.name.localized,
+            valueColor: viewModel.currentReparitionType.color
+        )
+        .overlay {
+            Menu {
+                Picker("", selection: $viewModel.currentReparitionType) {
+                    ForEach(RepartitionType.allCases, id: \.self) { item in
+                        Text(item.name.localized).tag(item)
+                    }
+                }
+            } label: {
+                Color.clear
+            }
+        }
+        .onChange(of: viewModel.currentReparitionType) { _, newValue in
+            viewModel.updateRepartion(newValue)
+        }
+    }
+    
+    @ViewBuilder
+    func transferInformationView(for transaction: TransactionModel) -> some View {
+        VStack(spacing: .medium) {
+            if let senderAccount = transaction.senderAccount {
+                DetailRowView(
+                    icon: .iconSend,
+                    text: Word.Classic.senderAccount,
+                    value: senderAccount.name
+                )
             }
             
-            Text(
-                transaction.date.formatted(
-                    date: .complete,
-                    time: transaction.isFromApplePay == true ? .shortened : .omitted
-                ).capitalized
-            )
-            .font(.Body.mediumBold)
-            .fullWidth(.trailing)
+            if let receiverAccount = transaction.receiverAccount {
+                DetailRowView(
+                    icon: .iconInbox,
+                    text: Word.Classic.receiverAccount,
+                    value: receiverAccount.name
+                )
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func recommendedRowView(for transaction: TransactionModel) -> some View {
+        if let categoryFound = viewModel.bestCategory {
+            let subcategoryFound = viewModel.bestSubcategory
+            let categoryIcon = subcategoryFound?.icon ?? categoryFound.icon
+            
+            Button {
+                viewModel.selectedCategory = categoryFound
+                if let subcategoryFound { viewModel.selectedSubcategory = subcategoryFound }
+                viewModel.updateCategory(transactionID: transaction.id)
+            } label: {
+                VStack(spacing: .medium) {
+                    HStack(spacing: .small) {
+                        IconView(asset: .iconSparkles, color: .Text.primary)
+                        Text("generic_recommended".localized) // TODO: TBL
+                            .font(.Body.medium)
+                    }
+                    
+                    HStack(spacing: .small) {
+                        IconView(asset: ImageType(rawValue: categoryIcon) ?? .iconAlert, color: .Base.white)
+                        Text(subcategoryFound?.name ?? categoryFound.name)
+                            .font(.Body.medium, color: .Base.white)
+                    }
+                    .padding(.horizontal, .standard)
+                    .padding(.vertical, .medium)
+                    .background(categoryFound.color, in: .rect(cornerRadius: .medium, style: .continuous))
+                }
+            }
         }
     }
     
