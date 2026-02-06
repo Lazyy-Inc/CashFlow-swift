@@ -2149,7 +2149,28 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "word_yes" = "Oui";
 
 /*  */
+"add_transaction_field_name_title" = "Nom de la transaction";
+
+/*  */
+"generic_category" = "Catégorie";
+
+/*  */
 "generic_continue" = "Continuer";
+
+/*  */
+"generic_date" = "Date";
+
+/*  */
+"generic_recommended" = "Recommandé";
+
+/*  */
+"generic_repartition" = "Répartition";
+
+/*  */
+"generic_search" = "Rechercher";
+
+/*  */
+"generic_see_detail" = "Voir le détail";
 
 /*  */
 "paywall_advanced_analytics_description" = "Accédez à des analyses complètes de vos dépenses et revenus";
@@ -2218,6 +2239,9 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "paywall_monthly_report_title" = "Rapports mensuels";
 
 /*  */
+"paywall_promotion" = "Promotion -50 %%";
+
+/*  */
 "paywall_purchased" = "Tu possèdes déjà CashFlow Max ! Merci !";
 
 /*  */
@@ -2227,7 +2251,7 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 "paywall_reminder_title" = "Rappel de renouvellement";
 
 /*  */
-"paywall_save_money_description" = "L’achat de CashFlow Max permet d’avoir 78% plus de chances d’économiser de l’argent";
+"paywall_save_money_description" = "L’achat de CashFlow Max permet d’avoir 78%% plus de chances d’économiser de l’argent";
 
 /*  */
 "paywall_save_money_title" = "Économisez de l’argent";
@@ -2235,3 +2259,8 @@ Simple, rapide, sécurisé – votre tranquillité d’esprit financière commen
 /*  */
 "paywall_support_developer_title" = "Soutenir le développeur indépendant";
 
+/*  */
+"transaction_detail_linked_to_applepay" = "Récupéré avec Apple Pay";
+
+/*  */
+"transaction_detail_linked_to_subscription" = "Lié à un abonnement";

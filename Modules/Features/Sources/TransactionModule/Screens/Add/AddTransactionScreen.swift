@@ -125,7 +125,7 @@ private extension AddTransactionScreen {
     var categorySelectionButtonView: some View {
         let color: Color? = viewModel.selectedCategory?.color
         let icon = viewModel.selectedSubcategory?.icon ?? viewModel.selectedCategory?.icon ?? "iconTag"
-        let text = viewModel.selectedSubcategory?.name ?? viewModel.selectedCategory?.name ?? "Catégorie" // TODO: TBL
+        let text = viewModel.selectedSubcategory?.name ?? viewModel.selectedCategory?.name ?? "generic_category".localized
         
         SmallActionButtonView(
             style: color == nil ? .noValue : .withValue(bgColor: color!),

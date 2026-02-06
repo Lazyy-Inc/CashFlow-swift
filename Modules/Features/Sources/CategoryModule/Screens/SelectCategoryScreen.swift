@@ -39,8 +39,7 @@ public struct SelectCategoryScreen: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: .small) {
-                    
-                    SearchBarView("Rechercher", searchText: $viewModel.searchText) // TODO: TBL
+                    SearchBarView("generic_search".localized, searchText: $viewModel.searchText)
                 }
                 
                 VStack(spacing: Spacing.extraLarge) {

@@ -2149,7 +2149,28 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "word_yes" = "Yes";
 
 /*  */
+"add_transaction_field_name_title" = "Name of the transaction";
+
+/*  */
+"generic_category" = "Category";
+
+/*  */
 "generic_continue" = "Continue";
+
+/*  */
+"generic_date" = "Date";
+
+/*  */
+"generic_recommended" = "Recommended";
+
+/*  */
+"generic_repartition" = "Distribution";
+
+/*  */
+"generic_search" = "Search";
+
+/*  */
+"generic_see_detail" = "See details";
 
 /*  */
 "paywall_advanced_analytics_description" = "Access detailed analytics of your expenses and income";
@@ -2218,6 +2239,9 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "paywall_monthly_report_title" = "Monthly reports";
 
 /*  */
+"paywall_promotion" = "Promotion -50 %%";
+
+/*  */
 "paywall_purchased" = "You already own CashFlow Max! Thank you!";
 
 /*  */
@@ -2227,11 +2251,17 @@ Simple, fast, secure - your financial peace of mind starts here.";
 "paywall_reminder_title" = "Renewal reminder";
 
 /*  */
-"paywall_save_money_description" = "Purchasing CashFlow Max gives you a 78% higher chance of saving money";
+"paywall_save_money_description" = "Purchasing CashFlow Max gives you a 78%% higher chance of saving money";
 
 /*  */
 "paywall_save_money_title" = "Save money";
 
 /*  */
 "paywall_support_developer_title" = "Support the indie developer";
+
+/*  */
+"transaction_detail_linked_to_applepay" = "Recovered with Apple Pay";
+
+/*  */
+"transaction_detail_linked_to_subscription" = "Linked to a subscription";
 

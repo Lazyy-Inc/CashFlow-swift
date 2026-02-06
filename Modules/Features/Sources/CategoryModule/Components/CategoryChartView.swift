@@ -33,7 +33,7 @@ struct CategoryChartView: View {
                 }
             }
             
-            ActionButtonView(style: .secondary, title: "Voir le détail") { // TODO: TBL
+            ActionButtonView(style: .secondary, title: "generic_see_detail".localized) {
                 
             }
         }

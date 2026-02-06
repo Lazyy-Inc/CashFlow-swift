@@ -147,7 +147,7 @@ extension FinancialItemRowView {
             } else if let category = financialItem.category {
                 return category.icon
             } else {
-                return "iconQuestionFile"
+                return "iconTag"
             }
         case .transfer:
             return isSender ? "iconSend" : "iconHandCoins"
@@ -157,10 +157,10 @@ extension FinancialItemRowView {
 }
 
 // MARK: - Subviews
-extension FinancialItemRowView {
+private extension FinancialItemRowView {
     
     @ViewBuilder
-    private var financialItemTypeWithNameView: some View {
+    var financialItemTypeWithNameView: some View {
         VStack(alignment: .leading, spacing: Spacing.extraSmall) {
             Text(financialItem.type.name)
                 .foregroundStyle(Color.Background.bg600)
@@ -174,7 +174,7 @@ extension FinancialItemRowView {
     }
     
     @ViewBuilder
-    private var financialItemAmountWithDateView: some View {
+    var financialItemAmountWithDateView: some View {
         VStack(alignment: .trailing, spacing: Spacing.extraSmall) {
             Text("\(financialSymbol) \(financialItem.amount.toCurrency())")
                 .font(.Body.mediumBold, color: financialColor)
@@ -187,7 +187,7 @@ extension FinancialItemRowView {
     }
     
     @ViewBuilder
-    private var contextMenuButtonsView: some View {
+    var contextMenuButtonsView: some View {
         if let transaction = financialItem as? TransactionModel {
             contextMenuButtonsView(transaction: transaction)
         } else if let subscription = financialItem as? SubscriptionModel {
@@ -196,7 +196,7 @@ extension FinancialItemRowView {
     }
     
     @ViewBuilder
-    private func contextMenuButtonsView(transaction: TransactionModel) -> some View {
+    func contextMenuButtonsView(transaction: TransactionModel) -> some View {
         if isTransfer == false {
             AsyncButton {
                 if let accountId = accountStore.selectedAccount?._id {
@@ -227,7 +227,7 @@ extension FinancialItemRowView {
     }
     
     @ViewBuilder
-    private func contextMenuButtonsView(subscription: SubscriptionModel) -> some View {
+    func contextMenuButtonsView(subscription: SubscriptionModel) -> some View {
         if isEditable {
             Button {
                 router.push(.subscription(.update(subscription: subscription)))

@@ -155,12 +155,14 @@ private extension TransactionDetailsScreen {
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
             }
+            
             if transaction.isFromSubscription {
-                Text("transaction_detail_linked_to_subscription".localized) // TODO: TBL
+                Text("transaction_detail_linked_to_subscription".localized)
                     .font(.Body.medium, color: .Text.secondary)
             }
+            
             if transaction.isFromApplePay {
-                Text("transaction_detail_linked_to_applepay".localized) // TODO: TBL
+                Text("transaction_detail_linked_to_applepay".localized)
                     .font(.Body.medium, color: .Text.secondary)
             }
         }
@@ -209,8 +211,8 @@ private extension TransactionDetailsScreen {
     @ViewBuilder
     func repartitionView(for transaction: TransactionModel) -> some View {
         DetailRowView(
-            icon: .iconCalendar,
-            text: "generic_repartion".localized,
+            icon: .iconBarChart,
+            text: "generic_repartition".localized,
             value: viewModel.currentReparitionType.name.localized,
             valueColor: viewModel.currentReparitionType.color
         )
@@ -265,7 +267,7 @@ private extension TransactionDetailsScreen {
                 VStack(spacing: .medium) {
                     HStack(spacing: .small) {
                         IconView(asset: .iconSparkles, color: .Text.primary)
-                        Text("generic_recommended".localized) // TODO: TBL
+                        Text("generic_recommended".localized)
                             .font(.Body.medium)
                     }
                     
