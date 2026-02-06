@@ -13,7 +13,7 @@ import Stores
 
 extension TransactionDetailsScreen {
     
-    @Observable
+    @Observable @MainActor
     class ViewModel {
         var transactionId: Int
         
@@ -54,6 +54,32 @@ extension TransactionDetailsScreen.ViewModel {
             return transfer
         } else {
             return nil
+        }
+    }
+    
+}
+
+// MARK: - Public methods
+extension TransactionDetailsScreen.ViewModel {
+    
+    func fetchRecommendCategory() async {
+        guard let transaction else { return }
+        let purchasesManager: PurchasesManager = .shared
+        
+        if purchasesManager.isCashFlowPro && transaction.category?.id == 0 {
+            guard !transaction.nameDisplayed.isReallyEmpty else { return }
+            
+            if let response = await transactionStore.fetchRecommendedCategory(
+                name: transaction.nameDisplayed,
+                transactionId: transaction.id
+            ) {
+                if let cat = response.cat {
+                    bestCategory = categoryStore.findCategoryById(cat)
+                }
+                if let sub = response.sub {
+                    bestSubcategory = categoryStore.findSubcategoryById(sub)
+                }
+            }
         }
     }
     

@@ -139,8 +139,8 @@ extension AddSubscriptionScreen.ViewModel {
             body: bodyForCreation(),
             shouldReturn: true
         ) {
-            await dismiss()
-            await successfullModalManager.showSuccessfulSubscription(
+            dismiss()
+            successfullModalManager.showSuccessfulSubscription(
                 type: .new,
                 subscription: newSubscritpion
             )
@@ -153,8 +153,8 @@ extension AddSubscriptionScreen.ViewModel {
                 subscriptionID: subscription.id,
                 body: bodyForCreation()
             ) {
-                await dismiss()
-                await successfullModalManager.showSuccessfulSubscription(
+                dismiss()
+                successfullModalManager.showSuccessfulSubscription(
                     type: .update,
                     subscription: updatedSubscription
                 )

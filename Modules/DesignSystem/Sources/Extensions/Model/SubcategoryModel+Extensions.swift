@@ -31,10 +31,6 @@ public extension SubcategoryModel {
         return transactions.filter { $0.isFromSubscription == true }
     }
     
-    var budget: BudgetModel? {
-        return BudgetStore.shared.budgets.first(where: { $0.subcategoryID == self.id })
-    }
-    
 }
 
 public extension SubcategoryModel {

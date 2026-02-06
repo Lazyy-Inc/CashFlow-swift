@@ -12,13 +12,13 @@ import Dependencies
 
 @Observable
 public final class CategoryStore {
-  public var categories: [CategoryModel] = []
-  public var subcategories: [SubcategoryModel] = []
+    public var categories: [CategoryModel] = []
+    public var subcategories: [SubcategoryModel] = []
 }
 
 public extension CategoryStore {
-  
-  @MainActor
+    
+    @MainActor
     func fetchCategories() async {
         do {
             let categories = try await NetworkService.sendRequest(
@@ -32,43 +32,43 @@ public extension CategoryStore {
             self.subcategories = categories.flatMap { $0.subcategories ?? [] }
         } catch { await NetworkService.handleError(error: error) }
     }
-  
+    
 }
 
 // MARK: - Utils
 public extension CategoryStore {
-  
-  var toCategorized: CategoryModel? {
-    return self.categories.first { $0.isToCategorized }
-  }
-  
-  func findCategoryByName(_ name: String) -> CategoryModel? {
-    return self.categories.first(where: { $0.name == name })
-  }
-  
-  func findCategoryById(_ id: Int?) -> CategoryModel? {
-    return self.categories.first(where: { $0.id == id })
-  }
-  
-  func findSubcategoryById(_ id: Int?) -> SubcategoryModel? {
-    return self.subcategories.first(where: { $0.id == id })
-  }
-  
-  func reset() {
-    self.categories = []
-    self.subcategories = []
-  }
-  
+    
+    var toCategorized: CategoryModel? {
+        return self.categories.first { $0.isToCategorized }
+    }
+    
+    func findCategoryByName(_ name: String) -> CategoryModel? {
+        return self.categories.first(where: { $0.name == name })
+    }
+    
+    func findCategoryById(_ id: Int?) -> CategoryModel? {
+        return self.categories.first(where: { $0.id == id })
+    }
+    
+    func findSubcategoryById(_ id: Int?) -> SubcategoryModel? {
+        return self.subcategories.first(where: { $0.id == id })
+    }
+    
+    func reset() {
+        self.categories = []
+        self.subcategories = []
+    }
+    
 }
 
 // MARK: - Dependencies
 struct CategoryStoreKey: DependencyKey {
-  static let liveValue: CategoryStore = .init()
+    static let liveValue: CategoryStore = .init()
 }
 
 public extension DependencyValues {
-  var categoryStore: CategoryStore {
-    get { self[CategoryStoreKey.self] }
-    set { self[CategoryStoreKey.self] = newValue }
-  }
+    var categoryStore: CategoryStore {
+        get { self[CategoryStoreKey.self] }
+        set { self[CategoryStoreKey.self] = newValue }
+    }
 }

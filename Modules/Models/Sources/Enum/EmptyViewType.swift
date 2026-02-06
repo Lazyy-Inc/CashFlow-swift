@@ -10,7 +10,6 @@ import Foundation
 public enum EmptyViewType {
     case noAccounts
     case noTransactions
-    case noBudgets
     case noSubscriptions
     case noFinancialGoals
     case noSavingsAccounts

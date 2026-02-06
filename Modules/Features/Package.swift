@@ -13,7 +13,6 @@ let package = Package(
         .library(name: "FinancialGoalModule", targets: ["FinancialGoalModule"]),
         .library(name: "ContributionModule", targets: ["ContributionModule"]),
         .library(name: "AccountModule", targets: ["AccountModule"]),
-        .library(name: "BudgetModule", targets: ["BudgetModule"]),
         .library(name: "CategoryModule", targets: ["CategoryModule"]),
         .library(name: "SubcategoryModule", targets: ["SubcategoryModule"]),
         .library(name: "SavingsAccountModule", targets: ["SavingsAccountModule"]),
@@ -188,21 +187,6 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(name: "AccountModuleTests", dependencies: ["AccountModule"]),
-        .target(
-            name: "BudgetModule",
-            dependencies: [
-                "DesignSystem",
-                "Core",
-                "TransactionModule",
-                "Models",
-                "Stores",
-                "Navigation",
-                .product(name: "DataSources", package: "DataSources"),
-                .product(name: "Dependencies", package: "swift-dependencies")
-            ],
-            swiftSettings: [.swiftLanguageMode(.v5)]
-        ),
-        .testTarget(name: "BudgetModuleTests", dependencies: ["BudgetModule"]),
         .target(
             name: "CategoryModule",
             dependencies: [

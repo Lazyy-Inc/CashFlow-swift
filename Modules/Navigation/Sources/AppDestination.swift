@@ -15,7 +15,6 @@ public enum AppDestination: AppDestinationProtocol {
     case subscription(SubscriptionDestination)
     case savingsPlan(SavingsPlanDestination)
     case contribution(ContributionDestination)
-    case budget(BudgetsDestination)
     case creditCard(CreditCardDestination)
     case category(CategoryDestination)
     case subcategory(SubcategoryDestination)
@@ -42,8 +41,6 @@ extension AppDestination: RecursiveDestination {
             return savingsPlanDestination
         case .contribution(let contributionDestination):
             return contributionDestination
-        case .budget(let budgetsDestination):
-            return budgetsDestination
         case .creditCard(let creditCardDestination):
             return creditCardDestination
         case .category(let categoryDestination):

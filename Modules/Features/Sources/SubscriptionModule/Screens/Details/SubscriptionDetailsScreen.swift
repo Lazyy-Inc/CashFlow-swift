@@ -176,7 +176,7 @@ extension SubscriptionDetailsScreen {
                 VStack(spacing: 0) {
                     ForEach(transactions.sorted(by: { $0.date > $1.date })) { transaction in
                         NavigationButtonView(
-                            route: .push,
+                            route: .fullScreenCover,
                             destination: AppDestination.transaction(.detail(transactionId: transaction.id))
                         ) {
                             FinancialItemRowView(financialItem: transaction)

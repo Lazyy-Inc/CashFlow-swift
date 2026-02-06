@@ -68,12 +68,10 @@ public extension AppManager {
     @MainActor
     func resetAllAccountData() {
         @Dependency(\.transactionStore) var transactionStore
-        @Dependency(\.budgetStore) var budgetStore
         @Dependency(\.subscriptionStore) var subscriptionStore
         
         transactionStore.reset()
         subscriptionStore.reset()
-        budgetStore.reset()
     }
     
     @MainActor
@@ -81,7 +79,6 @@ public extension AppManager {
         let transactionStore: TransactionStore = .shared
         let subscriptionStore: SubscriptionStore = .shared
         let savingsPlanStore: SavingsPlanStore = .shared
-        let budgetStore: BudgetStore = .shared
         let creditCardStore: CreditCardStore = .shared
         @Dependency(\.accountStore) var accountStore
         @Dependency(\.categoryStore) var categoryStore
@@ -90,7 +87,6 @@ public extension AppManager {
         transactionStore.reset()
         subscriptionStore.reset()
         savingsPlanStore.reset()
-        budgetStore.reset()
         creditCardStore.reset()
         categoryStore.reset()
         

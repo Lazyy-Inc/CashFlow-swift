@@ -190,11 +190,6 @@ public enum EventKeys: String {
     case contributionDeleted = "contribution_deleted"
     case contributionCreationCanceled = "contribution_creation_canceled"
     
-    case budgetCreated = "budget_created"
-    case budgetUpdated = "budget_updated"
-    case budgetDeleted = "budget_deleted"
-    case budgetCreationCanceled = "budget_creation_canceled"
-    
     case creditcardCreated = "creditcard_created"
     case creditcardDeleted = "creditcard_deleted"
     case creditcardCreationCanceled = "creditcard_creation_canceled"

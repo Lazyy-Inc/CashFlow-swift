@@ -74,8 +74,6 @@ extension EmptyViewType {
             router.push(.account(.create))
         case .noTransactions:
             router.push(.transaction(.create))
-        case .noBudgets:
-            router.push(.budget(.create))
         case .noSubscriptions:
             router.push(.subscription(.create))
         case .noFinancialGoals:

@@ -78,6 +78,10 @@ public struct TransactionAPIModel: APIModel {
 // MARK: - Transaction
 public extension TransactionAPIModel {
     
+//    func toUIModel() -> TransactionUIModel {
+//        
+//    }
+    
 }
 
 // MARK: - Transfer

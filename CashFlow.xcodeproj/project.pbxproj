@@ -26,7 +26,6 @@
 		D968BF5B2E4F29A7006BB17A /* SubscriptionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968BF5A2E4F29A7006BB17A /* SubscriptionModule */; };
 		D968C1792E4F5E59006BB17A /* ContributionModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1782E4F5E59006BB17A /* ContributionModule */; };
 		D968C1B02E50651E006BB17A /* AccountModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1AF2E50651E006BB17A /* AccountModule */; };
-		D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1C62E51BCF6006BB17A /* BudgetModule */; };
 		D968C1E42E51C6AA006BB17A /* CategoryModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C1E32E51C6AA006BB17A /* CategoryModule */; };
 		D968C2052E54D055006BB17A /* SavingsAccountModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C2042E54D055006BB17A /* SavingsAccountModule */; };
 		D968C2072E54D2D3006BB17A /* TransferModule in Frameworks */ = {isa = PBXBuildFile; productRef = D968C2062E54D2D3006BB17A /* TransferModule */; };
@@ -104,7 +103,6 @@
 				D9AE5FEA2F0FE6450006E9DF /* Paywall in Frameworks */,
 				D9B2F4812E929CB400CF5ABC /* Repositories in Frameworks */,
 				D9B2F4832E929CB800CF5ABC /* Persistence in Frameworks */,
-				D968C1C72E51BCF6006BB17A /* BudgetModule in Frameworks */,
 				D968C2072E54D2D3006BB17A /* TransferModule in Frameworks */,
 				D96F97EE2E32B924006B0596 /* OnboardingModule in Frameworks */,
 				D9AE61B02F191DB50006E9DF /* DataSources in Frameworks */,
@@ -180,7 +178,6 @@
 				D968BF5A2E4F29A7006BB17A /* SubscriptionModule */,
 				D968C1782E4F5E59006BB17A /* ContributionModule */,
 				D968C1AF2E50651E006BB17A /* AccountModule */,
-				D968C1C62E51BCF6006BB17A /* BudgetModule */,
 				D968C1E32E51C6AA006BB17A /* CategoryModule */,
 				D968C2042E54D055006BB17A /* SavingsAccountModule */,
 				D968C2062E54D2D3006BB17A /* TransferModule */,
@@ -669,10 +666,6 @@
 		D968C1AF2E50651E006BB17A /* AccountModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AccountModule;
-		};
-		D968C1C62E51BCF6006BB17A /* BudgetModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = BudgetModule;
 		};
 		D968C1E32E51C6AA006BB17A /* CategoryModule */ = {
 			isa = XCSwiftPackageProductDependency;

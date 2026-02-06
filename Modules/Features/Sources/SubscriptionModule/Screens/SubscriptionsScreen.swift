@@ -70,7 +70,7 @@ fileprivate extension SubscriptionsScreen {
         ) {
             ForEach(viewModel.subscriptionsToPay) { subscription in
                 NavigationButtonView(
-                    route: .push,
+                    route: .fullScreenCover,
                     destination: .subscription(.detail(subscriptionId: subscription.id))
                 ) {
                     FinancialItemRowView(financialItem: subscription)
@@ -87,7 +87,7 @@ fileprivate extension SubscriptionsScreen {
         ) {
             ForEach(viewModel.transactionsPaidBySubscriptions) { transaction in
                 NavigationButtonView(
-                    route: .push,
+                    route: .fullScreenCover,
                     destination: .transaction(.detail(transactionId: transaction.id))
                 ) {
                     FinancialItemRowView(financialItem: transaction)

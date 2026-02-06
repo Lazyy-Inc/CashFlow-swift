@@ -71,7 +71,7 @@ public struct SavingsAccountDetailScreen: View {
                             ForEach(transferStore.transfers) { transfer in
                                 if Calendar.current.isDate(transfer.date, equalTo: month, toGranularity: .month) {
                                     NavigationButtonView(
-                                        route: .push,
+                                        route: .fullScreenCover,
                                         destination: .transaction(.detail(transactionId: transfer.id))
                                     ) {
                                         FinancialItemRowView(financialItem: transfer, isTransfer: true, isEditable: false)

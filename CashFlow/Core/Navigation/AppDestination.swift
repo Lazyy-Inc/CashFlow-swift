@@ -14,7 +14,6 @@ import SubscriptionModule
 import FinancialGoalModule
 import ContributionModule
 import AccountModule
-import BudgetModule
 import CategoryModule
 import SavingsAccountModule
 import TransferModule
@@ -45,8 +44,6 @@ extension AppDestination {
             destinationSavingsPlan(savingsPlanDestination)
         case .contribution(let contributionDestination):
             destinationContribution(contributionDestination)
-        case .budget(let budgetsDestination):
-            destinationBudget(budgetsDestination)
         case .creditCard(let creditCardDestination):
             destinationCreditCard(creditCardDestination)
         case .category(let categoryDestination):
@@ -149,18 +146,6 @@ extension AppDestination {
         switch contribution {
         case .create(let savingsPlan):
             AddContributionScreen(savingsPlan: savingsPlan)
-        }
-    }
-    
-    @ViewBuilder
-    static private func destinationBudget(_ budget: BudgetsDestination) -> some View {
-        switch budget {
-        case .list:
-            BudgetsListScreen()
-        case .create:
-            BudgetAddScreen()
-        case .transactions(let subcategory):
-            BudgetsTransactionsListScreen(subcategory: subcategory)
         }
     }
     

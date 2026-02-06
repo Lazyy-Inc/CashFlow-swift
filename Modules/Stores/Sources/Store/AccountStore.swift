@@ -161,7 +161,6 @@ public extension AccountStore {
                 TransactionStore.shared.reset()
                 SubscriptionStore.shared.reset()
                 SavingsPlanStore.shared.reset()
-                BudgetStore.shared.reset()
                 selectedAccount = nil
             }
         } catch { await NetworkService.handleError(error: error) }

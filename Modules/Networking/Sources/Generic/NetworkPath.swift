@@ -113,18 +113,6 @@ public struct NetworkPath {
         }
     }
     
-    public struct Budget {
-        public static func base(accountID: Int) -> String {
-            return "/budget/\(accountID)"
-        }
-        public static func update(id: Int) -> String {
-            return "/budget/\(id)"
-        }
-        public static func delete(id: Int) -> String {
-            return "/budget/\(id)"
-        }
-    }
-    
     public struct CreditCard {
         public static func base(accountID: Int) -> String {
             return "/creditcard/\(accountID)"

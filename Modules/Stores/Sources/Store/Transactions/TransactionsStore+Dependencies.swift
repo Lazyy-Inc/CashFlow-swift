@@ -8,7 +8,6 @@
 import Foundation
 import Dependencies
 
-// MARK: - Dependencies
 extension TransactionStore: DependencyKey {
     public static var liveValue: TransactionStore = .shared
 }

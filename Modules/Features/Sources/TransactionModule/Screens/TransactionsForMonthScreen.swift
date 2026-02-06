@@ -44,7 +44,7 @@ public struct TransactionsForMonthScreen: View {
             Section(content: {
                 ForEach(transactionsFiltered) { transaction in
                     NavigationButtonView(
-                        route: .push,
+                        route: .fullScreenCover,
                         destination: .transaction(.detail(transactionId: transaction.id))) {
                             FinancialItemRowView(financialItem: transaction)
                         }

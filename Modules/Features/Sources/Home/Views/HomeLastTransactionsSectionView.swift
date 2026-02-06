@@ -49,7 +49,7 @@ struct HomeLastTransactionsSectionView: View {
                 
                 ForEach(lastTransactions) { transaction in
                     NavigationButtonView(
-                        route: .push,
+                        route: .fullScreenCover,
                         destination: .transaction(.detail(transactionId: transaction.id))
                     ) {
                         FinancialItemRowView(financialItem: transaction)

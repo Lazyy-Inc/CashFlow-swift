@@ -62,17 +62,15 @@ extension HomeScreen.ViewModel {
     func loadHomeScreen() async {
         @Dependency(\.accountStore) var accountStore
         @Dependency(\.transactionStore) var transactionStore
-        @Dependency(\.budgetStore) var budgetStore
         @Dependency(\.subscriptionStore) var subscriptionStore
         
         await AppManager.shared.resetAllAccountData()
         
         if let selectedAccount = accountStore.selectedAccount, let accountID = selectedAccount._id {
             async let transactionsTask: () = fetchMinimalTransactions(accountID: accountID)
-            async let budgetsTask: () = budgetStore.fetchBudgets(accountID: accountID)
             async let subscriptionsTask: () = subscriptionStore.fetchSubscriptions(accountID: accountID)
             
-            _ = await (transactionsTask, budgetsTask, subscriptionsTask)
+            _ = await (transactionsTask, subscriptionsTask)
             
             await scheduleNotificationsOfSubscriptions()
         }

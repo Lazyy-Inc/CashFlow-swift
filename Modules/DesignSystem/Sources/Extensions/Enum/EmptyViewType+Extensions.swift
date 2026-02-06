@@ -17,8 +17,6 @@ public extension EmptyViewType {
             "empty_bank_account_title"
         case .noTransactions:
             "empty_transaction_title"
-        case .noBudgets:
-            "empty_budget_title"
         case .noSubscriptions:
             "empty_subscription_title"
         case .noFinancialGoals:
@@ -42,8 +40,6 @@ public extension EmptyViewType {
             "empty_bank_account_desc"
         case .noTransactions:
             "empty_transaction_desc"
-        case .noBudgets:
-            "empty_budget_desc"
         case .noSubscriptions:
             "empty_subscription_desc"
         case .noFinancialGoals:
@@ -68,8 +64,6 @@ public extension EmptyViewType {
             "empty_bank_account_button"
         case .noTransactions:
             "empty_transaction_button"
-        case .noBudgets:
-            "empty_budget_button"
         case .noSubscriptions:
             "empty_subscription_button"
         case .noFinancialGoals:
@@ -93,8 +87,6 @@ public extension EmptyViewType {
             "iconPerson"
         case .noTransactions:
             "iconBanknote"
-        case .noBudgets:
-            "iconPieChart"
         case .noSubscriptions:
             "iconClockRepeat"
         case .noFinancialGoals:

@@ -51,7 +51,7 @@ struct SubscriptionSectionView<Content: View>: View {
             let subscriptions = [SubscriptionModel.mockClassicSubscriptionExpense]
             ForEach(subscriptions) { subscription in
                 NavigationButtonView(
-                    route: .push,
+                    route: .fullScreenCover,
                     destination: .subscription(.detail(subscriptionId: subscription.id))
                 ) {
                     FinancialItemRowView(financialItem: subscription)

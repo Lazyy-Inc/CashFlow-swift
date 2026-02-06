@@ -43,7 +43,7 @@ public struct SubscriptionsListScreen: View {
                     Section {
                         ForEach(subscriptions, id: \.self) { subscription in
                             NavigationButtonView(
-                                route: .push,
+                                route: .fullScreenCover,
                                 destination: AppDestination.subscription(.detail(subscriptionId: subscription.id))
                             ) {
                                 FinancialItemRowView(financialItem: subscription)
