@@ -10,7 +10,7 @@ import Navigation
 import Core
 import DesignSystem
 import Models
-import DataSources
+import Providers
 
 public struct TransactionsForMonthScreen: View {
     
@@ -22,13 +22,13 @@ public struct TransactionsForMonthScreen: View {
     @State private var searchText: String = ""
     
     // MARK: Constants
-    private let transactionDataSource: TransactionDataSource
+    private let transactionDataSource: TransactionProvider
     
     // MARK: Init
     public init(
         selectedDate: Date,
         type: FinancialItemType,
-        transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared
+        transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared
     ) {
         self.selectedDate = selectedDate
         self.type = type

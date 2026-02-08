@@ -10,15 +10,15 @@ import DesignSystem
 import Models
 import Navigation
 import CategoryModule
-import DataSources
+import Providers
 
 struct HomeTopExpensesSectionView: View {
     
     // MARK: Dependencies
-    let transactionDataSource: TransactionDataSource
+    let transactionDataSource: TransactionProvider
     
     // MARK: Init
-    init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+    init(transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared) {
         self.transactionDataSource = transactionDataSource
     }
     

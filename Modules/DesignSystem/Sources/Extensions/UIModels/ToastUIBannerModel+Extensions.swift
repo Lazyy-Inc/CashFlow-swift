@@ -13,7 +13,7 @@ public extension ToastBannerUIModel {
     
     @MainActor
     static let errorAmountMandatory: ToastBannerUIModel = .init(
-        title: "toast_banner_amount_mandatory".localized, // TODO: An amount is mandatory
+        title: "toast_banner_amount_mandatory".localized,
         uiImage: UIImage(asset: .iconWarning),
         style: ToastBannerStyle.error
     )

@@ -10,17 +10,17 @@ import DesignSystem
 import Models
 import Navigation
 import TransactionModule
-import DataSources
+import Providers
 
 struct HomeLastTransactionsSectionView: View {
         
     @Environment(Router<AppDestination>.self) private var router
     
     // MARK: Constants
-    private let transactionDataSource: TransactionDataSource
+    private let transactionDataSource: TransactionProvider
     
     // MARK: Init
-    init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+    init(transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared) {
         self.transactionDataSource = transactionDataSource
     }
     

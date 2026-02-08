@@ -11,7 +11,7 @@ import SwiftUI
 import Navigation
 import Core
 import DesignSystem
-import DataSources
+import Providers
 
 public struct TransactionsScreen: View {
     
@@ -19,10 +19,10 @@ public struct TransactionsScreen: View {
     @Environment(Router<AppDestination>.self) private var router
     
     // MARK: Constants
-    private let transactionDataSource: TransactionDataSource
+    private let transactionDataSource: TransactionProvider
     
     // MARK: Init
-    public init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+    public init(transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared) {
         self.transactionDataSource = transactionDataSource
     }
             

@@ -10,7 +10,7 @@ import Preferences
 import Stores
 import NotificationKit
 import Core
-import DataSources
+import Providers
 
 extension HomeScreen {
     
@@ -26,9 +26,9 @@ extension HomeScreen {
         var incomesThisMonth: String = "+" + 0.toCurrency()
         var expensesThisMonth: String = "-" + 0.toCurrency()
         
-        private let transactionDataSource: TransactionDataSource
+        private let transactionDataSource: TransactionProvider
         
-        init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+        init(transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared) {
             self.transactionDataSource = transactionDataSource
         }
         

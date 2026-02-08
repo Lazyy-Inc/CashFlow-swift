@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  DataSources
+//  Providers
 //
 //  Created by Theo Sementa on 15/01/2026.
 //
@@ -17,14 +17,16 @@ public enum TransactionScope {
     case subscriptions(month: Date? = nil)
 }
 
-public protocol TransactionDataSource {
+// MARK: - Protocol
+public protocol TransactionProvider {
     var transactionStore: TransactionStore { get set }
     
     func transactions(matching filter: TransactionFilterModel) -> [TransactionModel]
     func transactions(for scope: TransactionScope) -> [TransactionModel]
 }
 
-public extension TransactionDataSource {
+// MARK: - Protocol extension
+public extension TransactionProvider {
     
     var transactions: [TransactionModel] {
         transactionStore.transactions
@@ -65,7 +67,7 @@ public extension TransactionDataSource {
 }
 
 // MARK: - Private Helper
-private extension TransactionDataSource {
+private extension TransactionProvider {
 
     private func groupByDay(_ list: [TransactionModel]) -> [Date: [TransactionModel]] {
         Dictionary(grouping: list) { transaction in

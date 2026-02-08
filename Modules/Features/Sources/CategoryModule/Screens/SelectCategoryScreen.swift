@@ -42,11 +42,12 @@ public struct SelectCategoryScreen: View {
                     SearchBarView("generic_search".localized, searchText: $viewModel.searchText)
                 }
                 
-                VStack(spacing: Spacing.extraLarge) {
+                VStack(spacing: .huge) {
                     ForEach(viewModel.categoriesFiltered) { category in
                         categorySectionView(for: category)
                     }
                 }
+                .padding(.top, .huge)
             }
             .fullSize()
             .contentMargins(.all, Spacing.large, for: .scrollContent)

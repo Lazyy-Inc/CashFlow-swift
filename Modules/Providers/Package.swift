@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "DataSources",
+    name: "Providers",
     platforms: [.iOS(.v17)],
     products: [
         .library(
-            name: "DataSources",
-            targets: ["DataSources"]
+            name: "Providers",
+            targets: ["Providers"]
         )
     ],
     dependencies: [
@@ -18,15 +18,15 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "DataSources",
+            name: "Providers",
             dependencies: [
                 .product(name: "Models", package: "Models"),
                 .product(name: "Stores", package: "Stores")
             ]
         ),
         .testTarget(
-            name: "DataSourcesTests",
-            dependencies: ["DataSources"]
+            name: "ProvidersTests",
+            dependencies: ["Providers"]
         )
     ]
 )

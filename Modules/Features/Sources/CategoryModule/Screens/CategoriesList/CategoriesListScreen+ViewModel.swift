@@ -9,7 +9,7 @@ import Foundation
 import Core
 import Models
 import Stores
-import DataSources
+import Providers
 
 extension CategoriesListScreen {
     
@@ -22,9 +22,9 @@ extension CategoriesListScreen {
         @Dependency(\.categoryStore) var categoryStore
         
         // MARK: Constants
-        private let transactionDataSource: TransactionDataSource
+        private let transactionDataSource: TransactionProvider
         
-        init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+        init(transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared) {
             self.transactionDataSource = transactionDataSource
         }
         

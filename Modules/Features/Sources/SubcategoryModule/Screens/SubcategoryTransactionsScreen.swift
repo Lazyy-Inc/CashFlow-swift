@@ -12,7 +12,7 @@ import DesignSystem
 import Core
 import TransactionModule
 import Models
-import DataSources
+import Providers
 
 public struct SubcategoryTransactionsScreen: View {
     
@@ -24,12 +24,12 @@ public struct SubcategoryTransactionsScreen: View {
     @State private var searchText: String = ""
     
     // MARK: Constants
-    private let transactionDataSource: TransactionDataSource
+    private let transactionDataSource: TransactionProvider
     
     public init(
         subcategory: SubcategoryModel,
         selectedDate: Date,
-        transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared
+        transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared
     ) {
         self.subcategory = subcategory
         self.selectedDate = selectedDate

@@ -9,12 +9,12 @@ import Foundation
 import Core
 import Models
 import Stores
-import DataSources
+import Providers
 
 public extension CategoryStore {
     
     private func computeCategoryData(for month: Date) -> [Int?: CategoryTransactionData] {
-        let transactionDataSource = DefaultTransactionDataSource.shared
+        let transactionDataSource = DefaultTransactionProvider.shared
         let allMonthTransactions = transactionDataSource.transactions(for: .all(month: month))
         let transactionsByCategory = Dictionary(grouping: allMonthTransactions) { $0.category }
         

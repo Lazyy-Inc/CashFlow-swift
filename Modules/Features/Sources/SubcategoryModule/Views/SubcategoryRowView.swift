@@ -9,7 +9,7 @@ import SwiftUI
 import DesignSystem
 import Core
 import Models
-import DataSources
+import Providers
 
 struct SubcategoryRowView: View {
     
@@ -18,13 +18,13 @@ struct SubcategoryRowView: View {
     private let selectedDate: Date
     
     // MARK: Constants
-    private let transactionDataSource: TransactionDataSource
+    private let transactionDataSource: TransactionProvider
     
     // MARK: Init
     init(
         subcategory: SubcategoryModel,
         selectedDate: Date,
-        transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared
+        transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared
     ) {
         self.subcategory = subcategory
         self.selectedDate = selectedDate

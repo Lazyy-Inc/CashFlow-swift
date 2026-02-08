@@ -8,7 +8,7 @@
 import Foundation
 import Stores
 import Models
-import DataSources
+import Providers
 
 // MARK: - Stored variables
 extension SubscriptionsScreen {
@@ -23,10 +23,10 @@ extension SubscriptionsScreen {
         var totalMonthly: Double = 0
         
         // MARK: Constants
-        private let transactionDataSource: TransactionDataSource
+        private let transactionDataSource: TransactionProvider
         
         // MARK: Init
-        init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+        init(transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared) {
             self.transactionDataSource = transactionDataSource
         }
     }

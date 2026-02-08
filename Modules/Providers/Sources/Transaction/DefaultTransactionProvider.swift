@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  DataSources
+//  Providers
 //
 //  Created by Theo Sementa on 15/01/2026.
 //
@@ -9,8 +9,8 @@ import Foundation
 import Models
 import Stores
 
-public final class DefaultTransactionDataSource: TransactionDataSource, @unchecked Sendable {
-    public static let shared = DefaultTransactionDataSource()
+public final class DefaultTransactionProvider: TransactionProvider, @unchecked Sendable {
+    public static let shared = DefaultTransactionProvider()
     
     public var transactionStore: TransactionStore
     
@@ -20,7 +20,7 @@ public final class DefaultTransactionDataSource: TransactionDataSource, @uncheck
     
 }
 
-extension DefaultTransactionDataSource {
+extension DefaultTransactionProvider {
     
     public func transactions(matching filter: TransactionFilterModel) -> [TransactionModel] {
         return transactions.filter { transaction in

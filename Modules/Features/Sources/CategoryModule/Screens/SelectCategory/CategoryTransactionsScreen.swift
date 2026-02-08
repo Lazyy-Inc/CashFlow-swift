@@ -14,7 +14,7 @@ import Core
 import TransactionModule
 import Stores
 import Models
-import DataSources
+import Providers
 
 public struct CategoryTransactionsScreen: View {
     
@@ -31,13 +31,13 @@ public struct CategoryTransactionsScreen: View {
     @State private var amountIncome: Double = 0
     
     // MARK: Constants
-    private let transactionDataSource: TransactionDataSource
+    private let transactionDataSource: TransactionProvider
     
     // MARK: Init
     public init(
         category: CategoryModel,
         selectedDate: Date,
-        transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared
+        transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared
     ) {
         self.category = category
         self.selectedDate = selectedDate

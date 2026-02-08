@@ -11,7 +11,7 @@ import DesignSystem
 import Core
 import Events
 import Stores
-import DataSources
+import Providers
 
 struct TransactionsListScreen: View {
     
@@ -22,10 +22,10 @@ struct TransactionsListScreen: View {
     @State private var isLoading: Bool = false
     
     // MARK: Constants
-    private let transactionDataSource: TransactionDataSource
+    private let transactionDataSource: TransactionProvider
     
     // MARK: Init
-    init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+    init(transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared) {
         self.transactionDataSource = transactionDataSource
     }
     

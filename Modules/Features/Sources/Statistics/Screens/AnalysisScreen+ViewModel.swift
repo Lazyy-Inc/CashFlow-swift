@@ -9,7 +9,7 @@ import Foundation
 import Models
 import DesignSystem
 import SwiftUI
-import DataSources
+import Providers
 
 // MARK: - Stored variables
 extension AnalysisScreen {
@@ -22,10 +22,10 @@ extension AnalysisScreen {
         var amount: Double = 0
         
         // MARK: Constants
-        private let transactionDataSource: TransactionDataSource
+        private let transactionDataSource: TransactionProvider
         
         // MARK: Init
-        init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+        init(transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared) {
             self.transactionDataSource = transactionDataSource
         }
         

@@ -34,7 +34,7 @@ let package = Package(
         .package(path: "../Stores"),
         .package(path: "../Navigation"),
         .package(path: "../Utilities"),
-        .package(path: "../DataSources"),
+        .package(path: "../Providers"),
         
         .package(url: "https://github.com/theosementa/AlertKit", branch: "main"),
         .package(url: "https://github.com/theosementa/NetworkKit", branch: "1.0.4"),
@@ -79,7 +79,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
-                .product(name: "DataSources", package: "DataSources"),
+                .product(name: "Providers", package: "Providers"),
                 "TransactionModule",
                 "FinancialGoalModule",
                 "SubscriptionModule",
@@ -110,7 +110,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
-                .product(name: "DataSources", package: "DataSources")
+                .product(name: "Providers", package: "Providers")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
@@ -124,7 +124,7 @@ let package = Package(
                 "Stores",
                 "Navigation",
                 "Utilities",
-                .product(name: "DataSources", package: "DataSources"),
+                .product(name: "Providers", package: "Providers"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -139,7 +139,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
-                .product(name: "DataSources", package: "DataSources"),
+                .product(name: "Providers", package: "Providers"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -197,7 +197,7 @@ let package = Package(
                 "Stores",
                 "Navigation",
                 "Utilities",
-                .product(name: "DataSources", package: "DataSources"),
+                .product(name: "Providers", package: "Providers"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]
@@ -212,7 +212,7 @@ let package = Package(
                 "Models",
                 "Stores",
                 "Navigation",
-                .product(name: "DataSources", package: "DataSources"),
+                .product(name: "Providers", package: "Providers"),
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
             swiftSettings: [.swiftLanguageMode(.v5)]

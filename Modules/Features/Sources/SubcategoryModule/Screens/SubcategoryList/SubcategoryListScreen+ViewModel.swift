@@ -9,7 +9,7 @@ import Foundation
 import Core
 import TransactionModule
 import Models
-import DataSources
+import Providers
 
 extension SubcategoryListScreen {
     
@@ -18,10 +18,10 @@ extension SubcategoryListScreen {
         @Published var searchText: String = ""
         
         // MARK: Constants
-        private let transactionDataSource: TransactionDataSource
+        private let transactionDataSource: TransactionProvider
         
         // MARK: Init
-        init(transactionDataSource: TransactionDataSource = DefaultTransactionDataSource.shared) {
+        init(transactionDataSource: TransactionProvider = DefaultTransactionProvider.shared) {
             self.transactionDataSource = transactionDataSource
         }
     }
